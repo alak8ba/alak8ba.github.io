@@ -13,10 +13,6 @@
       
       
       
-        <link rel="prev" href="../../spring/hexagonal-architecture/">
-      
-      
-        <link rel="next" href="../idempotent-consumers/">
       
       
         
@@ -27,7 +23,7 @@
     
     
       
-        <title>Retry and DLT Pattern - Backend Engineering Notes</title>
+        <title>Observability pattern - Backend Engineering Notes</title>
       
     
     
@@ -79,11 +75,6 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
-        
-        <a href="#kafka-retry-and-dead-letter-topic-pattern" class="md-skip">
-          Skip to content
-        </a>
-      
     </div>
     <div data-md-component="announce">
       
@@ -114,7 +105,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Retry and DLT Pattern
+              Observability pattern
             
           </span>
         </div>
@@ -252,13 +243,11 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="./" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../kafka/retry-and-dlt-pattern/" class="md-tabs__link">
           
   
   
@@ -298,7 +287,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../devops/docker-production-pattern/" class="md-tabs__link">
+        <a href="../docker-production-pattern/" class="md-tabs__link">
           
   
   
@@ -511,31 +500,28 @@
       
   
   
-    
   
   
-  
     
     
     
     
-      
-        
-        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
             
   
   
@@ -553,7 +539,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             
@@ -568,37 +554,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Retry and DLT Pattern
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../kafka/retry-and-dlt-pattern/" class="md-nav__link">
         
   
   
@@ -614,37 +573,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#contexte" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Contexte
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -657,7 +585,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../idempotent-consumers/" class="md-nav__link">
+      <a href="../../kafka/idempotent-consumers/" class="md-nav__link">
         
   
   
@@ -685,7 +613,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../outbox-pattern/" class="md-nav__link">
+      <a href="../../kafka/outbox-pattern/" class="md-nav__link">
         
   
   
@@ -713,7 +641,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../reliability-patterns/" class="md-nav__link">
+      <a href="../../kafka/reliability-patterns/" class="md-nav__link">
         
   
   
@@ -919,7 +847,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../devops/docker-production-pattern/" class="md-nav__link">
+      <a href="../docker-production-pattern/" class="md-nav__link">
         
   
   
@@ -947,7 +875,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../devops/container-security/" class="md-nav__link">
+      <a href="../container-security/" class="md-nav__link">
         
   
   
@@ -975,7 +903,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../devops/reverse-proxy-pattern/" class="md-nav__link">
+      <a href="../reverse-proxy-pattern/" class="md-nav__link">
         
   
   
@@ -1003,7 +931,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../devops/pull-based-deployment/" class="md-nav__link">
+      <a href="../pull-based-deployment/" class="md-nav__link">
         
   
   
@@ -1031,7 +959,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../devops/ci-cd-pipeline-pattern/" class="md-nav__link">
+      <a href="../ci-cd-pipeline-pattern/" class="md-nav__link">
         
   
   
@@ -1675,27 +1603,6 @@
   
   
   
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#contexte" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Contexte
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
   
 </nav>
                   </div>
@@ -1712,128 +1619,12 @@
 
 
 
-<h1 id="kafka-retry-and-dead-letter-topic-pattern">Kafka Retry and Dead Letter Topic Pattern<a class="headerlink" href="#kafka-retry-and-dead-letter-topic-pattern" title="Permanent link">&para;</a></h1>
-<h2 id="contexte">Contexte<a class="headerlink" href="#contexte" title="Permanent link">&para;</a></h2>
-<p>Dans un système distribué basé sur Kafka, les consommateurs
-peuvent rencontrer différents types d’erreurs lors du traitement
-des messages :</p>
-<ul>
-<li>erreurs temporaires (base de données indisponible)</li>
-<li>erreurs de sérialisation</li>
-<li>erreurs métier</li>
-<li>erreurs d’infrastructure</li>
-</ul>
-<p>Sans stratégie adaptée, un message en erreur peut bloquer
-le traitement du topic et empêcher les messages suivants
-d’être traités.</p>
-<p>Il est donc nécessaire de mettre en place un mécanisme
-de gestion des erreurs permettant :</p>
-<ul>
-<li>de réessayer le traitement</li>
-<li>d’éviter les boucles infinies</li>
-<li>d’isoler les messages invalides</li>
-</ul>
-<hr />
-<h1 id="principe-du-retry">Principe du Retry<a class="headerlink" href="#principe-du-retry" title="Permanent link">&para;</a></h1>
-<p>Lorsqu’un message échoue, le consommateur peut tenter
-de le traiter à nouveau.</p>
-<p>Le retry est généralement configuré avec :</p>
-<ul>
-<li>un nombre maximal de tentatives</li>
-<li>un délai entre les tentatives (backoff)</li>
-</ul>
-<p>Exemple :
-<div class="highlight"><pre><span></span><code><span class="nt">3</span><span class="w"> </span><span class="nt">tentatives</span>
-<span class="nt">backoff</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="nt">1s</span><span class="w"> </span><span class="err">→</span><span class="w"> </span><span class="nt">5s</span><span class="w"> </span><span class="err">→</span><span class="w"> </span><span class="nt">10s</span>
-</code></pre></div></p>
-<p>Le retry permet de résoudre les erreurs temporaires.</p>
-<hr />
-<h1 id="dead-letter-topic-dlt">Dead Letter Topic (DLT)<a class="headerlink" href="#dead-letter-topic-dlt" title="Permanent link">&para;</a></h1>
-<p>Si un message échoue après toutes les tentatives de retry,
-il est envoyé dans un <strong>Dead Letter Topic</strong>.</p>
-<p>Un Dead Letter Topic est un topic Kafka dédié
-au stockage des messages en erreur.</p>
-<p>Convention fréquente :
-<div class="highlight"><pre><span></span><code>&lt;topic&gt;.DLT
-</code></pre></div>
-Exemple :
-<div class="highlight"><pre><span></span><code>seaway.events
-seaway.events.DLT
-</code></pre></div></p>
-<p>Le message est alors isolé et n’empêche plus
-le traitement des messages suivants.</p>
-<hr />
-<h1 id="flux-de-traitement">Flux de traitement<a class="headerlink" href="#flux-de-traitement" title="Permanent link">&para;</a></h1>
-<p>Flux typique :</p>
-<ol>
-<li>le message arrive dans le topic principal</li>
-<li>le consumer tente de traiter le message</li>
-<li>en cas d’échec → retry</li>
-<li>si tous les retries échouent → publication dans le DLT</li>
-</ol>
-<hr />
-<h1 id="implementation-avec-spring-kafka">Implémentation avec Spring Kafka<a class="headerlink" href="#implementation-avec-spring-kafka" title="Permanent link">&para;</a></h1>
-<p>Spring Kafka propose un mécanisme intégré
-pour gérer les retries et les DLT.</p>
-<p>Le composant principal est :
-<div class="highlight"><pre><span></span><code>DefaultErrorHandler
-</code></pre></div>
-Il peut être combiné avec :
-<div class="highlight"><pre><span></span><code><span class="n">DeadLetterPublishingRecoverer</span>
-</code></pre></div>
-Exemple simplifié :
-<div class="highlight"><pre><span></span><code><span class="n">DefaultErrorHandler</span><span class="w"> </span><span class="n">errorHandler</span><span class="w"> </span><span class="o">=</span>
-<span class="k">new</span><span class="w"> </span><span class="n">DefaultErrorHandler</span><span class="p">(</span>
-<span class="k">new</span><span class="w"> </span><span class="n">DeadLetterPublishingRecoverer</span><span class="p">(</span><span class="n">kafkaTemplate</span><span class="p">),</span>
-<span class="k">new</span><span class="w"> </span><span class="n">FixedBackOff</span><span class="p">(</span><span class="mi">2000L</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span>
-<span class="p">);</span>
-</code></pre></div></p>
-<p>Dans cet exemple :</p>
-<ul>
-<li>retry 3 fois</li>
-<li>délai de 2 secondes</li>
-<li>envoi dans le DLT si échec</li>
-</ul>
-<hr />
-<div class="admonition tip">
-<p class="admonition-title">Avantages du pattern</p>
-<p>Ce pattern apporte plusieurs bénéfices :</p>
-<ul>
-<li>amélioration de la résilience</li>
-<li>isolation des messages invalides</li>
-<li>continuité du traitement des topics</li>
-<li>meilleure observabilité des erreurs</li>
-</ul>
-</div>
-<hr />
-<div class="admonition warning">
-<p class="admonition-title">Limites</p>
-<p>Le pattern ne résout pas certains problèmes :</p>
-<ul>
-<li>erreurs métier persistantes</li>
-<li>duplication possible des messages</li>
-<li>nécessité de gérer l'idempotence</li>
-</ul>
-<p>C’est pourquoi il est généralement combiné avec un <strong>consumer idempotent</strong>.</p>
-</div>
-<hr />
-<h1 id="bonnes-pratiques">Bonnes pratiques<a class="headerlink" href="#bonnes-pratiques" title="Permanent link">&para;</a></h1>
-<p>Plusieurs bonnes pratiques sont recommandées :</p>
-<ul>
-<li>limiter le nombre de retries</li>
-<li>utiliser un backoff progressif</li>
-<li>surveiller les messages présents dans les DLT</li>
-<li>prévoir un mécanisme d’analyse ou de replay</li>
-<li>rendre les consumers idempotents</li>
-</ul>
-<hr />
-<h1 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h1>
-<p>Le pattern Retry + Dead Letter Topic est un
-élément fondamental des architectures
-basées sur Kafka.</p>
-<p>Il permet de construire des systèmes
-résilients capables de gérer les erreurs
-sans bloquer le flux de traitement.</p>
+  <h1>Observability pattern</h1>
+
+<p>logs
+metrics
+tracing
+healthchecks</p>
 
 
 

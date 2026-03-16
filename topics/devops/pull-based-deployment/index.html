@@ -7,11 +7,11 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <meta content="Backend architecture, event-driven systems and DevOps patterns" name="description"/>
 <meta content="Aliasoft" name="author"/>
-<link href="../../.." rel="prev"/>
-<link href="../../spring/hexagonal-architecture/" rel="next"/>
+<link href="../reverse-proxy-pattern/" rel="prev"/>
+<link href="../ci-cd-pipeline-pattern/" rel="next"/>
 <link href="../../../None" rel="icon"/>
 <meta content="mkdocs-1.6.1, mkdocs-material-9.7.5" name="generator"/>
-<title>CQRS Pattern - Backend Engineering Notes</title>
+<title>Pull-based Deployment - Backend Engineering Notes</title>
 <link href="../../../assets/stylesheets/main.484c7ddc.min.css" rel="stylesheet"/>
 <link href="../../../assets/stylesheets/palette.ab4e12ef.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -25,7 +25,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#cqrs-pattern-command-query-responsibility-segregation">
+<a class="md-skip" href="#pull-based-deployment-pattern">
           Skip to content
         </a>
 </div>
@@ -49,7 +49,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              CQRS Pattern
+              Pull-based Deployment
             
           </span>
 </div>
@@ -114,8 +114,8 @@
 
       </a>
 </li>
-<li class="md-tabs__item md-tabs__item--active">
-<a class="md-tabs__link" href="./">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../architecture/cqrs-pattern/">
           
   
   
@@ -141,8 +141,8 @@
 
         </a>
 </li>
-<li class="md-tabs__item">
-<a class="md-tabs__link" href="../../devops/docker-production-pattern/">
+<li class="md-tabs__item md-tabs__item--active">
+<a class="md-tabs__link" href="../docker-production-pattern/">
           
   
   
@@ -187,9 +187,9 @@
   </span>
 </a>
 </li>
-<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" id="__nav_2" type="checkbox"/>
-<label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
 <span class="md-ellipsis">
     
   
@@ -200,7 +200,7 @@
   </span>
 <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-expanded="true" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
+<nav aria-expanded="false" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_2">
 <span class="md-nav__icon md-icon"></span>
             
@@ -210,46 +210,17 @@
 
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
-<label class="md-nav__link md-nav__link--active" for="__toc">
-<span class="md-ellipsis">
-    
-  
-    CQRS Pattern
-  
-
-    
-  </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<a class="md-nav__link md-nav__link--active" href="./">
-<span class="md-ellipsis">
-    
-  
-    CQRS Pattern
-  
-
-    
-  </span>
-</a>
-<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#contexte">
+<a class="md-nav__link" href="../../architecture/cqrs-pattern/">
 <span class="md-ellipsis">
-      
-        Contexte
-      
-    </span>
+    
+  
+    CQRS Pattern
+  
+
+    
+  </span>
 </a>
-</li>
-</ul>
-</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../spring/hexagonal-architecture/">
@@ -390,9 +361,9 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_5" type="checkbox"/>
-<label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
 <span class="md-ellipsis">
     
   
@@ -403,7 +374,7 @@
   </span>
 <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-expanded="false" aria-labelledby="__nav_5_label" class="md-nav" data-md-level="1">
+<nav aria-expanded="true" aria-labelledby="__nav_5_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_5">
 <span class="md-nav__icon md-icon"></span>
             
@@ -414,7 +385,7 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../devops/docker-production-pattern/">
+<a class="md-nav__link" href="../docker-production-pattern/">
 <span class="md-ellipsis">
     
   
@@ -426,7 +397,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../devops/container-security/">
+<a class="md-nav__link" href="../container-security/">
 <span class="md-ellipsis">
     
   
@@ -438,7 +409,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../devops/reverse-proxy-pattern/">
+<a class="md-nav__link" href="../reverse-proxy-pattern/">
 <span class="md-ellipsis">
     
   
@@ -449,8 +420,20 @@
   </span>
 </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../devops/pull-based-deployment/">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    
+  
+    Pull-based Deployment
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
 <span class="md-ellipsis">
     
   
@@ -460,9 +443,26 @@
     
   </span>
 </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#contexte">
+<span class="md-ellipsis">
+      
+        Contexte
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../devops/ci-cd-pipeline-pattern/">
+<a class="md-nav__link" href="../ci-cd-pipeline-pattern/">
 <span class="md-ellipsis">
     
   
@@ -762,145 +762,137 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1 id="cqrs-pattern-command-query-responsibility-segregation">CQRS Pattern (Command Query Responsibility Segregation)<a class="headerlink" href="#cqrs-pattern-command-query-responsibility-segregation" title="Permanent link">¶</a></h1>
+<h1 id="pull-based-deployment-pattern">Pull-Based Deployment Pattern<a class="headerlink" href="#pull-based-deployment-pattern" title="Permanent link">¶</a></h1>
 <h2 id="contexte">Contexte<a class="headerlink" href="#contexte" title="Permanent link">¶</a></h2>
-<p>Dans de nombreuses applications traditionnelles,
-le même modèle de données est utilisé pour :</p>
+<p>Dans de nombreuses chaînes CI/CD, le système d'intégration
+continue déploie directement l'application sur les serveurs
+de production.</p>
+<p>Ce modèle est appelé <strong>push-based deployment</strong>.</p>
+<p>Exemple :
+<pre class="mermaid"><code>flowchart LR
+    CI[CI Pipeline] --&gt;|SSH| S[Production Server]
+    S --&gt; D[Deploy Application]</code></pre></p>
+<p>Cependant, ce modèle présente plusieurs limites :</p>
 <ul>
-<li>écrire les données</li>
-<li>lire les données</li>
+<li>ouverture du serveur aux connexions externes</li>
+<li>dépendance au réseau entrant</li>
+<li>surface d’attaque plus importante</li>
+<li>complexité dans les environnements NAT</li>
 </ul>
-<p>Cette approche fonctionne pour des systèmes simples,
-mais elle devient rapidement problématique lorsque
-les besoins de lecture et d’écriture sont très différents.</p>
-<p>Par exemple :</p>
-<ul>
-<li>les opérations d’écriture doivent respecter
-  les règles métier et les invariants</li>
-<li>les opérations de lecture doivent être rapides
-  et optimisées pour l’affichage</li>
-</ul>
-<p>Utiliser un seul modèle pour ces deux besoins
-peut rendre l’architecture difficile à maintenir.</p>
-<p>Le pattern <strong>CQRS (Command Query Responsibility Segregation)</strong>
-propose de séparer ces responsabilités.</p>
+<p>Une alternative consiste à utiliser
+le <strong>pull-based deployment</strong>.</p>
 <hr/>
 <h1 id="principe">Principe<a class="headerlink" href="#principe" title="Permanent link">¶</a></h1>
-<p>CQRS consiste à séparer :
-<div class="highlight"><pre><span></span><code>Commands (écriture)
-Queries (lecture)
-</code></pre></div></p>
-<p>Les commandes modifient l’état du système.</p>
-<p>Les requêtes récupèrent des informations.</p>
-<p>Ces deux types d’opérations peuvent utiliser
-des modèles de données différents.</p>
-<hr/>
-<h1 id="command-model">Command Model<a class="headerlink" href="#command-model" title="Permanent link">¶</a></h1>
-<p>Le <strong>command model</strong> est responsable des modifications
-de l’état métier.</p>
-<p>Il applique les règles métier et garantit
-les invariants du domaine.</p>
-<p>Exemples de commandes :
-<div class="highlight"><pre><span></span><code><span class="n">CreateSejour</span>
-<span class="n">UpdateSejour</span>
-<span class="n">ScheduleService</span>
-<span class="n">CancelService</span>
-</code></pre></div></p>
-<p>Le command model est généralement :</p>
-<ul>
-<li>plus riche</li>
-<li>centré sur le domaine</li>
-<li>orienté règles métier</li>
-</ul>
-<hr/>
-<h1 id="query-model">Query Model<a class="headerlink" href="#query-model" title="Permanent link">¶</a></h1>
-<p>Le <strong>query model</strong> est optimisé
-pour la lecture des données.</p>
-<p>Il peut contenir :</p>
-<ul>
-<li>des agrégations</li>
-<li>des projections</li>
-<li>des structures adaptées à l’interface utilisateur</li>
-</ul>
-<p>Exemples :
-<div class="highlight"><pre><span></span><code><span class="n">SejourListView</span>
-<span class="n">SejourDetailView</span>
-<span class="n">DashboardView</span>
-</code></pre></div></p>
-<p>Le query model ne contient
-pas de logique métier complexe.</p>
-<hr/>
-<h1 id="architecture-simplifiee">Architecture simplifiée<a class="headerlink" href="#architecture-simplifiee" title="Permanent link">¶</a></h1>
+<p>Dans un modèle pull-based, le serveur de production
+ne reçoit aucune connexion depuis la CI.</p>
+<p>Au contraire, il récupère lui-même
+les nouvelles versions de l'application.</p>
+<p>Architecture simplifiée :
 <pre class="mermaid"><code>flowchart TD
-    CMD[Command API] --&gt; DOMAIN[Domain Model]
-    DOMAIN --&gt; EVENTS[Domain Events]
-    EVENTS --&gt; BUS[(Event Bus - Kafka)]
-    BUS --&gt; PROJ[Projection / Event Handler]
-    PROJ --&gt; READ[(Read Model)]
-    READ --&gt; QUERY[Query API]</code></pre>
-<p>Les événements permettent
-de synchroniser le read model
-avec le command model.</p>
+    DEV[Developer] --&gt;|Push code| GH[GitHub Repository]
+    GH --&gt; CI[CI/CD Pipeline]
+    CI --&gt;|Build &amp; Push Image| REG[(Container Registry)]
+    REG --&gt;|Pull Image| PS[Production Server]
+    PS --&gt; DC[Docker Containers]</code></pre></p>
+<p>Le serveur surveille les nouvelles images
+et met à jour les services automatiquement.</p>
 <hr/>
-<h1 id="event-driven-cqrs">Event-driven CQRS<a class="headerlink" href="#event-driven-cqrs" title="Permanent link">¶</a></h1>
-<p>Dans de nombreuses architectures modernes,
-CQRS est combiné avec un système d’événements.</p>
-<p>Flux typique :</p>
-<ol>
-<li>une commande est exécutée</li>
-<li>le domaine applique la modification</li>
-<li>un événement est publié</li>
-<li>les projections mettent à jour les read models</li>
-</ol>
-<p>Cela permet :</p>
+<h1 id="etapes-du-pipeline">Étapes du pipeline<a class="headerlink" href="#etapes-du-pipeline" title="Permanent link">¶</a></h1>
+<h2 id="1-push-du-code">1 — Push du code<a class="headerlink" href="#1-push-du-code" title="Permanent link">¶</a></h2>
+<p>Le développeur pousse le code vers le repository.
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>push
+</code></pre></div></p>
+<p>Cela déclenche la pipeline CI.</p>
+<hr/>
+<h2 id="2-build-des-images">2 — Build des images<a class="headerlink" href="#2-build-des-images" title="Permanent link">¶</a></h2>
+<p>La CI :</p>
 <ul>
-<li>un découplage fort</li>
-<li>une évolution indépendante</li>
-<li>une bonne scalabilité</li>
+<li>compile l’application</li>
+<li>construit les images Docker</li>
+<li>publie les images dans un registry</li>
 </ul>
+<p>Exemple :
+<div class="highlight"><pre><span></span><code>ghcr.io/my-org/backend:latest
+</code></pre></div></p>
+<hr/>
+<h2 id="3-publication-dans-le-registry">3 — Publication dans le registry<a class="headerlink" href="#3-publication-dans-le-registry" title="Permanent link">¶</a></h2>
+<p>Les images sont stockées dans un container registry :</p>
+<ul>
+<li>GHCR</li>
+<li>Docker Hub</li>
+<li>AWS ECR</li>
+<li>GitLab Registry</li>
+</ul>
+<p>Le registry devient la <strong>source de vérité
+des artefacts déployables</strong>.</p>
+<hr/>
+<h2 id="4-mise-a-jour-cote-serveur">4 — Mise à jour côté serveur<a class="headerlink" href="#4-mise-a-jour-cote-serveur" title="Permanent link">¶</a></h2>
+<p>Le serveur de production récupère
+les nouvelles images.</p>
+<p>Exemple :
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>compose<span class="w"> </span>pull
+docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>-d
+</code></pre></div></p>
+<p>Cela redémarre automatiquement
+les services avec les nouvelles versions.</p>
+<hr/>
+<h1 id="automatisation-avec-watchtower">Automatisation avec Watchtower<a class="headerlink" href="#automatisation-avec-watchtower" title="Permanent link">¶</a></h1>
+<p>Un outil comme <strong>Watchtower</strong> peut automatiser
+la mise à jour des conteneurs.</p>
+<p>Fonctionnement :</p>
+<ol>
+<li>Watchtower surveille les images Docker</li>
+<li>détecte une nouvelle version</li>
+<li>redémarre le container</li>
+</ol>
+<p>Exemple de configuration :
+<div class="highlight"><pre><span></span><code>com.centurylinklabs.watchtower.enable=true
+</code></pre></div></p>
 <hr/>
 <div class="admonition tip">
 <p class="admonition-title">Avantages</p>
-<p>CQRS apporte plusieurs bénéfices :  </p>
+<p>Le pull-based deployment apporte plusieurs bénéfices :</p>
 <ul>
-<li>séparation claire des responsabilités  </li>
-<li>optimisation indépendante lecture / écriture  </li>
-<li>meilleure scalabilité  </li>
-<li>meilleure adaptabilité aux besoins UI  </li>
+<li>aucune connexion entrante nécessaire</li>
+<li>meilleure sécurité</li>
+<li>architecture plus simple</li>
+<li>compatibilité avec les environnements NAT</li>
+<li>déploiement automatisé</li>
 </ul>
-<p>Il est particulièrement adapté aux architectures event-driven.  </p>
 </div>
 <hr/>
 <div class="admonition warning">
-<p class="admonition-title">Inconvénients</p>
-<p>CQRS introduit une complexité supplémentaire :  </p>
+<p class="admonition-title">Limites</p>
+<p>Cette approche introduit quelques contraintes :</p>
 <ul>
-<li>duplication de données  </li>
-<li>gestion de la cohérence  </li>
-<li>architecture plus riche  </li>
+<li>moins de contrôle précis sur le moment exact du déploiement</li>
+<li>gestion des versions d’images nécessaire</li>
+<li>surveillance du registry</li>
 </ul>
-<p>Les systèmes CQRS sont généralement<br/>
-<strong>eventually consistent</strong>.  </p>
-<p>Cela signifie que le read model peut être légèrement en retard par rapport au write model.</p>
+<p>Cependant ces limitations sont généralement acceptables.</p>
 </div>
-<h1 id="quand-utiliser-cqrs">Quand utiliser CQRS<a class="headerlink" href="#quand-utiliser-cqrs" title="Permanent link">¶</a></h1>
-<p>CQRS est particulièrement utile lorsque :</p>
+<hr/>
+<h1 id="bonnes-pratiques">Bonnes pratiques<a class="headerlink" href="#bonnes-pratiques" title="Permanent link">¶</a></h1>
+<p>Pour un système fiable :</p>
 <ul>
-<li>les lectures sont beaucoup plus fréquentes</li>
-<li>les besoins de lecture sont très différents</li>
-<li>le système utilise des événements</li>
-<li>l’architecture est distribuée</li>
+<li>utiliser des images versionnées</li>
+<li>conserver les images précédentes</li>
+<li>surveiller les logs de déploiement</li>
+<li>automatiser les healthchecks</li>
 </ul>
-<p>Pour les systèmes simples,
-un modèle unique peut suffire.</p>
 <hr/>
 <h1 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">¶</a></h1>
-<p>CQRS permet de séparer les responsabilités
-de lecture et d’écriture.</p>
-<p>Combiné avec des événements,
-il devient un outil puissant
-pour construire des architectures
-modulaires et évolutives.</p>
+<p>Le pull-based deployment est particulièrement
+adapté aux architectures conteneurisées.</p>
+<p>En combinant :</p>
+<ul>
+<li>CI pour construire les images</li>
+<li>container registry pour stocker les artefacts</li>
+<li>serveur qui récupère les images</li>
+</ul>
+<p>il est possible de construire
+une pipeline de déploiement simple,
+sécurisée et robuste.</p>
 </article>
 </div>
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>

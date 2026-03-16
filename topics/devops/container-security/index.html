@@ -13,10 +13,10 @@
       
       
       
-        <link rel="prev" href="../../spring/hexagonal-architecture/">
+        <link rel="prev" href="../docker-production-pattern/">
       
       
-        <link rel="next" href="../idempotent-consumers/">
+        <link rel="next" href="../reverse-proxy-pattern/">
       
       
         
@@ -27,7 +27,7 @@
     
     
       
-        <title>Retry and DLT Pattern - Backend Engineering Notes</title>
+        <title>Container Security - Backend Engineering Notes</title>
       
     
     
@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#kafka-retry-and-dead-letter-topic-pattern" class="md-skip">
+        <a href="#container-security-best-practices" class="md-skip">
           Skip to content
         </a>
       
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Retry and DLT Pattern
+              Container Security
             
           </span>
         </div>
@@ -252,13 +252,11 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="./" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../kafka/retry-and-dlt-pattern/" class="md-tabs__link">
           
   
   
@@ -294,11 +292,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../devops/docker-production-pattern/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../docker-production-pattern/" class="md-tabs__link">
           
   
   
@@ -511,31 +511,28 @@
       
   
   
-    
   
   
-  
     
     
     
     
-      
-        
-        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
             
   
   
@@ -553,7 +550,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             
@@ -568,37 +565,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Retry and DLT Pattern
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../kafka/retry-and-dlt-pattern/" class="md-nav__link">
         
   
   
@@ -614,37 +584,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#contexte" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Contexte
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -657,7 +596,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../idempotent-consumers/" class="md-nav__link">
+      <a href="../../kafka/idempotent-consumers/" class="md-nav__link">
         
   
   
@@ -685,7 +624,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../outbox-pattern/" class="md-nav__link">
+      <a href="../../kafka/outbox-pattern/" class="md-nav__link">
         
   
   
@@ -713,7 +652,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../reliability-patterns/" class="md-nav__link">
+      <a href="../../kafka/reliability-patterns/" class="md-nav__link">
         
   
   
@@ -862,28 +801,31 @@
       
   
   
+    
   
   
+  
     
     
     
     
+      
+        
+        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
           
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
-        
-          
-          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
             
   
   
@@ -901,7 +843,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             
@@ -919,7 +861,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../devops/docker-production-pattern/" class="md-nav__link">
+      <a href="../docker-production-pattern/" class="md-nav__link">
         
   
   
@@ -944,10 +886,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../devops/container-security/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Container Security
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -963,6 +932,37 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#contexte" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contexte
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -975,7 +975,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../devops/reverse-proxy-pattern/" class="md-nav__link">
+      <a href="../reverse-proxy-pattern/" class="md-nav__link">
         
   
   
@@ -1003,7 +1003,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../devops/pull-based-deployment/" class="md-nav__link">
+      <a href="../pull-based-deployment/" class="md-nav__link">
         
   
   
@@ -1031,7 +1031,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../devops/ci-cd-pipeline-pattern/" class="md-nav__link">
+      <a href="../ci-cd-pipeline-pattern/" class="md-nav__link">
         
   
   
@@ -1712,128 +1712,175 @@
 
 
 
-<h1 id="kafka-retry-and-dead-letter-topic-pattern">Kafka Retry and Dead Letter Topic Pattern<a class="headerlink" href="#kafka-retry-and-dead-letter-topic-pattern" title="Permanent link">&para;</a></h1>
+<h1 id="container-security-best-practices">Container Security Best Practices<a class="headerlink" href="#container-security-best-practices" title="Permanent link">&para;</a></h1>
 <h2 id="contexte">Contexte<a class="headerlink" href="#contexte" title="Permanent link">&para;</a></h2>
-<p>Dans un système distribué basé sur Kafka, les consommateurs
-peuvent rencontrer différents types d’erreurs lors du traitement
-des messages :</p>
+<p>Les conteneurs sont largement utilisés pour déployer
+des applications modernes.</p>
+<p>Bien que les conteneurs offrent une isolation
+par rapport au système hôte, ils ne constituent
+pas une frontière de sécurité complète.</p>
+<p>Un conteneur mal configuré peut exposer
+le système à plusieurs risques :</p>
 <ul>
-<li>erreurs temporaires (base de données indisponible)</li>
-<li>erreurs de sérialisation</li>
-<li>erreurs métier</li>
-<li>erreurs d’infrastructure</li>
+<li>élévation de privilèges</li>
+<li>accès au système hôte</li>
+<li>fuite de données</li>
+<li>exécution de code malveillant</li>
 </ul>
-<p>Sans stratégie adaptée, un message en erreur peut bloquer
-le traitement du topic et empêcher les messages suivants
-d’être traités.</p>
-<p>Il est donc nécessaire de mettre en place un mécanisme
-de gestion des erreurs permettant :</p>
+<p>Il est donc essentiel d’appliquer
+des pratiques de sécurité adaptées.</p>
+<hr />
+<h1 id="principe">Principe<a class="headerlink" href="#principe" title="Permanent link">&para;</a></h1>
+<p>La sécurité des conteneurs repose
+sur plusieurs principes fondamentaux :</p>
 <ul>
-<li>de réessayer le traitement</li>
-<li>d’éviter les boucles infinies</li>
-<li>d’isoler les messages invalides</li>
+<li>principe du moindre privilège</li>
+<li>isolation des services</li>
+<li>limitation de la surface d’attaque</li>
+<li>contrôle des accès réseau</li>
 </ul>
 <hr />
-<h1 id="principe-du-retry">Principe du Retry<a class="headerlink" href="#principe-du-retry" title="Permanent link">&para;</a></h1>
-<p>Lorsqu’un message échoue, le consommateur peut tenter
-de le traiter à nouveau.</p>
-<p>Le retry est généralement configuré avec :</p>
+<h1 id="utilisateur-non-root">Utilisateur non-root<a class="headerlink" href="#utilisateur-non-root" title="Permanent link">&para;</a></h1>
+<p>Les conteneurs ne doivent pas
+s’exécuter avec l’utilisateur root.</p>
+<p>Exemple dans un Dockerfile :
+<div class="highlight"><pre><span></span><code><span class="k">RUN</span><span class="w"> </span>useradd<span class="w"> </span>-u<span class="w"> </span><span class="m">10001</span><span class="w"> </span>appuser
+<span class="k">USER</span><span class="w"> </span><span class="s">appuser</span>
+</code></pre></div></p>
+<div class="admonition tip">
+<p class="admonition-title">Avantages</p>
 <ul>
-<li>un nombre maximal de tentatives</li>
-<li>un délai entre les tentatives (backoff)</li>
+<li>réduit les privilèges</li>
+<li>limite l’impact d’une compromission</li>
 </ul>
+</div>
+<hr />
+<h1 id="filesystem-en-lecture-seule">Filesystem en lecture seule<a class="headerlink" href="#filesystem-en-lecture-seule" title="Permanent link">&para;</a></h1>
+<p>Les conteneurs applicatifs peuvent être
+configurés avec un filesystem en lecture seule.</p>
 <p>Exemple :
-<div class="highlight"><pre><span></span><code><span class="nt">3</span><span class="w"> </span><span class="nt">tentatives</span>
-<span class="nt">backoff</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="nt">1s</span><span class="w"> </span><span class="err">→</span><span class="w"> </span><span class="nt">5s</span><span class="w"> </span><span class="err">→</span><span class="w"> </span><span class="nt">10s</span>
-</code></pre></div></p>
-<p>Le retry permet de résoudre les erreurs temporaires.</p>
-<hr />
-<h1 id="dead-letter-topic-dlt">Dead Letter Topic (DLT)<a class="headerlink" href="#dead-letter-topic-dlt" title="Permanent link">&para;</a></h1>
-<p>Si un message échoue après toutes les tentatives de retry,
-il est envoyé dans un <strong>Dead Letter Topic</strong>.</p>
-<p>Un Dead Letter Topic est un topic Kafka dédié
-au stockage des messages en erreur.</p>
-<p>Convention fréquente :
-<div class="highlight"><pre><span></span><code>&lt;topic&gt;.DLT
+<div class="highlight"><pre><span></span><code>read_only:<span class="w"> </span>true
 </code></pre></div>
-Exemple :
-<div class="highlight"><pre><span></span><code>seaway.events
-seaway.events.DLT
-</code></pre></div></p>
-<p>Le message est alors isolé et n’empêche plus
-le traitement des messages suivants.</p>
+Seules certaines zones doivent rester
+accessibles en écriture.</p>
 <hr />
-<h1 id="flux-de-traitement">Flux de traitement<a class="headerlink" href="#flux-de-traitement" title="Permanent link">&para;</a></h1>
-<p>Flux typique :</p>
-<ol>
-<li>le message arrive dans le topic principal</li>
-<li>le consumer tente de traiter le message</li>
-<li>en cas d’échec → retry</li>
-<li>si tous les retries échouent → publication dans le DLT</li>
-</ol>
-<hr />
-<h1 id="implementation-avec-spring-kafka">Implémentation avec Spring Kafka<a class="headerlink" href="#implementation-avec-spring-kafka" title="Permanent link">&para;</a></h1>
-<p>Spring Kafka propose un mécanisme intégré
-pour gérer les retries et les DLT.</p>
-<p>Le composant principal est :
-<div class="highlight"><pre><span></span><code>DefaultErrorHandler
-</code></pre></div>
-Il peut être combiné avec :
-<div class="highlight"><pre><span></span><code><span class="n">DeadLetterPublishingRecoverer</span>
-</code></pre></div>
-Exemple simplifié :
-<div class="highlight"><pre><span></span><code><span class="n">DefaultErrorHandler</span><span class="w"> </span><span class="n">errorHandler</span><span class="w"> </span><span class="o">=</span>
-<span class="k">new</span><span class="w"> </span><span class="n">DefaultErrorHandler</span><span class="p">(</span>
-<span class="k">new</span><span class="w"> </span><span class="n">DeadLetterPublishingRecoverer</span><span class="p">(</span><span class="n">kafkaTemplate</span><span class="p">),</span>
-<span class="k">new</span><span class="w"> </span><span class="n">FixedBackOff</span><span class="p">(</span><span class="mi">2000L</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span>
-<span class="p">);</span>
+<h1 id="repertoires-temporaires-en-memoire">Répertoires temporaires en mémoire<a class="headerlink" href="#repertoires-temporaires-en-memoire" title="Permanent link">&para;</a></h1>
+<p>Les répertoires temporaires peuvent être
+montés en mémoire avec <strong>tmpfs</strong>.</p>
+<p>Exemple :
+<div class="highlight"><pre><span></span><code>tmpfs:
+/tmp
 </code></pre></div></p>
-<p>Dans cet exemple :</p>
+<div class="admonition tip">
+<p class="admonition-title">Avantages</p>
 <ul>
-<li>retry 3 fois</li>
-<li>délai de 2 secondes</li>
-<li>envoi dans le DLT si échec</li>
+<li>empêche la persistance de fichiers</li>
+<li>améliore les performances</li>
 </ul>
+</div>
+<hr />
+<h1 id="isolation-reseau">Isolation réseau<a class="headerlink" href="#isolation-reseau" title="Permanent link">&para;</a></h1>
+<p>Les services internes ne doivent pas
+être exposés directement sur Internet.</p>
+<p>Exemple de services internes :</p>
+<ul>
+<li>bases de données</li>
+<li>brokers de messages</li>
+<li>services de cache</li>
+</ul>
+<p>Ces services doivent être accessibles
+uniquement via le réseau interne Docker.</p>
+<hr />
+<h1 id="limitation-des-ports-exposes">Limitation des ports exposés<a class="headerlink" href="#limitation-des-ports-exposes" title="Permanent link">&para;</a></h1>
+<p>Seuls les ports nécessaires doivent
+être exposés.</p>
+<p>Exemple typique :
+<div class="highlight"><pre><span></span><code><span class="m">443</span><span class="w"> </span>→<span class="w"> </span>HTTPS
+<span class="m">80</span><span class="w"> </span>→<span class="w"> </span>redirection<span class="w"> </span>HTTP
+</code></pre></div></p>
+<p>Les ports internes doivent rester fermés.</p>
+<hr />
+<h1 id="gestion-des-secrets">Gestion des secrets<a class="headerlink" href="#gestion-des-secrets" title="Permanent link">&para;</a></h1>
+<p>Les informations sensibles ne doivent
+pas être intégrées dans les images Docker.</p>
+<p>Exemples de secrets :</p>
+<ul>
+<li>mots de passe</li>
+<li>clés API</li>
+<li>tokens</li>
+</ul>
+<p>Ils doivent être injectés via :</p>
+<ul>
+<li>variables d’environnement</li>
+<li>secret managers</li>
+<li>fichiers de configuration sécurisés</li>
+</ul>
+<hr />
+<h1 id="images-minimales">Images minimales<a class="headerlink" href="#images-minimales" title="Permanent link">&para;</a></h1>
+<p>Les images Docker doivent être
+les plus petites possible.</p>
+<p>Objectifs :</p>
+<ul>
+<li>réduire la surface d’attaque</li>
+<li>limiter les dépendances inutiles</li>
+</ul>
+<p>Exemples :</p>
+<ul>
+<li>images <code>alpine</code></li>
+<li>images JRE minimalistes</li>
+</ul>
+<hr />
+<h1 id="mise-a-jour-des-images">Mise à jour des images<a class="headerlink" href="#mise-a-jour-des-images" title="Permanent link">&para;</a></h1>
+<p>Les images doivent être mises à jour
+régulièrement afin de corriger
+les vulnérabilités.</p>
+<p>Cela implique :</p>
+<ul>
+<li>rebuild périodique des images</li>
+<li>surveillance des dépendances</li>
+</ul>
+<hr />
+<h1 id="monitoring-et-logs">Monitoring et logs<a class="headerlink" href="#monitoring-et-logs" title="Permanent link">&para;</a></h1>
+<p>Les conteneurs doivent être surveillés :</p>
+<ul>
+<li>logs d’application</li>
+<li>métriques</li>
+<li>healthchecks</li>
+</ul>
+<p>Cela permet de détecter
+des comportements anormaux.</p>
 <hr />
 <div class="admonition tip">
-<p class="admonition-title">Avantages du pattern</p>
-<p>Ce pattern apporte plusieurs bénéfices :</p>
+<p class="admonition-title">Avantages</p>
+<p>Ces pratiques permettent :</p>
 <ul>
-<li>amélioration de la résilience</li>
-<li>isolation des messages invalides</li>
-<li>continuité du traitement des topics</li>
-<li>meilleure observabilité des erreurs</li>
+<li>une meilleure isolation</li>
+<li>une réduction des risques</li>
+<li>une architecture plus sécurisée</li>
 </ul>
 </div>
 <hr />
 <div class="admonition warning">
 <p class="admonition-title">Limites</p>
-<p>Le pattern ne résout pas certains problèmes :</p>
+<p>La sécurité des conteneurs doit être complétée par d’autres mécanismes :</p>
 <ul>
-<li>erreurs métier persistantes</li>
-<li>duplication possible des messages</li>
-<li>nécessité de gérer l'idempotence</li>
+<li>firewall</li>
+<li>reverse proxy</li>
+<li>authentification</li>
+<li>monitoring</li>
 </ul>
-<p>C’est pourquoi il est généralement combiné avec un <strong>consumer idempotent</strong>.</p>
+<p>La sécurité doit être
+multi-couches.</p>
 </div>
 <hr />
-<h1 id="bonnes-pratiques">Bonnes pratiques<a class="headerlink" href="#bonnes-pratiques" title="Permanent link">&para;</a></h1>
-<p>Plusieurs bonnes pratiques sont recommandées :</p>
-<ul>
-<li>limiter le nombre de retries</li>
-<li>utiliser un backoff progressif</li>
-<li>surveiller les messages présents dans les DLT</li>
-<li>prévoir un mécanisme d’analyse ou de replay</li>
-<li>rendre les consumers idempotents</li>
-</ul>
-<hr />
 <h1 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h1>
-<p>Le pattern Retry + Dead Letter Topic est un
-élément fondamental des architectures
-basées sur Kafka.</p>
-<p>Il permet de construire des systèmes
-résilients capables de gérer les erreurs
-sans bloquer le flux de traitement.</p>
+<p>Les conteneurs simplifient le déploiement
+des applications, mais ils doivent être
+configurés correctement.</p>
+<p>En appliquant ces bonnes pratiques,
+il est possible de construire
+une infrastructure conteneurisée
+plus sûre et plus robuste.</p>
 
 
 

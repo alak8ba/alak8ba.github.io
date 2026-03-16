@@ -7,11 +7,11 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <meta content="Backend architecture, event-driven systems and DevOps patterns" name="description"/>
 <meta content="Aliasoft" name="author"/>
-<link href="../../.." rel="prev"/>
-<link href="../../spring/hexagonal-architecture/" rel="next"/>
+<link href="../container-security/" rel="prev"/>
+<link href="../pull-based-deployment/" rel="next"/>
 <link href="../../../None" rel="icon"/>
 <meta content="mkdocs-1.6.1, mkdocs-material-9.7.5" name="generator"/>
-<title>CQRS Pattern - Backend Engineering Notes</title>
+<title>Reverse Proxy Pattern - Backend Engineering Notes</title>
 <link href="../../../assets/stylesheets/main.484c7ddc.min.css" rel="stylesheet"/>
 <link href="../../../assets/stylesheets/palette.ab4e12ef.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -25,7 +25,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#cqrs-pattern-command-query-responsibility-segregation">
+<a class="md-skip" href="#reverse-proxy-pattern">
           Skip to content
         </a>
 </div>
@@ -49,7 +49,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              CQRS Pattern
+              Reverse Proxy Pattern
             
           </span>
 </div>
@@ -114,8 +114,8 @@
 
       </a>
 </li>
-<li class="md-tabs__item md-tabs__item--active">
-<a class="md-tabs__link" href="./">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../architecture/cqrs-pattern/">
           
   
   
@@ -141,8 +141,8 @@
 
         </a>
 </li>
-<li class="md-tabs__item">
-<a class="md-tabs__link" href="../../devops/docker-production-pattern/">
+<li class="md-tabs__item md-tabs__item--active">
+<a class="md-tabs__link" href="../docker-production-pattern/">
           
   
   
@@ -187,9 +187,9 @@
   </span>
 </a>
 </li>
-<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" id="__nav_2" type="checkbox"/>
-<label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
 <span class="md-ellipsis">
     
   
@@ -200,7 +200,7 @@
   </span>
 <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-expanded="true" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
+<nav aria-expanded="false" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_2">
 <span class="md-nav__icon md-icon"></span>
             
@@ -210,46 +210,17 @@
 
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
-<label class="md-nav__link md-nav__link--active" for="__toc">
-<span class="md-ellipsis">
-    
-  
-    CQRS Pattern
-  
-
-    
-  </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<a class="md-nav__link md-nav__link--active" href="./">
-<span class="md-ellipsis">
-    
-  
-    CQRS Pattern
-  
-
-    
-  </span>
-</a>
-<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#contexte">
+<a class="md-nav__link" href="../../architecture/cqrs-pattern/">
 <span class="md-ellipsis">
-      
-        Contexte
-      
-    </span>
+    
+  
+    CQRS Pattern
+  
+
+    
+  </span>
 </a>
-</li>
-</ul>
-</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../spring/hexagonal-architecture/">
@@ -390,9 +361,9 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_5" type="checkbox"/>
-<label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
 <span class="md-ellipsis">
     
   
@@ -403,7 +374,7 @@
   </span>
 <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-expanded="false" aria-labelledby="__nav_5_label" class="md-nav" data-md-level="1">
+<nav aria-expanded="true" aria-labelledby="__nav_5_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_5">
 <span class="md-nav__icon md-icon"></span>
             
@@ -414,7 +385,7 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../devops/docker-production-pattern/">
+<a class="md-nav__link" href="../docker-production-pattern/">
 <span class="md-ellipsis">
     
   
@@ -426,7 +397,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../devops/container-security/">
+<a class="md-nav__link" href="../container-security/">
 <span class="md-ellipsis">
     
   
@@ -437,8 +408,20 @@
   </span>
 </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../devops/reverse-proxy-pattern/">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    
+  
+    Reverse Proxy Pattern
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
 <span class="md-ellipsis">
     
   
@@ -448,9 +431,26 @@
     
   </span>
 </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#contexte">
+<span class="md-ellipsis">
+      
+        Contexte
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../devops/pull-based-deployment/">
+<a class="md-nav__link" href="../pull-based-deployment/">
 <span class="md-ellipsis">
     
   
@@ -462,7 +462,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../devops/ci-cd-pipeline-pattern/">
+<a class="md-nav__link" href="../ci-cd-pipeline-pattern/">
 <span class="md-ellipsis">
     
   
@@ -762,145 +762,148 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1 id="cqrs-pattern-command-query-responsibility-segregation">CQRS Pattern (Command Query Responsibility Segregation)<a class="headerlink" href="#cqrs-pattern-command-query-responsibility-segregation" title="Permanent link">¶</a></h1>
+<h1 id="reverse-proxy-pattern">Reverse Proxy Pattern<a class="headerlink" href="#reverse-proxy-pattern" title="Permanent link">¶</a></h1>
 <h2 id="contexte">Contexte<a class="headerlink" href="#contexte" title="Permanent link">¶</a></h2>
-<p>Dans de nombreuses applications traditionnelles,
-le même modèle de données est utilisé pour :</p>
-<ul>
-<li>écrire les données</li>
-<li>lire les données</li>
-</ul>
-<p>Cette approche fonctionne pour des systèmes simples,
-mais elle devient rapidement problématique lorsque
-les besoins de lecture et d’écriture sont très différents.</p>
-<p>Par exemple :</p>
-<ul>
-<li>les opérations d’écriture doivent respecter
-  les règles métier et les invariants</li>
-<li>les opérations de lecture doivent être rapides
-  et optimisées pour l’affichage</li>
-</ul>
-<p>Utiliser un seul modèle pour ces deux besoins
-peut rendre l’architecture difficile à maintenir.</p>
-<p>Le pattern <strong>CQRS (Command Query Responsibility Segregation)</strong>
-propose de séparer ces responsabilités.</p>
+<p>Dans une architecture web moderne, les applications backend
+ne sont généralement pas exposées directement sur Internet.</p>
+<p>Un composant intermédiaire est utilisé pour gérer
+les requêtes entrantes : le <strong>reverse proxy</strong>.</p>
+<p>Un reverse proxy est un serveur qui reçoit les requêtes
+des clients et les transmet aux services internes.</p>
+<p>Il agit comme un point d’entrée unique pour l’application.</p>
 <hr/>
 <h1 id="principe">Principe<a class="headerlink" href="#principe" title="Permanent link">¶</a></h1>
-<p>CQRS consiste à séparer :
-<div class="highlight"><pre><span></span><code>Commands (écriture)
-Queries (lecture)
-</code></pre></div></p>
-<p>Les commandes modifient l’état du système.</p>
-<p>Les requêtes récupèrent des informations.</p>
-<p>Ces deux types d’opérations peuvent utiliser
-des modèles de données différents.</p>
-<hr/>
-<h1 id="command-model">Command Model<a class="headerlink" href="#command-model" title="Permanent link">¶</a></h1>
-<p>Le <strong>command model</strong> est responsable des modifications
-de l’état métier.</p>
-<p>Il applique les règles métier et garantit
-les invariants du domaine.</p>
-<p>Exemples de commandes :
-<div class="highlight"><pre><span></span><code><span class="n">CreateSejour</span>
-<span class="n">UpdateSejour</span>
-<span class="n">ScheduleService</span>
-<span class="n">CancelService</span>
-</code></pre></div></p>
-<p>Le command model est généralement :</p>
-<ul>
-<li>plus riche</li>
-<li>centré sur le domaine</li>
-<li>orienté règles métier</li>
-</ul>
-<hr/>
-<h1 id="query-model">Query Model<a class="headerlink" href="#query-model" title="Permanent link">¶</a></h1>
-<p>Le <strong>query model</strong> est optimisé
-pour la lecture des données.</p>
-<p>Il peut contenir :</p>
-<ul>
-<li>des agrégations</li>
-<li>des projections</li>
-<li>des structures adaptées à l’interface utilisateur</li>
-</ul>
-<p>Exemples :
-<div class="highlight"><pre><span></span><code><span class="n">SejourListView</span>
-<span class="n">SejourDetailView</span>
-<span class="n">DashboardView</span>
-</code></pre></div></p>
-<p>Le query model ne contient
-pas de logique métier complexe.</p>
-<hr/>
-<h1 id="architecture-simplifiee">Architecture simplifiée<a class="headerlink" href="#architecture-simplifiee" title="Permanent link">¶</a></h1>
+<p>Architecture simplifiée :
 <pre class="mermaid"><code>flowchart TD
-    CMD[Command API] --&gt; DOMAIN[Domain Model]
-    DOMAIN --&gt; EVENTS[Domain Events]
-    EVENTS --&gt; BUS[(Event Bus - Kafka)]
-    BUS --&gt; PROJ[Projection / Event Handler]
-    PROJ --&gt; READ[(Read Model)]
-    READ --&gt; QUERY[Query API]</code></pre>
-<p>Les événements permettent
-de synchroniser le read model
-avec le command model.</p>
+    CLIENT[Client]
+    PROXY[Reverse Proxy&lt;br/&gt;Nginx / Traefik / HAProxy]
+    subgraph Backend
+        S1[Auth Service]
+        S2[API Service]
+        S3[Worker Service]
+    end
+    CLIENT --&gt;|HTTPS| PROXY
+    PROXY --&gt; S1
+    PROXY --&gt; S2
+    PROXY --&gt; S3</code></pre></p>
+<p>Le reverse proxy reçoit les requêtes HTTP/HTTPS
+et les redirige vers les services internes.</p>
 <hr/>
-<h1 id="event-driven-cqrs">Event-driven CQRS<a class="headerlink" href="#event-driven-cqrs" title="Permanent link">¶</a></h1>
-<p>Dans de nombreuses architectures modernes,
-CQRS est combiné avec un système d’événements.</p>
-<p>Flux typique :</p>
-<ol>
-<li>une commande est exécutée</li>
-<li>le domaine applique la modification</li>
-<li>un événement est publié</li>
-<li>les projections mettent à jour les read models</li>
-</ol>
-<p>Cela permet :</p>
+<h1 id="responsabilites-principales">Responsabilités principales<a class="headerlink" href="#responsabilites-principales" title="Permanent link">¶</a></h1>
+<p>Un reverse proxy assure plusieurs fonctions importantes.</p>
+<h2 id="terminaison-tls">Terminaison TLS<a class="headerlink" href="#terminaison-tls" title="Permanent link">¶</a></h2>
+<p>Le reverse proxy gère le chiffrement HTTPS.</p>
+<p>Flux :
+<pre class="mermaid"><code>flowchart TD
+    C[Client] --&gt;|HTTPS| RP["Reverse Proxy (TLS termination)"]
+    RP --&gt;|HTTP| B[Backend Service]</code></pre></p>
+<div class="admonition tip">
+<p class="admonition-title">Avantages</p>
 <ul>
-<li>un découplage fort</li>
-<li>une évolution indépendante</li>
-<li>une bonne scalabilité</li>
+<li>simplifie la configuration des services backend</li>
+<li>centralise la gestion des certificats</li>
+</ul>
+</div>
+<hr/>
+<h2 id="routage-des-requetes">Routage des requêtes<a class="headerlink" href="#routage-des-requetes" title="Permanent link">¶</a></h2>
+<p>Le reverse proxy peut diriger les requêtes
+vers différents services.</p>
+<p>Exemple :
+<div class="highlight"><pre><span></span><code><span class="o">/</span><span class="nt">api</span><span class="w"> </span><span class="err">→</span><span class="w"> </span><span class="nt">backend</span><span class="w"> </span><span class="nt">API</span>
+<span class="o">/</span><span class="nt">app</span><span class="w"> </span><span class="err">→</span><span class="w"> </span><span class="nt">frontend</span><span class="w"> </span><span class="nt">SPA</span>
+<span class="o">/</span><span class="nt">metrics</span><span class="w"> </span><span class="err">→</span><span class="w"> </span><span class="nt">monitoring</span>
+</code></pre></div></p>
+<p>Cela permet d’exposer plusieurs services
+via un seul point d’entrée.</p>
+<hr/>
+<h2 id="securite">Sécurité<a class="headerlink" href="#securite" title="Permanent link">¶</a></h2>
+<p>Le reverse proxy peut appliquer
+plusieurs mécanismes de sécurité :</p>
+<ul>
+<li>filtrage des requêtes</li>
+<li>limitation du débit (rate limiting)</li>
+<li>headers de sécurité</li>
+<li>blocage de certains endpoints</li>
+</ul>
+<p>Exemples de headers :
+<div class="highlight"><pre><span></span><code><span class="nt">X-Frame-Options</span>
+<span class="nt">X-Content-Type-Options</span>
+<span class="nt">Referrer-Policy</span>
+<span class="nt">Strict-Transport-Security</span>
+</code></pre></div></p>
+<hr/>
+<h2 id="compression-et-performance">Compression et performance<a class="headerlink" href="#compression-et-performance" title="Permanent link">¶</a></h2>
+<p>Le reverse proxy peut améliorer
+les performances :</p>
+<ul>
+<li>compression gzip</li>
+<li>caching</li>
+<li>gestion des connexions</li>
+</ul>
+<p>Cela réduit la charge
+sur les services backend.</p>
+<hr/>
+<h1 id="exemple-avec-nginx">Exemple avec Nginx<a class="headerlink" href="#exemple-avec-nginx" title="Permanent link">¶</a></h1>
+<p>Configuration simplifiée :
+<div class="highlight"><pre><span></span><code>server<span class="w"> </span><span class="o">{</span>
+listen<span class="w"> </span><span class="m">443</span><span class="w"> </span>ssl<span class="p">;</span>
+
+location<span class="w"> </span>/api<span class="w"> </span><span class="o">{</span>
+<span class="w">    </span>proxy_pass<span class="w"> </span>http://backend:8080<span class="p">;</span>
+<span class="o">}</span>
+
+location<span class="w"> </span>/<span class="w"> </span><span class="o">{</span>
+<span class="w">    </span>root<span class="w"> </span>/usr/share/nginx/html<span class="p">;</span>
+<span class="o">}</span>
+
+<span class="o">}</span>
+</code></pre></div></p>
+<p>Dans cet exemple :</p>
+<ul>
+<li><code>/api</code> est redirigé vers le backend</li>
+<li>le reste est servi par le frontend</li>
 </ul>
 <hr/>
 <div class="admonition tip">
 <p class="admonition-title">Avantages</p>
-<p>CQRS apporte plusieurs bénéfices :  </p>
+<p>Le reverse proxy apporte plusieurs bénéfices :</p>
 <ul>
-<li>séparation claire des responsabilités  </li>
-<li>optimisation indépendante lecture / écriture  </li>
-<li>meilleure scalabilité  </li>
-<li>meilleure adaptabilité aux besoins UI  </li>
+<li>point d’entrée unique</li>
+<li>gestion centralisée de HTTPS</li>
+<li>amélioration de la sécurité</li>
+<li>meilleure observabilité</li>
+<li>simplification de l’architecture</li>
 </ul>
-<p>Il est particulièrement adapté aux architectures event-driven.  </p>
 </div>
 <hr/>
 <div class="admonition warning">
-<p class="admonition-title">Inconvénients</p>
-<p>CQRS introduit une complexité supplémentaire :  </p>
+<p class="admonition-title">Limites</p>
+<p>Le reverse proxy devient un composant critique du système.</p>
+<p>Il doit être :</p>
 <ul>
-<li>duplication de données  </li>
-<li>gestion de la cohérence  </li>
-<li>architecture plus riche  </li>
+<li>correctement configuré</li>
+<li>surveillé</li>
+<li>sécurisé</li>
 </ul>
-<p>Les systèmes CQRS sont généralement<br/>
-<strong>eventually consistent</strong>.  </p>
-<p>Cela signifie que le read model peut être légèrement en retard par rapport au write model.</p>
+<p>Dans les architectures très distribuées, un reverse proxy peut être complété par :</p>
+<ul>
+<li>un load balancer</li>
+<li>un API gateway</li>
+</ul>
 </div>
-<h1 id="quand-utiliser-cqrs">Quand utiliser CQRS<a class="headerlink" href="#quand-utiliser-cqrs" title="Permanent link">¶</a></h1>
-<p>CQRS est particulièrement utile lorsque :</p>
-<ul>
-<li>les lectures sont beaucoup plus fréquentes</li>
-<li>les besoins de lecture sont très différents</li>
-<li>le système utilise des événements</li>
-<li>l’architecture est distribuée</li>
-</ul>
-<p>Pour les systèmes simples,
-un modèle unique peut suffire.</p>
 <hr/>
 <h1 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">¶</a></h1>
-<p>CQRS permet de séparer les responsabilités
-de lecture et d’écriture.</p>
-<p>Combiné avec des événements,
-il devient un outil puissant
-pour construire des architectures
-modulaires et évolutives.</p>
+<p>Le reverse proxy est un élément
+fondamental des architectures web modernes.</p>
+<p>Il permet de centraliser :</p>
+<ul>
+<li>la gestion du trafic</li>
+<li>la sécurité</li>
+<li>le chiffrement HTTPS</li>
+</ul>
+<p>et constitue souvent
+la première couche d’infrastructure
+exposée aux utilisateurs.</p>
 </article>
 </div>
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
