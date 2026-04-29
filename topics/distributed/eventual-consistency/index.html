@@ -79,6 +79,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#eventual-consistency" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -2185,6 +2190,26 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Eventual Consistency
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
@@ -2202,6 +2227,152 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#contexte" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contexte
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#principe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Principe
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exemple-concret" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exemple concret
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#strong-vs-eventual-consistency" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Strong vs Eventual Consistency
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#patterns-associes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Patterns associés
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Patterns associés">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#compensation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Compensation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#read-your-writes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Read-your-writes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#idempotence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Idempotence
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quand-lutiliser" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quand l'utiliser
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quand-leviter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quand l'éviter
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-retenir" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        À retenir
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -3729,6 +3900,143 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#contexte" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contexte
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#principe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Principe
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exemple-concret" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exemple concret
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#strong-vs-eventual-consistency" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Strong vs Eventual Consistency
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#patterns-associes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Patterns associés
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Patterns associés">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#compensation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Compensation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#read-your-writes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Read-your-writes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#idempotence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Idempotence
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quand-lutiliser" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quand l'utiliser
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quand-leviter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quand l'éviter
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-retenir" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        À retenir
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -3745,9 +4053,117 @@
 
 
 
-  <h1>Eventual Consistency</h1>
-
-
+<h1 id="eventual-consistency">Eventual Consistency<a class="headerlink" href="#eventual-consistency" title="Permanent link">&para;</a></h1>
+<h2 id="contexte">Contexte<a class="headerlink" href="#contexte" title="Permanent link">&para;</a></h2>
+<p>Dans les systèmes distribués, maintenir une cohérence forte entre tous les nœuds a un coût élevé en latence et en disponibilité.</p>
+<p>Le théorème CAP montre qu'un système distribué ne peut garantir simultanément :</p>
+<ul>
+<li><strong>Consistency</strong> — tous les nœuds voient la même donnée</li>
+<li><strong>Availability</strong> — chaque requête reçoit une réponse</li>
+<li><strong>Partition tolerance</strong> — le système fonctionne malgré des coupures réseau</li>
+</ul>
+<hr />
+<h2 id="principe">Principe<a class="headerlink" href="#principe" title="Permanent link">&para;</a></h2>
+<p>L'eventual consistency est un modèle où :</p>
+<blockquote>
+<p>Les données finiront par être cohérentes sur tous les nœuds, mais pas nécessairement immédiatement.</p>
+</blockquote>
+<p>Après une écriture, il existe une fenêtre pendant laquelle différents nœuds peuvent retourner des valeurs différentes. Une fois la propagation terminée, tous les nœuds convergent vers la même valeur.</p>
+<hr />
+<h2 id="exemple-concret">Exemple concret<a class="headerlink" href="#exemple-concret" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>Service A écrit &quot;solde = 500&quot; dans sa base locale
+     │
+     ▼
+Événement publié sur Kafka
+     │
+     ▼
+Service B consomme l&#39;événement (délai de quelques ms à quelques secondes)
+     │
+     ▼
+Service B met à jour sa read model → &quot;solde = 500&quot;
+</code></pre></div>
+<p>Pendant le délai de propagation, Service A et Service B peuvent retourner des valeurs différentes.</p>
+<hr />
+<h2 id="strong-vs-eventual-consistency">Strong vs Eventual Consistency<a class="headerlink" href="#strong-vs-eventual-consistency" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Strong Consistency</th>
+<th>Eventual Consistency</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Lecture après écriture</td>
+<td>Toujours à jour</td>
+<td>Potentiellement stale</td>
+</tr>
+<tr>
+<td>Latence</td>
+<td>Plus élevée</td>
+<td>Plus faible</td>
+</tr>
+<tr>
+<td>Disponibilité</td>
+<td>Réduite pendant les partitions</td>
+<td>Maintenue</td>
+</tr>
+<tr>
+<td>Complexité</td>
+<td>Protocoles de consensus (Raft, Paxos)</td>
+<td>Propagation asynchrone</td>
+</tr>
+<tr>
+<td>Cas d'usage</td>
+<td>Transactions bancaires critiques</td>
+<td>Feeds, dashboards, caches</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="patterns-associes">Patterns associés<a class="headerlink" href="#patterns-associes" title="Permanent link">&para;</a></h2>
+<h3 id="compensation">Compensation<a class="headerlink" href="#compensation" title="Permanent link">&para;</a></h3>
+<p>Quand une incohérence est détectée, un mécanisme de compensation corrige l'état :</p>
+<ul>
+<li>saga pattern avec rollback compensatoire</li>
+<li>reconciliation jobs périodiques</li>
+</ul>
+<h3 id="read-your-writes">Read-your-writes<a class="headerlink" href="#read-your-writes" title="Permanent link">&para;</a></h3>
+<p>Pour améliorer l'expérience utilisateur, on peut garantir qu'un utilisateur voit ses propres écritures :</p>
+<ul>
+<li>lire depuis le leader après une écriture</li>
+<li>utiliser un version token côté client</li>
+</ul>
+<h3 id="idempotence">Idempotence<a class="headerlink" href="#idempotence" title="Permanent link">&para;</a></h3>
+<p>Les messages peuvent être délivrés plusieurs fois pendant la convergence :</p>
+<ul>
+<li>chaque consumer doit être idempotent</li>
+<li>utiliser un <code>eventId</code> unique pour dédupliquer</li>
+</ul>
+<hr />
+<h2 id="quand-lutiliser">Quand l'utiliser<a class="headerlink" href="#quand-lutiliser" title="Permanent link">&para;</a></h2>
+<ul>
+<li>systèmes event-driven avec CQRS</li>
+<li>microservices avec bases de données séparées</li>
+<li>caches distribués</li>
+<li>systèmes à forte charge où la disponibilité prime</li>
+</ul>
+<hr />
+<h2 id="quand-leviter">Quand l'éviter<a class="headerlink" href="#quand-leviter" title="Permanent link">&para;</a></h2>
+<ul>
+<li>transactions financières critiques nécessitant une cohérence immédiate</li>
+<li>systèmes où une lecture stale peut causer des dommages (ex : stock critique)</li>
+<li>workflows où l'ordre strict des opérations est requis</li>
+</ul>
+<hr />
+<h2 id="a-retenir">À retenir<a class="headerlink" href="#a-retenir" title="Permanent link">&para;</a></h2>
+<ul>
+<li>eventual consistency est un compromis, pas un défaut</li>
+<li>la fenêtre d'incohérence doit être mesurée et monitorée</li>
+<li>les patterns d'idempotence et de compensation sont indispensables</li>
+<li>le choix entre strong et eventual dépend du contexte métier, pas de la technique</li>
+</ul>
 
 
 

@@ -79,6 +79,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#rest-api-design" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -1928,6 +1933,26 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    REST API Design
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
@@ -1945,6 +1970,191 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#principe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Principe
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conventions-de-nommage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conventions de nommage
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Conventions de nommage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#urls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        URLs
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verbes-http" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verbes HTTP
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#codes-de-retour" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Codes de retour
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Codes de retour">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#succes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Succès
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#erreurs-client" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Erreurs client
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#erreurs-serveur" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Erreurs serveur
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pagination" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pagination
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#filtrage-et-tri" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Filtrage et tri
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#versioning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Versioning
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#format-derreur" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Format d'erreur
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hateoas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HATEOAS
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-retenir" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        À retenir
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -3729,6 +3939,182 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#principe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Principe
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conventions-de-nommage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conventions de nommage
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Conventions de nommage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#urls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        URLs
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verbes-http" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verbes HTTP
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#codes-de-retour" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Codes de retour
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Codes de retour">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#succes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Succès
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#erreurs-client" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Erreurs client
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#erreurs-serveur" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Erreurs serveur
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pagination" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pagination
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#filtrage-et-tri" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Filtrage et tri
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#versioning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Versioning
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#format-derreur" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Format d'erreur
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hateoas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HATEOAS
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-retenir" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        À retenir
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -3745,9 +4131,265 @@
 
 
 
-  <h1>REST API Design</h1>
-
-
+<h1 id="rest-api-design">REST API Design<a class="headerlink" href="#rest-api-design" title="Permanent link">&para;</a></h1>
+<h2 id="principe">Principe<a class="headerlink" href="#principe" title="Permanent link">&para;</a></h2>
+<p>REST (Representational State Transfer) est un style d'architecture pour les APIs basé sur les ressources et les verbes HTTP.</p>
+<p>Une API REST bien conçue est :</p>
+<ul>
+<li><strong>prévisible</strong> — les URLs suivent une convention</li>
+<li><strong>stateless</strong> — chaque requête contient toute l'information nécessaire</li>
+<li><strong>uniforme</strong> — les mêmes verbes HTTP pour toutes les ressources</li>
+</ul>
+<hr />
+<h2 id="conventions-de-nommage">Conventions de nommage<a class="headerlink" href="#conventions-de-nommage" title="Permanent link">&para;</a></h2>
+<h3 id="urls">URLs<a class="headerlink" href="#urls" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>GET    /api/v1/users          → liste des utilisateurs
+GET    /api/v1/users/42       → utilisateur 42
+POST   /api/v1/users          → créer un utilisateur
+PUT    /api/v1/users/42       → remplacer l&#39;utilisateur 42
+PATCH  /api/v1/users/42       → modifier partiellement
+DELETE /api/v1/users/42       → supprimer
+</code></pre></div>
+<p>Règles :</p>
+<ul>
+<li>noms au pluriel (<code>/users</code>, pas <code>/user</code>)</li>
+<li>pas de verbes dans l'URL (<code>/users</code>, pas <code>/getUsers</code>)</li>
+<li>kebab-case pour les mots composés (<code>/order-items</code>)</li>
+<li>hiérarchie pour les sous-ressources (<code>/users/42/orders</code>)</li>
+</ul>
+<hr />
+<h2 id="verbes-http">Verbes HTTP<a class="headerlink" href="#verbes-http" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Verbe</th>
+<th>Action</th>
+<th>Idempotent</th>
+<th>Body</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GET</td>
+<td>Lire</td>
+<td>Oui</td>
+<td>Non</td>
+</tr>
+<tr>
+<td>POST</td>
+<td>Créer</td>
+<td>Non</td>
+<td>Oui</td>
+</tr>
+<tr>
+<td>PUT</td>
+<td>Remplacer</td>
+<td>Oui</td>
+<td>Oui</td>
+</tr>
+<tr>
+<td>PATCH</td>
+<td>Modifier partiellement</td>
+<td>Non</td>
+<td>Oui</td>
+</tr>
+<tr>
+<td>DELETE</td>
+<td>Supprimer</td>
+<td>Oui</td>
+<td>Non</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="codes-de-retour">Codes de retour<a class="headerlink" href="#codes-de-retour" title="Permanent link">&para;</a></h2>
+<h3 id="succes">Succès<a class="headerlink" href="#succes" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Signification</th>
+<th>Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>200</td>
+<td>OK</td>
+<td>GET, PUT, PATCH réussis</td>
+</tr>
+<tr>
+<td>201</td>
+<td>Created</td>
+<td>POST réussi, ressource créée</td>
+</tr>
+<tr>
+<td>204</td>
+<td>No Content</td>
+<td>DELETE réussi</td>
+</tr>
+</tbody>
+</table>
+<h3 id="erreurs-client">Erreurs client<a class="headerlink" href="#erreurs-client" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Signification</th>
+<th>Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>400</td>
+<td>Bad Request</td>
+<td>Validation échouée</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized</td>
+<td>Non authentifié</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Forbidden</td>
+<td>Pas les droits</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found</td>
+<td>Ressource inexistante</td>
+</tr>
+<tr>
+<td>409</td>
+<td>Conflict</td>
+<td>Conflit (ex : doublon)</td>
+</tr>
+<tr>
+<td>422</td>
+<td>Unprocessable Entity</td>
+<td>Données valides mais non traitables</td>
+</tr>
+</tbody>
+</table>
+<h3 id="erreurs-serveur">Erreurs serveur<a class="headerlink" href="#erreurs-serveur" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Signification</th>
+<th>Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>500</td>
+<td>Internal Server Error</td>
+<td>Erreur non prévue</td>
+</tr>
+<tr>
+<td>502</td>
+<td>Bad Gateway</td>
+<td>Service en aval indisponible</td>
+</tr>
+<tr>
+<td>503</td>
+<td>Service Unavailable</td>
+<td>Surcharge temporaire</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="pagination">Pagination<a class="headerlink" href="#pagination" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>GET /api/v1/users?page=2&amp;size=20
+</code></pre></div>
+<p>Réponse avec métadonnées :</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;content&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="err">...</span><span class="p">],</span>
+<span class="w">  </span><span class="nt">&quot;page&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;size&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;totalElements&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">156</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;totalPages&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Alternatives :</p>
+<ul>
+<li><strong>offset-based</strong> : <code>?offset=40&amp;limit=20</code> — simple mais problématique pour les grands datasets</li>
+<li><strong>cursor-based</strong> : <code>?cursor=abc123&amp;limit=20</code> — performant, adapté aux flux temps réel</li>
+</ul>
+<hr />
+<h2 id="filtrage-et-tri">Filtrage et tri<a class="headerlink" href="#filtrage-et-tri" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>GET /api/v1/users?status=active&amp;role=admin&amp;sort=createdAt,desc
+</code></pre></div>
+<p>Conventions :</p>
+<ul>
+<li>filtres en query params</li>
+<li>tri avec <code>sort=field,direction</code></li>
+<li>recherche avec <code>?q=terme</code></li>
+</ul>
+<hr />
+<h2 id="versioning">Versioning<a class="headerlink" href="#versioning" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Stratégie</th>
+<th>Exemple</th>
+<th>Avantage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>URL path</td>
+<td><code>/api/v1/users</code></td>
+<td>Simple, explicite</td>
+</tr>
+<tr>
+<td>Header</td>
+<td><code>Accept: application/vnd.api.v1+json</code></td>
+<td>URL propre</td>
+</tr>
+<tr>
+<td>Query param</td>
+<td><code>/api/users?version=1</code></td>
+<td>Facile à tester</td>
+</tr>
+</tbody>
+</table>
+<p>Le versioning par URL est le plus courant et le plus lisible.</p>
+<hr />
+<h2 id="format-derreur">Format d'erreur<a class="headerlink" href="#format-derreur" title="Permanent link">&para;</a></h2>
+<p>Structure cohérente pour toutes les erreurs :</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">400</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;error&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Bad Request&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Le champ email est invalide&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;timestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2026-01-15T10:30:00Z&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;path&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/api/v1/users&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+<hr />
+<h2 id="hateoas">HATEOAS<a class="headerlink" href="#hateoas" title="Permanent link">&para;</a></h2>
+<p>Hypermedia as the Engine of Application State — les réponses contiennent les liens vers les actions possibles :</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">42</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Ali&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;_links&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;self&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/api/v1/users/42&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;orders&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/api/v1/users/42/orders&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;delete&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/api/v1/users/42&quot;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Utile en théorie, rarement implémenté complètement en pratique.</p>
+<hr />
+<h2 id="a-retenir">À retenir<a class="headerlink" href="#a-retenir" title="Permanent link">&para;</a></h2>
+<ul>
+<li>REST est une convention, pas un protocole — la cohérence est clé</li>
+<li>les codes HTTP doivent être utilisés correctement (pas tout en 200)</li>
+<li>la pagination est obligatoire pour les collections</li>
+<li>le format d'erreur doit être uniforme sur toute l'API</li>
+<li>le versioning doit être prévu dès le début</li>
+</ul>
 
 
 

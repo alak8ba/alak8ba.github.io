@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#voir-aussi" class="md-skip">
+        <a href="#transaction-patterns" class="md-skip">
           Skip to content
         </a>
       
@@ -2737,6 +2737,8 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
           
@@ -2779,12 +2781,158 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#contexte" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contexte
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#transaction-locale" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Transaction locale
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#niveaux-disolation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Niveaux d'isolation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#propagation-des-transactions-spring" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Propagation des transactions (Spring)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#problemes-courants" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Problèmes courants
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Problèmes courants">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lost-update" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lost Update
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#n1-queries-dans-une-transaction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        N+1 queries dans une transaction
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transaction-trop-longue" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Transaction trop longue
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#transactions-distribuees" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Transactions distribuées
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Transactions distribuées">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#saga-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Saga Pattern
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#outbox-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Outbox Pattern
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-retenir" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        À retenir
+      
+    </span>
+  </a>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#voir-aussi" class="md-nav__link">
@@ -3780,12 +3928,158 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#contexte" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contexte
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#transaction-locale" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Transaction locale
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#niveaux-disolation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Niveaux d'isolation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#propagation-des-transactions-spring" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Propagation des transactions (Spring)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#problemes-courants" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Problèmes courants
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Problèmes courants">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lost-update" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lost Update
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#n1-queries-dans-une-transaction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        N+1 queries dans une transaction
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transaction-trop-longue" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Transaction trop longue
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#transactions-distribuees" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Transactions distribuées
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Transactions distribuées">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#saga-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Saga Pattern
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#outbox-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Outbox Pattern
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-retenir" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        À retenir
+      
+    </span>
+  </a>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#voir-aussi" class="md-nav__link">
@@ -3815,12 +4109,149 @@
 
 
 
-  <h1>Transaction Patterns</h1>
-
+<h1 id="transaction-patterns">Transaction Patterns<a class="headerlink" href="#transaction-patterns" title="Permanent link">&para;</a></h1>
+<h2 id="contexte">Contexte<a class="headerlink" href="#contexte" title="Permanent link">&para;</a></h2>
+<p>Une transaction regroupe plusieurs opérations en une unité atomique : soit tout réussit, soit tout est annulé. En architecture distribuée, la gestion des transactions devient complexe.</p>
+<hr />
+<h2 id="transaction-locale">Transaction locale<a class="headerlink" href="#transaction-locale" title="Permanent link">&para;</a></h2>
+<p>Une seule base de données, gérée par le SGBD :</p>
+<div class="highlight"><pre><span></span><code><span class="nd">@Transactional</span>
+<span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">createOrder</span><span class="p">(</span><span class="n">OrderRequest</span><span class="w"> </span><span class="n">request</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Order</span><span class="w"> </span><span class="n">order</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">orderRepository</span><span class="p">.</span><span class="na">save</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Order</span><span class="p">(</span><span class="n">request</span><span class="p">));</span>
+<span class="w">    </span><span class="n">inventoryRepository</span><span class="p">.</span><span class="na">decrementStock</span><span class="p">(</span><span class="n">request</span><span class="p">.</span><span class="na">getProductId</span><span class="p">(),</span><span class="w"> </span><span class="n">request</span><span class="p">.</span><span class="na">getQuantity</span><span class="p">());</span>
+<span class="w">    </span><span class="c1">// Si une exception est levée, tout est rollback</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Le SGBD garantit les propriétés ACID pour les transactions locales.</p>
+<hr />
+<h2 id="niveaux-disolation">Niveaux d'isolation<a class="headerlink" href="#niveaux-disolation" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Niveau</th>
+<th>Dirty Read</th>
+<th>Non-repeatable Read</th>
+<th>Phantom Read</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>READ UNCOMMITTED</td>
+<td>Possible</td>
+<td>Possible</td>
+<td>Possible</td>
+</tr>
+<tr>
+<td>READ COMMITTED</td>
+<td>Non</td>
+<td>Possible</td>
+<td>Possible</td>
+</tr>
+<tr>
+<td>REPEATABLE READ</td>
+<td>Non</td>
+<td>Non</td>
+<td>Possible</td>
+</tr>
+<tr>
+<td>SERIALIZABLE</td>
+<td>Non</td>
+<td>Non</td>
+<td>Non</td>
+</tr>
+</tbody>
+</table>
+<p>PostgreSQL utilise READ COMMITTED par défaut. SERIALIZABLE offre la plus forte garantie mais réduit la concurrence.</p>
+<div class="highlight"><pre><span></span><code><span class="nd">@Transactional</span><span class="p">(</span><span class="n">isolation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Isolation</span><span class="p">.</span><span class="na">REPEATABLE_READ</span><span class="p">)</span>
+<span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">processPayment</span><span class="p">(</span><span class="n">Long</span><span class="w"> </span><span class="n">orderId</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// ...</span>
+<span class="p">}</span>
+</code></pre></div>
+<hr />
+<h2 id="propagation-des-transactions-spring">Propagation des transactions (Spring)<a class="headerlink" href="#propagation-des-transactions-spring" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Comportement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>REQUIRED (défaut)</td>
+<td>Rejoint la transaction existante ou en crée une nouvelle</td>
+</tr>
+<tr>
+<td>REQUIRES_NEW</td>
+<td>Crée toujours une nouvelle transaction (suspend l'existante)</td>
+</tr>
+<tr>
+<td>NESTED</td>
+<td>Crée un savepoint dans la transaction existante</td>
+</tr>
+<tr>
+<td>SUPPORTS</td>
+<td>Utilise la transaction si elle existe, sinon exécute sans</td>
+</tr>
+<tr>
+<td>NOT_SUPPORTED</td>
+<td>Exécute sans transaction (suspend l'existante)</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code><span class="nd">@Transactional</span><span class="p">(</span><span class="n">propagation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Propagation</span><span class="p">.</span><span class="na">REQUIRES_NEW</span><span class="p">)</span>
+<span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">sendNotification</span><span class="p">(</span><span class="n">Order</span><span class="w"> </span><span class="n">order</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Transaction indépendante — un échec ici ne rollback pas la commande</span>
+<span class="p">}</span>
+</code></pre></div>
+<hr />
+<h2 id="problemes-courants">Problèmes courants<a class="headerlink" href="#problemes-courants" title="Permanent link">&para;</a></h2>
+<h3 id="lost-update">Lost Update<a class="headerlink" href="#lost-update" title="Permanent link">&para;</a></h3>
+<p>Deux transactions lisent puis écrivent la même donnée — la dernière écriture écrase la première.</p>
+<p><strong>Solution</strong> : optimistic locking avec <code>@Version</code>.</p>
+<h3 id="n1-queries-dans-une-transaction">N+1 queries dans une transaction<a class="headerlink" href="#n1-queries-dans-une-transaction" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="n">List</span><span class="o">&lt;</span><span class="n">Order</span><span class="o">&gt;</span><span class="w"> </span><span class="n">orders</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">orderRepository</span><span class="p">.</span><span class="na">findAll</span><span class="p">();</span>
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">Order</span><span class="w"> </span><span class="n">order</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">orders</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">order</span><span class="p">.</span><span class="na">getItems</span><span class="p">().</span><span class="na">size</span><span class="p">();</span><span class="w"> </span><span class="c1">// N requêtes supplémentaires</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><strong>Solution</strong> : <code>JOIN FETCH</code> ou <code>@EntityGraph</code>.</p>
+<h3 id="transaction-trop-longue">Transaction trop longue<a class="headerlink" href="#transaction-trop-longue" title="Permanent link">&para;</a></h3>
+<p>Une transaction qui inclut des appels HTTP ou des traitements longs garde un lock en base.</p>
+<p><strong>Solution</strong> : limiter la transaction aux opérations base de données, externaliser le reste.</p>
+<hr />
+<h2 id="transactions-distribuees">Transactions distribuées<a class="headerlink" href="#transactions-distribuees" title="Permanent link">&para;</a></h2>
+<p>Quand plusieurs services ont chacun leur base de données, une transaction locale ne suffit plus.</p>
+<h3 id="saga-pattern">Saga Pattern<a class="headerlink" href="#saga-pattern" title="Permanent link">&para;</a></h3>
+<p>Séquence de transactions locales avec compensation :</p>
+<div class="highlight"><pre><span></span><code>Commande créée → Paiement effectué → Stock réservé
+                                       ↓ (échec)
+                                   Paiement annulé ← Compensation
+</code></pre></div>
+<p>Deux approches :</p>
+<ul>
+<li><strong>Choreography</strong> — chaque service écoute les événements et réagit</li>
+<li><strong>Orchestration</strong> — un coordinateur central pilote la séquence</li>
+</ul>
+<h3 id="outbox-pattern">Outbox Pattern<a class="headerlink" href="#outbox-pattern" title="Permanent link">&para;</a></h3>
+<p>Garantit qu'un événement est publié si et seulement si la transaction locale réussit :</p>
+<ol>
+<li>écrire dans la table métier ET dans la table <code>outbox</code> dans la même transaction</li>
+<li>un processus séparé lit la table <code>outbox</code> et publie vers Kafka</li>
+</ol>
+<hr />
+<h2 id="a-retenir">À retenir<a class="headerlink" href="#a-retenir" title="Permanent link">&para;</a></h2>
+<ul>
+<li><code>@Transactional</code> gère les transactions locales avec Spring</li>
+<li>le niveau d'isolation par défaut (READ COMMITTED) suffit dans la plupart des cas</li>
+<li>ne jamais inclure d'appels HTTP ou de traitements longs dans une transaction</li>
+<li>en distribué, utiliser le saga pattern avec compensation</li>
+<li>l'outbox pattern garantit la cohérence entre la base et le broker</li>
+</ul>
 <hr />
 <h2 id="voir-aussi">Voir aussi<a class="headerlink" href="#voir-aussi" title="Permanent link">&para;</a></h2>
 <ul>
-<li><a href="../../java/database/acid.md">ACID</a></li>
+<li><a href="../../java/database/acid/">ACID</a></li>
 <li><a href="../optimistic-locking/">Optimistic Locking</a></li>
 </ul>
 

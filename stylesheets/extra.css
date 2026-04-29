@@ -76,69 +76,98 @@
 /*                TYPOGRAPHY                        */
 /* ------------------------------------------------ */
 
-/*.md-typeset {*/
-/*    font-size: 0.95rem;*/
-/*    line-height: 1.7;*/
-/*}*/
+.md-typeset {
+    font-size: 0.95rem;
+    line-height: 1.7;
+}
 
-/*.md-typeset h1 {*/
-/*    font-size: 1.8rem;*/
-/*    font-weight: 600;*/
-/*    letter-spacing: -0.01em;*/
-/*    margin-top: 1.6rem;*/
-/*}*/
+.md-typeset h1 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    margin-top: 1.6rem;
+}
 
-/*.md-typeset h2 {*/
-/*    font-size: 1.4rem;*/
-/*    font-weight: 550;*/
-/*    margin-top: 1.4rem;*/
-/*    border-bottom: 1px solid rgba(255,255,255,0.06);*/
-/*    padding-bottom: 0.3rem;*/
-/*}*/
+.md-typeset h2 {
+    font-size: 1.4rem;
+    font-weight: 550;
+    margin-top: 1.4rem;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    padding-bottom: 0.3rem;
+}
 
-/*.md-typeset h3 {*/
-/*    font-size: 1.15rem;*/
-/*    font-weight: 500;*/
-/*    margin-top: 1.2rem;*/
-/*}*/
+.md-typeset h3 {
+    font-size: 1.15rem;
+    font-weight: 500;
+    margin-top: 1.2rem;
+}
 
-/*.md-typeset h4 {*/
-/*    font-size: 1rem;*/
-/*    font-weight: 500;*/
-/*}*/
+.md-typeset h4 {
+    font-size: 1rem;
+    font-weight: 500;
+}
 
-/*!* code blocks *!*/
+.md-typeset pre {
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.06);
+    padding: 1rem;
+}
 
-/*.md-typeset pre {*/
-/*    border-radius: 8px;*/
-/*    border: 1px solid rgba(255,255,255,0.06);*/
-/*    padding: 1rem;*/
-/*}*/
+.md-typeset code {
+    font-size: 0.85rem;
+}
 
-/*.md-typeset code {*/
-/*    font-size: 0.85rem;*/
-/*}*/
+.md-typeset a {
+    font-weight: 500;
+    text-decoration: none;
+}
 
-/*!* links *!*/
+.md-typeset a:hover {
+    text-decoration: underline;
+}
 
-/*.md-typeset a {*/
-/*    font-weight: 500;*/
-/*    text-decoration: none;*/
-/*}*/
+.md-typeset table {
+    font-size: 0.9rem;
+}
 
-/*.md-typeset a:hover {*/
-/*    text-decoration: underline;*/
-/*}*/
+.md-typeset p {
+    margin: 0.8em 0;
+}
 
-/*!* tables *!*/
+/* cards grid pour la landing page */
+.grid.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+}
 
-/*.md-typeset table {*/
-/*    font-size: 0.9rem;*/
-/*}*/
+.grid.cards > ul {
+    display: contents;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
 
-/*.md-typeset p {*/
-/*    margin: 0.8em 0;*/
-/*}*/
+.grid.cards > ul > li {
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 8px;
+    padding: 1.2rem;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.grid.cards > ul > li:hover {
+    border-color: var(--md-accent-fg-color);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+[data-md-color-scheme="default"] .grid.cards > ul > li {
+    border-color: rgba(0,0,0,0.1);
+}
+
+[data-md-color-scheme="default"] .grid.cards > ul > li:hover {
+    border-color: var(--md-accent-fg-color);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
 
 /* ------------------------------------------------ */
 /*                    LAYOUT                       */

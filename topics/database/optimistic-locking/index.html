@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#voir-aussi" class="md-skip">
+        <a href="#optimistic-locking" class="md-skip">
           Skip to content
         </a>
       
@@ -2765,6 +2765,8 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
           
@@ -2807,12 +2809,119 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#contexte" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contexte
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#principe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Principe
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#optimistic-vs-pessimistic-locking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Optimistic vs Pessimistic Locking
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementation-jpa-hibernate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Implémentation JPA / Hibernate
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Implémentation JPA / Hibernate">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gestion-de-lexception" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gestion de l'exception
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#avec-un-timestamp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Avec un timestamp
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quand-lutiliser" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quand l'utiliser
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quand-leviter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quand l'éviter
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-retenir" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        À retenir
+      
+    </span>
+  </a>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#voir-aussi" class="md-nav__link">
@@ -3780,12 +3889,119 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#contexte" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contexte
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#principe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Principe
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#optimistic-vs-pessimistic-locking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Optimistic vs Pessimistic Locking
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementation-jpa-hibernate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Implémentation JPA / Hibernate
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Implémentation JPA / Hibernate">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gestion-de-lexception" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gestion de l'exception
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#avec-un-timestamp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Avec un timestamp
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quand-lutiliser" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quand l'utiliser
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quand-leviter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quand l'éviter
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-retenir" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        À retenir
+      
+    </span>
+  </a>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#voir-aussi" class="md-nav__link">
@@ -3815,13 +4031,124 @@
 
 
 
-  <h1>Optimistic Locking</h1>
+<h1 id="optimistic-locking">Optimistic Locking<a class="headerlink" href="#optimistic-locking" title="Permanent link">&para;</a></h1>
+<h2 id="contexte">Contexte<a class="headerlink" href="#contexte" title="Permanent link">&para;</a></h2>
+<p>Quand plusieurs transactions accèdent simultanément à la même donnée, il y a un risque de <strong>lost update</strong> — une transaction écrase les modifications d'une autre.</p>
+<p>L'optimistic locking résout ce problème sans verrouiller les lignes en base.</p>
+<hr />
+<h2 id="principe">Principe<a class="headerlink" href="#principe" title="Permanent link">&para;</a></h2>
+<p>L'optimistic locking repose sur un <strong>numéro de version</strong> :</p>
+<ol>
+<li>lire la donnée avec sa version actuelle (<code>version = 3</code>)</li>
+<li>modifier la donnée en mémoire</li>
+<li>au moment du <code>UPDATE</code>, vérifier que la version n'a pas changé</li>
+<li>si la version a changé → conflit détecté, transaction rejetée</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="k">UPDATE</span><span class="w"> </span><span class="n">orders</span>
+<span class="k">SET</span><span class="w"> </span><span class="n">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;CONFIRMED&#39;</span><span class="p">,</span><span class="w"> </span><span class="k">version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">42</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="k">version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+</code></pre></div>
+<p>Si <code>version</code> a été modifiée entre-temps, le <code>WHERE</code> ne matche rien → 0 rows updated → conflit.</p>
+<hr />
+<h2 id="optimistic-vs-pessimistic-locking">Optimistic vs Pessimistic Locking<a class="headerlink" href="#optimistic-vs-pessimistic-locking" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Optimistic</th>
+<th>Pessimistic</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Verrouillage</td>
+<td>Au moment de l'écriture</td>
+<td>Au moment de la lecture</td>
+</tr>
+<tr>
+<td>SQL</td>
+<td><code>WHERE version = ?</code></td>
+<td><code>SELECT ... FOR UPDATE</code></td>
+</tr>
+<tr>
+<td>Conflits</td>
+<td>Détectés à l'écriture</td>
+<td>Empêchés par le lock</td>
+</tr>
+<tr>
+<td>Performance</td>
+<td>Meilleure (pas de lock en base)</td>
+<td>Dégradée sous charge</td>
+</tr>
+<tr>
+<td>Cas d'usage</td>
+<td>Conflits rares</td>
+<td>Conflits fréquents</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="implementation-jpa-hibernate">Implémentation JPA / Hibernate<a class="headerlink" href="#implementation-jpa-hibernate" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="nd">@Entity</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Order</span><span class="w"> </span><span class="p">{</span>
 
+<span class="w">    </span><span class="nd">@Id</span>
+<span class="w">    </span><span class="nd">@GeneratedValue</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Long</span><span class="w"> </span><span class="n">id</span><span class="p">;</span>
+
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">status</span><span class="p">;</span>
+
+<span class="w">    </span><span class="nd">@Version</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Integer</span><span class="w"> </span><span class="n">version</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Hibernate gère automatiquement :</p>
+<ul>
+<li>incrémente <code>version</code> à chaque <code>UPDATE</code></li>
+<li>lance <code>OptimisticLockException</code> si la version ne correspond pas</li>
+</ul>
+<h3 id="gestion-de-lexception">Gestion de l'exception<a class="headerlink" href="#gestion-de-lexception" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">orderRepository</span><span class="p">.</span><span class="na">save</span><span class="p">(</span><span class="n">order</span><span class="p">);</span>
+<span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">OptimisticLockException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Recharger la donnée et réessayer, ou informer l&#39;utilisateur</span>
+<span class="w">    </span><span class="n">Order</span><span class="w"> </span><span class="n">fresh</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">orderRepository</span><span class="p">.</span><span class="na">findById</span><span class="p">(</span><span class="n">order</span><span class="p">.</span><span class="na">getId</span><span class="p">()).</span><span class="na">orElseThrow</span><span class="p">();</span>
+<span class="w">    </span><span class="c1">// appliquer la modification sur la version fraîche</span>
+<span class="p">}</span>
+</code></pre></div>
+<hr />
+<h2 id="avec-un-timestamp">Avec un timestamp<a class="headerlink" href="#avec-un-timestamp" title="Permanent link">&para;</a></h2>
+<p>Alternative à la version numérique :</p>
+<div class="highlight"><pre><span></span><code><span class="nd">@Version</span>
+<span class="kd">private</span><span class="w"> </span><span class="n">Instant</span><span class="w"> </span><span class="n">lastModified</span><span class="p">;</span>
+</code></pre></div>
+<p>Moins fiable — deux modifications dans la même milliseconde ne sont pas détectées. La version numérique est préférable.</p>
+<hr />
+<h2 id="quand-lutiliser">Quand l'utiliser<a class="headerlink" href="#quand-lutiliser" title="Permanent link">&para;</a></h2>
+<ul>
+<li>applications web classiques (les conflits sont rares)</li>
+<li>systèmes à forte charge (évite les locks en base)</li>
+<li>APIs REST avec PUT/PATCH (inclure la version dans le body ou un header <code>If-Match</code>)</li>
+</ul>
+<hr />
+<h2 id="quand-leviter">Quand l'éviter<a class="headerlink" href="#quand-leviter" title="Permanent link">&para;</a></h2>
+<ul>
+<li>scénarios avec conflits fréquents (compteur partagé, stock limité)</li>
+<li>transactions longues où le risque de conflit augmente</li>
+</ul>
+<hr />
+<h2 id="a-retenir">À retenir<a class="headerlink" href="#a-retenir" title="Permanent link">&para;</a></h2>
+<ul>
+<li>optimistic locking détecte les conflits au lieu de les empêcher</li>
+<li><code>@Version</code> avec JPA est le moyen le plus simple en Java</li>
+<li>préférer un numéro de version à un timestamp</li>
+<li>gérer <code>OptimisticLockException</code> avec un retry ou un message utilisateur</li>
+</ul>
 <hr />
 <h2 id="voir-aussi">Voir aussi<a class="headerlink" href="#voir-aussi" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="../transaction-patterns/">Transaction Patterns</a></li>
-<li><a href="../../java/database/acid.md">ACID</a></li>
+<li><a href="../../java/database/acid/">ACID</a></li>
 </ul>
 
 
