@@ -1842,38 +1842,36 @@
 ➡️ garantit qu’un seul thread exécute le code à la fois</p>
 <hr />
 <h2 id="2-methode-synchronisee-instance">2. Méthode synchronisée (instance)<a class="headerlink" href="#2-methode-synchronisee-instance" title="Permanent link">&para;</a></h2>
-<p>```java id="t2k9mx"
-class Counter {
-    private int count = 0;</p>
-<div class="highlight"><pre><span></span><code>public synchronized void increment() {
-    count++;
-}
+<div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nc">Counter</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">synchronized</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">increment</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">count</span><span class="o">++</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
 </code></pre></div>
-<p>}
-<code>``
-
-ici :
-
-* lock sur **l’objet courant (</code>this`)**
-* un seul thread par instance</p>
+<p>ici :</p>
+<ul>
+<li>lock sur <strong>l’objet courant (<code>this</code>)</strong></li>
+<li>un seul thread par instance</li>
+</ul>
 <hr />
 <h2 id="3-bloc-synchronise">3. Bloc synchronisé<a class="headerlink" href="#3-bloc-synchronise" title="Permanent link">&para;</a></h2>
-<p><code>java id="w8p3zn"
-synchronized(this) {
-    count++;
-}</code></p>
+<div class="highlight"><pre><span></span><code><span class="kd">synchronized</span><span class="p">(</span><span class="k">this</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">count</span><span class="o">++</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
 <p>permet de synchroniser uniquement une partie du code</p>
 <hr />
 <h2 id="4-methode-static-synchronized">4. Méthode <code>static synchronized</code><a class="headerlink" href="#4-methode-static-synchronized" title="Permanent link">&para;</a></h2>
-<p>```java id="z5n2qr"
-class Counter {
-    private static int count = 0;</p>
-<div class="highlight"><pre><span></span><code>public static synchronized void increment() {
-    count++;
-}
+<div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nc">Counter</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">synchronized</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">increment</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">count</span><span class="o">++</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
 </code></pre></div>
-<p>}
-```</p>
 <p>ici :</p>
 <ul>
 <li>lock sur <strong>la classe (<code>Counter.class</code>)</strong></li>

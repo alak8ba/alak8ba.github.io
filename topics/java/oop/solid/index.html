@@ -1668,10 +1668,32 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#3-o-openclosed-principle-ocp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. O — Open/Closed Principle (OCP)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#4-l-liskov-substitution-principle-lsp" class="md-nav__link">
     <span class="md-ellipsis">
       
         4. L — Liskov Substitution Principle (LSP)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-i-interface-segregation-principle-isp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. I — Interface Segregation Principle (ISP)
       
     </span>
   </a>
@@ -1809,51 +1831,46 @@
 <hr />
 <h2 id="2-s-single-responsibility-principle-srp">2. S — Single Responsibility Principle (SRP)<a class="headerlink" href="#2-s-single-responsibility-principle-srp" title="Permanent link">&para;</a></h2>
 <p>une classe = <strong>une seule responsabilité</strong></p>
-<p>```java id="s1p3ex"
-class UserService {
-    void createUser() {}
-}
-<div class="highlight"><pre><span></span><code>- Mauvais :
-
-* gérer utilisateur + email + DB dans la même classe
-
----
-
-## 3. O — Open/Closed Principle (OCP)
-
-**ouvert à l’extension, fermé à la modification**
-
-```java id=&quot;ocp2ex&quot;
-interface Payment {
-    void pay();
-}
-</code></pre></div></p>
+<div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nc">UserService</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">createUser</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span>
+<span class="p">}</span>
+</code></pre></div>
+<ul>
+<li>
+<p>Mauvais :</p>
+</li>
+<li>
+<p>gérer utilisateur + email + DB dans la même classe</p>
+</li>
+</ul>
+<hr />
+<h2 id="3-o-openclosed-principle-ocp">3. O — Open/Closed Principle (OCP)<a class="headerlink" href="#3-o-openclosed-principle-ocp" title="Permanent link">&para;</a></h2>
+<p><strong>ouvert à l’extension, fermé à la modification</strong></p>
+<div class="highlight"><pre><span></span><code><span class="kd">interface</span> <span class="nc">Payment</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">pay</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div>
 <p>on ajoute des classes sans modifier l’existant</p>
 <hr />
 <h2 id="4-l-liskov-substitution-principle-lsp">4. L — Liskov Substitution Principle (LSP)<a class="headerlink" href="#4-l-liskov-substitution-principle-lsp" title="Permanent link">&para;</a></h2>
 <p>une sous-classe doit pouvoir remplacer sa classe parent</p>
-<p>```java id="lsp3ex"
-Animal a = new Dog(); // ✔️ OK
-<div class="highlight"><pre><span></span><code>comportement cohérent attendu
-
----
-
-## 5. I — Interface Segregation Principle (ISP)
-
-plusieurs petites interfaces &gt; une grosse
-
-```java id=&quot;isp4ex&quot;
-interface Flyable { void fly(); }
-interface Swimmable { void swim(); }
-</code></pre></div></p>
+<div class="highlight"><pre><span></span><code><span class="n">Animal</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Dog</span><span class="p">();</span><span class="w"> </span><span class="c1">// ✔️ OK</span>
+</code></pre></div>
+<p>comportement cohérent attendu</p>
+<hr />
+<h2 id="5-i-interface-segregation-principle-isp">5. I — Interface Segregation Principle (ISP)<a class="headerlink" href="#5-i-interface-segregation-principle-isp" title="Permanent link">&para;</a></h2>
+<p>plusieurs petites interfaces &gt; une grosse</p>
+<div class="highlight"><pre><span></span><code><span class="kd">interface</span> <span class="nc">Flyable</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">fly</span><span class="p">();</span><span class="w"> </span><span class="p">}</span>
+<span class="kd">interface</span> <span class="nc">Swimmable</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">swim</span><span class="p">();</span><span class="w"> </span><span class="p">}</span>
+</code></pre></div>
 <p>évite les méthodes inutiles</p>
 <hr />
 <h2 id="6-d-dependency-inversion-principle-dip">6. D — Dependency Inversion Principle (DIP)<a class="headerlink" href="#6-d-dependency-inversion-principle-dip" title="Permanent link">&para;</a></h2>
 <p>dépendre d’abstractions, pas d’implémentations</p>
-<p><code>java id="dip5ex"
-class Service {
-    private Repository repo;
-}</code></p>
+<div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nc">Service</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Repository</span><span class="w"> </span><span class="n">repo</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
 <p>pas de <code>new</code> direct</p>
 <hr />
 <h2 id="7-resume">7. Résumé<a class="headerlink" href="#7-resume" title="Permanent link">&para;</a></h2>

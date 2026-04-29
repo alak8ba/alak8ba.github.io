@@ -1690,6 +1690,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#4-solution-avec-atomic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Solution avec Atomic
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#5-classes-principales" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1705,6 +1716,17 @@
     <span class="md-ellipsis">
       
         6. Méthodes importantes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-compare-and-set-cas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Compare-And-Set (CAS)
       
     </span>
   </a>
@@ -1870,33 +1892,29 @@
 ➡️ <strong>thread-safe sans lock explicite</strong></p>
 <hr />
 <h2 id="2-exemple-classique">2. Exemple classique<a class="headerlink" href="#2-exemple-classique" title="Permanent link">&para;</a></h2>
-<p>```java id="k3n8px"
-AtomicInteger count = new AtomicInteger(0);</p>
-<p>count.incrementAndGet();
-<div class="highlight"><pre><span></span><code>équivalent à :
+<div class="highlight"><pre><span></span><code><span class="n">AtomicInteger</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">AtomicInteger</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
 
-```java id=&quot;z9r2lm&quot;
-count++;
-</code></pre></div></p>
+<span class="n">count</span><span class="p">.</span><span class="na">incrementAndGet</span><span class="p">();</span>
+</code></pre></div>
+<p>équivalent à :</p>
+<div class="highlight"><pre><span></span><code><span class="n">count</span><span class="o">++</span><span class="p">;</span>
+</code></pre></div>
 <h2 id="mais-en-version-thread-safe">MAIS en version thread-safe<a class="headerlink" href="#mais-en-version-thread-safe" title="Permanent link">&para;</a></h2>
 <h2 id="3-pourquoi-cest-important">3. Pourquoi c’est important ?<a class="headerlink" href="#3-pourquoi-cest-important" title="Permanent link">&para;</a></h2>
-<p>```java id="v4p7qs"
-int count = 0;
-count++; // ❌ pas thread-safe
-<div class="highlight"><pre><span></span><code>problème :
+<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="n">count</span><span class="o">++</span><span class="p">;</span><span class="w"> </span><span class="c1">// ❌ pas thread-safe</span>
+</code></pre></div>
+<p>problème :</p>
+<ul>
+<li>opération en plusieurs étapes</li>
+<li>race condition possible</li>
+</ul>
+<hr />
+<h2 id="4-solution-avec-atomic">4. Solution avec Atomic<a class="headerlink" href="#4-solution-avec-atomic" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="n">AtomicInteger</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">AtomicInteger</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
 
-* opération en plusieurs étapes
-* race condition possible
-
----
-
-## 4. Solution avec Atomic
-
-```java id=&quot;y7m1wk&quot;
-AtomicInteger count = new AtomicInteger(0);
-
-count.incrementAndGet(); // ✔️ thread-safe
-</code></pre></div></p>
+<span class="n">count</span><span class="p">.</span><span class="na">incrementAndGet</span><span class="p">();</span><span class="w"> </span><span class="c1">// ✔️ thread-safe</span>
+</code></pre></div>
 <hr />
 <h2 id="5-classes-principales">5. Classes principales<a class="headerlink" href="#5-classes-principales" title="Permanent link">&para;</a></h2>
 <ul>
@@ -1907,20 +1925,16 @@ count.incrementAndGet(); // ✔️ thread-safe
 </ul>
 <hr />
 <h2 id="6-methodes-importantes">6. Méthodes importantes<a class="headerlink" href="#6-methodes-importantes" title="Permanent link">&para;</a></h2>
-<p>```java id="x2p9cz"
-count.get();               // lire
-count.set(10);             // écrire
-count.incrementAndGet();   // ++
-count.compareAndSet(0, 1); // CAS
-<div class="highlight"><pre><span></span><code>---
-
-## 7. Compare-And-Set (CAS)
-
-principe :
-
-```java id=&quot;w8k3ld&quot;
-count.compareAndSet(0, 1);
-</code></pre></div></p>
+<div class="highlight"><pre><span></span><code><span class="n">count</span><span class="p">.</span><span class="na">get</span><span class="p">();</span><span class="w">               </span><span class="c1">// lire</span>
+<span class="n">count</span><span class="p">.</span><span class="na">set</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span><span class="w">             </span><span class="c1">// écrire</span>
+<span class="n">count</span><span class="p">.</span><span class="na">incrementAndGet</span><span class="p">();</span><span class="w">   </span><span class="c1">// ++</span>
+<span class="n">count</span><span class="p">.</span><span class="na">compareAndSet</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="c1">// CAS</span>
+</code></pre></div>
+<hr />
+<h2 id="7-compare-and-set-cas">7. Compare-And-Set (CAS)<a class="headerlink" href="#7-compare-and-set-cas" title="Permanent link">&para;</a></h2>
+<p>principe :</p>
+<div class="highlight"><pre><span></span><code><span class="n">count</span><span class="p">.</span><span class="na">compareAndSet</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+</code></pre></div>
 <p>signifie :</p>
 <ul>
 <li>si valeur = 0 → remplace par 1</li>

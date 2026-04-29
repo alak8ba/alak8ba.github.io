@@ -1668,6 +1668,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#solution-avec-volatile" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Solution avec volatile
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#ce-que-fait-vraiment-volatile" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1698,8 +1709,113 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Exemple important">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resume-cle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Résumé clé
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quand-utiliser-volatile" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quand utiliser volatile
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Quand utiliser volatile">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bon-cas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bon cas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mauvais-cas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mauvais cas
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#difference-avec-synchronized" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Différence avec synchronized
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pieges-frequents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pièges fréquents
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#questions-classiques" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Questions classiques
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Questions classiques">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#q1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q1
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q2
+      
+    </span>
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#q3" class="md-nav__link">
@@ -1769,28 +1885,26 @@
 </ul>
 <hr />
 <h2 id="probleme-sans-volatile">Problème sans <code>volatile</code><a class="headerlink" href="#probleme-sans-volatile" title="Permanent link">&para;</a></h2>
-<p>```java id="n2z8sx"
-boolean running = true;</p>
-<p>Thread t = new Thread(() -&gt; {
-    while (running) {
-        // boucle infinie possible
-    }
-});</p>
-<p>running = false;
-<div class="highlight"><pre><span></span><code>Problème :
+<div class="highlight"><pre><span></span><code><span class="kt">boolean</span><span class="w"> </span><span class="n">running</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
 
-* le thread peut **ne jamais voir la mise à jour**
-* il continue à tourner indéfiniment
+<span class="n">Thread</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Thread</span><span class="p">(()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">running</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// boucle infinie possible</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">});</span>
 
-💥 C’est un bug réel qu’on peut rencontrer en production
-
----
-
-## Solution avec `volatile`
-
-```java id=&quot;4v9j3p&quot;
-volatile boolean running = true;
-</code></pre></div></p>
+<span class="n">running</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
+</code></pre></div>
+<p>Problème :</p>
+<ul>
+<li>le thread peut <strong>ne jamais voir la mise à jour</strong></li>
+<li>il continue à tourner indéfiniment</li>
+</ul>
+<p>💥 C’est un bug réel qu’on peut rencontrer en production</p>
+<hr />
+<h2 id="solution-avec-volatile">Solution avec <code>volatile</code><a class="headerlink" href="#solution-avec-volatile" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="kd">volatile</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="n">running</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+</code></pre></div>
 <p>Maintenant :</p>
 <ul>
 <li>chaque thread lit toujours la valeur à jour</li>
@@ -1812,84 +1926,106 @@ volatile boolean running = true;
 </ul>
 <hr />
 <h2 id="exemple-important">Exemple important<a class="headerlink" href="#exemple-important" title="Permanent link">&para;</a></h2>
-<p>```java id="tqk3rm"
-volatile int count = 0;</p>
-<p>count++; // ❌ pas thread-safe
-<div class="highlight"><pre><span></span><code>Pourquoi ?
+<div class="highlight"><pre><span></span><code><span class="kd">volatile</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 
-`count++` correspond à plusieurs étapes :
-
-1. lire la valeur
-2. l’incrémenter
-3. écrire le résultat
-
-Avec plusieurs threads → conflits possibles
-
----
-
-## Résumé clé
-
-| Concept    | volatile |
-| ---------- | -------- |
-| visibilité | ✔️       |
-| atomicité  | ❌        |
-| lock       | ❌        |
-
----
-
-## Quand utiliser `volatile`
-
-### Bon cas
-
-* variables de type **flag** (`running`, `stop`)
-* état simple partagé
-* lecture/écriture sans logique complexe
-
-### Mauvais cas
-
-* compteur (`count++`)
-* opérations multiples
-* logique critique concurrente
-
----
-
-## Différence avec `synchronized`
-
-|            | volatile | synchronized |
-| ---------- | -------- | ------------ |
-| visibilité | ✔️       | ✔️           |
-| atomicité  | ❌        | ✔️           |
-| lock       | ❌        | ✔️           |
-
----
-
-## Pièges fréquents
-
-* croire que `volatile` rend le code thread-safe
-* l’utiliser pour des compteurs
-* confondre visibilité et atomicité
----
-
-## Questions classiques
-
-### Q1
-
-`volatile` garantit :
-
-* A. atomicité
-* B. visibilité
-* C. lock
-
-Réponse : **B**
-
----
-
-### Q2
-
-```java id=&quot;f3i7ks&quot;
-volatile int count = 0;
-count++;
-</code></pre></div></p>
+<span class="n">count</span><span class="o">++</span><span class="p">;</span><span class="w"> </span><span class="c1">// ❌ pas thread-safe</span>
+</code></pre></div>
+<p>Pourquoi ?</p>
+<p><code>count++</code> correspond à plusieurs étapes :</p>
+<ol>
+<li>lire la valeur</li>
+<li>l’incrémenter</li>
+<li>écrire le résultat</li>
+</ol>
+<p>Avec plusieurs threads → conflits possibles</p>
+<hr />
+<h2 id="resume-cle">Résumé clé<a class="headerlink" href="#resume-cle" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Concept</th>
+<th>volatile</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>visibilité</td>
+<td>✔️</td>
+</tr>
+<tr>
+<td>atomicité</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>lock</td>
+<td>❌</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="quand-utiliser-volatile">Quand utiliser <code>volatile</code><a class="headerlink" href="#quand-utiliser-volatile" title="Permanent link">&para;</a></h2>
+<h3 id="bon-cas">Bon cas<a class="headerlink" href="#bon-cas" title="Permanent link">&para;</a></h3>
+<ul>
+<li>variables de type <strong>flag</strong> (<code>running</code>, <code>stop</code>)</li>
+<li>état simple partagé</li>
+<li>lecture/écriture sans logique complexe</li>
+</ul>
+<h3 id="mauvais-cas">Mauvais cas<a class="headerlink" href="#mauvais-cas" title="Permanent link">&para;</a></h3>
+<ul>
+<li>compteur (<code>count++</code>)</li>
+<li>opérations multiples</li>
+<li>logique critique concurrente</li>
+</ul>
+<hr />
+<h2 id="difference-avec-synchronized">Différence avec <code>synchronized</code><a class="headerlink" href="#difference-avec-synchronized" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>volatile</th>
+<th>synchronized</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>visibilité</td>
+<td>✔️</td>
+<td>✔️</td>
+</tr>
+<tr>
+<td>atomicité</td>
+<td>❌</td>
+<td>✔️</td>
+</tr>
+<tr>
+<td>lock</td>
+<td>❌</td>
+<td>✔️</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="pieges-frequents">Pièges fréquents<a class="headerlink" href="#pieges-frequents" title="Permanent link">&para;</a></h2>
+<ul>
+<li>croire que <code>volatile</code> rend le code thread-safe</li>
+<li>l’utiliser pour des compteurs</li>
+<li>confondre visibilité et atomicité</li>
+</ul>
+<hr />
+<h2 id="questions-classiques">Questions classiques<a class="headerlink" href="#questions-classiques" title="Permanent link">&para;</a></h2>
+<h3 id="q1">Q1<a class="headerlink" href="#q1" title="Permanent link">&para;</a></h3>
+<p><code>volatile</code> garantit :</p>
+<ul>
+<li>A. atomicité</li>
+<li>B. visibilité</li>
+<li>C. lock</li>
+</ul>
+<p>Réponse : <strong>B</strong></p>
+<hr />
+<h3 id="q2">Q2<a class="headerlink" href="#q2" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="kd">volatile</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="n">count</span><span class="o">++</span><span class="p">;</span>
+</code></pre></div>
 <p>Thread-safe ?</p>
 <p>Non</p>
 <hr />

@@ -1665,6 +1665,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="2. Exemple">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#utilisation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Utilisation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1683,6 +1700,17 @@
     <span class="md-ellipsis">
       
         4. Piège classique
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#solution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Solution
       
     </span>
   </a>
@@ -1797,25 +1825,22 @@
 <p>➡️ indépendamment de la classe</p>
 <hr />
 <h2 id="2-exemple">2. Exemple<a class="headerlink" href="#2-exemple" title="Permanent link">&para;</a></h2>
-<p>```java id="g2k9rm"
-public class Utils {
-    public static <T> void test(T t) {
-        System.out.println(t);
-    }
-}
-<div class="highlight"><pre><span></span><code>ici :
-
-* `&lt;T&gt;` est défini au niveau de la méthode
-* fonctionne avec n’importe quel type
-
----
-
-### Utilisation
-
-```java id=&quot;x8v3qn&quot;
-Utils.test(&quot;hello&quot;);
-Utils.test(123);
-</code></pre></div></p>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Utils</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">test</span><span class="p">(</span><span class="n">T</span><span class="w"> </span><span class="n">t</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">t</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>ici :</p>
+<ul>
+<li><code>&lt;T&gt;</code> est défini au niveau de la méthode</li>
+<li>fonctionne avec n’importe quel type</li>
+</ul>
+<hr />
+<h3 id="utilisation">Utilisation<a class="headerlink" href="#utilisation" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="n">Utils</span><span class="p">.</span><span class="na">test</span><span class="p">(</span><span class="s">&quot;hello&quot;</span><span class="p">);</span>
+<span class="n">Utils</span><span class="p">.</span><span class="na">test</span><span class="p">(</span><span class="mi">123</span><span class="p">);</span>
+</code></pre></div>
 <hr />
 <h2 id="3-pourquoi-ca-marche">3. Pourquoi ça marche ?<a class="headerlink" href="#3-pourquoi-ca-marche" title="Permanent link">&para;</a></h2>
 <p>une méthode <code>static</code> :</p>
@@ -1825,24 +1850,21 @@ Utils.test(123);
 </ul>
 <hr />
 <h2 id="4-piege-classique">4. Piège classique<a class="headerlink" href="#4-piege-classique" title="Permanent link">&para;</a></h2>
-<p>```java id="v3p7ds"
-class Box<T> {
-    static void test(T t) {} // ❌ erreur
-}
-<div class="highlight"><pre><span></span><code>Pourquoi ?
-
-* `T` appartient à la classe
-* une méthode `static` ne peut pas y accéder
-
----
-
-## Solution
-
-```java id=&quot;n9k4zw&quot;
-class Box&lt;T&gt; {
-    static &lt;T&gt; void test(T t) {} // ✔️ OK
-}
-</code></pre></div></p>
+<div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nc">Box</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">test</span><span class="p">(</span><span class="n">T</span><span class="w"> </span><span class="n">t</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="c1">// ❌ erreur</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Pourquoi ?</p>
+<ul>
+<li><code>T</code> appartient à la classe</li>
+<li>une méthode <code>static</code> ne peut pas y accéder</li>
+</ul>
+<hr />
+<h2 id="solution">Solution<a class="headerlink" href="#solution" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nc">Box</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">test</span><span class="p">(</span><span class="n">T</span><span class="w"> </span><span class="n">t</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="c1">// ✔️ OK</span>
+<span class="p">}</span>
+</code></pre></div>
 <p>on redéfinit <code>&lt;T&gt;</code> au niveau méthode</p>
 <hr />
 <h2 id="5-a-retenir">5. À retenir<a class="headerlink" href="#5-a-retenir" title="Permanent link">&para;</a></h2>

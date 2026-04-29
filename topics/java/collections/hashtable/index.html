@@ -1668,6 +1668,39 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#3-caracteristiques" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Caractéristiques
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-difference-avec-hashmap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Différence avec HashMap
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-pourquoi-plus-lente" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Pourquoi plus lente ?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#6-pieges-frequents" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1789,38 +1822,53 @@
 </ul>
 <hr />
 <h2 id="2-exemple">2. Exemple<a class="headerlink" href="#2-exemple" title="Permanent link">&para;</a></h2>
-<p>```java id="k4p9xm"
-Hashtable<String, Integer> table = new Hashtable&lt;&gt;();</p>
-<p>table.put("A", 1);
-table.put("B", 2);</p>
-<p>System.out.println(table.get("A")); // 1
-<div class="highlight"><pre><span></span><code>---
+<div class="highlight"><pre><span></span><code><span class="n">Hashtable</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">table</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Hashtable</span><span class="o">&lt;&gt;</span><span class="p">();</span>
 
-## 3. Caractéristiques
+<span class="n">table</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;A&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<span class="n">table</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;B&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span>
 
-* ✔️ synchronisée (thread-safe)
-* ❌ plus lente
-* ❌ ne permet pas `null`
-
----
-
-## 4. Différence avec HashMap
-
-| Feature        | Hashtable   | HashMap     |
-| -------------- | ----------- | ----------- |
-| thread-safe    | ✔️          | ❌           |
-| performance    | ❌ plus lent | ✔️ rapide   |
-| null key/value | ❌ interdit  | ✔️ autorisé |
-
----
-
-## 5. Pourquoi plus lente ?
-
-toutes les méthodes sont synchronisées :
-
-```java id=&quot;j8d2lo&quot;
-public synchronized V put(K key, V value)
-</code></pre></div></p>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">table</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">&quot;A&quot;</span><span class="p">));</span><span class="w"> </span><span class="c1">// 1</span>
+</code></pre></div>
+<hr />
+<h2 id="3-caracteristiques">3. Caractéristiques<a class="headerlink" href="#3-caracteristiques" title="Permanent link">&para;</a></h2>
+<ul>
+<li>✔️ synchronisée (thread-safe)</li>
+<li>❌ plus lente</li>
+<li>❌ ne permet pas <code>null</code></li>
+</ul>
+<hr />
+<h2 id="4-difference-avec-hashmap">4. Différence avec HashMap<a class="headerlink" href="#4-difference-avec-hashmap" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Hashtable</th>
+<th>HashMap</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>thread-safe</td>
+<td>✔️</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>performance</td>
+<td>❌ plus lent</td>
+<td>✔️ rapide</td>
+</tr>
+<tr>
+<td>null key/value</td>
+<td>❌ interdit</td>
+<td>✔️ autorisé</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="5-pourquoi-plus-lente">5. Pourquoi plus lente ?<a class="headerlink" href="#5-pourquoi-plus-lente" title="Permanent link">&para;</a></h2>
+<p>toutes les méthodes sont synchronisées :</p>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">synchronized</span><span class="w"> </span><span class="n">V</span><span class="w"> </span><span class="nf">put</span><span class="p">(</span><span class="n">K</span><span class="w"> </span><span class="n">key</span><span class="p">,</span><span class="w"> </span><span class="n">V</span><span class="w"> </span><span class="n">value</span><span class="p">)</span>
+</code></pre></div>
 <p>donc :</p>
 <ul>
 <li>lock global</li>
@@ -1836,8 +1884,8 @@ public synchronized V put(K key, V value)
 <hr />
 <h2 id="7-alternative-moderne">7. Alternative moderne<a class="headerlink" href="#7-alternative-moderne" title="Permanent link">&para;</a></h2>
 <p>préférer :</p>
-<p><code>java id="x2q9ws"
-ConcurrentHashMap&lt;String, Integer&gt; map = new ConcurrentHashMap&lt;&gt;();</code></p>
+<div class="highlight"><pre><span></span><code><span class="n">ConcurrentHashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">map</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ConcurrentHashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+</code></pre></div>
 <p>avantages :</p>
 <ul>
 <li>thread-safe</li>

@@ -1668,10 +1668,43 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#3-avec-heritage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Avec héritage
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#4-cas-important-null" class="md-nav__link">
     <span class="md-ellipsis">
       
         4. Cas important : null
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pourquoi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pourquoi ?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-utilisation-pratique" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Utilisation pratique
       
     </span>
   </a>
@@ -1797,61 +1830,53 @@
 <p>➡️ <strong>le type réel d’un objet à l’exécution</strong></p>
 <hr />
 <h2 id="2-exemple-simple">2. Exemple simple<a class="headerlink" href="#2-exemple-simple" title="Permanent link">&para;</a></h2>
-<p>```java id="k2n9zp"
-String s = "hello";</p>
-<p>System.out.println(s instanceof String); // true
-<div class="highlight"><pre><span></span><code>ici :
+<div class="highlight"><pre><span></span><code><span class="n">String</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;hello&quot;</span><span class="p">;</span>
 
-* `s` est bien un `String`
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">s</span><span class="w"> </span><span class="k">instanceof</span><span class="w"> </span><span class="n">String</span><span class="p">);</span><span class="w"> </span><span class="c1">// true</span>
+</code></pre></div>
+<p>ici :</p>
+<ul>
+<li><code>s</code> est bien un <code>String</code></li>
+</ul>
+<hr />
+<h2 id="3-avec-heritage">3. Avec héritage<a class="headerlink" href="#3-avec-heritage" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nc">Animal</span><span class="w"> </span><span class="p">{}</span>
+<span class="kd">class</span> <span class="nc">Dog</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Animal</span><span class="w"> </span><span class="p">{}</span>
 
----
+<span class="n">Animal</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Dog</span><span class="p">();</span>
 
-## 3. Avec héritage
-
-```java id=&quot;w7x3rm&quot;
-class Animal {}
-class Dog extends Animal {}
-
-Animal a = new Dog();
-
-System.out.println(a instanceof Dog);    // true
-System.out.println(a instanceof Animal); // true
-</code></pre></div></p>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="k">instanceof</span><span class="w"> </span><span class="n">Dog</span><span class="p">);</span><span class="w">    </span><span class="c1">// true</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="k">instanceof</span><span class="w"> </span><span class="n">Animal</span><span class="p">);</span><span class="w"> </span><span class="c1">// true</span>
+</code></pre></div>
 <p><code>instanceof</code> fonctionne avec la hiérarchie</p>
 <hr />
 <h2 id="4-cas-important-null">4. Cas important : <code>null</code><a class="headerlink" href="#4-cas-important-null" title="Permanent link">&para;</a></h2>
-<p>```java id="p9q2lt"
-Object obj = null;</p>
-<p>System.out.println(obj instanceof Object); // false
-<div class="highlight"><pre><span></span><code>Résultat : **false**
+<div class="highlight"><pre><span></span><code><span class="n">Object</span><span class="w"> </span><span class="n">obj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
 
----
-
-## Pourquoi ?
-
-`instanceof` retourne :
-
-* `true` → si l’objet existe et correspond au type
-* `false` → si `null`
-
-➡️ `null` n’est instance de rien
-
----
-
-## 5. Utilisation pratique
-
-```java id=&quot;z8m4xs&quot;
-if (obj instanceof String) {
-    String str = (String) obj;
-}
-</code></pre></div></p>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">obj</span><span class="w"> </span><span class="k">instanceof</span><span class="w"> </span><span class="n">Object</span><span class="p">);</span><span class="w"> </span><span class="c1">// false</span>
+</code></pre></div>
+<p>Résultat : <strong>false</strong></p>
+<hr />
+<h2 id="pourquoi">Pourquoi ?<a class="headerlink" href="#pourquoi" title="Permanent link">&para;</a></h2>
+<p><code>instanceof</code> retourne :</p>
+<ul>
+<li><code>true</code> → si l’objet existe et correspond au type</li>
+<li><code>false</code> → si <code>null</code></li>
+</ul>
+<p>➡️ <code>null</code> n’est instance de rien</p>
+<hr />
+<h2 id="5-utilisation-pratique">5. Utilisation pratique<a class="headerlink" href="#5-utilisation-pratique" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">obj</span><span class="w"> </span><span class="k">instanceof</span><span class="w"> </span><span class="n">String</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="n">str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">String</span><span class="p">)</span><span class="w"> </span><span class="n">obj</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
 <p>permet de sécuriser un cast</p>
 <hr />
 <h2 id="6-version-moderne-java-16">6. Version moderne (Java 16+)<a class="headerlink" href="#6-version-moderne-java-16" title="Permanent link">&para;</a></h2>
-<p><code>java id="f3r7yn"
-if (obj instanceof String str) {
-    System.out.println(str.length());
-}</code></p>
+<div class="highlight"><pre><span></span><code><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">obj</span><span class="w"> </span><span class="k">instanceof</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">str</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">str</span><span class="p">.</span><span class="na">length</span><span class="p">());</span>
+<span class="p">}</span>
+</code></pre></div>
 <p>plus besoin de cast manuel</p>
 <hr />
 <h2 id="pieges-frequents">Pièges fréquents<a class="headerlink" href="#pieges-frequents" title="Permanent link">&para;</a></h2>

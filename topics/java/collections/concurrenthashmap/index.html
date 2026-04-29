@@ -1696,6 +1696,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#solution-concurrenthashmap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Solution : ConcurrentHashMap
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#difference-cle" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1883,21 +1894,18 @@
 </ul>
 <hr />
 <h2 id="probleme-avec-hashmap">Problème avec <code>HashMap</code><a class="headerlink" href="#probleme-avec-hashmap" title="Permanent link">&para;</a></h2>
-<p>```java id="3c7c8y"
-Map<String, Integer> map = new HashMap&lt;&gt;();
-<div class="highlight"><pre><span></span><code>En multithreading :
-
-* données corrompues
-* résultats imprévisibles
-* dans certains cas extrêmes → boucle infinie
-
----
-
-## Solution : `ConcurrentHashMap`
-
-```java id=&quot;4m1p2s&quot;
-Map&lt;String, Integer&gt; map = new ConcurrentHashMap&lt;&gt;();
-</code></pre></div></p>
+<div class="highlight"><pre><span></span><code><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">map</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+</code></pre></div>
+<p>En multithreading :</p>
+<ul>
+<li>données corrompues</li>
+<li>résultats imprévisibles</li>
+<li>dans certains cas extrêmes → boucle infinie</li>
+</ul>
+<hr />
+<h2 id="solution-concurrenthashmap">Solution : <code>ConcurrentHashMap</code><a class="headerlink" href="#solution-concurrenthashmap" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">map</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ConcurrentHashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+</code></pre></div>
 <p>Permet :</p>
 <ul>
 <li>accès concurrent sécurisé</li>
@@ -1920,8 +1928,8 @@ Map&lt;String, Integer&gt; map = new ConcurrentHashMap&lt;&gt;();
 </ul>
 <hr />
 <h2 id="pourquoi-pas-juste-synchronized">Pourquoi pas juste <code>synchronized</code> ?<a class="headerlink" href="#pourquoi-pas-juste-synchronized" title="Permanent link">&para;</a></h2>
-<p><code>java id="8h9k2q"
-Map&lt;String, Integer&gt; map = Collections.synchronizedMap(new HashMap&lt;&gt;());</code></p>
+<div class="highlight"><pre><span></span><code><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">map</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Collections</span><span class="p">.</span><span class="na">synchronizedMap</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">HashMap</span><span class="o">&lt;&gt;</span><span class="p">());</span>
+</code></pre></div>
 <p>Problème :</p>
 <ul>
 <li>verrou global (lock sur toute la map)</li>

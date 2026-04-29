@@ -1858,70 +1858,66 @@
 accès global à cette instance</p>
 <hr />
 <h2 id="2-implementation-basique">2. Implémentation basique<a class="headerlink" href="#2-implementation-basique" title="Permanent link">&para;</a></h2>
-<p>```java id="a9f3kd"
-class Singleton {
-    private static Singleton instance;</p>
-<div class="highlight"><pre><span></span><code>private Singleton() {}
+<div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nc">Singleton</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="n">Singleton</span><span class="w"> </span><span class="n">instance</span><span class="p">;</span>
 
-public static Singleton getInstance() {
-    if (instance == null) {
-        instance = new Singleton();
-    }
-    return instance;
-}
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="nf">Singleton</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="n">Singleton</span><span class="w"> </span><span class="nf">getInstance</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">instance</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">instance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Singleton</span><span class="p">();</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">instance</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
 </code></pre></div>
-<p>}
-```
-
-Problème :
-
-* ❌ pas thread-safe</p>
+<p>Problème :</p>
+<ul>
+<li>❌ pas thread-safe</li>
+</ul>
 <hr />
 <h2 id="3-probleme-en-multithreading">3. Problème en multithreading<a class="headerlink" href="#3-probleme-en-multithreading" title="Permanent link">&para;</a></h2>
-<p>Deux threads peuvent créer <strong>deux instances différentes</strong>
-
-💥 bug critique</p>
+<p>Deux threads peuvent créer <strong>deux instances différentes</strong></p>
+<p>💥 bug critique</p>
 <hr />
 <h2 id="4-version-thread-safe-synchronized">4. Version thread-safe (synchronized)<a class="headerlink" href="#4-version-thread-safe-synchronized" title="Permanent link">&para;</a></h2>
-<p><code>java id="l2p8zs"
-public static synchronized Singleton getInstance() {
-    if (instance == null) {
-        instance = new Singleton();
-    }
-    return instance;
-}</code></p>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">synchronized</span><span class="w"> </span><span class="n">Singleton</span><span class="w"> </span><span class="nf">getInstance</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">instance</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">instance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Singleton</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">instance</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
 <p>safe
 plus lent</p>
 <hr />
 <h2 id="5-double-checked-locking-optimise">5. Double-checked locking (optimisé)<a class="headerlink" href="#5-double-checked-locking-optimise" title="Permanent link">&para;</a></h2>
-<p>```java id="w4n7yt"
-class Singleton {
-    private static volatile Singleton instance;</p>
-<div class="highlight"><pre><span></span><code>private Singleton() {}
+<div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nc">Singleton</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">volatile</span><span class="w"> </span><span class="n">Singleton</span><span class="w"> </span><span class="n">instance</span><span class="p">;</span>
 
-public static Singleton getInstance() {
-    if (instance == null) {
-        synchronized (Singleton.class) {
-            if (instance == null) {
-                instance = new Singleton();
-            }
-        }
-    }
-    return instance;
-}
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="nf">Singleton</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="n">Singleton</span><span class="w"> </span><span class="nf">getInstance</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">instance</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="kd">synchronized</span><span class="w"> </span><span class="p">(</span><span class="n">Singleton</span><span class="p">.</span><span class="na">class</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">instance</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="n">instance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Singleton</span><span class="p">();</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">instance</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
 </code></pre></div>
-<p>}
-```
-
-performant
+<p>performant
 thread-safe</p>
 <hr />
 <h2 id="6-meilleure-version-recommandee">💎 6. Meilleure version (recommandée)<a class="headerlink" href="#6-meilleure-version-recommandee" title="Permanent link">&para;</a></h2>
 <h3 id="singleton-avec-enum">Singleton avec <code>enum</code><a class="headerlink" href="#singleton-avec-enum" title="Permanent link">&para;</a></h3>
-<p><code>java id="r8k1qm"
-enum Singleton {
-    INSTANCE;
-}</code></p>
+<div class="highlight"><pre><span></span><code><span class="kd">enum</span><span class="w"> </span><span class="n">Singleton</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">INSTANCE</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
 <p>Avantages :</p>
 <ul>
 <li>thread-safe automatiquement</li>

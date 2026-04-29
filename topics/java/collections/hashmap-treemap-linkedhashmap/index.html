@@ -1696,15 +1696,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-linkedhashmap" class="md-nav__link">
+  <a href="#3-treemap" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. LinkedHashMap
+        3. TreeMap
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="4. LinkedHashMap">
+    <nav class="md-nav" aria-label="3. TreeMap">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1720,6 +1720,45 @@
         
           <li class="md-nav__item">
   <a href="#exemple_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exemple
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-linkedhashmap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. LinkedHashMap
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. LinkedHashMap">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#caracteristiques_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Caractéristiques
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exemple_2" class="md-nav__link">
     <span class="md-ellipsis">
       
         Exemple
@@ -1886,48 +1925,44 @@
 </ul>
 <hr />
 <h3 id="exemple">Exemple<a class="headerlink" href="#exemple" title="Permanent link">&para;</a></h3>
-<p>```java id="x4m2kp"
-Map<String, Integer> map = new HashMap&lt;&gt;();
-map.put("B", 2);
-map.put("A", 1);</p>
-<p>System.out.println(map); // ordre aléatoire
-<div class="highlight"><pre><span></span><code>---
+<div class="highlight"><pre><span></span><code><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">map</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<span class="n">map</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;B&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span>
+<span class="n">map</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;A&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
 
-## 3. TreeMap
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">map</span><span class="p">);</span><span class="w"> </span><span class="c1">// ordre aléatoire</span>
+</code></pre></div>
+<hr />
+<h2 id="3-treemap">3. TreeMap<a class="headerlink" href="#3-treemap" title="Permanent link">&para;</a></h2>
+<h3 id="caracteristiques_1">Caractéristiques<a class="headerlink" href="#caracteristiques_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li>éléments <strong>triés</strong></li>
+<li>basé sur un arbre (Red-Black Tree)</li>
+<li>complexité : O(log n)</li>
+</ul>
+<hr />
+<h3 id="exemple_1">Exemple<a class="headerlink" href="#exemple_1" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">map</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">TreeMap</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<span class="n">map</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;B&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span>
+<span class="n">map</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;A&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
 
-### Caractéristiques
-
-* éléments **triés**
-* basé sur un arbre (Red-Black Tree)
-* complexité : O(log n)
-
----
-
-### Exemple
-
-```java id=&quot;q9z8ty&quot;
-Map&lt;String, Integer&gt; map = new TreeMap&lt;&gt;();
-map.put(&quot;B&quot;, 2);
-map.put(&quot;A&quot;, 1);
-
-System.out.println(map); // {A=1, B=2}
-</code></pre></div></p>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">map</span><span class="p">);</span><span class="w"> </span><span class="c1">// {A=1, B=2}</span>
+</code></pre></div>
 <hr />
 <h2 id="4-linkedhashmap">4. LinkedHashMap<a class="headerlink" href="#4-linkedhashmap" title="Permanent link">&para;</a></h2>
-<h3 id="caracteristiques_1">Caractéristiques<a class="headerlink" href="#caracteristiques_1" title="Permanent link">&para;</a></h3>
+<h3 id="caracteristiques_2">Caractéristiques<a class="headerlink" href="#caracteristiques_2" title="Permanent link">&para;</a></h3>
 <ul>
 <li>garde l’ordre d’insertion</li>
 <li>plus prévisible que HashMap</li>
 <li>légèrement plus lent</li>
 </ul>
 <hr />
-<h3 id="exemple_1">Exemple<a class="headerlink" href="#exemple_1" title="Permanent link">&para;</a></h3>
-<p>```java id="k2d7vx"
-Map<String, Integer> map = new LinkedHashMap&lt;&gt;();
-map.put("B", 2);
-map.put("A", 1);</p>
-<p>System.out.println(map); // {B=2, A=1}
-```</p>
+<h3 id="exemple_2">Exemple<a class="headerlink" href="#exemple_2" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">map</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">LinkedHashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<span class="n">map</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;B&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span>
+<span class="n">map</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;A&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">map</span><span class="p">);</span><span class="w"> </span><span class="c1">// {B=2, A=1}</span>
+</code></pre></div>
 <hr />
 <h2 id="5-comparaison-rapide">5. Comparaison rapide<a class="headerlink" href="#5-comparaison-rapide" title="Permanent link">&para;</a></h2>
 <table>

@@ -1665,8 +1665,74 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Exemple classique">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#que-se-passe-t-il" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        💥 Que se passe-t-il ?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#visualisation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Visualisation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pourquoi-cest-critique" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pourquoi c’est critique
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comment-eviter-un-deadlock" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🛠️ Comment éviter un deadlock
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🛠️ Comment éviter un deadlock">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-ordre-des-locks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Ordre des locks
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-timeout-avec-trylock" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Timeout avec tryLock
+      
+    </span>
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#3-reduire-les-locks" class="md-nav__link">
@@ -1827,79 +1893,70 @@ chacun attend une ressource détenue par l’autre</p>
 <p>➡️ Résultat : <strong>aucun ne peut continuer</strong></p>
 <hr />
 <h2 id="exemple-classique">Exemple classique<a class="headerlink" href="#exemple-classique" title="Permanent link">&para;</a></h2>
-<p>```java id="7f2lqz"
-Object lock1 = new Object();
-Object lock2 = new Object();</p>
-<p>Thread t1 = new Thread(() -&gt; {
-    synchronized(lock1) {
-        synchronized(lock2) {
-            System.out.println("t1");
-        }
-    }
-});</p>
-<p>Thread t2 = new Thread(() -&gt; {
-    synchronized(lock2) {
-        synchronized(lock1) {
-            System.out.println("t2");
-        }
-    }
-});
-<div class="highlight"><pre><span></span><code>---
+<div class="highlight"><pre><span></span><code><span class="n">Object</span><span class="w"> </span><span class="n">lock1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Object</span><span class="p">();</span>
+<span class="n">Object</span><span class="w"> </span><span class="n">lock2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Object</span><span class="p">();</span>
 
-## 💥 Que se passe-t-il ?
+<span class="n">Thread</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Thread</span><span class="p">(()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">synchronized</span><span class="p">(</span><span class="n">lock1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">synchronized</span><span class="p">(</span><span class="n">lock2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;t1&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">});</span>
 
-Scénario possible :
-
-* t1 prend `lock1`
-* t2 prend `lock2`
-* t1 attend `lock2`
-* t2 attend `lock1`
-
-Résultat :
-
-💣 **blocage total (deadlock)**
-
----
-
-## Visualisation
-
-* Thread 1 → attend une ressource détenue par Thread 2
-* Thread 2 → attend une ressource détenue par Thread 1
-
-boucle bloquée, rien n’avance
-
----
-
-## Pourquoi c’est critique
-
-* aucune erreur visible
-* application figée
-* difficile à reproduire
-* difficile à diagnostiquer
-
-Dans des systèmes sensibles (finance, trading…), c’est un problème majeur
-
----
-
-## 🛠️ Comment éviter un deadlock
-
-### 1. Ordre des locks
-
-Toujours acquérir les verrous dans le même ordre
-
-- Bon :
+<span class="n">Thread</span><span class="w"> </span><span class="n">t2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Thread</span><span class="p">(()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">synchronized</span><span class="p">(</span><span class="n">lock2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">synchronized</span><span class="p">(</span><span class="n">lock1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;t2&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">});</span>
 </code></pre></div>
-lock1 → lock2
-<div class="highlight"><pre><span></span><code>- Mauvais :
+<hr />
+<h2 id="que-se-passe-t-il">💥 Que se passe-t-il ?<a class="headerlink" href="#que-se-passe-t-il" title="Permanent link">&para;</a></h2>
+<p>Scénario possible :</p>
+<ul>
+<li>t1 prend <code>lock1</code></li>
+<li>t2 prend <code>lock2</code></li>
+<li>t1 attend <code>lock2</code></li>
+<li>t2 attend <code>lock1</code></li>
+</ul>
+<p>Résultat :</p>
+<p>💣 <strong>blocage total (deadlock)</strong></p>
+<hr />
+<h2 id="visualisation">Visualisation<a class="headerlink" href="#visualisation" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Thread 1 → attend une ressource détenue par Thread 2</li>
+<li>Thread 2 → attend une ressource détenue par Thread 1</li>
+</ul>
+<p>boucle bloquée, rien n’avance</p>
+<hr />
+<h2 id="pourquoi-cest-critique">Pourquoi c’est critique<a class="headerlink" href="#pourquoi-cest-critique" title="Permanent link">&para;</a></h2>
+<ul>
+<li>aucune erreur visible</li>
+<li>application figée</li>
+<li>difficile à reproduire</li>
+<li>difficile à diagnostiquer</li>
+</ul>
+<p>Dans des systèmes sensibles (finance, trading…), c’est un problème majeur</p>
+<hr />
+<h2 id="comment-eviter-un-deadlock">🛠️ Comment éviter un deadlock<a class="headerlink" href="#comment-eviter-un-deadlock" title="Permanent link">&para;</a></h2>
+<h3 id="1-ordre-des-locks">1. Ordre des locks<a class="headerlink" href="#1-ordre-des-locks" title="Permanent link">&para;</a></h3>
+<p>Toujours acquérir les verrous dans le même ordre</p>
+<ul>
+<li>Bon :</li>
+</ul>
+<div class="highlight"><pre><span></span><code>lock1 → lock2
 </code></pre></div>
-lock2 → lock1
-<div class="highlight"><pre><span></span><code>---
-
-### 2. Timeout avec `tryLock`
-
-```java id=&quot;k9w3jd&quot;
-lock.tryLock(1, TimeUnit.SECONDS);
-</code></pre></div></p>
+<ul>
+<li>Mauvais :</li>
+</ul>
+<div class="highlight"><pre><span></span><code>lock2 → lock1
+</code></pre></div>
+<hr />
+<h3 id="2-timeout-avec-trylock">2. Timeout avec <code>tryLock</code><a class="headerlink" href="#2-timeout-avec-trylock" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="n">lock</span><span class="p">.</span><span class="na">tryLock</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">TimeUnit</span><span class="p">.</span><span class="na">SECONDS</span><span class="p">);</span>
+</code></pre></div>
 <p>permet d’éviter un blocage infini</p>
 <hr />
 <h3 id="3-reduire-les-locks">3. Réduire les locks<a class="headerlink" href="#3-reduire-les-locks" title="Permanent link">&para;</a></h3>

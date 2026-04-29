@@ -1685,6 +1685,34 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#3-prototype" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Prototype
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Prototype">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#caracteristiques_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Caractéristiques
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#4-request-web" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1696,10 +1724,43 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#5-session-web" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Session (web)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#6-application" class="md-nav__link">
     <span class="md-ellipsis">
       
         6. Application
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-resume-des-scopes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Résumé des scopes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-piege-important" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Piège important
       
     </span>
   </a>
@@ -1825,32 +1886,27 @@
 <p>➡️ <strong>combien d’instances du bean sont créées ?</strong></p>
 <hr />
 <h2 id="2-singleton-par-defaut">2. Singleton (par défaut)<a class="headerlink" href="#2-singleton-par-defaut" title="Permanent link">&para;</a></h2>
-<p>```java id="n8k2qp"
-@Component
-@Scope("singleton")
-class MyService {}
-<div class="highlight"><pre><span></span><code>une seule instance dans toute l’application
-
----
-
-### Caractéristiques
-
-* partagé
-* performant
-* utilisé par défaut
-
----
-
-## 3. Prototype
-
-```java id=&quot;x3m7rv&quot;
-@Component
-@Scope(&quot;prototype&quot;)
-class MyService {}
-</code></pre></div></p>
-<p>une nouvelle instance à chaque injection</p>
+<div class="highlight"><pre><span></span><code><span class="nd">@Component</span>
+<span class="nd">@Scope</span><span class="p">(</span><span class="s">&quot;singleton&quot;</span><span class="p">)</span>
+<span class="kd">class</span> <span class="nc">MyService</span><span class="w"> </span><span class="p">{}</span>
+</code></pre></div>
+<p>une seule instance dans toute l’application</p>
 <hr />
 <h3 id="caracteristiques">Caractéristiques<a class="headerlink" href="#caracteristiques" title="Permanent link">&para;</a></h3>
+<ul>
+<li>partagé</li>
+<li>performant</li>
+<li>utilisé par défaut</li>
+</ul>
+<hr />
+<h2 id="3-prototype">3. Prototype<a class="headerlink" href="#3-prototype" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="nd">@Component</span>
+<span class="nd">@Scope</span><span class="p">(</span><span class="s">&quot;prototype&quot;</span><span class="p">)</span>
+<span class="kd">class</span> <span class="nc">MyService</span><span class="w"> </span><span class="p">{}</span>
+</code></pre></div>
+<p>une nouvelle instance à chaque injection</p>
+<hr />
+<h3 id="caracteristiques_1">Caractéristiques<a class="headerlink" href="#caracteristiques_1" title="Permanent link">&para;</a></h3>
 <ul>
 <li>non partagé</li>
 <li>plus flexible</li>
@@ -1858,48 +1914,59 @@ class MyService {}
 </ul>
 <hr />
 <h2 id="4-request-web">4. Request (web)<a class="headerlink" href="#4-request-web" title="Permanent link">&para;</a></h2>
-<p>```java id="z7p1kt"
-@Scope("request")
-<div class="highlight"><pre><span></span><code>une instance par requête HTTP
-
----
-
-## 5. Session (web)
-
-```java id=&quot;m4w9ds&quot;
-@Scope(&quot;session&quot;)
-</code></pre></div></p>
+<div class="highlight"><pre><span></span><code><span class="nd">@Scope</span><span class="p">(</span><span class="s">&quot;request&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>une instance par requête HTTP</p>
+<hr />
+<h2 id="5-session-web">5. Session (web)<a class="headerlink" href="#5-session-web" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="nd">@Scope</span><span class="p">(</span><span class="s">&quot;session&quot;</span><span class="p">)</span>
+</code></pre></div>
 <p>une instance par session utilisateur</p>
 <hr />
 <h2 id="6-application">6. Application<a class="headerlink" href="#6-application" title="Permanent link">&para;</a></h2>
-<p>```java id="k2x8yo"
-@Scope("application")
-<div class="highlight"><pre><span></span><code>une instance pour toute l’application web
-
----
-
-## 7. Résumé des scopes
-
-| Scope       | Instances                 |
-| ----------- | ------------------------- |
-| singleton   | 1 pour toute l’app        |
-| prototype   | 1 à chaque injection      |
-| request     | 1 par requête HTTP        |
-| session     | 1 par session utilisateur |
-| application | 1 pour toute l’app web    |
-
----
-
-## 8. Piège important
-
-Singleton + état mutable :
-
-```java id=&quot;r8n3yt&quot;
-@Component
-class Counter {
-    int count = 0; // ❌ partagé entre threads
-}
-</code></pre></div></p>
+<div class="highlight"><pre><span></span><code><span class="nd">@Scope</span><span class="p">(</span><span class="s">&quot;application&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>une instance pour toute l’application web</p>
+<hr />
+<h2 id="7-resume-des-scopes">7. Résumé des scopes<a class="headerlink" href="#7-resume-des-scopes" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Scope</th>
+<th>Instances</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>singleton</td>
+<td>1 pour toute l’app</td>
+</tr>
+<tr>
+<td>prototype</td>
+<td>1 à chaque injection</td>
+</tr>
+<tr>
+<td>request</td>
+<td>1 par requête HTTP</td>
+</tr>
+<tr>
+<td>session</td>
+<td>1 par session utilisateur</td>
+</tr>
+<tr>
+<td>application</td>
+<td>1 pour toute l’app web</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="8-piege-important">8. Piège important<a class="headerlink" href="#8-piege-important" title="Permanent link">&para;</a></h2>
+<p>Singleton + état mutable :</p>
+<div class="highlight"><pre><span></span><code><span class="nd">@Component</span>
+<span class="kd">class</span> <span class="nc">Counter</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="c1">// ❌ partagé entre threads</span>
+<span class="p">}</span>
+</code></pre></div>
 <p>problème :</p>
 <ul>
 <li>race condition</li>

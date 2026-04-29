@@ -1668,6 +1668,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#pourquoi-ca-arrive" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        💥 Pourquoi ça arrive ?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#visualisation" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1717,6 +1728,17 @@
     <span class="md-ellipsis">
       
         synchronized
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#atomicinteger" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AtomicInteger
       
     </span>
   </a>
@@ -1871,26 +1893,23 @@ sans synchronisation</p>
 <p>➡️ Résultat : <strong>imprévisible</strong></p>
 <hr />
 <h2 id="exemple-classique">Exemple classique<a class="headerlink" href="#exemple-classique" title="Permanent link">&para;</a></h2>
-<p>```java id="c3g8zn"
-int count = 0;</p>
-<p>Thread t1 = new Thread(() -&gt; count++);
-Thread t2 = new Thread(() -&gt; count++);
-<div class="highlight"><pre><span></span><code>Résultat attendu :
+<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+
+<span class="n">Thread</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Thread</span><span class="p">(()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">count</span><span class="o">++</span><span class="p">);</span>
+<span class="n">Thread</span><span class="w"> </span><span class="n">t2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Thread</span><span class="p">(()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">count</span><span class="o">++</span><span class="p">);</span>
 </code></pre></div>
-count = 2
-<div class="highlight"><pre><span></span><code>Résultat réel possible :
+<p>Résultat attendu :</p>
+<div class="highlight"><pre><span></span><code>count = 2
 </code></pre></div>
-count = 1
+<p>Résultat réel possible :</p>
+<div class="highlight"><pre><span></span><code>count = 1
 count = 2
-<div class="highlight"><pre><span></span><code>---
-
-## 💥 Pourquoi ça arrive ?
-
-L’opération :
-
-```java
-count++;
-</code></pre></div></p>
+</code></pre></div>
+<hr />
+<h2 id="pourquoi-ca-arrive">💥 Pourquoi ça arrive ?<a class="headerlink" href="#pourquoi-ca-arrive" title="Permanent link">&para;</a></h2>
+<p>L’opération :</p>
+<div class="highlight"><pre><span></span><code><span class="n">count</span><span class="o">++</span><span class="p">;</span>
+</code></pre></div>
 <p>n’est pas atomique.</p>
 <p>Elle se décompose en 3 étapes :</p>
 <ol>
@@ -1919,33 +1938,29 @@ count++;
 <hr />
 <h2 id="solutions">🛠️ Solutions<a class="headerlink" href="#solutions" title="Permanent link">&para;</a></h2>
 <h3 id="synchronized"><code>synchronized</code><a class="headerlink" href="#synchronized" title="Permanent link">&para;</a></h3>
-<p>```java id="8zv2xk"
-synchronized(this) {
-    count++;
-}
-<div class="highlight"><pre><span></span><code>garantit qu’un seul thread exécute le bloc à la fois
-
----
-
-### `AtomicInteger`
-
-```java id=&quot;z3s1yo&quot;
-AtomicInteger count = new AtomicInteger(0);
-count.incrementAndGet();
-</code></pre></div></p>
+<div class="highlight"><pre><span></span><code><span class="kd">synchronized</span><span class="p">(</span><span class="k">this</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">count</span><span class="o">++</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>garantit qu’un seul thread exécute le bloc à la fois</p>
+<hr />
+<h3 id="atomicinteger"><code>AtomicInteger</code><a class="headerlink" href="#atomicinteger" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="n">AtomicInteger</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">AtomicInteger</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="n">count</span><span class="p">.</span><span class="na">incrementAndGet</span><span class="p">();</span>
+</code></pre></div>
 <p>solution moderne
 opération atomique sans blocage explicite</p>
 <hr />
 <h3 id="lock-plus-avance"><code>Lock</code> (plus avancé)<a class="headerlink" href="#lock-plus-avance" title="Permanent link">&para;</a></h3>
-<p>```java id="v2k9pd"
-Lock lock = new ReentrantLock();</p>
-<p>lock.lock();
-try {
-    count++;
-} finally {
-    lock.unlock();
-}
-```</p>
+<div class="highlight"><pre><span></span><code><span class="n">Lock</span><span class="w"> </span><span class="n">lock</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ReentrantLock</span><span class="p">();</span>
+
+<span class="n">lock</span><span class="p">.</span><span class="na">lock</span><span class="p">();</span>
+<span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">count</span><span class="o">++</span><span class="p">;</span>
+<span class="p">}</span><span class="w"> </span><span class="k">finally</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">lock</span><span class="p">.</span><span class="na">unlock</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div>
 <p>plus flexible que <code>synchronized</code>
 nécessite une gestion correcte (toujours libérer le lock)</p>
 <hr />

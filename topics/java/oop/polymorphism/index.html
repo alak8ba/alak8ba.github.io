@@ -1665,6 +1665,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="2. Exemple simple">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#utilisation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Utilisation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1703,6 +1720,17 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-regle-importante" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Règle importante
+      
+    </span>
+  </a>
   
 </li>
       
@@ -1825,33 +1853,32 @@
 <p>➡️ selon l’objet utilisé</p>
 <hr />
 <h2 id="2-exemple-simple">2. Exemple simple<a class="headerlink" href="#2-exemple-simple" title="Permanent link">&para;</a></h2>
-<p>```java id="q8x2mk"
-class Animal {
-    void speak() {
-        System.out.println("Animal sound");
-    }
-}</p>
-<p>class Dog extends Animal {
-    void speak() {
-        System.out.println("Bark");
-    }
-}</p>
-<p>class Cat extends Animal {
-    void speak() {
-        System.out.println("Meow");
-    }
-}
-<div class="highlight"><pre><span></span><code>---
+<div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nc">Animal</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">speak</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Animal sound&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
 
-### Utilisation
+<span class="kd">class</span> <span class="nc">Dog</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Animal</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">speak</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Bark&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
 
-```java id=&quot;n4v7pz&quot;
-Animal a1 = new Dog();
-Animal a2 = new Cat();
+<span class="kd">class</span> <span class="nc">Cat</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Animal</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">speak</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Meow&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<hr />
+<h3 id="utilisation">Utilisation<a class="headerlink" href="#utilisation" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="n">Animal</span><span class="w"> </span><span class="n">a1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Dog</span><span class="p">();</span>
+<span class="n">Animal</span><span class="w"> </span><span class="n">a2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Cat</span><span class="p">();</span>
 
-a1.speak(); // Bark
-a2.speak(); // Meow
-</code></pre></div></p>
+<span class="n">a1</span><span class="p">.</span><span class="na">speak</span><span class="p">();</span><span class="w"> </span><span class="c1">// Bark</span>
+<span class="n">a2</span><span class="p">.</span><span class="na">speak</span><span class="p">();</span><span class="w"> </span><span class="c1">// Meow</span>
+</code></pre></div>
 <p>même méthode → comportement différent</p>
 <hr />
 <h2 id="3-types-de-polymorphisme">3. Types de polymorphisme<a class="headerlink" href="#3-types-de-polymorphisme" title="Permanent link">&para;</a></h2>
@@ -1859,22 +1886,17 @@ a2.speak(); // Meow
 <p>redéfinition de méthode dans une sous-classe</p>
 <hr />
 <h3 id="polymorphisme-a-la-compilation-overloading">Polymorphisme à la compilation (overloading)<a class="headerlink" href="#polymorphisme-a-la-compilation-overloading" title="Permanent link">&para;</a></h3>
-<p>```java id="b7r3sd"
-class MathUtils {
-    int add(int a, int b) { return a + b; }
-    double add(double a, double b) { return a + b; }
-}
-<div class="highlight"><pre><span></span><code>même nom, paramètres différents
-
----
-
-## 4. Règle importante
-
-le type de la référence compte :
-
-```java id=&quot;m2k9yt&quot;
-Animal a = new Dog();
-</code></pre></div></p>
+<div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nc">MathUtils</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>même nom, paramètres différents</p>
+<hr />
+<h2 id="4-regle-importante">4. Règle importante<a class="headerlink" href="#4-regle-importante" title="Permanent link">&para;</a></h2>
+<p>le type de la référence compte :</p>
+<div class="highlight"><pre><span></span><code><span class="n">Animal</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Dog</span><span class="p">();</span>
+</code></pre></div>
 <ul>
 <li>type compilé : <code>Animal</code></li>
 <li>type réel : <code>Dog</code></li>

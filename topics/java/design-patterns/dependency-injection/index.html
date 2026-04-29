@@ -1668,6 +1668,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#3-solution-avec-di" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Solution avec DI
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#4-types-dinjection" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1684,6 +1695,17 @@
     <span class="md-ellipsis">
       
         Injection par constructeur (recommandé)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#injection-par-setter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Injection par setter
       
     </span>
   </a>
@@ -1836,29 +1858,26 @@
 <p>➡️ on <strong>injecte</strong> les dépendances</p>
 <hr />
 <h2 id="2-probleme-sans-di">2. Problème sans DI<a class="headerlink" href="#2-probleme-sans-di" title="Permanent link">&para;</a></h2>
-<p>```java id="k3m9xp"
-class UserService {
-    private UserRepository repo = new UserRepository();
-}
-<div class="highlight"><pre><span></span><code>Problèmes :
+<div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nc">UserService</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">UserRepository</span><span class="w"> </span><span class="n">repo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">UserRepository</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Problèmes :</p>
+<ul>
+<li>couplage fort</li>
+<li>difficile à tester</li>
+<li>impossible de remplacer facilement</li>
+</ul>
+<hr />
+<h2 id="3-solution-avec-di">3. Solution avec DI<a class="headerlink" href="#3-solution-avec-di" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nc">UserService</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">UserRepository</span><span class="w"> </span><span class="n">repo</span><span class="p">;</span>
 
-* couplage fort
-* difficile à tester
-* impossible de remplacer facilement
-
----
-
-## 3. Solution avec DI
-
-```java id=&quot;z8q2vt&quot;
-class UserService {
-    private UserRepository repo;
-
-    public UserService(UserRepository repo) {
-        this.repo = repo;
-    }
-}
-</code></pre></div></p>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">UserService</span><span class="p">(</span><span class="n">UserRepository</span><span class="w"> </span><span class="n">repo</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">repo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">repo</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
 <p>Ici :</p>
 <ul>
 <li>la dépendance est fournie de l’extérieur</li>
@@ -1867,27 +1886,23 @@ class UserService {
 <hr />
 <h2 id="4-types-dinjection">4. Types d’injection<a class="headerlink" href="#4-types-dinjection" title="Permanent link">&para;</a></h2>
 <h3 id="injection-par-constructeur-recommande">Injection par constructeur (recommandé)<a class="headerlink" href="#injection-par-constructeur-recommande" title="Permanent link">&para;</a></h3>
-<p>```java id="g7f4ns"
-public UserService(UserRepository repo) {
-    this.repo = repo;
-}
-<div class="highlight"><pre><span></span><code>immuable et clair
-
----
-
-### Injection par setter
-
-```java id=&quot;b2x9ld&quot;
-public void setRepo(UserRepository repo) {
-    this.repo = repo;
-}
-</code></pre></div></p>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="nf">UserService</span><span class="p">(</span><span class="n">UserRepository</span><span class="w"> </span><span class="n">repo</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="na">repo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">repo</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>immuable et clair</p>
+<hr />
+<h3 id="injection-par-setter">Injection par setter<a class="headerlink" href="#injection-par-setter" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">setRepo</span><span class="p">(</span><span class="n">UserRepository</span><span class="w"> </span><span class="n">repo</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="na">repo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">repo</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
 <p>flexible mais moins sûr</p>
 <hr />
 <h3 id="injection-par-champ-frameworks">Injection par champ (frameworks)<a class="headerlink" href="#injection-par-champ-frameworks" title="Permanent link">&para;</a></h3>
-<p><code>java id="m5v1pq"
-@Autowired
-private UserRepository repo;</code></p>
+<div class="highlight"><pre><span></span><code><span class="nd">@Autowired</span>
+<span class="kd">private</span><span class="w"> </span><span class="n">UserRepository</span><span class="w"> </span><span class="n">repo</span><span class="p">;</span>
+</code></pre></div>
 <p>utilisé avec frameworks (ex: Spring)</p>
 <hr />
 <h2 id="5-avantages">5. Avantages<a class="headerlink" href="#5-avantages" title="Permanent link">&para;</a></h2>

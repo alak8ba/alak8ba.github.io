@@ -1707,6 +1707,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#typescript_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TypeScript
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1717,6 +1728,17 @@
     <span class="md-ellipsis">
       
         Types de base
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#objet-type" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objet typé
       
     </span>
   </a>
@@ -1864,24 +1886,21 @@
 <hr />
 <h2 id="exemple-simple">Exemple simple<a class="headerlink" href="#exemple-simple" title="Permanent link">&para;</a></h2>
 <h3 id="javascript_1">JavaScript<a class="headerlink" href="#javascript_1" title="Permanent link">&para;</a></h3>
-<p>```javascript id="5r9k1x"
-function add(a, b) {
-  return a + b;
-}
-<div class="highlight"><pre><span></span><code>Problème :
-
-* aucun contrôle sur les types
-* erreurs possibles à l’exécution
-
----
-
-### TypeScript
-
-```ts id=&quot;7g2p4z&quot;
-function add(a: number, b: number): number {
-  return a + b;
-}
-</code></pre></div></p>
+<div class="highlight"><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">add</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">b</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Problème :</p>
+<ul>
+<li>aucun contrôle sur les types</li>
+<li>erreurs possibles à l’exécution</li>
+</ul>
+<hr />
+<h3 id="typescript_1">TypeScript<a class="headerlink" href="#typescript_1" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">add</span><span class="p">(</span><span class="nx">a</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">b</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
 <p>Ici :</p>
 <ul>
 <li><code>a</code> et <code>b</code> doivent être des nombres</li>
@@ -1889,25 +1908,22 @@ function add(a: number, b: number): number {
 </ul>
 <hr />
 <h2 id="types-de-base">Types de base<a class="headerlink" href="#types-de-base" title="Permanent link">&para;</a></h2>
-<p>```ts id="k8w2lm"
-let x: number = 10;
-let name: string = "Ali";
-let ok: boolean = true;
-<div class="highlight"><pre><span></span><code>---
+<div class="highlight"><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">x</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">10</span><span class="p">;</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Ali&quot;</span><span class="p">;</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">ok</span><span class="o">:</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+</code></pre></div>
+<hr />
+<h2 id="objet-type">Objet typé<a class="headerlink" href="#objet-type" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="kr">type</span><span class="w"> </span><span class="nx">User</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span>
+<span class="w">  </span><span class="nx">age</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">;</span>
+<span class="p">};</span>
 
-## Objet typé
-
-```ts id=&quot;n3q7hf&quot;
-type User = {
-  name: string;
-  age: number;
-};
-
-const u: User = {
-  name: &quot;Ali&quot;,
-  age: 30
-};
-</code></pre></div></p>
+<span class="kd">const</span><span class="w"> </span><span class="nx">u</span><span class="o">:</span><span class="w"> </span><span class="kt">User</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Ali&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">age</span><span class="o">:</span><span class="w"> </span><span class="kt">30</span>
+<span class="p">};</span>
+</code></pre></div>
 <hr />
 <h2 id="pourquoi-cest-important">⚡ Pourquoi c’est important<a class="headerlink" href="#pourquoi-cest-important" title="Permanent link">&para;</a></h2>
 <ul>

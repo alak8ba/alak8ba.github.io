@@ -1680,6 +1680,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#on-lineaire" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        O(n) — Linéaire
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#olog-n-logarithmique" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1849,22 +1860,19 @@
 <h2 id="les-3-complexites-essentielles">⚡ Les 3 complexités essentielles<a class="headerlink" href="#les-3-complexites-essentielles" title="Permanent link">&para;</a></h2>
 <h3 id="o1-constant">O(1) — Constant<a class="headerlink" href="#o1-constant" title="Permanent link">&para;</a></h3>
 <p>Temps fixe, peu importe la taille</p>
-<p>```java id="kz9w2x"
-map.get(key);
-<div class="highlight"><pre><span></span><code>- Très rapide
-- Idéal pour les systèmes performants
-
----
-
-### O(n) — Linéaire
-
-Temps proportionnel au nombre d’éléments
-
-```java id=&quot;v3m1pt&quot;
-for (int i = 0; i &lt; n; i++) {
-    // traitement
-}
-</code></pre></div></p>
+<div class="highlight"><pre><span></span><code><span class="n">map</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">key</span><span class="p">);</span>
+</code></pre></div>
+<ul>
+<li>Très rapide</li>
+<li>Idéal pour les systèmes performants</li>
+</ul>
+<hr />
+<h3 id="on-lineaire">O(n) — Linéaire<a class="headerlink" href="#on-lineaire" title="Permanent link">&para;</a></h3>
+<p>Temps proportionnel au nombre d’éléments</p>
+<div class="highlight"><pre><span></span><code><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// traitement</span>
+<span class="p">}</span>
+</code></pre></div>
 <p>Plus il y a de données, plus c’est lent</p>
 <hr />
 <h3 id="olog-n-logarithmique">🔵 O(log n) — Logarithmique<a class="headerlink" href="#olog-n-logarithmique" title="Permanent link">&para;</a></h3>
@@ -1872,26 +1880,25 @@ for (int i = 0; i &lt; n; i++) {
 <p>Exemple : <strong>recherche dichotomique (binary search)</strong></p>
 <hr />
 <h2 id="exemple-de-binary-search">Exemple de binary search<a class="headerlink" href="#exemple-de-binary-search" title="Permanent link">&para;</a></h2>
-<p>```java id="u7c4zs"
-public int binarySearch(int[] arr, int target) {
-    int left = 0;
-    int right = arr.length - 1;</p>
-<div class="highlight"><pre><span></span><code>while (left &lt;= right) {
-    int mid = (left + right) / 2;
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">binarySearch</span><span class="p">(</span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">arr</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">arr</span><span class="p">.</span><span class="na">length</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
 
-    if (arr[mid] == target) {
-        return mid;
-    } else if (arr[mid] &lt; target) {
-        left = mid + 1;
-    } else {
-        right = mid - 1;
-    }
-}
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">left</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">right</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">mid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">left</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">right</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
 
-return -1;
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">arr</span><span class="o">[</span><span class="n">mid</span><span class="o">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">mid</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">arr</span><span class="o">[</span><span class="n">mid</span><span class="o">]</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mid</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mid</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
 </code></pre></div>
-<p>}
-```</p>
 <p>À chaque étape :</p>
 <ul>
 <li>on divise le problème par 2</li>

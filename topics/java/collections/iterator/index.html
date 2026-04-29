@@ -1718,6 +1718,28 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#4-pourquoi-utiliser-iterator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Pourquoi utiliser Iterator ?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-piege-important" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Piège important
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#solution-avec-iterator" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1866,49 +1888,46 @@
 </code></pre></div>
 <hr />
 <h2 id="3-exemple-complet">3. Exemple complet<a class="headerlink" href="#3-exemple-complet" title="Permanent link">&para;</a></h2>
-<p>```java id="v9p2xk"
-List<String> list = new ArrayList&lt;&gt;();
-list.add("A");
-list.add("B");
-list.add("C");</p>
-<p>Iterator<String> it = list.iterator();</p>
-<p>while (it.hasNext()) {
-    String val = it.next();
-    System.out.println(val);
-}
-<div class="highlight"><pre><span></span><code>---
+<div class="highlight"><pre><span></span><code><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<span class="n">list</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">&quot;A&quot;</span><span class="p">);</span>
+<span class="n">list</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">&quot;B&quot;</span><span class="p">);</span>
+<span class="n">list</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">&quot;C&quot;</span><span class="p">);</span>
 
-## 4. Pourquoi utiliser Iterator ?
+<span class="n">Iterator</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">list</span><span class="p">.</span><span class="na">iterator</span><span class="p">();</span>
 
-permet :
-
-* parcours sécurisé
-* éviter les erreurs de modification
-* abstraction de la collection
-
----
-
-## 5. Piège important
-
-```java
-for (String s : list) {
-    list.remove(s); // ❌ erreur (ConcurrentModificationException)
-}
-</code></pre></div></p>
+<span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">it</span><span class="p">.</span><span class="na">hasNext</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="n">val</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">it</span><span class="p">.</span><span class="na">next</span><span class="p">();</span>
+<span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">val</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<hr />
+<h2 id="4-pourquoi-utiliser-iterator">4. Pourquoi utiliser Iterator ?<a class="headerlink" href="#4-pourquoi-utiliser-iterator" title="Permanent link">&para;</a></h2>
+<p>permet :</p>
+<ul>
+<li>parcours sécurisé</li>
+<li>éviter les erreurs de modification</li>
+<li>abstraction de la collection</li>
+</ul>
+<hr />
+<h2 id="5-piege-important">5. Piège important<a class="headerlink" href="#5-piege-important" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">list</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">list</span><span class="p">.</span><span class="na">remove</span><span class="p">(</span><span class="n">s</span><span class="p">);</span><span class="w"> </span><span class="c1">// ❌ erreur (ConcurrentModificationException)</span>
+<span class="p">}</span>
+</code></pre></div>
 <p>problème :</p>
 <ul>
 <li>modification pendant l’itération</li>
 </ul>
 <hr />
 <h2 id="solution-avec-iterator">Solution avec Iterator<a class="headerlink" href="#solution-avec-iterator" title="Permanent link">&para;</a></h2>
-<p>```java id="t8r1lm"
-Iterator<String> it = list.iterator();</p>
-<p>while (it.hasNext()) {
-    if (it.next().equals("B")) {
-        it.remove(); // ✔️ safe
-    }
-}
-```</p>
+<div class="highlight"><pre><span></span><code><span class="n">Iterator</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">list</span><span class="p">.</span><span class="na">iterator</span><span class="p">();</span>
+
+<span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">it</span><span class="p">.</span><span class="na">hasNext</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">it</span><span class="p">.</span><span class="na">next</span><span class="p">().</span><span class="na">equals</span><span class="p">(</span><span class="s">&quot;B&quot;</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">it</span><span class="p">.</span><span class="na">remove</span><span class="p">();</span><span class="w"> </span><span class="c1">// ✔️ safe</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
 <hr />
 <h2 id="6-a-retenir-sur-remove">6. À retenir sur <code>remove()</code><a class="headerlink" href="#6-a-retenir-sur-remove" title="Permanent link">&para;</a></h2>
 <ul>

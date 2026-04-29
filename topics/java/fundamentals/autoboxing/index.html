@@ -1701,6 +1701,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#6-piege-performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Piège performance
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#7-ou-ca-arrive-souvent" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1819,25 +1830,21 @@
 <p>➡️ primitive → objet</p>
 <hr />
 <h2 id="2-exemple-simple">2. Exemple simple<a class="headerlink" href="#2-exemple-simple" title="Permanent link">&para;</a></h2>
-<p>```java id="z4p2rm"
-int x = 10;
-Integer y = x; // autoboxing
-<div class="highlight"><pre><span></span><code>Java transforme automatiquement :
-
-```java id=&quot;6n3vqt&quot;
-Integer y = Integer.valueOf(x);
-</code></pre></div></p>
+<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+<span class="n">Integer</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w"> </span><span class="c1">// autoboxing</span>
+</code></pre></div>
+<p>Java transforme automatiquement :</p>
+<div class="highlight"><pre><span></span><code><span class="n">Integer</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Integer</span><span class="p">.</span><span class="na">valueOf</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+</code></pre></div>
 <hr />
 <h2 id="3-unboxing-inverse">3. Unboxing (inverse)<a class="headerlink" href="#3-unboxing-inverse" title="Permanent link">&para;</a></h2>
 <p>conversion objet → primitive</p>
-<p>```java id="8k1dhs"
-Integer y = 10;
-int x = y; // unboxing
-<div class="highlight"><pre><span></span><code>équivalent :
-
-```java id=&quot;p9x3wr&quot;
-int x = y.intValue();
-</code></pre></div></p>
+<div class="highlight"><pre><span></span><code><span class="n">Integer</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">y</span><span class="p">;</span><span class="w"> </span><span class="c1">// unboxing</span>
+</code></pre></div>
+<p>équivalent :</p>
+<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">y</span><span class="p">.</span><span class="na">intValue</span><span class="p">();</span>
+</code></pre></div>
 <hr />
 <h2 id="4-types-concernes">4. Types concernés<a class="headerlink" href="#4-types-concernes" title="Permanent link">&para;</a></h2>
 <table>
@@ -1868,24 +1875,21 @@ int x = y.intValue();
 </table>
 <hr />
 <h2 id="5-piege-important-null">5. Piège important (null)<a class="headerlink" href="#5-piege-important-null" title="Permanent link">&para;</a></h2>
-<p>```java id="r7k2lm"
-Integer x = null;
-int y = x; // ❌ NullPointerException
-<div class="highlight"><pre><span></span><code>pourquoi ?
+<div class="highlight"><pre><span></span><code><span class="n">Integer</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w"> </span><span class="c1">// ❌ NullPointerException</span>
+</code></pre></div>
+<p>pourquoi ?</p>
+<ul>
+<li>unboxing tente de convertir <code>null</code> → erreur</li>
+</ul>
+<hr />
+<h2 id="6-piege-performance">6. Piège performance<a class="headerlink" href="#6-piege-performance" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="n">Integer</span><span class="w"> </span><span class="n">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 
-* unboxing tente de convertir `null` → erreur
-
----
-
-## 6. Piège performance
-
-```java id=&quot;v2n8qp&quot;
-Integer sum = 0;
-
-for (int i = 0; i &lt; 1000; i++) {
-    sum += i; // autoboxing + unboxing à chaque tour
-}
-</code></pre></div></p>
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">1000</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">sum</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w"> </span><span class="c1">// autoboxing + unboxing à chaque tour</span>
+<span class="p">}</span>
+</code></pre></div>
 <p>problème :</p>
 <ul>
 <li>création d’objets inutile</li>

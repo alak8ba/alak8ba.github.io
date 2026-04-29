@@ -1690,6 +1690,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#5-exemple-dutilisation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Exemple d’utilisation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#6-fonctionnalites-cles-hibernate" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1821,28 +1832,28 @@
 ➡️ Hibernate fait <em>le travail réel</em></p>
 <hr />
 <h2 id="2-exemple-simple">2. Exemple simple<a class="headerlink" href="#2-exemple-simple" title="Permanent link">&para;</a></h2>
-<p>```java id="n3k9qp"
-@Entity
-class User {
-    @Id
-    private Long id;</p>
-<div class="highlight"><pre><span></span><code>private String name;
+<div class="highlight"><pre><span></span><code><span class="nd">@Entity</span>
+<span class="kd">class</span> <span class="nc">User</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nd">@Id</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Long</span><span class="w"> </span><span class="n">id</span><span class="p">;</span>
+
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
+<span class="p">}</span>
 </code></pre></div>
-<p>}
-```
-
-Ici :
-
-* annotations JPA
-* Hibernate va les interpréter pour générer le SQL</p>
+<p>Ici :</p>
+<ul>
+<li>annotations JPA</li>
+<li>Hibernate va les interpréter pour générer le SQL</li>
+</ul>
 <hr />
 <h2 id="3-role-de-hibernate">3. Rôle de Hibernate<a class="headerlink" href="#3-role-de-hibernate" title="Permanent link">&para;</a></h2>
-<p>Hibernate gère :
-
-* mapping objet ↔ table
-* génération de requêtes SQL
-* gestion des transactions
-* cache</p>
+<p>Hibernate gère :</p>
+<ul>
+<li>mapping objet ↔ table</li>
+<li>génération de requêtes SQL</li>
+<li>gestion des transactions</li>
+<li>cache</li>
+</ul>
 <hr />
 <h2 id="4-jpa-vs-hibernate">4. JPA vs Hibernate<a class="headerlink" href="#4-jpa-vs-hibernate" title="Permanent link">&para;</a></h2>
 <table>
@@ -1869,93 +1880,21 @@ Ici :
 <td>✔️</td>
 <td>❌ dépend de Hibernate</td>
 </tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>---</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>## 5. Exemple d’utilisation</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>```java id="x8v2mz"</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>EntityManager em = entityManagerFactory.createEntityManager();</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>em.getTransaction().begin();</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>User user = new User();</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>user.setName("Ali");</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>em.persist(user);</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>em.getTransaction().commit();</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>```</td>
-<td></td>
-<td></td>
-</tr>
 </tbody>
 </table>
+<hr />
+<h2 id="5-exemple-dutilisation">5. Exemple d’utilisation<a class="headerlink" href="#5-exemple-dutilisation" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="n">EntityManager</span><span class="w"> </span><span class="n">em</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">entityManagerFactory</span><span class="p">.</span><span class="na">createEntityManager</span><span class="p">();</span>
+
+<span class="n">em</span><span class="p">.</span><span class="na">getTransaction</span><span class="p">().</span><span class="na">begin</span><span class="p">();</span>
+
+<span class="n">User</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">User</span><span class="p">();</span>
+<span class="n">user</span><span class="p">.</span><span class="na">setName</span><span class="p">(</span><span class="s">&quot;Ali&quot;</span><span class="p">);</span>
+
+<span class="n">em</span><span class="p">.</span><span class="na">persist</span><span class="p">(</span><span class="n">user</span><span class="p">);</span>
+
+<span class="n">em</span><span class="p">.</span><span class="na">getTransaction</span><span class="p">().</span><span class="na">commit</span><span class="p">();</span>
+</code></pre></div>
 <p>API JPA
 exécutée par Hibernate</p>
 <hr />
