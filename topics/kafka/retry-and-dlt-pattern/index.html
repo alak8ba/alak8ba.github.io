@@ -3819,8 +3819,8 @@
 
 
 
-<h1 id="kafka-retry-and-dead-letter-topic-pattern">Kafka Retry and Dead Letter Topic Pattern<a class="headerlink" href="#kafka-retry-and-dead-letter-topic-pattern" title="Permanent link">&para;</a></h1>
-<h2 id="contexte">Contexte<a class="headerlink" href="#contexte" title="Permanent link">&para;</a></h2>
+<h1 id="kafka-retry-and-dead-letter-topic-pattern">Kafka Retry and Dead Letter Topic Pattern</h1>
+<h2 id="contexte">Contexte</h2>
 <p>Dans un système distribué basé sur Kafka, les consommateurs
 peuvent rencontrer différents types d’erreurs lors du traitement
 des messages :</p>
@@ -3841,7 +3841,7 @@ de gestion des erreurs permettant :</p>
 <li>d’isoler les messages invalides</li>
 </ul>
 <hr />
-<h1 id="principe-du-retry">Principe du Retry<a class="headerlink" href="#principe-du-retry" title="Permanent link">&para;</a></h1>
+<h1 id="principe-du-retry">Principe du Retry</h1>
 <p>Lorsqu’un message échoue, le consommateur peut tenter
 de le traiter à nouveau.</p>
 <p>Le retry est généralement configuré avec :</p>
@@ -3855,7 +3855,7 @@ de le traiter à nouveau.</p>
 </code></pre></div></p>
 <p>Le retry permet de résoudre les erreurs temporaires.</p>
 <hr />
-<h1 id="dead-letter-topic-dlt">Dead Letter Topic (DLT)<a class="headerlink" href="#dead-letter-topic-dlt" title="Permanent link">&para;</a></h1>
+<h1 id="dead-letter-topic-dlt">Dead Letter Topic (DLT)</h1>
 <p>Si un message échoue après toutes les tentatives de retry,
 il est envoyé dans un <strong>Dead Letter Topic</strong>.</p>
 <p>Un Dead Letter Topic est un topic Kafka dédié
@@ -3870,7 +3870,7 @@ seaway.events.DLT
 <p>Le message est alors isolé et n’empêche plus
 le traitement des messages suivants.</p>
 <hr />
-<h1 id="flux-de-traitement">Flux de traitement<a class="headerlink" href="#flux-de-traitement" title="Permanent link">&para;</a></h1>
+<h1 id="flux-de-traitement">Flux de traitement</h1>
 <p>Flux typique :</p>
 <ol>
 <li>le message arrive dans le topic principal</li>
@@ -3879,7 +3879,7 @@ le traitement des messages suivants.</p>
 <li>si tous les retries échouent → publication dans le DLT</li>
 </ol>
 <hr />
-<h1 id="implementation-avec-spring-kafka">Implémentation avec Spring Kafka<a class="headerlink" href="#implementation-avec-spring-kafka" title="Permanent link">&para;</a></h1>
+<h1 id="implementation-avec-spring-kafka">Implémentation avec Spring Kafka</h1>
 <p>Spring Kafka propose un mécanisme intégré
 pour gérer les retries et les DLT.</p>
 <p>Le composant principal est :
@@ -3924,7 +3924,7 @@ Exemple simplifié :
 <p>C’est pourquoi il est généralement combiné avec un <strong>consumer idempotent</strong>.</p>
 </div>
 <hr />
-<h1 id="bonnes-pratiques">Bonnes pratiques<a class="headerlink" href="#bonnes-pratiques" title="Permanent link">&para;</a></h1>
+<h1 id="bonnes-pratiques">Bonnes pratiques</h1>
 <p>Plusieurs bonnes pratiques sont recommandées :</p>
 <ul>
 <li>limiter le nombre de retries</li>
@@ -3934,7 +3934,7 @@ Exemple simplifié :
 <li>rendre les consumers idempotents</li>
 </ul>
 <hr />
-<h1 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h1>
+<h1 id="conclusion">Conclusion</h1>
 <p>Le pattern Retry + Dead Letter Topic est un
 élément fondamental des architectures
 basées sur Kafka.</p>
@@ -3942,7 +3942,7 @@ basées sur Kafka.</p>
 résilients capables de gérer les erreurs
 sans bloquer le flux de traitement.</p>
 <hr />
-<h2 id="voir-aussi">Voir aussi<a class="headerlink" href="#voir-aussi" title="Permanent link">&para;</a></h2>
+<h2 id="voir-aussi">Voir aussi</h2>
 <ul>
 <li><a href="../idempotent-consumers/">Idempotent Consumers</a></li>
 <li><a href="../reliability-patterns/">Reliability Patterns</a></li>

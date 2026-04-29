@@ -4120,11 +4120,11 @@
 
 
 
-<h1 id="adr-010-container-security-strategy">ADR-010 — Container Security Strategy<a class="headerlink" href="#adr-010-container-security-strategy" title="Permanent link">&para;</a></h1>
-<h2 id="statut">Statut<a class="headerlink" href="#statut" title="Permanent link">&para;</a></h2>
+<h1 id="adr-010-container-security-strategy">ADR-010 — Container Security Strategy</h1>
+<h2 id="statut">Statut</h2>
 <p>Accepté</p>
 <hr />
-<h2 id="contexte">Contexte<a class="headerlink" href="#contexte" title="Permanent link">&para;</a></h2>
+<h2 id="contexte">Contexte</h2>
 <p>Le projet Seaway est déployé dans un environnement conteneurisé
 basé sur Docker et Docker Compose.</p>
 <p>Dans un contexte de production, les conteneurs doivent être
@@ -4138,7 +4138,7 @@ considérés comme des composants exposés aux risques suivants :</p>
 <p>Il est donc nécessaire d’adopter une stratégie de sécurité
 défensive pour limiter l’impact d’un incident potentiel.</p>
 <hr />
-<h2 id="decision">Décision<a class="headerlink" href="#decision" title="Permanent link">&para;</a></h2>
+<h2 id="decision">Décision</h2>
 <p>Les conteneurs du projet Seaway appliquent plusieurs
 mesures de sécurité :</p>
 <ul>
@@ -4152,7 +4152,7 @@ mesures de sécurité :</p>
 <p>Ces mesures réduisent les privilèges des conteneurs
 et limitent les surfaces d’attaque.</p>
 <hr />
-<h2 id="utilisateur-non-root">Utilisateur non-root<a class="headerlink" href="#utilisateur-non-root" title="Permanent link">&para;</a></h2>
+<h2 id="utilisateur-non-root">Utilisateur non-root</h2>
 <p>Les applications dans les conteneurs ne s’exécutent pas
 avec l’utilisateur root.</p>
 <p>Un utilisateur applicatif dédié est défini dans l’image Docker.</p>
@@ -4162,7 +4162,7 @@ avec l’utilisateur root.</p>
 <p>Cela empêche un attaquant potentiel d’obtenir
 des privilèges élevés dans le conteneur.</p>
 <hr />
-<h2 id="filesystem-en-lecture-seule">Filesystem en lecture seule<a class="headerlink" href="#filesystem-en-lecture-seule" title="Permanent link">&para;</a></h2>
+<h2 id="filesystem-en-lecture-seule">Filesystem en lecture seule</h2>
 <p>Les conteneurs applicatifs utilisent un système
 de fichiers en lecture seule :
 <div class="highlight"><pre><span></span><code>read_only: true
@@ -4170,7 +4170,7 @@ de fichiers en lecture seule :
 <p>Seuls certains emplacements nécessaires
 (par exemple <code>/tmp</code>) restent accessibles en écriture.</p>
 <hr />
-<h2 id="utilisation-de-tmpfs">Utilisation de tmpfs<a class="headerlink" href="#utilisation-de-tmpfs" title="Permanent link">&para;</a></h2>
+<h2 id="utilisation-de-tmpfs">Utilisation de tmpfs</h2>
 <p>Les répertoires temporaires utilisent un
 filesystem en mémoire :
 <div class="highlight"><pre><span></span><code>tmpfs:
@@ -4180,7 +4180,7 @@ filesystem en mémoire :
 <p>Cela limite les écritures disque
 et empêche la persistance de fichiers malveillants.</p>
 <hr />
-<h2 id="reseau-interne-docker">Réseau interne Docker<a class="headerlink" href="#reseau-interne-docker" title="Permanent link">&para;</a></h2>
+<h2 id="reseau-interne-docker">Réseau interne Docker</h2>
 <p>Les services internes (Kafka, PostgreSQL)
 ne sont pas exposés publiquement.</p>
 <p>Ils communiquent uniquement via
@@ -4197,7 +4197,7 @@ le réseau Docker interne.</p>
 <li>Zookeeper</li>
 </ul>
 <hr />
-<h2 id="reverse-proxy">Reverse Proxy<a class="headerlink" href="#reverse-proxy" title="Permanent link">&para;</a></h2>
+<h2 id="reverse-proxy">Reverse Proxy</h2>
 <p>Nginx agit comme point d’entrée unique.</p>
 <p>Responsabilités :</p>
 <ul>
@@ -4209,7 +4209,7 @@ le réseau Docker interne.</p>
 <p>Cela évite l’exposition directe
 des services applicatifs.</p>
 <hr />
-<h2 id="firewall">Firewall<a class="headerlink" href="#firewall" title="Permanent link">&para;</a></h2>
+<h2 id="firewall">Firewall</h2>
 <p>Le serveur utilise UFW avec
 une politique restrictive :
 <div class="highlight"><pre><span></span><code>deny incoming
@@ -4223,7 +4223,7 @@ allow outgoing
 </ul>
 <p>Tous les autres ports sont bloqués.</p>
 <hr />
-<h2 id="consequences">Conséquences<a class="headerlink" href="#consequences" title="Permanent link">&para;</a></h2>
+<h2 id="consequences">Conséquences</h2>
 <div class="admonition tip">
 <p class="admonition-title">Avantages</p>
 <ul>
@@ -4243,19 +4243,19 @@ allow outgoing
 </ul>
 </div>
 <hr />
-<h2 id="alternatives-considerees">Alternatives considérées<a class="headerlink" href="#alternatives-considerees" title="Permanent link">&para;</a></h2>
-<h3 id="conteneurs-executes-en-root">Conteneurs exécutés en root<a class="headerlink" href="#conteneurs-executes-en-root" title="Permanent link">&para;</a></h3>
+<h2 id="alternatives-considerees">Alternatives considérées</h2>
+<h3 id="conteneurs-executes-en-root">Conteneurs exécutés en root</h3>
 <p>Solution plus simple mais beaucoup
 moins sécurisée.</p>
 <p>Cette approche a été rejetée.</p>
 <hr />
-<h3 id="exposition-directe-des-services">Exposition directe des services<a class="headerlink" href="#exposition-directe-des-services" title="Permanent link">&para;</a></h3>
+<h3 id="exposition-directe-des-services">Exposition directe des services</h3>
 <p>Exposer directement PostgreSQL ou Kafka
 simplifierait certaines opérations
 mais augmenterait fortement la surface d’attaque.</p>
 <p>Cette option a été rejetée.</p>
 <hr />
-<h2 id="justification">Justification<a class="headerlink" href="#justification" title="Permanent link">&para;</a></h2>
+<h2 id="justification">Justification</h2>
 <p>La sécurité des conteneurs repose
 sur le principe du <strong>least privilege</strong>.</p>
 <p>Chaque composant dispose uniquement

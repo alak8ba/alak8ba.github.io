@@ -1677,8 +1677,8 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1 id="hexagonal-architecture-ports-and-adapters">Hexagonal Architecture (Ports and Adapters)<a class="headerlink" href="#hexagonal-architecture-ports-and-adapters" title="Permanent link">¶</a></h1>
-<h2 id="hexagonal-architecture-diagram">Hexagonal Architecture Diagram<a class="headerlink" href="#hexagonal-architecture-diagram" title="Permanent link">¶</a></h2>
+<h1 id="hexagonal-architecture-ports-and-adapters">Hexagonal Architecture (Ports and Adapters)</h1>
+<h2 id="hexagonal-architecture-diagram">Hexagonal Architecture Diagram</h2>
 <pre class="mermaid"><code>flowchart LR
 
 UI[REST Controller]
@@ -1691,7 +1691,7 @@ UI --&gt; UC
 UC --&gt; DOM
 UC --&gt; REP
 REP --&gt; DB</code></pre>
-<h2 id="contexte">Contexte<a class="headerlink" href="#contexte" title="Permanent link">¶</a></h2>
+<h2 id="contexte">Contexte</h2>
 <p>Dans de nombreuses applications backend traditionnelles,
 le code métier est souvent fortement couplé aux
 frameworks et aux technologies utilisées :</p>
@@ -1711,7 +1711,7 @@ frameworks et aux technologies utilisées :</p>
 <p>L'architecture hexagonale, également appelée
 <strong>Ports and Adapters</strong>, vise à résoudre ce problème.</p>
 <hr/>
-<h1 id="principe">Principe<a class="headerlink" href="#principe" title="Permanent link">¶</a></h1>
+<h1 id="principe">Principe</h1>
 <p>L'idée principale est de <strong>placer le domaine métier
 au centre du système</strong>.</p>
 <p>Les technologies externes deviennent des
@@ -1724,8 +1724,8 @@ dépendances périphériques.</p>
     DOM &lt;--&gt;|Repository Port| PA[Persistence Adapter]</code></pre></p>
 <p>Le domaine ne dépend d'aucune technologie.</p>
 <hr/>
-<h1 id="les-composants-principaux">Les composants principaux<a class="headerlink" href="#les-composants-principaux" title="Permanent link">¶</a></h1>
-<h2 id="domain">Domain<a class="headerlink" href="#domain" title="Permanent link">¶</a></h2>
+<h1 id="les-composants-principaux">Les composants principaux</h1>
+<h2 id="domain">Domain</h2>
 <p>Le domaine contient :</p>
 <ul>
 <li>les entités</li>
@@ -1748,7 +1748,7 @@ de toute technologie.</p>
 <span class="n">Schedule</span>
 </code></pre></div></p>
 <hr/>
-<h2 id="application-layer">Application Layer<a class="headerlink" href="#application-layer" title="Permanent link">¶</a></h2>
+<h2 id="application-layer">Application Layer</h2>
 <p>La couche application contient
 les <strong>cas d’usage du système</strong>.</p>
 <p>Elle orchestre :</p>
@@ -1766,12 +1766,12 @@ les <strong>cas d’usage du système</strong>.</p>
 <p>Cette couche dépend du domaine
 mais pas de l'infrastructure.</p>
 <hr/>
-<h1 id="ports">Ports<a class="headerlink" href="#ports" title="Permanent link">¶</a></h1>
+<h1 id="ports">Ports</h1>
 <p>Les ports définissent les <strong>interfaces
 entre le domaine et l'extérieur</strong>.</p>
 <p>Il existe deux types de ports.</p>
 <hr/>
-<h2 id="ports-entrants-driving-ports">Ports entrants (driving ports)<a class="headerlink" href="#ports-entrants-driving-ports" title="Permanent link">¶</a></h2>
+<h2 id="ports-entrants-driving-ports">Ports entrants (driving ports)</h2>
 <p>Ils représentent les actions
 qui peuvent être déclenchées
 sur le système.</p>
@@ -1782,7 +1782,7 @@ sur le système.</p>
 <p>Ces ports sont implémentés
 par les adapters.</p>
 <hr/>
-<h1 id="adapters">Adapters<a class="headerlink" href="#adapters" title="Permanent link">¶</a></h1>
+<h1 id="adapters">Adapters</h1>
 <p>Les adapters connectent
 l'application aux technologies.</p>
 <p>Exemples d'adapters :</p>
@@ -1796,7 +1796,7 @@ l'application aux technologies.</p>
 entre les ports et
 les systèmes externes.</p>
 <hr/>
-<h1 id="organisation-typique-dun-projet">Organisation typique d'un projet<a class="headerlink" href="#organisation-typique-dun-projet" title="Permanent link">¶</a></h1>
+<h1 id="organisation-typique-dun-projet">Organisation typique d'un projet</h1>
 <p>Une organisation fréquente
 dans un projet Spring Boot :
 <div class="highlight"><pre><span></span><code>src/
@@ -1845,7 +1845,7 @@ les responsabilités de chaque couche.</p>
 <p>Le domaine reste stable même si les technologies changent.</p>
 </div>
 <hr/>
-<h1 id="tests-facilites">Tests facilités<a class="headerlink" href="#tests-facilites" title="Permanent link">¶</a></h1>
+<h1 id="tests-facilites">Tests facilités</h1>
 <p>L'isolation du domaine permet
 de tester facilement :</p>
 <ul>
@@ -1873,7 +1873,7 @@ testés séparément.</p>
 <p>Cependant elle devient très utile dès que le système grandit.</p>
 </div>
 <hr/>
-<h1 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">¶</a></h1>
+<h1 id="conclusion">Conclusion</h1>
 <p>L'architecture hexagonale permet
 de construire des applications
 centrées sur le domaine métier.</p>
@@ -1887,7 +1887,7 @@ centrées sur le domaine métier.</p>
 la testabilité et l'évolutivité
 des systèmes backend.</p>
 <hr/>
-<h2 id="voir-aussi">Voir aussi<a class="headerlink" href="#voir-aussi" title="Permanent link">¶</a></h2>
+<h2 id="voir-aussi">Voir aussi</h2>
 <ul>
 <li><a href="../../architecture/cqrs-pattern/">CQRS Pattern</a></li>
 <li><a href="../../java/design-patterns/dependency-injection/">Dependency Injection</a></li>

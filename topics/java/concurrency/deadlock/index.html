@@ -4284,16 +4284,16 @@
 
 
 
-<h1 id="java-deadlock-blocage-en-concurrence">Java — Deadlock (Blocage en concurrence)<a class="headerlink" href="#java-deadlock-blocage-en-concurrence" title="Permanent link">&para;</a></h1>
+<h1 id="java-deadlock-blocage-en-concurrence">Java — Deadlock (Blocage en concurrence)</h1>
 <p>Le <strong>deadlock</strong> est un problème avancé en programmation concurrente. Il peut bloquer complètement une application sans afficher d’erreur, ce qui le rend particulièrement dangereux.</p>
 <hr />
-<h2 id="definition-simple">Définition simple<a class="headerlink" href="#definition-simple" title="Permanent link">&para;</a></h2>
+<h2 id="definition-simple">Définition simple</h2>
 <p>Un <strong>deadlock</strong> se produit lorsque :</p>
 <p>deux threads (ou plus) se bloquent mutuellement
 chacun attend une ressource détenue par l’autre</p>
 <p>➡️ Résultat : <strong>aucun ne peut continuer</strong></p>
 <hr />
-<h2 id="exemple-classique">Exemple classique<a class="headerlink" href="#exemple-classique" title="Permanent link">&para;</a></h2>
+<h2 id="exemple-classique">Exemple classique</h2>
 <div class="highlight"><pre><span></span><code><span class="n">Object</span><span class="w"> </span><span class="n">lock1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Object</span><span class="p">();</span>
 <span class="n">Object</span><span class="w"> </span><span class="n">lock2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Object</span><span class="p">();</span>
 
@@ -4314,7 +4314,7 @@ chacun attend une ressource détenue par l’autre</p>
 <span class="p">});</span>
 </code></pre></div>
 <hr />
-<h2 id="que-se-passe-t-il">💥 Que se passe-t-il ?<a class="headerlink" href="#que-se-passe-t-il" title="Permanent link">&para;</a></h2>
+<h2 id="que-se-passe-t-il">💥 Que se passe-t-il ?</h2>
 <p>Scénario possible :</p>
 <ul>
 <li>t1 prend <code>lock1</code></li>
@@ -4325,14 +4325,14 @@ chacun attend une ressource détenue par l’autre</p>
 <p>Résultat :</p>
 <p>💣 <strong>blocage total (deadlock)</strong></p>
 <hr />
-<h2 id="visualisation">Visualisation<a class="headerlink" href="#visualisation" title="Permanent link">&para;</a></h2>
+<h2 id="visualisation">Visualisation</h2>
 <ul>
 <li>Thread 1 → attend une ressource détenue par Thread 2</li>
 <li>Thread 2 → attend une ressource détenue par Thread 1</li>
 </ul>
 <p>boucle bloquée, rien n’avance</p>
 <hr />
-<h2 id="pourquoi-cest-critique">Pourquoi c’est critique<a class="headerlink" href="#pourquoi-cest-critique" title="Permanent link">&para;</a></h2>
+<h2 id="pourquoi-cest-critique">Pourquoi c’est critique</h2>
 <ul>
 <li>aucune erreur visible</li>
 <li>application figée</li>
@@ -4341,8 +4341,8 @@ chacun attend une ressource détenue par l’autre</p>
 </ul>
 <p>Dans des systèmes sensibles (finance, trading…), c’est un problème majeur</p>
 <hr />
-<h2 id="comment-eviter-un-deadlock">🛠️ Comment éviter un deadlock<a class="headerlink" href="#comment-eviter-un-deadlock" title="Permanent link">&para;</a></h2>
-<h3 id="1-ordre-des-locks">1. Ordre des locks<a class="headerlink" href="#1-ordre-des-locks" title="Permanent link">&para;</a></h3>
+<h2 id="comment-eviter-un-deadlock">🛠️ Comment éviter un deadlock</h2>
+<h3 id="1-ordre-des-locks">1. Ordre des locks</h3>
 <p>Toujours acquérir les verrous dans le même ordre</p>
 <ul>
 <li>Bon :</li>
@@ -4355,18 +4355,18 @@ chacun attend une ressource détenue par l’autre</p>
 <div class="highlight"><pre><span></span><code>lock2 → lock1
 </code></pre></div>
 <hr />
-<h3 id="2-timeout-avec-trylock">2. Timeout avec <code>tryLock</code><a class="headerlink" href="#2-timeout-avec-trylock" title="Permanent link">&para;</a></h3>
+<h3 id="2-timeout-avec-trylock">2. Timeout avec <code>tryLock</code></h3>
 <div class="highlight"><pre><span></span><code><span class="n">lock</span><span class="p">.</span><span class="na">tryLock</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">TimeUnit</span><span class="p">.</span><span class="na">SECONDS</span><span class="p">);</span>
 </code></pre></div>
 <p>permet d’éviter un blocage infini</p>
 <hr />
-<h3 id="3-reduire-les-locks">3. Réduire les locks<a class="headerlink" href="#3-reduire-les-locks" title="Permanent link">&para;</a></h3>
+<h3 id="3-reduire-les-locks">3. Réduire les locks</h3>
 <p>moins de verrous = moins de risques</p>
 <hr />
-<h3 id="4-simplifier">4. Simplifier<a class="headerlink" href="#4-simplifier" title="Permanent link">&para;</a></h3>
+<h3 id="4-simplifier">4. Simplifier</h3>
 <p>utiliser un seul lock si possible</p>
 <hr />
-<h2 id="difference-avec-race-condition">Différence avec race condition<a class="headerlink" href="#difference-avec-race-condition" title="Permanent link">&para;</a></h2>
+<h2 id="difference-avec-race-condition">Différence avec race condition</h2>
 <table>
 <thead>
 <tr>
@@ -4394,7 +4394,7 @@ chacun attend une ressource détenue par l’autre</p>
 </tbody>
 </table>
 <hr />
-<h2 id="pieges-frequents">Pièges fréquents<a class="headerlink" href="#pieges-frequents" title="Permanent link">&para;</a></h2>
+<h2 id="pieges-frequents">Pièges fréquents</h2>
 <ul>
 <li>ignorer l’ordre des locks</li>
 <li>multiplier les verrous</li>
@@ -4402,24 +4402,24 @@ chacun attend une ressource détenue par l’autre</p>
 <li>créer des dépendances circulaires</li>
 </ul>
 <hr />
-<h2 id="questions-classiques">Questions classiques<a class="headerlink" href="#questions-classiques" title="Permanent link">&para;</a></h2>
-<h3 id="q1">Q1<a class="headerlink" href="#q1" title="Permanent link">&para;</a></h3>
+<h2 id="questions-classiques">Questions classiques</h2>
+<h3 id="q1">Q1</h3>
 <p>C’est quoi un deadlock ?
 Blocage mutuel entre threads</p>
 <hr />
-<h3 id="q2">Q2<a class="headerlink" href="#q2" title="Permanent link">&para;</a></h3>
+<h3 id="q2">Q2</h3>
 <p>Cause principale ?
 Ordre incohérent des locks</p>
 <hr />
-<h3 id="q3">Q3<a class="headerlink" href="#q3" title="Permanent link">&para;</a></h3>
+<h3 id="q3">Q3</h3>
 <p>Solution ?
 Ordre des locks / <code>tryLock</code> / simplification</p>
 <hr />
-<h3 id="q4">Q4<a class="headerlink" href="#q4" title="Permanent link">&para;</a></h3>
+<h3 id="q4">Q4</h3>
 <p>Deadlock ou race condition → lequel bloque le système ?
 Deadlock</p>
 <hr />
-<h2 id="a-retenir">À retenir<a class="headerlink" href="#a-retenir" title="Permanent link">&para;</a></h2>
+<h2 id="a-retenir">À retenir</h2>
 <ul>
 <li>un deadlock = blocage total entre threads</li>
 <li>il est causé par des dépendances circulaires</li>
@@ -4427,7 +4427,7 @@ Deadlock</p>
 <li>il doit être évité dès la conception</li>
 </ul>
 <hr />
-<h2 id="en-resume">🧾 En résumé<a class="headerlink" href="#en-resume" title="Permanent link">&para;</a></h2>
+<h2 id="en-resume">🧾 En résumé</h2>
 <ul>
 <li>plusieurs threads se bloquent en attendant des ressources</li>
 <li>aucun ne peut avancer → système figé</li>
@@ -4436,7 +4436,7 @@ Deadlock</p>
 </ul>
 <p>Le deadlock est un bug rare mais critique : il peut stopper complètement une application sans prévenir.</p>
 <hr />
-<h2 id="voir-aussi">Voir aussi<a class="headerlink" href="#voir-aussi" title="Permanent link">&para;</a></h2>
+<h2 id="voir-aussi">Voir aussi</h2>
 <ul>
 <li><a href="../race-condition/">Race Condition</a></li>
 <li><a href="../synchronized/">synchronized</a></li>

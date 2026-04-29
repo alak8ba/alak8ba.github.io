@@ -1677,8 +1677,8 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1 id="kafka-reliability-patterns">Kafka Reliability Patterns<a class="headerlink" href="#kafka-reliability-patterns" title="Permanent link">¶</a></h1>
-<h2 id="reliability-architecture">Reliability Architecture<a class="headerlink" href="#reliability-architecture" title="Permanent link">¶</a></h2>
+<h1 id="kafka-reliability-patterns">Kafka Reliability Patterns</h1>
+<h2 id="reliability-architecture">Reliability Architecture</h2>
 <pre class="mermaid"><code>flowchart LR
 
 A[Client Command]
@@ -1697,7 +1697,7 @@ D --&gt; E
 E --&gt; F
 F --&gt; G
 G --&gt; H</code></pre>
-<h2 id="contexte">Contexte<a class="headerlink" href="#contexte" title="Permanent link">¶</a></h2>
+<h2 id="contexte">Contexte</h2>
 <p>Les architectures basées sur Kafka reposent sur
 la communication par événements entre services.</p>
 <p>Cependant, dans un système distribué, plusieurs
@@ -1722,7 +1722,7 @@ sont généralement combinés.</p>
 <p>Ensemble, ils permettent de construire
 un pipeline événementiel robuste.</p>
 <hr/>
-<h1 id="vue-densemble">Vue d’ensemble<a class="headerlink" href="#vue-densemble" title="Permanent link">¶</a></h1>
+<h1 id="vue-densemble">Vue d’ensemble</h1>
 <p>Architecture simplifiée :
 <pre class="mermaid"><code>flowchart TD
     C[Client] --&gt; S[Service]
@@ -1739,7 +1739,7 @@ un pipeline événementiel robuste.</p>
     CON --&gt; R[Retry Queue]
     CON --&gt; D[Dead Letter Topic]</code></pre></p>
 <hr/>
-<h1 id="1-outbox-pattern">1 — Outbox Pattern<a class="headerlink" href="#1-outbox-pattern" title="Permanent link">¶</a></h1>
+<h1 id="1-outbox-pattern">1 — Outbox Pattern</h1>
 <p>Le Outbox Pattern garantit la cohérence
 entre la base de données et les événements.</p>
 <p>Au lieu de publier directement dans Kafka,
@@ -1755,7 +1755,7 @@ le service enregistre l’événement dans une table
 </ul>
 </div>
 <hr/>
-<h1 id="2-retry">2 — Retry<a class="headerlink" href="#2-retry" title="Permanent link">¶</a></h1>
+<h1 id="2-retry">2 — Retry</h1>
 <p>Les erreurs temporaires sont fréquentes
 dans les systèmes distribués :</p>
 <ul>
@@ -1773,7 +1773,7 @@ Retry<span class="w"> </span><span class="m">3</span><span class="w"> </span>→
 Le retry est généralement limité
 pour éviter les boucles infinies.</p>
 <hr/>
-<h1 id="3-dead-letter-topic-dlt">3 — Dead Letter Topic (DLT)<a class="headerlink" href="#3-dead-letter-topic-dlt" title="Permanent link">¶</a></h1>
+<h1 id="3-dead-letter-topic-dlt">3 — Dead Letter Topic (DLT)</h1>
 <p>Si un message échoue après tous les retries,
 il est envoyé dans un <strong>Dead Letter Topic</strong>.</p>
 <p>Convention :
@@ -1790,7 +1790,7 @@ seaway.events.DLT
 <li>rejoués</li>
 </ul>
 <hr/>
-<h1 id="4-idempotent-consumers">4 — Idempotent Consumers<a class="headerlink" href="#4-idempotent-consumers" title="Permanent link">¶</a></h1>
+<h1 id="4-idempotent-consumers">4 — Idempotent Consumers</h1>
 <p>Dans Kafka, un message peut être livré
 plusieurs fois.</p>
 <p>Un consumer doit donc être <strong>idempotent</strong>.</p>
@@ -1804,7 +1804,7 @@ d’effet de bord.</p>
 <li>utiliser la version des agrégats</li>
 </ul>
 <hr/>
-<h1 id="combinaison-des-patterns">Combinaison des patterns<a class="headerlink" href="#combinaison-des-patterns" title="Permanent link">¶</a></h1>
+<h1 id="combinaison-des-patterns">Combinaison des patterns</h1>
 <p>Ces patterns fonctionnent ensemble.</p>
 <p>Flux complet :</p>
 <ol>
@@ -1840,7 +1840,7 @@ d’effet de bord.</p>
 <p>Cependant cette complexité est généralement nécessaire pour les systèmes distribués.</p>
 </div>
 <hr/>
-<h1 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">¶</a></h1>
+<h1 id="conclusion">Conclusion</h1>
 <p>Les systèmes event-driven doivent être conçus
 pour gérer les défaillances.</p>
 <p>Les patterns :</p>
@@ -1854,7 +1854,7 @@ pour gérer les défaillances.</p>
 de construire des pipelines événementiels
 fiables et résilients.</p>
 <hr/>
-<h2 id="voir-aussi">Voir aussi<a class="headerlink" href="#voir-aussi" title="Permanent link">¶</a></h2>
+<h2 id="voir-aussi">Voir aussi</h2>
 <ul>
 <li><a href="../retry-and-dlt-pattern/">Retry and DLT Pattern</a></li>
 <li><a href="../idempotent-consumers/">Idempotent Consumers</a></li>

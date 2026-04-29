@@ -3819,8 +3819,8 @@
 
 
 
-<h1 id="container-security-best-practices">Container Security Best Practices<a class="headerlink" href="#container-security-best-practices" title="Permanent link">&para;</a></h1>
-<h2 id="contexte">Contexte<a class="headerlink" href="#contexte" title="Permanent link">&para;</a></h2>
+<h1 id="container-security-best-practices">Container Security Best Practices</h1>
+<h2 id="contexte">Contexte</h2>
 <p>Les conteneurs sont largement utilisés pour déployer
 des applications modernes.</p>
 <p>Bien que les conteneurs offrent une isolation
@@ -3837,7 +3837,7 @@ le système à plusieurs risques :</p>
 <p>Il est donc essentiel d’appliquer
 des pratiques de sécurité adaptées.</p>
 <hr />
-<h1 id="principe">Principe<a class="headerlink" href="#principe" title="Permanent link">&para;</a></h1>
+<h1 id="principe">Principe</h1>
 <p>La sécurité des conteneurs repose
 sur plusieurs principes fondamentaux :</p>
 <ul>
@@ -3847,7 +3847,7 @@ sur plusieurs principes fondamentaux :</p>
 <li>contrôle des accès réseau</li>
 </ul>
 <hr />
-<h1 id="utilisateur-non-root">Utilisateur non-root<a class="headerlink" href="#utilisateur-non-root" title="Permanent link">&para;</a></h1>
+<h1 id="utilisateur-non-root">Utilisateur non-root</h1>
 <p>Les conteneurs ne doivent pas
 s’exécuter avec l’utilisateur root.</p>
 <p>Exemple dans un Dockerfile :
@@ -3862,7 +3862,7 @@ s’exécuter avec l’utilisateur root.</p>
 </ul>
 </div>
 <hr />
-<h1 id="filesystem-en-lecture-seule">Filesystem en lecture seule<a class="headerlink" href="#filesystem-en-lecture-seule" title="Permanent link">&para;</a></h1>
+<h1 id="filesystem-en-lecture-seule">Filesystem en lecture seule</h1>
 <p>Les conteneurs applicatifs peuvent être
 configurés avec un filesystem en lecture seule.</p>
 <p>Exemple :
@@ -3871,7 +3871,7 @@ configurés avec un filesystem en lecture seule.</p>
 Seules certaines zones doivent rester
 accessibles en écriture.</p>
 <hr />
-<h1 id="repertoires-temporaires-en-memoire">Répertoires temporaires en mémoire<a class="headerlink" href="#repertoires-temporaires-en-memoire" title="Permanent link">&para;</a></h1>
+<h1 id="repertoires-temporaires-en-memoire">Répertoires temporaires en mémoire</h1>
 <p>Les répertoires temporaires peuvent être
 montés en mémoire avec <strong>tmpfs</strong>.</p>
 <p>Exemple :
@@ -3886,7 +3886,7 @@ montés en mémoire avec <strong>tmpfs</strong>.</p>
 </ul>
 </div>
 <hr />
-<h1 id="isolation-reseau">Isolation réseau<a class="headerlink" href="#isolation-reseau" title="Permanent link">&para;</a></h1>
+<h1 id="isolation-reseau">Isolation réseau</h1>
 <p>Les services internes ne doivent pas
 être exposés directement sur Internet.</p>
 <p>Exemple de services internes :</p>
@@ -3898,7 +3898,7 @@ montés en mémoire avec <strong>tmpfs</strong>.</p>
 <p>Ces services doivent être accessibles
 uniquement via le réseau interne Docker.</p>
 <hr />
-<h1 id="limitation-des-ports-exposes">Limitation des ports exposés<a class="headerlink" href="#limitation-des-ports-exposes" title="Permanent link">&para;</a></h1>
+<h1 id="limitation-des-ports-exposes">Limitation des ports exposés</h1>
 <p>Seuls les ports nécessaires doivent
 être exposés.</p>
 <p>Exemple typique :
@@ -3907,7 +3907,7 @@ uniquement via le réseau interne Docker.</p>
 </code></pre></div></p>
 <p>Les ports internes doivent rester fermés.</p>
 <hr />
-<h1 id="gestion-des-secrets">Gestion des secrets<a class="headerlink" href="#gestion-des-secrets" title="Permanent link">&para;</a></h1>
+<h1 id="gestion-des-secrets">Gestion des secrets</h1>
 <p>Les informations sensibles ne doivent
 pas être intégrées dans les images Docker.</p>
 <p>Exemples de secrets :</p>
@@ -3923,7 +3923,7 @@ pas être intégrées dans les images Docker.</p>
 <li>fichiers de configuration sécurisés</li>
 </ul>
 <hr />
-<h1 id="images-minimales">Images minimales<a class="headerlink" href="#images-minimales" title="Permanent link">&para;</a></h1>
+<h1 id="images-minimales">Images minimales</h1>
 <p>Les images Docker doivent être
 les plus petites possible.</p>
 <p>Objectifs :</p>
@@ -3937,7 +3937,7 @@ les plus petites possible.</p>
 <li>images JRE minimalistes</li>
 </ul>
 <hr />
-<h1 id="mise-a-jour-des-images">Mise à jour des images<a class="headerlink" href="#mise-a-jour-des-images" title="Permanent link">&para;</a></h1>
+<h1 id="mise-a-jour-des-images">Mise à jour des images</h1>
 <p>Les images doivent être mises à jour
 régulièrement afin de corriger
 les vulnérabilités.</p>
@@ -3947,7 +3947,7 @@ les vulnérabilités.</p>
 <li>surveillance des dépendances</li>
 </ul>
 <hr />
-<h1 id="monitoring-et-logs">Monitoring et logs<a class="headerlink" href="#monitoring-et-logs" title="Permanent link">&para;</a></h1>
+<h1 id="monitoring-et-logs">Monitoring et logs</h1>
 <p>Les conteneurs doivent être surveillés :</p>
 <ul>
 <li>logs d’application</li>
@@ -3980,7 +3980,7 @@ des comportements anormaux.</p>
 multi-couches.</p>
 </div>
 <hr />
-<h1 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h1>
+<h1 id="conclusion">Conclusion</h1>
 <p>Les conteneurs simplifient le déploiement
 des applications, mais ils doivent être
 configurés correctement.</p>

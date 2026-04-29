@@ -1613,7 +1613,7 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1 id="seaway-architecture-diagrams">Seaway — Architecture Diagrams<a class="headerlink" href="#seaway-architecture-diagrams" title="Permanent link">¶</a></h1>
+<h1 id="seaway-architecture-diagrams">Seaway — Architecture Diagrams</h1>
 <p>Ce document présente les principaux diagrammes d’architecture
 du système Seaway.</p>
 <p>Les diagrammes permettent de comprendre rapidement :</p>
@@ -1624,7 +1624,7 @@ du système Seaway.</p>
 <li>le déploiement de l'application</li>
 </ul>
 <hr/>
-<h1 id="1-architecture-globale">1 — Architecture globale<a class="headerlink" href="#1-architecture-globale" title="Permanent link">¶</a></h1>
+<h1 id="1-architecture-globale">1 — Architecture globale</h1>
 <p><pre class="mermaid"><code>flowchart LR
     User[Utilisateur]
     Frontend[React Frontend]
@@ -1644,7 +1644,7 @@ Description :
 - Le backend Spring Boot traite les requêtes.
 - PostgreSQL stocke les données métier.
 - Kafka transporte les événements du système.</p>
-<h1 id="2-flux-event-driven">2 — Flux Event-Driven<a class="headerlink" href="#2-flux-event-driven" title="Permanent link">¶</a></h1>
+<h1 id="2-flux-event-driven">2 — Flux Event-Driven</h1>
 <p><pre class="mermaid"><code>sequenceDiagram
 
 participant Client
@@ -1668,7 +1668,7 @@ Description :
 4. l'événement est enregistré dans l'outbox
 5. l'événement est publié dans Kafka
 6. les consumers mettent à jour les read models</p>
-<h1 id="3-flux-dauthentification-jwt">3 — Flux d’authentification JWT<a class="headerlink" href="#3-flux-dauthentification-jwt" title="Permanent link">¶</a></h1>
+<h1 id="3-flux-dauthentification-jwt">3 — Flux d’authentification JWT</h1>
 <pre class="mermaid"><code>sequenceDiagram
 
 participant User
@@ -1694,7 +1694,7 @@ Backend-&gt;&gt;Frontend: Nouveau Access Token</code></pre>
 <li>le frontend utilise <code>/auth/me</code> pour récupérer l'utilisateur</li>
 <li>si le token expire, un refresh est effectué automatiquement</li>
 </ol>
-<h1 id="4-architecture-cicd">4 — Architecture CI/CD<a class="headerlink" href="#4-architecture-cicd" title="Permanent link">¶</a></h1>
+<h1 id="4-architecture-cicd">4 — Architecture CI/CD</h1>
 <pre class="mermaid"><code>flowchart LR
 
 Dev[Developer]
@@ -1716,7 +1716,7 @@ Watchtower --&gt; Server</code></pre>
 4. les images sont publiées dans GHCR
 5. le serveur récupère les nouvelles images
 6. Watchtower redéploie automatiquement les containers</p>
-<h1 id="resume-de-larchitecture">Résumé de l'architecture<a class="headerlink" href="#resume-de-larchitecture" title="Permanent link">¶</a></h1>
+<h1 id="resume-de-larchitecture">Résumé de l'architecture</h1>
 <p>Le système Seaway repose sur plusieurs principes clés :
 - architecture hexagonale
 - event-driven architecture

@@ -4154,11 +4154,11 @@
 
 
 
-<h1 id="adr-005-adoption-dun-deploiement-pull-based-avec-watchtower">ADR-005 — Adoption d’un déploiement pull-based avec Watchtower<a class="headerlink" href="#adr-005-adoption-dun-deploiement-pull-based-avec-watchtower" title="Permanent link">&para;</a></h1>
-<h2 id="statut">Statut<a class="headerlink" href="#statut" title="Permanent link">&para;</a></h2>
+<h1 id="adr-005-adoption-dun-deploiement-pull-based-avec-watchtower">ADR-005 — Adoption d’un déploiement pull-based avec Watchtower</h1>
+<h2 id="statut">Statut</h2>
 <p>Accepté</p>
 <hr />
-<h2 id="contexte">Contexte<a class="headerlink" href="#contexte" title="Permanent link">&para;</a></h2>
+<h2 id="contexte">Contexte</h2>
 <p>Le projet Seaway est déployé sur un serveur auto-hébergé
 (Debian) derrière un NAT avec une politique de sécurité
 réseau très restrictive.</p>
@@ -4181,7 +4181,7 @@ via SSH depuis GitHub Actions.</p>
 <p>Il était donc préférable d’adopter une approche compatible
 avec une infrastructure <strong>HTTPS-only</strong>.</p>
 <hr />
-<h2 id="decision">Décision<a class="headerlink" href="#decision" title="Permanent link">&para;</a></h2>
+<h2 id="decision">Décision</h2>
 <p>Le déploiement utilise un modèle <strong>pull-based</strong>.</p>
 <p>Le serveur ne reçoit aucune connexion entrante depuis
 les systèmes CI.</p>
@@ -4193,9 +4193,9 @@ les systèmes CI.</p>
 <li>Watchtower met à jour automatiquement les containers</li>
 </ol>
 <hr />
-<h2 id="architecture-de-deploiement">Architecture de déploiement<a class="headerlink" href="#architecture-de-deploiement" title="Permanent link">&para;</a></h2>
+<h2 id="architecture-de-deploiement">Architecture de déploiement</h2>
 <p>Le système repose sur trois composants principaux :</p>
-<h3 id="code-source">Code source<a class="headerlink" href="#code-source" title="Permanent link">&para;</a></h3>
+<h3 id="code-source">Code source</h3>
 <p>Le repository GitHub contient :</p>
 <ul>
 <li>le code</li>
@@ -4203,7 +4203,7 @@ les systèmes CI.</p>
 <li>les workflows CI/CD</li>
 </ul>
 <hr />
-<h3 id="registry">Registry<a class="headerlink" href="#registry" title="Permanent link">&para;</a></h3>
+<h3 id="registry">Registry</h3>
 <p>Les images Docker sont publiées dans :</p>
 <p>GitHub Container Registry (GHCR)</p>
 <p>Les images sont :</p>
@@ -4213,7 +4213,7 @@ les systèmes CI.</p>
 <li>accessibles via authentification</li>
 </ul>
 <hr />
-<h3 id="serveur-de-production">Serveur de production<a class="headerlink" href="#serveur-de-production" title="Permanent link">&para;</a></h3>
+<h3 id="serveur-de-production">Serveur de production</h3>
 <p>Le serveur exécute :</p>
 <ul>
 <li>Docker</li>
@@ -4227,7 +4227,7 @@ les systèmes CI.</p>
 <li>consomme uniquement les images Docker publiées</li>
 </ul>
 <hr />
-<h2 id="fonctionnement-de-watchtower">Fonctionnement de Watchtower<a class="headerlink" href="#fonctionnement-de-watchtower" title="Permanent link">&para;</a></h2>
+<h2 id="fonctionnement-de-watchtower">Fonctionnement de Watchtower</h2>
 <p>Watchtower surveille les containers Docker
 ayant le label suivant :
 <div class="highlight"><pre><span></span><code>com.centurylinklabs.watchtower.enable=true
@@ -4239,7 +4239,7 @@ ayant le label suivant :
 <li>le container est redéployé automatiquement</li>
 </ol>
 <hr />
-<h2 id="authentification">Authentification<a class="headerlink" href="#authentification" title="Permanent link">&para;</a></h2>
+<h2 id="authentification">Authentification</h2>
 <p>Les images étant privées sur GHCR,
 le serveur doit être authentifié.</p>
 <p>Solution retenue :</p>
@@ -4252,8 +4252,8 @@ le serveur doit être authentifié.</p>
 </ul>
 <p>Les credentials sont stockés dans :</p>
 <h2 id="rootdockerconfigjson"><div class="highlight"><pre><span></span><code>/root/.docker/config.json
-</code></pre></div><a class="headerlink" href="#rootdockerconfigjson" title="Permanent link">&para;</a></h2>
-<h2 id="consequences">Conséquences<a class="headerlink" href="#consequences" title="Permanent link">&para;</a></h2>
+</code></pre></div></h2>
+<h2 id="consequences">Conséquences</h2>
 <div class="admonition tip">
 <p class="admonition-title">Avantages</p>
 <ul>
@@ -4274,8 +4274,8 @@ le serveur doit être authentifié.</p>
 </ul>
 </div>
 <hr />
-<h2 id="alternatives-considerees">Alternatives considérées<a class="headerlink" href="#alternatives-considerees" title="Permanent link">&para;</a></h2>
-<h3 id="deploiement-via-ssh-depuis-ci">Déploiement via SSH depuis CI<a class="headerlink" href="#deploiement-via-ssh-depuis-ci" title="Permanent link">&para;</a></h3>
+<h2 id="alternatives-considerees">Alternatives considérées</h2>
+<h3 id="deploiement-via-ssh-depuis-ci">Déploiement via SSH depuis CI</h3>
 <p>Cette approche nécessite :</p>
 <ul>
 <li>ouverture du port SSH</li>
@@ -4284,7 +4284,7 @@ le serveur doit être authentifié.</p>
 </ul>
 <p>Elle a été rejetée pour des raisons de sécurité.</p>
 <hr />
-<h3 id="deploiement-manuel">Déploiement manuel<a class="headerlink" href="#deploiement-manuel" title="Permanent link">&para;</a></h3>
+<h3 id="deploiement-manuel">Déploiement manuel</h3>
 <p>Un déploiement manuel avec :
 <div class="highlight"><pre><span></span><code>docker compose pull
 docker compose up -d
@@ -4292,7 +4292,7 @@ docker compose up -d
 <p>reste possible mais ne permet pas
 une automatisation complète.</p>
 <hr />
-<h2 id="justification">Justification<a class="headerlink" href="#justification" title="Permanent link">&para;</a></h2>
+<h2 id="justification">Justification</h2>
 <p>Le modèle pull-based avec Watchtower
 s’aligne avec une architecture sécurisée
 et minimise l’exposition du serveur.</p>

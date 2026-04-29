@@ -3752,12 +3752,12 @@
 
 
 
-<h1 id="cors-cross-origin-resource-sharing">CORS — Cross-Origin Resource Sharing<a class="headerlink" href="#cors-cross-origin-resource-sharing" title="Permanent link">&para;</a></h1>
+<h1 id="cors-cross-origin-resource-sharing">CORS — Cross-Origin Resource Sharing</h1>
 <p>Statut : Draft  <br />
 Dernière mise à jour : 2026-03  <br />
 Catégorie : Sécurité Web  </p>
 <hr />
-<h1 id="vue-densemble">Vue d’ensemble<a class="headerlink" href="#vue-densemble" title="Permanent link">&para;</a></h1>
+<h1 id="vue-densemble">Vue d’ensemble</h1>
 <p>Dans les architectures web modernes, le <strong>frontend</strong> et le <strong>backend</strong> sont souvent séparés.  </p>
 <p>Exemple :  </p>
 <p>Frontend<br />
@@ -3768,7 +3768,7 @@ https://api.example.com  </p>
 <p>Ce mécanisme s’appelle <strong>CORS (Cross-Origin Resource Sharing)</strong>.  </p>
 <p>Comprendre CORS est essentiel lorsqu’on conçoit des API consommées par des applications web.  </p>
 <hr />
-<h1 id="same-origin-policy">Same-Origin Policy<a class="headerlink" href="#same-origin-policy" title="Permanent link">&para;</a></h1>
+<h1 id="same-origin-policy">Same-Origin Policy</h1>
 <p>Avant de comprendre CORS, il faut comprendre la <strong>Same-Origin Policy (SOP)</strong>.  </p>
 <p>La Same-Origin Policy est une règle de sécurité implémentée par les navigateurs qui limite les interactions entre ressources provenant d’origines différentes.  </p>
 <p>Une <strong>origine</strong> est définie par :  </p>
@@ -3804,7 +3804,7 @@ https://api.example.com  </p>
 </table>
 <p>Dans cet exemple, <code>api.example.com</code> possède un host différent, donc l’origine est différente.  </p>
 <hr />
-<h1 id="pourquoi-cette-regle-existe">Pourquoi cette règle existe<a class="headerlink" href="#pourquoi-cette-regle-existe" title="Permanent link">&para;</a></h1>
+<h1 id="pourquoi-cette-regle-existe">Pourquoi cette règle existe</h1>
 <p>La Same-Origin Policy protège les utilisateurs contre des attaques malveillantes.  </p>
 <p>Exemple de scénario :  </p>
 <ol>
@@ -3816,7 +3816,7 @@ https://api.example.com  </p>
 </ol>
 <p>Sans la Same-Origin Policy, un site pourrait lire librement les données provenant d'autres sites sur lesquels l'utilisateur est connecté.  </p>
 <hr />
-<h1 id="quest-ce-que-cors">Qu'est-ce que CORS<a class="headerlink" href="#quest-ce-que-cors" title="Permanent link">&para;</a></h1>
+<h1 id="quest-ce-que-cors">Qu'est-ce que CORS</h1>
 <p>CORS signifie <strong>Cross-Origin Resource Sharing</strong>.  </p>
 <p>Il s'agit d'un mécanisme permettant à un serveur d'autoriser explicitement certaines origines à accéder à ses ressources.  </p>
 <p>Cela se fait via des <strong>headers HTTP</strong>.  </p>
@@ -3827,7 +3827,7 @@ https://api.example.com  </p>
 <p>Ce header indique au navigateur que le serveur autorise les requêtes provenant de cette origine.  </p>
 <p>Si l'origine n'est pas autorisée, le navigateur bloque l'accès à la réponse.  </p>
 <hr />
-<h1 id="exemple-de-requete-bloquee">Exemple de requête bloquée<a class="headerlink" href="#exemple-de-requete-bloquee" title="Permanent link">&para;</a></h1>
+<h1 id="exemple-de-requete-bloquee">Exemple de requête bloquée</h1>
 <p>Dans la console du navigateur :  </p>
 <p><div class="highlight"><pre><span></span><code><span class="k">await</span><span class="w"> </span><span class="nx">fetch</span><span class="p">(</span><span class="s2">&quot;https://tea-api-vic-lo.herokuapp.com/tea&quot;</span><span class="p">)</span>
 </code></pre></div>
@@ -3835,14 +3835,14 @@ Le navigateur peut renvoyer une <strong>erreur CORS</strong>.</p>
 <p>Cela signifie que l’API ne permet pas aux requêtes provenant de l’origine actuelle d’accéder à la ressource.</p>
 <p>Le navigateur bloque alors la réponse pour des raisons de sécurité.</p>
 <hr />
-<h1 id="implementation-dans-nodejs-express">Implémentation dans Node.js (Express)<a class="headerlink" href="#implementation-dans-nodejs-express" title="Permanent link">&para;</a></h1>
-<h2 id="installation-du-middleware">Installation du middleware<a class="headerlink" href="#installation-du-middleware" title="Permanent link">&para;</a></h2>
+<h1 id="implementation-dans-nodejs-express">Implémentation dans Node.js (Express)</h1>
+<h2 id="installation-du-middleware">Installation du middleware</h2>
 <h2 id="npm-install-cors"><div class="highlight"><pre><span></span><code>npm<span class="w"> </span>install<span class="w"> </span>cors
-</code></pre></div><a class="headerlink" href="#npm-install-cors" title="Permanent link">&para;</a></h2>
-<h2 id="import-du-package">Import du package<a class="headerlink" href="#import-du-package" title="Permanent link">&para;</a></h2>
+</code></pre></div></h2>
+<h2 id="import-du-package">Import du package</h2>
 <h2 id="const-cors-requirecors"><div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">cors</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;cors&quot;</span><span class="p">)</span>
-</code></pre></div><a class="headerlink" href="#const-cors-requirecors" title="Permanent link">&para;</a></h2>
-<h2 id="configuration-des-origines-autorisees">Configuration des origines autorisées<a class="headerlink" href="#configuration-des-origines-autorisees" title="Permanent link">&para;</a></h2>
+</code></pre></div></h2>
+<h2 id="configuration-des-origines-autorisees">Configuration des origines autorisées</h2>
 <p><div class="highlight"><pre><span></span><code><span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="w">  </span>
 <span class="w">  </span><span class="nx">cors</span><span class="p">({</span><span class="w">  </span>
 <span class="w">    </span><span class="nx">origin</span><span class="o">:</span><span class="w"> </span><span class="sr">/(.*\.)?victoria-lo.github.io/</span><span class="p">,</span><span class="w">  </span>
@@ -3858,7 +3858,7 @@ app.victoria-lo.github.io
 </code></pre></div>
 Ces origines pourront désormais accéder à l’API.</p>
 <hr />
-<h1 id="points-importants-a-retenir">Points importants à retenir<a class="headerlink" href="#points-importants-a-retenir" title="Permanent link">&para;</a></h1>
+<h1 id="points-importants-a-retenir">Points importants à retenir</h1>
 <ul>
 <li>
 <p>Les navigateurs appliquent la <strong>Same-Origin Policy</strong></p>
@@ -3874,7 +3874,7 @@ Ces origines pourront désormais accéder à l’API.</p>
 </li>
 </ul>
 <hr />
-<h1 id="sujets-lies">Sujets liés<a class="headerlink" href="#sujets-lies" title="Permanent link">&para;</a></h1>
+<h1 id="sujets-lies">Sujets liés</h1>
 <ul>
 <li>
 <p>Headers HTTP</p>
@@ -3890,7 +3890,7 @@ Ces origines pourront désormais accéder à l’API.</p>
 </li>
 </ul>
 <hr />
-<h2 id="voir-aussi">Voir aussi<a class="headerlink" href="#voir-aussi" title="Permanent link">&para;</a></h2>
+<h2 id="voir-aussi">Voir aussi</h2>
 <ul>
 <li><a href="../http-security-headers/">HTTP Security Headers</a></li>
 <li><a href="../jwt-authentication-pattern/">JWT Authentication Pattern</a></li>

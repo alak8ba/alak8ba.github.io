@@ -7,16 +7,41 @@
     --md-primary-fg-color: #0891b2;
     --md-primary-fg-color--light: #22d3ee;
     --md-primary-fg-color--dark: #0e7490;
-
     --md-accent-fg-color: #22c55e;
+    --md-typeset-color: #475569;
 }
 
+/* hiérarchie des titres propre */
+[data-md-color-scheme="default"] .md-typeset h1 {
+    color: #1e293b;
+}
+
+[data-md-color-scheme="default"] .md-typeset h2 {
+    color: #334155;
+}
+
+[data-md-color-scheme="default"] .md-typeset h3,
+[data-md-color-scheme="default"] .md-typeset h4 {
+    color: #475569;
+}
+
+/* (optionnel) séparation visible pour h2 en light mode */
+[data-md-color-scheme="default"] .md-typeset h2 {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
 [data-md-color-scheme="slate"] {
     --md-primary-fg-color: #0891b2;
     --md-primary-fg-color--light: #22d3ee;
     --md-primary-fg-color--dark: #0e7490;
-
     --md-accent-fg-color: #22c55e;
+    --md-typeset-color: #a1a1aa;
+}
+
+[data-md-color-scheme="slate"] .md-typeset h1,
+[data-md-color-scheme="slate"] .md-typeset h2,
+[data-md-color-scheme="slate"] .md-typeset h3,
+[data-md-color-scheme="slate"] .md-typeset h4 {
+    color: #d4d4d8;
 }
 
 /* ------------------------------------------------ */
@@ -75,6 +100,17 @@
 /* ------------------------------------------------ */
 .md-content {
     max-width: 900px;
+}
+
+/* ------------------------------------------------ */
+/*                PERMALINK                        */
+/* ------------------------------------------------ */
+
+.headerlink,
+.md-typeset .headerlink,
+a.headerlink {
+    display: none !important;
+    visibility: hidden !important;
 }
 
 /* ------------------------------------------------ */

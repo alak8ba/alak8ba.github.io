@@ -4162,15 +4162,15 @@
 
 
 
-<h1 id="java-vs-equals">Java — <code>==</code> vs <code>equals()</code><a class="headerlink" href="#java-vs-equals" title="Permanent link">&para;</a></h1>
-<h2 id="principe">Principe<a class="headerlink" href="#principe" title="Permanent link">&para;</a></h2>
+<h1 id="java-vs-equals">Java — <code>==</code> vs <code>equals()</code></h1>
+<h2 id="principe">Principe</h2>
 <p>En Java :</p>
 <ul>
 <li><code>==</code> compare les <strong>références</strong> — est-ce le même objet en mémoire ?</li>
 <li><code>equals()</code> compare l'<strong>égalité logique</strong> — est-ce la même valeur ?</li>
 </ul>
 <hr />
-<h2 id="exemple-de-base">Exemple de base<a class="headerlink" href="#exemple-de-base" title="Permanent link">&para;</a></h2>
+<h2 id="exemple-de-base">Exemple de base</h2>
 <div class="highlight"><pre><span></span><code><span class="n">String</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;hello&quot;</span><span class="p">;</span>
 <span class="n">String</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;hello&quot;</span><span class="p">;</span>
 
@@ -4183,7 +4183,7 @@
 <li><code>equals()</code> est <code>true</code> car le contenu est identique</li>
 </ul>
 <hr />
-<h2 id="exemple-piegeux">Exemple piégeux<a class="headerlink" href="#exemple-piegeux" title="Permanent link">&para;</a></h2>
+<h2 id="exemple-piegeux">Exemple piégeux</h2>
 <div class="highlight"><pre><span></span><code><span class="n">String</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">String</span><span class="p">(</span><span class="s">&quot;hello&quot;</span><span class="p">);</span>
 <span class="n">String</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">String</span><span class="p">(</span><span class="s">&quot;hello&quot;</span><span class="p">);</span>
 
@@ -4196,7 +4196,7 @@
 <li><code>equals()</code> → <code>true</code> (contenu identique)</li>
 </ul>
 <hr />
-<h2 id="objets-metier-sans-equals-redefini">Objets métier sans <code>equals()</code> redéfini<a class="headerlink" href="#objets-metier-sans-equals-redefini" title="Permanent link">&para;</a></h2>
+<h2 id="objets-metier-sans-equals-redefini">Objets métier sans <code>equals()</code> redéfini</h2>
 <div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nc">User</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
 
@@ -4214,7 +4214,7 @@
 <p>Par défaut, Java hérite de <code>Object.equals()</code>, qui compare comme <code>==</code>.</p>
 <p>Pour une égalité de contenu, il faut redéfinir <code>equals()</code>.</p>
 <hr />
-<h2 id="override-de-equals-et-hashcode">Override de <code>equals()</code> et <code>hashCode()</code><a class="headerlink" href="#override-de-equals-et-hashcode" title="Permanent link">&para;</a></h2>
+<h2 id="override-de-equals-et-hashcode">Override de <code>equals()</code> et <code>hashCode()</code></h2>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Objects</span><span class="p">;</span>
 
 <span class="kd">class</span> <span class="nc">User</span><span class="w"> </span><span class="p">{</span>
@@ -4245,7 +4245,7 @@
 <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">u1</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">u2</span><span class="p">));</span><span class="w"> </span><span class="c1">// true</span>
 </code></pre></div>
 <hr />
-<h2 id="pourquoi-hashcode-est-obligatoire">Pourquoi <code>hashCode()</code> est obligatoire<a class="headerlink" href="#pourquoi-hashcode-est-obligatoire" title="Permanent link">&para;</a></h2>
+<h2 id="pourquoi-hashcode-est-obligatoire">Pourquoi <code>hashCode()</code> est obligatoire</h2>
 <p>Quand on redéfinit <code>equals()</code>, il faut aussi redéfinir <code>hashCode()</code>.</p>
 <p>Les structures comme <code>HashMap</code> et <code>HashSet</code> utilisent <code>hashCode()</code> pour organiser les objets.</p>
 <p>Règle :</p>
@@ -4254,7 +4254,7 @@
 </blockquote>
 <p>Ne pas respecter cette règle produit des bugs difficiles à détecter dans les collections.</p>
 <hr />
-<h2 id="pieges-frequents">Pièges fréquents<a class="headerlink" href="#pieges-frequents" title="Permanent link">&para;</a></h2>
+<h2 id="pieges-frequents">Pièges fréquents</h2>
 <ul>
 <li>croire que <code>==</code> compare le contenu</li>
 <li>croire que <code>equals()</code> compare toujours le contenu (seulement si redéfini)</li>
@@ -4262,43 +4262,43 @@
 <li>se laisser tromper par le String Pool avec <code>==</code></li>
 </ul>
 <hr />
-<h2 id="questions-classiques">Questions classiques<a class="headerlink" href="#questions-classiques" title="Permanent link">&para;</a></h2>
-<h3 id="q1">Q1<a class="headerlink" href="#q1" title="Permanent link">&para;</a></h3>
+<h2 id="questions-classiques">Questions classiques</h2>
+<h3 id="q1">Q1</h3>
 <div class="highlight"><pre><span></span><code><span class="n">String</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;test&quot;</span><span class="p">;</span>
 <span class="n">String</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;test&quot;</span><span class="p">;</span>
 <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">b</span><span class="p">);</span>
 </code></pre></div>
 <p><code>true</code> — String Pool, même instance.</p>
 <hr />
-<h3 id="q2">Q2<a class="headerlink" href="#q2" title="Permanent link">&para;</a></h3>
+<h3 id="q2">Q2</h3>
 <div class="highlight"><pre><span></span><code><span class="n">String</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">String</span><span class="p">(</span><span class="s">&quot;test&quot;</span><span class="p">);</span>
 <span class="n">String</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">String</span><span class="p">(</span><span class="s">&quot;test&quot;</span><span class="p">);</span>
 <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">b</span><span class="p">);</span>
 </code></pre></div>
 <p><code>false</code> — deux objets distincts.</p>
 <hr />
-<h3 id="q3">Q3<a class="headerlink" href="#q3" title="Permanent link">&para;</a></h3>
+<h3 id="q3">Q3</h3>
 <div class="highlight"><pre><span></span><code><span class="n">String</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">String</span><span class="p">(</span><span class="s">&quot;test&quot;</span><span class="p">);</span>
 <span class="n">String</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">String</span><span class="p">(</span><span class="s">&quot;test&quot;</span><span class="p">);</span>
 <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">b</span><span class="p">));</span>
 </code></pre></div>
 <p><code>true</code> — même contenu.</p>
 <hr />
-<h3 id="q4">Q4<a class="headerlink" href="#q4" title="Permanent link">&para;</a></h3>
+<h3 id="q4">Q4</h3>
 <div class="highlight"><pre><span></span><code><span class="n">Integer</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span>
 <span class="n">Integer</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span>
 <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">b</span><span class="p">);</span>
 </code></pre></div>
 <p><code>true</code> — cache <code>Integer</code> entre <code>-128</code> et <code>127</code>.</p>
 <hr />
-<h3 id="q5">Q5<a class="headerlink" href="#q5" title="Permanent link">&para;</a></h3>
+<h3 id="q5">Q5</h3>
 <div class="highlight"><pre><span></span><code><span class="n">Integer</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">200</span><span class="p">;</span>
 <span class="n">Integer</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">200</span><span class="p">;</span>
 <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">b</span><span class="p">);</span>
 </code></pre></div>
 <p><code>false</code> — hors cache, deux objets distincts.</p>
 <hr />
-<h2 id="a-retenir">À retenir<a class="headerlink" href="#a-retenir" title="Permanent link">&para;</a></h2>
+<h2 id="a-retenir">À retenir</h2>
 <ul>
 <li><code>==</code> → identité (même référence en mémoire)</li>
 <li><code>equals()</code> → égalité logique (même valeur)</li>
@@ -4306,7 +4306,7 @@
 <li><code>String</code>, <code>Integer</code> et les wrappers ont un comportement particulier à connaître</li>
 </ul>
 <hr />
-<h2 id="voir-aussi">Voir aussi<a class="headerlink" href="#voir-aussi" title="Permanent link">&para;</a></h2>
+<h2 id="voir-aussi">Voir aussi</h2>
 <ul>
 <li><a href="../../collections/hashmap/">HashMap et hashCode()</a></li>
 <li><a href="../integer-cache/">Integer Cache</a></li>

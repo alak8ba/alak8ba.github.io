@@ -4340,7 +4340,7 @@
 
 
 
-<h1 id="seaway-project-overview">Seaway — Project Overview<a class="headerlink" href="#seaway-project-overview" title="Permanent link">&para;</a></h1>
+<h1 id="seaway-project-overview">Seaway — Project Overview</h1>
 <div class="admonition note">
 <p>Cette documentation présente les principes d'architecture et les pratiques d'ingénierie du projet.  </p>
 <p>Les détails opérationnels et configurations d'infrastructure internes sont intentionnellement omis.</p>
@@ -4348,7 +4348,7 @@
 <p>Projet backend / frontend conçu dans le cadre d’une collaboration
 technique autour d’architectures modernes orientées événements.</p>
 <hr />
-<h2 id="contexte">Contexte<a class="headerlink" href="#contexte" title="Permanent link">&para;</a></h2>
+<h2 id="contexte">Contexte</h2>
 <p>Seaway est un système backend / frontend conçu pour explorer
 et mettre en œuvre une architecture orientée événements basée
 sur Spring Boot, Kafka et une architecture hexagonale.</p>
@@ -4356,7 +4356,7 @@ sur Spring Boot, Kafka et une architecture hexagonale.</p>
 évolutive tout en appliquant des pratiques d’ingénierie proches
 d’un environnement de production.</p>
 <hr />
-<h2 id="objectifs-du-projet">Objectifs du projet<a class="headerlink" href="#objectifs-du-projet" title="Permanent link">&para;</a></h2>
+<h2 id="objectifs-du-projet">Objectifs du projet</h2>
 <p>Les objectifs principaux de Seaway sont les suivants :</p>
 <ul>
 <li>construire un backend moderne orienté événements</li>
@@ -4372,7 +4372,7 @@ d’un environnement de production.</p>
 d’ingénierie réutilisable, potentiellement transformable plus tard
 en articles, documentation publique ou ebook technique.</p>
 <hr />
-<h2 id="vision-globale">Vision globale<a class="headerlink" href="#vision-globale" title="Permanent link">&para;</a></h2>
+<h2 id="vision-globale">Vision globale</h2>
 <p>Seaway a été conçu comme un projet d’apprentissage avancé,
 mais avec une posture volontairement proche d’un contexte réel.</p>
 <p>Le projet couvre plusieurs dimensions :</p>
@@ -4390,33 +4390,33 @@ mais avec une posture volontairement proche d’un contexte réel.</p>
 <p>Cette approche permet de travailler non seulement le code,
 mais aussi la capacité à penser un système dans son ensemble.</p>
 <hr />
-<h2 id="stack-technique">Stack technique<a class="headerlink" href="#stack-technique" title="Permanent link">&para;</a></h2>
-<h3 id="backend">Backend<a class="headerlink" href="#backend" title="Permanent link">&para;</a></h3>
+<h2 id="stack-technique">Stack technique</h2>
+<h3 id="backend">Backend</h3>
 <ul>
 <li>Java 21</li>
 <li>Spring Boot 3</li>
 <li>Spring Data JPA</li>
 <li>Spring Security</li>
 </ul>
-<h3 id="messaging">Messaging<a class="headerlink" href="#messaging" title="Permanent link">&para;</a></h3>
+<h3 id="messaging">Messaging</h3>
 <ul>
 <li>Kafka</li>
 </ul>
-<h3 id="persistence">Persistence<a class="headerlink" href="#persistence" title="Permanent link">&para;</a></h3>
+<h3 id="persistence">Persistence</h3>
 <ul>
 <li>PostgreSQL</li>
 <li>H2 pour certains environnements de développement initiaux</li>
 <li>JSONB, enums, dates</li>
 <li>scripts SQL d’initialisation</li>
 </ul>
-<h3 id="frontend">Frontend<a class="headerlink" href="#frontend" title="Permanent link">&para;</a></h3>
+<h3 id="frontend">Frontend</h3>
 <ul>
 <li>React</li>
 <li>Vite</li>
 <li>TypeScript</li>
 <li>Tailwind CSS</li>
 </ul>
-<h3 id="infrastructure">Infrastructure<a class="headerlink" href="#infrastructure" title="Permanent link">&para;</a></h3>
+<h3 id="infrastructure">Infrastructure</h3>
 <ul>
 <li>Docker</li>
 <li>Docker Compose</li>
@@ -4424,7 +4424,7 @@ mais aussi la capacité à penser un système dans son ensemble.</p>
 <li>Certbot</li>
 <li>UFW</li>
 </ul>
-<h3 id="qualite-tests">Qualité / Tests<a class="headerlink" href="#qualite-tests" title="Permanent link">&para;</a></h3>
+<h3 id="qualite-tests">Qualité / Tests</h3>
 <ul>
 <li>JUnit</li>
 <li>Spring Boot Test</li>
@@ -4432,14 +4432,14 @@ mais aussi la capacité à penser un système dans son ensemble.</p>
 <li>Embedded Kafka</li>
 <li>Testcontainers</li>
 </ul>
-<h3 id="cicd">CI/CD<a class="headerlink" href="#cicd" title="Permanent link">&para;</a></h3>
+<h3 id="cicd">CI/CD</h3>
 <ul>
 <li>GitHub Actions</li>
 <li>GHCR</li>
 <li>Watchtower</li>
 </ul>
 <hr />
-<h2 id="architecture-backend">Architecture backend<a class="headerlink" href="#architecture-backend" title="Permanent link">&para;</a></h2>
+<h2 id="architecture-backend">Architecture backend</h2>
 <p>Le backend suit une architecture hexagonale avec séparation claire entre :</p>
 <ul>
 <li>domain</li>
@@ -4459,7 +4459,7 @@ L’infrastructure implémente les détails techniques.</p>
 <p>Le système suit également une approche event-driven,
 avec Kafka comme bus d’événements métier.</p>
 <hr />
-<h2 id="event-driven-architecture">Event-driven architecture<a class="headerlink" href="#event-driven-architecture" title="Permanent link">&para;</a></h2>
+<h2 id="event-driven-architecture">Event-driven architecture</h2>
 <p>Seaway utilise Kafka pour transporter des événements métier.</p>
 <p>Exemples :</p>
 <ul>
@@ -4481,7 +4481,7 @@ avec Kafka comme bus d’événements métier.</p>
 <p>Une attention particulière a été portée à la résilience du traitement,
 afin d’éviter qu’un message en erreur ne bloque tout le flux.</p>
 <hr />
-<h2 id="cqrs-leger">CQRS léger<a class="headerlink" href="#cqrs-leger" title="Permanent link">&para;</a></h2>
+<h2 id="cqrs-leger">CQRS léger</h2>
 <p>Le projet applique une forme légère de CQRS :</p>
 <ul>
 <li>un write model pour les opérations métier</li>
@@ -4496,7 +4496,7 @@ afin d’optimiser l’affichage et simplifier certaines lectures côté fronten
 <li>l’intérêt d’un modèle adapté à l’usage</li>
 </ul>
 <hr />
-<h2 id="audit-evenementiel">Audit événementiel<a class="headerlink" href="#audit-evenementiel" title="Permanent link">&para;</a></h2>
+<h2 id="audit-evenementiel">Audit événementiel</h2>
 <p>Les événements métier sont persistés pour constituer
 une base de vérité fonctionnelle et permettre :</p>
 <ul>
@@ -4508,7 +4508,7 @@ une base de vérité fonctionnelle et permettre :</p>
 <p>Cette démarche renforce la lisibilité du système et prépare
 des usages futurs autour de l’observabilité et du diagnostic.</p>
 <hr />
-<h2 id="frontend_1">Frontend<a class="headerlink" href="#frontend_1" title="Permanent link">&para;</a></h2>
+<h2 id="frontend_1">Frontend</h2>
 <p>Le frontend de Seaway est développé avec :</p>
 <ul>
 <li>React</li>
@@ -4530,7 +4530,7 @@ des événements en temps réel. La partie backend était fonctionnelle,
 mais l’intégration frontend a été abandonnée temporairement
 par pragmatisme.</p>
 <hr />
-<h2 id="qualite-et-tests">Qualité et tests<a class="headerlink" href="#qualite-et-tests" title="Permanent link">&para;</a></h2>
+<h2 id="qualite-et-tests">Qualité et tests</h2>
 <p>Le projet a permis de mettre en place progressivement :</p>
 <ul>
 <li>des tests unitaires</li>
@@ -4551,7 +4551,7 @@ par pragmatisme.</p>
 <p>Le projet a donc servi de terrain concret pour développer
 une démarche de debug structurée et persévérante.</p>
 <hr />
-<h2 id="deploiement-et-environnement">Déploiement et environnement<a class="headerlink" href="#deploiement-et-environnement" title="Permanent link">&para;</a></h2>
+<h2 id="deploiement-et-environnement">Déploiement et environnement</h2>
 <p>Le projet est conteneurisé avec Docker et Docker Compose.</p>
 <p>Services principaux :</p>
 <ul>
@@ -4575,7 +4575,7 @@ une démarche de debug structurée et persévérante.</p>
 <li>la reproductibilité</li>
 </ul>
 <hr />
-<h2 id="cicd_1">CI/CD<a class="headerlink" href="#cicd_1" title="Permanent link">&para;</a></h2>
+<h2 id="cicd_1">CI/CD</h2>
 <p>La partie CI/CD a été mise en place dans une logique réaliste :</p>
 <ul>
 <li>GitHub Actions pour la CI</li>
@@ -4595,7 +4595,7 @@ une démarche de debug structurée et persévérante.</p>
 <p>Le sujet CI/CD n’est donc plus seulement “à venir” :
 il fait maintenant partie intégrante du projet.</p>
 <hr />
-<h2 id="securite">Sécurité<a class="headerlink" href="#securite" title="Permanent link">&para;</a></h2>
+<h2 id="securite">Sécurité</h2>
 <p>Le projet a aussi intégré une réflexion sécurité, avec notamment :</p>
 <ul>
 <li>Spring Security en mode stateless</li>
@@ -4611,7 +4611,7 @@ il fait maintenant partie intégrante du projet.</p>
 <p>Cette partie a contribué à faire évoluer le projet
 d’un simple prototype vers une base beaucoup plus crédible.</p>
 <hr />
-<h2 id="demarche-dingenierie">Démarche d’ingénierie<a class="headerlink" href="#demarche-dingenierie" title="Permanent link">&para;</a></h2>
+<h2 id="demarche-dingenierie">Démarche d’ingénierie</h2>
 <p>Au-delà des technologies, Seaway représente une démarche :</p>
 <ul>
 <li>construire</li>
@@ -4632,7 +4632,7 @@ en traitant les problèmes au fur et à mesure, sans chercher
 <li>de fondation pour de futurs contenus techniques</li>
 </ul>
 <hr />
-<h2 id="resultat-global">Résultat global<a class="headerlink" href="#resultat-global" title="Permanent link">&para;</a></h2>
+<h2 id="resultat-global">Résultat global</h2>
 <p>Seaway est un projet cohérent, ambitieux et réaliste,
 qui a permis de développer des compétences transverses en :</p>
 <ul>
@@ -4655,7 +4655,7 @@ avec des axes d’amélioration possibles sur :</p>
 <li>enrichissement métier</li>
 </ul>
 <hr />
-<h2 id="documentation-detaillee">Documentation détaillée<a class="headerlink" href="#documentation-detaillee" title="Permanent link">&para;</a></h2>
+<h2 id="documentation-detaillee">Documentation détaillée</h2>
 <p>Certaines dimensions du projet sont détaillées dans des notes dédiées :</p>
 <ul>
 <li><code>architecture-overview.md</code></li>
@@ -4670,7 +4670,7 @@ avec des axes d’amélioration possibles sur :</p>
 <li>décisions d’architecture</li>
 <li>agrégats métier</li>
 </ul>
-<h2 id="contexte-de-collaboration">Contexte de collaboration<a class="headerlink" href="#contexte-de-collaboration" title="Permanent link">&para;</a></h2>
+<h2 id="contexte-de-collaboration">Contexte de collaboration</h2>
 <p>Le projet a été mené en collaboration avec une société
 spécialisée dans le développement de solutions SaaS.</p>
 <p>Cette collaboration a permis de confronter les choix

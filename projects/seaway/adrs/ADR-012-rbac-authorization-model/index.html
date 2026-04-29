@@ -4074,11 +4074,11 @@
 
 
 
-<h1 id="adr-012-rbac-authorization-model">ADR-012 — RBAC Authorization Model<a class="headerlink" href="#adr-012-rbac-authorization-model" title="Permanent link">&para;</a></h1>
-<h2 id="statut">Statut<a class="headerlink" href="#statut" title="Permanent link">&para;</a></h2>
+<h1 id="adr-012-rbac-authorization-model">ADR-012 — RBAC Authorization Model</h1>
+<h2 id="statut">Statut</h2>
 <p>Accepté</p>
 <hr />
-<h2 id="contexte">Contexte<a class="headerlink" href="#contexte" title="Permanent link">&para;</a></h2>
+<h2 id="contexte">Contexte</h2>
 <p>Le système Seaway doit contrôler l'accès aux ressources
 et aux opérations selon le rôle des utilisateurs.</p>
 <p>La plateforme gère plusieurs types d'acteurs :</p>
@@ -4095,7 +4095,7 @@ et aux opérations selon le rôle des utilisateurs.</p>
 <li>de préparer une évolution vers un modèle SaaS multi-clients</li>
 </ul>
 <hr />
-<h2 id="decision">Décision<a class="headerlink" href="#decision" title="Permanent link">&para;</a></h2>
+<h2 id="decision">Décision</h2>
 <p>Le système adopte un modèle <strong>RBAC (Role-Based Access Control)</strong>.</p>
 <p>Les permissions sont déterminées à partir du rôle technique
 de l'utilisateur (<code>technical_role</code>).</p>
@@ -4107,7 +4107,7 @@ de l'utilisateur (<code>technical_role</code>).</p>
 <p>Chaque rôle détermine les actions autorisées
 dans l'application.</p>
 <hr />
-<h2 id="structure-des-roles">Structure des rôles<a class="headerlink" href="#structure-des-roles" title="Permanent link">&para;</a></h2>
+<h2 id="structure-des-roles">Structure des rôles</h2>
 <p>Les rôles sont stockés dans la table <code>users</code>.</p>
 <p>Exemple :
 <div class="highlight"><pre><span></span><code>users
@@ -4123,7 +4123,7 @@ version
 <p>Le champ <code>technical_role</code> détermine les droits
 d'accès applicatifs.</p>
 <hr />
-<h2 id="actor-type">Actor Type<a class="headerlink" href="#actor-type" title="Permanent link">&para;</a></h2>
+<h2 id="actor-type">Actor Type</h2>
 <p>Le champ <code>actor_type</code> représente la nature métier
 de l'utilisateur.</p>
 <p>Exemples possibles :</p>
@@ -4135,7 +4135,7 @@ de l'utilisateur.</p>
 <p>Ce champ permet de distinguer les profils métiers
 sans influencer directement les permissions techniques.</p>
 <hr />
-<h2 id="implementation">Implémentation<a class="headerlink" href="#implementation" title="Permanent link">&para;</a></h2>
+<h2 id="implementation">Implémentation</h2>
 <p>Le contrôle d'accès est appliqué via <strong>Spring Security</strong>.</p>
 <p>Les rôles sont extraits du JWT et injectés
 dans le <code>SecurityContext</code>.</p>
@@ -4149,7 +4149,7 @@ dans le <code>SecurityContext</code>.</p>
 <span class="n">hasRole</span><span class="p">(</span><span class="s">&quot;USER&quot;</span><span class="p">)</span>
 </code></pre></div></p>
 <hr />
-<h2 id="exemple-dutilisation">Exemple d'utilisation<a class="headerlink" href="#exemple-dutilisation" title="Permanent link">&para;</a></h2>
+<h2 id="exemple-dutilisation">Exemple d'utilisation</h2>
 <p>Certaines opérations sont réservées
 aux administrateurs :</p>
 <ul>
@@ -4164,7 +4164,7 @@ aux administrateurs :</p>
 <li>utiliser les fonctionnalités opérationnelles</li>
 </ul>
 <hr />
-<h2 id="consequences">Conséquences<a class="headerlink" href="#consequences" title="Permanent link">&para;</a></h2>
+<h2 id="consequences">Conséquences</h2>
 <div class="admonition tip">
 <p class="admonition-title">Avantages</p>
 <ul>
@@ -4184,8 +4184,8 @@ aux administrateurs :</p>
 </ul>
 </div>
 <hr />
-<h2 id="alternatives-considerees">Alternatives considérées<a class="headerlink" href="#alternatives-considerees" title="Permanent link">&para;</a></h2>
-<h3 id="acl-access-control-lists">ACL (Access Control Lists)<a class="headerlink" href="#acl-access-control-lists" title="Permanent link">&para;</a></h3>
+<h2 id="alternatives-considerees">Alternatives considérées</h2>
+<h3 id="acl-access-control-lists">ACL (Access Control Lists)</h3>
 <p>Un modèle ACL aurait permis un contrôle
 plus fin des permissions.</p>
 <p>Cependant il introduit :</p>
@@ -4197,14 +4197,14 @@ plus fin des permissions.</p>
 <p>Cette approche a été jugée disproportionnée
 pour la version actuelle du système.</p>
 <hr />
-<h3 id="abac-attribute-based-access-control">ABAC (Attribute-Based Access Control)<a class="headerlink" href="#abac-attribute-based-access-control" title="Permanent link">&para;</a></h3>
+<h3 id="abac-attribute-based-access-control">ABAC (Attribute-Based Access Control)</h3>
 <p>Un modèle ABAC permettrait un contrôle
 basé sur des attributs dynamiques.</p>
 <p>Cependant cette approche est plus complexe
 et nécessite une infrastructure de règles
 plus avancée.</p>
 <hr />
-<h2 id="justification">Justification<a class="headerlink" href="#justification" title="Permanent link">&para;</a></h2>
+<h2 id="justification">Justification</h2>
 <p>RBAC constitue un compromis efficace
 entre simplicité et sécurité.</p>
 <p>Il permet de sécuriser les accès

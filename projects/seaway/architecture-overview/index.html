@@ -4154,12 +4154,12 @@
 
 
 
-<h1 id="seaway-architecture-overview">Seaway — Architecture Overview<a class="headerlink" href="#seaway-architecture-overview" title="Permanent link">&para;</a></h1>
+<h1 id="seaway-architecture-overview">Seaway — Architecture Overview</h1>
 <div class="admonition note">
 <p>Cette documentation présente les principes d'architecture et les pratiques d'ingénierie du projet.  </p>
 <p>Les détails opérationnels et configurations d'infrastructure internes sont intentionnellement omis.</p>
 </div>
-<h2 id="contexte-general">Contexte général<a class="headerlink" href="#contexte-general" title="Permanent link">&para;</a></h2>
+<h2 id="contexte-general">Contexte général</h2>
 <p>Seaway est un projet backend / frontend développé from scratch.
 L'objectif était de construire un système réaliste permettant
 d'expérimenter des architectures backend modernes et des pratiques
@@ -4171,8 +4171,8 @@ de développement proches d'un environnement de production.</p>
 <li>de base pour documenter des décisions d'architecture</li>
 </ul>
 <hr />
-<h2 id="architecture-backend">Architecture Backend<a class="headerlink" href="#architecture-backend" title="Permanent link">&para;</a></h2>
-<h3 id="stack">Stack<a class="headerlink" href="#stack" title="Permanent link">&para;</a></h3>
+<h2 id="architecture-backend">Architecture Backend</h2>
+<h3 id="stack">Stack</h3>
 <ul>
 <li>Java 21</li>
 <li>Spring Boot</li>
@@ -4180,7 +4180,7 @@ de développement proches d'un environnement de production.</p>
 <li>Kafka</li>
 <li>PostgreSQL</li>
 </ul>
-<h3 id="architecture-hexagonale">Architecture hexagonale<a class="headerlink" href="#architecture-hexagonale" title="Permanent link">&para;</a></h3>
+<h3 id="architecture-hexagonale">Architecture hexagonale</h3>
 <p>Le backend suit une architecture hexagonale avec séparation claire :</p>
 <p>domain<br />
 application<br />
@@ -4188,7 +4188,7 @@ infrastructure</p>
 <p>Utilisation de ports et adapters pour isoler le domaine des
 dépendances techniques.</p>
 <hr />
-<h2 id="event-driven-architecture">Event-Driven Architecture<a class="headerlink" href="#event-driven-architecture" title="Permanent link">&para;</a></h2>
+<h2 id="event-driven-architecture">Event-Driven Architecture</h2>
 <p>Kafka est utilisé comme bus d'événements.</p>
 <p>Le système produit des événements métier comme :</p>
 <ul>
@@ -4202,7 +4202,7 @@ dépendances techniques.</p>
 <li>traçabilité</li>
 <li>possibilité d'évolution vers des microservices</li>
 </ul>
-<h3 id="fiabilite">Fiabilité<a class="headerlink" href="#fiabilite" title="Permanent link">&para;</a></h3>
+<h3 id="fiabilite">Fiabilité</h3>
 <p>Plusieurs mécanismes ont été implémentés :</p>
 <ul>
 <li>idempotence pour éviter les doublons</li>
@@ -4210,13 +4210,13 @@ dépendances techniques.</p>
 <li>Dead Letter Topics (DLT)</li>
 </ul>
 <hr />
-<h2 id="cqrs-leger">CQRS léger<a class="headerlink" href="#cqrs-leger" title="Permanent link">&para;</a></h2>
+<h2 id="cqrs-leger">CQRS léger</h2>
 <p>Séparation entre :</p>
 <p>write model<br />
 read model</p>
 <p>Le read model est optimisé pour la consultation par l'interface utilisateur.</p>
 <hr />
-<h2 id="audit-evenementiel">Audit événementiel<a class="headerlink" href="#audit-evenementiel" title="Permanent link">&para;</a></h2>
+<h2 id="audit-evenementiel">Audit événementiel</h2>
 <p>Les événements produits sont persistés afin de permettre :</p>
 <ul>
 <li>traçabilité des actions</li>
@@ -4224,7 +4224,7 @@ read model</p>
 <li>analyse ultérieure</li>
 </ul>
 <hr />
-<h2 id="persistence">Persistence<a class="headerlink" href="#persistence" title="Permanent link">&para;</a></h2>
+<h2 id="persistence">Persistence</h2>
 <p>Base de données : PostgreSQL</p>
 <p>Gestion de types avancés :</p>
 <ul>
@@ -4234,14 +4234,14 @@ read model</p>
 </ul>
 <p>Scripts SQL d'initialisation utilisés pour préparer l'environnement.</p>
 <hr />
-<h2 id="securite">Sécurité<a class="headerlink" href="#securite" title="Permanent link">&para;</a></h2>
+<h2 id="securite">Sécurité</h2>
 <p>Mise en place de :</p>
 <ul>
 <li>Spring Security</li>
 <li>reverse proxy via Nginx</li>
 </ul>
 <hr />
-<h2 id="frontend">Frontend<a class="headerlink" href="#frontend" title="Permanent link">&para;</a></h2>
+<h2 id="frontend">Frontend</h2>
 <p>Stack :</p>
 <ul>
 <li>React</li>
@@ -4259,7 +4259,7 @@ read model</p>
 <p>Une tentative d'intégration SSE pour le temps réel a été réalisée côté backend,
 mais abandonnée temporairement côté frontend pour des raisons pragmatiques.</p>
 <hr />
-<h2 id="tests-qualite">Tests &amp; Qualité<a class="headerlink" href="#tests-qualite" title="Permanent link">&para;</a></h2>
+<h2 id="tests-qualite">Tests &amp; Qualité</h2>
 <p>Tests mis en place progressivement :</p>
 <ul>
 <li>tests unitaires</li>
@@ -4272,7 +4272,7 @@ mais abandonnée temporairement côté frontend pour des raisons pragmatiques.</
 <li>Testcontainers</li>
 </ul>
 <hr />
-<h2 id="deploiement">Déploiement<a class="headerlink" href="#deploiement" title="Permanent link">&para;</a></h2>
+<h2 id="deploiement">Déploiement</h2>
 <p>Environnement conteneurisé :</p>
 <p>Docker<br />
 Docker Compose</p>
@@ -4286,7 +4286,7 @@ Docker Compose</p>
 <p>dev → H2<br />
 postgres → PostgreSQL</p>
 <hr />
-<h2 id="ameliorations-en-cours">Améliorations en cours<a class="headerlink" href="#ameliorations-en-cours" title="Permanent link">&para;</a></h2>
+<h2 id="ameliorations-en-cours">Améliorations en cours</h2>
 <p>Plusieurs axes d'amélioration ont été identifiés :</p>
 <ul>
 <li>mise en place d'un pipeline CI/CD</li>
@@ -4296,7 +4296,7 @@ postgres → PostgreSQL</p>
 </ul>
 <p>Ces sujets feront l'objet d'une phase de consolidation.</p>
 <hr />
-<h2 id="objectif-du-projet">Objectif du projet<a class="headerlink" href="#objectif-du-projet" title="Permanent link">&para;</a></h2>
+<h2 id="objectif-du-projet">Objectif du projet</h2>
 <p>Ce projet vise à développer des compétences avancées en :</p>
 <ul>
 <li>architecture backend</li>

@@ -4107,11 +4107,11 @@
 
 
 
-<h1 id="transaction-patterns">Transaction Patterns<a class="headerlink" href="#transaction-patterns" title="Permanent link">&para;</a></h1>
-<h2 id="contexte">Contexte<a class="headerlink" href="#contexte" title="Permanent link">&para;</a></h2>
+<h1 id="transaction-patterns">Transaction Patterns</h1>
+<h2 id="contexte">Contexte</h2>
 <p>Une transaction regroupe plusieurs opérations en une unité atomique : soit tout réussit, soit tout est annulé. En architecture distribuée, la gestion des transactions devient complexe.</p>
 <hr />
-<h2 id="transaction-locale">Transaction locale<a class="headerlink" href="#transaction-locale" title="Permanent link">&para;</a></h2>
+<h2 id="transaction-locale">Transaction locale</h2>
 <p>Une seule base de données, gérée par le SGBD :</p>
 <div class="highlight"><pre><span></span><code><span class="nd">@Transactional</span>
 <span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">createOrder</span><span class="p">(</span><span class="n">OrderRequest</span><span class="w"> </span><span class="n">request</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -4122,7 +4122,7 @@
 </code></pre></div>
 <p>Le SGBD garantit les propriétés ACID pour les transactions locales.</p>
 <hr />
-<h2 id="niveaux-disolation">Niveaux d'isolation<a class="headerlink" href="#niveaux-disolation" title="Permanent link">&para;</a></h2>
+<h2 id="niveaux-disolation">Niveaux d'isolation</h2>
 <table>
 <thead>
 <tr>
@@ -4166,7 +4166,7 @@
 <span class="p">}</span>
 </code></pre></div>
 <hr />
-<h2 id="propagation-des-transactions-spring">Propagation des transactions (Spring)<a class="headerlink" href="#propagation-des-transactions-spring" title="Permanent link">&para;</a></h2>
+<h2 id="propagation-des-transactions-spring">Propagation des transactions (Spring)</h2>
 <table>
 <thead>
 <tr>
@@ -4203,24 +4203,24 @@
 <span class="p">}</span>
 </code></pre></div>
 <hr />
-<h2 id="problemes-courants">Problèmes courants<a class="headerlink" href="#problemes-courants" title="Permanent link">&para;</a></h2>
-<h3 id="lost-update">Lost Update<a class="headerlink" href="#lost-update" title="Permanent link">&para;</a></h3>
+<h2 id="problemes-courants">Problèmes courants</h2>
+<h3 id="lost-update">Lost Update</h3>
 <p>Deux transactions lisent puis écrivent la même donnée — la dernière écriture écrase la première.</p>
 <p><strong>Solution</strong> : optimistic locking avec <code>@Version</code>.</p>
-<h3 id="n1-queries-dans-une-transaction">N+1 queries dans une transaction<a class="headerlink" href="#n1-queries-dans-une-transaction" title="Permanent link">&para;</a></h3>
+<h3 id="n1-queries-dans-une-transaction">N+1 queries dans une transaction</h3>
 <div class="highlight"><pre><span></span><code><span class="n">List</span><span class="o">&lt;</span><span class="n">Order</span><span class="o">&gt;</span><span class="w"> </span><span class="n">orders</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">orderRepository</span><span class="p">.</span><span class="na">findAll</span><span class="p">();</span>
 <span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">Order</span><span class="w"> </span><span class="n">order</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">orders</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="n">order</span><span class="p">.</span><span class="na">getItems</span><span class="p">().</span><span class="na">size</span><span class="p">();</span><span class="w"> </span><span class="c1">// N requêtes supplémentaires</span>
 <span class="p">}</span>
 </code></pre></div>
 <p><strong>Solution</strong> : <code>JOIN FETCH</code> ou <code>@EntityGraph</code>.</p>
-<h3 id="transaction-trop-longue">Transaction trop longue<a class="headerlink" href="#transaction-trop-longue" title="Permanent link">&para;</a></h3>
+<h3 id="transaction-trop-longue">Transaction trop longue</h3>
 <p>Une transaction qui inclut des appels HTTP ou des traitements longs garde un lock en base.</p>
 <p><strong>Solution</strong> : limiter la transaction aux opérations base de données, externaliser le reste.</p>
 <hr />
-<h2 id="transactions-distribuees">Transactions distribuées<a class="headerlink" href="#transactions-distribuees" title="Permanent link">&para;</a></h2>
+<h2 id="transactions-distribuees">Transactions distribuées</h2>
 <p>Quand plusieurs services ont chacun leur base de données, une transaction locale ne suffit plus.</p>
-<h3 id="saga-pattern">Saga Pattern<a class="headerlink" href="#saga-pattern" title="Permanent link">&para;</a></h3>
+<h3 id="saga-pattern">Saga Pattern</h3>
 <p>Séquence de transactions locales avec compensation :</p>
 <div class="highlight"><pre><span></span><code>Commande créée → Paiement effectué → Stock réservé
                                        ↓ (échec)
@@ -4231,14 +4231,14 @@
 <li><strong>Choreography</strong> — chaque service écoute les événements et réagit</li>
 <li><strong>Orchestration</strong> — un coordinateur central pilote la séquence</li>
 </ul>
-<h3 id="outbox-pattern">Outbox Pattern<a class="headerlink" href="#outbox-pattern" title="Permanent link">&para;</a></h3>
+<h3 id="outbox-pattern">Outbox Pattern</h3>
 <p>Garantit qu'un événement est publié si et seulement si la transaction locale réussit :</p>
 <ol>
 <li>écrire dans la table métier ET dans la table <code>outbox</code> dans la même transaction</li>
 <li>un processus séparé lit la table <code>outbox</code> et publie vers Kafka</li>
 </ol>
 <hr />
-<h2 id="a-retenir">À retenir<a class="headerlink" href="#a-retenir" title="Permanent link">&para;</a></h2>
+<h2 id="a-retenir">À retenir</h2>
 <ul>
 <li><code>@Transactional</code> gère les transactions locales avec Spring</li>
 <li>le niveau d'isolation par défaut (READ COMMITTED) suffit dans la plupart des cas</li>
@@ -4247,7 +4247,7 @@
 <li>l'outbox pattern garantit la cohérence entre la base et le broker</li>
 </ul>
 <hr />
-<h2 id="voir-aussi">Voir aussi<a class="headerlink" href="#voir-aussi" title="Permanent link">&para;</a></h2>
+<h2 id="voir-aussi">Voir aussi</h2>
 <ul>
 <li><a href="../../java/database/acid/">ACID</a></li>
 <li><a href="../optimistic-locking/">Optimistic Locking</a></li>

@@ -4051,8 +4051,8 @@
 
 
 
-<h1 id="testcontainers">Testcontainers<a class="headerlink" href="#testcontainers" title="Permanent link">&para;</a></h1>
-<h2 id="contexte">Contexte<a class="headerlink" href="#contexte" title="Permanent link">&para;</a></h2>
+<h1 id="testcontainers">Testcontainers</h1>
+<h2 id="contexte">Contexte</h2>
 <p>Les tests d'intégration nécessitent des dépendances externes (base de données, broker Kafka, cache Redis). Les approches classiques posent problème :</p>
 <ul>
 <li><strong>mocks</strong> — ne testent pas le comportement réel</li>
@@ -4061,14 +4061,14 @@
 </ul>
 <p>Testcontainers résout ce problème en démarrant de vrais containers Docker pendant les tests.</p>
 <hr />
-<h2 id="principe">Principe<a class="headerlink" href="#principe" title="Permanent link">&para;</a></h2>
+<h2 id="principe">Principe</h2>
 <p>Testcontainers lance des containers Docker jetables pour chaque suite de tests :</p>
 <div class="highlight"><pre><span></span><code>Test démarre → Container PostgreSQL créé → Tests exécutés → Container détruit
 </code></pre></div>
 <p>Les tests tournent contre de vraies instances, identiques à la production.</p>
 <hr />
-<h2 id="exemple-avec-spring-boot-et-postgresql">Exemple avec Spring Boot et PostgreSQL<a class="headerlink" href="#exemple-avec-spring-boot-et-postgresql" title="Permanent link">&para;</a></h2>
-<h3 id="dependance">Dépendance<a class="headerlink" href="#dependance" title="Permanent link">&para;</a></h3>
+<h2 id="exemple-avec-spring-boot-et-postgresql">Exemple avec Spring Boot et PostgreSQL</h2>
+<h3 id="dependance">Dépendance</h3>
 <div class="highlight"><pre><span></span><code><span class="nt">&lt;dependency&gt;</span>
 <span class="w">    </span><span class="nt">&lt;groupId&gt;</span>org.testcontainers<span class="nt">&lt;/groupId&gt;</span>
 <span class="w">    </span><span class="nt">&lt;artifactId&gt;</span>postgresql<span class="nt">&lt;/artifactId&gt;</span>
@@ -4080,7 +4080,7 @@
 <span class="w">    </span><span class="nt">&lt;scope&gt;</span>test<span class="nt">&lt;/scope&gt;</span>
 <span class="nt">&lt;/dependency&gt;</span>
 </code></pre></div>
-<h3 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h3>
+<h3 id="configuration">Configuration</h3>
 <div class="highlight"><pre><span></span><code><span class="nd">@SpringBootTest</span>
 <span class="nd">@Testcontainers</span>
 <span class="kd">class</span> <span class="nc">UserRepositoryTest</span><span class="w"> </span><span class="p">{</span>
@@ -4113,7 +4113,7 @@
 <span class="p">}</span>
 </code></pre></div>
 <hr />
-<h2 id="exemple-avec-kafka">Exemple avec Kafka<a class="headerlink" href="#exemple-avec-kafka" title="Permanent link">&para;</a></h2>
+<h2 id="exemple-avec-kafka">Exemple avec Kafka</h2>
 <div class="highlight"><pre><span></span><code><span class="nd">@Container</span>
 <span class="kd">static</span><span class="w"> </span><span class="n">KafkaContainer</span><span class="w"> </span><span class="n">kafka</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">KafkaContainer</span><span class="p">(</span>
 <span class="w">    </span><span class="n">DockerImageName</span><span class="p">.</span><span class="na">parse</span><span class="p">(</span><span class="s">&quot;confluentinc/cp-kafka:7.5.0&quot;</span><span class="p">)</span>
@@ -4125,7 +4125,7 @@
 <span class="p">}</span>
 </code></pre></div>
 <hr />
-<h2 id="pattern-base-de-test-partagee">Pattern : base de test partagée<a class="headerlink" href="#pattern-base-de-test-partagee" title="Permanent link">&para;</a></h2>
+<h2 id="pattern-base-de-test-partagee">Pattern : base de test partagée</h2>
 <p>Pour accélérer les tests, on peut partager un container entre toutes les classes de test :</p>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">abstract</span><span class="w"> </span><span class="kd">class</span> <span class="nc">AbstractIntegrationTest</span><span class="w"> </span><span class="p">{</span>
 
@@ -4149,7 +4149,7 @@
 </code></pre></div>
 <p>Les classes de test héritent de <code>AbstractIntegrationTest</code> — un seul container pour toute la suite.</p>
 <hr />
-<h2 id="containers-disponibles">Containers disponibles<a class="headerlink" href="#containers-disponibles" title="Permanent link">&para;</a></h2>
+<h2 id="containers-disponibles">Containers disponibles</h2>
 <table>
 <thead>
 <tr>
@@ -4187,7 +4187,7 @@
 </tbody>
 </table>
 <hr />
-<h2 id="avantages">Avantages<a class="headerlink" href="#avantages" title="Permanent link">&para;</a></h2>
+<h2 id="avantages">Avantages</h2>
 <ul>
 <li>tests contre des vraies dépendances, pas des mocks</li>
 <li>environnement identique pour chaque développeur</li>
@@ -4195,14 +4195,14 @@
 <li>fonctionne en CI/CD (Docker-in-Docker ou Docker socket)</li>
 </ul>
 <hr />
-<h2 id="inconvenients">Inconvénients<a class="headerlink" href="#inconvenients" title="Permanent link">&para;</a></h2>
+<h2 id="inconvenients">Inconvénients</h2>
 <ul>
 <li>nécessite Docker sur la machine de développement</li>
 <li>plus lent que des tests unitaires purs</li>
 <li>consomme des ressources (CPU, RAM, disque)</li>
 </ul>
 <hr />
-<h2 id="a-retenir">À retenir<a class="headerlink" href="#a-retenir" title="Permanent link">&para;</a></h2>
+<h2 id="a-retenir">À retenir</h2>
 <ul>
 <li>Testcontainers remplace les mocks et H2 par de vraies instances</li>
 <li>utiliser <code>@DynamicPropertySource</code> avec Spring Boot pour injecter les URLs</li>

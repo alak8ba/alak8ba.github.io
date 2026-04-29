@@ -1865,11 +1865,11 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1 id="kafka-consumer-rebalance">Kafka — Consumer Rebalance<a class="headerlink" href="#kafka-consumer-rebalance" title="Permanent link">¶</a></h1>
-<h2 id="contexte">Contexte<a class="headerlink" href="#contexte" title="Permanent link">¶</a></h2>
+<h1 id="kafka-consumer-rebalance">Kafka — Consumer Rebalance</h1>
+<h2 id="contexte">Contexte</h2>
 <p>Dans Kafka, les consumers d'un même <strong>consumer group</strong> se partagent les partitions d'un topic. Quand un consumer rejoint ou quitte le groupe, Kafka redistribue les partitions — c'est le <strong>rebalance</strong>.</p>
 <hr/>
-<h2 id="quand-un-rebalance-se-declenche">Quand un rebalance se déclenche<a class="headerlink" href="#quand-un-rebalance-se-declenche" title="Permanent link">¶</a></h2>
+<h2 id="quand-un-rebalance-se-declenche">Quand un rebalance se déclenche</h2>
 <ul>
 <li>un consumer rejoint le groupe (scale up)</li>
 <li>un consumer quitte le groupe (crash, shutdown, scale down)</li>
@@ -1878,7 +1878,7 @@
 <li>changement d'abonnement (subscribe à un nouveau topic)</li>
 </ul>
 <hr/>
-<h2 id="fonctionnement">Fonctionnement<a class="headerlink" href="#fonctionnement" title="Permanent link">¶</a></h2>
+<h2 id="fonctionnement">Fonctionnement</h2>
 <pre class="mermaid"><code>sequenceDiagram
     participant C1 as Consumer 1
     participant C2 as Consumer 2
@@ -1897,25 +1897,25 @@
 <li>la durée dépend du nombre de consumers et de partitions</li>
 </ul>
 <hr/>
-<h2 id="strategies-dassignation">Stratégies d'assignation<a class="headerlink" href="#strategies-dassignation" title="Permanent link">¶</a></h2>
-<h3 id="rangeassignor-defaut">RangeAssignor (défaut)<a class="headerlink" href="#rangeassignor-defaut" title="Permanent link">¶</a></h3>
+<h2 id="strategies-dassignation">Stratégies d'assignation</h2>
+<h3 id="rangeassignor-defaut">RangeAssignor (défaut)</h3>
 <p>Assigne les partitions par plage continue à chaque consumer :</p>
 <div class="highlight"><pre><span></span><code>Consumer 1 → P0, P1, P2
 Consumer 2 → P3, P4, P5
 </code></pre></div>
-<h3 id="roundrobinassignor">RoundRobinAssignor<a class="headerlink" href="#roundrobinassignor" title="Permanent link">¶</a></h3>
+<h3 id="roundrobinassignor">RoundRobinAssignor</h3>
 <p>Distribution circulaire :</p>
 <div class="highlight"><pre><span></span><code>Consumer 1 → P0, P2, P4
 Consumer 2 → P1, P3, P5
 </code></pre></div>
-<h3 id="stickyassignor">StickyAssignor<a class="headerlink" href="#stickyassignor" title="Permanent link">¶</a></h3>
+<h3 id="stickyassignor">StickyAssignor</h3>
 <p>Minimise les mouvements de partitions lors d'un rebalance :</p>
 <div class="highlight"><pre><span></span><code>Avant : C1 → P0,P1  C2 → P2,P3
 C3 rejoint
 Après : C1 → P0,P1  C2 → P2  C3 → P3
 </code></pre></div>
 <p>Préféré en production pour réduire l'impact des rebalances.</p>
-<h3 id="cooperativestickyassignor">CooperativeStickyAssignor<a class="headerlink" href="#cooperativestickyassignor" title="Permanent link">¶</a></h3>
+<h3 id="cooperativestickyassignor">CooperativeStickyAssignor</h3>
 <p>Rebalance <strong>incrémental</strong> — seules les partitions qui changent de propriétaire sont révoquées :</p>
 <div class="highlight"><pre><span></span><code>partition.assignment.strategy=org.apache.kafka.clients.consumer.CooperativeStickyAssignor
 </code></pre></div>
@@ -1924,7 +1924,7 @@ Après : C1 → P0,P1  C2 → P2  C3 → P3
 <li>les consumers continuent de consommer les partitions non affectées</li>
 </ul>
 <hr/>
-<h2 id="configuration-cle">Configuration clé<a class="headerlink" href="#configuration-cle" title="Permanent link">¶</a></h2>
+<h2 id="configuration-cle">Configuration clé</h2>
 <div class="highlight"><pre><span></span><code><span class="c1"># Délai avant qu'un consumer soit considéré mort</span>
 <span class="na">session.timeout.ms</span><span class="o">=</span><span class="s">45000</span>
 
@@ -1942,7 +1942,7 @@ Après : C1 → P0,P1  C2 → P2  C3 → P3
 <p>Si <code>max.poll.interval.ms</code> est dépassé (traitement trop long), le consumer est exclu du groupe et un rebalance est déclenché. Ajuster cette valeur selon la durée de traitement.</p>
 </div>
 <hr/>
-<h2 id="impact-en-production">Impact en production<a class="headerlink" href="#impact-en-production" title="Permanent link">¶</a></h2>
+<h2 id="impact-en-production">Impact en production</h2>
 <table>
 <thead>
 <tr>
@@ -1975,7 +1975,7 @@ Après : C1 → P0,P1  C2 → P2  C3 → P3
 </tbody>
 </table>
 <hr/>
-<h2 id="bonnes-pratiques">Bonnes pratiques<a class="headerlink" href="#bonnes-pratiques" title="Permanent link">¶</a></h2>
+<h2 id="bonnes-pratiques">Bonnes pratiques</h2>
 <ul>
 <li>utiliser <code>CooperativeStickyAssignor</code> pour minimiser les interruptions</li>
 <li>committer les offsets après chaque batch traité</li>
@@ -1984,7 +1984,7 @@ Après : C1 → P0,P1  C2 → P2  C3 → P3
 <li>rendre les consumers idempotents pour tolérer les doublons post-rebalance</li>
 </ul>
 <hr/>
-<h2 id="a-retenir">À retenir<a class="headerlink" href="#a-retenir" title="Permanent link">¶</a></h2>
+<h2 id="a-retenir">À retenir</h2>
 <ul>
 <li>le rebalance est le mécanisme de redistribution des partitions dans un consumer group</li>
 <li>c'est coûteux — il interrompt la consommation</li>

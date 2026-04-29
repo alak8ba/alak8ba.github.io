@@ -4274,57 +4274,57 @@
 
 
 
-<h1 id="spring-scope-des-beans-dependency-injection">Spring — Scope des beans (Dependency Injection)<a class="headerlink" href="#spring-scope-des-beans-dependency-injection" title="Permanent link">&para;</a></h1>
+<h1 id="spring-scope-des-beans-dependency-injection">Spring — Scope des beans (Dependency Injection)</h1>
 <p>Dans le contexte de la DI (ex: Spring), le <strong>scope</strong> d’un bean définit <strong>son cycle de vie et son nombre d’instances</strong>.</p>
 <hr />
-<h2 id="1-idee-simple">1. Idée simple<a class="headerlink" href="#1-idee-simple" title="Permanent link">&para;</a></h2>
+<h2 id="1-idee-simple">1. Idée simple</h2>
 <p>Le scope répond à la question :</p>
 <p>➡️ <strong>combien d’instances du bean sont créées ?</strong></p>
 <hr />
-<h2 id="2-singleton-par-defaut">2. Singleton (par défaut)<a class="headerlink" href="#2-singleton-par-defaut" title="Permanent link">&para;</a></h2>
+<h2 id="2-singleton-par-defaut">2. Singleton (par défaut)</h2>
 <div class="highlight"><pre><span></span><code><span class="nd">@Component</span>
 <span class="nd">@Scope</span><span class="p">(</span><span class="s">&quot;singleton&quot;</span><span class="p">)</span>
 <span class="kd">class</span> <span class="nc">MyService</span><span class="w"> </span><span class="p">{}</span>
 </code></pre></div>
 <p>une seule instance dans toute l’application</p>
 <hr />
-<h3 id="caracteristiques">Caractéristiques<a class="headerlink" href="#caracteristiques" title="Permanent link">&para;</a></h3>
+<h3 id="caracteristiques">Caractéristiques</h3>
 <ul>
 <li>partagé</li>
 <li>performant</li>
 <li>utilisé par défaut</li>
 </ul>
 <hr />
-<h2 id="3-prototype">3. Prototype<a class="headerlink" href="#3-prototype" title="Permanent link">&para;</a></h2>
+<h2 id="3-prototype">3. Prototype</h2>
 <div class="highlight"><pre><span></span><code><span class="nd">@Component</span>
 <span class="nd">@Scope</span><span class="p">(</span><span class="s">&quot;prototype&quot;</span><span class="p">)</span>
 <span class="kd">class</span> <span class="nc">MyService</span><span class="w"> </span><span class="p">{}</span>
 </code></pre></div>
 <p>une nouvelle instance à chaque injection</p>
 <hr />
-<h3 id="caracteristiques_1">Caractéristiques<a class="headerlink" href="#caracteristiques_1" title="Permanent link">&para;</a></h3>
+<h3 id="caracteristiques_1">Caractéristiques</h3>
 <ul>
 <li>non partagé</li>
 <li>plus flexible</li>
 <li>plus coûteux</li>
 </ul>
 <hr />
-<h2 id="4-request-web">4. Request (web)<a class="headerlink" href="#4-request-web" title="Permanent link">&para;</a></h2>
+<h2 id="4-request-web">4. Request (web)</h2>
 <div class="highlight"><pre><span></span><code><span class="nd">@Scope</span><span class="p">(</span><span class="s">&quot;request&quot;</span><span class="p">)</span>
 </code></pre></div>
 <p>une instance par requête HTTP</p>
 <hr />
-<h2 id="5-session-web">5. Session (web)<a class="headerlink" href="#5-session-web" title="Permanent link">&para;</a></h2>
+<h2 id="5-session-web">5. Session (web)</h2>
 <div class="highlight"><pre><span></span><code><span class="nd">@Scope</span><span class="p">(</span><span class="s">&quot;session&quot;</span><span class="p">)</span>
 </code></pre></div>
 <p>une instance par session utilisateur</p>
 <hr />
-<h2 id="6-application">6. Application<a class="headerlink" href="#6-application" title="Permanent link">&para;</a></h2>
+<h2 id="6-application">6. Application</h2>
 <div class="highlight"><pre><span></span><code><span class="nd">@Scope</span><span class="p">(</span><span class="s">&quot;application&quot;</span><span class="p">)</span>
 </code></pre></div>
 <p>une instance pour toute l’application web</p>
 <hr />
-<h2 id="7-resume-des-scopes">7. Résumé des scopes<a class="headerlink" href="#7-resume-des-scopes" title="Permanent link">&para;</a></h2>
+<h2 id="7-resume-des-scopes">7. Résumé des scopes</h2>
 <table>
 <thead>
 <tr>
@@ -4356,7 +4356,7 @@
 </tbody>
 </table>
 <hr />
-<h2 id="8-piege-important">8. Piège important<a class="headerlink" href="#8-piege-important" title="Permanent link">&para;</a></h2>
+<h2 id="8-piege-important">8. Piège important</h2>
 <p>Singleton + état mutable :</p>
 <div class="highlight"><pre><span></span><code><span class="nd">@Component</span>
 <span class="kd">class</span> <span class="nc">Counter</span><span class="w"> </span><span class="p">{</span>
@@ -4369,41 +4369,41 @@
 <li>bugs concurrents</li>
 </ul>
 <hr />
-<h2 id="9-bonnes-pratiques">9. Bonnes pratiques<a class="headerlink" href="#9-bonnes-pratiques" title="Permanent link">&para;</a></h2>
+<h2 id="9-bonnes-pratiques">9. Bonnes pratiques</h2>
 <ul>
 <li>utiliser singleton pour services stateless</li>
 <li>éviter état mutable</li>
 <li>utiliser prototype si besoin d’instance unique</li>
 </ul>
 <hr />
-<h2 id="pieges-frequents">Pièges fréquents<a class="headerlink" href="#pieges-frequents" title="Permanent link">&para;</a></h2>
+<h2 id="pieges-frequents">Pièges fréquents</h2>
 <ul>
 <li>croire que prototype est géré comme singleton</li>
 <li>oublier la concurrence sur singleton</li>
 <li>utiliser session/request hors web</li>
 </ul>
 <hr />
-<h2 id="10-questions-classiques">10. Questions classiques<a class="headerlink" href="#10-questions-classiques" title="Permanent link">&para;</a></h2>
-<h3 id="q1">Q1<a class="headerlink" href="#q1" title="Permanent link">&para;</a></h3>
+<h2 id="10-questions-classiques">10. Questions classiques</h2>
+<h3 id="q1">Q1</h3>
 <p>scope par défaut ?
 singleton</p>
 <hr />
-<h3 id="q2">Q2<a class="headerlink" href="#q2" title="Permanent link">&para;</a></h3>
+<h3 id="q2">Q2</h3>
 <p>prototype = ?
 nouvelle instance</p>
 <hr />
-<h3 id="q3">Q3<a class="headerlink" href="#q3" title="Permanent link">&para;</a></h3>
+<h3 id="q3">Q3</h3>
 <p>danger du singleton ?
 concurrence</p>
 <hr />
-<h2 id="11-a-retenir">11. À retenir<a class="headerlink" href="#11-a-retenir" title="Permanent link">&para;</a></h2>
+<h2 id="11-a-retenir">11. À retenir</h2>
 <ul>
 <li>scope = cycle de vie</li>
 <li>singleton par défaut</li>
 <li>attention aux données partagées</li>
 </ul>
 <hr />
-<h2 id="en-resume">🧾 En résumé<a class="headerlink" href="#en-resume" title="Permanent link">&para;</a></h2>
+<h2 id="en-resume">🧾 En résumé</h2>
 <ul>
 <li>singleton → partagé</li>
 <li>prototype → nouveau à chaque fois</li>
@@ -4411,7 +4411,7 @@ concurrence</p>
 </ul>
 <p>Le choix du scope impacte directement la performance et la sécurité du code.</p>
 <hr />
-<h2 id="voir-aussi">Voir aussi<a class="headerlink" href="#voir-aussi" title="Permanent link">&para;</a></h2>
+<h2 id="voir-aussi">Voir aussi</h2>
 <ul>
 <li><a href="../../design-patterns/dependency-injection/">Dependency Injection</a></li>
 <li><a href="../../design-patterns/singleton-pattern/">Singleton</a></li>

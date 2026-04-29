@@ -4196,10 +4196,10 @@
 
 
 
-<h1 id="java-generiques-generics">Java — Génériques (Generics)<a class="headerlink" href="#java-generiques-generics" title="Permanent link">&para;</a></h1>
+<h1 id="java-generiques-generics">Java — Génériques (Generics)</h1>
 <p>Les <strong>génériques</strong> permettent d’écrire du code <strong>typé et réutilisable</strong>, tout en évitant des erreurs à la compilation.</p>
 <hr />
-<h2 id="1-idee-simple">1. Idée simple<a class="headerlink" href="#1-idee-simple" title="Permanent link">&para;</a></h2>
+<h2 id="1-idee-simple">1. Idée simple</h2>
 <p>Les génériques permettent de :</p>
 <p>➡️ <strong>spécifier le type à la compilation</strong></p>
 <ul>
@@ -4207,7 +4207,7 @@
 <li>pas besoin de cast</li>
 </ul>
 <hr />
-<h2 id="2-exemple-simple">2. Exemple simple<a class="headerlink" href="#2-exemple-simple" title="Permanent link">&para;</a></h2>
+<h2 id="2-exemple-simple">2. Exemple simple</h2>
 <div class="highlight"><pre><span></span><code><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
 <span class="n">list</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">&quot;hello&quot;</span><span class="p">);</span>
 
@@ -4216,7 +4216,7 @@
 </code></pre></div>
 <p>sans génériques → cast obligatoire</p>
 <hr />
-<h2 id="3-syntaxe-generique">3. Syntaxe générique<a class="headerlink" href="#3-syntaxe-generique" title="Permanent link">&para;</a></h2>
+<h2 id="3-syntaxe-generique">3. Syntaxe générique</h2>
 <div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nc">Box</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">value</span><span class="p">;</span>
 
@@ -4226,64 +4226,64 @@
 </code></pre></div>
 <p><code>T</code> = type générique</p>
 <hr />
-<h2 id="4-wildcards">4. Wildcards<a class="headerlink" href="#4-wildcards" title="Permanent link">&para;</a></h2>
-<h3 id="list"><code>List&lt;?&gt;</code><a class="headerlink" href="#list" title="Permanent link">&para;</a></h3>
+<h2 id="4-wildcards">4. Wildcards</h2>
+<h3 id="list"><code>List&lt;?&gt;</code></h3>
 <div class="highlight"><pre><span></span><code><span class="n">List</span><span class="o">&lt;?&gt;</span><span class="w"> </span><span class="n">list</span><span class="p">;</span>
 </code></pre></div>
 <p>liste de type inconnu</p>
 <hr />
-<h3 id="map"><code>Map&lt;?, ?&gt;</code><a class="headerlink" href="#map" title="Permanent link">&para;</a></h3>
+<h3 id="map"><code>Map&lt;?, ?&gt;</code></h3>
 <div class="highlight"><pre><span></span><code><span class="n">Map</span><span class="o">&lt;?</span><span class="p">,</span><span class="w"> </span><span class="o">?&gt;</span><span class="w"> </span><span class="n">map</span><span class="p">;</span>
 </code></pre></div>
 <p>clé et valeur inconnues</p>
 <hr />
-<h2 id="5-tableaux-generiques">5. Tableaux génériques<a class="headerlink" href="#5-tableaux-generiques" title="Permanent link">&para;</a></h2>
+<h2 id="5-tableaux-generiques">5. Tableaux génériques</h2>
 <div class="highlight"><pre><span></span><code><span class="n">T</span><span class="o">[]</span><span class="w"> </span><span class="n">array</span><span class="p">;</span>
 </code></pre></div>
 <p>valide</p>
 <hr />
-<h2 id="6-ce-qui-est-faux">6. Ce qui est faux<a class="headerlink" href="#6-ce-qui-est-faux" title="Permanent link">&para;</a></h2>
+<h2 id="6-ce-qui-est-faux">6. Ce qui est faux</h2>
 <div class="highlight"><pre><span></span><code><span class="n">List</span><span class="w"> </span><span class="n">var</span><span class="p">;</span><span class="w"> </span><span class="c1">// ❌ faux</span>
 <span class="n">Map</span><span class="w"> </span><span class="n">var</span><span class="p">;</span><span class="w">  </span><span class="c1">// ❌ faux</span>
 </code></pre></div>
 <p><code>var</code> ≠ générique</p>
 <hr />
-<h2 id="7-pourquoi-utiliser-les-generiques">7. Pourquoi utiliser les génériques ?<a class="headerlink" href="#7-pourquoi-utiliser-les-generiques" title="Permanent link">&para;</a></h2>
+<h2 id="7-pourquoi-utiliser-les-generiques">7. Pourquoi utiliser les génériques ?</h2>
 <ul>
 <li>éviter <code>ClassCastException</code></li>
 <li>vérifier les types à la compilation</li>
 <li>rendre le code plus clair</li>
 </ul>
 <hr />
-<h2 id="pieges-frequents">Pièges fréquents<a class="headerlink" href="#pieges-frequents" title="Permanent link">&para;</a></h2>
+<h2 id="pieges-frequents">Pièges fréquents</h2>
 <ul>
 <li>confusion <code>var</code> vs génériques</li>
 <li>utiliser raw types (<code>List</code>)</li>
 <li>mauvaise utilisation des wildcards</li>
 </ul>
 <hr />
-<h2 id="8-question-type-comme-ton-qcm">8. Question type (comme ton QCM)<a class="headerlink" href="#8-question-type-comme-ton-qcm" title="Permanent link">&para;</a></h2>
-<h3 id="correct">Correct :<a class="headerlink" href="#correct" title="Permanent link">&para;</a></h3>
+<h2 id="8-question-type-comme-ton-qcm">8. Question type (comme ton QCM)</h2>
+<h3 id="correct">Correct :</h3>
 <ul>
 <li><code>List&lt;?&gt;</code></li>
 <li><code>Map&lt;?, ?&gt;</code></li>
 <li><code>T[]</code></li>
 </ul>
 <hr />
-<h3 id="faux">Faux :<a class="headerlink" href="#faux" title="Permanent link">&para;</a></h3>
+<h3 id="faux">Faux :</h3>
 <ul>
 <li><code>List var</code></li>
 <li><code>Map var</code></li>
 </ul>
 <hr />
-<h2 id="9-a-retenir">9. À retenir<a class="headerlink" href="#9-a-retenir" title="Permanent link">&para;</a></h2>
+<h2 id="9-a-retenir">9. À retenir</h2>
 <ul>
 <li><code>&lt;?&gt;</code> = type inconnu</li>
 <li><code>T</code> = type paramétré</li>
 <li><code>var</code> ≠ générique</li>
 </ul>
 <hr />
-<h2 id="en-resume">🧾 En résumé<a class="headerlink" href="#en-resume" title="Permanent link">&para;</a></h2>
+<h2 id="en-resume">🧾 En résumé</h2>
 <ul>
 <li>les génériques assurent la sécurité de type</li>
 <li>utilisés partout (collections, APIs…)</li>
@@ -4291,7 +4291,7 @@
 </ul>
 <p>“Generics ensure type safety at compile time.”</p>
 <hr />
-<h2 id="voir-aussi">Voir aussi<a class="headerlink" href="#voir-aussi" title="Permanent link">&para;</a></h2>
+<h2 id="voir-aussi">Voir aussi</h2>
 <ul>
 <li><a href="../../collections/list-set-map/">List, Set, Map</a></li>
 <li><a href="../static-generic-method/">Methodes generiques statiques</a></li>

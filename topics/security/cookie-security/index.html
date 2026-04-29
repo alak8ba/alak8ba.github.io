@@ -4117,11 +4117,11 @@
 
 
 
-<h1 id="cookie-security">Cookie Security<a class="headerlink" href="#cookie-security" title="Permanent link">&para;</a></h1>
-<h2 id="contexte">Contexte<a class="headerlink" href="#contexte" title="Permanent link">&para;</a></h2>
+<h1 id="cookie-security">Cookie Security</h1>
+<h2 id="contexte">Contexte</h2>
 <p>Les cookies sont le mécanisme principal pour stocker les tokens d'authentification côté navigateur. Mal configurés, ils exposent l'application à des attaques (XSS, CSRF, vol de session).</p>
 <hr />
-<h2 id="attributs-de-securite">Attributs de sécurité<a class="headerlink" href="#attributs-de-securite" title="Permanent link">&para;</a></h2>
+<h2 id="attributs-de-securite">Attributs de sécurité</h2>
 <table>
 <thead>
 <tr>
@@ -4164,7 +4164,7 @@
 </tbody>
 </table>
 <hr />
-<h2 id="httponly">HttpOnly<a class="headerlink" href="#httponly" title="Permanent link">&para;</a></h2>
+<h2 id="httponly">HttpOnly</h2>
 <div class="highlight"><pre><span></span><code><span class="err">Set-Cookie: token=abc123; HttpOnly</span>
 </code></pre></div>
 <p>Empêche <code>document.cookie</code> d'accéder au cookie. Protège contre le vol de token par XSS :</p>
@@ -4172,12 +4172,12 @@
 <span class="nb">document</span><span class="p">.</span><span class="nx">cookie</span><span class="w">  </span><span class="c1">// → ne contient pas le token</span>
 </code></pre></div>
 <hr />
-<h2 id="secure">Secure<a class="headerlink" href="#secure" title="Permanent link">&para;</a></h2>
+<h2 id="secure">Secure</h2>
 <div class="highlight"><pre><span></span><code><span class="err">Set-Cookie: token=abc123; Secure</span>
 </code></pre></div>
 <p>Le cookie n'est envoyé que sur des connexions HTTPS. Sans cet attribut, un attaquant sur le réseau peut intercepter le cookie en HTTP.</p>
 <hr />
-<h2 id="samesite">SameSite<a class="headerlink" href="#samesite" title="Permanent link">&para;</a></h2>
+<h2 id="samesite">SameSite</h2>
 <p>Contrôle quand le cookie est envoyé avec les requêtes cross-origin :</p>
 <table>
 <thead>
@@ -4203,7 +4203,7 @@
 </table>
 <p><code>Lax</code> est le meilleur compromis pour la plupart des applications.</p>
 <hr />
-<h2 id="implementation-spring-boot">Implémentation Spring Boot<a class="headerlink" href="#implementation-spring-boot" title="Permanent link">&para;</a></h2>
+<h2 id="implementation-spring-boot">Implémentation Spring Boot</h2>
 <div class="highlight"><pre><span></span><code><span class="n">ResponseCookie</span><span class="w"> </span><span class="n">cookie</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ResponseCookie</span><span class="p">.</span><span class="na">from</span><span class="p">(</span><span class="s">&quot;access_token&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">token</span><span class="p">)</span>
 <span class="w">        </span><span class="p">.</span><span class="na">httpOnly</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
 <span class="w">        </span><span class="p">.</span><span class="na">secure</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
@@ -4224,7 +4224,7 @@
 <span class="w">        </span><span class="p">.</span><span class="na">build</span><span class="p">();</span>
 </code></pre></div>
 <hr />
-<h2 id="cookie-vs-localstorage">Cookie vs LocalStorage<a class="headerlink" href="#cookie-vs-localstorage" title="Permanent link">&para;</a></h2>
+<h2 id="cookie-vs-localstorage">Cookie vs LocalStorage</h2>
 <table>
 <thead>
 <tr>
@@ -4263,25 +4263,25 @@
 </table>
 <p>Pour les tokens d'authentification, le cookie HttpOnly est la solution recommandée.</p>
 <hr />
-<h2 id="attaques-et-protections">Attaques et protections<a class="headerlink" href="#attaques-et-protections" title="Permanent link">&para;</a></h2>
-<h3 id="xss-vol-de-token">XSS → vol de token<a class="headerlink" href="#xss-vol-de-token" title="Permanent link">&para;</a></h3>
+<h2 id="attaques-et-protections">Attaques et protections</h2>
+<h3 id="xss-vol-de-token">XSS → vol de token</h3>
 <ul>
 <li><strong>Protection</strong> : <code>HttpOnly</code> empêche l'accès JS au cookie</li>
 </ul>
-<h3 id="csrf-requete-forgee">CSRF → requête forgée<a class="headerlink" href="#csrf-requete-forgee" title="Permanent link">&para;</a></h3>
+<h3 id="csrf-requete-forgee">CSRF → requête forgée</h3>
 <ul>
 <li><strong>Protection</strong> : <code>SameSite=Lax</code> + token CSRF pour les mutations</li>
 </ul>
-<h3 id="man-in-the-middle-interception">Man-in-the-middle → interception<a class="headerlink" href="#man-in-the-middle-interception" title="Permanent link">&para;</a></h3>
+<h3 id="man-in-the-middle-interception">Man-in-the-middle → interception</h3>
 <ul>
 <li><strong>Protection</strong> : <code>Secure</code> force HTTPS</li>
 </ul>
-<h3 id="fixation-de-session">Fixation de session<a class="headerlink" href="#fixation-de-session" title="Permanent link">&para;</a></h3>
+<h3 id="fixation-de-session">Fixation de session</h3>
 <ul>
 <li><strong>Protection</strong> : régénérer le cookie après authentification</li>
 </ul>
 <hr />
-<h2 id="a-retenir">À retenir<a class="headerlink" href="#a-retenir" title="Permanent link">&para;</a></h2>
+<h2 id="a-retenir">À retenir</h2>
 <ul>
 <li>toujours utiliser <code>HttpOnly + Secure + SameSite=Lax</code> pour les tokens</li>
 <li>ne jamais stocker de tokens sensibles en localStorage</li>
@@ -4289,7 +4289,7 @@
 <li>les cookies sont envoyés automatiquement — attention au CSRF</li>
 </ul>
 <hr />
-<h2 id="voir-aussi">Voir aussi<a class="headerlink" href="#voir-aussi" title="Permanent link">&para;</a></h2>
+<h2 id="voir-aussi">Voir aussi</h2>
 <ul>
 <li><a href="../jwt-authentication-pattern/">JWT Authentication Pattern</a></li>
 <li><a href="../http-security-headers/">HTTP Security Headers</a></li>

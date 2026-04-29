@@ -4340,15 +4340,15 @@
 
 
 
-<h1 id="java-static-evolutions-java-11-25">Java — <code>static</code> &amp; Évolutions (Java 11 → 25)<a class="headerlink" href="#java-static-evolutions-java-11-25" title="Permanent link">&para;</a></h1>
+<h1 id="java-static-evolutions-java-11-25">Java — <code>static</code> &amp; Évolutions (Java 11 → 25)</h1>
 <p>Le mot-clé <code>static</code> est fondamental en Java. Il est souvent utilisé mais parfois mal compris, surtout dans des contextes réels (performance, mémoire, design).</p>
 <hr />
-<h2 id="1-idee-simple">1. Idée simple<a class="headerlink" href="#1-idee-simple" title="Permanent link">&para;</a></h2>
+<h2 id="1-idee-simple">1. Idée simple</h2>
 <p><code>static</code> signifie :</p>
 <p><strong>appartient à la classe et non aux instances</strong></p>
 <p>➡️ une seule copie partagée en mémoire</p>
 <hr />
-<h2 id="2-variable-static">2. Variable <code>static</code><a class="headerlink" href="#2-variable-static" title="Permanent link">&para;</a></h2>
+<h2 id="2-variable-static">2. Variable <code>static</code></h2>
 <div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nc">Counter</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
@@ -4359,7 +4359,7 @@
 <li>une seule valeur en mémoire</li>
 </ul>
 <hr />
-<h3 id="exemple">Exemple<a class="headerlink" href="#exemple" title="Permanent link">&para;</a></h3>
+<h3 id="exemple">Exemple</h3>
 <div class="highlight"><pre><span></span><code><span class="n">Counter</span><span class="w"> </span><span class="n">c1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Counter</span><span class="p">();</span>
 <span class="n">Counter</span><span class="w"> </span><span class="n">c2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Counter</span><span class="p">();</span>
 
@@ -4368,7 +4368,7 @@
 </code></pre></div>
 <p>même variable partagée</p>
 <hr />
-<h2 id="3-methode-static">3. Méthode <code>static</code><a class="headerlink" href="#3-methode-static" title="Permanent link">&para;</a></h2>
+<h2 id="3-methode-static">3. Méthode <code>static</code></h2>
 <div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nc">MathUtils</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
@@ -4382,13 +4382,13 @@
 <li>pas besoin d’objet</li>
 </ul>
 <hr />
-<h2 id="regles-importantes">Règles importantes<a class="headerlink" href="#regles-importantes" title="Permanent link">&para;</a></h2>
+<h2 id="regles-importantes">Règles importantes</h2>
 <ul>
 <li>une méthode <code>static</code> ne peut pas accéder directement aux variables non static</li>
 <li>elle n’a pas accès à <code>this</code></li>
 </ul>
 <hr />
-<h2 id="4-bloc-static">4. Bloc <code>static</code><a class="headerlink" href="#4-bloc-static" title="Permanent link">&para;</a></h2>
+<h2 id="4-bloc-static">4. Bloc <code>static</code></h2>
 <div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nc">Config</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Initialisation&quot;</span><span class="p">);</span>
@@ -4397,7 +4397,7 @@
 </code></pre></div>
 <p>exécuté une seule fois au chargement de la classe</p>
 <hr />
-<h2 id="5-cas-courant-constantes">5. Cas courant : constantes<a class="headerlink" href="#5-cas-courant-constantes" title="Permanent link">&para;</a></h2>
+<h2 id="5-cas-courant-constantes">5. Cas courant : constantes</h2>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">MAX</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span>
 </code></pre></div>
 <p>combinaison fréquente :</p>
@@ -4406,14 +4406,14 @@
 <li><code>final</code> → immuable</li>
 </ul>
 <hr />
-<h2 id="pieges-frequents">Pièges fréquents<a class="headerlink" href="#pieges-frequents" title="Permanent link">&para;</a></h2>
+<h2 id="pieges-frequents">Pièges fréquents</h2>
 <ul>
 <li>croire que <code>static</code> = global (ce n’est pas exactement ça)</li>
 <li>utiliser trop de <code>static</code> → code difficile à tester</li>
 <li>oublier que c’est partagé → bugs en concurrence</li>
 </ul>
 <hr />
-<h2 id="6-static-et-concurrence">6. <code>static</code> et concurrence<a class="headerlink" href="#6-static-et-concurrence" title="Permanent link">&para;</a></h2>
+<h2 id="6-static-et-concurrence">6. <code>static</code> et concurrence</h2>
 <p>une variable <code>static</code> est :</p>
 <ul>
 <li>partagée entre threads</li>
@@ -4421,23 +4421,23 @@
 </ul>
 <p>➡️ nécessite synchronisation si modifiée</p>
 <hr />
-<h2 id="7-evolutions-java-11-25">7. Évolutions Java 11 → 25<a class="headerlink" href="#7-evolutions-java-11-25" title="Permanent link">&para;</a></h2>
+<h2 id="7-evolutions-java-11-25">7. Évolutions Java 11 → 25</h2>
 <p>Le comportement de <code>static</code> <strong>n’a pas changé fondamentalement</strong></p>
 <p>MAIS l’environnement autour a évolué :</p>
 <hr />
-<h3 id="java-11">Java 11<a class="headerlink" href="#java-11" title="Permanent link">&para;</a></h3>
+<h3 id="java-11">Java 11</h3>
 <ul>
 <li>version LTS stable</li>
 <li>utilisation classique de <code>static</code></li>
 </ul>
 <hr />
-<h3 id="java-17-lts">Java 17 (LTS)<a class="headerlink" href="#java-17-lts" title="Permanent link">&para;</a></h3>
+<h3 id="java-17-lts">Java 17 (LTS)</h3>
 <ul>
 <li>amélioration des performances JVM</li>
 <li>sealed classes (impact design, pas <code>static</code>)</li>
 </ul>
 <hr />
-<h3 id="java-21-lts">Java 21 (LTS)<a class="headerlink" href="#java-21-lts" title="Permanent link">&para;</a></h3>
+<h3 id="java-21-lts">Java 21 (LTS)</h3>
 <ul>
 <li>
 <p>virtual threads (Project Loom)
@@ -4448,14 +4448,14 @@ impact indirect :</p>
 </li>
 </ul>
 <hr />
-<h3 id="java-25-recent">Java 25 (récent)<a class="headerlink" href="#java-25-recent" title="Permanent link">&para;</a></h3>
+<h3 id="java-25-recent">Java 25 (récent)</h3>
 <ul>
 <li>optimisations JVM</li>
 <li>amélioration GC et performance</li>
 <li>pas de changement direct sur <code>static</code></li>
 </ul>
 <hr />
-<h2 id="8-impact-reel-aujourdhui">8. Impact réel aujourd’hui<a class="headerlink" href="#8-impact-reel-aujourdhui" title="Permanent link">&para;</a></h2>
+<h2 id="8-impact-reel-aujourdhui">8. Impact réel aujourd’hui</h2>
 <p>avec les virtual threads :</p>
 <ul>
 <li>plus de threads → plus d’accès concurrent</li>
@@ -4463,24 +4463,24 @@ impact indirect :</p>
 </ul>
 <p>➡️ attention aux race conditions</p>
 <hr />
-<h2 id="9-questions-classiques">9. Questions classiques<a class="headerlink" href="#9-questions-classiques" title="Permanent link">&para;</a></h2>
-<h3 id="q1">Q1<a class="headerlink" href="#q1" title="Permanent link">&para;</a></h3>
+<h2 id="9-questions-classiques">9. Questions classiques</h2>
+<h3 id="q1">Q1</h3>
 <p><code>static</code> signifie quoi ?
 partagé au niveau classe</p>
 <hr />
-<h3 id="q2">Q2<a class="headerlink" href="#q2" title="Permanent link">&para;</a></h3>
+<h3 id="q2">Q2</h3>
 <p>une méthode <code>static</code> peut utiliser <code>this</code> ?
 non</p>
 <hr />
-<h3 id="q3">Q3<a class="headerlink" href="#q3" title="Permanent link">&para;</a></h3>
+<h3 id="q3">Q3</h3>
 <p>combien d’instances d’une variable static ?
 une seule</p>
 <hr />
-<h3 id="q4">Q4<a class="headerlink" href="#q4" title="Permanent link">&para;</a></h3>
+<h3 id="q4">Q4</h3>
 <p>danger principal ?
 concurrence</p>
 <hr />
-<h2 id="10-a-retenir">10. À retenir<a class="headerlink" href="#10-a-retenir" title="Permanent link">&para;</a></h2>
+<h2 id="10-a-retenir">10. À retenir</h2>
 <ul>
 <li><code>static</code> = partagé entre toutes les instances</li>
 <li>utile pour utilitaires, constantes</li>
@@ -4488,7 +4488,7 @@ concurrence</p>
 <li>pas de changement majeur entre Java 11 et 25</li>
 </ul>
 <hr />
-<h2 id="en-resume">🧾 En résumé<a class="headerlink" href="#en-resume" title="Permanent link">&para;</a></h2>
+<h2 id="en-resume">🧾 En résumé</h2>
 <ul>
 <li><code>static</code> appartient à la classe</li>
 <li>une seule copie en mémoire</li>

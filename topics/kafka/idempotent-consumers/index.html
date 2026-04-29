@@ -3819,8 +3819,8 @@
 
 
 
-<h1 id="idempotent-consumers-in-event-driven-systems">Idempotent Consumers in Event-Driven Systems<a class="headerlink" href="#idempotent-consumers-in-event-driven-systems" title="Permanent link">&para;</a></h1>
-<h2 id="contexte">Contexte<a class="headerlink" href="#contexte" title="Permanent link">&para;</a></h2>
+<h1 id="idempotent-consumers-in-event-driven-systems">Idempotent Consumers in Event-Driven Systems</h1>
+<h2 id="contexte">Contexte</h2>
 <p>Dans un système basé sur Kafka, un message peut être livré
 plusieurs fois au consommateur.</p>
 <p>Kafka garantit par défaut une livraison <strong>at-least-once</strong>,
@@ -3845,7 +3845,7 @@ plusieurs fois la même opération.</p>
 <p>Pour éviter ces problèmes, les consommateurs doivent être
 <strong>idempotents</strong>.</p>
 <hr />
-<h1 id="definition">Définition<a class="headerlink" href="#definition" title="Permanent link">&para;</a></h1>
+<h1 id="definition">Définition</h1>
 <p>Une opération est <strong>idempotente</strong> si son exécution
 plusieurs fois produit le même résultat que
 son exécution une seule fois.</p>
@@ -3856,7 +3856,7 @@ son exécution une seule fois.</p>
 </code></pre></div></p>
 <p>Le résultat final doit rester identique.</p>
 <hr />
-<h1 id="pourquoi-lidempotence-est-essentielle">Pourquoi l'idempotence est essentielle<a class="headerlink" href="#pourquoi-lidempotence-est-essentielle" title="Permanent link">&para;</a></h1>
+<h1 id="pourquoi-lidempotence-est-essentielle">Pourquoi l'idempotence est essentielle</h1>
 <p>Dans un système distribué, plusieurs mécanismes
 peuvent provoquer des redélivrances :</p>
 <ul>
@@ -3868,10 +3868,10 @@ peuvent provoquer des redélivrances :</p>
 <p>L'idempotence permet de garantir
 la cohérence du système malgré ces situations.</p>
 <hr />
-<h1 id="strategies-dimplementation">Stratégies d’implémentation<a class="headerlink" href="#strategies-dimplementation" title="Permanent link">&para;</a></h1>
+<h1 id="strategies-dimplementation">Stratégies d’implémentation</h1>
 <p>Plusieurs approches peuvent être utilisées.</p>
 <hr />
-<h2 id="1-table-des-evenements-traites">1 — Table des événements traités<a class="headerlink" href="#1-table-des-evenements-traites" title="Permanent link">&para;</a></h2>
+<h2 id="1-table-des-evenements-traites">1 — Table des événements traités</h2>
 <p>Une stratégie consiste à enregistrer
 les identifiants des événements déjà traités.</p>
 <p>Exemple de table :
@@ -3888,7 +3888,7 @@ les identifiants des événements déjà traités.</p>
 </ol>
 <p>Cette approche est simple et fiable.</p>
 <hr />
-<h2 id="2-verification-de-letat-metier">2 — Vérification de l’état métier<a class="headerlink" href="#2-verification-de-letat-metier" title="Permanent link">&para;</a></h2>
+<h2 id="2-verification-de-letat-metier">2 — Vérification de l’état métier</h2>
 <p>Dans certains cas, le modèle métier
 permet déjà de détecter les doublons.</p>
 <p>Exemple :</p>
@@ -3903,7 +3903,7 @@ permet déjà de détecter les doublons.</p>
 <span class="p">}</span>
 </code></pre></div></p>
 <hr />
-<h2 id="3-versionnement-des-agregats">3 — Versionnement des agrégats<a class="headerlink" href="#3-versionnement-des-agregats" title="Permanent link">&para;</a></h2>
+<h2 id="3-versionnement-des-agregats">3 — Versionnement des agrégats</h2>
 <p>Dans une architecture orientée événements,
 chaque agrégat peut posséder une version.</p>
 <p>Un événement contient :
@@ -3913,7 +3913,7 @@ chaque agrégat peut posséder une version.</p>
 <p>Si la version reçue est déjà appliquée,
 l’événement est ignoré.</p>
 <hr />
-<h1 id="interaction-avec-retry-et-dlt">Interaction avec Retry et DLT<a class="headerlink" href="#interaction-avec-retry-et-dlt" title="Permanent link">&para;</a></h1>
+<h1 id="interaction-avec-retry-et-dlt">Interaction avec Retry et DLT</h1>
 <p>L'idempotence fonctionne en complément
 du mécanisme Retry + Dead Letter Topic.</p>
 <p>Flux typique :</p>
@@ -3927,7 +3927,7 @@ du mécanisme Retry + Dead Letter Topic.</p>
 <p>Sans idempotence, les retries
 peuvent provoquer des incohérences.</p>
 <hr />
-<h1 id="bonnes-pratiques">Bonnes pratiques<a class="headerlink" href="#bonnes-pratiques" title="Permanent link">&para;</a></h1>
+<h1 id="bonnes-pratiques">Bonnes pratiques</h1>
 <p>Pour construire des consumers robustes :</p>
 <ul>
 <li>inclure un <code>eventId</code> unique dans les événements</li>
@@ -3937,7 +3937,7 @@ peuvent provoquer des incohérences.</p>
 <li>surveiller les événements du DLT</li>
 </ul>
 <hr />
-<h1 id="exemple-simplifie">Exemple simplifié<a class="headerlink" href="#exemple-simplifie" title="Permanent link">&para;</a></h1>
+<h1 id="exemple-simplifie">Exemple simplifié</h1>
 <p>Pseudo-code :
 <div class="highlight"><pre><span></span><code><span class="k">if</span><span class="w"> </span><span class="n">processedEvents</span><span class="p">.</span><span class="na">contains</span><span class="p">(</span><span class="n">eventId</span><span class="p">):</span>
 <span class="k">return</span>
@@ -3947,7 +3947,7 @@ peuvent provoquer des incohérences.</p>
 <span class="n">processedEvents</span><span class="p">.</span><span class="na">save</span><span class="p">(</span><span class="n">eventId</span><span class="p">)</span>
 </code></pre></div></p>
 <hr />
-<h1 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h1>
+<h1 id="conclusion">Conclusion</h1>
 <p>Dans les architectures event-driven,
 les redélivrances sont normales.</p>
 <p>Les consumers doivent être conçus
@@ -3956,7 +3956,7 @@ pour gérer ces situations.</p>
 pour garantir la cohérence
 des systèmes distribués.</p>
 <hr />
-<h2 id="voir-aussi">Voir aussi<a class="headerlink" href="#voir-aussi" title="Permanent link">&para;</a></h2>
+<h2 id="voir-aussi">Voir aussi</h2>
 <ul>
 <li><a href="../retry-and-dlt-pattern/">Retry and DLT Pattern</a></li>
 <li><a href="../outbox-pattern/">Outbox Pattern</a></li>

@@ -1659,8 +1659,8 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1 id="reverse-proxy-pattern">Reverse Proxy Pattern<a class="headerlink" href="#reverse-proxy-pattern" title="Permanent link">¶</a></h1>
-<h2 id="contexte">Contexte<a class="headerlink" href="#contexte" title="Permanent link">¶</a></h2>
+<h1 id="reverse-proxy-pattern">Reverse Proxy Pattern</h1>
+<h2 id="contexte">Contexte</h2>
 <p>Dans une architecture web moderne, les applications backend
 ne sont généralement pas exposées directement sur Internet.</p>
 <p>Un composant intermédiaire est utilisé pour gérer
@@ -1669,7 +1669,7 @@ les requêtes entrantes : le <strong>reverse proxy</strong>.</p>
 des clients et les transmet aux services internes.</p>
 <p>Il agit comme un point d’entrée unique pour l’application.</p>
 <hr/>
-<h1 id="principe">Principe<a class="headerlink" href="#principe" title="Permanent link">¶</a></h1>
+<h1 id="principe">Principe</h1>
 <p>Architecture simplifiée :
 <pre class="mermaid"><code>flowchart TD
     CLIENT[Client]
@@ -1686,9 +1686,9 @@ des clients et les transmet aux services internes.</p>
 <p>Le reverse proxy reçoit les requêtes HTTP/HTTPS
 et les redirige vers les services internes.</p>
 <hr/>
-<h1 id="responsabilites-principales">Responsabilités principales<a class="headerlink" href="#responsabilites-principales" title="Permanent link">¶</a></h1>
+<h1 id="responsabilites-principales">Responsabilités principales</h1>
 <p>Un reverse proxy assure plusieurs fonctions importantes.</p>
-<h2 id="terminaison-tls">Terminaison TLS<a class="headerlink" href="#terminaison-tls" title="Permanent link">¶</a></h2>
+<h2 id="terminaison-tls">Terminaison TLS</h2>
 <p>Le reverse proxy gère le chiffrement HTTPS.</p>
 <p>Flux :
 <pre class="mermaid"><code>flowchart TD
@@ -1702,7 +1702,7 @@ et les redirige vers les services internes.</p>
 </ul>
 </div>
 <hr/>
-<h2 id="routage-des-requetes">Routage des requêtes<a class="headerlink" href="#routage-des-requetes" title="Permanent link">¶</a></h2>
+<h2 id="routage-des-requetes">Routage des requêtes</h2>
 <p>Le reverse proxy peut diriger les requêtes
 vers différents services.</p>
 <p>Exemple :
@@ -1713,7 +1713,7 @@ vers différents services.</p>
 <p>Cela permet d’exposer plusieurs services
 via un seul point d’entrée.</p>
 <hr/>
-<h2 id="securite">Sécurité<a class="headerlink" href="#securite" title="Permanent link">¶</a></h2>
+<h2 id="securite">Sécurité</h2>
 <p>Le reverse proxy peut appliquer
 plusieurs mécanismes de sécurité :</p>
 <ul>
@@ -1729,7 +1729,7 @@ plusieurs mécanismes de sécurité :</p>
 <span class="nt">Strict-Transport-Security</span>
 </code></pre></div></p>
 <hr/>
-<h2 id="compression-et-performance">Compression et performance<a class="headerlink" href="#compression-et-performance" title="Permanent link">¶</a></h2>
+<h2 id="compression-et-performance">Compression et performance</h2>
 <p>Le reverse proxy peut améliorer
 les performances :</p>
 <ul>
@@ -1740,7 +1740,7 @@ les performances :</p>
 <p>Cela réduit la charge
 sur les services backend.</p>
 <hr/>
-<h1 id="exemple-avec-nginx">Exemple avec Nginx<a class="headerlink" href="#exemple-avec-nginx" title="Permanent link">¶</a></h1>
+<h1 id="exemple-avec-nginx">Exemple avec Nginx</h1>
 <p>Configuration simplifiée :
 <div class="highlight"><pre><span></span><code>server<span class="w"> </span><span class="o">{</span>
 listen<span class="w"> </span><span class="m">443</span><span class="w"> </span>ssl<span class="p">;</span>
@@ -1789,7 +1789,7 @@ location<span class="w"> </span>/<span class="w"> </span><span class="o">{</span
 </ul>
 </div>
 <hr/>
-<h1 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">¶</a></h1>
+<h1 id="conclusion">Conclusion</h1>
 <p>Le reverse proxy est un élément
 fondamental des architectures web modernes.</p>
 <p>Il permet de centraliser :</p>

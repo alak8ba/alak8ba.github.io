@@ -1919,12 +1919,12 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1 id="seaway-observability-overview">Seaway — Observability Overview<a class="headerlink" href="#seaway-observability-overview" title="Permanent link">¶</a></h1>
+<h1 id="seaway-observability-overview">Seaway — Observability Overview</h1>
 <div class="admonition note">
 <p>Cette documentation présente les principes d'architecture et les pratiques d'ingénierie du projet.  </p>
 <p>Les détails opérationnels et configurations d'infrastructure internes sont intentionnellement omis.</p>
 </div>
-<h2 id="objectif">Objectif<a class="headerlink" href="#objectif" title="Permanent link">¶</a></h2>
+<h2 id="objectif">Objectif</h2>
 <p>Mettre en place une stack d'observabilité production-ready
 pour l'application Seaway.</p>
 <p>Objectifs :</p>
@@ -1935,14 +1935,14 @@ pour l'application Seaway.</p>
 <li>versionner la configuration dans le dépôt</li>
 </ul>
 <hr/>
-<h2 id="stack">Stack<a class="headerlink" href="#stack" title="Permanent link">¶</a></h2>
+<h2 id="stack">Stack</h2>
 <ul>
 <li>Spring Boot Actuator + Micrometer</li>
 <li>Prometheus v2.51.0</li>
 <li>Grafana 10.4.0</li>
 </ul>
 <hr/>
-<h2 id="architecture">Architecture<a class="headerlink" href="#architecture" title="Permanent link">¶</a></h2>
+<h2 id="architecture">Architecture</h2>
 <pre class="mermaid"><code>flowchart LR
 
     Backend["Backend :8080 (API)"]
@@ -1961,7 +1961,7 @@ pour l'application Seaway.</p>
 <p>Cette séparation garantit que les métriques ne transitent
 jamais par le reverse proxy.</p>
 <hr/>
-<h2 id="isolation-du-port-actuator">Isolation du port Actuator<a class="headerlink" href="#isolation-du-port-actuator" title="Permanent link">¶</a></h2>
+<h2 id="isolation-du-port-actuator">Isolation du port Actuator</h2>
 <p>L'endpoint <code>/actuator/prometheus</code> est exposé sur un port
 de management dédié (<code>:8081</code>).</p>
 <p>Configuration Spring Boot :</p>
@@ -1973,7 +1973,7 @@ de management dédié (<code>:8081</code>).</p>
 <p>Prometheus atteint le backend directement via le réseau Docker interne,
 sans passer par le reverse proxy.</p>
 <hr/>
-<h2 id="spring-security">Spring Security<a class="headerlink" href="#spring-security" title="Permanent link">¶</a></h2>
+<h2 id="spring-security">Spring Security</h2>
 <p>Une <code>SecurityFilterChain</code> dédiée (<code>@Order(1)</code>) autorise
 les requêtes actuator sans JWT.</p>
 <p>Principes :</p>
@@ -1983,7 +1983,7 @@ les requêtes actuator sans JWT.</p>
 <li>le port <code>:8081</code> n'est pas accessible publiquement</li>
 </ul>
 <hr/>
-<h2 id="separation-dev-prod">Séparation dev / prod<a class="headerlink" href="#separation-dev-prod" title="Permanent link">¶</a></h2>
+<h2 id="separation-dev-prod">Séparation dev / prod</h2>
 <p>Deux configurations Prometheus distinctes sont versionnées :</p>
 <p><code>prometheus.dev.yml</code></p>
 <ul>
@@ -1996,15 +1996,15 @@ les requêtes actuator sans JWT.</p>
 <li>communication via le réseau Docker interne</li>
 </ul>
 <hr/>
-<h2 id="metriques-disponibles">Métriques disponibles<a class="headerlink" href="#metriques-disponibles" title="Permanent link">¶</a></h2>
-<h3 id="jvm">JVM<a class="headerlink" href="#jvm" title="Permanent link">¶</a></h3>
+<h2 id="metriques-disponibles">Métriques disponibles</h2>
+<h3 id="jvm">JVM</h3>
 <ul>
 <li>heap utilisé / disponible</li>
 <li>garbage collection (durée, fréquence)</li>
 <li>threads actifs</li>
 <li>classes chargées</li>
 </ul>
-<h3 id="base-de-donnees">Base de données<a class="headerlink" href="#base-de-donnees" title="Permanent link">¶</a></h3>
+<h3 id="base-de-donnees">Base de données</h3>
 <p>HikariCP :</p>
 <ul>
 <li>connexions actives</li>
@@ -2012,30 +2012,30 @@ les requêtes actuator sans JWT.</p>
 <li>connexions en attente</li>
 <li>temps d'acquisition</li>
 </ul>
-<h3 id="kafka">Kafka<a class="headerlink" href="#kafka" title="Permanent link">¶</a></h3>
+<h3 id="kafka">Kafka</h3>
 <ul>
 <li>métriques producer (latence, taux d'envoi)</li>
 <li>métriques consumer (lag, taux de traitement)</li>
 <li>métriques listener</li>
 </ul>
-<h3 id="http">HTTP<a class="headerlink" href="#http" title="Permanent link">¶</a></h3>
+<h3 id="http">HTTP</h3>
 <ul>
 <li>nombre de requêtes par endpoint</li>
 <li>temps de réponse (percentiles)</li>
 <li>métriques Spring Security</li>
 </ul>
-<h3 id="systeme">Système<a class="headerlink" href="#systeme" title="Permanent link">¶</a></h3>
+<h3 id="systeme">Système</h3>
 <ul>
 <li>CPU</li>
 <li>mémoire système</li>
 <li>uptime</li>
 </ul>
-<h3 id="logs">Logs<a class="headerlink" href="#logs" title="Permanent link">¶</a></h3>
+<h3 id="logs">Logs</h3>
 <ul>
 <li>Logback : events par niveau (INFO, WARN, ERROR)</li>
 </ul>
 <hr/>
-<h2 id="grafana">Grafana<a class="headerlink" href="#grafana" title="Permanent link">¶</a></h2>
+<h2 id="grafana">Grafana</h2>
 <p>Grafana 10.4.0 est configuré avec un provisioning automatique.</p>
 <p>Au démarrage, Grafana charge automatiquement :</p>
 <ul>
@@ -2049,7 +2049,7 @@ les requêtes actuator sans JWT.</p>
 <li>compatible nativement avec Grafana 10+</li>
 </ul>
 <hr/>
-<h2 id="principes-cles">Principes clés<a class="headerlink" href="#principes-cles" title="Permanent link">¶</a></h2>
+<h2 id="principes-cles">Principes clés</h2>
 <ul>
 <li>port Actuator isolé, jamais exposé via Nginx</li>
 <li>configuration Prometheus versionnée par environnement</li>

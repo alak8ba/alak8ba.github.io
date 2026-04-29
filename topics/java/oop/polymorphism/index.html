@@ -4208,14 +4208,14 @@
 
 
 
-<h1 id="java-polymorphisme-poo">Java — Polymorphisme (POO)<a class="headerlink" href="#java-polymorphisme-poo" title="Permanent link">&para;</a></h1>
+<h1 id="java-polymorphisme-poo">Java — Polymorphisme (POO)</h1>
 <p>Le <strong>polymorphisme</strong> est un des piliers de la programmation orientée objet (POO). Il permet d’utiliser une même interface pour manipuler différents types d’objets.</p>
 <hr />
-<h2 id="1-idee-simple">1. Idée simple<a class="headerlink" href="#1-idee-simple" title="Permanent link">&para;</a></h2>
+<h2 id="1-idee-simple">1. Idée simple</h2>
 <p><strong>une même méthode peut avoir plusieurs comportements</strong></p>
 <p>➡️ selon l’objet utilisé</p>
 <hr />
-<h2 id="2-exemple-simple">2. Exemple simple<a class="headerlink" href="#2-exemple-simple" title="Permanent link">&para;</a></h2>
+<h2 id="2-exemple-simple">2. Exemple simple</h2>
 <div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nc">Animal</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">speak</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Animal sound&quot;</span><span class="p">);</span>
@@ -4235,7 +4235,7 @@
 <span class="p">}</span>
 </code></pre></div>
 <hr />
-<h3 id="utilisation">Utilisation<a class="headerlink" href="#utilisation" title="Permanent link">&para;</a></h3>
+<h3 id="utilisation">Utilisation</h3>
 <div class="highlight"><pre><span></span><code><span class="n">Animal</span><span class="w"> </span><span class="n">a1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Dog</span><span class="p">();</span>
 <span class="n">Animal</span><span class="w"> </span><span class="n">a2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Cat</span><span class="p">();</span>
 
@@ -4244,11 +4244,11 @@
 </code></pre></div>
 <p>même méthode → comportement différent</p>
 <hr />
-<h2 id="3-types-de-polymorphisme">3. Types de polymorphisme<a class="headerlink" href="#3-types-de-polymorphisme" title="Permanent link">&para;</a></h2>
-<h3 id="polymorphisme-a-lexecution-override">Polymorphisme à l’exécution (override)<a class="headerlink" href="#polymorphisme-a-lexecution-override" title="Permanent link">&para;</a></h3>
+<h2 id="3-types-de-polymorphisme">3. Types de polymorphisme</h2>
+<h3 id="polymorphisme-a-lexecution-override">Polymorphisme à l’exécution (override)</h3>
 <p>redéfinition de méthode dans une sous-classe</p>
 <hr />
-<h3 id="polymorphisme-a-la-compilation-overloading">Polymorphisme à la compilation (overloading)<a class="headerlink" href="#polymorphisme-a-la-compilation-overloading" title="Permanent link">&para;</a></h3>
+<h3 id="polymorphisme-a-la-compilation-overloading">Polymorphisme à la compilation (overloading)</h3>
 <div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nc">MathUtils</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
 <span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
@@ -4256,7 +4256,7 @@
 </code></pre></div>
 <p>même nom, paramètres différents</p>
 <hr />
-<h2 id="4-regle-importante">4. Règle importante<a class="headerlink" href="#4-regle-importante" title="Permanent link">&para;</a></h2>
+<h2 id="4-regle-importante">4. Règle importante</h2>
 <p>le type de la référence compte :</p>
 <div class="highlight"><pre><span></span><code><span class="n">Animal</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Dog</span><span class="p">();</span>
 </code></pre></div>
@@ -4266,7 +4266,7 @@
 </ul>
 <p>Java appelle la méthode du type réel</p>
 <hr />
-<h2 id="5-pourquoi-cest-utile">5. Pourquoi c’est utile<a class="headerlink" href="#5-pourquoi-cest-utile" title="Permanent link">&para;</a></h2>
+<h2 id="5-pourquoi-cest-utile">5. Pourquoi c’est utile</h2>
 <ul>
 <li>code flexible</li>
 <li>extensible</li>
@@ -4274,27 +4274,27 @@
 <li>meilleur design</li>
 </ul>
 <hr />
-<h2 id="6-pieges-frequents">6. Pièges fréquents<a class="headerlink" href="#6-pieges-frequents" title="Permanent link">&para;</a></h2>
+<h2 id="6-pieges-frequents">6. Pièges fréquents</h2>
 <ul>
 <li>confusion override vs overload</li>
 <li>oublier le type réel</li>
 <li>penser que tout est dynamique</li>
 </ul>
 <hr />
-<h2 id="7-questions-classiques">7. Questions classiques<a class="headerlink" href="#7-questions-classiques" title="Permanent link">&para;</a></h2>
-<h3 id="q1">Q1<a class="headerlink" href="#q1" title="Permanent link">&para;</a></h3>
+<h2 id="7-questions-classiques">7. Questions classiques</h2>
+<h3 id="q1">Q1</h3>
 <p>polymorphisme = ?
 même méthode, comportements différents</p>
 <hr />
-<h3 id="q2">Q2<a class="headerlink" href="#q2" title="Permanent link">&para;</a></h3>
+<h3 id="q2">Q2</h3>
 <p>override ou overload ?
 override = runtime</p>
 <hr />
-<h3 id="q3">Q3<a class="headerlink" href="#q3" title="Permanent link">&para;</a></h3>
+<h3 id="q3">Q3</h3>
 <p>méthode appelée dépend de quoi ?
 type réel</p>
 <hr />
-<h2 id="8-a-retenir">8. À retenir<a class="headerlink" href="#8-a-retenir" title="Permanent link">&para;</a></h2>
+<h2 id="8-a-retenir">8. À retenir</h2>
 <ul>
 <li>polymorphisme = flexibilité</li>
 <li>override → runtime</li>
@@ -4302,7 +4302,7 @@ type réel</p>
 <li>basé sur l’héritage</li>
 </ul>
 <hr />
-<h2 id="en-resume">🧾 En résumé<a class="headerlink" href="#en-resume" title="Permanent link">&para;</a></h2>
+<h2 id="en-resume">🧾 En résumé</h2>
 <ul>
 <li>une interface commune</li>
 <li>plusieurs implémentations</li>
@@ -4310,7 +4310,7 @@ type réel</p>
 </ul>
 <p>Le polymorphisme permet d’écrire du code plus propre et évolutif.</p>
 <hr />
-<h2 id="voir-aussi">Voir aussi<a class="headerlink" href="#voir-aussi" title="Permanent link">&para;</a></h2>
+<h2 id="voir-aussi">Voir aussi</h2>
 <ul>
 <li><a href="../inheritance/">Heritage</a></li>
 <li><a href="../../fundamentals/instanceof/">instanceof</a></li>

@@ -1865,12 +1865,12 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1 id="docker-networking">Docker Networking<a class="headerlink" href="#docker-networking" title="Permanent link">¶</a></h1>
-<h2 id="contexte">Contexte<a class="headerlink" href="#contexte" title="Permanent link">¶</a></h2>
+<h1 id="docker-networking">Docker Networking</h1>
+<h2 id="contexte">Contexte</h2>
 <p>Les containers Docker sont isolés par défaut. Pour qu'ils communiquent entre eux ou avec l'extérieur, Docker fournit plusieurs drivers réseau.</p>
 <hr/>
-<h2 id="types-de-reseaux">Types de réseaux<a class="headerlink" href="#types-de-reseaux" title="Permanent link">¶</a></h2>
-<h3 id="bridge-defaut">Bridge (défaut)<a class="headerlink" href="#bridge-defaut" title="Permanent link">¶</a></h3>
+<h2 id="types-de-reseaux">Types de réseaux</h2>
+<h3 id="bridge-defaut">Bridge (défaut)</h3>
 <div class="highlight"><pre><span></span><code>docker<span class="w"> </span>network<span class="w"> </span>create<span class="w"> </span>my-network
 docker<span class="w"> </span>run<span class="w"> </span>--network<span class="w"> </span>my-network<span class="w"> </span>--name<span class="w"> </span>api<span class="w"> </span>my-api
 docker<span class="w"> </span>run<span class="w"> </span>--network<span class="w"> </span>my-network<span class="w"> </span>--name<span class="w"> </span>db<span class="w"> </span>postgres
@@ -1880,7 +1880,7 @@ docker<span class="w"> </span>run<span class="w"> </span>--network<span class="w
 <li>les containers sur le même bridge communiquent par nom</li>
 <li>le réseau <code>bridge</code> par défaut ne supporte pas la résolution DNS — toujours créer un réseau custom</li>
 </ul>
-<h3 id="host">Host<a class="headerlink" href="#host" title="Permanent link">¶</a></h3>
+<h3 id="host">Host</h3>
 <div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>--network<span class="w"> </span>host<span class="w"> </span>my-api
 </code></pre></div>
 <ul>
@@ -1889,20 +1889,20 @@ docker<span class="w"> </span>run<span class="w"> </span>--network<span class="w
 <li>utile pour les performances (pas de NAT)</li>
 <li>ne fonctionne pas sur Docker Desktop (Mac/Windows)</li>
 </ul>
-<h3 id="none">None<a class="headerlink" href="#none" title="Permanent link">¶</a></h3>
+<h3 id="none">None</h3>
 <div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>--network<span class="w"> </span>none<span class="w"> </span>my-api
 </code></pre></div>
 <ul>
 <li>aucune connectivité réseau</li>
 <li>utile pour des containers de calcul isolés</li>
 </ul>
-<h3 id="overlay">Overlay<a class="headerlink" href="#overlay" title="Permanent link">¶</a></h3>
+<h3 id="overlay">Overlay</h3>
 <ul>
 <li>réseau multi-hôtes pour Docker Swarm ou Kubernetes</li>
 <li>les containers sur différentes machines communiquent comme s'ils étaient sur le même réseau</li>
 </ul>
 <hr/>
-<h2 id="resolution-dns">Résolution DNS<a class="headerlink" href="#resolution-dns" title="Permanent link">¶</a></h2>
+<h2 id="resolution-dns">Résolution DNS</h2>
 <p>Sur un réseau bridge custom, Docker fournit un DNS interne :</p>
 <div class="highlight"><pre><span></span><code>api → 172.18.0.2
 db  → 172.18.0.3
@@ -1913,7 +1913,7 @@ db  → 172.18.0.3
 <p>Le réseau <code>bridge</code> par défaut (créé automatiquement) ne supporte pas la résolution DNS par nom de container. Toujours utiliser un réseau custom.</p>
 </div>
 <hr/>
-<h2 id="port-mapping">Port mapping<a class="headerlink" href="#port-mapping" title="Permanent link">¶</a></h2>
+<h2 id="port-mapping">Port mapping</h2>
 <div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>-p<span class="w"> </span><span class="m">8080</span>:8080<span class="w"> </span>my-api
 docker<span class="w"> </span>run<span class="w"> </span>-p<span class="w"> </span><span class="m">5432</span>:5432<span class="w"> </span>postgres
 </code></pre></div>
@@ -1922,7 +1922,7 @@ docker<span class="w"> </span>run<span class="w"> </span>-p<span class="w"> </sp
 <li>sans <code>-p</code>, le container n'est accessible que depuis son réseau Docker</li>
 </ul>
 <hr/>
-<h2 id="docker-compose-networking">Docker Compose networking<a class="headerlink" href="#docker-compose-networking" title="Permanent link">¶</a></h2>
+<h2 id="docker-compose-networking">Docker Compose networking</h2>
 <div class="highlight"><pre><span></span><code><span class="nt">services</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">api</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">build</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">.</span>
@@ -1938,7 +1938,7 @@ docker<span class="w"> </span>run<span class="w"> </span>-p<span class="w"> </sp
 </code></pre></div>
 <p>Docker Compose crée automatiquement un réseau bridge pour tous les services du fichier. Les services communiquent par leur nom (<code>api</code>, <code>db</code>).</p>
 <hr/>
-<h2 id="communication-entre-containers">Communication entre containers<a class="headerlink" href="#communication-entre-containers" title="Permanent link">¶</a></h2>
+<h2 id="communication-entre-containers">Communication entre containers</h2>
 <pre class="mermaid"><code>flowchart LR
     Client --&gt;|:8080| API
     API --&gt;|db:5432| DB
@@ -1956,7 +1956,7 @@ docker<span class="w"> </span>run<span class="w"> </span>-p<span class="w"> </sp
 <li>ne jamais hardcoder des IPs — elles changent à chaque redémarrage</li>
 </ul>
 <hr/>
-<h2 id="isolation-et-securite">Isolation et sécurité<a class="headerlink" href="#isolation-et-securite" title="Permanent link">¶</a></h2>
+<h2 id="isolation-et-securite">Isolation et sécurité</h2>
 <p>Bonnes pratiques :</p>
 <ul>
 <li>séparer les réseaux par responsabilité (frontend, backend, database)</li>
@@ -1977,7 +1977,7 @@ docker<span class="w"> </span>run<span class="w"> </span>-p<span class="w"> </sp
 </code></pre></div>
 <p>Le container <code>nginx</code> est le seul à avoir accès aux deux réseaux.</p>
 <hr/>
-<h2 id="a-retenir">À retenir<a class="headerlink" href="#a-retenir" title="Permanent link">¶</a></h2>
+<h2 id="a-retenir">À retenir</h2>
 <ul>
 <li>toujours créer un réseau custom (pas le bridge par défaut)</li>
 <li>les containers communiquent par nom DNS sur un réseau partagé</li>

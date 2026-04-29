@@ -4110,11 +4110,11 @@
 
 
 
-<h1 id="adr-008-idempotent-consumers-strategy">ADR-008 — Idempotent Consumers Strategy<a class="headerlink" href="#adr-008-idempotent-consumers-strategy" title="Permanent link">&para;</a></h1>
-<h2 id="statut">Statut<a class="headerlink" href="#statut" title="Permanent link">&para;</a></h2>
+<h1 id="adr-008-idempotent-consumers-strategy">ADR-008 — Idempotent Consumers Strategy</h1>
+<h2 id="statut">Statut</h2>
 <p>Accepté</p>
 <hr />
-<h2 id="contexte">Contexte<a class="headerlink" href="#contexte" title="Permanent link">&para;</a></h2>
+<h2 id="contexte">Contexte</h2>
 <p>Dans une architecture orientée événements basée sur Kafka,
 les messages peuvent être livrés plusieurs fois.</p>
 <p>Plusieurs situations peuvent provoquer une redélivrance :</p>
@@ -4135,7 +4135,7 @@ Cela signifie qu'un message peut être traité plusieurs fois.</p>
 </ul>
 <p>Il est donc nécessaire de rendre les consommateurs <strong>idempotents</strong>.</p>
 <hr />
-<h2 id="decision">Décision<a class="headerlink" href="#decision" title="Permanent link">&para;</a></h2>
+<h2 id="decision">Décision</h2>
 <p>Les consumers Kafka du projet Seaway doivent être <strong>idempotents</strong>.</p>
 <p>Le traitement d'un événement doit pouvoir être exécuté
 plusieurs fois sans produire d'effet incorrect.</p>
@@ -4147,7 +4147,7 @@ plusieurs fois sans produire d'effet incorrect.</p>
 <p>Les consumers doivent vérifier si un événement
 a déjà été traité avant d'appliquer la modification.</p>
 <hr />
-<h2 id="principe-didempotence">Principe d'idempotence<a class="headerlink" href="#principe-didempotence" title="Permanent link">&para;</a></h2>
+<h2 id="principe-didempotence">Principe d'idempotence</h2>
 <p>Un consumer idempotent garantit que :</p>
 <p>si le même événement est traité plusieurs fois,
 le résultat final reste identique.</p>
@@ -4161,9 +4161,9 @@ le résultat final reste identique.</p>
 <li>sinon → l'événement est appliqué</li>
 </ol>
 <hr />
-<h2 id="implementation-possible">Implémentation possible<a class="headerlink" href="#implementation-possible" title="Permanent link">&para;</a></h2>
+<h2 id="implementation-possible">Implémentation possible</h2>
 <p>Plusieurs stratégies sont possibles.</p>
-<h3 id="table-des-evenements-traites">Table des événements traités<a class="headerlink" href="#table-des-evenements-traites" title="Permanent link">&para;</a></h3>
+<h3 id="table-des-evenements-traites">Table des événements traités</h3>
 <p>Une table peut stocker les <code>eventId</code> déjà traités.</p>
 <p>Exemple :
 <div class="highlight"><pre><span></span><code>processed_events
@@ -4178,7 +4178,7 @@ processed_at
 <li>sinon → traiter et enregistrer l'eventId</li>
 </ol>
 <hr />
-<h3 id="idempotence-par-etat-metier">Idempotence par état métier<a class="headerlink" href="#idempotence-par-etat-metier" title="Permanent link">&para;</a></h3>
+<h3 id="idempotence-par-etat-metier">Idempotence par état métier</h3>
 <p>Dans certains cas, l'état métier peut servir de protection.</p>
 <p>Exemple :</p>
 <ul>
@@ -4188,7 +4188,7 @@ processed_at
 </ul>
 <p>Cette approche évite parfois une table dédiée.</p>
 <hr />
-<h2 id="interaction-avec-retry-et-dlt">Interaction avec Retry et DLT<a class="headerlink" href="#interaction-avec-retry-et-dlt" title="Permanent link">&para;</a></h2>
+<h2 id="interaction-avec-retry-et-dlt">Interaction avec Retry et DLT</h2>
 <p>La stratégie d'idempotence fonctionne en complément de :</p>
 <ul>
 <li>retry avec backoff</li>
@@ -4204,7 +4204,7 @@ processed_at
 <p>Pendant les retries, l'idempotence empêche
 l'application multiple d'un même événement.</p>
 <hr />
-<h2 id="consequences">Conséquences<a class="headerlink" href="#consequences" title="Permanent link">&para;</a></h2>
+<h2 id="consequences">Conséquences</h2>
 <div class="admonition tip">
 <p class="admonition-title">Avantages</p>
 <ul>
@@ -4224,15 +4224,15 @@ l'application multiple d'un même événement.</p>
 </ul>
 </div>
 <hr />
-<h2 id="alternatives-considerees">Alternatives considérées<a class="headerlink" href="#alternatives-considerees" title="Permanent link">&para;</a></h2>
-<h3 id="exactly-once-semantics">Exactly-once semantics<a class="headerlink" href="#exactly-once-semantics" title="Permanent link">&para;</a></h3>
+<h2 id="alternatives-considerees">Alternatives considérées</h2>
+<h3 id="exactly-once-semantics">Exactly-once semantics</h3>
 <p>Kafka propose certaines garanties "exactly-once",
 mais elles ne couvrent pas tous les cas d'usage
 et restent difficiles à appliquer dans des systèmes
 distribués complets.</p>
 <p>Cette approche n'a pas été retenue comme mécanisme principal.</p>
 <hr />
-<h3 id="ignorer-le-probleme">Ignorer le problème<a class="headerlink" href="#ignorer-le-probleme" title="Permanent link">&para;</a></h3>
+<h3 id="ignorer-le-probleme">Ignorer le problème</h3>
 <p>Ignorer les redélivrances peut provoquer :</p>
 <ul>
 <li>incohérences métier</li>
@@ -4241,7 +4241,7 @@ distribués complets.</p>
 </ul>
 <p>Cette approche a été rejetée.</p>
 <hr />
-<h2 id="justification">Justification<a class="headerlink" href="#justification" title="Permanent link">&para;</a></h2>
+<h2 id="justification">Justification</h2>
 <p>Dans un système distribué basé sur Kafka,
 l'idempotence des consommateurs est une pratique essentielle.</p>
 <p>Elle garantit que le système reste cohérent

@@ -3819,8 +3819,8 @@
 
 
 
-<h1 id="docker-production-pattern">Docker Production Pattern<a class="headerlink" href="#docker-production-pattern" title="Permanent link">&para;</a></h1>
-<h2 id="contexte">Contexte<a class="headerlink" href="#contexte" title="Permanent link">&para;</a></h2>
+<h1 id="docker-production-pattern">Docker Production Pattern</h1>
+<h2 id="contexte">Contexte</h2>
 <p>Docker est largement utilisé pour déployer des applications
 backend modernes. Il permet d'encapsuler une application
 et ses dépendances dans un conteneur portable.</p>
@@ -3836,7 +3836,7 @@ construit différemment d'un conteneur de développement.</p>
 <p>Une mauvaise configuration peut exposer le système à
 des vulnérabilités ou compliquer la maintenance.</p>
 <hr />
-<h1 id="principe">Principe<a class="headerlink" href="#principe" title="Permanent link">&para;</a></h1>
+<h1 id="principe">Principe</h1>
 <p>Le pattern "Docker Production" consiste à construire
 des images conteneurisées :</p>
 <ul>
@@ -3846,7 +3846,7 @@ des images conteneurisées :</p>
 </ul>
 <p>Cela implique plusieurs bonnes pratiques.</p>
 <hr />
-<h1 id="multi-stage-build">Multi-stage Build<a class="headerlink" href="#multi-stage-build" title="Permanent link">&para;</a></h1>
+<h1 id="multi-stage-build">Multi-stage Build</h1>
 <p>Les images Docker doivent être construites en plusieurs étapes.</p>
 <p>Objectif :</p>
 <ul>
@@ -3875,7 +3875,7 @@ des images conteneurisées :</p>
 </ul>
 </div>
 <hr />
-<h1 id="utilisateur-non-root">Utilisateur non-root<a class="headerlink" href="#utilisateur-non-root" title="Permanent link">&para;</a></h1>
+<h1 id="utilisateur-non-root">Utilisateur non-root</h1>
 <p>Les conteneurs ne doivent pas s'exécuter avec l'utilisateur root.</p>
 <p>Exemple :
 <div class="highlight"><pre><span></span><code><span class="k">RUN</span><span class="w"> </span>useradd<span class="w"> </span>-u<span class="w"> </span><span class="m">10001</span><span class="w"> </span>appuser
@@ -3889,7 +3889,7 @@ des images conteneurisées :</p>
 </ul>
 </div>
 <hr />
-<h1 id="filesystem-en-lecture-seule">Filesystem en lecture seule<a class="headerlink" href="#filesystem-en-lecture-seule" title="Permanent link">&para;</a></h1>
+<h1 id="filesystem-en-lecture-seule">Filesystem en lecture seule</h1>
 <p>En production, le filesystem du conteneur
 peut être configuré en lecture seule.</p>
 <p>Exemple dans docker-compose :
@@ -3898,7 +3898,7 @@ peut être configuré en lecture seule.</p>
 <p>Cela empêche l'écriture de fichiers
 malveillants dans le conteneur.</p>
 <hr />
-<h1 id="repertoires-temporaires-tmpfs">Répertoires temporaires (tmpfs)<a class="headerlink" href="#repertoires-temporaires-tmpfs" title="Permanent link">&para;</a></h1>
+<h1 id="repertoires-temporaires-tmpfs">Répertoires temporaires (tmpfs)</h1>
 <p>Les répertoires temporaires peuvent être
 placés en mémoire.</p>
 <p>Exemple :
@@ -3914,7 +3914,7 @@ placés en mémoire.</p>
 </ul>
 </div>
 <hr />
-<h1 id="reseau-docker">Réseau Docker<a class="headerlink" href="#reseau-docker" title="Permanent link">&para;</a></h1>
+<h1 id="reseau-docker">Réseau Docker</h1>
 <p>Les services internes doivent communiquer
 via un réseau Docker interne.</p>
 <p>Exemple :
@@ -3924,7 +3924,7 @@ backend-network
 <p>Les bases de données et brokers
 ne doivent pas être exposés publiquement.</p>
 <hr />
-<h1 id="gestion-des-variables-denvironnement">Gestion des variables d’environnement<a class="headerlink" href="#gestion-des-variables-denvironnement" title="Permanent link">&para;</a></h1>
+<h1 id="gestion-des-variables-denvironnement">Gestion des variables d’environnement</h1>
 <p>Les configurations doivent être injectées
 via des variables d’environnement.</p>
 <p>Exemple :
@@ -3937,7 +3937,7 @@ via des variables d’environnement.</p>
 <li>d’adapter facilement les environnements</li>
 </ul>
 <hr />
-<h1 id="healthchecks">Healthchecks<a class="headerlink" href="#healthchecks" title="Permanent link">&para;</a></h1>
+<h1 id="healthchecks">Healthchecks</h1>
 <p>Les conteneurs doivent exposer
 un mécanisme de vérification de santé.</p>
 <p>Exemple :
@@ -3947,7 +3947,7 @@ test:<span class="w"> </span><span class="o">[</span><span class="s2">&quot;CMD&
 <p>Les orchestrateurs peuvent utiliser ces
 informations pour redémarrer les conteneurs.</p>
 <hr />
-<h1 id="logs">Logs<a class="headerlink" href="#logs" title="Permanent link">&para;</a></h1>
+<h1 id="logs">Logs</h1>
 <p>Les applications doivent écrire leurs logs
 sur la sortie standard.</p>
 <p>Exemple :
@@ -3974,7 +3974,7 @@ de collecter les logs.</p>
 <p>Certaines applications doivent être adaptées pour fonctionner avec un filesystem en lecture seule.</p>
 </div>
 <hr />
-<h1 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h1>
+<h1 id="conclusion">Conclusion</h1>
 <p>Docker est un outil puissant pour déployer
 des applications backend modernes.</p>
 <p>En appliquant ces bonnes pratiques,

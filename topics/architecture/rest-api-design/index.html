@@ -4129,8 +4129,8 @@
 
 
 
-<h1 id="rest-api-design">REST API Design<a class="headerlink" href="#rest-api-design" title="Permanent link">&para;</a></h1>
-<h2 id="principe">Principe<a class="headerlink" href="#principe" title="Permanent link">&para;</a></h2>
+<h1 id="rest-api-design">REST API Design</h1>
+<h2 id="principe">Principe</h2>
 <p>REST (Representational State Transfer) est un style d'architecture pour les APIs basé sur les ressources et les verbes HTTP.</p>
 <p>Une API REST bien conçue est :</p>
 <ul>
@@ -4139,8 +4139,8 @@
 <li><strong>uniforme</strong> — les mêmes verbes HTTP pour toutes les ressources</li>
 </ul>
 <hr />
-<h2 id="conventions-de-nommage">Conventions de nommage<a class="headerlink" href="#conventions-de-nommage" title="Permanent link">&para;</a></h2>
-<h3 id="urls">URLs<a class="headerlink" href="#urls" title="Permanent link">&para;</a></h3>
+<h2 id="conventions-de-nommage">Conventions de nommage</h2>
+<h3 id="urls">URLs</h3>
 <div class="highlight"><pre><span></span><code>GET    /api/v1/users          → liste des utilisateurs
 GET    /api/v1/users/42       → utilisateur 42
 POST   /api/v1/users          → créer un utilisateur
@@ -4156,7 +4156,7 @@ DELETE /api/v1/users/42       → supprimer
 <li>hiérarchie pour les sous-ressources (<code>/users/42/orders</code>)</li>
 </ul>
 <hr />
-<h2 id="verbes-http">Verbes HTTP<a class="headerlink" href="#verbes-http" title="Permanent link">&para;</a></h2>
+<h2 id="verbes-http">Verbes HTTP</h2>
 <table>
 <thead>
 <tr>
@@ -4200,8 +4200,8 @@ DELETE /api/v1/users/42       → supprimer
 </tbody>
 </table>
 <hr />
-<h2 id="codes-de-retour">Codes de retour<a class="headerlink" href="#codes-de-retour" title="Permanent link">&para;</a></h2>
-<h3 id="succes">Succès<a class="headerlink" href="#succes" title="Permanent link">&para;</a></h3>
+<h2 id="codes-de-retour">Codes de retour</h2>
+<h3 id="succes">Succès</h3>
 <table>
 <thead>
 <tr>
@@ -4228,7 +4228,7 @@ DELETE /api/v1/users/42       → supprimer
 </tr>
 </tbody>
 </table>
-<h3 id="erreurs-client">Erreurs client<a class="headerlink" href="#erreurs-client" title="Permanent link">&para;</a></h3>
+<h3 id="erreurs-client">Erreurs client</h3>
 <table>
 <thead>
 <tr>
@@ -4270,7 +4270,7 @@ DELETE /api/v1/users/42       → supprimer
 </tr>
 </tbody>
 </table>
-<h3 id="erreurs-serveur">Erreurs serveur<a class="headerlink" href="#erreurs-serveur" title="Permanent link">&para;</a></h3>
+<h3 id="erreurs-serveur">Erreurs serveur</h3>
 <table>
 <thead>
 <tr>
@@ -4298,7 +4298,7 @@ DELETE /api/v1/users/42       → supprimer
 </tbody>
 </table>
 <hr />
-<h2 id="pagination">Pagination<a class="headerlink" href="#pagination" title="Permanent link">&para;</a></h2>
+<h2 id="pagination">Pagination</h2>
 <div class="highlight"><pre><span></span><code>GET /api/v1/users?page=2&amp;size=20
 </code></pre></div>
 <p>Réponse avec métadonnées :</p>
@@ -4316,7 +4316,7 @@ DELETE /api/v1/users/42       → supprimer
 <li><strong>cursor-based</strong> : <code>?cursor=abc123&amp;limit=20</code> — performant, adapté aux flux temps réel</li>
 </ul>
 <hr />
-<h2 id="filtrage-et-tri">Filtrage et tri<a class="headerlink" href="#filtrage-et-tri" title="Permanent link">&para;</a></h2>
+<h2 id="filtrage-et-tri">Filtrage et tri</h2>
 <div class="highlight"><pre><span></span><code>GET /api/v1/users?status=active&amp;role=admin&amp;sort=createdAt,desc
 </code></pre></div>
 <p>Conventions :</p>
@@ -4326,7 +4326,7 @@ DELETE /api/v1/users/42       → supprimer
 <li>recherche avec <code>?q=terme</code></li>
 </ul>
 <hr />
-<h2 id="versioning">Versioning<a class="headerlink" href="#versioning" title="Permanent link">&para;</a></h2>
+<h2 id="versioning">Versioning</h2>
 <table>
 <thead>
 <tr>
@@ -4355,7 +4355,7 @@ DELETE /api/v1/users/42       → supprimer
 </table>
 <p>Le versioning par URL est le plus courant et le plus lisible.</p>
 <hr />
-<h2 id="format-derreur">Format d'erreur<a class="headerlink" href="#format-derreur" title="Permanent link">&para;</a></h2>
+<h2 id="format-derreur">Format d'erreur</h2>
 <p>Structure cohérente pour toutes les erreurs :</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
 <span class="w">  </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">400</span><span class="p">,</span>
@@ -4366,7 +4366,7 @@ DELETE /api/v1/users/42       → supprimer
 <span class="p">}</span>
 </code></pre></div>
 <hr />
-<h2 id="hateoas">HATEOAS<a class="headerlink" href="#hateoas" title="Permanent link">&para;</a></h2>
+<h2 id="hateoas">HATEOAS</h2>
 <p>Hypermedia as the Engine of Application State — les réponses contiennent les liens vers les actions possibles :</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
 <span class="w">  </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">42</span><span class="p">,</span>
@@ -4380,7 +4380,7 @@ DELETE /api/v1/users/42       → supprimer
 </code></pre></div>
 <p>Utile en théorie, rarement implémenté complètement en pratique.</p>
 <hr />
-<h2 id="a-retenir">À retenir<a class="headerlink" href="#a-retenir" title="Permanent link">&para;</a></h2>
+<h2 id="a-retenir">À retenir</h2>
 <ul>
 <li>REST est une convention, pas un protocole — la cohérence est clé</li>
 <li>les codes HTTP doivent être utilisés correctement (pas tout en 200)</li>

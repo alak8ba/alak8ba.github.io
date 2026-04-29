@@ -3888,11 +3888,11 @@
 
 
 
-<h1 id="adr-001-adoption-dune-architecture-orientee-evenements">ADR-001 — Adoption d'une architecture orientée événements<a class="headerlink" href="#adr-001-adoption-dune-architecture-orientee-evenements" title="Permanent link">&para;</a></h1>
-<h2 id="statut">Statut<a class="headerlink" href="#statut" title="Permanent link">&para;</a></h2>
+<h1 id="adr-001-adoption-dune-architecture-orientee-evenements">ADR-001 — Adoption d'une architecture orientée événements</h1>
+<h2 id="statut">Statut</h2>
 <p>Accepté</p>
 <hr />
-<h2 id="contexte">Contexte<a class="headerlink" href="#contexte" title="Permanent link">&para;</a></h2>
+<h2 id="contexte">Contexte</h2>
 <p>Le système Seaway nécessite un mécanisme permettant
 de découpler les différentes parties de l'application
 et de faciliter l'évolution du système dans le temps.</p>
@@ -3900,7 +3900,7 @@ et de faciliter l'évolution du système dans le temps.</p>
 séparer les producteurs et les consommateurs,
 tout en améliorant la traçabilité et la résilience.</p>
 <hr />
-<h2 id="decision">Décision<a class="headerlink" href="#decision" title="Permanent link">&para;</a></h2>
+<h2 id="decision">Décision</h2>
 <p>Le projet adopte une architecture orientée événements
 avec Kafka comme bus d'événements.</p>
 <p>Les événements métier sont publiés par le write model
@@ -3911,7 +3911,7 @@ et consommés par différents composants :</p>
 <li>traitements asynchrones</li>
 </ul>
 <hr />
-<h2 id="consequences">Conséquences<a class="headerlink" href="#consequences" title="Permanent link">&para;</a></h2>
+<h2 id="consequences">Conséquences</h2>
 <div class="admonition tip">
 <p class="admonition-title">Avantages</p>
 <ul>

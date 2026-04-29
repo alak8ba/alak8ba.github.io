@@ -1659,8 +1659,8 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1 id="cqrs-pattern-command-query-responsibility-segregation">CQRS Pattern (Command Query Responsibility Segregation)<a class="headerlink" href="#cqrs-pattern-command-query-responsibility-segregation" title="Permanent link">¶</a></h1>
-<h2 id="contexte">Contexte<a class="headerlink" href="#contexte" title="Permanent link">¶</a></h2>
+<h1 id="cqrs-pattern-command-query-responsibility-segregation">CQRS Pattern (Command Query Responsibility Segregation)</h1>
+<h2 id="contexte">Contexte</h2>
 <p>Dans de nombreuses applications traditionnelles,
 le même modèle de données est utilisé pour :</p>
 <ul>
@@ -1682,7 +1682,7 @@ peut rendre l’architecture difficile à maintenir.</p>
 <p>Le pattern <strong>CQRS (Command Query Responsibility Segregation)</strong>
 propose de séparer ces responsabilités.</p>
 <hr/>
-<h1 id="principe">Principe<a class="headerlink" href="#principe" title="Permanent link">¶</a></h1>
+<h1 id="principe">Principe</h1>
 <p>CQRS consiste à séparer :
 <div class="highlight"><pre><span></span><code>Commands (écriture)
 Queries (lecture)
@@ -1692,7 +1692,7 @@ Queries (lecture)
 <p>Ces deux types d’opérations peuvent utiliser
 des modèles de données différents.</p>
 <hr/>
-<h1 id="command-model">Command Model<a class="headerlink" href="#command-model" title="Permanent link">¶</a></h1>
+<h1 id="command-model">Command Model</h1>
 <p>Le <strong>command model</strong> est responsable des modifications
 de l’état métier.</p>
 <p>Il applique les règles métier et garantit
@@ -1710,7 +1710,7 @@ les invariants du domaine.</p>
 <li>orienté règles métier</li>
 </ul>
 <hr/>
-<h1 id="query-model">Query Model<a class="headerlink" href="#query-model" title="Permanent link">¶</a></h1>
+<h1 id="query-model">Query Model</h1>
 <p>Le <strong>query model</strong> est optimisé
 pour la lecture des données.</p>
 <p>Il peut contenir :</p>
@@ -1727,7 +1727,7 @@ pour la lecture des données.</p>
 <p>Le query model ne contient
 pas de logique métier complexe.</p>
 <hr/>
-<h1 id="architecture-simplifiee">Architecture simplifiée<a class="headerlink" href="#architecture-simplifiee" title="Permanent link">¶</a></h1>
+<h1 id="architecture-simplifiee">Architecture simplifiée</h1>
 <pre class="mermaid"><code>flowchart TD
     CMD[Command API] --&gt; DOMAIN[Domain Model]
     DOMAIN --&gt; EVENTS[Domain Events]
@@ -1739,7 +1739,7 @@ pas de logique métier complexe.</p>
 de synchroniser le read model
 avec le command model.</p>
 <hr/>
-<h1 id="event-driven-cqrs">Event-driven CQRS<a class="headerlink" href="#event-driven-cqrs" title="Permanent link">¶</a></h1>
+<h1 id="event-driven-cqrs">Event-driven CQRS</h1>
 <p>Dans de nombreuses architectures modernes,
 CQRS est combiné avec un système d’événements.</p>
 <p>Flux typique :</p>
@@ -1780,7 +1780,7 @@ CQRS est combiné avec un système d’événements.</p>
 <strong>eventually consistent</strong>.  </p>
 <p>Cela signifie que le read model peut être légèrement en retard par rapport au write model.</p>
 </div>
-<h1 id="quand-utiliser-cqrs">Quand utiliser CQRS<a class="headerlink" href="#quand-utiliser-cqrs" title="Permanent link">¶</a></h1>
+<h1 id="quand-utiliser-cqrs">Quand utiliser CQRS</h1>
 <p>CQRS est particulièrement utile lorsque :</p>
 <ul>
 <li>les lectures sont beaucoup plus fréquentes</li>
@@ -1791,7 +1791,7 @@ CQRS est combiné avec un système d’événements.</p>
 <p>Pour les systèmes simples,
 un modèle unique peut suffire.</p>
 <hr/>
-<h1 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">¶</a></h1>
+<h1 id="conclusion">Conclusion</h1>
 <p>CQRS permet de séparer les responsabilités
 de lecture et d’écriture.</p>
 <p>Combiné avec des événements,
@@ -1799,7 +1799,7 @@ il devient un outil puissant
 pour construire des architectures
 modulaires et évolutives.</p>
 <hr/>
-<h2 id="voir-aussi">Voir aussi<a class="headerlink" href="#voir-aussi" title="Permanent link">¶</a></h2>
+<h2 id="voir-aussi">Voir aussi</h2>
 <ul>
 <li><a href="../../spring/hexagonal-architecture/">Hexagonal Architecture</a></li>
 <li><a href="../../distributed/eventual-consistency/">Eventual Consistency</a></li>

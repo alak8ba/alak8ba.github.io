@@ -1659,8 +1659,8 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1 id="outbox-pattern-in-event-driven-architectures">Outbox Pattern in Event-Driven Architectures<a class="headerlink" href="#outbox-pattern-in-event-driven-architectures" title="Permanent link">¶</a></h1>
-<h2 id="contexte">Contexte<a class="headerlink" href="#contexte" title="Permanent link">¶</a></h2>
+<h1 id="outbox-pattern-in-event-driven-architectures">Outbox Pattern in Event-Driven Architectures</h1>
+<h2 id="contexte">Contexte</h2>
 <p>Dans une architecture orientée événements, un service doit souvent :</p>
 <ol>
 <li>modifier l'état métier dans la base de données</li>
@@ -1683,7 +1683,7 @@ de l’événement échoue, le système devient incohérent.</p>
 <p>Ce problème est appelé :</p>
 <p><strong>dual write problem</strong></p>
 <hr/>
-<h1 id="le-probleme-du-dual-write">Le problème du Dual Write<a class="headerlink" href="#le-probleme-du-dual-write" title="Permanent link">¶</a></h1>
+<h1 id="le-probleme-du-dual-write">Le problème du Dual Write</h1>
 <p>Scénario possible :</p>
 <ol>
 <li>la transaction métier est validée en base</li>
@@ -1698,7 +1698,7 @@ de l’événement échoue, le système devient incohérent.</p>
 </ul>
 <p>Le système devient incohérent.</p>
 <hr/>
-<h1 id="principe-du-outbox-pattern">Principe du Outbox Pattern<a class="headerlink" href="#principe-du-outbox-pattern" title="Permanent link">¶</a></h1>
+<h1 id="principe-du-outbox-pattern">Principe du Outbox Pattern</h1>
 <p>Le <strong>Outbox Pattern</strong> consiste à enregistrer
 les événements dans une table dédiée
 dans la même transaction que la modification métier.</p>
@@ -1710,7 +1710,7 @@ dans la même transaction que la modification métier.</p>
 <li>un processus séparé publie les événements vers Kafka</li>
 </ol>
 <hr/>
-<h1 id="architecture">Architecture<a class="headerlink" href="#architecture" title="Permanent link">¶</a></h1>
+<h1 id="architecture">Architecture</h1>
 <p>Flux simplifié :
 <pre class="mermaid"><code>flowchart TD
     CLIENT[Client] --&gt; APP[Application Service]
@@ -1726,7 +1726,7 @@ dans la même transaction que la modification métier.</p>
     COMMIT --&gt; PUB[Outbox Publisher]
     PUB --&gt; KAFKA[(Kafka Event Bus)]</code></pre></p>
 <hr/>
-<h1 id="table-outbox">Table Outbox<a class="headerlink" href="#table-outbox" title="Permanent link">¶</a></h1>
+<h1 id="table-outbox">Table Outbox</h1>
 <p>Exemple de structure :
 <div class="highlight"><pre><span></span><code><span class="nt">outbox_events</span>
 
@@ -1740,7 +1740,7 @@ dans la même transaction que la modification métier.</p>
 <p>Le champ <code>processed</code> indique
 si l'événement a déjà été publié.</p>
 <hr/>
-<h1 id="publication-des-evenements">Publication des événements<a class="headerlink" href="#publication-des-evenements" title="Permanent link">¶</a></h1>
+<h1 id="publication-des-evenements">Publication des événements</h1>
 <p>Un composant dédié lit régulièrement
 les événements de la table outbox.</p>
 <p>Flux :</p>
@@ -1772,7 +1772,7 @@ les événements de la table outbox.</p>
 <p>Cependant cette complexité est généralement acceptable dans les architectures distribuées.</p>
 </div>
 <hr/>
-<h1 id="interaction-avec-dautres-patterns">Interaction avec d'autres patterns<a class="headerlink" href="#interaction-avec-dautres-patterns" title="Permanent link">¶</a></h1>
+<h1 id="interaction-avec-dautres-patterns">Interaction avec d'autres patterns</h1>
 <p>Le Outbox Pattern fonctionne généralement
 avec d'autres mécanismes de fiabilité :</p>
 <ul>
@@ -1783,13 +1783,13 @@ avec d'autres mécanismes de fiabilité :</p>
 <p>Ces patterns combinés permettent de construire
 des systèmes distribués robustes.</p>
 <hr/>
-<h1 id="alternatives">Alternatives<a class="headerlink" href="#alternatives" title="Permanent link">¶</a></h1>
-<h2 id="publication-directe">Publication directe<a class="headerlink" href="#publication-directe" title="Permanent link">¶</a></h2>
+<h1 id="alternatives">Alternatives</h1>
+<h2 id="publication-directe">Publication directe</h2>
 <p>Publier directement dans Kafka
 après la transaction est plus simple
 mais expose au problème du dual write.</p>
 <hr/>
-<h2 id="transactions-distribuees">Transactions distribuées<a class="headerlink" href="#transactions-distribuees" title="Permanent link">¶</a></h2>
+<h2 id="transactions-distribuees">Transactions distribuées</h2>
 <p>Certaines technologies proposent
 des transactions distribuées.</p>
 <p>Cependant elles sont souvent :</p>
@@ -1799,7 +1799,7 @@ des transactions distribuées.</p>
 <li>peu compatibles avec Kafka</li>
 </ul>
 <hr/>
-<h1 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">¶</a></h1>
+<h1 id="conclusion">Conclusion</h1>
 <p>Le Outbox Pattern est une pratique largement
 adoptée dans les architectures event-driven.</p>
 <p>Il permet de garantir la cohérence
@@ -1810,7 +1810,7 @@ Retry, DLT et Idempotence,
 il constitue un pilier de la fiabilité
 des systèmes distribués.</p>
 <hr/>
-<h2 id="voir-aussi">Voir aussi<a class="headerlink" href="#voir-aussi" title="Permanent link">¶</a></h2>
+<h2 id="voir-aussi">Voir aussi</h2>
 <ul>
 <li><a href="../idempotent-consumers/">Idempotent Consumers</a></li>
 <li><a href="../retry-and-dlt-pattern/">Retry and DLT Pattern</a></li>

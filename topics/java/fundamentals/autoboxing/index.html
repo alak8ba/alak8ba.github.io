@@ -4162,14 +4162,14 @@
 
 
 
-<h1 id="java-autoboxing-conversion-automatique">Java — Autoboxing (Conversion automatique)<a class="headerlink" href="#java-autoboxing-conversion-automatique" title="Permanent link">&para;</a></h1>
+<h1 id="java-autoboxing-conversion-automatique">Java — Autoboxing (Conversion automatique)</h1>
 <p>L’<strong>autoboxing</strong> est un mécanisme en Java qui permet de convertir automatiquement un type primitif en objet.</p>
 <hr />
-<h2 id="1-idee-simple">1. Idée simple<a class="headerlink" href="#1-idee-simple" title="Permanent link">&para;</a></h2>
+<h2 id="1-idee-simple">1. Idée simple</h2>
 <p><strong>autoboxing = conversion automatique</strong></p>
 <p>➡️ primitive → objet</p>
 <hr />
-<h2 id="2-exemple-simple">2. Exemple simple<a class="headerlink" href="#2-exemple-simple" title="Permanent link">&para;</a></h2>
+<h2 id="2-exemple-simple">2. Exemple simple</h2>
 <div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
 <span class="n">Integer</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w"> </span><span class="c1">// autoboxing</span>
 </code></pre></div>
@@ -4177,7 +4177,7 @@
 <div class="highlight"><pre><span></span><code><span class="n">Integer</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Integer</span><span class="p">.</span><span class="na">valueOf</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
 </code></pre></div>
 <hr />
-<h2 id="3-unboxing-inverse">3. Unboxing (inverse)<a class="headerlink" href="#3-unboxing-inverse" title="Permanent link">&para;</a></h2>
+<h2 id="3-unboxing-inverse">3. Unboxing (inverse)</h2>
 <p>conversion objet → primitive</p>
 <div class="highlight"><pre><span></span><code><span class="n">Integer</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
 <span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">y</span><span class="p">;</span><span class="w"> </span><span class="c1">// unboxing</span>
@@ -4186,7 +4186,7 @@
 <div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">y</span><span class="p">.</span><span class="na">intValue</span><span class="p">();</span>
 </code></pre></div>
 <hr />
-<h2 id="4-types-concernes">4. Types concernés<a class="headerlink" href="#4-types-concernes" title="Permanent link">&para;</a></h2>
+<h2 id="4-types-concernes">4. Types concernés</h2>
 <table>
 <thead>
 <tr>
@@ -4214,7 +4214,7 @@
 </tbody>
 </table>
 <hr />
-<h2 id="5-piege-important-null">5. Piège important (null)<a class="headerlink" href="#5-piege-important-null" title="Permanent link">&para;</a></h2>
+<h2 id="5-piege-important-null">5. Piège important (null)</h2>
 <div class="highlight"><pre><span></span><code><span class="n">Integer</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
 <span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w"> </span><span class="c1">// ❌ NullPointerException</span>
 </code></pre></div>
@@ -4223,7 +4223,7 @@
 <li>unboxing tente de convertir <code>null</code> → erreur</li>
 </ul>
 <hr />
-<h2 id="6-piege-performance">6. Piège performance<a class="headerlink" href="#6-piege-performance" title="Permanent link">&para;</a></h2>
+<h2 id="6-piege-performance">6. Piège performance</h2>
 <div class="highlight"><pre><span></span><code><span class="n">Integer</span><span class="w"> </span><span class="n">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 
 <span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">1000</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -4236,34 +4236,34 @@
 <li>impact performance</li>
 </ul>
 <hr />
-<h2 id="7-ou-ca-arrive-souvent">7. Où ça arrive souvent<a class="headerlink" href="#7-ou-ca-arrive-souvent" title="Permanent link">&para;</a></h2>
+<h2 id="7-ou-ca-arrive-souvent">7. Où ça arrive souvent</h2>
 <ul>
 <li>collections (<code>List&lt;Integer&gt;</code>)</li>
 <li>comparaisons</li>
 <li>opérations math</li>
 </ul>
 <hr />
-<h2 id="pieges-frequents">Pièges fréquents<a class="headerlink" href="#pieges-frequents" title="Permanent link">&para;</a></h2>
+<h2 id="pieges-frequents">Pièges fréquents</h2>
 <ul>
 <li><code>null</code> → crash</li>
 <li>performance</li>
 <li>confusion entre <code>==</code> et <code>.equals()</code></li>
 </ul>
 <hr />
-<h2 id="8-questions-classiques">8. Questions classiques<a class="headerlink" href="#8-questions-classiques" title="Permanent link">&para;</a></h2>
-<h3 id="q1">Q1<a class="headerlink" href="#q1" title="Permanent link">&para;</a></h3>
+<h2 id="8-questions-classiques">8. Questions classiques</h2>
+<h3 id="q1">Q1</h3>
 <p>autoboxing = ?
 primitive → objet</p>
 <hr />
-<h3 id="q2">Q2<a class="headerlink" href="#q2" title="Permanent link">&para;</a></h3>
+<h3 id="q2">Q2</h3>
 <p>unboxing = ?
 objet → primitive</p>
 <hr />
-<h3 id="q3">Q3<a class="headerlink" href="#q3" title="Permanent link">&para;</a></h3>
+<h3 id="q3">Q3</h3>
 <p>danger principal ?
 NullPointerException</p>
 <hr />
-<h2 id="9-a-retenir">9. À retenir<a class="headerlink" href="#9-a-retenir" title="Permanent link">&para;</a></h2>
+<h2 id="9-a-retenir">9. À retenir</h2>
 <ul>
 <li>autoboxing est automatique</li>
 <li>simplifie le code</li>
@@ -4271,7 +4271,7 @@ NullPointerException</p>
 <li>attention au <code>null</code></li>
 </ul>
 <hr />
-<h2 id="en-resume">🧾 En résumé<a class="headerlink" href="#en-resume" title="Permanent link">&para;</a></h2>
+<h2 id="en-resume">🧾 En résumé</h2>
 <ul>
 <li>primitive → objet (autoboxing)</li>
 <li>objet → primitive (unboxing)</li>
@@ -4279,7 +4279,7 @@ NullPointerException</p>
 </ul>
 <p>L’autoboxing est simple, mais peut introduire des bugs subtils et des problèmes de performance.</p>
 <hr />
-<h2 id="voir-aussi">Voir aussi<a class="headerlink" href="#voir-aussi" title="Permanent link">&para;</a></h2>
+<h2 id="voir-aussi">Voir aussi</h2>
 <ul>
 <li><a href="../integer-cache/">Integer Cache</a></li>
 <li><a href="../equals-vs-double-equals/">== vs equals()</a></li>

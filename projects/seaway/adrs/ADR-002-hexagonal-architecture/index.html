@@ -4066,11 +4066,11 @@
 
 
 
-<h1 id="adr-002-adoption-de-larchitecture-hexagonale">ADR-002 — Adoption de l'architecture hexagonale<a class="headerlink" href="#adr-002-adoption-de-larchitecture-hexagonale" title="Permanent link">&para;</a></h1>
-<h2 id="statut">Statut<a class="headerlink" href="#statut" title="Permanent link">&para;</a></h2>
+<h1 id="adr-002-adoption-de-larchitecture-hexagonale">ADR-002 — Adoption de l'architecture hexagonale</h1>
+<h2 id="statut">Statut</h2>
 <p>Accepté</p>
 <hr />
-<h2 id="contexte">Contexte<a class="headerlink" href="#contexte" title="Permanent link">&para;</a></h2>
+<h2 id="contexte">Contexte</h2>
 <p>Le projet Seaway nécessite une architecture permettant :</p>
 <ul>
 <li>une séparation claire entre la logique métier et les détails techniques</li>
@@ -4084,9 +4084,9 @@ les tests, la maintenance et les évolutions plus difficiles.</p>
 <p>Une architecture hexagonale (Ports &amp; Adapters) permet de placer le domaine
 au centre du système et d’isoler les dépendances techniques en périphérie.</p>
 <hr />
-<h2 id="decision">Décision<a class="headerlink" href="#decision" title="Permanent link">&para;</a></h2>
+<h2 id="decision">Décision</h2>
 <p>Le projet adopte une architecture hexagonale structurée en trois couches principales :</p>
-<h3 id="domain">Domain<a class="headerlink" href="#domain" title="Permanent link">&para;</a></h3>
+<h3 id="domain">Domain</h3>
 <p>Le domaine contient :</p>
 <ul>
 <li>les entités métier</li>
@@ -4097,7 +4097,7 @@ au centre du système et d’isoler les dépendances techniques en périphérie.
 </ul>
 <p>Le domaine ne dépend d'aucun framework.</p>
 <hr />
-<h3 id="application">Application<a class="headerlink" href="#application" title="Permanent link">&para;</a></h3>
+<h3 id="application">Application</h3>
 <p>La couche application orchestre les cas d’usage.</p>
 <p>Responsabilités :</p>
 <ul>
@@ -4108,7 +4108,7 @@ au centre du système et d’isoler les dépendances techniques en périphérie.
 </ul>
 <p>Elle utilise des <strong>ports</strong> pour communiquer avec l’infrastructure.</p>
 <hr />
-<h3 id="infrastructure">Infrastructure<a class="headerlink" href="#infrastructure" title="Permanent link">&para;</a></h3>
+<h3 id="infrastructure">Infrastructure</h3>
 <p>La couche infrastructure implémente les <strong>adapters</strong> techniques.</p>
 <p>Exemples :</p>
 <ul>
@@ -4120,7 +4120,7 @@ au centre du système et d’isoler les dépendances techniques en périphérie.
 </ul>
 <p>Cette couche dépend des frameworks et des technologies.</p>
 <hr />
-<h2 id="structure-typique">Structure typique<a class="headerlink" href="#structure-typique" title="Permanent link">&para;</a></h2>
+<h2 id="structure-typique">Structure typique</h2>
 <p>Le projet est organisé de la manière suivante :
 <div class="highlight"><pre><span></span><code>domain/
 application/
@@ -4130,7 +4130,7 @@ Les dépendances sont dirigées vers l’intérieur :
 <code>infrastructure → application → domain</code></p>
 <p>Le domaine ne dépend jamais des couches externes.</p>
 <hr />
-<h2 id="consequences">Conséquences<a class="headerlink" href="#consequences" title="Permanent link">&para;</a></h2>
+<h2 id="consequences">Conséquences</h2>
 <div class="admonition tip">
 <p class="admonition-title">Avantages</p>
 <ul>
@@ -4151,15 +4151,15 @@ Les dépendances sont dirigées vers l’intérieur :
 </ul>
 </div>
 <hr />
-<h2 id="alternatives-considerees">Alternatives considérées<a class="headerlink" href="#alternatives-considerees" title="Permanent link">&para;</a></h2>
-<h3 id="architecture-en-couches-classique">Architecture en couches classique<a class="headerlink" href="#architecture-en-couches-classique" title="Permanent link">&para;</a></h3>
+<h2 id="alternatives-considerees">Alternatives considérées</h2>
+<h3 id="architecture-en-couches-classique">Architecture en couches classique</h3>
 <p>Structure :
 <code>controller → service → repository</code></p>
 <p>Cette approche est simple mais conduit souvent à un fort couplage
 entre la logique métier et les frameworks.</p>
 <p>Elle rend plus difficile l’évolution de l’architecture et les tests unitaires.</p>
 <hr />
-<h2 id="justification">Justification<a class="headerlink" href="#justification" title="Permanent link">&para;</a></h2>
+<h2 id="justification">Justification</h2>
 <p>L’architecture hexagonale a été retenue afin de :</p>
 <ul>
 <li>maintenir un domaine métier propre</li>

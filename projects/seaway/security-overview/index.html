@@ -1803,12 +1803,12 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1 id="seaway-security-overview">Seaway — Security Overview<a class="headerlink" href="#seaway-security-overview" title="Permanent link">¶</a></h1>
+<h1 id="seaway-security-overview">Seaway — Security Overview</h1>
 <div class="admonition note">
 <p>Cette documentation présente les principes d'architecture et les pratiques d'ingénierie du projet.  </p>
 <p>Les détails opérationnels et configurations d'infrastructure internes sont intentionnellement omis.</p>
 </div>
-<h2 id="objectif">Objectif<a class="headerlink" href="#objectif" title="Permanent link">¶</a></h2>
+<h2 id="objectif">Objectif</h2>
 <p>Mettre en place une architecture de sécurité
 défensive par défaut pour l'application Seaway.</p>
 <p>Les principes suivis :</p>
@@ -1828,7 +1828,7 @@ flowchart LR
     Backend --&gt; PostgreSQL
     Backend --&gt; Kafka</code></pre>
 <hr/>
-<h2 id="authentification">Authentification<a class="headerlink" href="#authentification" title="Permanent link">¶</a></h2>
+<h2 id="authentification">Authentification</h2>
 <p>Seaway utilise une authentification basée sur <strong>JWT</strong>.</p>
 <p>Architecture :</p>
 <ul>
@@ -1849,7 +1849,7 @@ flowchart LR
 <li><code>POST /auth/refresh</code> pour renouveler l'access token</li>
 </ol>
 <hr/>
-<h2 id="autorisation">Autorisation<a class="headerlink" href="#autorisation" title="Permanent link">¶</a></h2>
+<h2 id="autorisation">Autorisation</h2>
 <p>Le système utilise un modèle <strong>RBAC (Role-Based Access Control)</strong>.</p>
 <p>Rôles actuels :</p>
 <ul>
@@ -1862,7 +1862,7 @@ flowchart LR
 <li>contrôles d'accès au niveau des endpoints</li>
 </ul>
 <hr/>
-<h2 id="backend-security">Backend Security<a class="headerlink" href="#backend-security" title="Permanent link">¶</a></h2>
+<h2 id="backend-security">Backend Security</h2>
 <p>Spring Security est configuré en <strong>mode stateless</strong>.</p>
 <p>Principes :</p>
 <ul>
@@ -1877,7 +1877,7 @@ flowchart LR
 <li>validation des entrées</li>
 </ul>
 <hr/>
-<h2 id="reverse-proxy">Reverse Proxy<a class="headerlink" href="#reverse-proxy" title="Permanent link">¶</a></h2>
+<h2 id="reverse-proxy">Reverse Proxy</h2>
 <p>Nginx agit comme point d'entrée unique.</p>
 <p>Responsabilités :</p>
 <ul>
@@ -1894,7 +1894,7 @@ flowchart LR
 <li><code>Permissions-Policy</code></li>
 </ul>
 <hr/>
-<h2 id="docker-security">Docker Security<a class="headerlink" href="#docker-security" title="Permanent link">¶</a></h2>
+<h2 id="docker-security">Docker Security</h2>
 <p>Les conteneurs sont configurés selon le principe
 du <strong>moindre privilège</strong>.</p>
 <p>Mesures appliquées :</p>
@@ -1904,7 +1904,7 @@ du <strong>moindre privilège</strong>.</p>
 <li><code>/tmp</code> monté en <code>tmpfs</code></li>
 </ul>
 <hr/>
-<h2 id="firewall">Firewall<a class="headerlink" href="#firewall" title="Permanent link">¶</a></h2>
+<h2 id="firewall">Firewall</h2>
 <p>Le firewall UFW applique une politique restrictive.</p>
 <p>Ports exposés :</p>
 <ul>
@@ -1918,7 +1918,7 @@ du <strong>moindre privilège</strong>.</p>
 <li>Kafka</li>
 </ul>
 <hr/>
-<h2 id="isolation-reseau">Isolation réseau<a class="headerlink" href="#isolation-reseau" title="Permanent link">¶</a></h2>
+<h2 id="isolation-reseau">Isolation réseau</h2>
 <p>Les services sensibles ne sont accessibles
 que via le réseau Docker interne.</p>
 <ul>
@@ -1928,7 +1928,7 @@ que via le réseau Docker interne.</p>
 </ul>
 <p>Aucun de ces services n'est exposé publiquement.</p>
 <hr/>
-<h2 id="defense-en-profondeur">Défense en profondeur<a class="headerlink" href="#defense-en-profondeur" title="Permanent link">¶</a></h2>
+<h2 id="defense-en-profondeur">Défense en profondeur</h2>
 <p>La sécurité repose sur plusieurs couches :</p>
 <ol>
 <li>authentification JWT</li>

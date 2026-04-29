@@ -3954,12 +3954,12 @@
 
 
 
-<h1 id="seaway-cicd-overview">Seaway — CI/CD Overview<a class="headerlink" href="#seaway-cicd-overview" title="Permanent link">&para;</a></h1>
+<h1 id="seaway-cicd-overview">Seaway — CI/CD Overview</h1>
 <div class="admonition note">
 <p>Cette documentation présente les principes d'architecture et les pratiques d'ingénierie du projet.  </p>
 <p>Les détails opérationnels et configurations d'infrastructure internes sont intentionnellement omis.</p>
 </div>
-<h2 id="objectif">Objectif<a class="headerlink" href="#objectif" title="Permanent link">&para;</a></h2>
+<h2 id="objectif">Objectif</h2>
 <p>Mettre en place une chaîne CI/CD réaliste et production-ready
 autour d'un projet backend Java / frontend React.</p>
 <p>Objectifs :</p>
@@ -3970,7 +3970,7 @@ autour d'un projet backend Java / frontend React.</p>
 <li>permettre un déploiement contrôlé</li>
 </ul>
 <hr />
-<h2 id="outil-utilise">Outil utilisé<a class="headerlink" href="#outil-utilise" title="Permanent link">&para;</a></h2>
+<h2 id="outil-utilise">Outil utilisé</h2>
 <p>GitHub Actions</p>
 <p>Utilisé pour :</p>
 <ul>
@@ -3980,7 +3980,7 @@ autour d'un projet backend Java / frontend React.</p>
 <li>créer les releases</li>
 </ul>
 <hr />
-<h2 id="architecture-cicd">Architecture CI/CD<a class="headerlink" href="#architecture-cicd" title="Permanent link">&para;</a></h2>
+<h2 id="architecture-cicd">Architecture CI/CD</h2>
 <p>Le système repose sur trois espaces distincts :</p>
 <ol>
 <li>Code source (GitHub)</li>
@@ -3991,7 +3991,7 @@ autour d'un projet backend Java / frontend React.</p>
 <p>La production ne build jamais le code.</p>
 <p>Elle consomme uniquement des images Docker versionnées.</p>
 <hr />
-<h2 id="ci-continuous-integration">CI — Continuous Integration<a class="headerlink" href="#ci-continuous-integration" title="Permanent link">&para;</a></h2>
+<h2 id="ci-continuous-integration">CI — Continuous Integration</h2>
 <p>La CI est déclenchée sur :</p>
 <ul>
 <li>push</li>
@@ -4015,7 +4015,7 @@ autour d'un projet backend Java / frontend React.</p>
 <li>images utilisées uniquement pour validation CI</li>
 </ul>
 <hr />
-<h2 id="release">Release<a class="headerlink" href="#release" title="Permanent link">&para;</a></h2>
+<h2 id="release">Release</h2>
 <p>Lorsqu'une version est validée :</p>
 <ul>
 <li>création d'un tag Git</li>
@@ -4028,7 +4028,7 @@ autour d'un projet backend Java / frontend React.</p>
 <li>immuables</li>
 </ul>
 <hr />
-<h2 id="deploiement">Déploiement<a class="headerlink" href="#deploiement" title="Permanent link">&para;</a></h2>
+<h2 id="deploiement">Déploiement</h2>
 <p>Le déploiement suit un modèle pull-based.</p>
 <p>Le serveur de production :</p>
 <ul>
@@ -4038,7 +4038,7 @@ autour d'un projet backend Java / frontend React.</p>
 <p>Watchtower est utilisé pour surveiller les nouvelles images
 et déclencher les mises à jour.</p>
 <hr />
-<h2 id="principes-cles">Principes clés<a class="headerlink" href="#principes-cles" title="Permanent link">&para;</a></h2>
+<h2 id="principes-cles">Principes clés</h2>
 <ul>
 <li>séparation CI / Release / Deploy</li>
 <li>artefacts immuables</li>

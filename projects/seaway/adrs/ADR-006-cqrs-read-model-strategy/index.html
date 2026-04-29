@@ -4066,11 +4066,11 @@
 
 
 
-<h1 id="adr-006-adoption-dun-read-model-cqrs-pour-linterface-utilisateur">ADR-006 — Adoption d’un Read Model CQRS pour l’interface utilisateur<a class="headerlink" href="#adr-006-adoption-dun-read-model-cqrs-pour-linterface-utilisateur" title="Permanent link">&para;</a></h1>
-<h2 id="statut">Statut<a class="headerlink" href="#statut" title="Permanent link">&para;</a></h2>
+<h1 id="adr-006-adoption-dun-read-model-cqrs-pour-linterface-utilisateur">ADR-006 — Adoption d’un Read Model CQRS pour l’interface utilisateur</h1>
+<h2 id="statut">Statut</h2>
 <p>Accepté</p>
 <hr />
-<h2 id="contexte">Contexte<a class="headerlink" href="#contexte" title="Permanent link">&para;</a></h2>
+<h2 id="contexte">Contexte</h2>
 <p>Le système Seaway expose une API utilisée par une interface
 utilisateur React orientée dashboard.</p>
 <p>Les besoins de lecture de l’UI diffèrent souvent du modèle
@@ -4088,7 +4088,7 @@ pour les requêtes UI aurait introduit plusieurs problèmes :</p>
 <li>difficultés d’évolution du domaine</li>
 </ul>
 <hr />
-<h2 id="decision">Décision<a class="headerlink" href="#decision" title="Permanent link">&para;</a></h2>
+<h2 id="decision">Décision</h2>
 <p>Le projet adopte une approche <strong>CQRS légère</strong> :</p>
 <ul>
 <li>le write model gère les opérations métier</li>
@@ -4097,8 +4097,8 @@ pour les requêtes UI aurait introduit plusieurs problèmes :</p>
 <p>Le read model est alimenté par les événements Kafka
 produits par le système.</p>
 <hr />
-<h2 id="architecture">Architecture<a class="headerlink" href="#architecture" title="Permanent link">&para;</a></h2>
-<h3 id="write-model">Write Model<a class="headerlink" href="#write-model" title="Permanent link">&para;</a></h3>
+<h2 id="architecture">Architecture</h2>
+<h3 id="write-model">Write Model</h3>
 <p>Le write model :</p>
 <ul>
 <li>applique les règles métier</li>
@@ -4107,7 +4107,7 @@ produits par le système.</p>
 </ul>
 <p>Il représente la source de vérité du système.</p>
 <hr />
-<h3 id="read-model">Read Model<a class="headerlink" href="#read-model" title="Permanent link">&para;</a></h3>
+<h3 id="read-model">Read Model</h3>
 <p>Le read model :</p>
 <ul>
 <li>est optimisé pour les requêtes UI</li>
@@ -4121,7 +4121,7 @@ produits par le système.</p>
 <li>informations synthétiques pour le dashboard</li>
 </ul>
 <hr />
-<h2 id="flux-de-donnees">Flux de données<a class="headerlink" href="#flux-de-donnees" title="Permanent link">&para;</a></h2>
+<h2 id="flux-de-donnees">Flux de données</h2>
 <p>Le flux est le suivant :</p>
 <ol>
 <li>une commande est exécutée dans le write model</li>
@@ -4130,7 +4130,7 @@ produits par le système.</p>
 <li>l’API REST expose le read model à l’interface utilisateur</li>
 </ol>
 <hr />
-<h2 id="consequences">Conséquences<a class="headerlink" href="#consequences" title="Permanent link">&para;</a></h2>
+<h2 id="consequences">Conséquences</h2>
 <div class="admonition tip">
 <p class="admonition-title">Avantages</p>
 <ul>
@@ -4150,8 +4150,8 @@ produits par le système.</p>
 </ul>
 </div>
 <hr />
-<h2 id="alternatives-considerees">Alternatives considérées<a class="headerlink" href="#alternatives-considerees" title="Permanent link">&para;</a></h2>
-<h3 id="utiliser-directement-le-modele-metier">Utiliser directement le modèle métier<a class="headerlink" href="#utiliser-directement-le-modele-metier" title="Permanent link">&para;</a></h3>
+<h2 id="alternatives-considerees">Alternatives considérées</h2>
+<h3 id="utiliser-directement-le-modele-metier">Utiliser directement le modèle métier</h3>
 <p>Cette approche simplifie l’architecture
 mais entraîne souvent :</p>
 <ul>
@@ -4160,7 +4160,7 @@ mais entraîne souvent :</p>
 </ul>
 <p>Elle a été écartée.</p>
 <hr />
-<h2 id="justification">Justification<a class="headerlink" href="#justification" title="Permanent link">&para;</a></h2>
+<h2 id="justification">Justification</h2>
 <p>L’utilisation d’un read model dédié permet
 d’adapter les données aux besoins de l’interface
 tout en préservant l’intégrité du domaine.</p>

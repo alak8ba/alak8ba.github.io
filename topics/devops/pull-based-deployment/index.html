@@ -1659,8 +1659,8 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1 id="pull-based-deployment-pattern">Pull-Based Deployment Pattern<a class="headerlink" href="#pull-based-deployment-pattern" title="Permanent link">¶</a></h1>
-<h2 id="contexte">Contexte<a class="headerlink" href="#contexte" title="Permanent link">¶</a></h2>
+<h1 id="pull-based-deployment-pattern">Pull-Based Deployment Pattern</h1>
+<h2 id="contexte">Contexte</h2>
 <p>Dans de nombreuses chaînes CI/CD, le système d'intégration
 continue déploie directement l'application sur les serveurs
 de production.</p>
@@ -1679,7 +1679,7 @@ de production.</p>
 <p>Une alternative consiste à utiliser
 le <strong>pull-based deployment</strong>.</p>
 <hr/>
-<h1 id="principe">Principe<a class="headerlink" href="#principe" title="Permanent link">¶</a></h1>
+<h1 id="principe">Principe</h1>
 <p>Dans un modèle pull-based, le serveur de production
 ne reçoit aucune connexion depuis la CI.</p>
 <p>Au contraire, il récupère lui-même
@@ -1694,14 +1694,14 @@ les nouvelles versions de l'application.</p>
 <p>Le serveur surveille les nouvelles images
 et met à jour les services automatiquement.</p>
 <hr/>
-<h1 id="etapes-du-pipeline">Étapes du pipeline<a class="headerlink" href="#etapes-du-pipeline" title="Permanent link">¶</a></h1>
-<h2 id="1-push-du-code">1 — Push du code<a class="headerlink" href="#1-push-du-code" title="Permanent link">¶</a></h2>
+<h1 id="etapes-du-pipeline">Étapes du pipeline</h1>
+<h2 id="1-push-du-code">1 — Push du code</h2>
 <p>Le développeur pousse le code vers le repository.
 <div class="highlight"><pre><span></span><code>git<span class="w"> </span>push
 </code></pre></div></p>
 <p>Cela déclenche la pipeline CI.</p>
 <hr/>
-<h2 id="2-build-des-images">2 — Build des images<a class="headerlink" href="#2-build-des-images" title="Permanent link">¶</a></h2>
+<h2 id="2-build-des-images">2 — Build des images</h2>
 <p>La CI :</p>
 <ul>
 <li>compile l’application</li>
@@ -1712,7 +1712,7 @@ et met à jour les services automatiquement.</p>
 <div class="highlight"><pre><span></span><code>ghcr.io/my-org/backend:latest
 </code></pre></div></p>
 <hr/>
-<h2 id="3-publication-dans-le-registry">3 — Publication dans le registry<a class="headerlink" href="#3-publication-dans-le-registry" title="Permanent link">¶</a></h2>
+<h2 id="3-publication-dans-le-registry">3 — Publication dans le registry</h2>
 <p>Les images sont stockées dans un container registry :</p>
 <ul>
 <li>GHCR</li>
@@ -1723,7 +1723,7 @@ et met à jour les services automatiquement.</p>
 <p>Le registry devient la <strong>source de vérité
 des artefacts déployables</strong>.</p>
 <hr/>
-<h2 id="4-mise-a-jour-cote-serveur">4 — Mise à jour côté serveur<a class="headerlink" href="#4-mise-a-jour-cote-serveur" title="Permanent link">¶</a></h2>
+<h2 id="4-mise-a-jour-cote-serveur">4 — Mise à jour côté serveur</h2>
 <p>Le serveur de production récupère
 les nouvelles images.</p>
 <p>Exemple :
@@ -1733,7 +1733,7 @@ docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> 
 <p>Cela redémarre automatiquement
 les services avec les nouvelles versions.</p>
 <hr/>
-<h1 id="automatisation-avec-watchtower">Automatisation avec Watchtower<a class="headerlink" href="#automatisation-avec-watchtower" title="Permanent link">¶</a></h1>
+<h1 id="automatisation-avec-watchtower">Automatisation avec Watchtower</h1>
 <p>Un outil comme <strong>Watchtower</strong> peut automatiser
 la mise à jour des conteneurs.</p>
 <p>Fonctionnement :</p>
@@ -1769,7 +1769,7 @@ la mise à jour des conteneurs.</p>
 <p>Cependant ces limitations sont généralement acceptables.</p>
 </div>
 <hr/>
-<h1 id="bonnes-pratiques">Bonnes pratiques<a class="headerlink" href="#bonnes-pratiques" title="Permanent link">¶</a></h1>
+<h1 id="bonnes-pratiques">Bonnes pratiques</h1>
 <p>Pour un système fiable :</p>
 <ul>
 <li>utiliser des images versionnées</li>
@@ -1778,7 +1778,7 @@ la mise à jour des conteneurs.</p>
 <li>automatiser les healthchecks</li>
 </ul>
 <hr/>
-<h1 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">¶</a></h1>
+<h1 id="conclusion">Conclusion</h1>
 <p>Le pull-based deployment est particulièrement
 adapté aux architectures conteneurisées.</p>
 <p>En combinant :</p>

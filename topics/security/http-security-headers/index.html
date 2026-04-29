@@ -4095,43 +4095,43 @@
 
 
 
-<h1 id="http-security-headers">HTTP Security Headers<a class="headerlink" href="#http-security-headers" title="Permanent link">&para;</a></h1>
-<h2 id="contexte">Contexte<a class="headerlink" href="#contexte" title="Permanent link">&para;</a></h2>
+<h1 id="http-security-headers">HTTP Security Headers</h1>
+<h2 id="contexte">Contexte</h2>
 <p>Les headers HTTP de sécurité sont des directives envoyées par le serveur pour indiquer au navigateur comment se comporter. Ils constituent une couche de défense contre les attaques web courantes.</p>
 <hr />
-<h2 id="headers-essentiels">Headers essentiels<a class="headerlink" href="#headers-essentiels" title="Permanent link">&para;</a></h2>
-<h3 id="content-security-policy-csp">Content-Security-Policy (CSP)<a class="headerlink" href="#content-security-policy-csp" title="Permanent link">&para;</a></h3>
+<h2 id="headers-essentiels">Headers essentiels</h2>
+<h3 id="content-security-policy-csp">Content-Security-Policy (CSP)</h3>
 <p>Contrôle les sources autorisées pour les scripts, styles, images, etc. :</p>
 <div class="highlight"><pre><span></span><code><span class="err">Content-Security-Policy: default-src &#39;self&#39;; script-src &#39;self&#39;; style-src &#39;self&#39; &#39;unsafe-inline&#39;</span>
 </code></pre></div>
 <p>Protège contre : <strong>XSS</strong> — bloque l'exécution de scripts injectés.</p>
-<h3 id="strict-transport-security-hsts">Strict-Transport-Security (HSTS)<a class="headerlink" href="#strict-transport-security-hsts" title="Permanent link">&para;</a></h3>
+<h3 id="strict-transport-security-hsts">Strict-Transport-Security (HSTS)</h3>
 <p>Force le navigateur à utiliser HTTPS :</p>
 <div class="highlight"><pre><span></span><code><span class="err">Strict-Transport-Security: max-age=31536000; includeSubDomains</span>
 </code></pre></div>
 <p>Protège contre : <strong>downgrade attacks</strong> et <strong>man-in-the-middle</strong>.</p>
-<h3 id="x-content-type-options">X-Content-Type-Options<a class="headerlink" href="#x-content-type-options" title="Permanent link">&para;</a></h3>
+<h3 id="x-content-type-options">X-Content-Type-Options</h3>
 <p>Empêche le navigateur de deviner le type MIME :</p>
 <div class="highlight"><pre><span></span><code><span class="err">X-Content-Type-Options: nosniff</span>
 </code></pre></div>
 <p>Protège contre : <strong>MIME sniffing attacks</strong>.</p>
-<h3 id="x-frame-options">X-Frame-Options<a class="headerlink" href="#x-frame-options" title="Permanent link">&para;</a></h3>
+<h3 id="x-frame-options">X-Frame-Options</h3>
 <p>Empêche l'intégration de la page dans une iframe :</p>
 <div class="highlight"><pre><span></span><code><span class="err">X-Frame-Options: DENY</span>
 </code></pre></div>
 <p>Protège contre : <strong>clickjacking</strong>.</p>
-<h3 id="referrer-policy">Referrer-Policy<a class="headerlink" href="#referrer-policy" title="Permanent link">&para;</a></h3>
+<h3 id="referrer-policy">Referrer-Policy</h3>
 <p>Contrôle les informations envoyées dans le header Referer :</p>
 <div class="highlight"><pre><span></span><code><span class="err">Referrer-Policy: strict-origin-when-cross-origin</span>
 </code></pre></div>
 <p>Protège contre : <strong>fuite d'informations sensibles</strong> dans les URLs.</p>
-<h3 id="permissions-policy">Permissions-Policy<a class="headerlink" href="#permissions-policy" title="Permanent link">&para;</a></h3>
+<h3 id="permissions-policy">Permissions-Policy</h3>
 <p>Contrôle l'accès aux fonctionnalités du navigateur :</p>
 <div class="highlight"><pre><span></span><code><span class="err">Permissions-Policy: camera=(), microphone=(), geolocation=()</span>
 </code></pre></div>
 <p>Désactive les accès non nécessaires à la caméra, micro, géolocalisation.</p>
 <hr />
-<h2 id="recapitulatif">Récapitulatif<a class="headerlink" href="#recapitulatif" title="Permanent link">&para;</a></h2>
+<h2 id="recapitulatif">Récapitulatif</h2>
 <table>
 <thead>
 <tr>
@@ -4174,7 +4174,7 @@
 </tbody>
 </table>
 <hr />
-<h2 id="implementation-spring-security">Implémentation Spring Security<a class="headerlink" href="#implementation-spring-security" title="Permanent link">&para;</a></h2>
+<h2 id="implementation-spring-security">Implémentation Spring Security</h2>
 <div class="highlight"><pre><span></span><code><span class="nd">@Bean</span>
 <span class="kd">public</span><span class="w"> </span><span class="n">SecurityFilterChain</span><span class="w"> </span><span class="nf">securityFilterChain</span><span class="p">(</span><span class="n">HttpSecurity</span><span class="w"> </span><span class="n">http</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="n">http</span><span class="p">.</span><span class="na">headers</span><span class="p">(</span><span class="n">headers</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">headers</span>
@@ -4194,7 +4194,7 @@
 <span class="p">}</span>
 </code></pre></div>
 <hr />
-<h2 id="verification">Vérification<a class="headerlink" href="#verification" title="Permanent link">&para;</a></h2>
+<h2 id="verification">Vérification</h2>
 <p>Outils pour vérifier les headers en production :</p>
 <ul>
 <li><code>curl -I https://mon-api.com</code> — inspecter les headers de réponse</li>
@@ -4202,7 +4202,7 @@
 <li>les DevTools du navigateur (onglet Network → Response Headers)</li>
 </ul>
 <hr />
-<h2 id="a-retenir">À retenir<a class="headerlink" href="#a-retenir" title="Permanent link">&para;</a></h2>
+<h2 id="a-retenir">À retenir</h2>
 <ul>
 <li>les security headers sont une défense en profondeur, pas un remplacement de la validation</li>
 <li>CSP est le plus puissant mais aussi le plus complexe à configurer</li>
@@ -4210,7 +4210,7 @@
 <li>Spring Security configure certains headers par défaut, mais il faut les ajuster</li>
 </ul>
 <hr />
-<h2 id="voir-aussi">Voir aussi<a class="headerlink" href="#voir-aussi" title="Permanent link">&para;</a></h2>
+<h2 id="voir-aussi">Voir aussi</h2>
 <ul>
 <li><a href="../cookie-security/">Cookie Security</a></li>
 <li><a href="../jwt-authentication-pattern/">JWT Authentication Pattern</a></li>

@@ -1659,8 +1659,8 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1 id="cicd-pipeline-pattern">CI/CD Pipeline Pattern<a class="headerlink" href="#cicd-pipeline-pattern" title="Permanent link">¶</a></h1>
-<h2 id="contexte">Contexte<a class="headerlink" href="#contexte" title="Permanent link">¶</a></h2>
+<h1 id="cicd-pipeline-pattern">CI/CD Pipeline Pattern</h1>
+<h2 id="contexte">Contexte</h2>
 <p>Les applications modernes doivent être livrées rapidement
 tout en garantissant la qualité du code et la fiabilité
 des déploiements.</p>
@@ -1677,7 +1677,7 @@ permettent d’automatiser le cycle de livraison logiciel.</p>
 <p>L'objectif est de produire des versions
 reproductibles et fiables de l'application.</p>
 <hr/>
-<h1 id="continuous-integration-ci">Continuous Integration (CI)<a class="headerlink" href="#continuous-integration-ci" title="Permanent link">¶</a></h1>
+<h1 id="continuous-integration-ci">Continuous Integration (CI)</h1>
 <p>La <strong>Continuous Integration</strong> consiste à intégrer
 fréquemment les modifications de code dans le repository.</p>
 <p>Chaque modification déclenche une pipeline
@@ -1694,7 +1694,7 @@ La CI permet de détecter rapidement :</p>
 <li>tests cassés</li>
 </ul>
 <hr/>
-<h1 id="continuous-deployment-cd">Continuous Deployment (CD)<a class="headerlink" href="#continuous-deployment-cd" title="Permanent link">¶</a></h1>
+<h1 id="continuous-deployment-cd">Continuous Deployment (CD)</h1>
 <p>La <strong>Continuous Deployment</strong> automatise la mise
 à disposition des nouvelles versions.</p>
 <p>Flux simplifié :
@@ -1705,16 +1705,16 @@ La CI permet de détecter rapidement :</p>
 déployées automatiquement en production
 ou validées manuellement.</p>
 <hr/>
-<h1 id="pipeline-typique">Pipeline typique<a class="headerlink" href="#pipeline-typique" title="Permanent link">¶</a></h1>
+<h1 id="pipeline-typique">Pipeline typique</h1>
 <p>Une pipeline moderne inclut plusieurs étapes.</p>
-<h2 id="1-build">1 — Build<a class="headerlink" href="#1-build" title="Permanent link">¶</a></h2>
+<h2 id="1-build">1 — Build</h2>
 <p>Compilation de l’application.</p>
 <p>Exemple :</p>
 <div class="highlight"><pre><span></span><code>mvn<span class="w"> </span>package
 npm<span class="w"> </span>build
 </code></pre></div>
 <hr/>
-<h2 id="2-tests">2 — Tests<a class="headerlink" href="#2-tests" title="Permanent link">¶</a></h2>
+<h2 id="2-tests">2 — Tests</h2>
 <p>Exécution automatique :</p>
 <ul>
 <li>tests unitaires</li>
@@ -1724,14 +1724,14 @@ npm<span class="w"> </span>build
 <p>Les tests garantissent
 la qualité du code livré.</p>
 <hr/>
-<h2 id="3-construction-dimages">3 — Construction d’images<a class="headerlink" href="#3-construction-dimages" title="Permanent link">¶</a></h2>
+<h2 id="3-construction-dimages">3 — Construction d’images</h2>
 <p>Dans les architectures conteneurisées,
 la pipeline construit une image Docker.</p>
 <p>Exemple :
 <div class="highlight"><pre><span></span><code>docker<span class="w"> </span>build
 </code></pre></div></p>
 <hr/>
-<h2 id="4-publication">4 — Publication<a class="headerlink" href="#4-publication" title="Permanent link">¶</a></h2>
+<h2 id="4-publication">4 — Publication</h2>
 <p>Les images sont publiées dans un
 container registry.</p>
 <p>Exemples :</p>
@@ -1744,7 +1744,7 @@ container registry.</p>
 <p>Le registry devient la source
 des artefacts déployables.</p>
 <hr/>
-<h2 id="5-deploiement">5 — Déploiement<a class="headerlink" href="#5-deploiement" title="Permanent link">¶</a></h2>
+<h2 id="5-deploiement">5 — Déploiement</h2>
 <p>Le système de production récupère
 la nouvelle version.</p>
 <p>Exemple :
@@ -1754,7 +1754,7 @@ docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> 
 <p>Ce mécanisme peut être automatisé
 avec des outils de déploiement.</p>
 <hr/>
-<h1 id="exemple-avec-github-actions">Exemple avec GitHub Actions<a class="headerlink" href="#exemple-avec-github-actions" title="Permanent link">¶</a></h1>
+<h1 id="exemple-avec-github-actions">Exemple avec GitHub Actions</h1>
 <p>Pipeline simplifiée :
 <pre class="mermaid"><code>flowchart TD
     DEV[Developer] --&gt;|git push| REPO[GitHub Repository]
@@ -1765,21 +1765,21 @@ avec des outils de déploiement.</p>
 <p>GitHub Actions permet d’automatiser
 les différentes étapes.</p>
 <hr/>
-<h1 id="bonnes-pratiques">Bonnes pratiques<a class="headerlink" href="#bonnes-pratiques" title="Permanent link">¶</a></h1>
+<h1 id="bonnes-pratiques">Bonnes pratiques</h1>
 <p>Plusieurs pratiques sont recommandées.</p>
-<h2 id="pipeline-rapide">Pipeline rapide<a class="headerlink" href="#pipeline-rapide" title="Permanent link">¶</a></h2>
+<h2 id="pipeline-rapide">Pipeline rapide</h2>
 <p>Les pipelines doivent être rapides
 pour encourager les déploiements fréquents.</p>
 <hr/>
-<h2 id="tests-automatises">Tests automatisés<a class="headerlink" href="#tests-automatises" title="Permanent link">¶</a></h2>
+<h2 id="tests-automatises">Tests automatisés</h2>
 <p>Les tests doivent être exécutés
 avant toute publication.</p>
 <hr/>
-<h2 id="artefacts-immuables">Artefacts immuables<a class="headerlink" href="#artefacts-immuables" title="Permanent link">¶</a></h2>
+<h2 id="artefacts-immuables">Artefacts immuables</h2>
 <p>Les artefacts (images Docker)
 ne doivent pas être modifiés après publication.</p>
 <hr/>
-<h2 id="environnements-separes">Environnements séparés<a class="headerlink" href="#environnements-separes" title="Permanent link">¶</a></h2>
+<h2 id="environnements-separes">Environnements séparés</h2>
 <p>Il est recommandé d’utiliser
 plusieurs environnements :
 <div class="highlight"><pre><span></span><code>dev
@@ -1811,7 +1811,7 @@ production
 <p>Cependant ces contraintes sont largement compensées par les bénéfices.</p>
 </div>
 <hr/>
-<h1 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">¶</a></h1>
+<h1 id="conclusion">Conclusion</h1>
 <p>Les pipelines CI/CD sont devenues
 un élément central du développement
 logiciel moderne.</p>

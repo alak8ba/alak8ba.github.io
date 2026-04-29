@@ -4054,11 +4054,11 @@
 
 
 
-<h1 id="adr-007-domain-events-and-outbox-pattern">ADR-007 — Domain Events and Outbox Pattern<a class="headerlink" href="#adr-007-domain-events-and-outbox-pattern" title="Permanent link">&para;</a></h1>
-<h2 id="statut">Statut<a class="headerlink" href="#statut" title="Permanent link">&para;</a></h2>
+<h1 id="adr-007-domain-events-and-outbox-pattern">ADR-007 — Domain Events and Outbox Pattern</h1>
+<h2 id="statut">Statut</h2>
 <p>Accepté</p>
 <hr />
-<h2 id="contexte">Contexte<a class="headerlink" href="#contexte" title="Permanent link">&para;</a></h2>
+<h2 id="contexte">Contexte</h2>
 <p>Le système Seaway repose sur une architecture orientée événements.
 Les changements d'état métier doivent être publiés sous forme
 d'événements Kafka afin d'alimenter différents consommateurs :</p>
@@ -4079,7 +4079,7 @@ de l'événement échoue, le système devient incohérent.</p>
 </ol>
 <p>Cette situation est appelée <strong>dual write problem</strong>.</p>
 <hr />
-<h2 id="decision">Décision<a class="headerlink" href="#decision" title="Permanent link">&para;</a></h2>
+<h2 id="decision">Décision</h2>
 <p>Le projet adopte le principe suivant :</p>
 <ul>
 <li>les changements métier produisent des <strong>domain events</strong></li>
@@ -4089,7 +4089,7 @@ de l'événement échoue, le système devient incohérent.</p>
 <p>Cette approche garantit que les événements ne sont jamais perdus
 même si la publication vers Kafka échoue temporairement.</p>
 <hr />
-<h2 id="domain-events">Domain Events<a class="headerlink" href="#domain-events" title="Permanent link">&para;</a></h2>
+<h2 id="domain-events">Domain Events</h2>
 <p>Les événements métier représentent un changement
 d'état significatif dans le domaine.</p>
 <p>Exemples :</p>
@@ -4107,7 +4107,7 @@ d'état significatif dans le domaine.</p>
 </ul>
 <p>Ils ne contiennent aucune dépendance technique.</p>
 <hr />
-<h2 id="outbox-pattern">Outbox Pattern<a class="headerlink" href="#outbox-pattern" title="Permanent link">&para;</a></h2>
+<h2 id="outbox-pattern">Outbox Pattern</h2>
 <p>Le pattern Outbox consiste à :</p>
 <ol>
 <li>enregistrer l'événement dans une table <code>outbox</code>
@@ -4122,7 +4122,7 @@ d'état significatif dans le domaine.</p>
 <li>les événements peuvent être rejoués en cas d'échec</li>
 </ul>
 <hr />
-<h2 id="architecture-simplifiee">Architecture simplifiée<a class="headerlink" href="#architecture-simplifiee" title="Permanent link">&para;</a></h2>
+<h2 id="architecture-simplifiee">Architecture simplifiée</h2>
 <p>Flux typique :</p>
 <ol>
 <li>une commande est exécutée</li>
@@ -4132,7 +4132,7 @@ d'état significatif dans le domaine.</p>
 <li>un publisher lit l'outbox et publie l'événement vers Kafka</li>
 </ol>
 <hr />
-<h2 id="consequences">Conséquences<a class="headerlink" href="#consequences" title="Permanent link">&para;</a></h2>
+<h2 id="consequences">Conséquences</h2>
 <div class="admonition tip">
 <p class="admonition-title">Avantages</p>
 <ul>
@@ -4152,19 +4152,19 @@ d'état significatif dans le domaine.</p>
 </ul>
 </div>
 <hr />
-<h2 id="alternatives-considerees">Alternatives considérées<a class="headerlink" href="#alternatives-considerees" title="Permanent link">&para;</a></h2>
-<h3 id="publication-directe-vers-kafka">Publication directe vers Kafka<a class="headerlink" href="#publication-directe-vers-kafka" title="Permanent link">&para;</a></h3>
+<h2 id="alternatives-considerees">Alternatives considérées</h2>
+<h3 id="publication-directe-vers-kafka">Publication directe vers Kafka</h3>
 <p>Publier directement l'événement après la transaction
 est plus simple mais expose au problème du dual write.</p>
 <p>Cette approche a été écartée.</p>
 <hr />
-<h3 id="transaction-distribuee">Transaction distribuée<a class="headerlink" href="#transaction-distribuee" title="Permanent link">&para;</a></h3>
+<h3 id="transaction-distribuee">Transaction distribuée</h3>
 <p>Utiliser une transaction distribuée entre
 la base de données et Kafka n'est pas réaliste
 dans la plupart des systèmes modernes.</p>
 <p>Cette approche a été rejetée.</p>
 <hr />
-<h2 id="justification">Justification<a class="headerlink" href="#justification" title="Permanent link">&para;</a></h2>
+<h2 id="justification">Justification</h2>
 <p>Le pattern Outbox est une pratique reconnue
 dans les architectures event-driven.</p>
 <p>Il permet de garantir la cohérence entre

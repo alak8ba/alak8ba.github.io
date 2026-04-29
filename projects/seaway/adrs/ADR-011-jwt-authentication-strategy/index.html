@@ -4276,11 +4276,11 @@
 
 
 
-<h1 id="adr-011-jwt-authentication-strategy">ADR-011 — JWT Authentication Strategy<a class="headerlink" href="#adr-011-jwt-authentication-strategy" title="Permanent link">&para;</a></h1>
-<h2 id="statut">Statut<a class="headerlink" href="#statut" title="Permanent link">&para;</a></h2>
+<h1 id="adr-011-jwt-authentication-strategy">ADR-011 — JWT Authentication Strategy</h1>
+<h2 id="statut">Statut</h2>
 <p>Accepté</p>
 <hr />
-<h2 id="contexte">Contexte<a class="headerlink" href="#contexte" title="Permanent link">&para;</a></h2>
+<h2 id="contexte">Contexte</h2>
 <p>Le système Seaway expose une API REST utilisée par
 une interface frontend React.</p>
 <p>Le système nécessite :</p>
@@ -4301,7 +4301,7 @@ une architecture moderne :</p>
 <li>déploiement conteneurisé</li>
 </ul>
 <hr />
-<h2 id="decision">Décision<a class="headerlink" href="#decision" title="Permanent link">&para;</a></h2>
+<h2 id="decision">Décision</h2>
 <p>Le projet adopte une stratégie d'authentification
 basée sur <strong>JWT (JSON Web Tokens)</strong>.</p>
 <p>Deux types de tokens sont utilisés :</p>
@@ -4312,8 +4312,8 @@ basée sur <strong>JWT (JSON Web Tokens)</strong>.</p>
 <p>Les tokens sont stockés dans des <strong>cookies HttpOnly</strong>
 afin de limiter l'exposition aux attaques XSS.</p>
 <hr />
-<h2 id="architecture-dauthentification">Architecture d'authentification<a class="headerlink" href="#architecture-dauthentification" title="Permanent link">&para;</a></h2>
-<h3 id="access-token">Access Token<a class="headerlink" href="#access-token" title="Permanent link">&para;</a></h3>
+<h2 id="architecture-dauthentification">Architecture d'authentification</h2>
+<h3 id="access-token">Access Token</h3>
 <p>Le access token :</p>
 <ul>
 <li>contient l'identité de l'utilisateur</li>
@@ -4326,7 +4326,7 @@ afin de limiter l'exposition aux attaques XSS.</p>
 <li>autoriser l'accès aux endpoints sécurisés</li>
 </ul>
 <hr />
-<h3 id="refresh-token">Refresh Token<a class="headerlink" href="#refresh-token" title="Permanent link">&para;</a></h3>
+<h3 id="refresh-token">Refresh Token</h3>
 <p>Le refresh token permet de :</p>
 <ul>
 <li>renouveler un access token expiré</li>
@@ -4335,8 +4335,8 @@ afin de limiter l'exposition aux attaques XSS.</p>
 <p>Le refresh token possède une durée
 de vie plus longue.</p>
 <hr />
-<h2 id="flux-dauthentification">Flux d'authentification<a class="headerlink" href="#flux-dauthentification" title="Permanent link">&para;</a></h2>
-<h3 id="login">Login<a class="headerlink" href="#login" title="Permanent link">&para;</a></h3>
+<h2 id="flux-dauthentification">Flux d'authentification</h2>
+<h3 id="login">Login</h3>
 <div class="highlight"><pre><span></span><code><span class="n">POST</span><span class="w"> </span><span class="o">/</span><span class="n">auth</span><span class="o">/</span><span class="n">login</span>
 </code></pre></div>
 <p>Le backend :</p>
@@ -4346,20 +4346,20 @@ de vie plus longue.</p>
 <li>place les tokens dans des cookies HttpOnly</li>
 </ul>
 <hr />
-<h3 id="recuperation-de-lutilisateur">Récupération de l'utilisateur<a class="headerlink" href="#recuperation-de-lutilisateur" title="Permanent link">&para;</a></h3>
+<h3 id="recuperation-de-lutilisateur">Récupération de l'utilisateur</h3>
 <div class="highlight"><pre><span></span><code><span class="n">GET</span><span class="w"> </span><span class="o">/</span><span class="n">auth</span><span class="o">/</span><span class="n">me</span>
 </code></pre></div>
 <p>Cet endpoint permet de récupérer
 l'utilisateur authentifié.</p>
 <hr />
-<h3 id="refresh-token_1">Refresh token<a class="headerlink" href="#refresh-token_1" title="Permanent link">&para;</a></h3>
+<h3 id="refresh-token_1">Refresh token</h3>
 <p>Si un access token expire :
 <div class="highlight"><pre><span></span><code><span class="n">POST</span><span class="w"> </span><span class="o">/</span><span class="n">auth</span><span class="o">/</span><span class="n">refresh</span>
 </code></pre></div></p>
 <p>Le refresh token est utilisé pour
 générer un nouveau access token.</p>
 <hr />
-<h2 id="securite-backend">Sécurité backend<a class="headerlink" href="#securite-backend" title="Permanent link">&para;</a></h2>
+<h2 id="securite-backend">Sécurité backend</h2>
 <p>Spring Security est configuré en mode stateless.</p>
 <p>Les mécanismes suivants sont utilisés :</p>
 <ul>
@@ -4369,14 +4369,14 @@ générer un nouveau access token.</p>
 <li>injection dans le <code>SecurityContext</code></li>
 </ul>
 <hr />
-<h2 id="gestion-des-mots-de-passe">Gestion des mots de passe<a class="headerlink" href="#gestion-des-mots-de-passe" title="Permanent link">&para;</a></h2>
+<h2 id="gestion-des-mots-de-passe">Gestion des mots de passe</h2>
 <p>Les mots de passe sont :</p>
 <ul>
 <li>hashés avec BCrypt</li>
 <li>jamais stockés en clair</li>
 </ul>
 <hr />
-<h2 id="controle-dacces">Contrôle d'accès<a class="headerlink" href="#controle-dacces" title="Permanent link">&para;</a></h2>
+<h2 id="controle-dacces">Contrôle d'accès</h2>
 <p>Le système utilise un modèle RBAC.</p>
 <p>Rôles actuels :</p>
 <ul>
@@ -4386,7 +4386,7 @@ générer un nouveau access token.</p>
 <p>Les endpoints sont protégés
 via Spring Security.</p>
 <hr />
-<h2 id="stockage-des-tokens">Stockage des tokens<a class="headerlink" href="#stockage-des-tokens" title="Permanent link">&para;</a></h2>
+<h2 id="stockage-des-tokens">Stockage des tokens</h2>
 <p>Les tokens sont stockés dans des cookies :</p>
 <ul>
 <li>HttpOnly</li>
@@ -4399,7 +4399,7 @@ via Spring Security.</p>
 <li>les attaques XSS</li>
 </ul>
 <hr />
-<h2 id="securite-supplementaire">Sécurité supplémentaire<a class="headerlink" href="#securite-supplementaire" title="Permanent link">&para;</a></h2>
+<h2 id="securite-supplementaire">Sécurité supplémentaire</h2>
 <p>Plusieurs mécanismes complètent la sécurité :</p>
 <ul>
 <li>validation des entrées</li>
@@ -4409,7 +4409,7 @@ via Spring Security.</p>
 <li>séparation des rôles</li>
 </ul>
 <hr />
-<h2 id="consequences">Conséquences<a class="headerlink" href="#consequences" title="Permanent link">&para;</a></h2>
+<h2 id="consequences">Conséquences</h2>
 <div class="admonition tip">
 <p class="admonition-title">Avantages</p>
 <ul>
@@ -4429,8 +4429,8 @@ via Spring Security.</p>
 </ul>
 </div>
 <hr />
-<h2 id="alternatives-considerees">Alternatives considérées<a class="headerlink" href="#alternatives-considerees" title="Permanent link">&para;</a></h2>
-<h3 id="sessions-serveur">Sessions serveur<a class="headerlink" href="#sessions-serveur" title="Permanent link">&para;</a></h3>
+<h2 id="alternatives-considerees">Alternatives considérées</h2>
+<h3 id="sessions-serveur">Sessions serveur</h3>
 <p>Les sessions serveur auraient introduit :</p>
 <ul>
 <li>un état côté serveur</li>
@@ -4438,13 +4438,13 @@ via Spring Security.</p>
 </ul>
 <p>Cette option a été écartée.</p>
 <hr />
-<h3 id="oauth2-openid-connect">OAuth2 / OpenID Connect<a class="headerlink" href="#oauth2-openid-connect" title="Permanent link">&para;</a></h3>
+<h3 id="oauth2-openid-connect">OAuth2 / OpenID Connect</h3>
 <p>Ces solutions sont plus complètes
 mais également plus complexes.</p>
 <p>Pour une première version du système,
 JWT interne a été privilégié.</p>
 <hr />
-<h2 id="justification">Justification<a class="headerlink" href="#justification" title="Permanent link">&para;</a></h2>
+<h2 id="justification">Justification</h2>
 <p>JWT permet :</p>
 <ul>
 <li>une authentification stateless</li>

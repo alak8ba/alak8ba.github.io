@@ -1677,8 +1677,8 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1 id="jwt-authentication-pattern-spa-rest-api">JWT Authentication Pattern (SPA + REST API)<a class="headerlink" href="#jwt-authentication-pattern-spa-rest-api" title="Permanent link">¶</a></h1>
-<h2 id="authentication-flow">Authentication Flow<a class="headerlink" href="#authentication-flow" title="Permanent link">¶</a></h2>
+<h1 id="jwt-authentication-pattern-spa-rest-api">JWT Authentication Pattern (SPA + REST API)</h1>
+<h2 id="authentication-flow">Authentication Flow</h2>
 <pre class="mermaid"><code>sequenceDiagram
 participant User
 participant Frontend
@@ -1692,7 +1692,7 @@ DB--&gt;&gt;Backend: Credentials valid
 Backend--&gt;&gt;Frontend: Access + Refresh tokens
 Frontend-&gt;&gt;Backend: API request (with Access token)
 Backend--&gt;&gt;Frontend: Response</code></pre>
-<h2 id="contexte">Contexte<a class="headerlink" href="#contexte" title="Permanent link">¶</a></h2>
+<h2 id="contexte">Contexte</h2>
 <p>Les applications modernes utilisent souvent une architecture
 séparée :</p>
 <ul>
@@ -1711,7 +1711,7 @@ HTTP deviennent difficiles à gérer dans :</p>
 <p>Une solution largement adoptée consiste
 à utiliser <strong>JWT (JSON Web Tokens)</strong>.</p>
 <hr/>
-<h1 id="principe">Principe<a class="headerlink" href="#principe" title="Permanent link">¶</a></h1>
+<h1 id="principe">Principe</h1>
 <p>Un JWT est un token signé contenant
 les informations nécessaires pour
 identifier un utilisateur.</p>
@@ -1726,7 +1726,7 @@ identifier un utilisateur.</p>
 <p>Le client l'utilise ensuite pour
 authentifier les requêtes.</p>
 <hr/>
-<h1 id="architecture-typique">Architecture typique<a class="headerlink" href="#architecture-typique" title="Permanent link">¶</a></h1>
+<h1 id="architecture-typique">Architecture typique</h1>
 <p>Architecture simplifiée :</p>
 <p><pre class="mermaid"><code>flowchart TD
     U[User / Browser] --&gt; F[Frontend - React App]
@@ -1736,10 +1736,10 @@ Le frontend communique uniquement
 avec l'API.</p>
 <p>L'API valide les tokens JWT.</p>
 <hr/>
-<h1 id="access-token-et-refresh-token">Access Token et Refresh Token<a class="headerlink" href="#access-token-et-refresh-token" title="Permanent link">¶</a></h1>
+<h1 id="access-token-et-refresh-token">Access Token et Refresh Token</h1>
 <p>Une bonne pratique consiste à utiliser
 deux types de tokens.</p>
-<h2 id="access-token">Access Token<a class="headerlink" href="#access-token" title="Permanent link">¶</a></h2>
+<h2 id="access-token">Access Token</h2>
 <p>Le access token :</p>
 <ul>
 <li>contient l'identité de l'utilisateur</li>
@@ -1754,7 +1754,7 @@ deux types de tokens.</p>
 <li>authentifier les requêtes API</li>
 </ul>
 <hr/>
-<h2 id="refresh-token">Refresh Token<a class="headerlink" href="#refresh-token" title="Permanent link">¶</a></h2>
+<h2 id="refresh-token">Refresh Token</h2>
 <p>Le refresh token permet de
 renouveler un access token expiré.</p>
 <p>Il possède une durée de vie
@@ -1765,8 +1765,8 @@ plus longue.</p>
 <p>Le refresh token évite
 de redemander les credentials.</p>
 <hr/>
-<h1 id="flux-dauthentification">Flux d'authentification<a class="headerlink" href="#flux-dauthentification" title="Permanent link">¶</a></h1>
-<h2 id="login">Login<a class="headerlink" href="#login" title="Permanent link">¶</a></h2>
+<h1 id="flux-dauthentification">Flux d'authentification</h1>
+<h2 id="login">Login</h2>
 <div class="highlight"><pre><span></span><code><span class="n">POST</span><span class="w"> </span><span class="o">/</span><span class="n">auth</span><span class="o">/</span><span class="n">login</span>
 </code></pre></div>
 <p>Le serveur :</p>
@@ -1776,7 +1776,7 @@ de redemander les credentials.</p>
 <li>renvoie les tokens</li>
 </ol>
 <hr/>
-<h2 id="utilisation-de-lapi">Utilisation de l'API<a class="headerlink" href="#utilisation-de-lapi" title="Permanent link">¶</a></h2>
+<h2 id="utilisation-de-lapi">Utilisation de l'API</h2>
 <p>Le client envoie l'access token
 à chaque requête.</p>
 <p>Exemple :
@@ -1789,16 +1789,16 @@ de redemander les credentials.</p>
 <li>les rôles</li>
 </ul>
 <hr/>
-<h2 id="refresh">Refresh<a class="headerlink" href="#refresh" title="Permanent link">¶</a></h2>
+<h2 id="refresh">Refresh</h2>
 <p>Lorsque l'access token expire :
 <div class="highlight"><pre><span></span><code><span class="n">POST</span><span class="w"> </span><span class="o">/</span><span class="n">auth</span><span class="o">/</span><span class="n">refresh</span>
 </code></pre></div></p>
 <p>Le serveur vérifie le refresh token
 et génère un nouveau access token.</p>
 <hr/>
-<h1 id="stockage-des-tokens">Stockage des tokens<a class="headerlink" href="#stockage-des-tokens" title="Permanent link">¶</a></h1>
+<h1 id="stockage-des-tokens">Stockage des tokens</h1>
 <p>Plusieurs stratégies existent.</p>
-<h2 id="local-storage">Local Storage<a class="headerlink" href="#local-storage" title="Permanent link">¶</a></h2>
+<h2 id="local-storage">Local Storage</h2>
 <p>Le token est stocké
 dans le local storage.</p>
 <p>Avantage :</p>
@@ -1810,7 +1810,7 @@ dans le local storage.</p>
 <li>vulnérable aux attaques XSS</li>
 </ul>
 <hr/>
-<h2 id="cookies-httponly">Cookies HttpOnly<a class="headerlink" href="#cookies-httponly" title="Permanent link">¶</a></h2>
+<h2 id="cookies-httponly">Cookies HttpOnly</h2>
 <p>Une approche plus sécurisée consiste
 à stocker les tokens dans des cookies
 <strong>HttpOnly</strong>.</p>
@@ -1827,21 +1827,21 @@ Secure
 SameSite
 </code></pre></div>
 <hr/>
-<h1 id="securite">Sécurité<a class="headerlink" href="#securite" title="Permanent link">¶</a></h1>
+<h1 id="securite">Sécurité</h1>
 <p>Plusieurs bonnes pratiques sont recommandées.</p>
-<h2 id="duree-de-vie-courte">Durée de vie courte<a class="headerlink" href="#duree-de-vie-courte" title="Permanent link">¶</a></h2>
+<h2 id="duree-de-vie-courte">Durée de vie courte</h2>
 <p>Les access tokens doivent expirer rapidement.</p>
 <hr/>
-<h2 id="signature-forte">Signature forte<a class="headerlink" href="#signature-forte" title="Permanent link">¶</a></h2>
+<h2 id="signature-forte">Signature forte</h2>
 <p>Les tokens doivent être signés
 avec une clé sécurisée.</p>
 <hr/>
-<h2 id="rotation-des-refresh-tokens">Rotation des refresh tokens<a class="headerlink" href="#rotation-des-refresh-tokens" title="Permanent link">¶</a></h2>
+<h2 id="rotation-des-refresh-tokens">Rotation des refresh tokens</h2>
 <p>Dans certains systèmes,
 le refresh token est remplacé
 à chaque utilisation.</p>
 <hr/>
-<h2 id="controle-dacces">Contrôle d'accès<a class="headerlink" href="#controle-dacces" title="Permanent link">¶</a></h2>
+<h2 id="controle-dacces">Contrôle d'accès</h2>
 <p>Les rôles présents dans le JWT
 permettent d'appliquer
 des règles d'autorisation.</p>
@@ -1872,7 +1872,7 @@ ROLE_USER
 <p>Une mauvaise implémentation peut introduire des failles.</p>
 </div>
 <hr/>
-<h1 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">¶</a></h1>
+<h1 id="conclusion">Conclusion</h1>
 <p>JWT est aujourd'hui une solution
 courante pour sécuriser les API
 dans les architectures modernes.</p>
@@ -1886,7 +1886,7 @@ dans les architectures modernes.</p>
 une authentification robuste
 pour les applications web modernes.</p>
 <hr/>
-<h2 id="voir-aussi">Voir aussi<a class="headerlink" href="#voir-aussi" title="Permanent link">¶</a></h2>
+<h2 id="voir-aussi">Voir aussi</h2>
 <ul>
 <li><a href="../cookie-security/">Cookie Security</a></li>
 <li><a href="../http-security-headers/">HTTP Security Headers</a></li>

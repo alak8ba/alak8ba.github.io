@@ -4140,16 +4140,16 @@
 
 
 
-<h1 id="java-hashmap">Java — HashMap<a class="headerlink" href="#java-hashmap" title="Permanent link">&para;</a></h1>
-<h2 id="principe">Principe<a class="headerlink" href="#principe" title="Permanent link">&para;</a></h2>
+<h1 id="java-hashmap">Java — HashMap</h1>
+<h2 id="principe">Principe</h2>
 <p><code>HashMap&lt;K, V&gt;</code> est la structure clé-valeur la plus utilisée en Java. Elle permet un accès en <strong>O(1)</strong> en moyenne grâce au hashing.</p>
 <hr />
-<h2 id="fonctionnement-interne">Fonctionnement interne<a class="headerlink" href="#fonctionnement-interne" title="Permanent link">&para;</a></h2>
-<h3 id="structure">Structure<a class="headerlink" href="#structure" title="Permanent link">&para;</a></h3>
+<h2 id="fonctionnement-interne">Fonctionnement interne</h2>
+<h3 id="structure">Structure</h3>
 <div class="highlight"><pre><span></span><code>HashMap = tableau de buckets (Node[])
 </code></pre></div>
 <p>Chaque bucket contient une liste chaînée (ou un arbre rouge-noir si &gt; 8 éléments).</p>
-<h3 id="processus-de-put">Processus de put<a class="headerlink" href="#processus-de-put" title="Permanent link">&para;</a></h3>
+<h3 id="processus-de-put">Processus de put</h3>
 <ol>
 <li>Calculer <code>hashCode()</code> de la clé</li>
 <li>Déterminer l'index du bucket : <code>index = hash &amp; (capacity - 1)</code></li>
@@ -4160,14 +4160,14 @@
 </ul>
 </li>
 </ol>
-<h3 id="processus-de-get">Processus de get<a class="headerlink" href="#processus-de-get" title="Permanent link">&para;</a></h3>
+<h3 id="processus-de-get">Processus de get</h3>
 <ol>
 <li>Calculer le hash de la clé</li>
 <li>Aller au bucket correspondant</li>
 <li>Parcourir la liste/arbre et comparer avec <code>equals()</code></li>
 </ol>
 <hr />
-<h2 id="exemple">Exemple<a class="headerlink" href="#exemple" title="Permanent link">&para;</a></h2>
+<h2 id="exemple">Exemple</h2>
 <div class="highlight"><pre><span></span><code><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">scores</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span>
 <span class="n">scores</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;Ali&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">95</span><span class="p">);</span>
 <span class="n">scores</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;Sara&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">88</span><span class="p">);</span>
@@ -4176,7 +4176,7 @@
 <span class="n">scores</span><span class="p">.</span><span class="na">getOrDefault</span><span class="p">(</span><span class="s">&quot;Unknown&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w"> </span><span class="c1">// 0</span>
 </code></pre></div>
 <hr />
-<h2 id="capacity-et-load-factor">Capacity et Load Factor<a class="headerlink" href="#capacity-et-load-factor" title="Permanent link">&para;</a></h2>
+<h2 id="capacity-et-load-factor">Capacity et Load Factor</h2>
 <div class="highlight"><pre><span></span><code><span class="k">new</span><span class="w"> </span><span class="n">HashMap</span><span class="o">&lt;&gt;</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="w"> </span><span class="mf">0.75f</span><span class="p">);</span>
 <span class="c1">//           ^capacity  ^loadFactor</span>
 </code></pre></div>
@@ -4207,7 +4207,7 @@
 <p>Le rehashing est coûteux en O(n). Si le nombre d'éléments est connu à l'avance, initialiser avec la bonne capacité.</p>
 </div>
 <hr />
-<h2 id="hashcode-et-equals">hashCode() et equals()<a class="headerlink" href="#hashcode-et-equals" title="Permanent link">&para;</a></h2>
+<h2 id="hashcode-et-equals">hashCode() et equals()</h2>
 <p>Le contrat est strict :</p>
 <ul>
 <li>si <code>a.equals(b)</code> → <code>a.hashCode() == b.hashCode()</code> (obligatoire)</li>
@@ -4223,13 +4223,13 @@
 <span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">hashCode</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">Objects</span><span class="p">.</span><span class="na">hash</span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">email</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
 </code></pre></div>
 <hr />
-<h2 id="null-keys-et-values">Null keys et values<a class="headerlink" href="#null-keys-et-values" title="Permanent link">&para;</a></h2>
+<h2 id="null-keys-et-values">Null keys et values</h2>
 <div class="highlight"><pre><span></span><code><span class="n">map</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;value&quot;</span><span class="p">);</span><span class="w">  </span><span class="c1">// OK — une seule clé null autorisée</span>
 <span class="n">map</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;key&quot;</span><span class="p">,</span><span class="w"> </span><span class="kc">null</span><span class="p">);</span><span class="w">    </span><span class="c1">// OK — valeurs null autorisées</span>
 </code></pre></div>
 <p>À noter : <code>Hashtable</code> et <code>ConcurrentHashMap</code> n'acceptent pas les null.</p>
 <hr />
-<h2 id="iteration">Itération<a class="headerlink" href="#iteration" title="Permanent link">&para;</a></h2>
+<h2 id="iteration">Itération</h2>
 <div class="highlight"><pre><span></span><code><span class="c1">// Par entrées</span>
 <span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">Map</span><span class="p">.</span><span class="na">Entry</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">entry</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">map</span><span class="p">.</span><span class="na">entrySet</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">entry</span><span class="p">.</span><span class="na">getKey</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; → &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">entry</span><span class="p">.</span><span class="na">getValue</span><span class="p">());</span>
@@ -4246,7 +4246,7 @@
 <p>L'ordre d'itération n'est pas garanti. Pour un ordre prévisible, utiliser <code>LinkedHashMap</code> (insertion) ou <code>TreeMap</code> (tri naturel).</p>
 </div>
 <hr />
-<h2 id="complexite">Complexité<a class="headerlink" href="#complexite" title="Permanent link">&para;</a></h2>
+<h2 id="complexite">Complexité</h2>
 <table>
 <thead>
 <tr>
@@ -4285,14 +4285,14 @@
 </table>
 <p>Le pire cas (O(n)) survient quand toutes les clés tombent dans le même bucket. Depuis Java 8, les buckets avec plus de 8 éléments sont convertis en arbres rouge-noir → O(log n).</p>
 <hr />
-<h2 id="thread-safety">Thread safety<a class="headerlink" href="#thread-safety" title="Permanent link">&para;</a></h2>
+<h2 id="thread-safety">Thread safety</h2>
 <p><code>HashMap</code> n'est <strong>pas thread-safe</strong>. En environnement concurrent :</p>
 <ul>
 <li>utiliser <code>ConcurrentHashMap</code></li>
 <li>ou <code>Collections.synchronizedMap(new HashMap&lt;&gt;())</code> (moins performant)</li>
 </ul>
 <hr />
-<h2 id="a-retenir">À retenir<a class="headerlink" href="#a-retenir" title="Permanent link">&para;</a></h2>
+<h2 id="a-retenir">À retenir</h2>
 <ul>
 <li>HashMap offre O(1) en moyenne pour get/put</li>
 <li>toujours redéfinir <code>hashCode()</code> et <code>equals()</code> ensemble pour les clés custom</li>
@@ -4301,7 +4301,7 @@
 <li>initialiser avec la bonne capacité si le nombre d'éléments est connu</li>
 </ul>
 <hr />
-<h2 id="voir-aussi">Voir aussi<a class="headerlink" href="#voir-aussi" title="Permanent link">&para;</a></h2>
+<h2 id="voir-aussi">Voir aussi</h2>
 <ul>
 <li><a href="../../fundamentals/equals-vs-double-equals/">== vs equals() et hashCode()</a></li>
 <li><a href="../hashmap-treemap-linkedhashmap/">HashMap vs TreeMap vs LinkedHashMap</a></li>

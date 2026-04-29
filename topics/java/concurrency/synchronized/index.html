@@ -4184,15 +4184,15 @@
 
 
 
-<h1 id="java-synchronized-gestion-de-la-concurrence">Java — <code>synchronized</code> (Gestion de la concurrence)<a class="headerlink" href="#java-synchronized-gestion-de-la-concurrence" title="Permanent link">&para;</a></h1>
+<h1 id="java-synchronized-gestion-de-la-concurrence">Java — <code>synchronized</code> (Gestion de la concurrence)</h1>
 <p>Le mot-clé <code>synchronized</code> permet de contrôler l’accès concurrent à une ressource afin d’éviter les conflits entre threads.</p>
 <hr />
-<h2 id="1-idee-simple">1. Idée simple<a class="headerlink" href="#1-idee-simple" title="Permanent link">&para;</a></h2>
+<h2 id="1-idee-simple">1. Idée simple</h2>
 <p><code>synchronized</code> :</p>
 <p>➡️ <strong>bloque l’accès concurrent</strong>
 ➡️ garantit qu’un seul thread exécute le code à la fois</p>
 <hr />
-<h2 id="2-methode-synchronisee-instance">2. Méthode synchronisée (instance)<a class="headerlink" href="#2-methode-synchronisee-instance" title="Permanent link">&para;</a></h2>
+<h2 id="2-methode-synchronisee-instance">2. Méthode synchronisée (instance)</h2>
 <div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nc">Counter</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 
@@ -4207,14 +4207,14 @@
 <li>un seul thread par instance</li>
 </ul>
 <hr />
-<h2 id="3-bloc-synchronise">3. Bloc synchronisé<a class="headerlink" href="#3-bloc-synchronise" title="Permanent link">&para;</a></h2>
+<h2 id="3-bloc-synchronise">3. Bloc synchronisé</h2>
 <div class="highlight"><pre><span></span><code><span class="kd">synchronized</span><span class="p">(</span><span class="k">this</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="n">count</span><span class="o">++</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>permet de synchroniser uniquement une partie du code</p>
 <hr />
-<h2 id="4-methode-static-synchronized">4. Méthode <code>static synchronized</code><a class="headerlink" href="#4-methode-static-synchronized" title="Permanent link">&para;</a></h2>
+<h2 id="4-methode-static-synchronized">4. Méthode <code>static synchronized</code></h2>
 <div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nc">Counter</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 
@@ -4229,7 +4229,7 @@
 <li>partagé entre toutes les instances</li>
 </ul>
 <hr />
-<h2 id="5-resume-des-locks">5. Résumé des locks<a class="headerlink" href="#5-resume-des-locks" title="Permanent link">&para;</a></h2>
+<h2 id="5-resume-des-locks">5. Résumé des locks</h2>
 <table>
 <thead>
 <tr>
@@ -4253,45 +4253,45 @@
 </tbody>
 </table>
 <hr />
-<h2 id="6-pourquoi-utiliser-synchronized">6. Pourquoi utiliser <code>synchronized</code> ?<a class="headerlink" href="#6-pourquoi-utiliser-synchronized" title="Permanent link">&para;</a></h2>
+<h2 id="6-pourquoi-utiliser-synchronized">6. Pourquoi utiliser <code>synchronized</code> ?</h2>
 <ul>
 <li>éviter les race conditions</li>
 <li>garantir cohérence des données</li>
 <li>sécuriser les accès concurrents</li>
 </ul>
 <hr />
-<h2 id="7-pieges-frequents">7. Pièges fréquents<a class="headerlink" href="#7-pieges-frequents" title="Permanent link">&para;</a></h2>
+<h2 id="7-pieges-frequents">7. Pièges fréquents</h2>
 <ul>
 <li>lock trop large → performance</li>
 <li>oublier le lock → bugs</li>
 <li>deadlock possible</li>
 </ul>
 <hr />
-<h2 id="8-limites">8. Limites<a class="headerlink" href="#8-limites" title="Permanent link">&para;</a></h2>
+<h2 id="8-limites">8. Limites</h2>
 <ul>
 <li>blocage (threads attendent)</li>
 <li>pas toujours performant</li>
 <li>peut créer contention</li>
 </ul>
 <hr />
-<h2 id="9-questions-classiques">9. Questions classiques<a class="headerlink" href="#9-questions-classiques" title="Permanent link">&para;</a></h2>
-<h3 id="q1">Q1<a class="headerlink" href="#q1" title="Permanent link">&para;</a></h3>
+<h2 id="9-questions-classiques">9. Questions classiques</h2>
+<h3 id="q1">Q1</h3>
 <p><code>synchronized</code> fait quoi ?
 bloque accès concurrent</p>
 <hr />
-<h3 id="q2">Q2<a class="headerlink" href="#q2" title="Permanent link">&para;</a></h3>
+<h3 id="q2">Q2</h3>
 <p>lock instance = ?
 objet (<code>this</code>)</p>
 <hr />
-<h3 id="q3">Q3<a class="headerlink" href="#q3" title="Permanent link">&para;</a></h3>
+<h3 id="q3">Q3</h3>
 <p>lock static = ?
 classe</p>
 <hr />
-<h3 id="q4">Q4<a class="headerlink" href="#q4" title="Permanent link">&para;</a></h3>
+<h3 id="q4">Q4</h3>
 <p>danger principal ?
 deadlock</p>
 <hr />
-<h2 id="10-a-retenir">10. À retenir<a class="headerlink" href="#10-a-retenir" title="Permanent link">&para;</a></h2>
+<h2 id="10-a-retenir">10. À retenir</h2>
 <ul>
 <li><code>synchronized</code> = exclusivité</li>
 <li>instance → lock objet</li>
@@ -4299,7 +4299,7 @@ deadlock</p>
 <li>attention aux performances</li>
 </ul>
 <hr />
-<h2 id="en-resume">🧾 En résumé<a class="headerlink" href="#en-resume" title="Permanent link">&para;</a></h2>
+<h2 id="en-resume">🧾 En résumé</h2>
 <ul>
 <li>protège les données partagées</li>
 <li>évite les conflits entre threads</li>
@@ -4307,7 +4307,7 @@ deadlock</p>
 </ul>
 <p>C’est un outil puissant mais à utiliser avec précaution en concurrence.</p>
 <hr />
-<h2 id="voir-aussi">Voir aussi<a class="headerlink" href="#voir-aussi" title="Permanent link">&para;</a></h2>
+<h2 id="voir-aussi">Voir aussi</h2>
 <ul>
 <li><a href="../race-condition/">Race Condition</a></li>
 <li><a href="../volatile/">volatile</a></li>

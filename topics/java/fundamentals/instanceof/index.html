@@ -4162,14 +4162,14 @@
 
 
 
-<h1 id="java-instanceof-verification-de-type">Java — <code>instanceof</code> (Vérification de type)<a class="headerlink" href="#java-instanceof-verification-de-type" title="Permanent link">&para;</a></h1>
+<h1 id="java-instanceof-verification-de-type">Java — <code>instanceof</code> (Vérification de type)</h1>
 <p>L’opérateur <code>instanceof</code> permet de vérifier si un objet est une instance d’une classe ou d’une interface.</p>
 <hr />
-<h2 id="1-idee-simple">1. Idée simple<a class="headerlink" href="#1-idee-simple" title="Permanent link">&para;</a></h2>
+<h2 id="1-idee-simple">1. Idée simple</h2>
 <p><code>instanceof</code> vérifie :</p>
 <p>➡️ <strong>le type réel d’un objet à l’exécution</strong></p>
 <hr />
-<h2 id="2-exemple-simple">2. Exemple simple<a class="headerlink" href="#2-exemple-simple" title="Permanent link">&para;</a></h2>
+<h2 id="2-exemple-simple">2. Exemple simple</h2>
 <div class="highlight"><pre><span></span><code><span class="n">String</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;hello&quot;</span><span class="p">;</span>
 
 <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">s</span><span class="w"> </span><span class="k">instanceof</span><span class="w"> </span><span class="n">String</span><span class="p">);</span><span class="w"> </span><span class="c1">// true</span>
@@ -4179,7 +4179,7 @@
 <li><code>s</code> est bien un <code>String</code></li>
 </ul>
 <hr />
-<h2 id="3-avec-heritage">3. Avec héritage<a class="headerlink" href="#3-avec-heritage" title="Permanent link">&para;</a></h2>
+<h2 id="3-avec-heritage">3. Avec héritage</h2>
 <div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nc">Animal</span><span class="w"> </span><span class="p">{}</span>
 <span class="kd">class</span> <span class="nc">Dog</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Animal</span><span class="w"> </span><span class="p">{}</span>
 
@@ -4190,14 +4190,14 @@
 </code></pre></div>
 <p><code>instanceof</code> fonctionne avec la hiérarchie</p>
 <hr />
-<h2 id="4-cas-important-null">4. Cas important : <code>null</code><a class="headerlink" href="#4-cas-important-null" title="Permanent link">&para;</a></h2>
+<h2 id="4-cas-important-null">4. Cas important : <code>null</code></h2>
 <div class="highlight"><pre><span></span><code><span class="n">Object</span><span class="w"> </span><span class="n">obj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
 
 <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">obj</span><span class="w"> </span><span class="k">instanceof</span><span class="w"> </span><span class="n">Object</span><span class="p">);</span><span class="w"> </span><span class="c1">// false</span>
 </code></pre></div>
 <p>Résultat : <strong>false</strong></p>
 <hr />
-<h2 id="pourquoi">Pourquoi ?<a class="headerlink" href="#pourquoi" title="Permanent link">&para;</a></h2>
+<h2 id="pourquoi">Pourquoi ?</h2>
 <p><code>instanceof</code> retourne :</p>
 <ul>
 <li><code>true</code> → si l’objet existe et correspond au type</li>
@@ -4205,48 +4205,48 @@
 </ul>
 <p>➡️ <code>null</code> n’est instance de rien</p>
 <hr />
-<h2 id="5-utilisation-pratique">5. Utilisation pratique<a class="headerlink" href="#5-utilisation-pratique" title="Permanent link">&para;</a></h2>
+<h2 id="5-utilisation-pratique">5. Utilisation pratique</h2>
 <div class="highlight"><pre><span></span><code><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">obj</span><span class="w"> </span><span class="k">instanceof</span><span class="w"> </span><span class="n">String</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="n">str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">String</span><span class="p">)</span><span class="w"> </span><span class="n">obj</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>permet de sécuriser un cast</p>
 <hr />
-<h2 id="6-version-moderne-java-16">6. Version moderne (Java 16+)<a class="headerlink" href="#6-version-moderne-java-16" title="Permanent link">&para;</a></h2>
+<h2 id="6-version-moderne-java-16">6. Version moderne (Java 16+)</h2>
 <div class="highlight"><pre><span></span><code><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">obj</span><span class="w"> </span><span class="k">instanceof</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">str</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">str</span><span class="p">.</span><span class="na">length</span><span class="p">());</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>plus besoin de cast manuel</p>
 <hr />
-<h2 id="pieges-frequents">Pièges fréquents<a class="headerlink" href="#pieges-frequents" title="Permanent link">&para;</a></h2>
+<h2 id="pieges-frequents">Pièges fréquents</h2>
 <ul>
 <li>oublier que <code>null instanceof</code> = false</li>
 <li>faire un cast sans vérifier</li>
 <li>confusion avec type à la compilation</li>
 </ul>
 <hr />
-<h2 id="7-questions-classiques">7. Questions classiques<a class="headerlink" href="#7-questions-classiques" title="Permanent link">&para;</a></h2>
-<h3 id="q1">Q1<a class="headerlink" href="#q1" title="Permanent link">&para;</a></h3>
+<h2 id="7-questions-classiques">7. Questions classiques</h2>
+<h3 id="q1">Q1</h3>
 <p><code>instanceof</code> sert à quoi ?
 vérifier le type</p>
 <hr />
-<h3 id="q2">Q2<a class="headerlink" href="#q2" title="Permanent link">&para;</a></h3>
+<h3 id="q2">Q2</h3>
 <p><code>null instanceof Object</code> ?
 false</p>
 <hr />
-<h3 id="q3">Q3<a class="headerlink" href="#q3" title="Permanent link">&para;</a></h3>
+<h3 id="q3">Q3</h3>
 <p>pourquoi utiliser <code>instanceof</code> ?
 éviter erreurs de cast</p>
 <hr />
-<h2 id="8-a-retenir">8. À retenir<a class="headerlink" href="#8-a-retenir" title="Permanent link">&para;</a></h2>
+<h2 id="8-a-retenir">8. À retenir</h2>
 <ul>
 <li>vérification à l’exécution</li>
 <li>fonctionne avec héritage</li>
 <li><code>null</code> → toujours false</li>
 </ul>
 <hr />
-<h2 id="en-resume">🧾 En résumé<a class="headerlink" href="#en-resume" title="Permanent link">&para;</a></h2>
+<h2 id="en-resume">🧾 En résumé</h2>
 <ul>
 <li><code>instanceof</code> teste le type réel</li>
 <li>utile avant un cast</li>
@@ -4254,7 +4254,7 @@ false</p>
 </ul>
 <p>C’est un outil simple mais très utilisé en Java pour sécuriser le code.</p>
 <hr />
-<h2 id="voir-aussi">Voir aussi<a class="headerlink" href="#voir-aussi" title="Permanent link">&para;</a></h2>
+<h2 id="voir-aussi">Voir aussi</h2>
 <ul>
 <li><a href="../../oop/inheritance/">Heritage</a></li>
 <li><a href="../../oop/polymorphism/">Polymorphisme</a></li>

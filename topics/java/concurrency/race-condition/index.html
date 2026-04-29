@@ -4284,16 +4284,16 @@
 
 
 
-<h1 id="java-race-condition-un-probleme-critique-en-concurrence">Java — Race Condition (Un problème critique en concurrence)<a class="headerlink" href="#java-race-condition-un-probleme-critique-en-concurrence" title="Permanent link">&para;</a></h1>
+<h1 id="java-race-condition-un-probleme-critique-en-concurrence">Java — Race Condition (Un problème critique en concurrence)</h1>
 <p>Les <strong>race conditions</strong> font partie des bugs les plus dangereux en programmation concurrente. Elles apparaissent souvent sans prévenir et peuvent produire des résultats incohérents.</p>
 <hr />
-<h2 id="definition-simple">Définition simple<a class="headerlink" href="#definition-simple" title="Permanent link">&para;</a></h2>
+<h2 id="definition-simple">Définition simple</h2>
 <p>Une <strong>race condition</strong> se produit lorsque :</p>
 <p>plusieurs threads accèdent ou modifient une même donnée en même temps
 sans synchronisation</p>
 <p>➡️ Résultat : <strong>imprévisible</strong></p>
 <hr />
-<h2 id="exemple-classique">Exemple classique<a class="headerlink" href="#exemple-classique" title="Permanent link">&para;</a></h2>
+<h2 id="exemple-classique">Exemple classique</h2>
 <div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 
 <span class="n">Thread</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Thread</span><span class="p">(()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">count</span><span class="o">++</span><span class="p">);</span>
@@ -4307,7 +4307,7 @@ sans synchronisation</p>
 count = 2
 </code></pre></div>
 <hr />
-<h2 id="pourquoi-ca-arrive">💥 Pourquoi ça arrive ?<a class="headerlink" href="#pourquoi-ca-arrive" title="Permanent link">&para;</a></h2>
+<h2 id="pourquoi-ca-arrive">💥 Pourquoi ça arrive ?</h2>
 <p>L’opération :</p>
 <div class="highlight"><pre><span></span><code><span class="n">count</span><span class="o">++</span><span class="p">;</span>
 </code></pre></div>
@@ -4320,15 +4320,15 @@ count = 2
 </ol>
 <p>Si deux threads exécutent ça en même temps → conflit</p>
 <hr />
-<h2 id="visualisation">Visualisation<a class="headerlink" href="#visualisation" title="Permanent link">&para;</a></h2>
+<h2 id="visualisation">Visualisation</h2>
 <ul>
 <li>Thread 1 lit <code>0</code></li>
 <li>Thread 2 lit <code>0</code></li>
 <li>Thread 1 écrit <code>1</code></li>
 <li>Thread 2 écrit <code>1</code></li>
 </ul>
-<h2 id="resultat-final-1">Résultat final : <code>1</code><a class="headerlink" href="#resultat-final-1" title="Permanent link">&para;</a></h2>
-<h2 id="pourquoi-cest-dangereux">Pourquoi c’est dangereux<a class="headerlink" href="#pourquoi-cest-dangereux" title="Permanent link">&para;</a></h2>
+<h2 id="resultat-final-1">Résultat final : <code>1</code></h2>
+<h2 id="pourquoi-cest-dangereux">Pourquoi c’est dangereux</h2>
 <ul>
 <li>le programme ne plante pas</li>
 <li>le bug est <strong>intermittent</strong></li>
@@ -4337,22 +4337,22 @@ count = 2
 </ul>
 <p>Dans des systèmes critiques (finance, trading…), c’est un problème majeur</p>
 <hr />
-<h2 id="solutions">🛠️ Solutions<a class="headerlink" href="#solutions" title="Permanent link">&para;</a></h2>
-<h3 id="synchronized"><code>synchronized</code><a class="headerlink" href="#synchronized" title="Permanent link">&para;</a></h3>
+<h2 id="solutions">🛠️ Solutions</h2>
+<h3 id="synchronized"><code>synchronized</code></h3>
 <div class="highlight"><pre><span></span><code><span class="kd">synchronized</span><span class="p">(</span><span class="k">this</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="n">count</span><span class="o">++</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>garantit qu’un seul thread exécute le bloc à la fois</p>
 <hr />
-<h3 id="atomicinteger"><code>AtomicInteger</code><a class="headerlink" href="#atomicinteger" title="Permanent link">&para;</a></h3>
+<h3 id="atomicinteger"><code>AtomicInteger</code></h3>
 <div class="highlight"><pre><span></span><code><span class="n">AtomicInteger</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">AtomicInteger</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
 <span class="n">count</span><span class="p">.</span><span class="na">incrementAndGet</span><span class="p">();</span>
 </code></pre></div>
 <p>solution moderne
 opération atomique sans blocage explicite</p>
 <hr />
-<h3 id="lock-plus-avance"><code>Lock</code> (plus avancé)<a class="headerlink" href="#lock-plus-avance" title="Permanent link">&para;</a></h3>
+<h3 id="lock-plus-avance"><code>Lock</code> (plus avancé)</h3>
 <div class="highlight"><pre><span></span><code><span class="n">Lock</span><span class="w"> </span><span class="n">lock</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ReentrantLock</span><span class="p">();</span>
 
 <span class="n">lock</span><span class="p">.</span><span class="na">lock</span><span class="p">();</span>
@@ -4365,7 +4365,7 @@ opération atomique sans blocage explicite</p>
 <p>plus flexible que <code>synchronized</code>
 nécessite une gestion correcte (toujours libérer le lock)</p>
 <hr />
-<h2 id="lien-avec-volatile">Lien avec <code>volatile</code><a class="headerlink" href="#lien-avec-volatile" title="Permanent link">&para;</a></h2>
+<h2 id="lien-avec-volatile">Lien avec <code>volatile</code></h2>
 <p><code>volatile</code> :</p>
 <ul>
 <li>✔️ garantit la visibilité</li>
@@ -4377,38 +4377,38 @@ nécessite une gestion correcte (toujours libérer le lock)</p>
 </ul>
 <p>➡️ Donc <code>volatile</code> ne suffit pas</p>
 <hr />
-<h2 id="pieges-frequents">Pièges fréquents<a class="headerlink" href="#pieges-frequents" title="Permanent link">&para;</a></h2>
+<h2 id="pieges-frequents">Pièges fréquents</h2>
 <ul>
 <li>croire que <code>count++</code> est sûr</li>
 <li>croire que <code>volatile</code> suffit</li>
 <li>sous-estimer les bugs concurrents</li>
 </ul>
 <hr />
-<h2 id="questions-classiques">Questions classiques<a class="headerlink" href="#questions-classiques" title="Permanent link">&para;</a></h2>
-<h3 id="q1">Q1<a class="headerlink" href="#q1" title="Permanent link">&para;</a></h3>
+<h2 id="questions-classiques">Questions classiques</h2>
+<h3 id="q1">Q1</h3>
 <p><code>count++</code> est-il thread-safe ?
 Non</p>
 <hr />
-<h3 id="q2">Q2<a class="headerlink" href="#q2" title="Permanent link">&para;</a></h3>
+<h3 id="q2">Q2</h3>
 <p><code>volatile int count; count++</code> est-il sûr ?
 Non</p>
 <hr />
-<h3 id="q3">Q3<a class="headerlink" href="#q3" title="Permanent link">&para;</a></h3>
+<h3 id="q3">Q3</h3>
 <p>Quelle solution utiliser ?
 <code>synchronized</code>, <code>AtomicInteger</code>, ou <code>Lock</code></p>
 <hr />
-<h3 id="q4">Q4<a class="headerlink" href="#q4" title="Permanent link">&para;</a></h3>
+<h3 id="q4">Q4</h3>
 <p>Pourquoi c’est dangereux ?
 Résultat imprévisible</p>
 <hr />
-<h2 id="a-retenir">À retenir<a class="headerlink" href="#a-retenir" title="Permanent link">&para;</a></h2>
+<h2 id="a-retenir">À retenir</h2>
 <ul>
 <li>une race condition = accès concurrent non contrôlé</li>
 <li>les opérations non atomiques sont la cause principale</li>
 <li>il faut synchroniser l’accès aux données partagées</li>
 </ul>
 <hr />
-<h2 id="en-resume">🧾 En résumé<a class="headerlink" href="#en-resume" title="Permanent link">&para;</a></h2>
+<h2 id="en-resume">🧾 En résumé</h2>
 <ul>
 <li>plusieurs threads modifient une donnée → risque de conflit</li>
 <li>les opérations comme <code>++</code> ne sont pas atomiques</li>
@@ -4417,7 +4417,7 @@ Résultat imprévisible</p>
 </ul>
 <p>Les race conditions sont invisibles mais critiques : il faut les anticiper dès la conception.</p>
 <hr />
-<h2 id="voir-aussi">Voir aussi<a class="headerlink" href="#voir-aussi" title="Permanent link">&para;</a></h2>
+<h2 id="voir-aussi">Voir aussi</h2>
 <ul>
 <li><a href="../synchronized/">synchronized</a></li>
 <li><a href="../volatile/">volatile</a></li>
