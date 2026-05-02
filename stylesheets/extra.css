@@ -75,8 +75,8 @@
     height: 2rem;
 }
 
-/* Logo alternatif quand la sidebar est présente (tablet/mobile) */
-body:has(.md-sidebar--primary:not([hidden])) .md-header__button.md-logo img {
+/* Logo alternatif quand les onglets sont masqués (tablet/mobile) */
+body:has(.md-tabs[hidden]) .md-header__button.md-logo img {
     content: url('../assets/favicon-tablet.png');
 }
 
