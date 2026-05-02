@@ -85,6 +85,10 @@
     opacity: 1;
 }
 
+.md-nav__button.md-logo img {
+    content: url('../assets/favicon-shadow.png');
+}
+
 /* ------------------------------------------------ */
 /*                   SIDEBAR                       */
 /* ------------------------------------------------ */
