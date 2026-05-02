@@ -75,6 +75,11 @@
     height: 2rem;
 }
 
+/* Logo alternatif en mode sombre */
+[data-md-color-scheme="slate"] .md-header__button.md-logo img {
+    content: url('../assets/favicon-dark.png');
+}
+
 .md-header__button.md-icon {
     color: #cbd5f5;
     opacity: 0.85;
