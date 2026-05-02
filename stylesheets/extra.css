@@ -77,7 +77,7 @@
 
 /* Logo alternatif en mode sombre */
 [data-md-color-scheme="slate"] .md-header__button.md-logo img {
-    content: url('../assets/favicon-dark.png');
+    content: url('../assets/favicon-tablet.png');
 }
 
 .md-header__button.md-icon {
