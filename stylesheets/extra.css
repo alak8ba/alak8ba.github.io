@@ -75,9 +75,11 @@
     height: 2rem;
 }
 
-/* Logo alternatif en mode sombre */
-[data-md-color-scheme="slate"] .md-header__button.md-logo img {
-    content: url('../assets/favicon-tablet.png');
+/* Logo alternatif en mode tablet/mobile (sidebar active) */
+@media screen and (max-width: 1220px) {
+    .md-header__button.md-logo img {
+        content: url('../assets/favicon-tablet.png');
+    }
 }
 
 .md-header__button.md-icon {
