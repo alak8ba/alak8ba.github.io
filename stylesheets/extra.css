@@ -70,36 +70,11 @@
     letter-spacing: 0.2px;
 }
 
-/* Forcer affichage du bouton logo */
-.md-header__button.md-logo {
-    display: flex !important;
-    align-items: center;
-    justify-content: center;
-    width: 2rem;
-    height: 2rem;
-}
-
-/* Cacher l'img originale */
 .md-header__button.md-logo img {
-    display: none !important;
-}
-
-/* Logo via pseudo-élément — mode desktop */
-.md-header__button.md-logo::before {
-    content: '';
-    display: block;
     width: 2rem;
     height: 2rem;
-    background-image: url('../assets/favicon.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
 }
 
-/* Logo mode tablet/mobile (md-header--shadow présent) */
-.md-header--shadow .md-header__button.md-logo::before {
-    background-image: url('../assets/favicon-shadow.png');
-}
 .md-header__button.md-icon {
     color: #cbd5f5;
     opacity: 0.85;
@@ -164,6 +139,58 @@ a.headerlink {
     margin-top: 1.6rem;
 }
 
+/*.md-typeset h2 {*/
+/*    font-size: 1.4rem;*/
+/*    font-weight: 550;*/
+/*    margin-top: 1.4rem;*/
+/*    border-bottom: 1px solid rgba(255,255,255,0.06);*/
+/*    padding-bottom: 0.3rem;*/
+/*}*/
+
+/*.md-typeset h3 {*/
+/*    font-size: 1.15rem;*/
+/*    font-weight: 500;*/
+/*    margin-top: 1.2rem;*/
+/*}*/
+
+/*.md-typeset h4 {*/
+/*    font-size: 1rem;*/
+/*    font-weight: 500;*/
+/*}*/
+
+/*!* code blocks *!*/
+
+/*.md-typeset pre {*/
+/*    border-radius: 8px;*/
+/*    border: 1px solid rgba(255,255,255,0.06);*/
+/*    padding: 1rem;*/
+/*}*/
+
+/*.md-typeset code {*/
+/*    font-size: 0.85rem;*/
+/*}*/
+
+/*!* links *!*/
+
+/*.md-typeset a {*/
+/*    font-weight: 500;*/
+/*    text-decoration: none;*/
+/*}*/
+
+/*.md-typeset a:hover {*/
+/*    text-decoration: underline;*/
+/*}*/
+
+/*!* tables *!*/
+
+/*.md-typeset table {*/
+/*    font-size: 0.9rem;*/
+/*}*/
+
+/*.md-typeset p {*/
+/*    margin: 0.8em 0;*/
+/*}*/
+
 /* cards grid pour la landing page */
 .grid.cards {
     display: grid;
@@ -201,7 +228,17 @@ a.headerlink {
 .md-nav__item .md-nav__link.md-nav__link--active {
     color: #1696ac !important;
 }
+/*!* thème clair *!*/
+/*[data-md-color-scheme="default"] {*/
+/*    --md-typeset-a-color: #1696ac;*/
+/*    --md-typeset-a-color--hover: #1696ac;*/
+/*}*/
 
+/*!* thème sombre *!*/
+/*[data-md-color-scheme="slate"] {*/
+/*    --md-typeset-a-color: #1696ac;*/
+/*    --md-typeset-a-color--hover: #1696ac;*/
+/*}*/
 /* ------------------------------------------------ */
 /*                    LAYOUT                       */
 /* ------------------------------------------------ */
