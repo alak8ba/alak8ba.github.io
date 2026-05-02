@@ -75,11 +75,9 @@
     height: 2rem;
 }
 
-/* Logo alternatif en mode tablet/mobile (sidebar active) */
-@media screen and (max-width: 1220px) {
-    .md-header__button.md-logo img {
-        content: url('../assets/favicon-tablet.png');
-    }
+/* Logo alternatif quand la sidebar est présente (tablet/mobile) */
+body:has(.md-sidebar--primary:not([hidden])) .md-header__button.md-logo img {
+    content: url('../assets/favicon-tablet.png');
 }
 
 .md-header__button.md-icon {
