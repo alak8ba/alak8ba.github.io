@@ -70,9 +70,18 @@
     letter-spacing: 0.2px;
 }
 
+/* Forcer affichage du bouton logo */
+.md-header__button.md-logo {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+}
+
 /* Cacher l'img originale */
 .md-header__button.md-logo img {
-    display: none;
+    display: none !important;
 }
 
 /* Logo via pseudo-élément — mode desktop */
@@ -89,7 +98,7 @@
 
 /* Logo mode tablet/mobile (md-header--shadow présent) */
 .md-header--shadow .md-header__button.md-logo::before {
-    background-image: url('../assets/favicon-tablet.png');
+    background-image: url('../assets/favicon-shadow.png');
 }
 .md-header__button.md-icon {
     color: #cbd5f5;
