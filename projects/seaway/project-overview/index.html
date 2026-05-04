@@ -4639,15 +4639,13 @@
 
 <h1 id="project-overview">Project Overview</h1>
 <div class="admonition tip">
-<p>Cette documentation présente les principes d'architecture et les pratiques d'ingénierie du projet.  </p>
+<p>Cette note documente les choix d’architecture et les pratiques d’ingénierie mises en œuvre dans le projet.  </p>
 <p>Les détails opérationnels et configurations d'infrastructure internes sont intentionnellement omis.</p>
 </div>
-<p>Projet backend / frontend conçu dans le cadre d’une collaboration
-technique autour d’architectures modernes orientées événements.</p>
+<p>Système backend / frontend conçu dans le cadre d’une collaboration technique, basé sur une architecture orientée événements.</p>
 <hr />
 <h2 id="contexte">Contexte</h2>
-<p>Un système backend / frontend conçu pour explorer
-et mettre en œuvre une architecture orientée événements basée
+<p>Un système backend / frontend conçu et implémenté autour d’une architecture orientée événements basée
 sur Spring Boot, Kafka et une architecture hexagonale.</p>
 <p>Le projet vise à construire une base applicative robuste et
 évolutive tout en appliquant des pratiques d’ingénierie proches
@@ -4656,22 +4654,19 @@ d’un environnement de production.</p>
 <h2 id="objectifs-du-projet">Objectifs du projet</h2>
 <p>Les objectifs principaux de projet sont les suivants :</p>
 <ul>
-<li>construire un backend moderne orienté événements</li>
-<li>expérimenter une architecture hexagonale</li>
-<li>mettre en place une séparation claire entre write model et read model</li>
-<li>travailler avec Kafka dans un contexte métier réaliste</li>
-<li>améliorer la fiabilité via retry, idempotence et DLT</li>
-<li>mettre en place une base de tests sérieuse</li>
-<li>préparer un déploiement réaliste avec Docker</li>
-<li>documenter les décisions techniques et les apprentissages</li>
+<li>concevoir un backend orienté événements</li>
+<li>implémenter une architecture hexagonale</li>
+<li>intégrer Kafka dans un contexte métier réaliste</li>
+<li>renforcer la fiabilité (retry, idempotence, DLT)</li>
+<li>structurer une base de tests robuste</li>
+<li>documenter les décisions techniques</li>
 </ul>
-<p>Le projet sert aussi de base pour structurer une documentation
-d’ingénierie réutilisable, potentiellement transformable plus tard
+<p>Le projet constitue une base de documentation technique réutilisable et structurée
 en articles, documentation publique ou ebook technique.</p>
 <hr />
 <h2 id="vision-globale">Vision globale</h2>
-<p>Le projet a été conçu comme un projet d’apprentissage avancé,
-mais avec une posture volontairement proche d’un contexte réel.</p>
+<p>Le projet a été conçu avec une approche proche d’un environnement de production, 
+en intégrant des contraintes réelles de fiabilité, de sécurité et de déploiement.</p>
 <p>Le projet couvre plusieurs dimensions :</p>
 <ul>
 <li>architecture backend</li>
@@ -4765,7 +4760,7 @@ avec Kafka comme bus d’événements métier.</p>
 <li>Cancelled</li>
 <li>autres événements liés aux évolutions des agrégats</li>
 </ul>
-<p>Cette architecture a permis de travailler des sujets importants comme :</p>
+<p>Cette architecture met en œuvre des mécanismes clés tels que :</p>
 <ul>
 <li>découplage</li>
 <li>publication d’événements</li>
@@ -4786,7 +4781,7 @@ afin d’éviter qu’un message en erreur ne bloque tout le flux.</p>
 </ul>
 <p>Le read model est principalement utilisé pour l’interface utilisateur,
 afin d’optimiser l’affichage et simplifier certaines lectures côté frontend.</p>
-<p>Cette séparation a permis de mieux comprendre :</p>
+<p>Cette séparation permet de structurer efficacement:</p>
 <ul>
 <li>la différence entre écriture métier et lecture</li>
 <li>les compromis de duplication contrôlée</li>
@@ -4822,9 +4817,9 @@ des usages futurs autour de l’observabilité et du diagnostic.</p>
 <li>amélioration progressive de l’UI / UX</li>
 <li>structuration d’un design system à base de tokens CSS</li>
 </ul>
-<p>Une tentative d’intégration SSE a été faite pour afficher
+<p>Une première implémentation SSE a été réalisée pour afficher
 des événements en temps réel. La partie backend était fonctionnelle,
-mais l’intégration frontend a été abandonnée temporairement
+l’intégration frontend a été mise en pause pour des raisons de priorisation
 par pragmatisme.</p>
 <hr />
 <h2 id="qualite-et-tests">Qualité et tests</h2>
@@ -4845,8 +4840,7 @@ par pragmatisme.</p>
 <li>incompatibilités H2 / PostgreSQL</li>
 <li>environnement Docker non reconnu par Testcontainers</li>
 </ul>
-<p>Le projet a donc servi de terrain concret pour développer
-une démarche de debug structurée et persévérante.</p>
+<p>Le projet a permis de traiter des problématiques réelles et de structurer une démarche de debug structurée et persévérante.</p>
 <hr />
 <h2 id="deploiement-et-environnement">Déploiement et environnement</h2>
 <p>Le projet est conteneurisé avec Docker et Docker Compose.</p>
@@ -4909,14 +4903,12 @@ il fait maintenant partie intégrante du projet.</p>
 d’un simple prototype vers une base beaucoup plus crédible.</p>
 <hr />
 <h2 id="demarche-dingenierie">Démarche d’ingénierie</h2>
-<p>Au-delà des technologies, le projet représente une démarche :</p>
+<p>Au-delà des technologies, Le projet s’inscrit dans une démarche itérative : </p>
 <ul>
-<li>construire</li>
-<li>tester</li>
-<li>comprendre</li>
-<li>corriger</li>
-<li>documenter</li>
-<li>améliorer</li>
+<li>conception</li>
+<li>implémentation</li>
+<li>validation</li>
+<li>amélioration continue </li>
 </ul>
 <p>Le projet a été mené avec une logique de progression réelle,
 en traitant les problèmes au fur et à mesure, sans chercher
@@ -4925,13 +4917,13 @@ en traitant les problèmes au fur et à mesure, sans chercher
 <ul>
 <li>de preuve de compétences</li>
 <li>de base de documentation</li>
-<li>de support d’apprentissage</li>
+<li>de support de consolidation des pratiques d’ingénierie</li>
 <li>de fondation pour de futurs contenus techniques</li>
 </ul>
 <hr />
 <h2 id="resultat-global">Résultat global</h2>
 <p>Un projet cohérent, ambitieux et réaliste,
-qui a permis de développer des compétences transverses en :</p>
+qui démontre la mise en œuvre de compétences transverses en :</p>
 <ul>
 <li>backend avancé</li>
 <li>architecture</li>
