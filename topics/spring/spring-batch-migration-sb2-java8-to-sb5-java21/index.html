@@ -2044,13 +2044,52 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#5-stepscope-obligatoire-pour-les-composants-avec-etat" class="md-nav__link">
+  <a href="#5-thread-safety-du-reader-avec-partitioning-trois-approches" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5. @StepScope obligatoire pour les composants avec état
+        5. Thread-safety du reader avec partitioning : trois approches
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="5. Thread-safety du reader avec partitioning : trois approches">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#option-a-stepscope-une-instance-par-partition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option A : @StepScope - une instance par partition
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#option-b-synchronizeditemstreamreader-un-reader-partage-recommande-sb5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option B : SynchronizedItemStreamReader - un reader partagé (recommandé SB5)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comparaison-des-trois-approches" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Comparaison des trois approches
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -4471,13 +4510,52 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#5-stepscope-obligatoire-pour-les-composants-avec-etat" class="md-nav__link">
+  <a href="#5-thread-safety-du-reader-avec-partitioning-trois-approches" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5. @StepScope obligatoire pour les composants avec état
+        5. Thread-safety du reader avec partitioning : trois approches
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="5. Thread-safety du reader avec partitioning : trois approches">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#option-a-stepscope-une-instance-par-partition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option A : @StepScope - une instance par partition
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#option-b-synchronizeditemstreamreader-un-reader-partage-recommande-sb5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option B : SynchronizedItemStreamReader - un reader partagé (recommandé SB5)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comparaison-des-trois-approches" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Comparaison des trois approches
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -4693,38 +4771,38 @@ contre-productive car elle désactive certaines auto-configurations.</p>
 <span class="p">}</span>
 </code></pre></div></p>
 <hr />
-<h3 id="5-stepscope-obligatoire-pour-les-composants-avec-etat">5. @StepScope obligatoire pour les composants avec état</h3>
-<p>En Spring Batch 4, un reader/processor singleton partagé entre partitions
-pouvait fonctionner avec <code>synchronized</code>. En Spring Batch 5 avec le partitioning,
-chaque partition doit avoir <strong>sa propre instance</strong> isolée.</p>
-<p><strong>Avant (Spring Batch 4) - Mauvaise pratique :</strong>
+<h3 id="5-thread-safety-du-reader-avec-partitioning-trois-approches">5. Thread-safety du reader avec partitioning : trois approches</h3>
+<p>En Spring Batch 4, la concurrence entre partitions était gérée manuellement
+avec <code>synchronized</code>. Spring Batch 5 propose deux solutions officielles selon
+le cas d'usage.</p>
+<p><strong>Avant (Spring Batch 4) - A abandonner :</strong>
 <div class="highlight"><pre><span></span><code><span class="nd">@Component</span>
 <span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MonItemReader</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">ItemReader</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
 
-<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">items</span><span class="p">;</span>
-
 <span class="w">    </span><span class="nd">@BeforeStep</span>
 <span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">synchronized</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">beforeStep</span><span class="p">(</span><span class="n">StepExecution</span><span class="w"> </span><span class="n">stepExecution</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="c1">// synchronized pour gérer la concurrence entre partitions</span>
-<span class="w">        </span><span class="c1">// PROBLEME : toutes les partitions partagent le même reader</span>
+<span class="w">        </span><span class="c1">// synchronized pour gérer la concurrence - mauvaise pratique</span>
 <span class="w">    </span><span class="p">}</span>
 
 <span class="w">    </span><span class="nd">@Override</span>
 <span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">synchronized</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="nf">read</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="c1">// synchronized - contention inutile</span>
+<span class="w">        </span><span class="c1">// contention entre threads - gain du parallelisme annulé</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div></p>
-<p><strong>Après (Spring Batch 5) - Bonne pratique :</strong>
+<hr />
+<h4 id="option-a-stepscope-une-instance-par-partition">Option A : @StepScope - une instance par partition</h4>
+<p>Chaque partition reçoit sa propre instance du reader.
+Adapté quand chaque partition doit lire une source différente
+(N fichiers, plage de lignes, offset BDD différent).</p>
 <div class="highlight"><pre><span></span><code><span class="nd">@Component</span>
-<span class="nd">@StepScope</span><span class="w"> </span><span class="c1">// Une instance par step/partition</span>
+<span class="nd">@StepScope</span><span class="w"> </span><span class="c1">// Une instance par StepExecution / partition</span>
 <span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MonItemReader</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">ItemReader</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
 
 <span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">FlatFileItemReader</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">delegate</span><span class="p">;</span>
 
 <span class="w">    </span><span class="nd">@BeforeStep</span>
 <span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">beforeStep</span><span class="p">(</span><span class="n">StepExecution</span><span class="w"> </span><span class="n">stepExecution</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="c1">// Pas besoin de synchronized : chaque partition a sa propre instance</span>
 <span class="w">        </span><span class="n">delegate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">FlatFileItemReaderBuilder</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">()</span>
 <span class="w">            </span><span class="p">.</span><span class="na">resource</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">FileSystemResource</span><span class="p">(</span><span class="n">inputFile</span><span class="p">))</span>
 <span class="w">            </span><span class="p">.</span><span class="na">lineMapper</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">MonLineMapper</span><span class="p">())</span>
@@ -4737,14 +4815,83 @@ chaque partition doit avoir <strong>sa propre instance</strong> isolée.</p>
 <span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">delegate</span><span class="p">.</span><span class="na">read</span><span class="p">();</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div></p>
-<p><strong>Pourquoi <code>synchronized</code> était là ?</strong>
-En Spring Batch 4, sans <code>@StepScope</code>, le reader était un singleton Spring.
-Avec le partitioning (N threads), plusieurs threads appelaient <code>read()</code> sur
-la même instance. Le <code>synchronized</code> évitait les race conditions mais créait
-de la contention et annulait le bénéfice du parallélisme.</p>
-<p><strong>La vraie solution :</strong> <code>@StepScope</code> crée une instance par step execution.
-Chaque partition a son propre reader, pas de partage, pas besoin de synchronisation.</p>
+</code></pre></div>
+<p><strong>Attention :</strong> avec <code>SimplePartitioner</code> et un seul fichier, chaque partition
+lit le fichier entier → duplication des données.
+Exemple : gridSize=4, 200 lignes → total=800 (x4).</p>
+<p>Utiliser <code>@StepScope</code> avec :
+- <code>MultiResourcePartitioner</code> (1 fichier par partition)
+- Un partitioner custom par plage de lignes
+- <code>JdbcPagingItemReader</code> (offset/limit différents par partition)</p>
+<hr />
+<h4 id="option-b-synchronizeditemstreamreader-un-reader-partage-recommande-sb5">Option B : SynchronizedItemStreamReader - un reader partagé (recommandé SB5)</h4>
+<p>Un seul reader singleton partagé entre toutes les partitions.
+<code>SynchronizedItemStreamReader</code> synchronise les appels <code>read()</code> nativement.
+Chaque item est lu <strong>une seule fois</strong> et dispatché à <strong>un seul worker</strong>.</p>
+<div class="highlight"><pre><span></span><code><span class="nd">@Component</span><span class="w"> </span><span class="c1">// singleton - pas de @StepScope</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MonItemReader</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">ItemReader</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">SynchronizedItemStreamReader</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">synchronizedReader</span><span class="p">;</span>
+
+<span class="w">    </span><span class="nd">@BeforeStep</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">beforeStep</span><span class="p">(</span><span class="n">StepExecution</span><span class="w"> </span><span class="n">stepExecution</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">FlatFileItemReader</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">delegate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">FlatFileItemReaderBuilder</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">()</span>
+<span class="w">            </span><span class="p">.</span><span class="na">name</span><span class="p">(</span><span class="s">&quot;monItemReader&quot;</span><span class="p">)</span>
+<span class="w">            </span><span class="p">.</span><span class="na">resource</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">FileSystemResource</span><span class="p">(</span><span class="n">inputFile</span><span class="p">))</span>
+<span class="w">            </span><span class="p">.</span><span class="na">lineMapper</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">MonLineMapper</span><span class="p">())</span>
+<span class="w">            </span><span class="p">.</span><span class="na">encoding</span><span class="p">(</span><span class="s">&quot;ISO-8859-1&quot;</span><span class="p">)</span>
+<span class="w">            </span><span class="p">.</span><span class="na">build</span><span class="p">();</span>
+
+<span class="w">        </span><span class="n">synchronizedReader</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">SynchronizedItemStreamReader</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<span class="w">        </span><span class="n">synchronizedReader</span><span class="p">.</span><span class="na">setDelegate</span><span class="p">(</span><span class="n">delegate</span><span class="p">);</span>
+<span class="w">        </span><span class="n">synchronizedReader</span><span class="p">.</span><span class="na">open</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">ExecutionContext</span><span class="p">());</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="nf">read</span><span class="p">()</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">synchronizedReader</span><span class="p">.</span><span class="na">read</span><span class="p">();</span><span class="w"> </span><span class="c1">// thread-safe via wrapper Spring Batch</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Exemple : gridSize=4, 200 lignes → total=200 (correct), vrai parallelisme.</p>
+<hr />
+<h4 id="comparaison-des-trois-approches">Comparaison des trois approches</h4>
+<table>
+<thead>
+<tr>
+<th>Approche</th>
+<th>Thread-safety</th>
+<th>Données dupliquées</th>
+<th>Parallelisme</th>
+<th>Cas d'usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>synchronized</code> (SB4)</td>
+<td>Manuel</td>
+<td>Non</td>
+<td>Partiel (contention)</td>
+<td>Abandonner</td>
+</tr>
+<tr>
+<td><code>@StepScope</code></td>
+<td>Isolation</td>
+<td>Oui si 1 fichier</td>
+<td>Oui (données séparées)</td>
+<td>N fichiers / plages</td>
+</tr>
+<tr>
+<td><code>SynchronizedItemStreamReader</code></td>
+<td>Framework</td>
+<td>Non</td>
+<td>Oui (items dispatches)</td>
+<td>1 fichier / 1 source</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Règle :</strong> le processor garde toujours <code>@StepScope</code> car il maintient
+un état propre par partition (synthèse, compteurs).</p>
 <hr />
 <h3 id="6-chunk-definition-et-bonnes-pratiques">6. Chunk - définition et bonnes pratiques</h3>
 <p>Le <strong>chunk</strong> est le nombre d'items traités avant un commit en base.</p>
@@ -4886,9 +5033,14 @@ Chaque partition a son propre reader, pas de partage, pas besoin de synchronisat
 <td><code>Supplier&lt;T&gt;</code></td>
 </tr>
 <tr>
-<td>Reader thread-safe</td>
+<td>Reader thread-safe (1 fichier)</td>
 <td><code>synchronized</code></td>
-<td><code>@StepScope</code></td>
+<td><code>SynchronizedItemStreamReader</code></td>
+</tr>
+<tr>
+<td>Reader thread-safe (N fichiers)</td>
+<td><code>synchronized</code></td>
+<td><code>@StepScope</code> + partitioner</td>
 </tr>
 <tr>
 <td>Java</td>
