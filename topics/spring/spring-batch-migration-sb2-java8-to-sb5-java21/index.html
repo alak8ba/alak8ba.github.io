@@ -13,10 +13,10 @@
       
       
       
-        <link rel="prev" href="../../../topics/javascript/fundamentals/javascript-pitfalls/">
+        <link rel="prev" href="../../java/spring/hibernate-jpa/">
       
       
-        <link rel="next" href="../architecture-overview/">
+        <link rel="next" href="../spring-batch-advanced-patterns/">
       
       
         
@@ -27,7 +27,7 @@
     
     
       
-        <title>Project Overview - Engineering Notes</title>
+        <title>Spring Batch - Migration SB4/Java8 → SB5/Java21 - Engineering Notes</title>
       
     
     
@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#project-overview" class="md-skip">
+        <a href="#migration-spring-batch-4-java-8-vers-spring-boot-3-spring-batch-5-java-21" class="md-skip">
           Aller au contenu
         </a>
       
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Project Overview
+              Spring Batch - Migration SB4/Java8 → SB5/Java21
             
           </span>
         </div>
@@ -269,6 +269,8 @@
   
   
   
+    
+  
   
     
     
@@ -276,11 +278,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../../topics/java/fundamentals/equals-vs-double-equals/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../java/fundamentals/equals-vs-double-equals/" class="md-tabs__link">
           
   
   
@@ -303,7 +307,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../topics/architecture/cqrs-pattern/" class="md-tabs__link">
+        <a href="../../architecture/cqrs-pattern/" class="md-tabs__link">
           
   
   
@@ -323,7 +327,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../topics/kafka/retry-and-dlt-pattern/" class="md-tabs__link">
+        <a href="../../kafka/retry-and-dlt-pattern/" class="md-tabs__link">
           
   
   
@@ -343,7 +347,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../topics/security/jwt-authentication-pattern/" class="md-tabs__link">
+        <a href="../../security/jwt-authentication-pattern/" class="md-tabs__link">
           
   
   
@@ -363,7 +367,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../topics/devops/docker-production-pattern/" class="md-tabs__link">
+        <a href="../../devops/docker-production-pattern/" class="md-tabs__link">
           
   
   
@@ -383,7 +387,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../topics/database/sql-joins-indexes/" class="md-tabs__link">
+        <a href="../../database/sql-joins-indexes/" class="md-tabs__link">
           
   
   
@@ -403,7 +407,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../topics/http/http-basics/" class="md-tabs__link">
+        <a href="../../http/http-basics/" class="md-tabs__link">
           
   
   
@@ -423,7 +427,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../topics/testing/testcontainers-pattern/" class="md-tabs__link">
+        <a href="../../testing/testcontainers-pattern/" class="md-tabs__link">
           
   
   
@@ -443,7 +447,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../topics/javascript/fundamentals/typescript-basics/" class="md-tabs__link">
+        <a href="../../javascript/fundamentals/typescript-basics/" class="md-tabs__link">
           
   
   
@@ -459,13 +463,11 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="./" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../../projects/seaway/project-overview/" class="md-tabs__link">
           
   
   
@@ -594,28 +596,31 @@
       
   
   
+    
   
   
+  
     
     
     
     
+      
+        
+        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
         
           
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
-        
-          
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
             
   
   
@@ -633,7 +638,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             
@@ -657,10 +662,13 @@
       
       
         
+          
+          
+        
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
@@ -669,7 +677,7 @@
         <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_1" >
         
           
-          <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="">
             
   
   
@@ -705,7 +713,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../topics/java/fundamentals/equals-vs-double-equals/" class="md-nav__link">
+      <a href="../../java/fundamentals/equals-vs-double-equals/" class="md-nav__link">
         
   
   
@@ -733,7 +741,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../topics/java/fundamentals/autoboxing/" class="md-nav__link">
+      <a href="../../java/fundamentals/autoboxing/" class="md-nav__link">
         
   
   
@@ -761,7 +769,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../topics/java/fundamentals/final/" class="md-nav__link">
+      <a href="../../java/fundamentals/final/" class="md-nav__link">
         
   
   
@@ -789,7 +797,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../topics/java/fundamentals/generics/" class="md-nav__link">
+      <a href="../../java/fundamentals/generics/" class="md-nav__link">
         
   
   
@@ -817,7 +825,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../topics/java/fundamentals/instanceof/" class="md-nav__link">
+      <a href="../../java/fundamentals/instanceof/" class="md-nav__link">
         
   
   
@@ -845,7 +853,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../topics/java/fundamentals/integer-cache/" class="md-nav__link">
+      <a href="../../java/fundamentals/integer-cache/" class="md-nav__link">
         
   
   
@@ -873,7 +881,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../topics/java/fundamentals/java-protected/" class="md-nav__link">
+      <a href="../../java/fundamentals/java-protected/" class="md-nav__link">
         
   
   
@@ -901,7 +909,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../topics/java/fundamentals/java-static/" class="md-nav__link">
+      <a href="../../java/fundamentals/java-static/" class="md-nav__link">
         
   
   
@@ -929,7 +937,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../topics/java/fundamentals/static-generic-method/" class="md-nav__link">
+      <a href="../../java/fundamentals/static-generic-method/" class="md-nav__link">
         
   
   
@@ -971,10 +979,13 @@
       
       
         
+          
+          
+        
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
@@ -983,7 +994,7 @@
         <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_2" >
         
           
-          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="">
             
   
   
@@ -1019,7 +1030,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../topics/java/collections/list-set-map/" class="md-nav__link">
+      <a href="../../java/collections/list-set-map/" class="md-nav__link">
         
   
   
@@ -1047,7 +1058,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../topics/java/collections/hashmap/" class="md-nav__link">
+      <a href="../../java/collections/hashmap/" class="md-nav__link">
         
   
   
@@ -1075,7 +1086,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../topics/java/collections/hashmap-treemap-linkedhashmap/" class="md-nav__link">
+      <a href="../../java/collections/hashmap-treemap-linkedhashmap/" class="md-nav__link">
         
   
   
@@ -1103,7 +1114,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../topics/java/collections/hashtable/" class="md-nav__link">
+      <a href="../../java/collections/hashtable/" class="md-nav__link">
         
   
   
@@ -1131,7 +1142,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../topics/java/collections/concurrenthashmap/" class="md-nav__link">
+      <a href="../../java/collections/concurrenthashmap/" class="md-nav__link">
         
   
   
@@ -1159,7 +1170,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../topics/java/collections/iterator/" class="md-nav__link">
+      <a href="../../java/collections/iterator/" class="md-nav__link">
         
   
   
@@ -1187,7 +1198,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../topics/java/collections/algorithms-complexity/" class="md-nav__link">
+      <a href="../../java/collections/algorithms-complexity/" class="md-nav__link">
         
   
   
@@ -1229,10 +1240,13 @@
       
       
         
+          
+          
+        
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
@@ -1241,7 +1255,7 @@
         <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_3" >
         
           
-          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="">
             
   
   
@@ -1277,7 +1291,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../topics/java/concurrency/race-condition/" class="md-nav__link">
+      <a href="../../java/concurrency/race-condition/" class="md-nav__link">
         
   
   
@@ -1305,7 +1319,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../topics/java/concurrency/deadlock/" class="md-nav__link">
+      <a href="../../java/concurrency/deadlock/" class="md-nav__link">
         
   
   
@@ -1333,7 +1347,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../topics/java/concurrency/synchronized/" class="md-nav__link">
+      <a href="../../java/concurrency/synchronized/" class="md-nav__link">
         
   
   
@@ -1361,7 +1375,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../topics/java/concurrency/volatile/" class="md-nav__link">
+      <a href="../../java/concurrency/volatile/" class="md-nav__link">
         
   
   
@@ -1389,7 +1403,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../topics/java/concurrency/atomic/" class="md-nav__link">
+      <a href="../../java/concurrency/atomic/" class="md-nav__link">
         
   
   
@@ -1431,10 +1445,13 @@
       
       
         
+          
+          
+        
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
@@ -1443,7 +1460,7 @@
         <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_4" >
         
           
-          <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="">
             
   
   
@@ -1479,7 +1496,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../topics/java/oop/inheritance/" class="md-nav__link">
+      <a href="../../java/oop/inheritance/" class="md-nav__link">
         
   
   
@@ -1507,7 +1524,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../topics/java/oop/polymorphism/" class="md-nav__link">
+      <a href="../../java/oop/polymorphism/" class="md-nav__link">
         
   
   
@@ -1535,7 +1552,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../topics/java/oop/solid/" class="md-nav__link">
+      <a href="../../java/oop/solid/" class="md-nav__link">
         
   
   
@@ -1577,10 +1594,13 @@
       
       
         
+          
+          
+        
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
@@ -1589,7 +1609,7 @@
         <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_5" >
         
           
-          <label class="md-nav__link" for="__nav_4_5" id="__nav_4_5_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4_5" id="__nav_4_5_label" tabindex="">
             
   
   
@@ -1625,7 +1645,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../topics/java/design-patterns/singleton-pattern/" class="md-nav__link">
+      <a href="../../java/design-patterns/singleton-pattern/" class="md-nav__link">
         
   
   
@@ -1653,7 +1673,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../topics/java/design-patterns/factory-pattern/" class="md-nav__link">
+      <a href="../../java/design-patterns/factory-pattern/" class="md-nav__link">
         
   
   
@@ -1681,7 +1701,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../topics/java/design-patterns/dependency-injection/" class="md-nav__link">
+      <a href="../../java/design-patterns/dependency-injection/" class="md-nav__link">
         
   
   
@@ -1714,28 +1734,31 @@
                 
   
   
+    
   
   
+  
     
     
     
     
       
       
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
         
           
+          
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_6" >
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_6" checked>
         
           
-          <label class="md-nav__link" for="__nav_4_6" id="__nav_4_6_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4_6" id="__nav_4_6_label" tabindex="">
             
   
   
@@ -1753,7 +1776,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_6_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_6_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4_6">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1771,7 +1794,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../topics/java/spring/bean-scopes/" class="md-nav__link">
+      <a href="../../java/spring/bean-scopes/" class="md-nav__link">
         
   
   
@@ -1799,7 +1822,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../topics/java/spring/hibernate-jpa/" class="md-nav__link">
+      <a href="../../java/spring/hibernate-jpa/" class="md-nav__link">
         
   
   
@@ -1824,10 +1847,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../../topics/spring/spring-batch-migration-sb2-java8-to-sb5-java21/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Spring Batch - Migration SB4/Java8 → SB5/Java21
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1843,6 +1893,209 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#contexte" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contexte
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chemin-de-migration-java" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chemin de migration Java
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Chemin de migration Java">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pourquoi-ne-pas-sauter-directement-de-java-8-a-java-21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pourquoi ne pas sauter directement de Java 8 à Java 21 ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ce-qui-change-a-chaque-etape" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ce qui change à chaque étape
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chemin-de-migration-spring-boot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chemin de migration Spring Boot
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Chemin de migration Spring Boot">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#spring-boot-2-spring-boot-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Spring Boot 2 → Spring Boot 3
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#changements-spring-batch-4-spring-batch-5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changements Spring Batch 4 → Spring Batch 5
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Changements Spring Batch 4 → Spring Batch 5">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-suppression-de-jobbuilderfactory-et-stepbuilderfactory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Suppression de JobBuilderFactory et StepBuilderFactory
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-enablebatchprocessing-nest-plus-necessaire" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. @EnableBatchProcessing n'est plus nécessaire
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-instanciation-generique-supplier-remplace-clazznewinstance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Instanciation générique : Supplier remplace clazz.newInstance()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-itemwriter-list-remplace-par-chunk" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. ItemWriter : List remplacé par Chunk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-stepscope-obligatoire-pour-les-composants-avec-etat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. @StepScope obligatoire pour les composants avec état
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-chunk-definition-et-bonnes-pratiques" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Chunk - définition et bonnes pratiques
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-skip-policy-gestion-native-des-erreurs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Skip Policy - gestion native des erreurs
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recapitulatif-des-changements-appliques-dans-kore-batch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Récapitulatif des changements appliqués dans kore-batch
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1855,7 +2108,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../topics/spring/spring-batch-advanced-patterns/" class="md-nav__link">
+      <a href="../spring-batch-advanced-patterns/" class="md-nav__link">
         
   
   
@@ -1897,10 +2150,13 @@
       
       
         
+          
+          
+        
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
@@ -1909,7 +2165,7 @@
         <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_7" >
         
           
-          <label class="md-nav__link" for="__nav_4_7" id="__nav_4_7_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4_7" id="__nav_4_7_label" tabindex="">
             
   
   
@@ -1945,7 +2201,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../topics/java/database/acid/" class="md-nav__link">
+      <a href="../../java/database/acid/" class="md-nav__link">
         
   
   
@@ -2042,7 +2298,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../topics/architecture/cqrs-pattern/" class="md-nav__link">
+      <a href="../../architecture/cqrs-pattern/" class="md-nav__link">
         
   
   
@@ -2070,7 +2326,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../topics/architecture/rest-api-design/" class="md-nav__link">
+      <a href="../../architecture/rest-api-design/" class="md-nav__link">
         
   
   
@@ -2098,7 +2354,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../topics/spring/hexagonal-architecture/" class="md-nav__link">
+      <a href="../hexagonal-architecture/" class="md-nav__link">
         
   
   
@@ -2187,7 +2443,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../topics/kafka/retry-and-dlt-pattern/" class="md-nav__link">
+      <a href="../../kafka/retry-and-dlt-pattern/" class="md-nav__link">
         
   
   
@@ -2215,7 +2471,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../topics/kafka/idempotent-consumers/" class="md-nav__link">
+      <a href="../../kafka/idempotent-consumers/" class="md-nav__link">
         
   
   
@@ -2243,7 +2499,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../topics/kafka/outbox-pattern/" class="md-nav__link">
+      <a href="../../kafka/outbox-pattern/" class="md-nav__link">
         
   
   
@@ -2271,7 +2527,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../topics/kafka/reliability-patterns/" class="md-nav__link">
+      <a href="../../kafka/reliability-patterns/" class="md-nav__link">
         
   
   
@@ -2299,7 +2555,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../topics/kafka/consumer-rebalance/" class="md-nav__link">
+      <a href="../../kafka/consumer-rebalance/" class="md-nav__link">
         
   
   
@@ -2327,7 +2583,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../topics/distributed/eventual-consistency/" class="md-nav__link">
+      <a href="../../distributed/eventual-consistency/" class="md-nav__link">
         
   
   
@@ -2416,7 +2672,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../topics/security/jwt-authentication-pattern/" class="md-nav__link">
+      <a href="../../security/jwt-authentication-pattern/" class="md-nav__link">
         
   
   
@@ -2444,7 +2700,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../topics/security/cors/" class="md-nav__link">
+      <a href="../../security/cors/" class="md-nav__link">
         
   
   
@@ -2472,7 +2728,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../topics/security/cookie-security/" class="md-nav__link">
+      <a href="../../security/cookie-security/" class="md-nav__link">
         
   
   
@@ -2500,7 +2756,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../topics/security/http-security-headers/" class="md-nav__link">
+      <a href="../../security/http-security-headers/" class="md-nav__link">
         
   
   
@@ -2589,7 +2845,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../topics/devops/docker-production-pattern/" class="md-nav__link">
+      <a href="../../devops/docker-production-pattern/" class="md-nav__link">
         
   
   
@@ -2617,7 +2873,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../topics/devops/docker-networking/" class="md-nav__link">
+      <a href="../../devops/docker-networking/" class="md-nav__link">
         
   
   
@@ -2645,7 +2901,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../topics/devops/container-security/" class="md-nav__link">
+      <a href="../../devops/container-security/" class="md-nav__link">
         
   
   
@@ -2673,7 +2929,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../topics/devops/reverse-proxy-pattern/" class="md-nav__link">
+      <a href="../../devops/reverse-proxy-pattern/" class="md-nav__link">
         
   
   
@@ -2701,7 +2957,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../topics/devops/pull-based-deployment/" class="md-nav__link">
+      <a href="../../devops/pull-based-deployment/" class="md-nav__link">
         
   
   
@@ -2729,7 +2985,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../topics/devops/ci-cd-pipeline-pattern/" class="md-nav__link">
+      <a href="../../devops/ci-cd-pipeline-pattern/" class="md-nav__link">
         
   
   
@@ -2757,7 +3013,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../topics/devops/observability-pattern/" class="md-nav__link">
+      <a href="../../devops/observability-pattern/" class="md-nav__link">
         
   
   
@@ -2846,7 +3102,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../topics/database/sql-joins-indexes/" class="md-nav__link">
+      <a href="../../database/sql-joins-indexes/" class="md-nav__link">
         
   
   
@@ -2874,7 +3130,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../topics/database/transaction-patterns/" class="md-nav__link">
+      <a href="../../database/transaction-patterns/" class="md-nav__link">
         
   
   
@@ -2902,7 +3158,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../topics/database/optimistic-locking/" class="md-nav__link">
+      <a href="../../database/optimistic-locking/" class="md-nav__link">
         
   
   
@@ -2991,7 +3247,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../topics/http/http-basics/" class="md-nav__link">
+      <a href="../../http/http-basics/" class="md-nav__link">
         
   
   
@@ -3080,7 +3336,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../topics/testing/testcontainers-pattern/" class="md-nav__link">
+      <a href="../../testing/testcontainers-pattern/" class="md-nav__link">
         
   
   
@@ -3169,7 +3425,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../topics/javascript/fundamentals/typescript-basics/" class="md-nav__link">
+      <a href="../../javascript/fundamentals/typescript-basics/" class="md-nav__link">
         
   
   
@@ -3197,7 +3453,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../topics/javascript/fundamentals/javascript-pitfalls/" class="md-nav__link">
+      <a href="../../javascript/fundamentals/javascript-pitfalls/" class="md-nav__link">
         
   
   
@@ -3229,31 +3485,28 @@
       
   
   
-    
   
   
-  
     
     
     
     
-      
-        
-        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_13" checked>
         
           
-          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="">
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_13" >
+        
+          
+          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
             
   
   
@@ -3271,7 +3524,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_13">
             <span class="md-nav__icon md-icon"></span>
             
@@ -3286,37 +3539,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Project Overview
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../../projects/seaway/project-overview/" class="md-nav__link">
         
   
   
@@ -3332,296 +3558,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table des matières
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#contexte" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Contexte
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#objectifs-du-projet" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Objectifs du projet
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#vision-globale" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Vision globale
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#stack-technique" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Stack technique
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Stack technique">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#backend" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Backend
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#messaging" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Messaging
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#persistence" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Persistence
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#frontend" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Frontend
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#infrastructure" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Infrastructure
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#qualite-tests" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Qualité / Tests
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#cicd" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        CI/CD
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#architecture-backend" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Architecture backend
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#event-driven-architecture" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Event-driven architecture
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#cqrs-leger" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        CQRS léger
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#audit-evenementiel" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Audit événementiel
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#frontend_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Frontend
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#qualite-et-tests" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Qualité et tests
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#deploiement-et-environnement" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Déploiement et environnement
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#cicd_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        CI/CD
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#securite" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Sécurité
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#demarche-dingenierie" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Démarche d’ingénierie
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#resultat-global" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Résultat global
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#documentation-detaillee" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Documentation détaillée
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#contexte-de-collaboration" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Contexte de collaboration
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -3634,7 +3570,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../architecture-overview/" class="md-nav__link">
+      <a href="../../../projects/seaway/architecture-overview/" class="md-nav__link">
         
   
   
@@ -3662,7 +3598,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ci-cd-overview/" class="md-nav__link">
+      <a href="../../../projects/seaway/ci-cd-overview/" class="md-nav__link">
         
   
   
@@ -3690,7 +3626,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../security-overview/" class="md-nav__link">
+      <a href="../../../projects/seaway/security-overview/" class="md-nav__link">
         
   
   
@@ -3718,7 +3654,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../observability-overview/" class="md-nav__link">
+      <a href="../../../projects/seaway/observability-overview/" class="md-nav__link">
         
   
   
@@ -3752,13 +3688,10 @@
       
       
         
-          
-          
-        
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
@@ -3767,7 +3700,7 @@
         <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_13_6" >
         
           
-          <label class="md-nav__link" for="__nav_13_6" id="__nav_13_6_label" tabindex="">
+          <label class="md-nav__link" for="__nav_13_6" id="__nav_13_6_label" tabindex="0">
             
   
   
@@ -3803,7 +3736,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../notes/authentication-system/" class="md-nav__link">
+      <a href="../../../projects/seaway/notes/authentication-system/" class="md-nav__link">
         
   
   
@@ -3831,7 +3764,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../notes/infrastructure-setup/" class="md-nav__link">
+      <a href="../../../projects/seaway/notes/infrastructure-setup/" class="md-nav__link">
         
   
   
@@ -3859,7 +3792,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../notes/event-architecture-kafka/" class="md-nav__link">
+      <a href="../../../projects/seaway/notes/event-architecture-kafka/" class="md-nav__link">
         
   
   
@@ -3887,7 +3820,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../notes/security-hardening/" class="md-nav__link">
+      <a href="../../../projects/seaway/notes/security-hardening/" class="md-nav__link">
         
   
   
@@ -3915,7 +3848,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../notes/production-stability/" class="md-nav__link">
+      <a href="../../../projects/seaway/notes/production-stability/" class="md-nav__link">
         
   
   
@@ -3957,13 +3890,10 @@
       
       
         
-          
-          
-        
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
@@ -3972,7 +3902,7 @@
         <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_13_7" >
         
           
-          <label class="md-nav__link" for="__nav_13_7" id="__nav_13_7_label" tabindex="">
+          <label class="md-nav__link" for="__nav_13_7" id="__nav_13_7_label" tabindex="0">
             
   
   
@@ -4008,7 +3938,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../adrs/" class="md-nav__link">
+      <a href="../../../projects/seaway/adrs/" class="md-nav__link">
         
   
   
@@ -4036,7 +3966,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../adrs/ADR-001-event-driven-architecture/" class="md-nav__link">
+      <a href="../../../projects/seaway/adrs/ADR-001-event-driven-architecture/" class="md-nav__link">
         
   
   
@@ -4064,7 +3994,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../adrs/ADR-002-hexagonal-architecture/" class="md-nav__link">
+      <a href="../../../projects/seaway/adrs/ADR-002-hexagonal-architecture/" class="md-nav__link">
         
   
   
@@ -4092,7 +4022,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../adrs/ADR-003-kafka-retry-strategy/" class="md-nav__link">
+      <a href="../../../projects/seaway/adrs/ADR-003-kafka-retry-strategy/" class="md-nav__link">
         
   
   
@@ -4120,7 +4050,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../adrs/ADR-004-testcontainers-for-integration-tests/" class="md-nav__link">
+      <a href="../../../projects/seaway/adrs/ADR-004-testcontainers-for-integration-tests/" class="md-nav__link">
         
   
   
@@ -4148,7 +4078,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../adrs/ADR-005-pull-based-deployment-with-watchtower/" class="md-nav__link">
+      <a href="../../../projects/seaway/adrs/ADR-005-pull-based-deployment-with-watchtower/" class="md-nav__link">
         
   
   
@@ -4176,7 +4106,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../adrs/ADR-006-cqrs-read-model-strategy/" class="md-nav__link">
+      <a href="../../../projects/seaway/adrs/ADR-006-cqrs-read-model-strategy/" class="md-nav__link">
         
   
   
@@ -4204,7 +4134,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../adrs/ADR-007-domain-events-and-outbox-pattern/" class="md-nav__link">
+      <a href="../../../projects/seaway/adrs/ADR-007-domain-events-and-outbox-pattern/" class="md-nav__link">
         
   
   
@@ -4232,7 +4162,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../adrs/ADR-008-idempotent-consumers-strategy/" class="md-nav__link">
+      <a href="../../../projects/seaway/adrs/ADR-008-idempotent-consumers-strategy/" class="md-nav__link">
         
   
   
@@ -4260,7 +4190,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../adrs/ADR-009-api-streaming-strategy/" class="md-nav__link">
+      <a href="../../../projects/seaway/adrs/ADR-009-api-streaming-strategy/" class="md-nav__link">
         
   
   
@@ -4288,7 +4218,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../adrs/ADR-010-container-security-strategy/" class="md-nav__link">
+      <a href="../../../projects/seaway/adrs/ADR-010-container-security-strategy/" class="md-nav__link">
         
   
   
@@ -4316,7 +4246,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../adrs/ADR-011-jwt-authentication-strategy/" class="md-nav__link">
+      <a href="../../../projects/seaway/adrs/ADR-011-jwt-authentication-strategy/" class="md-nav__link">
         
   
   
@@ -4344,7 +4274,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../adrs/ADR-012-rbac-authorization-model/" class="md-nav__link">
+      <a href="../../../projects/seaway/adrs/ADR-012-rbac-authorization-model/" class="md-nav__link">
         
   
   
@@ -4418,44 +4348,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#objectifs-du-projet" class="md-nav__link">
+  <a href="#chemin-de-migration-java" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Objectifs du projet
+        Chemin de migration Java
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#vision-globale" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Vision globale
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#stack-technique" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Stack technique
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Stack technique">
+    <nav class="md-nav" aria-label="Chemin de migration Java">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#backend" class="md-nav__link">
+  <a href="#pourquoi-ne-pas-sauter-directement-de-java-8-a-java-21" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Backend
+        Pourquoi ne pas sauter directement de Java 8 à Java 21 ?
       
     </span>
   </a>
@@ -4463,65 +4371,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#messaging" class="md-nav__link">
+  <a href="#ce-qui-change-a-chaque-etape" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Messaging
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#persistence" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Persistence
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#frontend" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Frontend
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#infrastructure" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Infrastructure
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#qualite-tests" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Qualité / Tests
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#cicd" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        CI/CD
+        Ce qui change à chaque étape
       
     </span>
   </a>
@@ -4534,142 +4387,132 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#architecture-backend" class="md-nav__link">
+  <a href="#chemin-de-migration-spring-boot" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Architecture backend
+        Chemin de migration Spring Boot
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Chemin de migration Spring Boot">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#spring-boot-2-spring-boot-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Spring Boot 2 → Spring Boot 3
       
     </span>
   </a>
   
 </li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
         <li class="md-nav__item">
-  <a href="#event-driven-architecture" class="md-nav__link">
+  <a href="#changements-spring-batch-4-spring-batch-5" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Event-driven architecture
+        Changements Spring Batch 4 → Spring Batch 5
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Changements Spring Batch 4 → Spring Batch 5">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-suppression-de-jobbuilderfactory-et-stepbuilderfactory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Suppression de JobBuilderFactory et StepBuilderFactory
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#cqrs-leger" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#2-enablebatchprocessing-nest-plus-necessaire" class="md-nav__link">
     <span class="md-ellipsis">
       
-        CQRS léger
+        2. @EnableBatchProcessing n'est plus nécessaire
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#audit-evenementiel" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#3-instanciation-generique-supplier-remplace-clazznewinstance" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Audit événementiel
+        3. Instanciation générique : Supplier remplace clazz.newInstance()
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#frontend_1" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#4-itemwriter-list-remplace-par-chunk" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Frontend
+        4. ItemWriter : List remplacé par Chunk
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#qualite-et-tests" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#5-stepscope-obligatoire-pour-les-composants-avec-etat" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Qualité et tests
+        5. @StepScope obligatoire pour les composants avec état
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#deploiement-et-environnement" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#6-chunk-definition-et-bonnes-pratiques" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Déploiement et environnement
+        6. Chunk - définition et bonnes pratiques
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#cicd_1" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#7-skip-policy-gestion-native-des-erreurs" class="md-nav__link">
     <span class="md-ellipsis">
       
-        CI/CD
+        7. Skip Policy - gestion native des erreurs
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#securite" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Sécurité
-      
-    </span>
-  </a>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#demarche-dingenierie" class="md-nav__link">
+  <a href="#recapitulatif-des-changements-appliques-dans-kore-batch" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Démarche d’ingénierie
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#resultat-global" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Résultat global
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#documentation-detaillee" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Documentation détaillée
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#contexte-de-collaboration" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Contexte de collaboration
+        Récapitulatif des changements appliqués dans kore-batch
       
     </span>
   </a>
@@ -4693,341 +4536,387 @@
 
 
 
-<h1 id="project-overview">Project Overview</h1>
-<div class="admonition tip">
-<p>Cette note documente les choix d’architecture et les pratiques d’ingénierie mises en œuvre dans le projet.  </p>
-<p>Les détails opérationnels et configurations d'infrastructure internes sont intentionnellement omis.</p>
-</div>
-<p>Système backend / frontend conçu dans le cadre d’une collaboration technique, basé sur une architecture orientée événements.</p>
-<hr />
+<h1 id="migration-spring-batch-4-java-8-vers-spring-boot-3-spring-batch-5-java-21">Migration Spring Batch 4 / Java 8 vers Spring Boot 3 / Spring Batch 5 / Java 21</h1>
 <h2 id="contexte">Contexte</h2>
-<p>Un système backend / frontend conçu et implémenté autour d’une architecture orientée événements basée
-sur Spring Boot, Kafka et une architecture hexagonale.</p>
-<p>Le projet vise à construire une base applicative robuste et
-évolutive tout en appliquant des pratiques d’ingénierie proches
-d’un environnement de production.</p>
+<p>Ce document capture les changements effectués lors de la modernisation d'un socle
+Spring Batch de production (2016-2019) vers la stack actuelle.</p>
 <hr />
-<h2 id="objectifs-du-projet">Objectifs du projet</h2>
-<p>Les objectifs principaux de projet sont les suivants :</p>
-<ul>
-<li>concevoir un backend orienté événements</li>
-<li>implémenter une architecture hexagonale</li>
-<li>intégrer Kafka dans un contexte métier réaliste</li>
-<li>renforcer la fiabilité (retry, idempotence, DLT)</li>
-<li>structurer une base de tests robuste</li>
-<li>documenter les décisions techniques</li>
-</ul>
-<p>Le projet constitue une base de documentation technique réutilisable et structurée
-en articles, documentation publique ou ebook technique.</p>
+<h2 id="chemin-de-migration-java">Chemin de migration Java</h2>
+<h3 id="pourquoi-ne-pas-sauter-directement-de-java-8-a-java-21">Pourquoi ne pas sauter directement de Java 8 à Java 21 ?</h3>
+<p>Java suit un cycle de LTS (Long Term Support). Chaque version LTS apporte des
+changements qui peuvent nécessiter des adaptations. Sauter plusieurs versions augmente
+le risque de régression et rend le débogage difficile.</p>
+<div class="highlight"><pre><span></span><code>Java 8 (LTS) → Java 11 (LTS) → Java 17 (LTS) → Java 21 (LTS)
+</code></pre></div>
+<h3 id="ce-qui-change-a-chaque-etape">Ce qui change à chaque étape</h3>
+<p><strong>Java 8 → Java 11</strong>
+- Suppression de <code>javax.*</code> → <code>jakarta.*</code> (préparation)
+- <code>Optional</code>, <code>var</code> (Java 10), <code>String.isBlank()</code>, <code>List.of()</code>
+- Modules (Project Jigsaw) : certaines API internes (<code>sun.*</code>) bloquées
+- Suppression de JavaEE et CORBA du JDK</p>
+<p><strong>Java 11 → Java 17</strong>
+- Records (Java 16) : classes immuables déclaratives
+- Sealed classes : hiérarchies fermées
+- Pattern matching <code>instanceof</code>
+- <code>clazz.newInstance()</code> <strong>déprécié</strong> → supprimer, utiliser <code>Supplier&lt;T&gt;</code>
+- Accès aux API internes (<code>--add-opens</code>) requis pour certaines librairies</p>
+<p><strong>Java 17 → Java 21 (LTS actuel)</strong>
+- Virtual threads (Project Loom) : concurrence légère
+- Pattern matching complet (switch expressions)
+- Sequenced collections
+- <code>clazz.newInstance()</code> <strong>supprimé</strong> → <code>Supplier&lt;T&gt;</code> obligatoire
+- <code>String Templates</code> (preview)</p>
 <hr />
-<h2 id="vision-globale">Vision globale</h2>
-<p>Le projet a été conçu avec une approche proche d’un environnement de production, 
-en intégrant des contraintes réelles de fiabilité, de sécurité et de déploiement.</p>
-<p>Le projet couvre plusieurs dimensions :</p>
-<ul>
-<li>architecture backend</li>
-<li>event-driven design</li>
-<li>persistance</li>
-<li>qualité logicielle</li>
-<li>frontend moderne</li>
-<li>déploiement</li>
-<li>sécurité</li>
-<li>CI/CD</li>
-<li>documentation technique</li>
-</ul>
-<p>Cette approche permet de travailler non seulement le code,
-mais aussi la capacité à penser un système dans son ensemble.</p>
+<h2 id="chemin-de-migration-spring-boot">Chemin de migration Spring Boot</h2>
+<div class="highlight"><pre><span></span><code>Spring Boot 2.1 / Spring Batch 4 → Spring Boot 3.3 / Spring Batch 5
+</code></pre></div>
+<h3 id="spring-boot-2-spring-boot-3">Spring Boot 2 → Spring Boot 3</h3>
+<p><strong>Prérequis absolu : Java 17 minimum</strong></p>
+<table>
+<thead>
+<tr>
+<th>Changement</th>
+<th>Impact</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>javax.*</code> → <code>jakarta.*</code></td>
+<td>Tous les imports JPA, Validation, Servlet</td>
+</tr>
+<tr>
+<td>Spring Security 6</td>
+<td>Configuration DSL réécrite</td>
+</tr>
+<tr>
+<td>Spring Data 3</td>
+<td>Méthodes dépréciées supprimées</td>
+</tr>
+<tr>
+<td>Actuator</td>
+<td>Format des endpoints changé</td>
+</tr>
+<tr>
+<td>Auto-configuration</td>
+<td>Fichiers <code>spring.factories</code> → <code>AutoConfiguration.imports</code></td>
+</tr>
+</tbody>
+</table>
 <hr />
-<h2 id="stack-technique">Stack technique</h2>
-<h3 id="backend">Backend</h3>
-<ul>
-<li>Java 21</li>
-<li>Spring Boot 3</li>
-<li>Spring Data JPA</li>
-<li>Spring Security</li>
-</ul>
-<h3 id="messaging">Messaging</h3>
-<ul>
-<li>Kafka</li>
-</ul>
-<h3 id="persistence">Persistence</h3>
-<ul>
-<li>PostgreSQL</li>
-<li>H2 pour certains environnements de développement initiaux</li>
-<li>JSONB, enums, dates</li>
-<li>scripts SQL d’initialisation</li>
-</ul>
-<h3 id="frontend">Frontend</h3>
-<ul>
-<li>React</li>
-<li>Vite</li>
-<li>TypeScript</li>
-<li>Tailwind CSS</li>
-</ul>
-<h3 id="infrastructure">Infrastructure</h3>
-<ul>
-<li>Docker</li>
-<li>Docker Compose</li>
-<li>Nginx</li>
-<li>Certbot</li>
-<li>UFW</li>
-</ul>
-<h3 id="qualite-tests">Qualité / Tests</h3>
-<ul>
-<li>JUnit</li>
-<li>Spring Boot Test</li>
-<li>@WebMvcTest</li>
-<li>Embedded Kafka</li>
-<li>Testcontainers</li>
-</ul>
-<h3 id="cicd">CI/CD</h3>
-<ul>
-<li>GitHub Actions</li>
-<li>GHCR</li>
-<li>Watchtower</li>
-</ul>
+<h2 id="changements-spring-batch-4-spring-batch-5">Changements Spring Batch 4 → Spring Batch 5</h2>
+<h3 id="1-suppression-de-jobbuilderfactory-et-stepbuilderfactory">1. Suppression de JobBuilderFactory et StepBuilderFactory</h3>
+<p><strong>Avant (Spring Batch 4) :</strong>
+<div class="highlight"><pre><span></span><code><span class="nd">@Autowired</span>
+<span class="kd">private</span><span class="w"> </span><span class="n">JobBuilderFactory</span><span class="w"> </span><span class="n">jobBuilderFactory</span><span class="p">;</span>
+
+<span class="nd">@Autowired</span>
+<span class="kd">private</span><span class="w"> </span><span class="n">StepBuilderFactory</span><span class="w"> </span><span class="n">stepBuilderFactory</span><span class="p">;</span>
+
+<span class="kd">public</span><span class="w"> </span><span class="n">Job</span><span class="w"> </span><span class="nf">monJob</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">jobBuilderFactory</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">&quot;monJob&quot;</span><span class="p">)</span>
+<span class="w">        </span><span class="p">.</span><span class="na">start</span><span class="p">(</span><span class="n">step</span><span class="p">())</span>
+<span class="w">        </span><span class="p">.</span><span class="na">build</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="kd">public</span><span class="w"> </span><span class="n">Step</span><span class="w"> </span><span class="nf">step</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">stepBuilderFactory</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">&quot;monStep&quot;</span><span class="p">)</span>
+<span class="w">        </span><span class="p">.</span><span class="na">chunk</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="w">        </span><span class="p">.</span><span class="na">reader</span><span class="p">(</span><span class="n">reader</span><span class="p">())</span>
+<span class="w">        </span><span class="p">.</span><span class="na">processor</span><span class="p">(</span><span class="n">processor</span><span class="p">())</span>
+<span class="w">        </span><span class="p">.</span><span class="na">writer</span><span class="p">(</span><span class="n">writer</span><span class="p">())</span>
+<span class="w">        </span><span class="p">.</span><span class="na">build</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<p><strong>Après (Spring Batch 5) :</strong>
+<div class="highlight"><pre><span></span><code><span class="c1">// JobRepository injecté directement</span>
+<span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">JobRepository</span><span class="w"> </span><span class="n">jobRepository</span><span class="p">;</span>
+<span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">PlatformTransactionManager</span><span class="w"> </span><span class="n">transactionManager</span><span class="p">;</span>
+
+<span class="kd">public</span><span class="w"> </span><span class="n">Job</span><span class="w"> </span><span class="nf">monJob</span><span class="p">(</span><span class="n">Step</span><span class="w"> </span><span class="n">step</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">JobBuilder</span><span class="p">(</span><span class="s">&quot;monJob&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">jobRepository</span><span class="p">)</span>
+<span class="w">        </span><span class="p">.</span><span class="na">start</span><span class="p">(</span><span class="n">step</span><span class="p">)</span>
+<span class="w">        </span><span class="p">.</span><span class="na">build</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="kd">public</span><span class="w"> </span><span class="n">Step</span><span class="w"> </span><span class="nf">step</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">StepBuilder</span><span class="p">(</span><span class="s">&quot;monStep&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">jobRepository</span><span class="p">)</span>
+<span class="w">        </span><span class="p">.</span><span class="o">&lt;</span><span class="n">Input</span><span class="p">,</span><span class="w"> </span><span class="n">Output</span><span class="o">&gt;</span><span class="n">chunk</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="n">transactionManager</span><span class="p">)</span><span class="w"> </span><span class="c1">// TransactionManager explicite</span>
+<span class="w">        </span><span class="p">.</span><span class="na">reader</span><span class="p">(</span><span class="n">reader</span><span class="p">())</span>
+<span class="w">        </span><span class="p">.</span><span class="na">processor</span><span class="p">(</span><span class="n">processor</span><span class="p">())</span>
+<span class="w">        </span><span class="p">.</span><span class="na">writer</span><span class="p">(</span><span class="n">writer</span><span class="p">())</span>
+<span class="w">        </span><span class="p">.</span><span class="na">build</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<p><strong>Pourquoi ce changement ?</strong>
+Les factories étaient des wrappers qui masquaient les dépendances réelles.
+Spring Batch 5 préfère l'injection explicite pour plus de clarté et de testabilité.</p>
 <hr />
-<h2 id="architecture-backend">Architecture backend</h2>
-<p>Le backend suit une architecture hexagonale avec séparation claire entre :</p>
-<ul>
-<li>domain</li>
-<li>application</li>
-<li>infrastructure</li>
-</ul>
-<p>Le domaine porte les règles métier.
-L’application orchestre les cas d’usage.
-L’infrastructure implémente les détails techniques.</p>
-<p>Cette séparation permet :</p>
-<ul>
-<li>une meilleure testabilité</li>
-<li>une meilleure lisibilité</li>
-<li>un découplage entre métier et technique</li>
-<li>une base plus saine pour faire évoluer le projet</li>
-</ul>
-<p>Le système suit également une approche event-driven,
-avec Kafka comme bus d’événements métier.</p>
+<h3 id="2-enablebatchprocessing-nest-plus-necessaire">2. @EnableBatchProcessing n'est plus nécessaire</h3>
+<p><strong>Avant :</strong> <code>@EnableBatchProcessing</code> était obligatoire pour activer Spring Batch.</p>
+<p><strong>Après :</strong> Spring Boot 3 auto-configure Spring Batch. L'annotation est même
+contre-productive car elle désactive certaines auto-configurations.</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Supprimer cette annotation</span>
+<span class="c1">// @EnableBatchProcessing  &lt;- NE PLUS METTRE</span>
+<span class="nd">@Configuration</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">BatchConfiguration</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
+</code></pre></div>
 <hr />
-<h2 id="event-driven-architecture">Event-driven architecture</h2>
-<p>Le projet utilise Kafka pour transporter des événements métier.</p>
-<p>Exemples :</p>
-<ul>
-<li>Created</li>
-<li>Updated</li>
-<li>Cancelled</li>
-<li>autres événements liés aux évolutions des agrégats</li>
-</ul>
-<p>Cette architecture met en œuvre des mécanismes clés tels que :</p>
-<ul>
-<li>découplage</li>
-<li>publication d’événements</li>
-<li>retry</li>
-<li>backoff</li>
-<li>Dead Letter Topics</li>
-<li>idempotence</li>
-<li>audit événementiel</li>
-</ul>
-<p>Une attention particulière a été portée à la résilience du traitement,
-afin d’éviter qu’un message en erreur ne bloque tout le flux.</p>
+<h3 id="3-instanciation-generique-supplier-remplace-clazznewinstance">3. Instanciation générique : Supplier<T> remplace clazz.newInstance()</h3>
+<p><strong>Avant (Spring Batch 4 / Java 8) :</strong>
+<div class="highlight"><pre><span></span><code><span class="c1">// Dans l&#39;agrégateur - reflexion Java</span>
+<span class="n">T</span><span class="w"> </span><span class="n">synthese</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">clazz</span><span class="p">.</span><span class="na">newInstance</span><span class="p">();</span><span class="w"> </span><span class="c1">// Déprécié Java 9, supprimé Java 17+</span>
+</code></pre></div></p>
+<p><strong>Après (Spring Batch 5 / Java 21) :</strong>
+<div class="highlight"><pre><span></span><code><span class="c1">// Supplier&lt;T&gt; - lambda, type-safe, pas de reflexion</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">abstract</span><span class="w"> </span><span class="kd">class</span> <span class="nc">AbstractBatchAggregator</span><span class="o">&lt;</span><span class="n">T</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">ISynthese</span><span class="o">&gt;</span>
+<span class="w">    </span><span class="kd">implements</span><span class="w"> </span><span class="n">StepExecutionAggregator</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">Supplier</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">syntheseFactory</span><span class="p">;</span>
+
+<span class="w">    </span><span class="kd">protected</span><span class="w"> </span><span class="nf">AbstractBatchAggregator</span><span class="p">(</span><span class="n">Supplier</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">syntheseFactory</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">syntheseFactory</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">syntheseFactory</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// Usage : super(MonSynthese::new)</span>
+<span class="p">}</span>
+</code></pre></div></p>
 <hr />
-<h2 id="cqrs-leger">CQRS léger</h2>
-<p>Le projet applique une forme légère de CQRS :</p>
-<ul>
-<li>un write model pour les opérations métier</li>
-<li>un read model pour la consultation</li>
-</ul>
-<p>Le read model est principalement utilisé pour l’interface utilisateur,
-afin d’optimiser l’affichage et simplifier certaines lectures côté frontend.</p>
-<p>Cette séparation permet de structurer efficacement:</p>
-<ul>
-<li>la différence entre écriture métier et lecture</li>
-<li>les compromis de duplication contrôlée</li>
-<li>l’intérêt d’un modèle adapté à l’usage</li>
-</ul>
+<h3 id="4-itemwriter-list-remplace-par-chunk">4. ItemWriter : List<T> remplacé par Chunk<T></h3>
+<p><strong>Avant :</strong>
+<div class="highlight"><pre><span></span><code><span class="nd">@Override</span>
+<span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">write</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;?</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">items</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
+</code></pre></div></p>
+<p><strong>Après :</strong>
+<div class="highlight"><pre><span></span><code><span class="nd">@Override</span>
+<span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">write</span><span class="p">(</span><span class="n">Chunk</span><span class="o">&lt;?</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">chunk</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">T</span><span class="w"> </span><span class="n">item</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">chunk</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></p>
 <hr />
-<h2 id="audit-evenementiel">Audit événementiel</h2>
-<p>Les événements métier sont persistés pour constituer
-une base de vérité fonctionnelle et permettre :</p>
-<ul>
-<li>la traçabilité</li>
-<li>l’analyse</li>
-<li>la compréhension de l’historique</li>
-<li>l’audit des changements</li>
-</ul>
-<p>Cette démarche renforce la lisibilité du système et prépare
-des usages futurs autour de l’observabilité et du diagnostic.</p>
+<h3 id="5-stepscope-obligatoire-pour-les-composants-avec-etat">5. @StepScope obligatoire pour les composants avec état</h3>
+<p>En Spring Batch 4, un reader/processor singleton partagé entre partitions
+pouvait fonctionner avec <code>synchronized</code>. En Spring Batch 5 avec le partitioning,
+chaque partition doit avoir <strong>sa propre instance</strong> isolée.</p>
+<p><strong>Avant (Spring Batch 4) - Mauvaise pratique :</strong>
+<div class="highlight"><pre><span></span><code><span class="nd">@Component</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MonItemReader</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">ItemReader</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">items</span><span class="p">;</span>
+
+<span class="w">    </span><span class="nd">@BeforeStep</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">synchronized</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">beforeStep</span><span class="p">(</span><span class="n">StepExecution</span><span class="w"> </span><span class="n">stepExecution</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// synchronized pour gérer la concurrence entre partitions</span>
+<span class="w">        </span><span class="c1">// PROBLEME : toutes les partitions partagent le même reader</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">synchronized</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="nf">read</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// synchronized - contention inutile</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<p><strong>Après (Spring Batch 5) - Bonne pratique :</strong>
+<div class="highlight"><pre><span></span><code><span class="nd">@Component</span>
+<span class="nd">@StepScope</span><span class="w"> </span><span class="c1">// Une instance par step/partition</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MonItemReader</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">ItemReader</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">FlatFileItemReader</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">delegate</span><span class="p">;</span>
+
+<span class="w">    </span><span class="nd">@BeforeStep</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">beforeStep</span><span class="p">(</span><span class="n">StepExecution</span><span class="w"> </span><span class="n">stepExecution</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// Pas besoin de synchronized : chaque partition a sa propre instance</span>
+<span class="w">        </span><span class="n">delegate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">FlatFileItemReaderBuilder</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">()</span>
+<span class="w">            </span><span class="p">.</span><span class="na">resource</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">FileSystemResource</span><span class="p">(</span><span class="n">inputFile</span><span class="p">))</span>
+<span class="w">            </span><span class="p">.</span><span class="na">lineMapper</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">MonLineMapper</span><span class="p">())</span>
+<span class="w">            </span><span class="p">.</span><span class="na">build</span><span class="p">();</span>
+<span class="w">        </span><span class="n">delegate</span><span class="p">.</span><span class="na">open</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">ExecutionContext</span><span class="p">());</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="nf">read</span><span class="p">()</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">delegate</span><span class="p">.</span><span class="na">read</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<p><strong>Pourquoi <code>synchronized</code> était là ?</strong>
+En Spring Batch 4, sans <code>@StepScope</code>, le reader était un singleton Spring.
+Avec le partitioning (N threads), plusieurs threads appelaient <code>read()</code> sur
+la même instance. Le <code>synchronized</code> évitait les race conditions mais créait
+de la contention et annulait le bénéfice du parallélisme.</p>
+<p><strong>La vraie solution :</strong> <code>@StepScope</code> crée une instance par step execution.
+Chaque partition a son propre reader, pas de partage, pas besoin de synchronisation.</p>
 <hr />
-<h2 id="frontend_1">Frontend</h2>
-<p>Le frontend du projet est développé avec :</p>
-<ul>
-<li>React</li>
-<li>Vite</li>
-<li>TypeScript</li>
-<li>Tailwind CSS</li>
-</ul>
-<p>L’interface est orientée dashboard / monitoring.</p>
-<p>Fonctionnalités principales déjà travaillées :</p>
-<ul>
-<li>liste des séjours via le read model</li>
-<li>détail d’un séjour</li>
-<li>création / mise à jour</li>
-<li>amélioration progressive de l’UI / UX</li>
-<li>structuration d’un design system à base de tokens CSS</li>
-</ul>
-<p>Une première implémentation SSE a été réalisée pour afficher
-des événements en temps réel. La partie backend était fonctionnelle,
-l’intégration frontend a été mise en pause pour des raisons de priorisation
-par pragmatisme.</p>
+<h3 id="6-chunk-definition-et-bonnes-pratiques">6. Chunk - définition et bonnes pratiques</h3>
+<p>Le <strong>chunk</strong> est le nombre d'items traités avant un commit en base.</p>
+<div class="highlight"><pre><span></span><code>read() x chunk → process() x chunk → write() → COMMIT
+</code></pre></div>
+<p><strong>Choix de la taille :</strong></p>
+<table>
+<thead>
+<tr>
+<th>Taille</th>
+<th>Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Items volumineux, traitement long par item, rollback fin</td>
+</tr>
+<tr>
+<td>10-50</td>
+<td>Fichiers CSV standards, bonne balance perf/rollback</td>
+</tr>
+<tr>
+<td>100-500</td>
+<td>Gros volumes, items légers, réseau performant</td>
+</tr>
+<tr>
+<td>1000+</td>
+<td>Batch pur BDD, pas de traitement complexe</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code><span class="c1">// Chunk de 10 avec TransactionManager explicite (obligatoire SB5)</span>
+<span class="p">.</span><span class="o">&lt;</span><span class="n">Input</span><span class="p">,</span><span class="w"> </span><span class="n">Output</span><span class="o">&gt;</span><span class="n">chunk</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="n">transactionManager</span><span class="p">)</span>
+</code></pre></div>
 <hr />
-<h2 id="qualite-et-tests">Qualité et tests</h2>
-<p>Le projet a permis de mettre en place progressivement :</p>
-<ul>
-<li>des tests unitaires</li>
-<li>des tests de contrôleurs avec @WebMvcTest</li>
-<li>des tests Kafka</li>
-<li>des tests d’intégration avec Testcontainers</li>
-</ul>
-<p>De nombreux problèmes réels ont été rencontrés et traités, notamment :</p>
-<ul>
-<li>conflits de beans Spring</li>
-<li>problèmes de profils</li>
-<li>sérialisation Jackson</li>
-<li>binding Kafka</li>
-<li>backoff mal configuré</li>
-<li>incompatibilités H2 / PostgreSQL</li>
-<li>environnement Docker non reconnu par Testcontainers</li>
-</ul>
-<p>Le projet a permis de traiter des problématiques réelles et de structurer une démarche de debug structurée et persévérante.</p>
+<h3 id="7-skip-policy-gestion-native-des-erreurs">7. Skip Policy - gestion native des erreurs</h3>
+<p>Spring Batch propose deux approches pour gérer les erreurs item par item :</p>
+<p><strong>Approche 1 - Pattern fonctionnel (ce socle)</strong>
+<div class="highlight"><pre><span></span><code><span class="c1">// Le processor catch les erreurs et retourne un résultat KO</span>
+<span class="c1">// Le batch ne s&#39;arrête jamais, toutes les erreurs sont comptabilisées</span>
+<span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">valider</span><span class="p">(</span><span class="n">item</span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">ResultDto</span><span class="p">.</span><span class="na">ok</span><span class="p">(</span><span class="n">item</span><span class="p">);</span>
+<span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">FunctionalException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">synthese</span><span class="p">.</span><span class="na">incrementErreurFonctionnelle</span><span class="p">();</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">ResultDto</span><span class="p">.</span><span class="na">ko</span><span class="p">(</span><span class="n">item</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="na">getMessage</span><span class="p">());</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<p><strong>Approche 2 - Skip natif Spring Batch</strong>
+<div class="highlight"><pre><span></span><code><span class="c1">// Spring Batch gère le skip nativement</span>
+<span class="k">new</span><span class="w"> </span><span class="n">StepBuilder</span><span class="p">(</span><span class="s">&quot;monStep&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">jobRepository</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="o">&lt;</span><span class="n">Input</span><span class="p">,</span><span class="w"> </span><span class="n">Output</span><span class="o">&gt;</span><span class="n">chunk</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="n">transactionManager</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="na">reader</span><span class="p">(</span><span class="n">reader</span><span class="p">())</span>
+<span class="w">    </span><span class="p">.</span><span class="na">processor</span><span class="p">(</span><span class="n">processor</span><span class="p">())</span>
+<span class="w">    </span><span class="p">.</span><span class="na">writer</span><span class="p">(</span><span class="n">writer</span><span class="p">())</span>
+<span class="w">    </span><span class="p">.</span><span class="na">faultTolerant</span><span class="p">()</span>
+<span class="w">    </span><span class="p">.</span><span class="na">skip</span><span class="p">(</span><span class="n">FunctionalException</span><span class="p">.</span><span class="na">class</span><span class="p">)</span><span class="w">    </span><span class="c1">// Exceptions à ignorer</span>
+<span class="w">    </span><span class="p">.</span><span class="na">skipLimit</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span><span class="w">                      </span><span class="c1">// Max 100 skips avant échec</span>
+<span class="w">    </span><span class="p">.</span><span class="na">noSkip</span><span class="p">(</span><span class="n">TechnicalException</span><span class="p">.</span><span class="na">class</span><span class="p">)</span><span class="w">   </span><span class="c1">// Exceptions fatales</span>
+<span class="w">    </span><span class="p">.</span><span class="na">build</span><span class="p">();</span>
+</code></pre></div></p>
+<p><strong>Comparaison :</strong></p>
+<table>
+<thead>
+<tr>
+<th>Critère</th>
+<th>Pattern fonctionnel</th>
+<th>Skip natif SB</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Contrôle</td>
+<td>Total</td>
+<td>Délégué au framework</td>
+</tr>
+<tr>
+<td>Synthèse custom</td>
+<td>Oui (objet partagé)</td>
+<td>Via SkipListener</td>
+</tr>
+<tr>
+<td>Lisibilité</td>
+<td>Explicite</td>
+<td>Déclaratif</td>
+</tr>
+<tr>
+<td>Conformité SB</td>
+<td>Moins conventionnel</td>
+<td>Standard</td>
+</tr>
+<tr>
+<td>Recommandation</td>
+<td>Reporting détaillé</td>
+<td>Cas simples</td>
+</tr>
+</tbody>
+</table>
 <hr />
-<h2 id="deploiement-et-environnement">Déploiement et environnement</h2>
-<p>Le projet est conteneurisé avec Docker et Docker Compose.</p>
-<p>Services principaux :</p>
-<ul>
-<li>backend</li>
-<li>frontend</li>
-<li>PostgreSQL</li>
-<li>Kafka</li>
-<li>Zookeeper</li>
-</ul>
-<p>Des outils annexes ont aussi été utilisés selon les besoins :</p>
-<ul>
-<li>pgAdmin / Adminer</li>
-<li>Kafka UI</li>
-</ul>
-<p>Le projet a progressivement évolué vers une préparation sérieuse
-à la production, avec une attention portée à :</p>
-<ul>
-<li>la séparation des environnements</li>
-<li>la sécurité des containers</li>
-<li>la cohérence de la configuration</li>
-<li>la reproductibilité</li>
-</ul>
-<hr />
-<h2 id="cicd_1">CI/CD</h2>
-<p>La partie CI/CD a été mise en place dans une logique réaliste :</p>
-<ul>
-<li>GitHub Actions pour la CI</li>
-<li>build des images Docker</li>
-<li>publication vers GHCR</li>
-<li>déploiement pull-based</li>
-<li>mise à jour automatique via Watchtower</li>
-</ul>
-<p>Des principes importants ont été retenus :</p>
-<ul>
-<li>séparation entre CI, release et déploiement</li>
-<li>artefacts immuables</li>
-<li>production qui consomme des images mais ne build jamais</li>
-<li>déploiement volontaire et contrôlé</li>
-<li>sécurité cohérente avec une infra HTTPS-only</li>
-</ul>
-<p>Le sujet CI/CD n’est donc plus seulement “à venir” :
-il fait maintenant partie intégrante du projet.</p>
-<hr />
-<h2 id="securite">Sécurité</h2>
-<p>Le projet a aussi intégré une réflexion sécurité, avec notamment :</p>
-<ul>
-<li>Spring Security en mode stateless</li>
-<li>désactivation de CSRF pour l’API REST</li>
-<li>reverse proxy Nginx</li>
-<li>HTTPS avec Let’s Encrypt</li>
-<li>headers de sécurité</li>
-<li>user non-root dans les containers</li>
-<li>filesystem read-only</li>
-<li>services internes non exposés publiquement</li>
-<li>UFW avec politique restrictive</li>
-</ul>
-<p>Cette partie a contribué à faire évoluer le projet
-d’un simple prototype vers une base beaucoup plus crédible.</p>
-<hr />
-<h2 id="demarche-dingenierie">Démarche d’ingénierie</h2>
-<p>Au-delà des technologies, Le projet s’inscrit dans une démarche itérative : </p>
-<ul>
-<li>conception</li>
-<li>implémentation</li>
-<li>validation</li>
-<li>amélioration continue </li>
-</ul>
-<p>Le projet a été mené avec une logique de progression réelle,
-en traitant les problèmes au fur et à mesure, sans chercher
-à masquer la complexité.</p>
-<p>Il sert aujourd’hui à la fois :</p>
-<ul>
-<li>de preuve de compétences</li>
-<li>de base de documentation</li>
-<li>de support de consolidation des pratiques d’ingénierie</li>
-<li>de fondation pour de futurs contenus techniques</li>
-</ul>
-<hr />
-<h2 id="resultat-global">Résultat global</h2>
-<p>Un projet cohérent, ambitieux et réaliste,
-qui démontre la mise en œuvre de compétences transverses en :</p>
-<ul>
-<li>backend avancé</li>
-<li>architecture</li>
-<li>messaging</li>
-<li>qualité</li>
-<li>frontend moderne</li>
-<li>sécurité</li>
-<li>déploiement</li>
-<li>CI/CD</li>
-</ul>
-<p>Le projet est désormais dans une phase de consolidation continue,
-avec des axes d’amélioration possibles sur :</p>
-<ul>
-<li>observabilité</li>
-<li>monitoring</li>
-<li>authentification future</li>
-<li>approfondissement DDD</li>
-<li>enrichissement métier</li>
-</ul>
-<hr />
-<h2 id="documentation-detaillee">Documentation détaillée</h2>
-<p>Certaines dimensions du projet sont détaillées dans des notes dédiées :</p>
-<ul>
-<li><code>architecture-overview.md</code></li>
-<li><code>ci-cd-overview.md</code></li>
-<li><code>security-overview.md</code></li>
-</ul>
-<p>D’autres notes pourront être ajoutées ensuite, par exemple sur :</p>
-<ul>
-<li>Kafka / DLT</li>
-<li>tests d’intégration</li>
-<li>design system frontend</li>
-<li>décisions d’architecture</li>
-<li>agrégats métier</li>
-</ul>
-<h2 id="contexte-de-collaboration">Contexte de collaboration</h2>
-<p>Le projet a été mené en collaboration avec une société
-spécialisée dans le développement de solutions SaaS.</p>
-<p>Cette collaboration a permis de confronter les choix
-techniques à des contraintes proches d’un environnement
-professionnel réel, notamment en matière de :</p>
-<ul>
-<li>architecture</li>
-<li>fiabilité</li>
-<li>déploiement</li>
-<li>sécurité</li>
-<li>organisation du code</li>
-</ul>
+<h2 id="recapitulatif-des-changements-appliques-dans-kore-batch">Récapitulatif des changements appliqués dans kore-batch</h2>
+<table>
+<thead>
+<tr>
+<th>Elément</th>
+<th>Avant (SB4/Java8)</th>
+<th>Après (SB5/Java21)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Job construction</td>
+<td><code>JobBuilderFactory</code></td>
+<td><code>new JobBuilder(name, repo)</code></td>
+</tr>
+<tr>
+<td>Step construction</td>
+<td><code>StepBuilderFactory</code></td>
+<td><code>new StepBuilder(name, repo)</code></td>
+</tr>
+<tr>
+<td>Activation batch</td>
+<td><code>@EnableBatchProcessing</code></td>
+<td>Auto-configuré</td>
+</tr>
+<tr>
+<td>Chunk</td>
+<td><code>.chunk(10)</code></td>
+<td><code>.chunk(10, transactionManager)</code></td>
+</tr>
+<tr>
+<td>ItemWriter</td>
+<td><code>List&lt;T&gt;</code></td>
+<td><code>Chunk&lt;T&gt;</code></td>
+</tr>
+<tr>
+<td>Instanciation générique</td>
+<td><code>clazz.newInstance()</code></td>
+<td><code>Supplier&lt;T&gt;</code></td>
+</tr>
+<tr>
+<td>Reader thread-safe</td>
+<td><code>synchronized</code></td>
+<td><code>@StepScope</code></td>
+</tr>
+<tr>
+<td>Java</td>
+<td>8</td>
+<td>21 (LTS)</td>
+</tr>
+<tr>
+<td>Spring Boot</td>
+<td>2.1.3</td>
+<td>3.3.5</td>
+</tr>
+<tr>
+<td>JodaTime</td>
+<td>Utilisé</td>
+<td><code>java.time</code></td>
+</tr>
+<tr>
+<td>Lombok</td>
+<td>Absent</td>
+<td><code>@RequiredArgsConstructor</code>, <code>@Slf4j</code></td>
+</tr>
+<tr>
+<td>Tests</td>
+<td>H2 en mémoire</td>
+<td>Testcontainers (vrai PostgreSQL)</td>
+</tr>
+</tbody>
+</table>
 
 
 
