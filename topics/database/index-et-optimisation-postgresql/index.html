@@ -13,10 +13,10 @@
       
       
       
-        <link rel="prev" href="../transaction-patterns/">
+        <link rel="prev" href="../sql-joins-indexes/">
       
       
-        <link rel="next" href="../../http/http-basics/">
+        <link rel="next" href="../transaction-patterns/">
       
       
         
@@ -27,7 +27,7 @@
     
     
       
-        <title>Optimistic Locking - Engineering Notes</title>
+        <title>Index et optimisation PostgreSQL - Engineering Notes</title>
       
     
     
@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#optimistic-locking" class="md-skip">
+        <a href="#index-et-optimisation-des-requetes-postgresql" class="md-skip">
           Aller au contenu
         </a>
       
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Optimistic Locking
+              Index et optimisation PostgreSQL
             
           </span>
         </div>
@@ -2874,10 +2874,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../index-et-optimisation-postgresql/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Index et optimisation PostgreSQL
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -2893,6 +2920,464 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#pourquoi-les-index" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pourquoi les index ?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#types-dindex-postgresql" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Types d'index PostgreSQL
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Types d&#39;index PostgreSQL">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#b-tree-defaut" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        B-Tree (defaut)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hash" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hash
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gin-generalized-inverted-index" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GIN (Generalized Inverted Index)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brin-block-range-index" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BRIN (Block Range INdex)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#partial-index" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Partial Index
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#composite-index-multi-colonnes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Composite Index (multi-colonnes)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quand-creer-un-index" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quand creer un index ?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Quand creer un index ?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creer-un-index-sur" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Creer un index sur :
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ne-pas-creer-dindex-sur" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ne pas creer d'index sur :
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#le-cout-reel-dun-index" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Le cout reel d'un index
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Le cout reel d&#39;un index">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cout-en-ecriture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cout en ecriture
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cout-en-memoire-shared_buffers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cout en memoire (shared_buffers)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cout-en-espace-disque" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cout en espace disque
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cout-en-maintenance-vacuum-autovacuum" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cout en maintenance (VACUUM / AUTOVACUUM)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#la-selectivite-le-critere-cle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        La selectivite : le critere cle
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#explain-analyze-comprendre-ce-que-fait-postgresql" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        EXPLAIN ANALYZE : comprendre ce que fait PostgreSQL
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#astuces-et-pieges-courants" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Astuces et pieges courants
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Astuces et pieges courants">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-like-avec-en-debut-de-chaine-nutilise-pas-lindex" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. LIKE avec % en debut de chaine n'utilise pas l'index
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-fonction-sur-colonne-indexee-desactive-lindex" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Fonction sur colonne indexee desactive l'index
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-implicit-cast-desactive-lindex" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Implicit cast desactive l'index
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-is-null-et-is-not-null" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. IS NULL et IS NOT NULL
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-or-peut-empecher-lutilisation-de-lindex" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. OR peut empecher l'utilisation de l'index
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#index-et-batch-processing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Index et batch processing
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Index et batch processing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#strategie-pour-les-grosses-insertions-batch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Strategie pour les grosses insertions batch
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#upsert-et-index-unique" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UPSERT et index unique
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#maintenance-des-index" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Maintenance des index
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Maintenance des index">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#identifier-les-index-inutilises" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Identifier les index inutilises
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#identifier-les-tables-sans-index-sur-fk" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Identifier les tables sans index sur FK
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vacuum-et-analyze" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VACUUM et ANALYZE
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exemple-complet-table-de-traitement-batch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exemple complet — table de traitement batch
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#flush-postgresql-et-jpa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Flush — PostgreSQL et JPA
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Flush — PostgreSQL et JPA">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#flush-postgresql-wal-checkpoint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Flush PostgreSQL (WAL / Checkpoint)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#flush-jpa-hibernate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Flush JPA / Hibernate
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#voir-aussi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Voir aussi
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -2930,37 +3415,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Optimistic Locking
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../optimistic-locking/" class="md-nav__link">
         
   
   
@@ -2976,142 +3434,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table des matières
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#contexte" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Contexte
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#principe" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Principe
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#optimistic-vs-pessimistic-locking" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Optimistic vs Pessimistic Locking
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#implementation-jpa-hibernate" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Implémentation JPA / Hibernate
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Implémentation JPA / Hibernate">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#gestion-de-lexception" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Gestion de l'exception
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#avec-un-timestamp" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Avec un timestamp
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#quand-lutiliser" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Quand l'utiliser
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#quand-leviter" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Quand l'éviter
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#synthese" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Synthèse
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#voir-aussi" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Voir aussi
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -4275,10 +4597,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#contexte" class="md-nav__link">
+  <a href="#pourquoi-les-index" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Contexte
+        Pourquoi les index ?
       
     </span>
   </a>
@@ -4286,44 +4608,77 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#principe" class="md-nav__link">
+  <a href="#types-dindex-postgresql" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Principe
+        Types d'index PostgreSQL
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#optimistic-vs-pessimistic-locking" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Optimistic vs Pessimistic Locking
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#implementation-jpa-hibernate" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Implémentation JPA / Hibernate
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Implémentation JPA / Hibernate">
+    <nav class="md-nav" aria-label="Types d&#39;index PostgreSQL">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#gestion-de-lexception" class="md-nav__link">
+  <a href="#b-tree-defaut" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Gestion de l'exception
+        B-Tree (defaut)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hash" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hash
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gin-generalized-inverted-index" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GIN (Generalized Inverted Index)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brin-block-range-index" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BRIN (Block Range INdex)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#partial-index" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Partial Index
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#composite-index-multi-colonnes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Composite Index (multi-colonnes)
       
     </span>
   </a>
@@ -4336,10 +4691,110 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#avec-un-timestamp" class="md-nav__link">
+  <a href="#quand-creer-un-index" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Avec un timestamp
+        Quand creer un index ?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Quand creer un index ?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creer-un-index-sur" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Creer un index sur :
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ne-pas-creer-dindex-sur" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ne pas creer d'index sur :
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#le-cout-reel-dun-index" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Le cout reel d'un index
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Le cout reel d&#39;un index">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cout-en-ecriture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cout en ecriture
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cout-en-memoire-shared_buffers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cout en memoire (shared_buffers)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cout-en-espace-disque" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cout en espace disque
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cout-en-maintenance-vacuum-autovacuum" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cout en maintenance (VACUUM / AUTOVACUUM)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#la-selectivite-le-critere-cle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        La selectivite : le critere cle
       
     </span>
   </a>
@@ -4347,10 +4802,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#quand-lutiliser" class="md-nav__link">
+  <a href="#explain-analyze-comprendre-ce-que-fait-postgresql" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Quand l'utiliser
+        EXPLAIN ANALYZE : comprendre ce que fait PostgreSQL
       
     </span>
   </a>
@@ -4358,10 +4813,171 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#quand-leviter" class="md-nav__link">
+  <a href="#astuces-et-pieges-courants" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Quand l'éviter
+        Astuces et pieges courants
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Astuces et pieges courants">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-like-avec-en-debut-de-chaine-nutilise-pas-lindex" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. LIKE avec % en debut de chaine n'utilise pas l'index
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-fonction-sur-colonne-indexee-desactive-lindex" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Fonction sur colonne indexee desactive l'index
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-implicit-cast-desactive-lindex" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Implicit cast desactive l'index
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-is-null-et-is-not-null" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. IS NULL et IS NOT NULL
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-or-peut-empecher-lutilisation-de-lindex" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. OR peut empecher l'utilisation de l'index
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#index-et-batch-processing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Index et batch processing
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Index et batch processing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#strategie-pour-les-grosses-insertions-batch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Strategie pour les grosses insertions batch
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#upsert-et-index-unique" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UPSERT et index unique
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#maintenance-des-index" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Maintenance des index
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Maintenance des index">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#identifier-les-index-inutilises" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Identifier les index inutilises
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#identifier-les-tables-sans-index-sur-fk" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Identifier les tables sans index sur FK
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vacuum-et-analyze" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VACUUM et ANALYZE
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exemple-complet-table-de-traitement-batch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exemple complet — table de traitement batch
       
     </span>
   </a>
@@ -4369,13 +4985,41 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#synthese" class="md-nav__link">
+  <a href="#flush-postgresql-et-jpa" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Synthèse
+        Flush — PostgreSQL et JPA
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Flush — PostgreSQL et JPA">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#flush-postgresql-wal-checkpoint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Flush PostgreSQL (WAL / Checkpoint)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#flush-jpa-hibernate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Flush JPA / Hibernate
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -4405,137 +5049,473 @@
                 
                   
 
-  <nav class="md-tags" >
-    
-      
-      
-      
-      
-        <a href="../../../tags/#tag:database" class="md-tag">database</a>
-      
-    
-  </nav>
 
 
-
-<h1 id="optimistic-locking">Optimistic Locking</h1>
-<h2 id="contexte">Contexte</h2>
-<p>Quand plusieurs transactions accèdent simultanément à la même donnée, il y a un risque de <strong>lost update</strong> — une transaction écrase les modifications d'une autre.</p>
-<p>L'optimistic locking résout ce problème sans verrouiller les lignes en base.</p>
-<hr />
-<h2 id="principe">Principe</h2>
-<p>L'optimistic locking repose sur un <strong>numéro de version</strong> :</p>
-<ol>
-<li>lire la donnée avec sa version actuelle (<code>version = 3</code>)</li>
-<li>modifier la donnée en mémoire</li>
-<li>au moment du <code>UPDATE</code>, vérifier que la version n'a pas changé</li>
-<li>si la version a changé → conflit détecté, transaction rejetée</li>
-</ol>
-<div class="highlight"><pre><span></span><code><span class="k">UPDATE</span><span class="w"> </span><span class="n">orders</span>
-<span class="k">SET</span><span class="w"> </span><span class="n">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;CONFIRMED&#39;</span><span class="p">,</span><span class="w"> </span><span class="k">version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span>
-<span class="k">WHERE</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">42</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="k">version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+<h1 id="index-et-optimisation-des-requetes-postgresql">Index et optimisation des requetes PostgreSQL</h1>
+<h2 id="pourquoi-les-index">Pourquoi les index ?</h2>
+<p>Sans index, PostgreSQL fait un <strong>sequential scan</strong> : il lit chaque ligne
+de la table une par une pour trouver ce qui correspond a la condition.
+Sur 10 millions de lignes, c'est lent.</p>
+<p>Un index est une structure de donnees supplementaire (B-Tree par defaut)
+qui permet de localiser directement les lignes sans tout lire.</p>
+<div class="highlight"><pre><span></span><code>Sans index : O(n)   -&gt; lit toutes les lignes
+Avec index : O(log n) -&gt; suit l&#39;arbre pour trouver directement
 </code></pre></div>
-<p>Si <code>version</code> a été modifiée entre-temps, le <code>WHERE</code> ne matche rien → 0 rows updated → conflit.</p>
 <hr />
-<h2 id="optimistic-vs-pessimistic-locking">Optimistic vs Pessimistic Locking</h2>
+<h2 id="types-dindex-postgresql">Types d'index PostgreSQL</h2>
+<h3 id="b-tree-defaut">B-Tree (defaut)</h3>
+<p>Le plus courant. Adapte pour les comparaisons (<code>=</code>, <code>&lt;</code>, <code>&gt;</code>, <code>BETWEEN</code>, <code>LIKE 'abc%'</code>).</p>
+<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">idx_individu_reference</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">T_INDIVIDU</span><span class="p">(</span><span class="n">NUM_REFERENCE</span><span class="p">);</span>
+<span class="k">CREATE</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">idx_individu_statut</span><span class="w">    </span><span class="k">ON</span><span class="w"> </span><span class="n">T_INDIVIDU</span><span class="p">(</span><span class="n">STATUT</span><span class="p">);</span>
+</code></pre></div>
+<h3 id="hash">Hash</h3>
+<p>Uniquement pour l'egalite (<code>=</code>). Plus rapide que B-Tree sur ce cas precis,
+mais non persistant apres crash avant PostgreSQL 10.</p>
+<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">idx_hash_reference</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">T_INDIVIDU</span><span class="w"> </span><span class="k">USING</span><span class="w"> </span><span class="n">HASH</span><span class="p">(</span><span class="n">NUM_REFERENCE</span><span class="p">);</span>
+</code></pre></div>
+<h3 id="gin-generalized-inverted-index">GIN (Generalized Inverted Index)</h3>
+<p>Pour les recherches dans des tableaux, JSONB, ou full-text search.</p>
+<div class="highlight"><pre><span></span><code><span class="c1">-- Recherche full-text</span>
+<span class="k">CREATE</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">idx_gin_nom</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">T_INDIVIDU</span><span class="w"> </span><span class="k">USING</span><span class="w"> </span><span class="n">GIN</span><span class="p">(</span><span class="n">to_tsvector</span><span class="p">(</span><span class="s1">&#39;french&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">NOM_PRENOM</span><span class="p">));</span>
+
+<span class="c1">-- Recherche dans JSONB</span>
+<span class="k">CREATE</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">idx_gin_data</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">ma_table</span><span class="w"> </span><span class="k">USING</span><span class="w"> </span><span class="n">GIN</span><span class="p">(</span><span class="n">data_json</span><span class="p">);</span>
+</code></pre></div>
+<h3 id="brin-block-range-index">BRIN (Block Range INdex)</h3>
+<p>Pour les tres grandes tables avec donnees naturellement ordonnees (dates, sequences).
+Tres petit en taille, adapte pour les colonnes d'audit (<code>created_at</code>, <code>DATE_TRAITEMENT</code>).</p>
+<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">idx_brin_traitement</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">T_INDIVIDU</span><span class="w"> </span><span class="k">USING</span><span class="w"> </span><span class="n">BRIN</span><span class="p">(</span><span class="n">DATE_TRAITEMENT</span><span class="p">);</span>
+</code></pre></div>
+<h3 id="partial-index">Partial Index</h3>
+<p>Index sur un sous-ensemble de lignes. Tres efficace si on requete souvent
+sur une condition specifique.</p>
+<div class="highlight"><pre><span></span><code><span class="c1">-- Index uniquement sur les KO (les plus recherches pour analyse)</span>
+<span class="k">CREATE</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">idx_individu_ko</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">T_INDIVIDU</span><span class="p">(</span><span class="n">NUM_REFERENCE</span><span class="p">)</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">STATUT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;KO&#39;</span><span class="p">;</span>
+
+<span class="c1">-- Index uniquement sur les non traites</span>
+<span class="k">CREATE</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">idx_commande_pending</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">T_COMMANDE</span><span class="p">(</span><span class="n">CREATED_AT</span><span class="p">)</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">STATUT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;PENDING&#39;</span><span class="p">;</span>
+</code></pre></div>
+<h3 id="composite-index-multi-colonnes">Composite Index (multi-colonnes)</h3>
+<p>Un index sur plusieurs colonnes. L'ordre des colonnes est crucial.</p>
+<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">idx_individu_statut_date</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">T_INDIVIDU</span><span class="p">(</span><span class="n">STATUT</span><span class="p">,</span><span class="w"> </span><span class="n">DATE_TRAITEMENT</span><span class="p">);</span>
+</code></pre></div>
+<p><strong>Regle du prefixe gauche :</strong> un index <code>(A, B, C)</code> est utilise pour :
+- <code>WHERE A = ?</code>
+- <code>WHERE A = ? AND B = ?</code>
+- <code>WHERE A = ? AND B = ? AND C = ?</code></p>
+<p>Mais PAS pour :
+- <code>WHERE B = ?</code> (sans A)
+- <code>WHERE C = ?</code> (sans A et B)</p>
+<hr />
+<h2 id="quand-creer-un-index">Quand creer un index ?</h2>
+<h3 id="creer-un-index-sur">Creer un index sur :</h3>
+<ul>
+<li><strong>Cles primaires</strong> (auto-cree par PostgreSQL)</li>
+<li><strong>Cles etrangeres</strong> (PostgreSQL ne les cree PAS automatiquement)</li>
+<li><strong>Colonnes de filtre frequentes</strong> (<code>WHERE statut = ?</code>, <code>WHERE pays = ?</code>)</li>
+<li><strong>Colonnes de jointure</strong> (<code>JOIN ON t1.ref = t2.ref</code>)</li>
+<li><strong>Colonnes de tri frequentes</strong> (<code>ORDER BY date_traitement DESC</code>)</li>
+<li><strong>Colonnes UNIQUE</strong> (auto-cree par la contrainte)</li>
+</ul>
+<h3 id="ne-pas-creer-dindex-sur">Ne pas creer d'index sur :</h3>
+<ul>
+<li>Colonnes rarement utilisees en filtre</li>
+<li>Tables tres petites (&lt; 1000 lignes, le seq scan est plus rapide)</li>
+<li>Colonnes avec tres peu de valeurs distinctes (<code>BOOLEAN</code>, <code>STATUT</code> avec 2 valeurs)</li>
+<li>Colonnes modifiees tres frequemment (l'index doit etre mis a jour a chaque write)</li>
+</ul>
+<hr />
+<h2 id="le-cout-reel-dun-index">Le cout reel d'un index</h2>
+<p>Un index n'est pas gratuit. Il a un <strong>cout en ecriture, en memoire et en maintenance</strong>.
+Creer des index sans discernement degrade les performances au lieu de les ameliorer.</p>
+<h3 id="cout-en-ecriture">Cout en ecriture</h3>
+<p>Chaque <code>INSERT</code>, <code>UPDATE</code>, <code>DELETE</code> doit mettre a jour <strong>tous les index</strong> de la table.</p>
+<div class="highlight"><pre><span></span><code>INSERT sur une table avec 5 index :
+→ 1 ecriture dans la table
+→ 5 ecritures dans les index
+= 6 operations d&#39;ecriture au total
+</code></pre></div>
+<p>Sur une table avec beaucoup d'ecritures (batch massif, logs, evenements),
+chaque index supplementaire ralentit directement les insertions.</p>
+<div class="highlight"><pre><span></span><code><span class="c1">-- Exemple : mesurer l&#39;impact</span>
+<span class="k">EXPLAIN</span><span class="w"> </span><span class="k">ANALYZE</span><span class="w"> </span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">T_TRAITEMENT</span><span class="w"> </span><span class="p">(...)</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(...);</span>
+<span class="c1">-- Comparer le Planning Time et Execution Time avec et sans index</span>
+</code></pre></div>
+<h3 id="cout-en-memoire-shared_buffers">Cout en memoire (shared_buffers)</h3>
+<p>PostgreSQL garde les index en memoire (cache). Chaque index consomme
+de l'espace dans les <code>shared_buffers</code>.</p>
+<p>Trop d'index → les index les plus utiles sont evictes du cache
+→ plus de lectures disque → ralentissement global.</p>
+<h3 id="cout-en-espace-disque">Cout en espace disque</h3>
+<p>Un index B-Tree occupe en moyenne <strong>10 a 30% de la taille de la table</strong>.</p>
+<div class="highlight"><pre><span></span><code><span class="c1">-- Voir la taille des index</span>
+<span class="k">SELECT</span>
+<span class="w">    </span><span class="n">indexrelname</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="k">index</span><span class="p">,</span>
+<span class="w">    </span><span class="n">pg_size_pretty</span><span class="p">(</span><span class="n">pg_relation_size</span><span class="p">(</span><span class="n">indexrelid</span><span class="p">))</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">taille</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">pg_stat_user_indexes</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">relname</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;ma_table&#39;</span>
+<span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">pg_relation_size</span><span class="p">(</span><span class="n">indexrelid</span><span class="p">)</span><span class="w"> </span><span class="k">DESC</span><span class="p">;</span>
+</code></pre></div>
+<h3 id="cout-en-maintenance-vacuum-autovacuum">Cout en maintenance (VACUUM / AUTOVACUUM)</h3>
+<p>Les lignes mortes (apres DELETE/UPDATE) restent dans les index jusqu'au VACUUM.
+Plus il y a d'index, plus le VACUUM est long.</p>
+<p>Sur des tables avec beaucoup de mises a jour, des index inutiles alourdissent
+considerablement la maintenance.</p>
+<hr />
+<h2 id="la-selectivite-le-critere-cle">La selectivite : le critere cle</h2>
+<p>Un index est utile seulement si la colonne a une <strong>selectivite elevee</strong> —
+c'est-a-dire que la valeur filtree represente une petite fraction des lignes.</p>
+<div class="highlight"><pre><span></span><code><span class="c1">-- BONNE selectivite : EMAIL est unique → index tres efficace</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">email</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;alice@example.com&#39;</span><span class="w">  </span><span class="c1">-- retourne 1 ligne sur 1 000 000</span>
+
+<span class="c1">-- MAUVAISE selectivite : STATUT a 2 valeurs → index inutile</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">statut</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;ACTIF&#39;</span><span class="w">  </span><span class="c1">-- retourne 500 000 lignes sur 1 000 000</span>
+</code></pre></div>
+<p>Quand un index renvoie trop de lignes, PostgreSQL prefere le <strong>sequential scan</strong> —
+il est plus rapide que de suivre l'index puis lire chaque ligne individuellement.</p>
+<p><strong>Regle pratique :</strong> un index est efficace si la requete retourne moins de
+<strong>5 a 10% des lignes</strong> de la table.</p>
+<div class="highlight"><pre><span></span><code><span class="c1">-- Verifier la selectivite d&#39;une colonne</span>
+<span class="k">SELECT</span>
+<span class="w">    </span><span class="n">statut</span><span class="p">,</span>
+<span class="w">    </span><span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">nb</span><span class="p">,</span>
+<span class="w">    </span><span class="n">ROUND</span><span class="p">(</span><span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">100</span><span class="p">.</span><span class="mi">0</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="k">SUM</span><span class="p">(</span><span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">))</span><span class="w"> </span><span class="n">OVER</span><span class="w"> </span><span class="p">(),</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">pct</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">T_TRAITEMENT</span>
+<span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">statut</span>
+<span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">nb</span><span class="w"> </span><span class="k">DESC</span><span class="p">;</span>
+</code></pre></div>
+<p>Si une valeur represente 80% des lignes → l'index sur cette colonne sera
+rarement utilise par le planificateur.</p>
+<hr />
+<h2 id="explain-analyze-comprendre-ce-que-fait-postgresql">EXPLAIN ANALYZE : comprendre ce que fait PostgreSQL</h2>
+<p>La commande la plus importante pour optimiser.</p>
+<div class="highlight"><pre><span></span><code><span class="k">EXPLAIN</span><span class="w"> </span><span class="k">ANALYZE</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">T_INDIVIDU</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">STATUT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;KO&#39;</span>
+<span class="k">AND</span><span class="w"> </span><span class="n">DATE_TRAITEMENT</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="s1">&#39;2024-01-01&#39;</span><span class="p">;</span>
+</code></pre></div>
+<p><strong>Lire le resultat :</strong></p>
+<div class="highlight"><pre><span></span><code>Seq Scan on t_individu  (cost=0.00..245.00 rows=12 width=120)
+                          ^^^^^^^^^^^^^^^^^  ^^^^
+                          estimation cout    nb lignes estimees
+
+Filter: ((statut = &#39;KO&#39;) AND (date_traitement &gt; &#39;2024-01-01&#39;))
+Rows Removed by Filter: 988
+
+Planning Time: 0.5 ms
+Execution Time: 45.2 ms
+</code></pre></div>
+<p>Apres creation d'index :
+<div class="highlight"><pre><span></span><code>Index Scan using idx_individu_ko on t_individu (cost=0.28..8.30 rows=12 width=120)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Index utilise !
+
+Planning Time: 0.3 ms
+Execution Time: 0.8 ms   &lt;- 56x plus rapide
+</code></pre></div></p>
+<p><strong>Mots cles a surveiller :</strong></p>
 <table>
 <thead>
 <tr>
-<th>Aspect</th>
-<th>Optimistic</th>
-<th>Pessimistic</th>
+<th>Mot cle</th>
+<th>Signification</th>
+<th>Bon ou Mauvais</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Verrouillage</td>
-<td>Au moment de l'écriture</td>
-<td>Au moment de la lecture</td>
+<td><code>Seq Scan</code></td>
+<td>Lit toute la table</td>
+<td>Mauvais sur grande table</td>
 </tr>
 <tr>
-<td>SQL</td>
-<td><code>WHERE version = ?</code></td>
-<td><code>SELECT ... FOR UPDATE</code></td>
+<td><code>Index Scan</code></td>
+<td>Utilise l'index, lit les lignes</td>
+<td>Bon</td>
 </tr>
 <tr>
-<td>Conflits</td>
-<td>Détectés à l'écriture</td>
-<td>Empêchés par le lock</td>
+<td><code>Index Only Scan</code></td>
+<td>Repond depuis l'index seul</td>
+<td>Tres bon</td>
 </tr>
 <tr>
-<td>Performance</td>
-<td>Meilleure (pas de lock en base)</td>
-<td>Dégradée sous charge</td>
+<td><code>Bitmap Heap Scan</code></td>
+<td>Index + filtre en memoire</td>
+<td>Acceptable</td>
 </tr>
 <tr>
-<td>Cas d'usage</td>
-<td>Conflits rares</td>
-<td>Conflits fréquents</td>
+<td><code>Nested Loop</code></td>
+<td>Jointure par boucle imbriquee</td>
+<td>Bon si petite table</td>
+</tr>
+<tr>
+<td><code>Hash Join</code></td>
+<td>Jointure par table de hachage</td>
+<td>Bon sur grandes tables</td>
+</tr>
+<tr>
+<td><code>Merge Join</code></td>
+<td>Jointure sur donnees triees</td>
+<td>Bon avec index</td>
 </tr>
 </tbody>
 </table>
 <hr />
-<h2 id="implementation-jpa-hibernate">Implémentation JPA / Hibernate</h2>
-<div class="highlight"><pre><span></span><code><span class="nd">@Entity</span>
-<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Order</span><span class="w"> </span><span class="p">{</span>
+<h2 id="astuces-et-pieges-courants">Astuces et pieges courants</h2>
+<h3 id="1-like-avec-en-debut-de-chaine-nutilise-pas-lindex">1. LIKE avec % en debut de chaine n'utilise pas l'index</h3>
+<div class="highlight"><pre><span></span><code><span class="c1">-- N&#39;utilise PAS l&#39;index sur NOM_PRENOM</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">NOM_PRENOM</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="s1">&#39;%MARTIN%&#39;</span>
 
-<span class="w">    </span><span class="nd">@Id</span>
-<span class="w">    </span><span class="nd">@GeneratedValue</span>
-<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Long</span><span class="w"> </span><span class="n">id</span><span class="p">;</span>
+<span class="c1">-- Utilise l&#39;index (prefixe fixe)</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">NOM_PRENOM</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="s1">&#39;MARTIN%&#39;</span>
+</code></pre></div>
+<p>Pour la recherche libre, utiliser un index GIN avec <code>pg_trgm</code> :
+<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="n">EXTENSION</span><span class="w"> </span><span class="k">IF</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">EXISTS</span><span class="w"> </span><span class="n">pg_trgm</span><span class="p">;</span>
+<span class="k">CREATE</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">idx_trgm_nom</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">T_INDIVIDU</span><span class="w"> </span><span class="k">USING</span><span class="w"> </span><span class="n">GIN</span><span class="p">(</span><span class="n">NOM_PRENOM</span><span class="w"> </span><span class="n">gin_trgm_ops</span><span class="p">);</span>
+<span class="c1">-- Maintenant LIKE &#39;%MARTIN%&#39; utilise l&#39;index</span>
+</code></pre></div></p>
+<h3 id="2-fonction-sur-colonne-indexee-desactive-lindex">2. Fonction sur colonne indexee desactive l'index</h3>
+<div class="highlight"><pre><span></span><code><span class="c1">-- N&#39;utilise PAS l&#39;index sur DATE_TRAITEMENT</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">DATE_TRUNC</span><span class="p">(</span><span class="s1">&#39;month&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">DATE_TRAITEMENT</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;2024-01-01&#39;</span>
 
-<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">status</span><span class="p">;</span>
+<span class="c1">-- Utilise l&#39;index</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">DATE_TRAITEMENT</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="s1">&#39;2024-01-01&#39;</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">DATE_TRAITEMENT</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="s1">&#39;2024-02-01&#39;</span>
 
-<span class="w">    </span><span class="nd">@Version</span>
-<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Integer</span><span class="w"> </span><span class="n">version</span><span class="p">;</span>
+<span class="c1">-- Ou creer un index fonctionnel</span>
+<span class="k">CREATE</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">idx_month_traitement</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">T_INDIVIDU</span><span class="p">(</span><span class="n">DATE_TRUNC</span><span class="p">(</span><span class="s1">&#39;month&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">DATE_TRAITEMENT</span><span class="p">));</span>
+</code></pre></div>
+<h3 id="3-implicit-cast-desactive-lindex">3. Implicit cast desactive l'index</h3>
+<div class="highlight"><pre><span></span><code><span class="c1">-- La colonne NUM_REFERENCE est VARCHAR</span>
+<span class="c1">-- N&#39;utilise PAS l&#39;index (cast implicite int -&gt; varchar)</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">NUM_REFERENCE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">12345</span>
+
+<span class="c1">-- Utilise l&#39;index</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">NUM_REFERENCE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;12345&#39;</span>
+</code></pre></div>
+<h3 id="4-is-null-et-is-not-null">4. IS NULL et IS NOT NULL</h3>
+<p>Les index B-Tree indexent les NULL depuis PostgreSQL 8.3.</p>
+<div class="highlight"><pre><span></span><code><span class="c1">-- Utilise l&#39;index</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">MESSAGE_ERREUR</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NULL</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">MESSAGE_ERREUR</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span>
+</code></pre></div>
+<h3 id="5-or-peut-empecher-lutilisation-de-lindex">5. OR peut empecher l'utilisation de l'index</h3>
+<div class="highlight"><pre><span></span><code><span class="c1">-- Peut ne pas utiliser l&#39;index</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">STATUT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;KO&#39;</span><span class="w"> </span><span class="k">OR</span><span class="w"> </span><span class="n">PAYS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;FRANCE&#39;</span>
+
+<span class="c1">-- Preferer UNION pour forcer l&#39;utilisation des index</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">T_INDIVIDU</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">STATUT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;KO&#39;</span>
+<span class="k">UNION</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">T_INDIVIDU</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">PAYS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;FRANCE&#39;</span>
+</code></pre></div>
+<hr />
+<h2 id="index-et-batch-processing">Index et batch processing</h2>
+<p>Dans un contexte batch (insertion/mise a jour massive), les index ont un cout :
+chaque INSERT/UPDATE doit mettre a jour tous les index de la table.</p>
+<h3 id="strategie-pour-les-grosses-insertions-batch">Strategie pour les grosses insertions batch</h3>
+<div class="highlight"><pre><span></span><code><span class="c1">-- 1. Supprimer les index avant l&#39;insertion massive</span>
+<span class="k">DROP</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="k">IF</span><span class="w"> </span><span class="k">EXISTS</span><span class="w"> </span><span class="n">idx_individu_statut</span><span class="p">;</span>
+<span class="k">DROP</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="k">IF</span><span class="w"> </span><span class="k">EXISTS</span><span class="w"> </span><span class="n">idx_individu_pays</span><span class="p">;</span>
+
+<span class="c1">-- 2. Inserer en masse (beaucoup plus rapide sans index)</span>
+<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">T_INDIVIDU</span><span class="w"> </span><span class="p">(...)</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(...),</span><span class="w"> </span><span class="p">(...),</span><span class="w"> </span><span class="p">...;</span>
+
+<span class="c1">-- 3. Recreer les index apres (PostgreSQL construit l&#39;index en une passe)</span>
+<span class="k">CREATE</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">CONCURRENTLY</span><span class="w"> </span><span class="n">idx_individu_statut</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">T_INDIVIDU</span><span class="p">(</span><span class="n">STATUT</span><span class="p">);</span>
+<span class="k">CREATE</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">CONCURRENTLY</span><span class="w"> </span><span class="n">idx_individu_pays</span><span class="w">   </span><span class="k">ON</span><span class="w"> </span><span class="n">T_INDIVIDU</span><span class="p">(</span><span class="n">PAYS</span><span class="p">);</span>
+</code></pre></div>
+<p><code>CREATE INDEX CONCURRENTLY</code> : construit l'index sans bloquer les lectures/ecritures.
+Plus lent mais sans downtime.</p>
+<h3 id="upsert-et-index-unique">UPSERT et index unique</h3>
+<div class="highlight"><pre><span></span><code><span class="c1">-- L&#39;index UNIQUE sur NUM_REFERENCE permet le ON CONFLICT</span>
+<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">T_INDIVIDU</span><span class="w"> </span><span class="p">(</span><span class="n">NUM_REFERENCE</span><span class="p">,</span><span class="w"> </span><span class="n">STATUT</span><span class="p">,</span><span class="w"> </span><span class="p">...)</span>
+<span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="o">?</span><span class="p">,</span><span class="w"> </span><span class="o">?</span><span class="p">,</span><span class="w"> </span><span class="p">...)</span>
+<span class="k">ON</span><span class="w"> </span><span class="n">CONFLICT</span><span class="w"> </span><span class="p">(</span><span class="n">NUM_REFERENCE</span><span class="p">)</span><span class="w"> </span><span class="k">DO</span><span class="w"> </span><span class="k">UPDATE</span><span class="w"> </span><span class="k">SET</span>
+<span class="w">    </span><span class="n">STATUT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">EXCLUDED</span><span class="p">.</span><span class="n">STATUT</span><span class="p">,</span>
+<span class="w">    </span><span class="n">DATE_TRAITEMENT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">NOW</span><span class="p">();</span>
+</code></pre></div>
+<p>L'index unique est ici fonctionnel (contrainte metier) ET un mecanisme
+de performance (localisation rapide du conflit).</p>
+<hr />
+<h2 id="maintenance-des-index">Maintenance des index</h2>
+<h3 id="identifier-les-index-inutilises">Identifier les index inutilises</h3>
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">schemaname</span><span class="p">,</span><span class="w"> </span><span class="n">tablename</span><span class="p">,</span><span class="w"> </span><span class="n">indexname</span><span class="p">,</span><span class="w"> </span><span class="n">idx_scan</span><span class="p">,</span><span class="w"> </span><span class="n">idx_tup_read</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">pg_stat_user_indexes</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">idx_scan</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">pg_relation_size</span><span class="p">(</span><span class="n">indexrelid</span><span class="p">)</span><span class="w"> </span><span class="k">DESC</span><span class="p">;</span>
+</code></pre></div>
+<p>Un index avec <code>idx_scan = 0</code> n'est jamais utilise -&gt; candidat a la suppression.</p>
+<h3 id="identifier-les-tables-sans-index-sur-fk">Identifier les tables sans index sur FK</h3>
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">conrelid</span><span class="p">::</span><span class="n">regclass</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="k">table</span><span class="p">,</span>
+<span class="w">       </span><span class="n">conname</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">contrainte</span><span class="p">,</span>
+<span class="w">       </span><span class="n">a</span><span class="p">.</span><span class="n">attname</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">colonne</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">pg_constraint</span><span class="w"> </span><span class="k">c</span>
+<span class="k">JOIN</span><span class="w"> </span><span class="n">pg_attribute</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">attnum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">ANY</span><span class="p">(</span><span class="k">c</span><span class="p">.</span><span class="n">conkey</span><span class="p">)</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">attrelid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">c</span><span class="p">.</span><span class="n">conrelid</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="k">c</span><span class="p">.</span><span class="n">contype</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;f&#39;</span>
+<span class="k">AND</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">EXISTS</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="k">SELECT</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">pg_index</span><span class="w"> </span><span class="n">i</span>
+<span class="w">    </span><span class="k">WHERE</span><span class="w"> </span><span class="n">i</span><span class="p">.</span><span class="n">indrelid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">c</span><span class="p">.</span><span class="n">conrelid</span>
+<span class="w">    </span><span class="k">AND</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">attnum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">ANY</span><span class="p">(</span><span class="n">i</span><span class="p">.</span><span class="n">indkey</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="k">table</span><span class="p">;</span>
+</code></pre></div>
+<h3 id="vacuum-et-analyze">VACUUM et ANALYZE</h3>
+<div class="highlight"><pre><span></span><code><span class="c1">-- Met a jour les statistiques (aide le planificateur a choisir le bon plan)</span>
+<span class="k">ANALYZE</span><span class="w"> </span><span class="n">T_INDIVIDU</span><span class="p">;</span>
+
+<span class="c1">-- Recupere l&#39;espace des lignes mortes (apres DELETE/UPDATE massif)</span>
+<span class="k">VACUUM</span><span class="w"> </span><span class="n">T_INDIVIDU</span><span class="p">;</span>
+
+<span class="c1">-- Les deux + recalcul index</span>
+<span class="k">VACUUM</span><span class="w"> </span><span class="k">ANALYZE</span><span class="w"> </span><span class="n">T_INDIVIDU</span><span class="p">;</span>
+</code></pre></div>
+<p>A executer apres une insertion/mise a jour batch massive.</p>
+<hr />
+<h2 id="exemple-complet-table-de-traitement-batch">Exemple complet — table de traitement batch</h2>
+<p>Index typiques pour une table utilisee dans un batch de traitement :</p>
+<div class="highlight"><pre><span></span><code><span class="c1">-- Cle primaire (auto-cree)</span>
+<span class="c1">-- Contrainte UNIQUE sur la reference metier (auto-cree)</span>
+
+<span class="c1">-- Recherche par statut (rapport OK/KO)</span>
+<span class="k">CREATE</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">idx_traitement_statut</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">T_TRAITEMENT</span><span class="p">(</span><span class="n">STATUT</span><span class="p">);</span>
+
+<span class="c1">-- Partial index : acces rapide aux erreurs (les plus consultees)</span>
+<span class="k">CREATE</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">idx_traitement_ko</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">T_TRAITEMENT</span><span class="p">(</span><span class="n">REFERENCE</span><span class="p">,</span><span class="w"> </span><span class="n">DATE_TRAITEMENT</span><span class="p">)</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">STATUT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;KO&#39;</span><span class="p">;</span>
+
+<span class="c1">-- Analyse temporelle</span>
+<span class="k">CREATE</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">idx_traitement_date</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">T_TRAITEMENT</span><span class="p">(</span><span class="n">DATE_TRAITEMENT</span><span class="p">);</span>
+
+<span class="c1">-- Index composite pour les requetes frequentes de rapport</span>
+<span class="k">CREATE</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">idx_traitement_statut_date</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">T_TRAITEMENT</span><span class="p">(</span><span class="n">STATUT</span><span class="p">,</span><span class="w"> </span><span class="n">DATE_TRAITEMENT</span><span class="p">);</span>
+</code></pre></div>
+<p>Ces index peuvent etre geres via Liquibase ou Flyway :</p>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;changeSet</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;add-indexes-traitement&quot;</span><span class="w"> </span><span class="na">author=</span><span class="s">&quot;dev&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;createIndex</span><span class="w"> </span><span class="na">tableName=</span><span class="s">&quot;T_TRAITEMENT&quot;</span><span class="w"> </span><span class="na">indexName=</span><span class="s">&quot;idx_traitement_statut&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;column</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;STATUT&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/createIndex&gt;</span>
+<span class="w">    </span><span class="nt">&lt;createIndex</span><span class="w"> </span><span class="na">tableName=</span><span class="s">&quot;T_TRAITEMENT&quot;</span><span class="w"> </span><span class="na">indexName=</span><span class="s">&quot;idx_traitement_date&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;column</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;DATE_TRAITEMENT&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/createIndex&gt;</span>
+<span class="nt">&lt;/changeSet&gt;</span>
+</code></pre></div>
+<hr />
+<h2 id="flush-postgresql-et-jpa">Flush — PostgreSQL et JPA</h2>
+<h3 id="flush-postgresql-wal-checkpoint">Flush PostgreSQL (WAL / Checkpoint)</h3>
+<p>PostgreSQL n'ecrit pas directement les donnees sur disque a chaque transaction.
+Il utilise un <strong>Write-Ahead Log (WAL)</strong> : les modifications sont d'abord ecrites
+dans le WAL (sequentiel, rapide), puis appliquees aux fichiers de donnees
+lors d'un <strong>checkpoint</strong>.</p>
+<div class="highlight"><pre><span></span><code>INSERT/UPDATE/DELETE
+       ↓
+   WAL (disque, sequentiel)   ← rapide
+       ↓
+  shared_buffers (memoire)    ← modifie en memoire
+       ↓
+  checkpoint → fichiers data  ← ecriture asynchrone
+</code></pre></div>
+<p><strong>Flush PostgreSQL</strong> = forcer l'ecriture du WAL sur disque.
+Se produit a chaque <code>COMMIT</code> (par defaut <code>synchronous_commit = on</code>).</p>
+<p><strong>Impact sur les index :</strong></p>
+<p>Les index sont mis a jour dans les <code>shared_buffers</code> (memoire) en meme temps
+que les donnees. La persistance sur disque se fait au checkpoint.
+Pendant la fenetre entre le commit et le checkpoint, les donnees et index
+sont en memoire — recuperables apres crash grace au WAL.</p>
+<div class="highlight"><pre><span></span><code><span class="c1">-- Forcer un checkpoint (admin seulement)</span>
+<span class="k">CHECKPOINT</span><span class="p">;</span>
+
+<span class="c1">-- Verifier la frequence des checkpoints</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">pg_stat_bgwriter</span><span class="p">;</span>
+</code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Performance</p>
+<p><code>synchronous_commit = off</code> desactive le flush WAL au commit — gain de performance
+mais risque de perte des dernieres transactions en cas de crash.
+A n'utiliser que pour des donnees non critiques (logs, metriques).</p>
+</div>
+<hr />
+<h3 id="flush-jpa-hibernate">Flush JPA / Hibernate</h3>
+<p>Hibernate maintient un <strong>persistence context</strong> (cache de premier niveau) :
+les entites chargees ou modifiees sont gardees en memoire jusqu'au flush.</p>
+<p><strong>Flush</strong> = synchronisation du persistence context vers la base de donnees
+(execution des SQL INSERT/UPDATE/DELETE).</p>
+<div class="highlight"><pre><span></span><code>entityManager.persist(entity)   ← en memoire uniquement
+       ↓
+entityManager.flush()           ← SQL execute en base
+       ↓
+transaction.commit()            ← commit + WAL flush PostgreSQL
+</code></pre></div>
+<p><strong>Modes de flush :</strong></p>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Comportement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>AUTO</code> (defaut)</td>
+<td>Flush automatique avant une requete JPQL/HQL qui concerne les entites modifiees</td>
+</tr>
+<tr>
+<td><code>COMMIT</code></td>
+<td>Flush uniquement au commit</td>
+</tr>
+<tr>
+<td><code>MANUAL</code></td>
+<td>Flush uniquement sur appel explicite <code>flush()</code></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code><span class="c1">// Changer le mode de flush</span>
+<span class="n">entityManager</span><span class="p">.</span><span class="na">setFlushMode</span><span class="p">(</span><span class="n">FlushModeType</span><span class="p">.</span><span class="na">COMMIT</span><span class="p">);</span>
+
+<span class="c1">// Flush explicite</span>
+<span class="n">entityManager</span><span class="p">.</span><span class="na">flush</span><span class="p">();</span>
+
+<span class="c1">// Vider le cache de premier niveau</span>
+<span class="n">entityManager</span><span class="p">.</span><span class="na">clear</span><span class="p">();</span>
+</code></pre></div>
+<p><strong>Impact sur les index dans un contexte Spring Batch :</strong></p>
+<p>En mode <code>AUTO</code>, Hibernate peut flusher en cours de step si une requete
+JPQL touche les entites en cours de traitement. Cela peut :</p>
+<ul>
+<li>Declencher des verifications de contraintes d'unicite (index UNIQUE)</li>
+<li>Creer des verrous inattendus</li>
+<li>Degrader les performances si le flush se produit trop souvent</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="c1">// Pattern recommande en Spring Batch avec JPA</span>
+<span class="nd">@Component</span>
+<span class="nd">@StepScope</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MonProcessor</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">ItemProcessor</span><span class="o">&lt;</span><span class="n">Input</span><span class="p">,</span><span class="w"> </span><span class="n">Output</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="nd">@PersistenceContext</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">EntityManager</span><span class="w"> </span><span class="n">em</span><span class="p">;</span>
+
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">Output</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="n">Input</span><span class="w"> </span><span class="n">item</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// Flush explicite seulement si necessaire</span>
+<span class="w">        </span><span class="c1">// Sinon laisser Spring Batch gerer via @Transactional sur le chunk</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">transformer</span><span class="p">(</span><span class="n">item</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>Hibernate gère automatiquement :</p>
-<ul>
-<li>incrémente <code>version</code> à chaque <code>UPDATE</code></li>
-<li>lance <code>OptimisticLockException</code> si la version ne correspond pas</li>
-</ul>
-<h3 id="gestion-de-lexception">Gestion de l'exception</h3>
-<div class="highlight"><pre><span></span><code><span class="k">try</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">orderRepository</span><span class="p">.</span><span class="na">save</span><span class="p">(</span><span class="n">order</span><span class="p">);</span>
-<span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">OptimisticLockException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="c1">// Recharger la donnée et réessayer, ou informer l&#39;utilisateur</span>
-<span class="w">    </span><span class="n">Order</span><span class="w"> </span><span class="n">fresh</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">orderRepository</span><span class="p">.</span><span class="na">findById</span><span class="p">(</span><span class="n">order</span><span class="p">.</span><span class="na">getId</span><span class="p">()).</span><span class="na">orElseThrow</span><span class="p">();</span>
-<span class="w">    </span><span class="c1">// appliquer la modification sur la version fraîche</span>
-<span class="p">}</span>
+<p><strong>Flush et index : le point cle</strong></p>
+<p>Le flush JPA execute le SQL → PostgreSQL met a jour les index en memoire
+→ le checkpoint persist sur disque. La chaine est :</p>
+<div class="highlight"><pre><span></span><code>flush() → SQL → index mis a jour en shared_buffers → checkpoint → disque
 </code></pre></div>
-<hr />
-<h2 id="avec-un-timestamp">Avec un timestamp</h2>
-<p>Alternative à la version numérique :</p>
-<div class="highlight"><pre><span></span><code><span class="nd">@Version</span>
-<span class="kd">private</span><span class="w"> </span><span class="n">Instant</span><span class="w"> </span><span class="n">lastModified</span><span class="p">;</span>
-</code></pre></div>
-<p>Moins fiable — deux modifications dans la même milliseconde ne sont pas détectées. La version numérique est préférable.</p>
-<hr />
-<h2 id="quand-lutiliser">Quand l'utiliser</h2>
-<ul>
-<li>applications web classiques (les conflits sont rares)</li>
-<li>systèmes à forte charge (évite les locks en base)</li>
-<li>APIs REST avec PUT/PATCH (inclure la version dans le body ou un header <code>If-Match</code>)</li>
-</ul>
-<hr />
-<h2 id="quand-leviter">Quand l'éviter</h2>
-<ul>
-<li>scénarios avec conflits fréquents (compteur partagé, stock limité)</li>
-<li>transactions longues où le risque de conflit augmente</li>
-</ul>
-<hr />
-<h2 id="synthese">Synthèse</h2>
-<ul>
-<li>optimistic locking détecte les conflits au lieu de les empêcher</li>
-<li><code>@Version</code> avec JPA est le moyen le plus simple en Java</li>
-<li>préférer un numéro de version à un timestamp</li>
-<li>gérer <code>OptimisticLockException</code> avec un retry ou un message utilisateur</li>
-</ul>
+<p>Un flush trop frequent (mode AUTO avec beaucoup de requetes) = beaucoup
+de mises a jour d'index en cours de transaction = contention + ralentissement.</p>
 <hr />
 <h2 id="voir-aussi">Voir aussi</h2>
 <ul>
+<li><a href="../sql-joins-indexes/">SQL Joins et Index</a></li>
 <li><a href="../transaction-patterns/">Transaction Patterns</a></li>
-<li><a href="../../java/database/acid/">ACID</a></li>
+<li><a href="../../spring/spring-batch-advanced-patterns.md">Spring Batch - Patterns avancés</a></li>
+<li><a href="../optimistic-locking/">Optimistic Locking</a></li>
 </ul>
 
 
@@ -4543,9 +5523,6 @@
 
 
 
-
-  
-  
 
 
 
