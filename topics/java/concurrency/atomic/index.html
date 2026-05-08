@@ -1673,17 +1673,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#synthese_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Synthèse
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#voir-aussi" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -4624,17 +4613,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#synthese_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Synthèse
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#voir-aussi" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -4811,22 +4789,19 @@ Non</p>
 <p>basé sur quoi ?
 CAS (compare-and-set)</p>
 <hr />
+<hr />
+<hr />
 <h2 id="synthese">Synthèse</h2>
 <ul>
 <li>Atomic = opérations atomiques</li>
 <li>pas de lock</li>
 <li>performant</li>
 <li>limité aux cas simples</li>
-</ul>
-<hr />
-<h2 id="synthese_1">Synthèse</h2>
-<ul>
 <li>remplace souvent <code>synchronized</code> pour les cas simples</li>
 <li>basé sur CAS</li>
-<li>très utilisé en concurrence moderne</li>
+<li>très utilisé en concurrence moderne
+Les classes Atomic permettent un code concurrent rapide et sûr sans blocage.</li>
 </ul>
-<p>Les classes Atomic permettent un code concurrent rapide et sûr sans blocage.</p>
-<hr />
 <h2 id="voir-aussi">Voir aussi</h2>
 <ul>
 <li><a href="../race-condition/">Race Condition</a></li>
