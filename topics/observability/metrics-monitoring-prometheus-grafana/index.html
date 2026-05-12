@@ -13,10 +13,10 @@
       
       
       
-        <link rel="prev" href="../index-et-optimisation-postgresql/">
+        <link rel="prev" href="../exception-handling-spring/">
       
       
-        <link rel="next" href="../optimistic-locking/">
+        <link rel="next" href="../../devops/docker-production-pattern/">
       
       
         
@@ -27,7 +27,7 @@
     
     
       
-        <title>Transaction Patterns - Engineering Notes</title>
+        <title>(NEW) Metrics Monitoring Prometheus Grafana - Engineering Notes</title>
       
     
     
@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#transaction-patterns" class="md-skip">
+        <a href="#metrics-actuator-prometheus-grafana-dans-spring-boot" class="md-skip">
           Aller au contenu
         </a>
       
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Transaction Patterns
+              (NEW) Metrics Monitoring Prometheus Grafana
             
           </span>
         </div>
@@ -359,11 +359,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../observability/logging-architecture-java/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../logging-architecture-java/" class="md-tabs__link">
           
   
   
@@ -399,13 +401,11 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../sql-joins-indexes/" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../database/sql-joins-indexes/" class="md-tabs__link">
           
   
   
@@ -2572,28 +2572,31 @@
       
   
   
+    
   
   
+  
     
     
     
     
+      
+        
+        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" checked>
         
           
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
-        
-          
-          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="">
             
   
   
@@ -2611,7 +2614,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_8">
             <span class="md-nav__icon md-icon"></span>
             
@@ -2629,7 +2632,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../observability/logging-architecture-java/" class="md-nav__link">
+      <a href="../logging-architecture-java/" class="md-nav__link">
         
   
   
@@ -2657,7 +2660,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../observability/exception-handling-spring/" class="md-nav__link">
+      <a href="../exception-handling-spring/" class="md-nav__link">
         
   
   
@@ -2682,10 +2685,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../observability/metrics-monitoring-prometheus-grafana/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    (NEW) Metrics Monitoring Prometheus Grafana
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -2701,6 +2731,37 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Introduction
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -2974,31 +3035,28 @@
       
   
   
-    
   
   
-  
     
     
     
     
-      
-        
-        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" checked>
         
           
-          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="">
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
             
   
   
@@ -3016,7 +3074,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_10">
             <span class="md-nav__icon md-icon"></span>
             
@@ -3034,7 +3092,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sql-joins-indexes/" class="md-nav__link">
+      <a href="../../database/sql-joins-indexes/" class="md-nav__link">
         
   
   
@@ -3062,7 +3120,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../index-et-optimisation-postgresql/" class="md-nav__link">
+      <a href="../../database/index-et-optimisation-postgresql/" class="md-nav__link">
         
   
   
@@ -3087,37 +3145,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Transaction Patterns
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../database/transaction-patterns/" class="md-nav__link">
         
   
   
@@ -3133,181 +3164,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table des matières
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#contexte" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Contexte
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#transaction-locale" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Transaction locale
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#niveaux-disolation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Niveaux d'isolation
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#propagation-des-transactions-spring" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Propagation des transactions (Spring)
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#problemes-courants" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Problèmes courants
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Problèmes courants">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#lost-update" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Lost Update
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#n1-queries-dans-une-transaction" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        N+1 queries dans une transaction
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#transaction-trop-longue" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Transaction trop longue
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#transactions-distribuees" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Transactions distribuées
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Transactions distribuées">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#saga-pattern" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Saga Pattern
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#outbox-pattern" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Outbox Pattern
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#synthese" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Synthèse
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#voir-aussi" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Voir aussi
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -3320,7 +3176,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../optimistic-locking/" class="md-nav__link">
+      <a href="../../database/optimistic-locking/" class="md-nav__link">
         
   
   
@@ -5110,154 +4966,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#contexte" class="md-nav__link">
+  <a href="#introduction" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Contexte
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#transaction-locale" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Transaction locale
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#niveaux-disolation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Niveaux d'isolation
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#propagation-des-transactions-spring" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Propagation des transactions (Spring)
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#problemes-courants" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Problèmes courants
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Problèmes courants">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#lost-update" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Lost Update
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#n1-queries-dans-une-transaction" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        N+1 queries dans une transaction
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#transaction-trop-longue" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Transaction trop longue
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#transactions-distribuees" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Transactions distribuées
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Transactions distribuées">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#saga-pattern" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Saga Pattern
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#outbox-pattern" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Outbox Pattern
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#synthese" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Synthèse
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#voir-aussi" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Voir aussi
+        Introduction
       
     </span>
   </a>
@@ -5279,173 +4991,172 @@
                 
                   
 
-  <nav class="md-tags" >
-    
-      
-      
-      
-      
-        <a href="../../../tags/#tag:database" class="md-tag">database</a>
-      
-    
-  </nav>
 
 
-
-<h1 id="transaction-patterns">Transaction Patterns</h1>
-<h2 id="contexte">Contexte</h2>
-<p>Une transaction regroupe plusieurs opérations en une unité atomique : soit tout réussit, soit tout est annulé. En architecture distribuée, la gestion des transactions devient complexe.</p>
-<hr />
-<h2 id="transaction-locale">Transaction locale</h2>
-<p>Une seule base de données, gérée par le SGBD :</p>
-<div class="highlight"><pre><span></span><code><span class="nd">@Transactional</span>
-<span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">createOrder</span><span class="p">(</span><span class="n">OrderRequest</span><span class="w"> </span><span class="n">request</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">Order</span><span class="w"> </span><span class="n">order</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">orderRepository</span><span class="p">.</span><span class="na">save</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Order</span><span class="p">(</span><span class="n">request</span><span class="p">));</span>
-<span class="w">    </span><span class="n">inventoryRepository</span><span class="p">.</span><span class="na">decrementStock</span><span class="p">(</span><span class="n">request</span><span class="p">.</span><span class="na">getProductId</span><span class="p">(),</span><span class="w"> </span><span class="n">request</span><span class="p">.</span><span class="na">getQuantity</span><span class="p">());</span>
-<span class="w">    </span><span class="c1">// Si une exception est levée, tout est rollback</span>
-<span class="p">}</span>
-</code></pre></div>
-<p>Le SGBD garantit les propriétés ACID pour les transactions locales.</p>
-<hr />
-<h2 id="niveaux-disolation">Niveaux d'isolation</h2>
-<table>
-<thead>
-<tr>
-<th>Niveau</th>
-<th>Dirty Read</th>
-<th>Non-repeatable Read</th>
-<th>Phantom Read</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>READ UNCOMMITTED</td>
-<td>Possible</td>
-<td>Possible</td>
-<td>Possible</td>
-</tr>
-<tr>
-<td>READ COMMITTED</td>
-<td>Non</td>
-<td>Possible</td>
-<td>Possible</td>
-</tr>
-<tr>
-<td>REPEATABLE READ</td>
-<td>Non</td>
-<td>Non</td>
-<td>Possible</td>
-</tr>
-<tr>
-<td>SERIALIZABLE</td>
-<td>Non</td>
-<td>Non</td>
-<td>Non</td>
-</tr>
-</tbody>
-</table>
-<p>PostgreSQL utilise READ COMMITTED par défaut. SERIALIZABLE offre la plus forte garantie mais réduit la concurrence.</p>
-<div class="highlight"><pre><span></span><code><span class="nd">@Transactional</span><span class="p">(</span><span class="n">isolation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Isolation</span><span class="p">.</span><span class="na">REPEATABLE_READ</span><span class="p">)</span>
-<span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">processPayment</span><span class="p">(</span><span class="n">Long</span><span class="w"> </span><span class="n">orderId</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="c1">// ...</span>
-<span class="p">}</span>
-</code></pre></div>
-<hr />
-<h2 id="propagation-des-transactions-spring">Propagation des transactions (Spring)</h2>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Comportement</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>REQUIRED (défaut)</td>
-<td>Rejoint la transaction existante ou en crée une nouvelle</td>
-</tr>
-<tr>
-<td>REQUIRES_NEW</td>
-<td>Crée toujours une nouvelle transaction (suspend l'existante)</td>
-</tr>
-<tr>
-<td>NESTED</td>
-<td>Crée un savepoint dans la transaction existante</td>
-</tr>
-<tr>
-<td>SUPPORTS</td>
-<td>Utilise la transaction si elle existe, sinon exécute sans</td>
-</tr>
-<tr>
-<td>NOT_SUPPORTED</td>
-<td>Exécute sans transaction (suspend l'existante)</td>
-</tr>
-</tbody>
-</table>
-<div class="highlight"><pre><span></span><code><span class="nd">@Transactional</span><span class="p">(</span><span class="n">propagation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Propagation</span><span class="p">.</span><span class="na">REQUIRES_NEW</span><span class="p">)</span>
-<span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">sendNotification</span><span class="p">(</span><span class="n">Order</span><span class="w"> </span><span class="n">order</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="c1">// Transaction indépendante — un échec ici ne rollback pas la commande</span>
-<span class="p">}</span>
-</code></pre></div>
-<hr />
-<h2 id="problemes-courants">Problèmes courants</h2>
-<h3 id="lost-update">Lost Update</h3>
-<p>Deux transactions lisent puis écrivent la même donnée — la dernière écriture écrase la première.</p>
-<p><strong>Solution</strong> : optimistic locking avec <code>@Version</code>.</p>
-<h3 id="n1-queries-dans-une-transaction">N+1 queries dans une transaction</h3>
-<div class="highlight"><pre><span></span><code><span class="n">List</span><span class="o">&lt;</span><span class="n">Order</span><span class="o">&gt;</span><span class="w"> </span><span class="n">orders</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">orderRepository</span><span class="p">.</span><span class="na">findAll</span><span class="p">();</span>
-<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">Order</span><span class="w"> </span><span class="n">order</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">orders</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">order</span><span class="p">.</span><span class="na">getItems</span><span class="p">().</span><span class="na">size</span><span class="p">();</span><span class="w"> </span><span class="c1">// N requêtes supplémentaires</span>
-<span class="p">}</span>
-</code></pre></div>
-<p><strong>Solution</strong> : <code>JOIN FETCH</code> ou <code>@EntityGraph</code>.</p>
-<h3 id="transaction-trop-longue">Transaction trop longue</h3>
-<p>Une transaction qui inclut des appels HTTP ou des traitements longs garde un lock en base.</p>
-<p><strong>Solution</strong> : limiter la transaction aux opérations base de données, externaliser le reste.</p>
-<hr />
-<h2 id="transactions-distribuees">Transactions distribuées</h2>
-<p>Quand plusieurs services ont chacun leur base de données, une transaction locale ne suffit plus.</p>
-<h3 id="saga-pattern">Saga Pattern</h3>
-<p>Séquence de transactions locales avec compensation :</p>
-<div class="highlight"><pre><span></span><code>Commande créée → Paiement effectué → Stock réservé
-                                       ↓ (échec)
-                                   Paiement annulé ← Compensation
-</code></pre></div>
-<p>Deux approches :</p>
+<h1 id="metrics-actuator-prometheus-grafana-dans-spring-boot">Metrics, Actuator, Prometheus &amp; Grafana dans Spring Boot</h1>
+<div class="admonition note">
+<p>Note de contexte (12 mai 2026) : cette note constitue un retour d’expérience suite à des échanges avec des experts du domaine. Elle est rédigée le jour même et vise à structurer les notions abordées pour consolidation et montée en compétence.</p>
+</div>
+<h2 id="introduction">Introduction</h2>
+<p>Les métriques sont un pilier essentiel de l’observabilité dans les systèmes backend modernes.</p>
+<p>Contrairement aux logs (événements textuels) et aux traces (parcours de requêtes), les métriques représentent des données numériques agrégées permettant de comprendre l’état global d’un système.</p>
+<p>Elles servent principalement à :</p>
 <ul>
-<li><strong>Choreography</strong> — chaque service écoute les événements et réagit</li>
-<li><strong>Orchestration</strong> — un coordinateur central pilote la séquence</li>
+<li>surveiller la santé du système</li>
+<li>détecter les anomalies</li>
+<li>comprendre les performances</li>
+<li>déclencher des alertes</li>
+<li>visualiser l’évolution dans le temps</li>
 </ul>
-<h3 id="outbox-pattern">Outbox Pattern</h3>
-<p>Garantit qu'un événement est publié si et seulement si la transaction locale réussit :</p>
+<hr />
+<h1 id="observabilite-place-des-metriques">Observabilité : place des métriques</h1>
+<p>L’observabilité repose sur trois piliers :</p>
+<ul>
+<li>logs → événements détaillés</li>
+<li>traces → parcours d’une requête</li>
+<li>métriques → état global quantifié</li>
+</ul>
+<p>Les métriques permettent de répondre à des questions comme :</p>
+<ul>
+<li>combien de requêtes par seconde ?</li>
+<li>quel est le taux d’erreur ?</li>
+<li>quelle est la latence moyenne ?</li>
+<li>combien de ressources sont utilisées ?</li>
+</ul>
+<hr />
+<h1 id="spring-boot-actuator">Spring Boot Actuator</h1>
+<p>Spring Boot Actuator expose des endpoints permettant d’observer l’état interne d’une application.</p>
+<p>Il fournit des informations prêtes à l’emploi sur :</p>
+<ul>
+<li>la santé de l’application</li>
+<li>les métriques JVM</li>
+<li>les threads</li>
+<li>la mémoire</li>
+<li>les endpoints HTTP</li>
+</ul>
+<h2 id="endpoints-principaux">Endpoints principaux</h2>
+<ul>
+<li>/actuator/health → état global</li>
+<li>/actuator/metrics → métriques système</li>
+<li>/actuator/info → informations applicatives</li>
+<li>/actuator/prometheus → exposition des métriques</li>
+</ul>
+<hr />
+<h1 id="health-check">Health Check</h1>
+<p>Le health check permet de déterminer si une application est opérationnelle.</p>
+<p>Il peut inclure :</p>
+<ul>
+<li>base de données</li>
+<li>Kafka</li>
+<li>services externes</li>
+<li>dépendances critiques</li>
+</ul>
+<p>Un système peut être "UP", "DOWN" ou "DEGRADED" selon son état.</p>
+<hr />
+<h1 id="micrometer">Micrometer</h1>
+<p>Micrometer est la bibliothèque utilisée par Spring Boot pour gérer les métriques.</p>
+<p>Il agit comme une couche d’abstraction entre l’application et les systèmes de monitoring.</p>
+<p>Micrometer permet de :</p>
+<ul>
+<li>créer des métriques personnalisées</li>
+<li>exposer des compteurs</li>
+<li>mesurer des temps d’exécution</li>
+<li>collecter des métriques JVM</li>
+</ul>
+<h2 id="types-de-metriques">Types de métriques</h2>
+<ul>
+<li>Counter → compteur incrémental</li>
+<li>Gauge → valeur instantanée</li>
+<li>Timer → durée d’exécution</li>
+<li>DistributionSummary → distribution statistique</li>
+</ul>
+<hr />
+<h1 id="prometheus">Prometheus</h1>
+<p>Prometheus est un système de monitoring basé sur un modèle de scraping.</p>
+<p>Il interroge périodiquement les applications pour récupérer leurs métriques.</p>
+<h2 id="fonctionnement">Fonctionnement</h2>
 <ol>
-<li>écrire dans la table métier ET dans la table <code>outbox</code> dans la même transaction</li>
-<li>un processus séparé lit la table <code>outbox</code> et publie vers Kafka</li>
+<li>Spring Boot expose /actuator/prometheus</li>
+<li>Prometheus scrape cet endpoint régulièrement</li>
+<li>Les métriques sont stockées dans sa base temporelle</li>
 </ol>
 <hr />
-<h2 id="synthese">Synthèse</h2>
+<h1 id="modele-pull-vs-push">Modèle Pull vs Push</h1>
+<p>Prometheus fonctionne en mode pull :</p>
 <ul>
-<li><code>@Transactional</code> gère les transactions locales avec Spring</li>
-<li>le niveau d'isolation par défaut (READ COMMITTED) suffit dans la plupart des cas</li>
-<li>ne jamais inclure d'appels HTTP ou de traitements longs dans une transaction</li>
-<li>en distribué, utiliser le saga pattern avec compensation</li>
-<li>l'outbox pattern garantit la cohérence entre la base et le broker</li>
+<li>il va chercher les métriques</li>
+<li>l’application n’envoie rien activement</li>
+</ul>
+<p>Cela permet :</p>
+<ul>
+<li>contrôle centralisé</li>
+<li>meilleure résilience</li>
+<li>simplicité côté application</li>
 </ul>
 <hr />
-<h2 id="voir-aussi">Voir aussi</h2>
+<h1 id="grafana">Grafana</h1>
+<p>Grafana est un outil de visualisation des métriques.</p>
+<p>Il permet de :</p>
 <ul>
-<li><a href="../../java/database/acid/">ACID</a></li>
-<li><a href="../optimistic-locking/">Optimistic Locking</a></li>
+<li>créer des dashboards</li>
+<li>visualiser les métriques Prometheus</li>
+<li>analyser les tendances</li>
+<li>surveiller la santé du système</li>
 </ul>
+<hr />
+<h1 id="custom-metrics">Custom Metrics</h1>
+<p>En plus des métriques système, il est possible de définir des métriques métier.</p>
+<p>Exemples :</p>
+<ul>
+<li>nombre de commandes créées</li>
+<li>taux de succès d’un paiement</li>
+<li>nombre d’événements Kafka traités</li>
+</ul>
+<p>Ces métriques permettent de relier technique et business.</p>
+<hr />
+<h1 id="jvm-metrics">JVM Metrics</h1>
+<p>Spring Boot expose automatiquement des métriques JVM :</p>
+<ul>
+<li>mémoire heap / non-heap</li>
+<li>garbage collection</li>
+<li>threads actifs</li>
+<li>CPU usage</li>
+</ul>
+<p>Ces métriques sont essentielles pour diagnostiquer les problèmes de performance.</p>
+<hr />
+<h1 id="alerting">Alerting</h1>
+<p>Les métriques servent aussi à déclencher des alertes.</p>
+<p>Exemples :</p>
+<ul>
+<li>taux d’erreur &gt; seuil</li>
+<li>latence trop élevée</li>
+<li>mémoire saturée</li>
+<li>service down</li>
+</ul>
+<p>Les alertes permettent une réaction proactive avant l’incident critique.</p>
+<hr />
+<h1 id="production-mindset">Production mindset</h1>
+<p>Les métriques permettent de répondre à une question essentielle :</p>
+<blockquote>
+<p>le système est-il en bonne santé sans avoir à lire les logs ?</p>
+</blockquote>
+<p>Elles sont indispensables pour :</p>
+<ul>
+<li>la supervision</li>
+<li>la fiabilité</li>
+<li>la scalabilité</li>
+<li>la détection d’incidents</li>
+</ul>
+<hr />
+<h1 id="conclusion">Conclusion</h1>
+<p>Les métriques, combinées à Actuator, Prometheus et Grafana, constituent la base de l’observabilité moderne.</p>
+<p>Elles transforment un système backend en un système mesurable, observable et pilotable en production.</p>
 
 
 
 
 
 
-
-  
-  
 
 
 
