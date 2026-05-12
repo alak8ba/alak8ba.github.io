@@ -14,25 +14,23 @@
       
       
       
-        <link rel="next" href="about/">
-      
       
         
       
       
-      <link rel="icon" href="assets/favicon.png">
+      <link rel="icon" href="../../../assets/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
-        <title>Engineering Notes</title>
+        <title>Architecture de Logging dans les Applications Java - Engineering Notes</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -51,9 +49,9 @@
       
     
     
-      <link rel="stylesheet" href="stylesheets/extra.css">
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -78,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#engineering-notes" class="md-skip">
+        <a href="#architecture-de-logging-dans-les-applications-java" class="md-skip">
           Aller au contenu
         </a>
       
@@ -92,9 +90,9 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="En-tête">
-    <a href="." title="Engineering Notes" class="md-header__button md-logo" aria-label="Engineering Notes" data-md-component="logo">
+    <a href="../../.." title="Engineering Notes" class="md-header__button md-logo" aria-label="Engineering Notes" data-md-component="logo">
       
-  <img src="assets/favicon.png" alt="logo">
+  <img src="../../../assets/favicon.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -111,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Home
+              Architecture de Logging dans les Applications Java
             
           </span>
         </div>
@@ -210,11 +208,9 @@
   
   
   
-    
   
-  
-    <li class="md-tabs__item md-tabs__item--active">
-      <a href="." class="md-tabs__link">
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
         
   
   
@@ -233,7 +229,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="about/" class="md-tabs__link">
+      <a href="../../../about/" class="md-tabs__link">
         
   
   
@@ -252,7 +248,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="tags/" class="md-tabs__link">
+      <a href="../../../tags/" class="md-tabs__link">
         
   
   
@@ -280,7 +276,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="topics/java/fundamentals/equals-vs-double-equals/" class="md-tabs__link">
+        <a href="../../java/fundamentals/equals-vs-double-equals/" class="md-tabs__link">
           
   
   
@@ -303,7 +299,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="topics/architecture/cqrs-pattern/" class="md-tabs__link">
+        <a href="../../architecture/cqrs-pattern/" class="md-tabs__link">
           
   
   
@@ -323,7 +319,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="topics/kafka/retry-and-dlt-pattern/" class="md-tabs__link">
+        <a href="../../kafka/retry-and-dlt-pattern/" class="md-tabs__link">
           
   
   
@@ -343,7 +339,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="topics/security/jwt-authentication-pattern/" class="md-tabs__link">
+        <a href="../../security/jwt-authentication-pattern/" class="md-tabs__link">
           
   
   
@@ -363,7 +359,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="topics/observability/logging-architecture-java" class="md-tabs__link">
+        <a href="." class="md-tabs__link">
           
   
   
@@ -383,7 +379,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="topics/devops/docker-production-pattern/" class="md-tabs__link">
+        <a href="../../devops/docker-production-pattern/" class="md-tabs__link">
           
   
   
@@ -403,7 +399,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="topics/database/sql-joins-indexes/" class="md-tabs__link">
+        <a href="../../database/sql-joins-indexes/" class="md-tabs__link">
           
   
   
@@ -423,7 +419,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="topics/http/http-basics/" class="md-tabs__link">
+        <a href="../../http/http-basics/" class="md-tabs__link">
           
   
   
@@ -443,7 +439,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="topics/testing/testcontainers-pattern/" class="md-tabs__link">
+        <a href="../../testing/testcontainers-pattern/" class="md-tabs__link">
           
   
   
@@ -463,7 +459,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="topics/javascript/fundamentals/typescript-basics/" class="md-tabs__link">
+        <a href="../../javascript/fundamentals/typescript-basics/" class="md-tabs__link">
           
   
   
@@ -483,7 +479,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="projects/booking-platform/project-overview/" class="md-tabs__link">
+        <a href="../../../projects/booking-platform/project-overview/" class="md-tabs__link">
           
   
   
@@ -503,7 +499,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="socles/" class="md-tabs__link">
+        <a href="../../../socles/" class="md-tabs__link">
           
   
   
@@ -526,9 +522,7 @@
           
             
               
-                
-              
-              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" hidden>
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -539,9 +533,9 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="Engineering Notes" class="md-nav__button md-logo" aria-label="Engineering Notes" data-md-component="logo">
+    <a href="../../.." title="Engineering Notes" class="md-nav__button md-logo" aria-label="Engineering Notes" data-md-component="logo">
       
-  <img src="assets/favicon.png" alt="logo">
+  <img src="../../../assets/favicon.png" alt="logo">
 
     </a>
     Engineering Notes
@@ -553,37 +547,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Home
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="." class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
         
   
   
@@ -599,37 +566,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table des matières
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#contenu" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Contenu
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -641,7 +577,7 @@
   
   
     <li class="md-nav__item">
-      <a href="about/" class="md-nav__link">
+      <a href="../../../about/" class="md-nav__link">
         
   
   
@@ -668,7 +604,7 @@
   
   
     <li class="md-nav__item">
-      <a href="tags/" class="md-nav__link">
+      <a href="../../../tags/" class="md-nav__link">
         
   
   
@@ -803,7 +739,7 @@
   
   
     <li class="md-nav__item">
-      <a href="topics/java/fundamentals/equals-vs-double-equals/" class="md-nav__link">
+      <a href="../../java/fundamentals/equals-vs-double-equals/" class="md-nav__link">
         
   
   
@@ -831,7 +767,7 @@
   
   
     <li class="md-nav__item">
-      <a href="topics/java/fundamentals/autoboxing/" class="md-nav__link">
+      <a href="../../java/fundamentals/autoboxing/" class="md-nav__link">
         
   
   
@@ -859,7 +795,7 @@
   
   
     <li class="md-nav__item">
-      <a href="topics/java/fundamentals/final/" class="md-nav__link">
+      <a href="../../java/fundamentals/final/" class="md-nav__link">
         
   
   
@@ -887,7 +823,7 @@
   
   
     <li class="md-nav__item">
-      <a href="topics/java/fundamentals/generics/" class="md-nav__link">
+      <a href="../../java/fundamentals/generics/" class="md-nav__link">
         
   
   
@@ -915,7 +851,7 @@
   
   
     <li class="md-nav__item">
-      <a href="topics/java/fundamentals/instanceof/" class="md-nav__link">
+      <a href="../../java/fundamentals/instanceof/" class="md-nav__link">
         
   
   
@@ -943,7 +879,7 @@
   
   
     <li class="md-nav__item">
-      <a href="topics/java/fundamentals/integer-cache/" class="md-nav__link">
+      <a href="../../java/fundamentals/integer-cache/" class="md-nav__link">
         
   
   
@@ -971,7 +907,7 @@
   
   
     <li class="md-nav__item">
-      <a href="topics/java/fundamentals/java-protected/" class="md-nav__link">
+      <a href="../../java/fundamentals/java-protected/" class="md-nav__link">
         
   
   
@@ -999,7 +935,7 @@
   
   
     <li class="md-nav__item">
-      <a href="topics/java/fundamentals/java-static/" class="md-nav__link">
+      <a href="../../java/fundamentals/java-static/" class="md-nav__link">
         
   
   
@@ -1027,7 +963,7 @@
   
   
     <li class="md-nav__item">
-      <a href="topics/java/fundamentals/static-generic-method/" class="md-nav__link">
+      <a href="../../java/fundamentals/static-generic-method/" class="md-nav__link">
         
   
   
@@ -1117,7 +1053,7 @@
   
   
     <li class="md-nav__item">
-      <a href="topics/java/collections/list-set-map/" class="md-nav__link">
+      <a href="../../java/collections/list-set-map/" class="md-nav__link">
         
   
   
@@ -1145,7 +1081,7 @@
   
   
     <li class="md-nav__item">
-      <a href="topics/java/collections/hashmap/" class="md-nav__link">
+      <a href="../../java/collections/hashmap/" class="md-nav__link">
         
   
   
@@ -1173,7 +1109,7 @@
   
   
     <li class="md-nav__item">
-      <a href="topics/java/collections/hashmap-treemap-linkedhashmap/" class="md-nav__link">
+      <a href="../../java/collections/hashmap-treemap-linkedhashmap/" class="md-nav__link">
         
   
   
@@ -1201,7 +1137,7 @@
   
   
     <li class="md-nav__item">
-      <a href="topics/java/collections/hashtable/" class="md-nav__link">
+      <a href="../../java/collections/hashtable/" class="md-nav__link">
         
   
   
@@ -1229,7 +1165,7 @@
   
   
     <li class="md-nav__item">
-      <a href="topics/java/collections/concurrenthashmap/" class="md-nav__link">
+      <a href="../../java/collections/concurrenthashmap/" class="md-nav__link">
         
   
   
@@ -1257,7 +1193,7 @@
   
   
     <li class="md-nav__item">
-      <a href="topics/java/collections/iterator/" class="md-nav__link">
+      <a href="../../java/collections/iterator/" class="md-nav__link">
         
   
   
@@ -1285,7 +1221,7 @@
   
   
     <li class="md-nav__item">
-      <a href="topics/java/collections/algorithms-complexity/" class="md-nav__link">
+      <a href="../../java/collections/algorithms-complexity/" class="md-nav__link">
         
   
   
@@ -1375,7 +1311,7 @@
   
   
     <li class="md-nav__item">
-      <a href="topics/java/concurrency/race-condition/" class="md-nav__link">
+      <a href="../../java/concurrency/race-condition/" class="md-nav__link">
         
   
   
@@ -1403,7 +1339,7 @@
   
   
     <li class="md-nav__item">
-      <a href="topics/java/concurrency/deadlock/" class="md-nav__link">
+      <a href="../../java/concurrency/deadlock/" class="md-nav__link">
         
   
   
@@ -1431,7 +1367,7 @@
   
   
     <li class="md-nav__item">
-      <a href="topics/java/concurrency/synchronized/" class="md-nav__link">
+      <a href="../../java/concurrency/synchronized/" class="md-nav__link">
         
   
   
@@ -1459,7 +1395,7 @@
   
   
     <li class="md-nav__item">
-      <a href="topics/java/concurrency/volatile/" class="md-nav__link">
+      <a href="../../java/concurrency/volatile/" class="md-nav__link">
         
   
   
@@ -1487,7 +1423,7 @@
   
   
     <li class="md-nav__item">
-      <a href="topics/java/concurrency/atomic/" class="md-nav__link">
+      <a href="../../java/concurrency/atomic/" class="md-nav__link">
         
   
   
@@ -1577,7 +1513,7 @@
   
   
     <li class="md-nav__item">
-      <a href="topics/java/oop/inheritance/" class="md-nav__link">
+      <a href="../../java/oop/inheritance/" class="md-nav__link">
         
   
   
@@ -1605,7 +1541,7 @@
   
   
     <li class="md-nav__item">
-      <a href="topics/java/oop/polymorphism/" class="md-nav__link">
+      <a href="../../java/oop/polymorphism/" class="md-nav__link">
         
   
   
@@ -1633,7 +1569,7 @@
   
   
     <li class="md-nav__item">
-      <a href="topics/java/oop/solid/" class="md-nav__link">
+      <a href="../../java/oop/solid/" class="md-nav__link">
         
   
   
@@ -1723,7 +1659,7 @@
   
   
     <li class="md-nav__item">
-      <a href="topics/java/design-patterns/singleton-pattern/" class="md-nav__link">
+      <a href="../../java/design-patterns/singleton-pattern/" class="md-nav__link">
         
   
   
@@ -1751,7 +1687,7 @@
   
   
     <li class="md-nav__item">
-      <a href="topics/java/design-patterns/factory-pattern/" class="md-nav__link">
+      <a href="../../java/design-patterns/factory-pattern/" class="md-nav__link">
         
   
   
@@ -1779,7 +1715,7 @@
   
   
     <li class="md-nav__item">
-      <a href="topics/java/design-patterns/dependency-injection/" class="md-nav__link">
+      <a href="../../java/design-patterns/dependency-injection/" class="md-nav__link">
         
   
   
@@ -1869,7 +1805,7 @@
   
   
     <li class="md-nav__item">
-      <a href="topics/java/spring/bean-scopes/" class="md-nav__link">
+      <a href="../../java/spring/bean-scopes/" class="md-nav__link">
         
   
   
@@ -1897,7 +1833,7 @@
   
   
     <li class="md-nav__item">
-      <a href="topics/java/spring/hibernate-jpa/" class="md-nav__link">
+      <a href="../../java/spring/hibernate-jpa/" class="md-nav__link">
         
   
   
@@ -1925,7 +1861,7 @@
   
   
     <li class="md-nav__item">
-      <a href="topics/spring/spring-batch-migration-sb2-java8-to-sb5-java21/" class="md-nav__link">
+      <a href="../../spring/spring-batch-migration-sb2-java8-to-sb5-java21/" class="md-nav__link">
         
   
   
@@ -1953,7 +1889,7 @@
   
   
     <li class="md-nav__item">
-      <a href="topics/spring/spring-batch-advanced-patterns/" class="md-nav__link">
+      <a href="../../spring/spring-batch-advanced-patterns/" class="md-nav__link">
         
   
   
@@ -2043,7 +1979,7 @@
   
   
     <li class="md-nav__item">
-      <a href="topics/java/database/acid/" class="md-nav__link">
+      <a href="../../java/database/acid/" class="md-nav__link">
         
   
   
@@ -2140,7 +2076,7 @@
   
   
     <li class="md-nav__item">
-      <a href="topics/architecture/cqrs-pattern/" class="md-nav__link">
+      <a href="../../architecture/cqrs-pattern/" class="md-nav__link">
         
   
   
@@ -2168,7 +2104,7 @@
   
   
     <li class="md-nav__item">
-      <a href="topics/architecture/rest-api-design/" class="md-nav__link">
+      <a href="../../architecture/rest-api-design/" class="md-nav__link">
         
   
   
@@ -2196,7 +2132,7 @@
   
   
     <li class="md-nav__item">
-      <a href="topics/spring/hexagonal-architecture/" class="md-nav__link">
+      <a href="../../spring/hexagonal-architecture/" class="md-nav__link">
         
   
   
@@ -2285,7 +2221,7 @@
   
   
     <li class="md-nav__item">
-      <a href="topics/kafka/retry-and-dlt-pattern/" class="md-nav__link">
+      <a href="../../kafka/retry-and-dlt-pattern/" class="md-nav__link">
         
   
   
@@ -2313,7 +2249,7 @@
   
   
     <li class="md-nav__item">
-      <a href="topics/kafka/idempotent-consumers/" class="md-nav__link">
+      <a href="../../kafka/idempotent-consumers/" class="md-nav__link">
         
   
   
@@ -2341,7 +2277,7 @@
   
   
     <li class="md-nav__item">
-      <a href="topics/kafka/outbox-pattern/" class="md-nav__link">
+      <a href="../../kafka/outbox-pattern/" class="md-nav__link">
         
   
   
@@ -2369,7 +2305,7 @@
   
   
     <li class="md-nav__item">
-      <a href="topics/kafka/reliability-patterns/" class="md-nav__link">
+      <a href="../../kafka/reliability-patterns/" class="md-nav__link">
         
   
   
@@ -2397,7 +2333,7 @@
   
   
     <li class="md-nav__item">
-      <a href="topics/kafka/consumer-rebalance/" class="md-nav__link">
+      <a href="../../kafka/consumer-rebalance/" class="md-nav__link">
         
   
   
@@ -2425,7 +2361,7 @@
   
   
     <li class="md-nav__item">
-      <a href="topics/distributed/eventual-consistency/" class="md-nav__link">
+      <a href="../../distributed/eventual-consistency/" class="md-nav__link">
         
   
   
@@ -2514,7 +2450,7 @@
   
   
     <li class="md-nav__item">
-      <a href="topics/security/jwt-authentication-pattern/" class="md-nav__link">
+      <a href="../../security/jwt-authentication-pattern/" class="md-nav__link">
         
   
   
@@ -2542,7 +2478,7 @@
   
   
     <li class="md-nav__item">
-      <a href="topics/security/cors/" class="md-nav__link">
+      <a href="../../security/cors/" class="md-nav__link">
         
   
   
@@ -2570,7 +2506,7 @@
   
   
     <li class="md-nav__item">
-      <a href="topics/security/cookie-security/" class="md-nav__link">
+      <a href="../../security/cookie-security/" class="md-nav__link">
         
   
   
@@ -2598,7 +2534,7 @@
   
   
     <li class="md-nav__item">
-      <a href="topics/security/http-security-headers/" class="md-nav__link">
+      <a href="../../security/http-security-headers/" class="md-nav__link">
         
   
   
@@ -2687,7 +2623,7 @@
   
   
     <li class="md-nav__item">
-      <a href="topics/observability/logging-architecture-java" class="md-nav__link">
+      <a href="." class="md-nav__link">
         
   
   
@@ -2776,7 +2712,7 @@
   
   
     <li class="md-nav__item">
-      <a href="topics/devops/docker-production-pattern/" class="md-nav__link">
+      <a href="../../devops/docker-production-pattern/" class="md-nav__link">
         
   
   
@@ -2804,7 +2740,7 @@
   
   
     <li class="md-nav__item">
-      <a href="topics/devops/docker-networking/" class="md-nav__link">
+      <a href="../../devops/docker-networking/" class="md-nav__link">
         
   
   
@@ -2832,7 +2768,7 @@
   
   
     <li class="md-nav__item">
-      <a href="topics/devops/container-security/" class="md-nav__link">
+      <a href="../../devops/container-security/" class="md-nav__link">
         
   
   
@@ -2860,7 +2796,7 @@
   
   
     <li class="md-nav__item">
-      <a href="topics/devops/reverse-proxy-pattern/" class="md-nav__link">
+      <a href="../../devops/reverse-proxy-pattern/" class="md-nav__link">
         
   
   
@@ -2888,7 +2824,7 @@
   
   
     <li class="md-nav__item">
-      <a href="topics/devops/pull-based-deployment/" class="md-nav__link">
+      <a href="../../devops/pull-based-deployment/" class="md-nav__link">
         
   
   
@@ -2916,7 +2852,7 @@
   
   
     <li class="md-nav__item">
-      <a href="topics/devops/ci-cd-pipeline-pattern/" class="md-nav__link">
+      <a href="../../devops/ci-cd-pipeline-pattern/" class="md-nav__link">
         
   
   
@@ -2944,7 +2880,7 @@
   
   
     <li class="md-nav__item">
-      <a href="topics/devops/observability-pattern/" class="md-nav__link">
+      <a href="../../devops/observability-pattern/" class="md-nav__link">
         
   
   
@@ -3033,7 +2969,7 @@
   
   
     <li class="md-nav__item">
-      <a href="topics/database/sql-joins-indexes/" class="md-nav__link">
+      <a href="../../database/sql-joins-indexes/" class="md-nav__link">
         
   
   
@@ -3061,7 +2997,7 @@
   
   
     <li class="md-nav__item">
-      <a href="topics/database/index-et-optimisation-postgresql/" class="md-nav__link">
+      <a href="../../database/index-et-optimisation-postgresql/" class="md-nav__link">
         
   
   
@@ -3089,7 +3025,7 @@
   
   
     <li class="md-nav__item">
-      <a href="topics/database/transaction-patterns/" class="md-nav__link">
+      <a href="../../database/transaction-patterns/" class="md-nav__link">
         
   
   
@@ -3117,7 +3053,7 @@
   
   
     <li class="md-nav__item">
-      <a href="topics/database/optimistic-locking/" class="md-nav__link">
+      <a href="../../database/optimistic-locking/" class="md-nav__link">
         
   
   
@@ -3206,7 +3142,7 @@
   
   
     <li class="md-nav__item">
-      <a href="topics/http/http-basics/" class="md-nav__link">
+      <a href="../../http/http-basics/" class="md-nav__link">
         
   
   
@@ -3295,7 +3231,7 @@
   
   
     <li class="md-nav__item">
-      <a href="topics/testing/testcontainers-pattern/" class="md-nav__link">
+      <a href="../../testing/testcontainers-pattern/" class="md-nav__link">
         
   
   
@@ -3384,7 +3320,7 @@
   
   
     <li class="md-nav__item">
-      <a href="topics/javascript/fundamentals/typescript-basics/" class="md-nav__link">
+      <a href="../../javascript/fundamentals/typescript-basics/" class="md-nav__link">
         
   
   
@@ -3412,7 +3348,7 @@
   
   
     <li class="md-nav__item">
-      <a href="topics/javascript/fundamentals/javascript-pitfalls/" class="md-nav__link">
+      <a href="../../javascript/fundamentals/javascript-pitfalls/" class="md-nav__link">
         
   
   
@@ -3501,7 +3437,7 @@
   
   
     <li class="md-nav__item">
-      <a href="projects/booking-platform/project-overview/" class="md-nav__link">
+      <a href="../../../projects/booking-platform/project-overview/" class="md-nav__link">
         
   
   
@@ -3529,7 +3465,7 @@
   
   
     <li class="md-nav__item">
-      <a href="projects/booking-platform/architecture-overview/" class="md-nav__link">
+      <a href="../../../projects/booking-platform/architecture-overview/" class="md-nav__link">
         
   
   
@@ -3557,7 +3493,7 @@
   
   
     <li class="md-nav__item">
-      <a href="projects/booking-platform/ci-cd-overview/" class="md-nav__link">
+      <a href="../../../projects/booking-platform/ci-cd-overview/" class="md-nav__link">
         
   
   
@@ -3585,7 +3521,7 @@
   
   
     <li class="md-nav__item">
-      <a href="projects/booking-platform/security-overview/" class="md-nav__link">
+      <a href="../../../projects/booking-platform/security-overview/" class="md-nav__link">
         
   
   
@@ -3613,7 +3549,7 @@
   
   
     <li class="md-nav__item">
-      <a href="projects/booking-platform/observability-overview/" class="md-nav__link">
+      <a href="../../../projects/booking-platform/observability-overview/" class="md-nav__link">
         
   
   
@@ -3695,7 +3631,7 @@
   
   
     <li class="md-nav__item">
-      <a href="projects/booking-platform/notes/authentication-system/" class="md-nav__link">
+      <a href="../../../projects/booking-platform/notes/authentication-system/" class="md-nav__link">
         
   
   
@@ -3723,7 +3659,7 @@
   
   
     <li class="md-nav__item">
-      <a href="projects/booking-platform/notes/infrastructure-setup/" class="md-nav__link">
+      <a href="../../../projects/booking-platform/notes/infrastructure-setup/" class="md-nav__link">
         
   
   
@@ -3751,7 +3687,7 @@
   
   
     <li class="md-nav__item">
-      <a href="projects/booking-platform/notes/event-architecture-kafka/" class="md-nav__link">
+      <a href="../../../projects/booking-platform/notes/event-architecture-kafka/" class="md-nav__link">
         
   
   
@@ -3779,7 +3715,7 @@
   
   
     <li class="md-nav__item">
-      <a href="projects/booking-platform/notes/security-hardening/" class="md-nav__link">
+      <a href="../../../projects/booking-platform/notes/security-hardening/" class="md-nav__link">
         
   
   
@@ -3807,7 +3743,7 @@
   
   
     <li class="md-nav__item">
-      <a href="projects/booking-platform/notes/production-stability/" class="md-nav__link">
+      <a href="../../../projects/booking-platform/notes/production-stability/" class="md-nav__link">
         
   
   
@@ -3897,7 +3833,7 @@
   
   
     <li class="md-nav__item">
-      <a href="projects/booking-platform/adrs/" class="md-nav__link">
+      <a href="../../../projects/booking-platform/adrs/" class="md-nav__link">
         
   
   
@@ -3925,7 +3861,7 @@
   
   
     <li class="md-nav__item">
-      <a href="projects/booking-platform/adrs/ADR-001-event-driven-architecture/" class="md-nav__link">
+      <a href="../../../projects/booking-platform/adrs/ADR-001-event-driven-architecture/" class="md-nav__link">
         
   
   
@@ -3953,7 +3889,7 @@
   
   
     <li class="md-nav__item">
-      <a href="projects/booking-platform/adrs/ADR-002-hexagonal-architecture/" class="md-nav__link">
+      <a href="../../../projects/booking-platform/adrs/ADR-002-hexagonal-architecture/" class="md-nav__link">
         
   
   
@@ -3981,7 +3917,7 @@
   
   
     <li class="md-nav__item">
-      <a href="projects/booking-platform/adrs/ADR-003-kafka-retry-strategy/" class="md-nav__link">
+      <a href="../../../projects/booking-platform/adrs/ADR-003-kafka-retry-strategy/" class="md-nav__link">
         
   
   
@@ -4009,7 +3945,7 @@
   
   
     <li class="md-nav__item">
-      <a href="projects/booking-platform/adrs/ADR-004-testcontainers-for-integration-tests/" class="md-nav__link">
+      <a href="../../../projects/booking-platform/adrs/ADR-004-testcontainers-for-integration-tests/" class="md-nav__link">
         
   
   
@@ -4037,7 +3973,7 @@
   
   
     <li class="md-nav__item">
-      <a href="projects/booking-platform/adrs/ADR-005-pull-based-deployment-with-watchtower/" class="md-nav__link">
+      <a href="../../../projects/booking-platform/adrs/ADR-005-pull-based-deployment-with-watchtower/" class="md-nav__link">
         
   
   
@@ -4065,7 +4001,7 @@
   
   
     <li class="md-nav__item">
-      <a href="projects/booking-platform/adrs/ADR-006-cqrs-read-model-strategy/" class="md-nav__link">
+      <a href="../../../projects/booking-platform/adrs/ADR-006-cqrs-read-model-strategy/" class="md-nav__link">
         
   
   
@@ -4093,7 +4029,7 @@
   
   
     <li class="md-nav__item">
-      <a href="projects/booking-platform/adrs/ADR-007-domain-events-and-outbox-pattern/" class="md-nav__link">
+      <a href="../../../projects/booking-platform/adrs/ADR-007-domain-events-and-outbox-pattern/" class="md-nav__link">
         
   
   
@@ -4121,7 +4057,7 @@
   
   
     <li class="md-nav__item">
-      <a href="projects/booking-platform/adrs/ADR-008-idempotent-consumers-strategy/" class="md-nav__link">
+      <a href="../../../projects/booking-platform/adrs/ADR-008-idempotent-consumers-strategy/" class="md-nav__link">
         
   
   
@@ -4149,7 +4085,7 @@
   
   
     <li class="md-nav__item">
-      <a href="projects/booking-platform/adrs/ADR-009-api-streaming-strategy/" class="md-nav__link">
+      <a href="../../../projects/booking-platform/adrs/ADR-009-api-streaming-strategy/" class="md-nav__link">
         
   
   
@@ -4177,7 +4113,7 @@
   
   
     <li class="md-nav__item">
-      <a href="projects/booking-platform/adrs/ADR-010-container-security-strategy/" class="md-nav__link">
+      <a href="../../../projects/booking-platform/adrs/ADR-010-container-security-strategy/" class="md-nav__link">
         
   
   
@@ -4205,7 +4141,7 @@
   
   
     <li class="md-nav__item">
-      <a href="projects/booking-platform/adrs/ADR-011-jwt-authentication-strategy/" class="md-nav__link">
+      <a href="../../../projects/booking-platform/adrs/ADR-011-jwt-authentication-strategy/" class="md-nav__link">
         
   
   
@@ -4233,7 +4169,7 @@
   
   
     <li class="md-nav__item">
-      <a href="projects/booking-platform/adrs/ADR-012-rbac-authorization-model/" class="md-nav__link">
+      <a href="../../../projects/booking-platform/adrs/ADR-012-rbac-authorization-model/" class="md-nav__link">
         
   
   
@@ -4330,7 +4266,7 @@
   
   
     <li class="md-nav__item">
-      <a href="socles/" class="md-nav__link">
+      <a href="../../../socles/" class="md-nav__link">
         
   
   
@@ -4412,7 +4348,7 @@
   
   
     <li class="md-nav__item">
-      <a href="socles/kore-hexagonal/" class="md-nav__link">
+      <a href="../../../socles/kore-hexagonal/" class="md-nav__link">
         
   
   
@@ -4440,7 +4376,7 @@
   
   
     <li class="md-nav__item">
-      <a href="socles/kore-hexagonal/architecture/" class="md-nav__link">
+      <a href="../../../socles/kore-hexagonal/architecture/" class="md-nav__link">
         
   
   
@@ -4530,7 +4466,7 @@
   
   
     <li class="md-nav__item">
-      <a href="socles/kore-batch/" class="md-nav__link">
+      <a href="../../../socles/kore-batch/" class="md-nav__link">
         
   
   
@@ -4558,7 +4494,7 @@
   
   
     <li class="md-nav__item">
-      <a href="socles/kore-batch/architecture/" class="md-nav__link">
+      <a href="../../../socles/kore-batch/architecture/" class="md-nav__link">
         
   
   
@@ -4640,7 +4576,7 @@
   
   
     <li class="md-nav__item">
-      <a href="socles/kore-batch/adrs/" class="md-nav__link">
+      <a href="../../../socles/kore-batch/adrs/" class="md-nav__link">
         
   
   
@@ -4668,7 +4604,7 @@
   
   
     <li class="md-nav__item">
-      <a href="socles/kore-batch/adrs/ADR-001-spring-batch-5/" class="md-nav__link">
+      <a href="../../../socles/kore-batch/adrs/ADR-001-spring-batch-5/" class="md-nav__link">
         
   
   
@@ -4696,7 +4632,7 @@
   
   
     <li class="md-nav__item">
-      <a href="socles/kore-batch/adrs/ADR-002-github-packages/" class="md-nav__link">
+      <a href="../../../socles/kore-batch/adrs/ADR-002-github-packages/" class="md-nav__link">
         
   
   
@@ -4724,7 +4660,7 @@
   
   
     <li class="md-nav__item">
-      <a href="socles/kore-batch/adrs/ADR-003-liquibase-vs-flyway/" class="md-nav__link">
+      <a href="../../../socles/kore-batch/adrs/ADR-003-liquibase-vs-flyway/" class="md-nav__link">
         
   
   
@@ -4752,7 +4688,7 @@
   
   
     <li class="md-nav__item">
-      <a href="socles/kore-batch/adrs/ADR-004-stepscope/" class="md-nav__link">
+      <a href="../../../socles/kore-batch/adrs/ADR-004-stepscope/" class="md-nav__link">
         
   
   
@@ -4780,7 +4716,7 @@
   
   
     <li class="md-nav__item">
-      <a href="socles/kore-batch/adrs/ADR-005-flatfileitemreader/" class="md-nav__link">
+      <a href="../../../socles/kore-batch/adrs/ADR-005-flatfileitemreader/" class="md-nav__link">
         
   
   
@@ -4808,7 +4744,7 @@
   
   
     <li class="md-nav__item">
-      <a href="socles/kore-batch/adrs/ADR-006-skip-policy/" class="md-nav__link">
+      <a href="../../../socles/kore-batch/adrs/ADR-006-skip-policy/" class="md-nav__link">
         
   
   
@@ -4836,7 +4772,7 @@
   
   
     <li class="md-nav__item">
-      <a href="socles/kore-batch/adrs/ADR-007-java-21/" class="md-nav__link">
+      <a href="../../../socles/kore-batch/adrs/ADR-007-java-21/" class="md-nav__link">
         
   
   
@@ -4888,9 +4824,7 @@
             
             
               
-                
-              
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" hidden>
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -4909,10 +4843,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#contenu" class="md-nav__link">
+  <a href="#introduction" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Contenu
+        Introduction
       
     </span>
   </a>
@@ -4933,73 +4867,183 @@
               <article class="md-content__inner md-typeset">
                 
                   
-  
 
 
 
-
-<h1 id="engineering-notes">Engineering Notes</h1>
-<p>Notes techniques sur l'architecture backend, les systèmes distribués et les pratiques DevOps.</p>
-<hr />
-<div class="grid cards">
-<ul>
-<li>
-<p><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16.5 6.08s-6.84 1.71-3.56 5.48c.97 1.11-.25 2.11-.25 2.11s2.45-1.25 1.31-2.85c-1.06-1.47-1.86-2.2 2.5-4.74m-4.47 1.2C16.08 4.08 14 2 14 2c.84 3.3-2.96 4.3-4.33 6.36-.94 1.4.46 2.91 2.33 4.64-.71-1.7-3.22-3.16.03-5.72M9.37 17.47c-3.08.86 1.88 2.63 5.79.96-.38-.15-.75-.33-1.1-.54-1.36.31-2.76.37-4.14.18-1.31-.16-.55-.6-.55-.6m5.32-1.68c-1.75.38-3.56.47-5.34.26-1.31-.13-.45-.77-.45-.77-3.4 1.13 1.88 2.4 6.6 1.02-.29-.11-.57-.3-.81-.51m3.42 3.3s.57.47-.61.83c-2.28.68-9.43.89-11.41.03-.71-.31.63-.74 1.05-.83.23-.06.46-.08.69-.08-.79-.54-5.13 1.1-2.19 1.56 7.97 1.3 14.54-.6 12.47-1.51m-2.74-4.86c.29-.19.6-.35.92-.49 0 0-1.51.26-3.02.4-1.6.16-3.21.18-4.81.06-2.35-.31 1.29-1.2 1.29-1.2-1.1 0-2.18.26-3.16.75-2.05 1 5.1 1.45 8.78.48m.9 2.42c-.02.04-.04.07-.08.1 5.01-1.31 3.17-4.64.77-3.81-.13.06-.24.14-.31.25.14-.05.28-.09.43-.12 1.2-.24 2.92 1.63-.81 3.58m.13 4.61c-3.01.52-6.09.56-9.12.14 0 0 .46.38 2.81.53 3.6.23 9.13-.13 9.26-1.83.03.01-.23.65-2.95 1.16"/></svg></span> <strong>Java</strong></p>
-<hr />
-<p>Fondamentaux, collections, concurrence, POO, design patterns</p>
-<p><a href="topics/java/fundamentals/equals-vs-double-equals/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"/></svg></span> Voir les topics</a></p>
-</li>
-<li>
-<p><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10.25 2c.19 0 .36.11.44.26l2.22 3.96.09.28-.09.28-2.22 3.96c-.08.15-.25.26-.44.26h-4.5c-.19 0-.36-.11-.44-.26L3.09 6.78 3 6.5l.09-.28 2.22-3.96c.08-.15.25-.26.44-.26zm0 11c.19 0 .36.11.44.26l2.22 3.96.09.28-.09.28-2.22 3.96c-.08.15-.25.26-.44.26h-4.5c-.19 0-.36-.11-.44-.26l-2.22-3.96L3 17.5l.09-.28 2.22-3.96c.08-.15.25-.26.44-.26zm9.25-5.5c.19 0 .36.11.44.26l2.22 3.96.09.28-.09.28-2.22 3.96c-.08.15-.25.26-.44.26H15c-.19 0-.36-.11-.44-.26l-2.22-3.96-.09-.28.09-.28 2.22-3.96c.08-.15.25-.26.44-.26z"/></svg></span> <strong>Architecture</strong></p>
-<hr />
-<p>CQRS, hexagonal architecture, REST API design</p>
-<p><a href="topics/architecture/cqrs-pattern/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"/></svg></span> Voir les topics</a></p>
-</li>
-<li>
-<p><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15.54 12.97c-.68 0-1.3.25-1.78.67l-1.29-.75c.09-.29.13-.6.13-.92s-.04-.63-.1-.92l1.23-.73c.48.44 1.12.68 1.81.68 1.49 0 2.7-1.19 2.7-2.68s-1.21-2.69-2.7-2.69-2.7 1.21-2.7 2.7c0 .17.02.37.05.55l-1.25.72c-.43-.45-1-.78-1.64-.95V7.26a2.705 2.705 0 0 0 1.88-2.57C11.88 3.2 10.67 2 9.18 2S6.5 3.2 6.5 4.69c0 1.2.76 2.21 1.84 2.57v1.4a3.42 3.42 0 0 0-2.58 3.31c0 1.6 1.1 2.94 2.58 3.31v1.45A2.69 2.69 0 0 0 6.5 19.3c0 1.49 1.19 2.7 2.68 2.7s2.7-1.21 2.7-2.7c0-1.2-.79-2.22-1.88-2.57v-1.44c.64-.16 1.2-.49 1.64-.94l1.26.73c-.04.19-.06.38-.06.58 0 1.49 1.21 2.7 2.7 2.7s2.7-1.21 2.7-2.7-1.21-2.69-2.7-2.69m0-5.97c.74 0 1.33.59 1.33 1.32s-.59 1.34-1.33 1.34-1.33-.6-1.33-1.34S14.8 7 15.54 7M7.85 4.69c0-.74.59-1.34 1.33-1.34s1.32.6 1.32 1.34-.58 1.34-1.32 1.34-1.33-.6-1.33-1.34M10.5 19.3c0 .74-.58 1.34-1.32 1.34s-1.33-.6-1.33-1.34.59-1.34 1.33-1.34 1.32.6 1.32 1.34m-1.32-5.41a1.92 1.92 0 1 1 .001-3.841 1.92 1.92 0 0 1-.001 3.841M15.54 17c-.74 0-1.33-.6-1.33-1.34s.59-1.33 1.33-1.33 1.33.6 1.33 1.33S16.28 17 15.54 17"/></svg></span> <strong>Event-Driven Systems</strong></p>
-<hr />
-<p>Kafka, retry/DLT, idempotent consumers, outbox pattern</p>
-<p><a href="topics/kafka/retry-and-dlt-pattern/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"/></svg></span> Voir les topics</a></p>
-</li>
-<li>
-<p><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 1 3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5zm0 6c1.4 0 2.8 1.1 2.8 2.5V11c.6 0 1.2.6 1.2 1.3v3.5c0 .6-.6 1.2-1.3 1.2H9.2c-.6 0-1.2-.6-1.2-1.3v-3.5c0-.6.6-1.2 1.2-1.2V9.5C9.2 8.1 10.6 7 12 7m0 1.2c-.8 0-1.5.5-1.5 1.3V11h3V9.5c0-.8-.7-1.3-1.5-1.3"/></svg></span> <strong>Security</strong></p>
-<hr />
-<p>JWT, CORS, cookies sécurisés, HTTP security headers</p>
-<p><a href="topics/security/jwt-authentication-pattern/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"/></svg></span> Voir les topics</a></p>
-</li>
-<li>
-<p><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21.81 10.25c-.06-.04-.56-.43-1.64-.43-.28 0-.56.03-.84.08-.21-1.4-1.38-2.11-1.43-2.14l-.29-.17-.18.27c-.24.36-.43.77-.51 1.19-.2.8-.08 1.56.33 2.21-.49.28-1.29.35-1.46.35H2.62c-.34 0-.62.28-.62.63 0 1.15.18 2.3.58 3.38.45 1.19 1.13 2.07 2 2.61.98.6 2.59.94 4.42.94.79 0 1.61-.07 2.42-.22 1.12-.2 2.2-.59 3.19-1.16A8.3 8.3 0 0 0 16.78 16c1.05-1.17 1.67-2.5 2.12-3.65h.19c1.14 0 1.85-.46 2.24-.85.26-.24.45-.53.59-.87l.08-.24zm-17.96.99h1.76c.08 0 .16-.07.16-.16V9.5c0-.08-.07-.16-.16-.16H3.85c-.09 0-.16.07-.16.16v1.58c.01.09.07.16.16.16m2.43 0h1.76c.08 0 .16-.07.16-.16V9.5c0-.08-.07-.16-.16-.16H6.28c-.09 0-.16.07-.16.16v1.58c.01.09.07.16.16.16m2.47 0h1.75c.1 0 .17-.07.17-.16V9.5c0-.08-.06-.16-.17-.16H8.75c-.08 0-.15.07-.15.16v1.58c0 .09.06.16.15.16m2.44 0h1.77c.08 0 .15-.07.15-.16V9.5c0-.08-.06-.16-.15-.16h-1.77c-.08 0-.15.07-.15.16v1.58c0 .09.07.16.15.16M6.28 9h1.76c.08 0 .16-.09.16-.18V7.25c0-.09-.07-.16-.16-.16H6.28c-.09 0-.16.06-.16.16v1.57c.01.09.07.18.16.18m2.47 0h1.75c.1 0 .17-.09.17-.18V7.25c0-.09-.06-.16-.17-.16H8.75c-.08 0-.15.06-.15.16v1.57c0 .09.06.18.15.18m2.44 0h1.77c.08 0 .15-.09.15-.18V7.25c0-.09-.07-.16-.15-.16h-1.77c-.08 0-.15.06-.15.16v1.57c0 .09.07.18.15.18m0-2.28h1.77c.08 0 .15-.07.15-.16V5c0-.1-.07-.17-.15-.17h-1.77c-.08 0-.15.06-.15.17v1.56c0 .08.07.16.15.16m2.46 4.52h1.76c.09 0 .16-.07.16-.16V9.5c0-.08-.07-.16-.16-.16h-1.76c-.08 0-.15.07-.15.16v1.58c0 .09.07.16.15.16"/></svg></span> <strong>DevOps</strong></p>
-<hr />
-<p>Docker, reverse proxy, CI/CD, observabilité, container security</p>
-<p><a href="topics/devops/docker-production-pattern/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"/></svg></span> Voir les topics</a></p>
-</li>
-<li>
-<p><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3C7.58 3 4 4.79 4 7s3.58 4 8 4 8-1.79 8-4-3.58-4-8-4M4 9v3c0 2.21 3.58 4 8 4s8-1.79 8-4V9c0 2.21-3.58 4-8 4s-8-1.79-8-4m0 5v3c0 2.21 3.58 4 8 4s8-1.79 8-4v-3c0 2.21-3.58 4-8 4s-8-1.79-8-4"/></svg></span> <strong>Database</strong></p>
-<hr />
-<p>SQL joins, index, transactions, optimistic locking</p>
-<p><a href="topics/database/sql-joins-indexes/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"/></svg></span> Voir les topics</a></p>
-</li>
-<li>
-<p><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66.95-2.3c.48.17.98.3 1.34.3C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75C7 8 17 8 17 8"/></svg></span> <strong>Spring</strong></p>
-<hr />
-<p>Bean scopes, Hibernate/JPA, dependency injection</p>
-<p><a href="topics/java/spring/bean-scopes/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"/></svg></span> Voir les topics</a></p>
-</li>
-<li>
-<p><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m2 11 2.05.1a7.96 7.96 0 0 1 3.2-5.54L6.13 3.84c-.27-.48-.13-1.09.37-1.37.5-.27 1.09-.11 1.37.37l.93 1.82a8.1 8.1 0 0 1 6.4 0l.93-1.82c.28-.48.87-.64 1.37-.37.5.28.64.89.37 1.37l-1.12 1.72a7.96 7.96 0 0 1 3.2 5.54L22 11a1 1 0 0 1 1 1 1 1 0 0 1-1 1l-2.05-.1a7.96 7.96 0 0 1-3.2 5.54l1.12 1.72c.27.48.13 1.09-.37 1.37-.5.27-1.09.11-1.37-.37l-.93-1.82a8.1 8.1 0 0 1-6.4 0l-.93 1.82c-.28.48-.87.64-1.37.37-.5-.28-.64-.89-.37-1.37l1.12-1.72a7.96 7.96 0 0 1-3.2-5.54L2 13a1 1 0 0 1-1-1 1 1 0 0 1 1-1m7.07.35c.13-.61.46-1.15.93-1.56L8.34 7.25a6 6 0 0 0-2.29 3.95zM12 9c.32 0 .62.05.9.14l1.38-2.69C13.58 6.16 12.81 6 12 6s-1.58.16-2.28.45l1.38 2.69c.28-.09.58-.14.9-.14m2.93 2.35 3.02-.15a6 6 0 0 0-2.29-3.95L14 9.79c.47.41.8.95.93 1.56m0 1.3c-.13.61-.46 1.15-.93 1.56l1.66 2.54a6 6 0 0 0 2.29-3.95zM12 15c-.32 0-.62-.05-.91-.14l-1.37 2.69c.7.29 1.47.45 2.28.45s1.58-.16 2.28-.45l-1.37-2.69c-.29.09-.59.14-.91.14m-2.93-2.35-3.02.15c.22 1.6 1.06 3.01 2.29 3.95L10 14.21c-.47-.41-.8-.95-.93-1.56"/></svg></span> <strong>Case Study</strong></p>
-<hr />
-<p>Architecture réelle d'un projet backend complet avec ADRs</p>
-<p><a href="projects/booking-platform/project-overview/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"/></svg></span> Voir le projet</a></p>
-</li>
-</ul>
+<h1 id="architecture-de-logging-dans-les-applications-java">Architecture de Logging dans les Applications Java</h1>
+<div class="admonition note">
+<p>Note de contexte (12 mai 2026) : cette note constitue un retour d’expérience suite à des échanges avec des experts du domaine. Elle est rédigée le jour même et vise à structurer les notions abordées pour consolidation et montée en compétence.</p>
 </div>
-<hr />
-<h2 id="contenu">Contenu</h2>
+<h2 id="introduction">Introduction</h2>
+<p>Le logging est une composante essentielle de l’ingénierie logicielle orientée production.</p>
+<p>Dans les systèmes backend modernes, les logs ne servent pas uniquement au debug. Ils sont aussi indispensables pour :</p>
 <ul>
-<li><strong>60+ topics</strong> couvrant Java, architecture, Kafka, security, DevOps</li>
-<li><strong>19 ADRs</strong> documentant les décisions d'architecture (12 projet + 7 socle)</li>
-<li><strong>Diagrammes Mermaid</strong> intégrés pour visualiser les architectures</li>
-<li><strong>Cross-references</strong> entre les topics pour naviguer par connexion</li>
+<li>la visibilité runtime</li>
+<li>l’investigation d’incidents</li>
+<li>l’observabilité</li>
+<li>le monitoring</li>
+<li>le tracing distribué</li>
+<li>le support production</li>
+<li>l’analyse de sécurité</li>
+</ul>
+<p>Une architecture de logging bien conçue permet de comprendre ce que fait réellement le système pendant son exécution.</p>
+<hr />
+<h1 id="pourquoi-le-logging-est-important">Pourquoi le Logging est Important</h1>
+<p>Sans logs, un système backend devient très difficile à exploiter en production.</p>
+<p>Les logs permettent notamment de :</p>
+<ul>
+<li>comprendre les erreurs</li>
+<li>tracer les requêtes</li>
+<li>investiguer les incidents</li>
+<li>diagnostiquer des problèmes de performance</li>
+<li>détecter des comportements anormaux</li>
+<li>corréler des événements entre services</li>
+<li>comprendre les flux asynchrones</li>
+</ul>
+<p>Dans les systèmes distribués, les logs deviennent l’un des principaux outils de compréhension du comportement runtime.</p>
+<hr />
+<h1 id="logging-vs-debugging">Logging vs Debugging</h1>
+<p>Le logging et le debugging sont liés, mais représentent deux approches différentes.</p>
+<p>Le debugging est généralement :</p>
+<ul>
+<li>local</li>
+<li>temporaire</li>
+<li>interactif</li>
+<li>centré développeur</li>
+</ul>
+<p>Le logging est :</p>
+<ul>
+<li>persistant</li>
+<li>orienté runtime</li>
+<li>orienté production</li>
+<li>observable par les équipes techniques</li>
+</ul>
+<p>En production, un système ne peut pas dépendre de breakpoints ou d’un debug local.</p>
+<p>Les logs deviennent alors le principal mécanisme de visibilité runtime.</p>
+<hr />
+<h1 id="architecture-du-logging-en-java">Architecture du Logging en Java</h1>
+<p>Le logging moderne en Java repose généralement sur trois couches :</p>
+<ol>
+<li>API de logging</li>
+<li>Façade de logging</li>
+<li>Implémentation concrète</li>
+</ol>
+<p>Cette séparation apporte du découplage et de la flexibilité.</p>
+<hr />
+<h1 id="slf4j">SLF4J</h1>
+<p>SLF4J (Simple Logging Facade for Java) est aujourd’hui la façade de logging standard dans les applications Java modernes.</p>
+<p>SLF4J n’est pas une implémentation de logger.</p>
+<p>Il agit comme une couche d’abstraction entre le code applicatif et le système de logging réel.</p>
+<p>L’application écrit ses logs via SLF4J, tandis que l’implémentation concrète gère la génération des sorties.</p>
+<p>Exemple :</p>
+<div class="highlight"><pre><span></span><code><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">Logger</span><span class="w"> </span><span class="n">log</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LoggerFactory</span><span class="p">.</span><span class="na">getLogger</span><span class="p">(</span><span class="n">MyService</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
+</code></pre></div>
+<p>Le code dépend uniquement de l’API SLF4J.</p>
+<p>L’implémentation réelle peut être :</p>
+<ul>
+<li>Logback</li>
+<li>Log4j2</li>
+<li>java.util.logging</li>
+</ul>
+<p>Cette abstraction évite de coupler fortement l’application à une technologie de logging spécifique.</p>
+<h1 id="logback-implementation-de-logging">Logback (implémentation de logging)</h1>
+<p>Logback est l’implémentation la plus courante utilisée avec SLF4J dans les applications Spring Boot.</p>
+<p>Il est responsable de :</p>
+<ul>
+<li>l’écriture des logs (console, fichier, système externe)</li>
+<li>la gestion des niveaux de logs</li>
+<li>la configuration des appenders</li>
+<li>la rotation des fichiers de logs</li>
+<li>les formats de sortie (texte ou JSON)</li>
+<li>le logging asynchrone</li>
+</ul>
+<p>Dans Spring Boot, Logback est généralement la dépendance par défaut via spring-boot-starter-logging.</p>
+<hr />
+<h1 id="niveaux-de-logs">Niveaux de logs</h1>
+<p>Les niveaux de logs permettent de classifier la criticité des messages.</p>
+<h2 id="trace">TRACE</h2>
+<p>Très détaillé, utilisé pour analyser le comportement interne fin.</p>
+<h2 id="debug">DEBUG</h2>
+<p>Informations techniques utiles pour le développement.</p>
+<h2 id="info">INFO</h2>
+<p>Événements normaux du système (startup, actions métier importantes).</p>
+<h2 id="warn">WARN</h2>
+<p>Comportement inattendu mais non bloquant.</p>
+<h2 id="error">ERROR</h2>
+<p>Erreur impactant l’exécution normale du système.</p>
+<hr />
+<h1 id="logging-structure">Logging structuré</h1>
+<p>Le logging structuré consiste à écrire des logs sous forme de données exploitables (souvent JSON).</p>
+<p>Exemple :</p>
+<p>{</p>
+<p>"userId": 42,</p>
+<p>"action": "CREATE_ORDER",</p>
+<p>"status": "SUCCESS"</p>
+<p>}</p>
+<p>Avantages :</p>
+<ul>
+<li>meilleur parsing par les outils (Grafana, ELK)</li>
+<li>recherche facilitée</li>
+<li>corrélation des événements</li>
+<li>monitoring plus précis</li>
+</ul>
+<hr />
+<h1 id="mdc-mapped-diagnostic-context">MDC (Mapped Diagnostic Context)</h1>
+<p>Le MDC permet d’ajouter du contexte aux logs automatiquement.</p>
+<p>Exemple d’usage :</p>
+<ul>
+<li>requestId</li>
+<li>userId</li>
+<li>correlationId</li>
+</ul>
+<p>Cela permet de suivre une requête complète dans un système distribué.</p>
+<p>Exemple conceptuel :</p>
+<p>MDC.put("requestId", id);</p>
+<p>Tous les logs suivants incluent automatiquement ce champ.</p>
+<hr />
+<h1 id="gestion-des-exceptions-et-logging">Gestion des exceptions et logging</h1>
+<p>Les exceptions doivent être loggées avec une stratégie claire :</p>
+<ul>
+<li>ne pas logger deux fois la même exception</li>
+<li>distinguer erreur métier vs technique</li>
+<li>inclure le contexte utile</li>
+<li>éviter le bruit inutile dans les logs</li>
+</ul>
+<p>Exemple de bonne pratique :</p>
+<ul>
+<li>log ERROR uniquement au point de frontière (controller / handler global)</li>
+<li>propagation interne sans re-log excessif</li>
+</ul>
+<hr />
+<h1 id="bonnes-pratiques">Bonnes pratiques</h1>
+<ul>
+<li>utiliser SLF4J uniquement (pas de System.out)</li>
+<li>éviter les logs sensibles (PII, passwords)</li>
+<li>structurer les logs</li>
+<li>toujours inclure du contexte</li>
+<li>utiliser des niveaux de logs cohérents</li>
+<li>limiter les logs DEBUG en production</li>
+</ul>
+<hr />
+<h1 id="transition-vers-lobservabilite">Transition vers l’observabilité</h1>
+<p>Le logging est la première brique de l’observabilité.</p>
+<p>Il est complété par :</p>
+<ul>
+<li>metrics (Prometheus)</li>
+<li>monitoring (Grafana)</li>
+<li>tracing distribué (Zipkin / Jaeger)</li>
+</ul>
+<p>Ces trois piliers permettent de comprendre un système en production de manière complète.</p>
+<p>C’est fait.</p>
+<p>Tu as maintenant une base solide qui couvre :</p>
+<ul>
+<li>logging architecture (SLF4J / Logback)</li>
+<li>niveaux de logs</li>
+<li>structured logging</li>
+<li>MDC (corrélation)</li>
+<li>exceptions en prod</li>
+<li>bonnes pratiques</li>
+<li>lien vers observabilité (metrics / tracing)</li>
 </ul>
 
 
@@ -5008,13 +5052,8 @@
 
 
 
-  
-  
 
 
-
-
-  
 
 
 
@@ -5083,10 +5122,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "toc.follow", "content.code.copy", "search.highlight", "search.suggest"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "toc.follow", "content.code.copy", "search.highlight", "search.suggest"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": null}</script>
     
     
-      <script src="assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>
