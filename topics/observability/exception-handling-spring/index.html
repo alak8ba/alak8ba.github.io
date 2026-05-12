@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#architecture-de-logging-dans-les-applications-java" class="md-skip">
+        <a href="#gestion-des-exceptions-resilience-dans-spring-boot" class="md-skip">
           Aller au contenu
         </a>
       
@@ -4965,173 +4965,156 @@
 
 
 
-<h1 id="architecture-de-logging-dans-les-applications-java">Architecture de Logging dans les Applications Java</h1>
+<h1 id="gestion-des-exceptions-resilience-dans-spring-boot">Gestion des Exceptions &amp; Résilience dans Spring Boot</h1>
 <div class="admonition note">
 <p>Note de contexte (12 mai 2026) : cette note constitue un retour d’expérience suite à des échanges avec des experts du domaine. Elle est rédigée le jour même et vise à structurer les notions abordées pour consolidation et montée en compétence.</p>
 </div>
 <h2 id="introduction">Introduction</h2>
-<p>Le logging est une composante essentielle de l’ingénierie logicielle orientée production.</p>
-<p>Dans les systèmes backend modernes, les logs ne servent pas uniquement au debug. Ils sont aussi indispensables pour :</p>
+<p>La gestion des exceptions est un élément central des systèmes backend en production.</p>
+<p>Elle ne consiste pas uniquement à “catch des erreurs”, mais à définir une stratégie claire de :</p>
 <ul>
-<li>la visibilité runtime</li>
-<li>l’investigation d’incidents</li>
-<li>l’observabilité</li>
-<li>le monitoring</li>
-<li>le tracing distribué</li>
-<li>le support production</li>
-<li>l’analyse de sécurité</li>
+<li>propagation des erreurs</li>
+<li>traitement centralisé</li>
+<li>séparation erreurs métier vs techniques</li>
+<li>observabilité des failures</li>
+<li>résilience du système</li>
 </ul>
-<p>Une architecture de logging bien conçue permet de comprendre ce que fait réellement le système pendant son exécution.</p>
+<p>Une mauvaise gestion des exceptions peut rendre un système instable, difficile à debugger et invisible en production.</p>
 <hr />
-<h1 id="pourquoi-le-logging-est-important">Pourquoi le Logging est Important</h1>
-<p>Sans logs, un système backend devient très difficile à exploiter en production.</p>
-<p>Les logs permettent notamment de :</p>
+<h1 id="types-dexceptions">Types d’exceptions</h1>
+<p>Dans une application Spring Boot, on distingue généralement plusieurs catégories :</p>
+<h2 id="exceptions-metier">Exceptions métier</h2>
+<p>Elles représentent des règles business violées.</p>
+<p>Exemples :</p>
 <ul>
-<li>comprendre les erreurs</li>
-<li>tracer les requêtes</li>
-<li>investiguer les incidents</li>
-<li>diagnostiquer des problèmes de performance</li>
-<li>détecter des comportements anormaux</li>
-<li>corréler des événements entre services</li>
-<li>comprendre les flux asynchrones</li>
+<li>solde insuffisant</li>
+<li>ressource déjà existante</li>
+<li>état invalide d’un agrégat</li>
 </ul>
-<p>Dans les systèmes distribués, les logs deviennent l’un des principaux outils de compréhension du comportement runtime.</p>
+<p>Elles sont attendues et font partie du fonctionnement normal du système.</p>
 <hr />
-<h1 id="logging-vs-debugging">Logging vs Debugging</h1>
-<p>Le logging et le debugging sont liés, mais représentent deux approches différentes.</p>
-<p>Le debugging est généralement :</p>
+<h2 id="exceptions-techniques">Exceptions techniques</h2>
+<p>Elles proviennent de problèmes d’infrastructure.</p>
+<p>Exemples :</p>
 <ul>
-<li>local</li>
-<li>temporaire</li>
-<li>interactif</li>
-<li>centré développeur</li>
+<li>base de données indisponible</li>
+<li>erreur réseau</li>
+<li>Kafka down</li>
+<li>timeout HTTP</li>
 </ul>
-<p>Le logging est :</p>
+<p>Elles doivent être surveillées et traitées avec attention.</p>
+<hr />
+<h2 id="nullpointerexception">NullPointerException</h2>
+<p>La NullPointerException est une exception runtime fréquente en Java.</p>
+<p>Elle survient lorsqu’une référence null est utilisée sans vérification.</p>
+<p>Bonnes pratiques pour éviter les NPE :</p>
 <ul>
-<li>persistant</li>
-<li>orienté runtime</li>
-<li>orienté production</li>
-<li>observable par les équipes techniques</li>
+<li>utilisation de Optional</li>
+<li>validation en entrée</li>
+<li>design défensif</li>
+<li>éviter les nulls implicites dans le domaine</li>
 </ul>
-<p>En production, un système ne peut pas dépendre de breakpoints ou d’un debug local.</p>
-<p>Les logs deviennent alors le principal mécanisme de visibilité runtime.</p>
+<p>Dans un système robuste, une NPE est généralement considérée comme un bug.</p>
 <hr />
-<h1 id="architecture-du-logging-en-java">Architecture du Logging en Java</h1>
-<p>Le logging moderne en Java repose généralement sur trois couches :</p>
-<ol>
-<li>API de logging</li>
-<li>Façade de logging</li>
-<li>Implémentation concrète</li>
-</ol>
-<p>Cette séparation apporte du découplage et de la flexibilité.</p>
+<h1 id="gestion-globale-des-exceptions">Gestion globale des exceptions</h1>
+<p>Spring Boot permet de centraliser la gestion des exceptions via :</p>
+<h2 id="controlleradvice">@ControllerAdvice</h2>
+<p>Cette annotation permet de définir un handler global pour les exceptions.</p>
+<p>Elle évite de dupliquer la gestion d’erreurs dans chaque controller.</p>
+<p>Exemple de comportement :</p>
+<ul>
+<li>capture des exceptions</li>
+<li>transformation en réponse HTTP</li>
+<li>standardisation des erreurs</li>
+</ul>
 <hr />
-<h1 id="slf4j">SLF4J</h1>
-<p>SLF4J (Simple Logging Facade for Java) est aujourd’hui la façade de logging standard dans les applications Java modernes.</p>
-<p>SLF4J n’est pas une implémentation de logger.</p>
-<p>Il agit comme une couche d’abstraction entre le code applicatif et le système de logging réel.</p>
-<p>L’application écrit ses logs via SLF4J, tandis que l’implémentation concrète gère la génération des sorties.</p>
+<h2 id="exceptionhandler">@ExceptionHandler</h2>
+<p>Permet de définir le traitement spécifique d’une exception.</p>
 <p>Exemple :</p>
-<div class="highlight"><pre><span></span><code><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">Logger</span><span class="w"> </span><span class="n">log</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LoggerFactory</span><span class="p">.</span><span class="na">getLogger</span><span class="p">(</span><span class="n">MyService</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
-</code></pre></div>
-<p>Le code dépend uniquement de l’API SLF4J.</p>
-<p>L’implémentation réelle peut être :</p>
 <ul>
-<li>Logback</li>
-<li>Log4j2</li>
-<li>java.util.logging</li>
+<li>EntityNotFoundException → 404</li>
+<li>BusinessException → 400</li>
+<li>TechnicalException → 500</li>
 </ul>
-<p>Cette abstraction évite de coupler fortement l’application à une technologie de logging spécifique.</p>
 <hr />
-<h1 id="logback-implementation-de-logging">Logback (implémentation de logging)</h1>
-<p>Logback est l’implémentation la plus courante utilisée avec SLF4J dans les applications Spring Boot.</p>
-<p>Il est responsable de :</p>
+<h1 id="strategie-de-propagation-des-exceptions">Stratégie de propagation des exceptions</h1>
+<p>Une bonne architecture ne doit pas masquer les erreurs trop tôt.</p>
+<p>Principes :</p>
 <ul>
-<li>l’écriture des logs (console, fichier, système externe)</li>
-<li>la gestion des niveaux de logs</li>
-<li>la configuration des appenders</li>
-<li>la rotation des fichiers de logs</li>
-<li>les formats de sortie (texte ou JSON)</li>
-<li>le logging asynchrone</li>
+<li>laisser remonter les exceptions métier jusqu’au handler global</li>
+<li>éviter les catch silencieux</li>
+<li>ne pas sur-logguer à chaque couche</li>
 </ul>
-<p>Dans Spring Boot, Logback est généralement la dépendance par défaut via spring-boot-starter-logging.</p>
+<p>Le logging doit être fait à des points stratégiques.</p>
 <hr />
-<h1 id="niveaux-de-logs">Niveaux de logs</h1>
-<p>Les niveaux de logs permettent de classifier la criticité des messages.</p>
-<h2 id="trace">TRACE</h2>
-<p>Très détaillé, utilisé pour analyser le comportement interne fin.</p>
-<h2 id="debug">DEBUG</h2>
-<p>Informations techniques utiles pour le développement.</p>
-<h2 id="info">INFO</h2>
-<p>Événements normaux du système (startup, actions métier importantes).</p>
-<h2 id="warn">WARN</h2>
-<p>Comportement inattendu mais non bloquant.</p>
-<h2 id="error">ERROR</h2>
-<p>Erreur impactant l’exécution normale du système.</p>
+<h1 id="logging-des-exceptions">Logging des exceptions</h1>
+<p>Une règle importante en production :</p>
+<blockquote>
+<p>une exception ne doit pas être loggée plusieurs fois inutilement</p>
+</blockquote>
+<p>Bonnes pratiques :</p>
+<ul>
+<li>log au niveau boundary (controller / global handler)</li>
+<li>inclure le contexte métier</li>
+<li>éviter les logs redondants dans les layers internes</li>
+</ul>
 <hr />
-<h1 id="logging-structure">Logging structuré</h1>
-<p>Le logging structuré consiste à écrire des logs sous forme de données exploitables (souvent JSON).</p>
+<h1 id="resilience-du-systeme">Résilience du système</h1>
+<p>La gestion des exceptions doit être pensée avec la résilience.</p>
+<p>Cela inclut :</p>
+<ul>
+<li>retry automatique</li>
+<li>fallback</li>
+<li>backoff exponentiel</li>
+<li>circuit breaker</li>
+<li>dead letter queue (DLT)</li>
+</ul>
+<p>Dans un système Kafka :</p>
+<ul>
+<li>les messages en erreur ne doivent pas bloquer le flux global</li>
+<li>les événements doivent pouvoir être rejoués ou isolés</li>
+</ul>
+<hr />
+<h1 id="idempotence">Idempotence</h1>
+<p>L’idempotence garantit qu’une opération répétée produit le même résultat.</p>
+<p>C’est essentiel dans les systèmes distribués car :</p>
+<ul>
+<li>les retries sont fréquents</li>
+<li>les messages peuvent être dupliqués</li>
+<li>les appels réseau peuvent être instables</li>
+</ul>
 <p>Exemple :</p>
-<div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;userId&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">42</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;action&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;CREATE_ORDER&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SUCCESS&quot;</span>
-<span class="p">}</span>
-</code></pre></div>
-<p>Avantages :</p>
 <ul>
-<li>meilleur parsing par les outils (Grafana, ELK)</li>
-<li>recherche facilitée</li>
-<li>corrélation des événements</li>
-<li>monitoring plus précis</li>
+<li>créer une commande avec un identifiant unique</li>
+<li>éviter les doublons en base</li>
 </ul>
 <hr />
-<h1 id="mdc-mapped-diagnostic-context">MDC (Mapped Diagnostic Context)</h1>
-<p>Le MDC permet d’ajouter du contexte aux logs automatiquement.</p>
-<p>Exemple d’usage :</p>
+<h1 id="sync-vs-async-error-handling">Sync vs Async error handling</h1>
+<h2 id="synchrone">Synchrone</h2>
+<p>Les erreurs remontent directement dans la stack d’appel.</p>
+<p>Exemple : REST API.</p>
+<h2 id="asynchrone">Asynchrone</h2>
+<p>Les erreurs sont traitées différemment :</p>
 <ul>
-<li>requestId</li>
-<li>userId</li>
-<li>correlationId</li>
+<li>retries</li>
+<li>DLT</li>
+<li>logs + monitoring</li>
 </ul>
-<p>Cela permet de suivre une requête complète dans un système distribué.</p>
-<p>Exemple conceptuel :</p>
-<div class="highlight"><pre><span></span><code><span class="n">MDC</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;requestId&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">id</span><span class="p">);</span>
-</code></pre></div>
-<p>Tous les logs suivants incluent automatiquement ce champ.</p>
+<p>Kafka est un exemple typique de traitement asynchrone.</p>
 <hr />
-<h1 id="gestion-des-exceptions-et-logging">Gestion des exceptions et logging</h1>
-<p>Les exceptions doivent être loggées avec une stratégie claire :</p>
+<h1 id="production-mindset">Production mindset</h1>
+<p>Une bonne gestion des exceptions en production doit garantir :</p>
 <ul>
-<li>ne pas logger deux fois la même exception</li>
-<li>distinguer erreur métier vs technique</li>
-<li>inclure le contexte utile</li>
-<li>éviter le bruit inutile dans les logs</li>
-</ul>
-<p>Exemple de bonne pratique :</p>
-<ul>
-<li>log ERROR uniquement au point de frontière (controller / handler global)</li>
-<li>propagation interne sans re-log excessif</li>
+<li>stabilité du système</li>
+<li>visibilité des erreurs</li>
+<li>absence de blocage global</li>
+<li>diagnostic rapide</li>
+<li>séparation claire des responsabilités</li>
 </ul>
 <hr />
-<h1 id="bonnes-pratiques">Bonnes pratiques</h1>
-<ul>
-<li>utiliser SLF4J uniquement (pas de System.out)</li>
-<li>éviter les logs sensibles (PII, passwords)</li>
-<li>structurer les logs</li>
-<li>toujours inclure du contexte</li>
-<li>utiliser des niveaux de logs cohérents</li>
-<li>limiter les logs DEBUG en production</li>
-</ul>
-<hr />
-<h1 id="transition-vers-lobservabilite">Transition vers l’observabilité</h1>
-<p>Le logging est la première brique de l’observabilité.</p>
-<p>Il est complété par :</p>
-<ul>
-<li>metrics (Prometheus)</li>
-<li>monitoring (Grafana)</li>
-<li>tracing distribué (Zipkin / Jaeger)</li>
-</ul>
-<p>Ces trois piliers permettent de comprendre un système en production de manière complète.</p>
+<h1 id="conclusion">Conclusion</h1>
+<p>La gestion des exceptions n’est pas un simple mécanisme technique.</p>
+<p>C’est un pilier de la robustesse d’un système backend moderne, directement lié à l’observabilité, la résilience et la qualité globale de l’architecture.</p>
 
 
 
