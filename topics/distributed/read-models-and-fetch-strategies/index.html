@@ -13,10 +13,10 @@
       
       
       
-        <link rel="prev" href="../microservices-communication/">
+        <link rel="prev" href="../kafka-resilience-patterns/">
       
       
-        <link rel="next" href="../kafka-resilience-patterns/">
+        <link rel="next" href="../../security/jwt-authentication-pattern/">
       
       
         
@@ -27,7 +27,7 @@
     
     
       
-        <title>(NEW) Synchronous Vs Asynchronous - Engineering Notes</title>
+        <title>(NEW) Read Models Vs fetch Strategies - Engineering Notes</title>
       
     
     
@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#synchronisation-vs-asynchronisation-dans-les-architectures-backend" class="md-skip">
+        <a href="#fetch-strategies-jointures-read-models-event-driven" class="md-skip">
           Aller au contenu
         </a>
       
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              (NEW) Synchronous Vs Asynchronous
+              (NEW) Read Models Vs fetch Strategies
             
           </span>
         </div>
@@ -2423,37 +2423,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    (NEW) Synchronous Vs Asynchronous
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../sync-vs-async/" class="md-nav__link">
         
   
   
@@ -2469,37 +2442,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table des matières
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#introduction" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Introduction
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -2528,6 +2470,92 @@
   
 
       </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    (NEW) Read Models Vs fetch Strategies
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    (NEW) Read Models Vs fetch Strategies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#contexte" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contexte
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -5050,10 +5078,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#introduction" class="md-nav__link">
+  <a href="#contexte" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Introduction
+        Contexte
       
     </span>
   </a>
@@ -5077,183 +5105,233 @@
 
 
 
-<h1 id="synchronisation-vs-asynchronisation-dans-les-architectures-backend">Synchronisation vs Asynchronisation dans les Architectures Backend</h1>
+<h1 id="fetch-strategies-jointures-read-models-event-driven">Fetch Strategies, Jointures &amp; Read Models Event-Driven</h1>
 <div class="admonition note">
 <p>Note de contexte (12 mai 2026) : cette note constitue un retour d’expérience suite à des échanges avec des experts du domaine. Elle est rédigée le jour même et vise à structurer les notions abordées pour consolidation et montée en compétence.</p>
 </div>
-<h2 id="introduction">Introduction</h2>
-<p>La distinction entre communication synchrone et asynchrone est fondamentale dans les systèmes backend modernes et les architectures distribuées.</p>
-<p>Elle influence directement :</p>
+<h2 id="contexte">Contexte</h2>
+<p>Cette note explore les différentes stratégies de chargement des données dans les applications backend modernes, notamment dans les contextes fortement orientés lecture et dashboards.</p>
+<p>Les échanges ont porté sur plusieurs problématiques liées à JPA / Hibernate et aux architectures distribuées :</p>
 <ul>
-<li>la performance</li>
-<li>la résilience</li>
-<li>la scalabilité</li>
-<li>la complexité du système</li>
-<li>la gestion des erreurs</li>
+<li>stratégies de fetch (<code>EAGER</code> vs <code>LAZY</code>)</li>
+<li>coût des jointures SQL</li>
+<li>problématiques de performance et de scalabilité</li>
+<li>surcharge liée aux vues enrichies côté frontend</li>
+<li>optimisation des lectures</li>
+<li>pré-calcul de projections</li>
+<li>architectures event-driven et read models</li>
 </ul>
-<p>Comprendre ce choix est essentiel pour concevoir des systèmes robustes en production.</p>
+<p>L’objectif est de comparer les approches ORM classiques basées sur les jointures dynamiques avec une approche orientée projections de lecture pré-calculées via événements Kafka et read models dédiés.</p>
 <hr />
-<h1 id="communication-synchrone">Communication synchrone</h1>
-<p>Dans un modèle synchrone, un service appelle un autre service et attend une réponse immédiate.</p>
-<p>Exemples :</p>
+<h1 id="le-probleme-fondamental">Le problème fondamental</h1>
+<p>Dans les applications backend, les données sont souvent fortement relationnelles.</p>
+<p>Exemple :</p>
 <ul>
-<li>REST HTTP</li>
-<li>gRPC</li>
+<li>User</li>
+<li>Order</li>
+<li>Payment</li>
+<li>Product</li>
+<li>Reservation</li>
 </ul>
+<p>Les interfaces frontend ont généralement besoin d’afficher des vues enrichies contenant plusieurs relations.</p>
+<p>Cela crée rapidement des problématiques de :</p>
+<ul>
+<li>jointures SQL coûteuses</li>
+<li>surchargement mémoire</li>
+<li>latence élevée</li>
+<li>multiplication des requêtes</li>
+<li>problèmes N+1</li>
+</ul>
+<hr />
+<h1 id="fetch-lazy">Fetch Lazy</h1>
+<p>Le fetch lazy charge les relations uniquement lorsqu’elles sont réellement demandées.</p>
+<p>Exemple conceptuel :</p>
+<div class="highlight"><pre><span></span><code><span class="nd">@OneToMany</span><span class="p">(</span><span class="n">fetch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FetchType</span><span class="p">.</span><span class="na">LAZY</span><span class="p">)</span>
+<span class="kd">private</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Order</span><span class="o">&gt;</span><span class="w"> </span><span class="n">orders</span><span class="p">;</span>
+</code></pre></div>
 <h2 id="fonctionnement">Fonctionnement</h2>
-<p>Le flux est bloquant :</p>
-<ol>
-<li>Service A appelle Service B</li>
-<li>Service A attend la réponse</li>
-<li>Service B traite la requête</li>
-<li>Service B renvoie la réponse</li>
-<li>Service A reprend l’exécution</li>
-</ol>
+<ul>
+<li>l’entité principale est chargée</li>
+<li>les relations restent non chargées</li>
+<li>Hibernate charge les données plus tard si nécessaire</li>
+</ul>
 <hr />
 <h2 id="avantages">Avantages</h2>
 <ul>
-<li>simplicité conceptuelle</li>
-<li>facilité de debug</li>
-<li>cohérence immédiate</li>
-<li>flux de contrôle clair</li>
+<li>réduction du volume initial chargé</li>
+<li>meilleure utilisation mémoire</li>
+<li>requêtes initiales plus légères</li>
 </ul>
 <hr />
 <h2 id="inconvenients">Inconvénients</h2>
 <ul>
-<li>couplage temporel fort</li>
-<li>dépendance directe entre services</li>
-<li>propagation des pannes</li>
-<li>latence cumulée</li>
-<li>faible tolérance aux incidents réseau</li>
+<li>risque de N+1 queries</li>
+<li>multiplication des accès base</li>
+<li>LazyInitializationException possible</li>
+<li>comportement parfois difficile à maîtriser</li>
 </ul>
 <hr />
-<h1 id="communication-asynchrone">Communication asynchrone</h1>
-<p>Dans un modèle asynchrone, les services communiquent via des événements ou des messages.</p>
-<p>Exemples :</p>
-<ul>
-<li>Kafka</li>
-<li>RabbitMQ</li>
-</ul>
+<h1 id="fetch-eager">Fetch Eager</h1>
+<p>Le fetch eager charge immédiatement les relations.</p>
+<p>Exemple :</p>
+<div class="highlight"><pre><span></span><code><span class="nd">@OneToMany</span><span class="p">(</span><span class="n">fetch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FetchType</span><span class="p">.</span><span class="na">EAGER</span><span class="p">)</span>
+<span class="kd">private</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Order</span><span class="o">&gt;</span><span class="w"> </span><span class="n">orders</span><span class="p">;</span>
+</code></pre></div>
 <h2 id="fonctionnement_1">Fonctionnement</h2>
-<ol>
-<li>Service A publie un événement</li>
-<li>L’événement est stocké dans un broker</li>
-<li>Service B consomme l’événement plus tard</li>
-<li>Traitement indépendant</li>
-</ol>
+<ul>
+<li>Hibernate récupère immédiatement les relations</li>
+<li>souvent via des jointures SQL</li>
+</ul>
 <hr />
 <h2 id="avantages_1">Avantages</h2>
 <ul>
-<li>découplage temporel</li>
-<li>meilleure résilience</li>
-<li>scalabilité élevée</li>
-<li>tolérance aux pannes</li>
-<li>traitement différé</li>
+<li>données immédiatement disponibles</li>
+<li>comportement plus simple à comprendre</li>
 </ul>
 <hr />
 <h2 id="inconvenients_1">Inconvénients</h2>
 <ul>
-<li>complexité accrue</li>
-<li>debugging plus difficile</li>
-<li>cohérence éventuelle uniquement</li>
-<li>besoin d’observabilité forte</li>
+<li>surcharge mémoire</li>
+<li>jointures SQL lourdes</li>
+<li>sur-fetching</li>
+<li>dégradation des performances</li>
+<li>amplification du coût sur les listes / scrolls / dashboards</li>
+</ul>
+<p>Dans les applications fortement orientées lecture, le eager fetching peut rapidement devenir problématique.</p>
+<hr />
+<h1 id="le-vrai-probleme-les-vues-frontend-riches">Le vrai problème : les vues frontend riches</h1>
+<p>Les interfaces modernes demandent souvent :</p>
+<ul>
+<li>dashboards</li>
+<li>listes enrichies</li>
+<li>vues agrégées</li>
+<li>données consolidées</li>
+</ul>
+<p>Le backend finit alors par reconstruire constamment les mêmes jointures complexes.</p>
+<p>Cela entraîne :</p>
+<ul>
+<li>coût CPU</li>
+<li>coût base de données</li>
+<li>augmentation de la latence</li>
+<li>surcharge ORM</li>
 </ul>
 <hr />
-<h1 id="difference-fondamentale">Différence fondamentale</h1>
-<h2 id="synchrone">Synchrone</h2>
+<h1 id="limites-du-modele-relationnel-temps-reel">Limites du modèle relationnel temps réel</h1>
+<p>Dans une architecture classique :</p>
+<ol>
+<li>le frontend demande une vue</li>
+<li>le backend reconbine plusieurs tables</li>
+<li>Hibernate reconstruit les relations</li>
+<li>les jointures sont recalculées à chaque requête</li>
+</ol>
+<p>Cette approche fonctionne bien au début, mais devient coûteuse à grande échelle.</p>
+<hr />
+<h1 id="approche-alternative-read-models-pre-calcules">Approche alternative : Read Models pré-calculés</h1>
+<p>Une autre approche consiste à préparer les vues de lecture à l’avance.</p>
+<p>Le principe :</p>
+<ul>
+<li>les événements métier sont publiés via Kafka</li>
+<li>un consumer construit un read model optimisé</li>
+<li>le frontend lit directement ce modèle</li>
+</ul>
+<hr />
+<h1 id="architecture-event-driven">Architecture Event-Driven</h1>
+<p>Exemple simplifié :</p>
+<ol>
+<li>ReservationCreated</li>
+<li>ReservationUpdated</li>
+<li>PaymentConfirmed</li>
+<li>événements publiés dans Kafka</li>
+<li>consumer met à jour un read model dédié</li>
+</ol>
+<p>Le read model contient déjà :</p>
+<ul>
+<li>les données agrégées</li>
+<li>les relations nécessaires</li>
+<li>les champs optimisés pour l’UI</li>
+</ul>
+<hr />
+<h1 id="objectif-du-read-model">Objectif du Read Model</h1>
+<p>Le read model sert à :</p>
+<ul>
+<li>éviter les jointures répétitives</li>
+<li>réduire les fetch complexes</li>
+<li>optimiser les lectures frontend</li>
+<li>accélérer les dashboards</li>
+<li>réduire la charge ORM</li>
+</ul>
+<p>Le frontend récupère directement une structure prête à afficher.</p>
+<hr />
+<h1 id="comparaison-des-approches">Comparaison des approches</h1>
+<h2 id="fetch-dynamique-lazyeager">Fetch dynamique (lazy/eager)</h2>
+<h3 id="avantages_2">Avantages</h3>
+<ul>
+<li>simple à mettre en place</li>
+<li>cohérence immédiate</li>
+<li>modèle relationnel classique</li>
+</ul>
+<h3 id="inconvenients_2">Inconvénients</h3>
+<ul>
+<li>coût runtime élevé</li>
+<li>jointures répétées</li>
+<li>problèmes de performance à grande échelle</li>
+<li>dépendance forte à l’ORM</li>
+</ul>
+<hr />
+<h2 id="read-models-event-driven">Read Models Event-Driven</h2>
+<h3 id="avantages_3">Avantages</h3>
+<ul>
+<li>lectures rapides</li>
+<li>données pré-agrégées</li>
+<li>réduction du coût des jointures</li>
+<li>meilleure scalabilité lecture</li>
+<li>optimisation des dashboards</li>
+</ul>
+<h3 id="inconvenients_3">Inconvénients</h3>
+<ul>
+<li>complexité architecturale plus élevée</li>
+<li>cohérence éventuelle</li>
+<li>duplication contrôlée des données</li>
+<li>besoin de pipeline événementiel fiable</li>
+</ul>
+<hr />
+<h1 id="cqrs-leger">CQRS léger</h1>
+<p>Cette approche se rapproche d’un modèle CQRS :</p>
+<ul>
+<li>write model → logique métier</li>
+<li>read model → optimisation lecture</li>
+</ul>
+<p>Le read model devient une projection adaptée aux besoins du frontend.</p>
+<hr />
+<h1 id="trade-off-important">Trade-off important</h1>
+<p>Le choix n’est pas :</p>
 <blockquote>
-<p>Le système attend une réponse immédiate</p>
+<p>eager vs lazy uniquement</p>
 </blockquote>
-<h2 id="asynchrone">Asynchrone</h2>
+<p>Le vrai sujet est :</p>
 <blockquote>
-<p>Le système réagit à un événement sans attendre</p>
+<p>où veut-on payer le coût de recomposition des données ?</p>
 </blockquote>
-<hr />
-<h1 id="gestion-des-erreurs">Gestion des erreurs</h1>
-<h2 id="en-synchrone">En synchrone</h2>
-<p>Les erreurs remontent directement :</p>
+<p>Options possibles :</p>
 <ul>
-<li>exception HTTP</li>
-<li>code retour</li>
-<li>propagation immédiate</li>
-</ul>
-<h2 id="en-asynchrone">En asynchrone</h2>
-<p>Les erreurs doivent être gérées différemment :</p>
-<ul>
-<li>retry automatique</li>
-<li>dead letter queue (DLQ)</li>
-<li>logs + métriques</li>
-<li>compensation logic</li>
+<li>au moment de chaque requête (jointures dynamiques)</li>
+<li>en amont via événements et projections</li>
 </ul>
 <hr />
-<h1 id="performance-et-scalabilite">Performance et scalabilité</h1>
-<h2 id="synchrone_1">Synchrone</h2>
+<h1 id="production-mindset">Production mindset</h1>
+<p>Dans les systèmes à forte volumétrie :</p>
 <ul>
-<li>limité par le service le plus lent</li>
-<li>dépendance forte au réseau</li>
+<li>dashboards</li>
+<li>scroll infini</li>
+<li>monitoring temps réel</li>
+<li>vues agrégées</li>
 </ul>
-<h2 id="asynchrone_1">Asynchrone</h2>
-<ul>
-<li>découplage des charges</li>
-<li>meilleure absorption des pics</li>
-<li>traitement parallèle</li>
-</ul>
-<hr />
-<h1 id="coherence-des-donnees">Cohérence des données</h1>
-<h2 id="synchrone-coherence-forte">Synchrone → cohérence forte</h2>
-<ul>
-<li>données immédiatement à jour</li>
-<li>simple mais coûteux en performance</li>
-</ul>
-<h2 id="asynchrone-coherence-eventuelle">Asynchrone → cohérence éventuelle</h2>
-<ul>
-<li>propagation progressive</li>
-<li>meilleure scalabilité</li>
-<li>complexité de synchronisation</li>
-</ul>
-<hr />
-<h1 id="cas-dusage-typiques">Cas d’usage typiques</h1>
-<h2 id="synchrone_2">Synchrone</h2>
-<ul>
-<li>authentification</li>
-<li>lecture de données simples</li>
-<li>validation immédiate</li>
-</ul>
-<h2 id="asynchrone_2">Asynchrone</h2>
-<ul>
-<li>traitement d’événements</li>
-<li>notifications</li>
-<li>pipelines de données</li>
-<li>systèmes event-driven (Kafka)</li>
-</ul>
-<hr />
-<h1 id="hybride-approche-reelle-en-production">Hybride (approche réelle en production)</h1>
-<p>La plupart des systèmes modernes utilisent un mix :</p>
-<ul>
-<li>synchrone pour les requêtes critiques</li>
-<li>asynchrone pour les traitements lourds ou découplés</li>
-</ul>
-<hr />
-<h1 id="observabilite">Observabilité</h1>
-<p>Les systèmes asynchrones nécessitent plus d’observabilité :</p>
-<ul>
-<li>correlationId</li>
-<li>tracing distribué</li>
-<li>logs structurés</li>
-<li>métriques par consumer/producer</li>
-</ul>
-<p>Sans cela, le debugging devient extrêmement difficile.</p>
+<p>Pré-calculer les vues devient souvent plus efficace que reconstruire constamment les relations ORM.</p>
 <hr />
 <h1 id="conclusion">Conclusion</h1>
-<p>La décision entre synchrone et asynchrone n’est pas technique uniquement.</p>
-<p>C’est un choix d’architecture qui impacte :</p>
-<ul>
-<li>la robustesse</li>
-<li>la scalabilité</li>
-<li>la complexité</li>
-<li>la maintenabilité</li>
-</ul>
-<p>Les systèmes modernes adoptent souvent une approche hybride selon les besoins métier.</p>
+<p>Le fetch lazy et eager répondent à des problématiques ORM classiques, mais montrent rapidement leurs limites dans les architectures distribuées modernes.</p>
+<p>Les architectures event-driven avec read models pré-calculés permettent de déplacer le coût de recomposition des données en amont afin d’optimiser les lectures et améliorer la scalabilité.</p>
+<p>Cette approche introduit davantage de complexité architecturale, mais devient particulièrement pertinente pour les systèmes orientés dashboards, analytics et forte charge de lecture.</p>
 
 
 
