@@ -5370,6 +5370,150 @@
 </ul>
 <p>Le read model devient une projection adaptée aux besoins du frontend.</p>
 <hr />
+<h1 id="implementation-reelle-kore-hexagonal">Implémentation réelle — kore-hexagonal</h1>
+<p>Ce pattern est implémenté dans kore-hexagonal sur le domaine Booking.</p>
+<h2 id="flux-complet">Flux complet</h2>
+<div class="highlight"><pre><span></span><code>[Write side]                          [Read side]
+CreateBookingCommand                  GET /api/v1/projection/bookings
+        |                                        |
+CreateBookingHandler                  BookingReadController
+        |                                        |
+Booking (domain)                      BookingReadJpaRepository
+        |                                        |
+BookingCreatedEvent                   booking_read_model (table)
+        |                                        ^
+KafkaEventProducer                               |
+        |                             BookingEventHandler
+        +---------&gt; Kafka topic ------+
+</code></pre></div>
+<h2 id="1-levenement-de-domaine">1. L’événement de domaine</h2>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">record</span> <span class="nc">BookingCreatedEvent</span><span class="p">(</span>
+<span class="w">        </span><span class="n">UUID</span><span class="w"> </span><span class="n">bookingId</span><span class="p">,</span>
+<span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">assetRef</span><span class="p">,</span>
+<span class="w">        </span><span class="n">LocalDate</span><span class="w"> </span><span class="n">startDate</span><span class="p">,</span>
+<span class="w">        </span><span class="n">LocalDate</span><span class="w"> </span><span class="n">endDate</span><span class="p">,</span>
+<span class="w">        </span><span class="n">BookingStatus</span><span class="w"> </span><span class="n">status</span>
+<span class="p">)</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">AggregateEvent</span><span class="w"> </span><span class="p">{}</span>
+</code></pre></div>
+<p>L’événement est produit par le write side après persistance du Booking.</p>
+<h2 id="2-la-table-de-lecture-denormalisee">2. La table de lecture dénormalisée</h2>
+<div class="highlight"><pre><span></span><code><span class="nd">@Entity</span>
+<span class="nd">@Table</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;booking_read_model&quot;</span><span class="p">)</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">BookingReadJpaEntity</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="nd">@Id</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">UUID</span><span class="w"> </span><span class="n">id</span><span class="p">;</span>
+
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">assetRef</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">LocalDate</span><span class="w"> </span><span class="n">startDate</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">LocalDate</span><span class="w"> </span><span class="n">endDate</span><span class="p">;</span>
+
+<span class="w">    </span><span class="nd">@Enumerated</span><span class="p">(</span><span class="n">EnumType</span><span class="p">.</span><span class="na">STRING</span><span class="p">)</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">BookingStatus</span><span class="w"> </span><span class="n">status</span><span class="p">;</span>
+
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">ZonedDateTime</span><span class="w"> </span><span class="n">lastUpdatedAt</span><span class="p">;</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">assetRef</span><span class="p">,</span><span class="w"> </span><span class="n">LocalDate</span><span class="w"> </span><span class="n">startDate</span><span class="p">,</span>
+<span class="w">                       </span><span class="n">LocalDate</span><span class="w"> </span><span class="n">endDate</span><span class="p">,</span><span class="w"> </span><span class="n">BookingStatus</span><span class="w"> </span><span class="n">status</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">assetRef</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">assetRef</span><span class="p">;</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">startDate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">startDate</span><span class="p">;</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">endDate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">endDate</span><span class="p">;</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">status</span><span class="p">;</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">lastUpdatedAt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ZonedDateTime</span><span class="p">.</span><span class="na">now</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Pas de jointures. La table contient exactement ce dont le frontend a besoin.</p>
+<h2 id="3-le-consumer-kafka-qui-maintient-le-read-model">3. Le consumer Kafka qui maintient le read model</h2>
+<div class="highlight"><pre><span></span><code><span class="nd">@Service</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">BookingEventHandler</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">BookingReadJpaRepository</span><span class="w"> </span><span class="n">readModelRepository</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">ProcessedEventJpaRepository</span><span class="w"> </span><span class="n">processedEventRepository</span><span class="p">;</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">handle</span><span class="p">(</span><span class="n">EventEnvelope</span><span class="w"> </span><span class="n">envelope</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">        </span><span class="c1">// Idempotence : ignorer les doublons</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">processedEventRepository</span><span class="p">.</span><span class="na">existsByEventId</span><span class="p">(</span><span class="n">envelope</span><span class="p">.</span><span class="na">eventId</span><span class="p">()))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">log</span><span class="p">.</span><span class="na">warn</span><span class="p">(</span><span class="s">&quot;Evenement duplique ignore : {}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">envelope</span><span class="p">.</span><span class="na">eventId</span><span class="p">());</span>
+<span class="w">            </span><span class="k">return</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">envelope</span><span class="p">.</span><span class="na">eventType</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="s">&quot;BookingCreatedEvent&quot;</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">BookingCreatedEvent</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mapper</span><span class="p">.</span><span class="na">convertValue</span><span class="p">(</span>
+<span class="w">                    </span><span class="n">envelope</span><span class="p">.</span><span class="na">payload</span><span class="p">(),</span><span class="w"> </span><span class="n">BookingCreatedEvent</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
+<span class="w">                </span><span class="n">readModelRepository</span><span class="p">.</span><span class="na">save</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">BookingReadJpaEntity</span><span class="p">(</span>
+<span class="w">                    </span><span class="n">e</span><span class="p">.</span><span class="na">bookingId</span><span class="p">(),</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="na">assetRef</span><span class="p">(),</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="na">startDate</span><span class="p">(),</span>
+<span class="w">                    </span><span class="n">e</span><span class="p">.</span><span class="na">endDate</span><span class="p">(),</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="na">status</span><span class="p">()</span>
+<span class="w">                </span><span class="p">));</span>
+<span class="w">            </span><span class="p">}</span>
+
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="s">&quot;BookingUpdatedEvent&quot;</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">BookingUpdatedEvent</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mapper</span><span class="p">.</span><span class="na">convertValue</span><span class="p">(</span>
+<span class="w">                    </span><span class="n">envelope</span><span class="p">.</span><span class="na">payload</span><span class="p">(),</span><span class="w"> </span><span class="n">BookingUpdatedEvent</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
+<span class="w">                </span><span class="n">BookingReadJpaEntity</span><span class="w"> </span><span class="n">entity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">readModelRepository</span>
+<span class="w">                    </span><span class="p">.</span><span class="na">findById</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="na">bookingId</span><span class="p">())</span>
+<span class="w">                    </span><span class="p">.</span><span class="na">orElseGet</span><span class="p">(()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">BookingReadJpaEntity</span><span class="p">(...));</span>
+<span class="w">                </span><span class="n">entity</span><span class="p">.</span><span class="na">update</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="na">assetRef</span><span class="p">(),</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="na">startDate</span><span class="p">(),</span>
+<span class="w">                              </span><span class="n">e</span><span class="p">.</span><span class="na">endDate</span><span class="p">(),</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="na">status</span><span class="p">());</span>
+<span class="w">                </span><span class="n">readModelRepository</span><span class="p">.</span><span class="na">save</span><span class="p">(</span><span class="n">entity</span><span class="p">);</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><strong>Points clés :</strong></p>
+<ul>
+<li>L’idempotence est gérée via une table <code>processed_events</code> : même si Kafka redélivre l’événement, le read model n’est mis à jour qu’une seule fois</li>
+<li>Le <code>switch</code> sur <code>eventType</code> rend le handler extensible sans modifier la logique existante</li>
+<li>Le read model est mis à jour de façon asynchrone, sans bloquer le write side</li>
+</ul>
+<h2 id="4-le-controller-de-lecture-separe-du-write">4. Le controller de lecture — séparé du write</h2>
+<div class="highlight"><pre><span></span><code><span class="cm">/**</span>
+<span class="cm"> * Endpoints lecture seule — Read model CQRS.</span>
+<span class="cm"> * Retourne des projections depuis booking_read_model,</span>
+<span class="cm"> * sans passer par le domaine d’écriture.</span>
+<span class="cm"> */</span>
+<span class="nd">@RestController</span>
+<span class="nd">@RequestMapping</span><span class="p">(</span><span class="s">&quot;/api/v1/projection/bookings&quot;</span><span class="p">)</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">BookingReadController</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="nd">@GetMapping</span><span class="p">(</span><span class="s">&quot;/{id}&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">ResponseEntity</span><span class="o">&lt;</span><span class="n">BookingReadView</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getById</span><span class="p">(</span><span class="nd">@PathVariable</span><span class="w"> </span><span class="n">UUID</span><span class="w"> </span><span class="n">id</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">ResponseEntity</span><span class="p">.</span><span class="na">ok</span><span class="p">(</span>
+<span class="w">            </span><span class="n">mapper</span><span class="p">.</span><span class="na">toReadView</span><span class="p">(</span><span class="n">getHandler</span><span class="p">.</span><span class="na">handle</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">GetBookingQuery</span><span class="p">(</span><span class="n">id</span><span class="p">)))</span>
+<span class="w">        </span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@GetMapping</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">ResponseEntity</span><span class="o">&lt;</span><span class="n">BookingPageView</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getPage</span><span class="p">(</span>
+<span class="w">            </span><span class="nd">@RequestParam</span><span class="p">(</span><span class="n">defaultValue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;0&quot;</span><span class="p">)</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">page</span><span class="p">,</span>
+<span class="w">            </span><span class="nd">@RequestParam</span><span class="p">(</span><span class="n">defaultValue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;20&quot;</span><span class="p">)</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">size</span><span class="p">,</span>
+<span class="w">            </span><span class="n">BookingFilterRequest</span><span class="w"> </span><span class="n">filter</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// Lecture directe depuis booking_read_model, sans jointure</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">ResponseEntity</span><span class="p">.</span><span class="na">ok</span><span class="p">(</span><span class="n">mapper</span><span class="p">.</span><span class="na">toPageView</span><span class="p">(</span><span class="n">getHandler</span><span class="p">.</span><span class="na">handle</span><span class="p">(</span><span class="n">query</span><span class="p">)));</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Le prefix <code>/projection/</code> signale explicitement qu’on lit depuis le read model, pas depuis le domaine.</p>
+<h2 id="ce-que-ca-evite-concretement">Ce que ça évite concrètement</h2>
+<p>Sans read model, chaque appel à <code>GET /bookings</code> forcerait :</p>
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="n">bi</span><span class="p">.</span><span class="o">*</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">booking</span><span class="w"> </span><span class="n">b</span>
+<span class="k">LEFT</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">booking_item</span><span class="w"> </span><span class="n">bi</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">bi</span><span class="p">.</span><span class="n">booking_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">id</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">‘</span><span class="n">CONFIRMED</span><span class="err">’</span>
+<span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">start_date</span>
+</code></pre></div>
+<p>Avec jointure recalculée à chaque requête, à chaque scroll, à chaque refresh dashboard.</p>
+<p>Avec le read model :</p>
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">booking_read_model</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">‘</span><span class="n">CONFIRMED</span><span class="err">’</span>
+<span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">start_date</span>
+</code></pre></div>
+<p>Une seule table, aucune jointure, index direct sur les colonnes de filtre.</p>
+<hr />
 <h1 id="trade-off-important">Trade-off important</h1>
 <p>Le choix n’est pas :</p>
 <blockquote>
@@ -5379,21 +5523,35 @@
 <blockquote>
 <p>où veut-on payer le coût de recomposition des données ?</p>
 </blockquote>
-<p>Options possibles :</p>
-<ul>
-<li>au moment de chaque requête (jointures dynamiques)</li>
-<li>en amont via événements et projections</li>
-</ul>
+<table>
+<thead>
+<tr>
+<th>Approche</th>
+<th>Quand payer le coût</th>
+<th>Cohérence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Fetch dynamique (lazy/eager)</td>
+<td>A chaque requête</td>
+<td>Forte (immédiate)</td>
+</tr>
+<tr>
+<td>Read model event-driven</td>
+<td>A la production de l’événement</td>
+<td>Eventuelle</td>
+</tr>
+</tbody>
+</table>
 <hr />
 <h1 id="production-mindset">Production mindset</h1>
-<p>Dans les systèmes à forte volumétrie :</p>
+<p>Dans les systèmes à forte volumétrie (dashboards, scroll infini, monitoring temps réel) :</p>
 <ul>
-<li>dashboards</li>
-<li>scroll infini</li>
-<li>monitoring temps réel</li>
-<li>vues agrégées</li>
+<li>pré-calculer les vues via événements est plus efficace que reconstruire les relations ORM à chaque requête</li>
+<li>la cohérence éventuelle est acceptable quand les données de lecture n’ont pas besoin d’être à la milliseconde près</li>
+<li>l’idempotence du consumer est non négociable en production — Kafka peut redélivrer</li>
 </ul>
-<p>Pré-calculer les vues devient souvent plus efficace que reconstruire constamment les relations ORM.</p>
 <hr />
 <h1 id="conclusion">Conclusion</h1>
 <p>Le fetch lazy et eager répondent à des problématiques ORM classiques, mais montrent rapidement leurs limites dans les architectures distribuées modernes.</p>
