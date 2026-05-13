@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#synchronisation-vs-asynchronisation-dans-les-architectures-backend" class="md-skip">
+        <a href="#synchrone-vs-asynchrone-dans-les-architectures-backend" class="md-skip">
           Aller au contenu
         </a>
       
@@ -2514,10 +2514,226 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#introduction" class="md-nav__link">
+  <a href="#la-question-fondamentale" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Introduction
+        La question fondamentale
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#communication-synchrone" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Communication synchrone
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Communication synchrone">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exemples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exemples
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implementation-dans-kore-hexagonal-write-side" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Implémentation dans kore-hexagonal — write side
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#avantages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Avantages
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inconvenients" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inconvénients
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#communication-asynchrone" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Communication asynchrone
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Communication asynchrone">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#implementation-dans-kore-hexagonal-publication-devenement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Implémentation dans kore-hexagonal — publication d'événement
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#avantages_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Avantages
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inconvenients_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inconvénients
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pattern-hybride-le-cas-reel-de-kore-hexagonal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pattern hybride — le cas réel de kore-hexagonal
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gestion-des-erreurs-comportement-different" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gestion des erreurs — comportement différent
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Gestion des erreurs — comportement différent">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#synchrone" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Synchrone
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#asynchrone" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Asynchrone
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#coherence-des-donnees" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cohérence des données
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quand-choisir-quoi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quand choisir quoi
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#observabilite-plus-critique-en-asynchrone" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Observabilité — plus critique en asynchrone
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conclusion
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#voir-aussi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Voir aussi
       
     </span>
   </a>
@@ -5134,10 +5350,226 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#introduction" class="md-nav__link">
+  <a href="#la-question-fondamentale" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Introduction
+        La question fondamentale
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#communication-synchrone" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Communication synchrone
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Communication synchrone">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exemples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exemples
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implementation-dans-kore-hexagonal-write-side" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Implémentation dans kore-hexagonal — write side
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#avantages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Avantages
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inconvenients" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inconvénients
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#communication-asynchrone" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Communication asynchrone
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Communication asynchrone">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#implementation-dans-kore-hexagonal-publication-devenement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Implémentation dans kore-hexagonal — publication d'événement
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#avantages_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Avantages
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inconvenients_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inconvénients
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pattern-hybride-le-cas-reel-de-kore-hexagonal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pattern hybride — le cas réel de kore-hexagonal
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gestion-des-erreurs-comportement-different" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gestion des erreurs — comportement différent
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Gestion des erreurs — comportement différent">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#synchrone" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Synchrone
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#asynchrone" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Asynchrone
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#coherence-des-donnees" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cohérence des données
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quand-choisir-quoi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quand choisir quoi
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#observabilite-plus-critique-en-asynchrone" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Observabilité — plus critique en asynchrone
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conclusion
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#voir-aussi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Voir aussi
       
     </span>
   </a>
@@ -5193,183 +5625,237 @@
 
 
 
-<h1 id="synchronisation-vs-asynchronisation-dans-les-architectures-backend">Synchronisation vs Asynchronisation dans les Architectures Backend</h1>
+<h1 id="synchrone-vs-asynchrone-dans-les-architectures-backend">Synchrone vs Asynchrone dans les Architectures Backend</h1>
 <div class="admonition note">
-<p>Note de contexte (12 mai 2026) : cette note constitue un retour d’expérience suite à des échanges avec des experts du domaine. Elle est rédigée le jour même et vise à structurer les notions abordées pour consolidation et montée en compétence.</p>
+<p>Note de contexte (12 mai 2026) : cette note constitue un retour d'expérience suite à des échanges avec des experts du domaine. Elle est rédigée le jour même et vise à structurer les notions abordées pour consolidation et montée en compétence.</p>
 </div>
-<h2 id="introduction">Introduction</h2>
-<p>La distinction entre communication synchrone et asynchrone est fondamentale dans les systèmes backend modernes et les architectures distribuées.</p>
-<p>Elle influence directement :</p>
-<ul>
-<li>la performance</li>
-<li>la résilience</li>
-<li>la scalabilité</li>
-<li>la complexité du système</li>
-<li>la gestion des erreurs</li>
-</ul>
-<p>Comprendre ce choix est essentiel pour concevoir des systèmes robustes en production.</p>
+<h2 id="la-question-fondamentale">La question fondamentale</h2>
+<p>Quand deux composants doivent communiquer, un seul choix structurant se pose :</p>
+<blockquote>
+<p>est-ce que l'appelant attend la réponse, ou continue-t-il sans attendre ?</p>
+</blockquote>
+<p>Ce choix impacte la performance, la résilience, la scalabilité et la complexité du système.</p>
 <hr />
-<h1 id="communication-synchrone">Communication synchrone</h1>
-<p>Dans un modèle synchrone, un service appelle un autre service et attend une réponse immédiate.</p>
-<p>Exemples :</p>
+<h2 id="communication-synchrone">Communication synchrone</h2>
+<p>L'appelant <strong>bloque</strong> jusqu'à recevoir la réponse.</p>
+<div class="highlight"><pre><span></span><code>Service A ──request──&gt; Service B
+Service A  &lt;──response── Service B
+    |
+    (reprend l&#39;exécution)
+</code></pre></div>
+<h3 id="exemples">Exemples</h3>
 <ul>
-<li>REST HTTP</li>
-<li>gRPC</li>
+<li>REST HTTP (<code>GET /bookings/123</code> → attend le JSON)</li>
+<li>gRPC (appel RPC bloquant)</li>
+<li>Appel de méthode Java classique</li>
 </ul>
-<h2 id="fonctionnement">Fonctionnement</h2>
-<p>Le flux est bloquant :</p>
-<ol>
-<li>Service A appelle Service B</li>
-<li>Service A attend la réponse</li>
-<li>Service B traite la requête</li>
-<li>Service B renvoie la réponse</li>
-<li>Service A reprend l’exécution</li>
-</ol>
-<hr />
-<h2 id="avantages">Avantages</h2>
+<h3 id="implementation-dans-kore-hexagonal-write-side">Implémentation dans kore-hexagonal — write side</h3>
+<div class="highlight"><pre><span></span><code><span class="nd">@RestController</span>
+<span class="nd">@RequestMapping</span><span class="p">(</span><span class="s">&quot;/api/v1/bookings&quot;</span><span class="p">)</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">BookingController</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="nd">@PostMapping</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">ResponseEntity</span><span class="o">&lt;</span><span class="n">BookingView</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">create</span><span class="p">(</span>
+<span class="w">            </span><span class="nd">@Valid</span><span class="w"> </span><span class="nd">@RequestBody</span><span class="w"> </span><span class="n">CreateBookingRequest</span><span class="w"> </span><span class="n">request</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">        </span><span class="n">UUID</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">createHandler</span><span class="p">.</span><span class="na">handle</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">CreateBookingCommand</span><span class="p">(</span>
+<span class="w">                </span><span class="n">request</span><span class="p">.</span><span class="na">assetRef</span><span class="p">(),</span><span class="w"> </span><span class="n">request</span><span class="p">.</span><span class="na">startDate</span><span class="p">(),</span><span class="w"> </span><span class="n">request</span><span class="p">.</span><span class="na">endDate</span><span class="p">()</span>
+<span class="w">        </span><span class="p">));</span>
+
+<span class="w">        </span><span class="c1">// Le client attend la réponse — flux synchrone</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">ResponseEntity</span><span class="p">.</span><span class="na">status</span><span class="p">(</span><span class="mi">201</span><span class="p">).</span><span class="na">body</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">BookingView</span><span class="p">(</span><span class="n">id</span><span class="p">));</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Le handler est <code>@Transactional</code> — il persiste le booking et retourne l'UUID. Le client reçoit une réponse HTTP 201 avec l'identifiant créé.</p>
+<h3 id="avantages">Avantages</h3>
 <ul>
-<li>simplicité conceptuelle</li>
-<li>facilité de debug</li>
-<li>cohérence immédiate</li>
+<li>simplicité conceptuelle et de debug</li>
+<li>cohérence immédiate (le client sait si l'opération a réussi)</li>
 <li>flux de contrôle clair</li>
 </ul>
-<hr />
-<h2 id="inconvenients">Inconvénients</h2>
+<h3 id="inconvenients">Inconvénients</h3>
 <ul>
-<li>couplage temporel fort</li>
-<li>dépendance directe entre services</li>
-<li>propagation des pannes</li>
-<li>latence cumulée</li>
-<li>faible tolérance aux incidents réseau</li>
+<li>couplage temporel : si Service B est lent, Service A attend</li>
+<li>propagation des pannes : si Service B est down, Service A échoue</li>
+<li>latence cumulée dans les chaînes d'appels</li>
 </ul>
 <hr />
-<h1 id="communication-asynchrone">Communication asynchrone</h1>
-<p>Dans un modèle asynchrone, les services communiquent via des événements ou des messages.</p>
-<p>Exemples :</p>
+<h2 id="communication-asynchrone">Communication asynchrone</h2>
+<p>L'appelant <strong>publie un événement</strong> et continue sans attendre de réponse.</p>
+<div class="highlight"><pre><span></span><code>Service A ──event──&gt; [Broker Kafka]
+Service A  (continue immédiatement)
+                         |
+                    Service B consomme
+                    (plus tard, à son rythme)
+</code></pre></div>
+<h3 id="implementation-dans-kore-hexagonal-publication-devenement">Implémentation dans kore-hexagonal — publication d'événement</h3>
+<div class="highlight"><pre><span></span><code><span class="nd">@Service</span>
+<span class="nd">@RequiredArgsConstructor</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">CreateBookingHandler</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">BookingRepository</span><span class="w"> </span><span class="n">bookingRepository</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">EventProducer</span><span class="w"> </span><span class="n">eventProducer</span><span class="p">;</span>
+
+<span class="w">    </span><span class="nd">@Transactional</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">UUID</span><span class="w"> </span><span class="nf">handle</span><span class="p">(</span><span class="n">CreateBookingCommand</span><span class="w"> </span><span class="n">cmd</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// 1. Logique métier synchrone</span>
+<span class="w">        </span><span class="n">Booking</span><span class="w"> </span><span class="n">booking</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Booking</span><span class="p">.</span><span class="na">create</span><span class="p">(</span>
+<span class="w">            </span><span class="n">cmd</span><span class="p">.</span><span class="na">assetRef</span><span class="p">(),</span><span class="w"> </span><span class="n">cmd</span><span class="p">.</span><span class="na">startDate</span><span class="p">(),</span><span class="w"> </span><span class="n">cmd</span><span class="p">.</span><span class="na">endDate</span><span class="p">());</span>
+<span class="w">        </span><span class="n">bookingRepository</span><span class="p">.</span><span class="na">save</span><span class="p">(</span><span class="n">booking</span><span class="p">);</span>
+
+<span class="w">        </span><span class="c1">// 2. Publication asynchrone des événements de domaine</span>
+<span class="w">        </span><span class="n">booking</span><span class="p">.</span><span class="na">pullEvents</span><span class="p">().</span><span class="na">forEach</span><span class="p">(</span><span class="n">eventProducer</span><span class="p">::</span><span class="n">publish</span><span class="p">);</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">booking</span><span class="p">.</span><span class="na">getId</span><span class="p">();</span>
+<span class="w">        </span><span class="c1">// Le handler ne sait pas ce que les consumers vont faire</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="nd">@Override</span>
+<span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">publish</span><span class="p">(</span><span class="n">DomainEvent</span><span class="w"> </span><span class="n">event</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">EventEnvelope</span><span class="w"> </span><span class="n">envelope</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">EventEnvelope</span><span class="p">(</span>
+<span class="w">            </span><span class="n">UUID</span><span class="p">.</span><span class="na">randomUUID</span><span class="p">(),</span>
+<span class="w">            </span><span class="n">event</span><span class="p">.</span><span class="na">eventType</span><span class="p">(),</span>
+<span class="w">            </span><span class="n">ZonedDateTime</span><span class="p">.</span><span class="na">now</span><span class="p">(),</span>
+<span class="w">            </span><span class="n">objectMapper</span><span class="p">.</span><span class="na">valueToTree</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
+<span class="w">    </span><span class="p">);</span>
+<span class="w">    </span><span class="c1">// Publication dans Kafka — le producer n&#39;attend pas la consommation</span>
+<span class="w">    </span><span class="n">kafkaTemplate</span><span class="p">.</span><span class="na">send</span><span class="p">(</span><span class="n">topic</span><span class="p">,</span><span class="w"> </span><span class="n">envelope</span><span class="p">.</span><span class="na">eventId</span><span class="p">().</span><span class="na">toString</span><span class="p">(),</span>
+<span class="w">                       </span><span class="n">objectMapper</span><span class="p">.</span><span class="na">writeValueAsString</span><span class="p">(</span><span class="n">envelope</span><span class="p">));</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Le consumer (<code>BookingEventHandler</code>) met à jour le read model de façon <strong>indépendante</strong>, sans bloquer le write side.</p>
+<h3 id="avantages_1">Avantages</h3>
 <ul>
-<li>Kafka</li>
-<li>RabbitMQ</li>
+<li>découplage temporel : le producer ne dépend pas de la disponibilité des consumers</li>
+<li>résilience : si un consumer est down, les messages s'accumulent et sont traités au redémarrage</li>
+<li>scalabilité : on ajoute des consumers sans toucher au producer</li>
 </ul>
-<h2 id="fonctionnement_1">Fonctionnement</h2>
-<ol>
-<li>Service A publie un événement</li>
-<li>L’événement est stocké dans un broker</li>
-<li>Service B consomme l’événement plus tard</li>
-<li>Traitement indépendant</li>
-</ol>
-<hr />
-<h2 id="avantages_1">Avantages</h2>
+<h3 id="inconvenients_1">Inconvénients</h3>
 <ul>
-<li>découplage temporel</li>
-<li>meilleure résilience</li>
-<li>scalabilité élevée</li>
-<li>tolérance aux pannes</li>
-<li>traitement différé</li>
-</ul>
-<hr />
-<h2 id="inconvenients_1">Inconvénients</h2>
-<ul>
-<li>complexité accrue</li>
-<li>debugging plus difficile</li>
 <li>cohérence éventuelle uniquement</li>
-<li>besoin d’observabilité forte</li>
+<li>debugging plus difficile (flux non linéaire)</li>
+<li>besoin d'observabilité forte (correlationId, tracing)</li>
 </ul>
 <hr />
-<h1 id="difference-fondamentale">Différence fondamentale</h1>
-<h2 id="synchrone">Synchrone</h2>
-<blockquote>
-<p>Le système attend une réponse immédiate</p>
-</blockquote>
-<h2 id="asynchrone">Asynchrone</h2>
-<blockquote>
-<p>Le système réagit à un événement sans attendre</p>
-</blockquote>
+<h2 id="pattern-hybride-le-cas-reel-de-kore-hexagonal">Pattern hybride — le cas réel de kore-hexagonal</h2>
+<p>En production, les systèmes n'utilisent pas l'un ou l'autre exclusivement. kore-hexagonal est un exemple typique de <strong>pattern hybride</strong> :</p>
+<div class="highlight"><pre><span></span><code>[Client HTTP]
+      |
+  REST sync       ← création du booking, réponse 201 immédiate
+      |
+[CreateBookingHandler]
+      |
+  JPA save        ← écriture synchrone en base
+      |
+  Kafka publish   ← déclenchement asynchrone du read model
+      |
+[BookingEventConsumer]  ← traitement asynchrone, indépendant
+      |
+  booking_read_model mise à jour
+</code></pre></div>
+<p><strong>Lecture (GET)</strong> : synchrone via <code>BookingReadController</code> → lit directement <code>booking_read_model</code></p>
+<p><strong>Ecriture (POST/PUT)</strong> : synchrone pour la persistance métier, asynchrone pour la propagation aux consumers</p>
+<p>Ce choix est délibéré :
+- le client a une réponse immédiate sur le résultat de son action
+- la mise à jour du read model ne bloque pas l'écriture
+- si le consumer est lent, l'écriture n'en pâtit pas</p>
 <hr />
-<h1 id="gestion-des-erreurs">Gestion des erreurs</h1>
-<h2 id="en-synchrone">En synchrone</h2>
-<p>Les erreurs remontent directement :</p>
-<ul>
-<li>exception HTTP</li>
-<li>code retour</li>
-<li>propagation immédiate</li>
-</ul>
-<h2 id="en-asynchrone">En asynchrone</h2>
-<p>Les erreurs doivent être gérées différemment :</p>
-<ul>
-<li>retry automatique</li>
-<li>dead letter queue (DLQ)</li>
-<li>logs + métriques</li>
-<li>compensation logic</li>
-</ul>
+<h2 id="gestion-des-erreurs-comportement-different">Gestion des erreurs — comportement différent</h2>
+<h3 id="synchrone">Synchrone</h3>
+<p>L'erreur remonte directement dans la stack d'appel :</p>
+<div class="highlight"><pre><span></span><code>POST /bookings → BookingDomainException → GlobalExceptionHandler → HTTP 400
+</code></pre></div>
+<p>Le client sait immédiatement que son action a échoué.</p>
+<h3 id="asynchrone">Asynchrone</h3>
+<p>L'erreur ne peut pas remonter vers le client — il est déjà reparti :</p>
+<div class="highlight"><pre><span></span><code>Kafka message → consumer plante → retry (x3) → DLT → log + alerte Grafana
+</code></pre></div>
+<p>Le client ne saura jamais que le read model n'a pas été mis à jour, sauf si on lui envoie une notification.</p>
 <hr />
-<h1 id="performance-et-scalabilite">Performance et scalabilité</h1>
-<h2 id="synchrone_1">Synchrone</h2>
-<ul>
-<li>limité par le service le plus lent</li>
-<li>dépendance forte au réseau</li>
-</ul>
-<h2 id="asynchrone_1">Asynchrone</h2>
-<ul>
-<li>découplage des charges</li>
-<li>meilleure absorption des pics</li>
-<li>traitement parallèle</li>
-</ul>
+<h2 id="coherence-des-donnees">Cohérence des données</h2>
+<table>
+<thead>
+<tr>
+<th>Modèle</th>
+<th>Cohérence</th>
+<th>Performance</th>
+<th>Cas d'usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Synchrone</td>
+<td>Forte (immédiate)</td>
+<td>Plus lente</td>
+<td>Opérations critiques, validation</td>
+</tr>
+<tr>
+<td>Asynchrone</td>
+<td>Eventuelle</td>
+<td>Plus rapide</td>
+<td>Notifications, projections, pipelines</td>
+</tr>
+</tbody>
+</table>
+<p>Dans kore-hexagonal, le write model (base principale) est <strong>fortement cohérent</strong> via <code>@Transactional</code>. Le read model est <strong>éventuellement cohérent</strong> — il peut avoir quelques millisecondes de retard sur le write model.</p>
 <hr />
-<h1 id="coherence-des-donnees">Cohérence des données</h1>
-<h2 id="synchrone-coherence-forte">Synchrone → cohérence forte</h2>
-<ul>
-<li>données immédiatement à jour</li>
-<li>simple mais coûteux en performance</li>
-</ul>
-<h2 id="asynchrone-coherence-eventuelle">Asynchrone → cohérence éventuelle</h2>
-<ul>
-<li>propagation progressive</li>
-<li>meilleure scalabilité</li>
-<li>complexité de synchronisation</li>
-</ul>
+<h2 id="quand-choisir-quoi">Quand choisir quoi</h2>
+<table>
+<thead>
+<tr>
+<th>Situation</th>
+<th>Synchrone</th>
+<th>Asynchrone</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Le client a besoin du résultat immédiatement</td>
+<td>Oui</td>
+<td>Non</td>
+</tr>
+<tr>
+<td>L'opération peut être longue</td>
+<td>Non</td>
+<td>Oui</td>
+</tr>
+<tr>
+<td>Plusieurs services doivent réagir au même événement</td>
+<td>Non</td>
+<td>Oui</td>
+</tr>
+<tr>
+<td>La cohérence immédiate est critique</td>
+<td>Oui</td>
+<td>Non</td>
+</tr>
+<tr>
+<td>Le système doit absorber des pics de charge</td>
+<td>Non</td>
+<td>Oui</td>
+</tr>
+</tbody>
+</table>
 <hr />
-<h1 id="cas-dusage-typiques">Cas d’usage typiques</h1>
-<h2 id="synchrone_2">Synchrone</h2>
+<h2 id="observabilite-plus-critique-en-asynchrone">Observabilité — plus critique en asynchrone</h2>
+<p>En synchrone, la stack trace suffit pour débugger. En asynchrone, il faut :</p>
 <ul>
-<li>authentification</li>
-<li>lecture de données simples</li>
-<li>validation immédiate</li>
+<li>un <code>correlationId</code> propagé de l'HTTP jusqu'aux events Kafka</li>
+<li>des logs structurés avec ce correlationId dans chaque consumer</li>
+<li>des métriques sur le consumer lag pour détecter les retards</li>
+<li>un dashboard Grafana montrant le flux de bout en bout</li>
 </ul>
-<h2 id="asynchrone_2">Asynchrone</h2>
-<ul>
-<li>traitement d’événements</li>
-<li>notifications</li>
-<li>pipelines de données</li>
-<li>systèmes event-driven (Kafka)</li>
-</ul>
+<p>Sans cette observabilité, le debugging d'un système async devient extrêmement difficile.</p>
 <hr />
-<h1 id="hybride-approche-reelle-en-production">Hybride (approche réelle en production)</h1>
-<p>La plupart des systèmes modernes utilisent un mix :</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>Synchrone et asynchrone ne sont pas opposés — ils se complètent.</p>
 <ul>
-<li>synchrone pour les requêtes critiques</li>
-<li>asynchrone pour les traitements lourds ou découplés</li>
+<li><strong>Synchrone</strong> pour les opérations où le client a besoin d'un résultat immédiat et fiable</li>
+<li><strong>Asynchrone</strong> pour propager les effets de bord, découpler les services, absorber la charge</li>
 </ul>
-<hr />
-<h1 id="observabilite">Observabilité</h1>
-<p>Les systèmes asynchrones nécessitent plus d’observabilité :</p>
-<ul>
-<li>correlationId</li>
-<li>tracing distribué</li>
-<li>logs structurés</li>
-<li>métriques par consumer/producer</li>
-</ul>
-<p>Sans cela, le debugging devient extrêmement difficile.</p>
-<hr />
-<h1 id="conclusion">Conclusion</h1>
-<p>La décision entre synchrone et asynchrone n’est pas technique uniquement.</p>
-<p>C’est un choix d’architecture qui impacte :</p>
-<ul>
-<li>la robustesse</li>
-<li>la scalabilité</li>
-<li>la complexité</li>
-<li>la maintenabilité</li>
-</ul>
-<p>Les systèmes modernes adoptent souvent une approche hybride selon les besoins métier.</p>
+<p>kore-hexagonal illustre ce pattern : écriture synchrone + propagation asynchrone via Kafka. C'est l'architecture standard des systèmes distribués modernes.</p>
 <hr />
 <h2 id="voir-aussi">Voir aussi</h2>
 <ul>
