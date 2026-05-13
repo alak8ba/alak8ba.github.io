@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#kafka-resilience-communication-distribuee" class="md-skip">
+        <a href="#kafka-resilience-patterns-de-communication" class="md-skip">
           Aller au contenu
         </a>
       
@@ -2518,6 +2518,183 @@
     <span class="md-ellipsis">
       
         Introduction
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-fondamentaux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concepts fondamentaux
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Concepts fondamentaux">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#producer-consumer-topic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Producer / Consumer / Topic
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#offset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Offset
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#at-least-once-delivery" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        At-least-once delivery
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#flux-de-resilience-retry-dlt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Flux de résilience — Retry + DLT
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementation-reelle-kore-hexagonal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Implémentation réelle — kore-hexagonal
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Implémentation réelle — kore-hexagonal">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configuration-du-retry-avec-backoff-exponentiel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuration du retry avec backoff exponentiel
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuration-dans-applicationyml" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuration dans application.yml
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#consumer-du-dead-letter-topic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Consumer du Dead Letter Topic
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#publication-des-evenements-eventenvelope" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Publication des événements — EventEnvelope
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#idempotence-cote-consumer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Idempotence côté consumer
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exceptions-retryables-vs-non-retryables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exceptions retryables vs non retryables
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#consumer-lag-signal-dalerte" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Consumer Lag — signal d'alerte
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conclusion
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#voir-aussi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Voir aussi
       
     </span>
   </a>
@@ -5116,6 +5293,183 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#concepts-fondamentaux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concepts fondamentaux
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Concepts fondamentaux">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#producer-consumer-topic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Producer / Consumer / Topic
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#offset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Offset
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#at-least-once-delivery" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        At-least-once delivery
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#flux-de-resilience-retry-dlt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Flux de résilience — Retry + DLT
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementation-reelle-kore-hexagonal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Implémentation réelle — kore-hexagonal
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Implémentation réelle — kore-hexagonal">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configuration-du-retry-avec-backoff-exponentiel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuration du retry avec backoff exponentiel
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuration-dans-applicationyml" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuration dans application.yml
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#consumer-du-dead-letter-topic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Consumer du Dead Letter Topic
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#publication-des-evenements-eventenvelope" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Publication des événements — EventEnvelope
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#idempotence-cote-consumer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Idempotence côté consumer
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exceptions-retryables-vs-non-retryables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exceptions retryables vs non retryables
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#consumer-lag-signal-dalerte" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Consumer Lag — signal d'alerte
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conclusion
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#voir-aussi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Voir aussi
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -5165,205 +5519,245 @@
 
 
 
-<h1 id="kafka-resilience-communication-distribuee">Kafka, Résilience &amp; Communication Distribuée</h1>
+<h1 id="kafka-resilience-patterns-de-communication">Kafka — Résilience &amp; Patterns de Communication</h1>
 <div class="admonition note">
-<p>Note de contexte (12 mai 2026) : cette note constitue un retour d’expérience suite à des échanges avec des experts du domaine. Elle est rédigée le jour même et vise à structurer les notions abordées pour consolidation et montée en compétence.</p>
+<p>Note de contexte (12 mai 2026) : cette note constitue un retour d'expérience suite à des échanges avec des experts du domaine. Elle est rédigée le jour même et vise à structurer les notions abordées pour consolidation et montée en compétence.</p>
 </div>
 <h2 id="introduction">Introduction</h2>
-<p>Kafka est une plateforme de streaming distribuée largement utilisée dans les architectures event-driven modernes.</p>
-<p>Il permet aux services de communiquer de manière asynchrone via des événements.</p>
-<p>Kafka est particulièrement adapté aux systèmes nécessitant :</p>
+<p>Kafka est une plateforme de streaming distribuée conçue pour la communication asynchrone entre services. Contrairement à une queue classique, Kafka persiste les messages et permet leur relecture.</p>
+<p>Dans les architectures event-driven, Kafka introduit trois défis spécifiques :</p>
 <ul>
-<li>découplage entre services</li>
-<li>haute scalabilité</li>
-<li>résilience</li>
-<li>traitement asynchrone</li>
-<li>streaming temps réel</li>
+<li>les erreurs de traitement (que faire quand un consumer plante ?)</li>
+<li>les doublons (Kafka garantit <code>at-least-once</code>, pas <code>exactly-once</code> par défaut)</li>
+<li>l'ordre des messages (garanti uniquement par partition)</li>
 </ul>
+<p>Cette note se concentre sur les patterns de résilience pour y répondre.</p>
 <hr />
-<h1 id="concepts-fondamentaux">Concepts fondamentaux</h1>
-<h2 id="producer">Producer</h2>
-<p>Le producer publie des événements dans Kafka.</p>
-<p>Exemple :</p>
+<h2 id="concepts-fondamentaux">Concepts fondamentaux</h2>
+<h3 id="producer-consumer-topic">Producer / Consumer / Topic</h3>
+<div class="highlight"><pre><span></span><code>[Service A]  ──publish──&gt;  [Topic Kafka]  ──consume──&gt;  [Service B]
+                                                   └──consume──&gt;  [Service C]
+</code></pre></div>
 <ul>
-<li>OrderCreated</li>
-<li>PaymentCompleted</li>
-<li>UserRegistered</li>
+<li>le <strong>producer</strong> publie sans connaître les consumers</li>
+<li>le <strong>topic</strong> stocke les événements (par défaut 7 jours)</li>
+<li>le <strong>consumer</strong> lit à son rythme via un <strong>offset</strong></li>
+<li>plusieurs consumers peuvent lire le même topic indépendamment</li>
 </ul>
-<p>Le producer n’a pas besoin de connaître les consumers.</p>
+<h3 id="offset">Offset</h3>
+<p>L'offset est la position d'un message dans une partition. Kafka s'en sert pour savoir où reprendre après un crash. Le commit de l'offset signifie "j'ai traité ce message".</p>
+<h3 id="at-least-once-delivery">At-least-once delivery</h3>
+<p>Kafka garantit qu'un message sera livré <strong>au moins une fois</strong>. En cas de crash avant le commit de l'offset, le message sera relivré. Conséquence directe : le consumer doit être <strong>idempotent</strong>.</p>
 <hr />
-<h2 id="consumer">Consumer</h2>
-<p>Le consumer lit les événements depuis Kafka.</p>
-<p>Un même événement peut être consommé par plusieurs services différents.</p>
+<h2 id="flux-de-resilience-retry-dlt">Flux de résilience — Retry + DLT</h2>
+<div class="highlight"><pre><span></span><code>Message reçu
+      |
+  Traitement
+      |
+   Echec ?
+      |
+  Retry (1)  ──wait 2s──&gt; Retry (2)  ──wait 4s──&gt; Retry (3)  ──wait 8s──&gt;
+      |
+   Toujours KO ?
+      |
+   ──&gt; Dead Letter Topic (DLT)
+</code></pre></div>
 <hr />
-<h2 id="topic">Topic</h2>
-<p>Les événements sont stockés dans des topics.</p>
-<p>Un topic représente généralement un flux d’événements métier.</p>
-<p>Exemples :</p>
-<ul>
-<li>orders</li>
-<li>payments</li>
-<li>users</li>
-</ul>
+<h2 id="implementation-reelle-kore-hexagonal">Implémentation réelle — kore-hexagonal</h2>
+<h3 id="configuration-du-retry-avec-backoff-exponentiel">Configuration du retry avec backoff exponentiel</h3>
+<div class="highlight"><pre><span></span><code><span class="nd">@Bean</span>
+<span class="kd">public</span><span class="w"> </span><span class="n">DefaultErrorHandler</span><span class="w"> </span><span class="nf">errorHandler</span><span class="p">(</span><span class="n">KafkaTemplate</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">template</span><span class="p">,</span>
+<span class="w">                                        </span><span class="n">KafkaRetryProperties</span><span class="w"> </span><span class="n">retryProps</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="c1">// Backoff exponentiel : 2s -&gt; 4s -&gt; 8s</span>
+<span class="w">    </span><span class="n">ExponentialBackOffWithMaxRetries</span><span class="w"> </span><span class="n">backOff</span><span class="w"> </span><span class="o">=</span>
+<span class="w">            </span><span class="k">new</span><span class="w"> </span><span class="n">ExponentialBackOffWithMaxRetries</span><span class="p">(</span><span class="n">retryProps</span><span class="p">.</span><span class="na">getMaxAttempts</span><span class="p">());</span>
+<span class="w">    </span><span class="n">backOff</span><span class="p">.</span><span class="na">setInitialInterval</span><span class="p">(</span><span class="n">retryProps</span><span class="p">.</span><span class="na">getBackoff</span><span class="p">().</span><span class="na">getInitialInterval</span><span class="p">());</span><span class="w">  </span><span class="c1">// 2000ms</span>
+<span class="w">    </span><span class="n">backOff</span><span class="p">.</span><span class="na">setMultiplier</span><span class="p">(</span><span class="n">retryProps</span><span class="p">.</span><span class="na">getBackoff</span><span class="p">().</span><span class="na">getMultiplier</span><span class="p">());</span><span class="w">            </span><span class="c1">// x2</span>
+<span class="w">    </span><span class="n">backOff</span><span class="p">.</span><span class="na">setMaxInterval</span><span class="p">(</span><span class="n">retryProps</span><span class="p">.</span><span class="na">getBackoff</span><span class="p">().</span><span class="na">getMaxInterval</span><span class="p">());</span><span class="w">          </span><span class="c1">// 8000ms</span>
+
+<span class="w">    </span><span class="c1">// Envoi automatique en DLT si tous les retries sont épuisés</span>
+<span class="w">    </span><span class="n">DeadLetterPublishingRecoverer</span><span class="w"> </span><span class="n">recoverer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">DeadLetterPublishingRecoverer</span><span class="p">(</span>
+<span class="w">            </span><span class="n">template</span><span class="p">,</span>
+<span class="w">            </span><span class="p">(</span><span class="n">record</span><span class="p">,</span><span class="w"> </span><span class="n">ex</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">TopicPartition</span><span class="p">(</span><span class="n">record</span><span class="p">.</span><span class="na">topic</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;.DLT&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">record</span><span class="p">.</span><span class="na">partition</span><span class="p">())</span>
+<span class="w">    </span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">DefaultErrorHandler</span><span class="w"> </span><span class="n">handler</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">DefaultErrorHandler</span><span class="p">(</span><span class="n">recoverer</span><span class="p">,</span><span class="w"> </span><span class="n">backOff</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// Exceptions non retryables : erreur de désérialisation, données invalides</span>
+<span class="w">    </span><span class="n">handler</span><span class="p">.</span><span class="na">addNotRetryableExceptions</span><span class="p">(</span>
+<span class="w">            </span><span class="n">IllegalArgumentException</span><span class="p">.</span><span class="na">class</span><span class="p">,</span>
+<span class="w">            </span><span class="n">IllegalStateException</span><span class="p">.</span><span class="na">class</span>
+<span class="w">    </span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// Log de chaque tentative</span>
+<span class="w">    </span><span class="n">handler</span><span class="p">.</span><span class="na">setRetryListeners</span><span class="p">((</span><span class="n">record</span><span class="p">,</span><span class="w"> </span><span class="n">ex</span><span class="p">,</span><span class="w"> </span><span class="n">attempt</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span>
+<span class="w">            </span><span class="n">log</span><span class="p">.</span><span class="na">warn</span><span class="p">(</span><span class="s">&quot;Retry {} — topic={} key={}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">attempt</span><span class="p">,</span><span class="w"> </span><span class="n">record</span><span class="p">.</span><span class="na">topic</span><span class="p">(),</span><span class="w"> </span><span class="n">record</span><span class="p">.</span><span class="na">key</span><span class="p">())</span>
+<span class="w">    </span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">handler</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="configuration-dans-applicationyml">Configuration dans application.yml</h3>
+<div class="highlight"><pre><span></span><code><span class="nt">spring</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">kafka</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">producer</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">acks</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">all</span><span class="w">                          </span><span class="c1"># attendre la confirmation de tous les replicas</span>
+<span class="w">      </span><span class="nt">retries</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5</span>
+<span class="w">      </span><span class="nt">properties</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">enable.idempotence</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w">         </span><span class="c1"># exactement une écriture producer</span>
+<span class="w">        </span><span class="nt">linger.ms</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5</span>
+<span class="w">    </span><span class="nt">consumer</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">auto-offset-reset</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">earliest</span>
+<span class="w">      </span><span class="nt">retry</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">max-attempts</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3</span>
+<span class="w">        </span><span class="nt">backoff</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">initial-interval</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2000</span><span class="w">         </span><span class="c1"># 2 secondes</span>
+<span class="w">          </span><span class="nt">multiplier</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2.0</span><span class="w">                </span><span class="c1"># doublement à chaque retry</span>
+<span class="w">          </span><span class="nt">max-interval</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">8000</span><span class="w">             </span><span class="c1"># plafond à 8 secondes</span>
+<span class="w">        </span><span class="nt">not-retryable-exceptions</span><span class="p">:</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">java.lang.IllegalArgumentException</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">java.lang.IllegalStateException</span>
+
+<span class="nt">app</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">kafka</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">topic</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">kore.hexagonal.booking.events</span>
+<span class="w">    </span><span class="nt">dlt</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">topic</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">kore.hexagonal.booking.events.DLT</span>
+<span class="w">      </span><span class="nt">consumer</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">group-id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">kore-hexagonal-dlt-consumer</span>
+</code></pre></div>
+<p><strong>Pourquoi <code>enable.idempotence: true</code> côté producer ?</strong>
+Sans cette option, un producer qui retente une publication après un timeout réseau peut écrire le même message deux fois dans le topic. Avec <code>enable.idempotence</code>, Kafka déduplique automatiquement au niveau du broker.</p>
+<h3 id="consumer-du-dead-letter-topic">Consumer du Dead Letter Topic</h3>
+<div class="highlight"><pre><span></span><code><span class="nd">@Component</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">BookingDltConsumer</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">Logger</span><span class="w"> </span><span class="n">log</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LoggerFactory</span><span class="p">.</span><span class="na">getLogger</span><span class="p">(</span><span class="n">BookingDltConsumer</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
+
+<span class="w">    </span><span class="nd">@KafkaListener</span><span class="p">(</span>
+<span class="w">            </span><span class="n">topics</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;${app.kafka.dlt.topic}&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="n">groupId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;${app.kafka.dlt.consumer.group-id}&quot;</span>
+<span class="w">    </span><span class="p">)</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">onDlt</span><span class="p">(</span>
+<span class="w">            </span><span class="n">String</span><span class="w"> </span><span class="n">payload</span><span class="p">,</span>
+<span class="w">            </span><span class="nd">@Header</span><span class="p">(</span><span class="n">KafkaHeaders</span><span class="p">.</span><span class="na">RECEIVED_TOPIC</span><span class="p">)</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">topic</span><span class="p">,</span>
+<span class="w">            </span><span class="nd">@Header</span><span class="p">(</span><span class="n">KafkaHeaders</span><span class="p">.</span><span class="na">OFFSET</span><span class="p">)</span><span class="w"> </span><span class="n">Long</span><span class="w"> </span><span class="n">offset</span><span class="p">,</span>
+<span class="w">            </span><span class="nd">@Header</span><span class="p">(</span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">KafkaHeaders</span><span class="p">.</span><span class="na">EXCEPTION_MESSAGE</span><span class="p">,</span><span class="w"> </span><span class="n">required</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">)</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">errorMessage</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">        </span><span class="n">log</span><span class="p">.</span><span class="na">error</span><span class="p">(</span><span class="s">&quot;&quot;&quot;</span>
+<span class="s">                DLT EVENT RECEIVED</span>
+<span class="s">                topic   : {}</span>
+<span class="s">                offset  : {}</span>
+<span class="s">                error   : {}</span>
+<span class="s">                payload : {}</span>
+<span class="s">                &quot;&quot;&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">topic</span><span class="p">,</span><span class="w"> </span><span class="n">offset</span><span class="p">,</span><span class="w"> </span><span class="n">errorMessage</span><span class="p">,</span><span class="w"> </span><span class="n">payload</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Le DLT consumer ne relance pas le traitement — il <strong>log et alerte</strong>. L'analyse du message en erreur se fait manuellement ou via un dashboard Grafana sur les métriques Kafka.</p>
 <hr />
-<h2 id="partition">Partition</h2>
-<p>Un topic est divisé en partitions.</p>
-<p>Les partitions permettent :</p>
-<ul>
-<li>parallélisme</li>
-<li>scalabilité</li>
-<li>distribution de charge</li>
-</ul>
-<p>L’ordre est garanti uniquement à l’intérieur d’une partition.</p>
+<h2 id="publication-des-evenements-eventenvelope">Publication des événements — EventEnvelope</h2>
+<p>Chaque événement publié dans Kafka est wrappé dans une enveloppe standardisée :</p>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">record</span> <span class="nc">EventEnvelope</span><span class="p">(</span>
+<span class="w">        </span><span class="n">UUID</span><span class="w"> </span><span class="n">eventId</span><span class="p">,</span><span class="w">       </span><span class="c1">// identifiant unique de l&#39;événement</span>
+<span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">eventType</span><span class="p">,</span><span class="w">   </span><span class="c1">// &quot;BookingCreatedEvent&quot;, &quot;BookingUpdatedEvent&quot;</span>
+<span class="w">        </span><span class="n">ZonedDateTime</span><span class="w"> </span><span class="n">occurredOn</span><span class="p">,</span>
+<span class="w">        </span><span class="n">JsonNode</span><span class="w"> </span><span class="n">payload</span><span class="w">    </span><span class="c1">// contenu de l&#39;événement</span>
+<span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="nd">@Override</span>
+<span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">publish</span><span class="p">(</span><span class="n">DomainEvent</span><span class="w"> </span><span class="n">event</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">UUID</span><span class="w"> </span><span class="n">eventId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">UUID</span><span class="p">.</span><span class="na">randomUUID</span><span class="p">();</span>
+<span class="w">    </span><span class="n">EventEnvelope</span><span class="w"> </span><span class="n">envelope</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">EventEnvelope</span><span class="p">(</span>
+<span class="w">            </span><span class="n">eventId</span><span class="p">,</span>
+<span class="w">            </span><span class="n">event</span><span class="p">.</span><span class="na">eventType</span><span class="p">(),</span>
+<span class="w">            </span><span class="n">ZonedDateTime</span><span class="p">.</span><span class="na">now</span><span class="p">(),</span>
+<span class="w">            </span><span class="n">objectMapper</span><span class="p">.</span><span class="na">valueToTree</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
+<span class="w">    </span><span class="p">);</span>
+<span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="n">payload</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">objectMapper</span><span class="p">.</span><span class="na">writeValueAsString</span><span class="p">(</span><span class="n">envelope</span><span class="p">);</span>
+<span class="w">    </span><span class="n">kafkaTemplate</span><span class="p">.</span><span class="na">send</span><span class="p">(</span><span class="n">topic</span><span class="p">,</span><span class="w"> </span><span class="n">eventId</span><span class="p">.</span><span class="na">toString</span><span class="p">(),</span><span class="w"> </span><span class="n">payload</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>L'<code>eventId</code> sert de <strong>clé Kafka</strong> — il garantit que deux publications du même événement atterrissent dans la même partition, et permet l'idempotence côté consumer.</p>
 <hr />
-<h1 id="consumer-groups">Consumer Groups</h1>
-<p>Les consumers peuvent être regroupés dans un consumer group.</p>
-<p>Kafka distribue automatiquement les partitions entre les consumers du groupe.</p>
-<p>Cela permet :</p>
-<ul>
-<li>parallélisation</li>
-<li>scalabilité horizontale</li>
-<li>répartition de charge</li>
-</ul>
+<h2 id="idempotence-cote-consumer">Idempotence côté consumer</h2>
+<p>Kafka peut redélivrer un message (crash avant commit d'offset, rebalance). Le consumer doit gérer ce cas.</p>
+<p>Implémentation dans kore-hexagonal via une table <code>processed_events</code> :</p>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">handle</span><span class="p">(</span><span class="n">EventEnvelope</span><span class="w"> </span><span class="n">envelope</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="c1">// Vérifie si cet eventId a déjà été traité</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">processedEventRepository</span><span class="p">.</span><span class="na">existsByEventId</span><span class="p">(</span><span class="n">envelope</span><span class="p">.</span><span class="na">eventId</span><span class="p">()))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">log</span><span class="p">.</span><span class="na">warn</span><span class="p">(</span><span class="s">&quot;Evenement duplique ignore : {}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">envelope</span><span class="p">.</span><span class="na">eventId</span><span class="p">());</span>
+<span class="w">        </span><span class="k">return</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// Enregistrement atomique de l&#39;eventId (contrainte UNIQUE en base)</span>
+<span class="w">        </span><span class="n">processedEventRepository</span><span class="p">.</span><span class="na">save</span><span class="p">(</span>
+<span class="w">                </span><span class="k">new</span><span class="w"> </span><span class="n">ProcessedEventJpaEntity</span><span class="p">(</span><span class="n">envelope</span><span class="p">.</span><span class="na">eventId</span><span class="p">(),</span><span class="w"> </span><span class="n">ZonedDateTime</span><span class="p">.</span><span class="na">now</span><span class="p">())</span>
+<span class="w">        </span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">DataIntegrityViolationException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// Race condition : deux threads ont reçu le même message simultanément</span>
+<span class="w">        </span><span class="n">log</span><span class="p">.</span><span class="na">warn</span><span class="p">(</span><span class="s">&quot;Evenement duplique ignore (race condition) : {}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">envelope</span><span class="p">.</span><span class="na">eventId</span><span class="p">());</span>
+<span class="w">        </span><span class="k">return</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// Traitement réel</span>
+<span class="w">    </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">envelope</span><span class="p">.</span><span class="na">eventType</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="s">&quot;BookingCreatedEvent&quot;</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* ... */</span><span class="w"> </span><span class="p">}</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="s">&quot;BookingUpdatedEvent&quot;</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* ... */</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><strong>Deux niveaux de protection :</strong></p>
+<ol>
+<li>vérification en lecture avant traitement (<code>existsByEventId</code>)</li>
+<li>contrainte <code>UNIQUE</code> en base comme filet de sécurité contre les race conditions</li>
+</ol>
 <hr />
-<h1 id="offsets">Offsets</h1>
-<p>Chaque message possède un offset.</p>
-<p>L’offset représente la position du message dans la partition.</p>
-<p>Kafka utilise les offsets pour savoir :</p>
-<ul>
-<li>quels messages ont été consommés</li>
-<li>où reprendre après un crash</li>
-</ul>
+<h2 id="exceptions-retryables-vs-non-retryables">Exceptions retryables vs non retryables</h2>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Comportement</th>
+<th>Exemples</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Retryable</td>
+<td>Retry + backoff + DLT si épuisé</td>
+<td>Timeout, service down, DB unavailable</td>
+</tr>
+<tr>
+<td>Non retryable</td>
+<td>DLT immédiat, pas de retry</td>
+<td>Données invalides, <code>IllegalArgumentException</code></td>
+</tr>
+</tbody>
+</table>
+<p>Inutile de retenter 3 fois un message dont le format JSON est invalide — il sera toujours invalide. Le DLT immédiat évite de bloquer le flux pour rien.</p>
 <hr />
-<h1 id="gestion-des-erreurs">Gestion des erreurs</h1>
-<p>Dans les systèmes distribués, les erreurs sont normales.</p>
-<p>Kafka nécessite donc une stratégie de résilience.</p>
+<h2 id="consumer-lag-signal-dalerte">Consumer Lag — signal d'alerte</h2>
+<p>Le <strong>consumer lag</strong> est la différence entre le dernier offset produit et le dernier offset consommé.</p>
+<div class="highlight"><pre><span></span><code>Lag = offset_produit - offset_consommé
+</code></pre></div>
+<p>Un lag qui augmente signifie :
+- le consumer est plus lent que le producer
+- le consumer est en erreur et retente
+- le service est surchargé</p>
+<p>A surveiller impérativement dans Grafana via les métriques Micrometer exposées par Spring Kafka.</p>
 <hr />
-<h1 id="retry">Retry</h1>
-<p>Lorsqu’un traitement échoue :</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>La résilience Kafka repose sur trois mécanismes complémentaires :</p>
 <ul>
-<li>le message peut être rejoué</li>
-<li>plusieurs tentatives peuvent être effectuées</li>
+<li><strong>Retry avec backoff exponentiel</strong> — absorber les erreurs temporaires sans surcharger le système</li>
+<li><strong>Dead Letter Topic</strong> — isoler les messages irrécupérables sans bloquer le flux principal</li>
+<li><strong>Idempotence consumer</strong> — traiter sans danger les doublons inévitables</li>
 </ul>
-<p>Le retry permet de gérer les erreurs temporaires :</p>
-<ul>
-<li>timeout réseau</li>
-<li>service momentanément indisponible</li>
-<li>surcharge temporaire</li>
-</ul>
-<hr />
-<h1 id="backoff">Backoff</h1>
-<p>Le backoff ajoute un délai entre les retries.</p>
-<p>Cela évite :</p>
-<ul>
-<li>surcharge du système</li>
-<li>boucles de retry agressives</li>
-<li>amplification des incidents</li>
-</ul>
-<hr />
-<h1 id="dead-letter-topic-dlt">Dead Letter Topic (DLT)</h1>
-<p>Si un message échoue après plusieurs retries :</p>
-<ul>
-<li>il peut être envoyé dans un Dead Letter Topic</li>
-</ul>
-<p>Le DLT permet :</p>
-<ul>
-<li>d’isoler les messages problématiques</li>
-<li>d’éviter le blocage du flux principal</li>
-<li>d’analyser les erreurs plus tard</li>
-</ul>
-<hr />
-<h1 id="idempotence">Idempotence</h1>
-<p>Dans les systèmes distribués, les messages peuvent être dupliqués.</p>
-<p>Un consumer doit donc souvent être idempotent.</p>
-<p>Cela signifie :</p>
-<blockquote>
-<p>traiter plusieurs fois le même message sans effet secondaire supplémentaire</p>
-</blockquote>
-<p>Exemple :</p>
-<ul>
-<li>éviter de créer deux fois la même commande</li>
-<li>vérifier un identifiant métier unique</li>
-</ul>
-<hr />
-<h1 id="at-least-once-vs-exactly-once">At-least-once vs Exactly-once</h1>
-<h2 id="at-least-once">At-least-once</h2>
-<p>Kafka garantit souvent qu’un message sera traité au moins une fois.</p>
-<p>Conséquence :</p>
-<ul>
-<li>duplication possible</li>
-<li>besoin d’idempotence</li>
-</ul>
-<hr />
-<h2 id="exactly-once">Exactly-once</h2>
-<p>Garantit un traitement unique.</p>
-<p>Plus complexe :</p>
-<ul>
-<li>transactions</li>
-<li>coordination avancée</li>
-<li>coût opérationnel plus élevé</li>
-</ul>
-<hr />
-<h1 id="event-ordering">Event Ordering</h1>
-<p>Kafka garantit l’ordre uniquement dans une partition.</p>
-<p>Cela influence fortement :</p>
-<ul>
-<li>le design métier</li>
-<li>le choix des clés de partition</li>
-<li>les stratégies de consommation</li>
-</ul>
-<hr />
-<h1 id="observabilite-kafka">Observabilité Kafka</h1>
-<p>Un système Kafka nécessite une forte observabilité.</p>
-<p>Éléments critiques :</p>
-<ul>
-<li>logs structurés</li>
-<li>métriques consumer lag</li>
-<li>monitoring des retries</li>
-<li>métriques throughput</li>
-<li>tracing distribué</li>
-</ul>
-<hr />
-<h1 id="consumer-lag">Consumer Lag</h1>
-<p>Le consumer lag représente le retard entre :</p>
-<ul>
-<li>les messages produits</li>
-<li>les messages consommés</li>
-</ul>
-<p>Un lag élevé peut indiquer :</p>
-<ul>
-<li>surcharge</li>
-<li>problème réseau</li>
-<li>consumer lent</li>
-<li>erreur de traitement</li>
-</ul>
-<hr />
-<h1 id="kafka-et-architecture-event-driven">Kafka et architecture event-driven</h1>
-<p>Kafka favorise une architecture orientée événements.</p>
-<p>Les services deviennent :</p>
-<ul>
-<li>plus découplés</li>
-<li>plus autonomes</li>
-<li>plus résilients</li>
-</ul>
-<p>Mais cela introduit aussi :</p>
-<ul>
-<li>cohérence éventuelle</li>
-<li>complexité de debugging</li>
-<li>nécessité d’observabilité avancée</li>
-</ul>
-<hr />
-<h1 id="conclusion">Conclusion</h1>
-<p>Kafka n’est pas simplement une queue de messages.</p>
-<p>C’est une infrastructure distribuée qui modifie profondément :</p>
-<ul>
-<li>la communication entre services</li>
-<li>la résilience système</li>
-<li>la gestion des erreurs</li>
-<li>la scalabilité</li>
-<li>le design d’architecture</li>
-</ul>
-<p>Son utilisation nécessite une vraie compréhension des systèmes distribués et des problématiques runtime.</p>
+<p>Ces trois patterns sont non négociables en production event-driven.</p>
 <hr />
 <h2 id="voir-aussi">Voir aussi</h2>
 <ul>
