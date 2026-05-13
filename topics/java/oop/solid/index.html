@@ -1666,7 +1666,7 @@
   <a href="#2-s-single-responsibility-principle-srp" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. S — Single Responsibility Principle (SRP)
+        2. S - Single Responsibility Principle (SRP)
       
     </span>
   </a>
@@ -1677,7 +1677,7 @@
   <a href="#3-o-openclosed-principle-ocp" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. O — Open/Closed Principle (OCP)
+        3. O - Open/Closed Principle (OCP)
       
     </span>
   </a>
@@ -1688,7 +1688,7 @@
   <a href="#4-l-liskov-substitution-principle-lsp" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. L — Liskov Substitution Principle (LSP)
+        4. L - Liskov Substitution Principle (LSP)
       
     </span>
   </a>
@@ -1699,7 +1699,7 @@
   <a href="#5-i-interface-segregation-principle-isp" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5. I — Interface Segregation Principle (ISP)
+        5. I - Interface Segregation Principle (ISP)
       
     </span>
   </a>
@@ -1710,7 +1710,7 @@
   <a href="#6-d-dependency-inversion-principle-dip" class="md-nav__link">
     <span class="md-ellipsis">
       
-        6. D — Dependency Inversion Principle (DIP)
+        6. D - Dependency Inversion Principle (DIP)
       
     </span>
   </a>
@@ -5320,7 +5320,7 @@
   <a href="#2-s-single-responsibility-principle-srp" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. S — Single Responsibility Principle (SRP)
+        2. S - Single Responsibility Principle (SRP)
       
     </span>
   </a>
@@ -5331,7 +5331,7 @@
   <a href="#3-o-openclosed-principle-ocp" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. O — Open/Closed Principle (OCP)
+        3. O - Open/Closed Principle (OCP)
       
     </span>
   </a>
@@ -5342,7 +5342,7 @@
   <a href="#4-l-liskov-substitution-principle-lsp" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. L — Liskov Substitution Principle (LSP)
+        4. L - Liskov Substitution Principle (LSP)
       
     </span>
   </a>
@@ -5353,7 +5353,7 @@
   <a href="#5-i-interface-segregation-principle-isp" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5. I — Interface Segregation Principle (ISP)
+        5. I - Interface Segregation Principle (ISP)
       
     </span>
   </a>
@@ -5364,7 +5364,7 @@
   <a href="#6-d-dependency-inversion-principle-dip" class="md-nav__link">
     <span class="md-ellipsis">
       
-        6. D — Dependency Inversion Principle (DIP)
+        6. D - Dependency Inversion Principle (DIP)
       
     </span>
   </a>
@@ -5507,14 +5507,14 @@
 
 
 
-<h1 id="solid-principes-de-conception">SOLID — Principes de conception</h1>
+<h1 id="solid-principes-de-conception">SOLID - Principes de conception</h1>
 <p>Les principes <strong>SOLID</strong> sont 5 règles fondamentales pour écrire du code orienté objet <strong>propre, maintenable et évolutif</strong>.</p>
 <hr />
 <h2 id="principe">Principe</h2>
 <p>SOLID =</p>
 <p><strong>5 principes pour un bon design logiciel</strong></p>
 <hr />
-<h2 id="2-s-single-responsibility-principle-srp">2. S — Single Responsibility Principle (SRP)</h2>
+<h2 id="2-s-single-responsibility-principle-srp">2. S - Single Responsibility Principle (SRP)</h2>
 <p>une classe = <strong>une seule responsabilité</strong></p>
 <div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nc">UserService</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">createUser</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span>
@@ -5529,7 +5529,7 @@
 </li>
 </ul>
 <hr />
-<h2 id="3-o-openclosed-principle-ocp">3. O — Open/Closed Principle (OCP)</h2>
+<h2 id="3-o-openclosed-principle-ocp">3. O - Open/Closed Principle (OCP)</h2>
 <p><strong>ouvert à l’extension, fermé à la modification</strong></p>
 <div class="highlight"><pre><span></span><code><span class="kd">interface</span> <span class="nc">Payment</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">pay</span><span class="p">();</span>
@@ -5537,20 +5537,20 @@
 </code></pre></div>
 <p>on ajoute des classes sans modifier l’existant</p>
 <hr />
-<h2 id="4-l-liskov-substitution-principle-lsp">4. L — Liskov Substitution Principle (LSP)</h2>
+<h2 id="4-l-liskov-substitution-principle-lsp">4. L - Liskov Substitution Principle (LSP)</h2>
 <p>une sous-classe doit pouvoir remplacer sa classe parent</p>
 <div class="highlight"><pre><span></span><code><span class="n">Animal</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Dog</span><span class="p">();</span><span class="w"> </span><span class="c1">// ✔️ OK</span>
 </code></pre></div>
 <p>comportement cohérent attendu</p>
 <hr />
-<h2 id="5-i-interface-segregation-principle-isp">5. I — Interface Segregation Principle (ISP)</h2>
+<h2 id="5-i-interface-segregation-principle-isp">5. I - Interface Segregation Principle (ISP)</h2>
 <p>plusieurs petites interfaces &gt; une grosse</p>
 <div class="highlight"><pre><span></span><code><span class="kd">interface</span> <span class="nc">Flyable</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">fly</span><span class="p">();</span><span class="w"> </span><span class="p">}</span>
 <span class="kd">interface</span> <span class="nc">Swimmable</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">swim</span><span class="p">();</span><span class="w"> </span><span class="p">}</span>
 </code></pre></div>
 <p>évite les méthodes inutiles</p>
 <hr />
-<h2 id="6-d-dependency-inversion-principle-dip">6. D — Dependency Inversion Principle (DIP)</h2>
+<h2 id="6-d-dependency-inversion-principle-dip">6. D - Dependency Inversion Principle (DIP)</h2>
 <p>dépendre d’abstractions, pas d’implémentations</p>
 <div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nc">Service</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Repository</span><span class="w"> </span><span class="n">repo</span><span class="p">;</span>

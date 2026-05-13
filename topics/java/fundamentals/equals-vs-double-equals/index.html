@@ -5522,12 +5522,12 @@
 
 
 
-<h1 id="java-vs-equals">Java — <code>==</code> vs <code>equals()</code></h1>
+<h1 id="java-vs-equals">Java - <code>==</code> vs <code>equals()</code></h1>
 <h2 id="principe">Principe</h2>
 <p>En Java :</p>
 <ul>
-<li><code>==</code> compare les <strong>références</strong> — est-ce le même objet en mémoire ?</li>
-<li><code>equals()</code> compare l'<strong>égalité logique</strong> — est-ce la même valeur ?</li>
+<li><code>==</code> compare les <strong>références</strong> - est-ce le même objet en mémoire ?</li>
+<li><code>equals()</code> compare l'<strong>égalité logique</strong> - est-ce la même valeur ?</li>
 </ul>
 <hr />
 <h2 id="exemple">Exemple</h2>
@@ -5539,7 +5539,7 @@
 </code></pre></div>
 <p>Les deux sont <code>true</code>, mais pour des raisons différentes :</p>
 <ul>
-<li><code>==</code> est <code>true</code> à cause du <strong>String Pool</strong> — Java réutilise la même instance</li>
+<li><code>==</code> est <code>true</code> à cause du <strong>String Pool</strong> - Java réutilise la même instance</li>
 <li><code>equals()</code> est <code>true</code> car le contenu est identique</li>
 </ul>
 <hr />
@@ -5628,7 +5628,7 @@
 <span class="n">String</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;test&quot;</span><span class="p">;</span>
 <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">b</span><span class="p">);</span>
 </code></pre></div>
-<p><code>true</code> — String Pool, même instance.</p>
+<p><code>true</code> - String Pool, même instance.</p>
 <hr />
 <h3 id="exemple-2">Exemple 2</h3>
 <div class="highlight"><pre><span></span><code><span class="n">String</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">String</span><span class="p">(</span><span class="s">&quot;test&quot;</span><span class="p">);</span>

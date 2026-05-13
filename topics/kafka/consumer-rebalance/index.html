@@ -2467,9 +2467,9 @@
 <a class="md-tag" href="../../../tags/#tag:event-driven">event-driven</a>
 <a class="md-tag" href="../../../tags/#tag:kafka">kafka</a>
 </nav>
-<h1 id="kafka-consumer-rebalance">Kafka — Consumer Rebalance</h1>
+<h1 id="kafka-consumer-rebalance">Kafka - Consumer Rebalance</h1>
 <h2 id="contexte">Contexte</h2>
-<p>Dans Kafka, les consumers d'un même <strong>consumer group</strong> se partagent les partitions d'un topic. Quand un consumer rejoint ou quitte le groupe, Kafka redistribue les partitions — c'est le <strong>rebalance</strong>.</p>
+<p>Dans Kafka, les consumers d'un même <strong>consumer group</strong> se partagent les partitions d'un topic. Quand un consumer rejoint ou quitte le groupe, Kafka redistribue les partitions - c'est le <strong>rebalance</strong>.</p>
 <hr/>
 <h2 id="quand-un-rebalance-se-declenche">Quand un rebalance se déclenche</h2>
 <ul>
@@ -2494,7 +2494,7 @@
     GC-&gt;&gt;C2: Assign P2, P3</code></pre>
 <p>Pendant le rebalance :</p>
 <ul>
-<li><strong>aucun consumer ne consomme</strong> — c'est un stop-the-world</li>
+<li><strong>aucun consumer ne consomme</strong> - c'est un stop-the-world</li>
 <li>les partitions sont révoquées puis réassignées</li>
 <li>la durée dépend du nombre de consumers et de partitions</li>
 </ul>

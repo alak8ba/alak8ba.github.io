@@ -5500,7 +5500,7 @@
 
 
 
-<h1 id="java-hashmap">Java — HashMap</h1>
+<h1 id="java-hashmap">Java - HashMap</h1>
 <h2 id="principe">Principe</h2>
 <p><code>HashMap&lt;K, V&gt;</code> est la structure clé-valeur la plus utilisée en Java. Elle permet un accès en <strong>O(1)</strong> en moyenne grâce au hashing.</p>
 <hr />
@@ -5574,18 +5574,18 @@
 <li>si <code>a.hashCode() == b.hashCode()</code> → <code>a.equals(b)</code> n'est pas garanti (collision)</li>
 </ul>
 <p>Un mauvais <code>hashCode()</code> concentre les éléments dans peu de buckets → O(n) au lieu de O(1).</p>
-<div class="highlight"><pre><span></span><code><span class="c1">// Mauvais — toutes les clés dans le même bucket</span>
+<div class="highlight"><pre><span></span><code><span class="c1">// Mauvais - toutes les clés dans le même bucket</span>
 <span class="nd">@Override</span>
 <span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">hashCode</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
 
-<span class="c1">// Bon — distribution uniforme</span>
+<span class="c1">// Bon - distribution uniforme</span>
 <span class="nd">@Override</span>
 <span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">hashCode</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">Objects</span><span class="p">.</span><span class="na">hash</span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">email</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
 </code></pre></div>
 <hr />
 <h2 id="null-keys-et-values">Null keys et values</h2>
-<div class="highlight"><pre><span></span><code><span class="n">map</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;value&quot;</span><span class="p">);</span><span class="w">  </span><span class="c1">// OK — une seule clé null autorisée</span>
-<span class="n">map</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;key&quot;</span><span class="p">,</span><span class="w"> </span><span class="kc">null</span><span class="p">);</span><span class="w">    </span><span class="c1">// OK — valeurs null autorisées</span>
+<div class="highlight"><pre><span></span><code><span class="n">map</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;value&quot;</span><span class="p">);</span><span class="w">  </span><span class="c1">// OK - une seule clé null autorisée</span>
+<span class="n">map</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;key&quot;</span><span class="p">,</span><span class="w"> </span><span class="kc">null</span><span class="p">);</span><span class="w">    </span><span class="c1">// OK - valeurs null autorisées</span>
 </code></pre></div>
 <p>À noter : <code>Hashtable</code> et <code>ConcurrentHashMap</code> n'acceptent pas les null.</p>
 <hr />
@@ -5656,8 +5656,8 @@
 <ul>
 <li>HashMap offre O(1) en moyenne pour get/put</li>
 <li>toujours redéfinir <code>hashCode()</code> et <code>equals()</code> ensemble pour les clés custom</li>
-<li>pas de garantie d'ordre — utiliser LinkedHashMap ou TreeMap si nécessaire</li>
-<li>pas thread-safe — utiliser ConcurrentHashMap en concurrent</li>
+<li>pas de garantie d'ordre - utiliser LinkedHashMap ou TreeMap si nécessaire</li>
+<li>pas thread-safe - utiliser ConcurrentHashMap en concurrent</li>
 <li>initialiser avec la bonne capacité si le nombre d'éléments est connu</li>
 </ul>
 <hr />

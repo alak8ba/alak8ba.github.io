@@ -883,7 +883,7 @@
   <a href="#cas-1-variable-primitive" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Cas 1 — Variable primitive
+        Cas 1 - Variable primitive
       
     </span>
   </a>
@@ -894,7 +894,7 @@
   <a href="#cas-2-objet" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Cas 2 — Objet
+        Cas 2 - Objet
       
     </span>
   </a>
@@ -5375,7 +5375,7 @@
   <a href="#cas-1-variable-primitive" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Cas 1 — Variable primitive
+        Cas 1 - Variable primitive
       
     </span>
   </a>
@@ -5386,7 +5386,7 @@
   <a href="#cas-2-objet" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Cas 2 — Objet
+        Cas 2 - Objet
       
     </span>
   </a>
@@ -5610,7 +5610,7 @@
 
 
 
-<h1 id="java-final">Java — <code>final</code></h1>
+<h1 id="java-final">Java - <code>final</code></h1>
 <p>Le mot-clé <code>final</code> en Java est souvent mal compris. Pourtant, il est essentiel pour écrire du code plus fiable, plus lisible et éviter certaines erreurs fréquentes.</p>
 <hr />
 <h2 id="idee-simple">Idée simple</h2>
@@ -5619,7 +5619,7 @@
 <p>Mais attention :</p>
 <p><strong>cela ne veut PAS dire que l’objet est immuable</strong></p>
 <hr />
-<h2 id="cas-1-variable-primitive">Cas 1 — Variable primitive</h2>
+<h2 id="cas-1-variable-primitive">Cas 1 - Variable primitive</h2>
 <div class="highlight"><pre><span></span><code><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
 <span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">20</span><span class="p">;</span><span class="w"> </span><span class="c1">// ❌ erreur de compilation</span>
 </code></pre></div>
@@ -5633,7 +5633,7 @@
 <li>sa valeur est définitivement fixée</li>
 </ul>
 <hr />
-<h2 id="cas-2-objet">Cas 2 — Objet</h2>
+<h2 id="cas-2-objet">Cas 2 - Objet</h2>
 <div class="highlight"><pre><span></span><code><span class="kd">final</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
 <span class="n">list</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">&quot;hello&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// ✔️ OK</span>
 <span class="n">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span><span class="w"> </span><span class="c1">// ❌ interdit</span>

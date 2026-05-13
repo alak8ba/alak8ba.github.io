@@ -5302,7 +5302,7 @@
 
 
 
-<h1 id="adr-005-flatfileitemreader-vs-chargement-en-memoire">ADR-005 — FlatFileItemReader vs chargement en mémoire</h1>
+<h1 id="adr-005-flatfileitemreader-vs-chargement-en-memoire">ADR-005 - FlatFileItemReader vs chargement en mémoire</h1>
 <h2 id="contexte">Contexte</h2>
 <p>Le socle original chargeait l'intégralité du fichier d'entrée dans une <code>List&lt;T&gt;</code> en mémoire lors du <code>@BeforeStep</code>, puis distribuait les items aux workers via un <code>AtomicInteger</code> servant d'index.</p>
 <h2 id="problemes-identifies">Problèmes identifiés</h2>
@@ -5333,7 +5333,7 @@
 <hr />
 <h2 id="voir-aussi">Voir aussi</h2>
 <ul>
-<li><a href="../../../../topics/spring/spring-batch-advanced-patterns/">Spring Batch — Patterns avancés</a></li>
+<li><a href="../../../../topics/spring/spring-batch-advanced-patterns/">Spring Batch - Patterns avancés</a></li>
 <li><a href="../ADR-004-stepscope/">ADR-004 SynchronizedItemStreamReader</a></li>
 </ul>
 
