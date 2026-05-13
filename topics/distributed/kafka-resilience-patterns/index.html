@@ -1874,7 +1874,7 @@
   <span class="md-ellipsis">
     
   
-    (NEW) AOP — Programmation Orientée Aspect
+    (NEW) AOP • Programmation Orientée Aspect
   
 
     
@@ -2606,7 +2606,7 @@
   <a href="#flux-de-resilience-retry-dlt" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Flux de résilience — Retry + DLT
+        Flux de résilience • Retry + DLT
       
     </span>
   </a>
@@ -2617,12 +2617,12 @@
   <a href="#implementation-reelle-kore-hexagonal" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Implémentation réelle — kore-hexagonal
+        Implémentation réelle • kore-hexagonal
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Implémentation réelle — kore-hexagonal">
+    <nav class="md-nav" aria-label="Implémentation réelle • kore-hexagonal">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2667,7 +2667,7 @@
   <a href="#publication-des-evenements-eventenvelope" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Publication des événements — EventEnvelope
+        Publication des événements • EventEnvelope
       
     </span>
   </a>
@@ -2700,7 +2700,7 @@
   <a href="#consumer-lag-signal-dalerte" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Consumer Lag — signal d'alerte
+        Consumer Lag • signal d'alerte
       
     </span>
   </a>
@@ -2897,7 +2897,7 @@
   <span class="md-ellipsis">
     
   
-    CORS — Cross-Origin Resource Sharing
+    CORS • Cross-Origin Resource Sharing
   
 
     
@@ -5375,7 +5375,7 @@
   <a href="#flux-de-resilience-retry-dlt" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Flux de résilience — Retry + DLT
+        Flux de résilience • Retry + DLT
       
     </span>
   </a>
@@ -5386,12 +5386,12 @@
   <a href="#implementation-reelle-kore-hexagonal" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Implémentation réelle — kore-hexagonal
+        Implémentation réelle • kore-hexagonal
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Implémentation réelle — kore-hexagonal">
+    <nav class="md-nav" aria-label="Implémentation réelle • kore-hexagonal">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -5436,7 +5436,7 @@
   <a href="#publication-des-evenements-eventenvelope" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Publication des événements — EventEnvelope
+        Publication des événements • EventEnvelope
       
     </span>
   </a>
@@ -5469,7 +5469,7 @@
   <a href="#consumer-lag-signal-dalerte" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Consumer Lag — signal d'alerte
+        Consumer Lag • signal d'alerte
       
     </span>
   </a>
@@ -5547,7 +5547,7 @@
 
 
 
-<h1 id="kafka-resilience-patterns-de-communication">Kafka — Résilience &amp; Patterns de Communication</h1>
+<h1 id="kafka-resilience-patterns-de-communication">Kafka • Résilience &amp; Patterns de Communication</h1>
 <div class="admonition note">
 <p>Note de contexte (12 mai 2026) : cette note constitue un retour d'expérience suite à des échanges avec des experts du domaine. Elle est rédigée le jour même et vise à structurer les notions abordées pour consolidation et montée en compétence.</p>
 </div>
@@ -5577,7 +5577,7 @@
 <h3 id="at-least-once-delivery">At-least-once delivery</h3>
 <p>Kafka garantit qu'un message sera livré <strong>au moins une fois</strong>. En cas de crash avant le commit de l'offset, le message sera relivré. Conséquence directe : le consumer doit être <strong>idempotent</strong>.</p>
 <hr />
-<h2 id="flux-de-resilience-retry-dlt">Flux de résilience — Retry + DLT</h2>
+<h2 id="flux-de-resilience-retry-dlt">Flux de résilience • Retry + DLT</h2>
 <div class="highlight"><pre><span></span><code>Message reçu
       |
   Traitement
@@ -5591,7 +5591,7 @@
    ──&gt; Dead Letter Topic (DLT)
 </code></pre></div>
 <hr />
-<h2 id="implementation-reelle-kore-hexagonal">Implémentation réelle — kore-hexagonal</h2>
+<h2 id="implementation-reelle-kore-hexagonal">Implémentation réelle • kore-hexagonal</h2>
 <h3 id="configuration-du-retry-avec-backoff-exponentiel">Configuration du retry avec backoff exponentiel</h3>
 <div class="highlight"><pre><span></span><code><span class="nd">@Bean</span>
 <span class="kd">public</span><span class="w"> </span><span class="n">DefaultErrorHandler</span><span class="w"> </span><span class="nf">errorHandler</span><span class="p">(</span><span class="n">KafkaTemplate</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">template</span><span class="p">,</span>
@@ -5620,7 +5620,7 @@
 
 <span class="w">    </span><span class="c1">// Log de chaque tentative</span>
 <span class="w">    </span><span class="n">handler</span><span class="p">.</span><span class="na">setRetryListeners</span><span class="p">((</span><span class="n">record</span><span class="p">,</span><span class="w"> </span><span class="n">ex</span><span class="p">,</span><span class="w"> </span><span class="n">attempt</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span>
-<span class="w">            </span><span class="n">log</span><span class="p">.</span><span class="na">warn</span><span class="p">(</span><span class="s">&quot;Retry {} — topic={} key={}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">attempt</span><span class="p">,</span><span class="w"> </span><span class="n">record</span><span class="p">.</span><span class="na">topic</span><span class="p">(),</span><span class="w"> </span><span class="n">record</span><span class="p">.</span><span class="na">key</span><span class="p">())</span>
+<span class="w">            </span><span class="n">log</span><span class="p">.</span><span class="na">warn</span><span class="p">(</span><span class="s">&quot;Retry {} • topic={} key={}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">attempt</span><span class="p">,</span><span class="w"> </span><span class="n">record</span><span class="p">.</span><span class="na">topic</span><span class="p">(),</span><span class="w"> </span><span class="n">record</span><span class="p">.</span><span class="na">key</span><span class="p">())</span>
 <span class="w">    </span><span class="p">);</span>
 
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">handler</span><span class="p">;</span>
@@ -5683,9 +5683,9 @@ Sans cette option, un producer qui retente une publication après un timeout ré
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>Le DLT consumer ne relance pas le traitement — il <strong>log et alerte</strong>. L'analyse du message en erreur se fait manuellement ou via un dashboard Grafana sur les métriques Kafka.</p>
+<p>Le DLT consumer ne relance pas le traitement • il <strong>log et alerte</strong>. L'analyse du message en erreur se fait manuellement ou via un dashboard Grafana sur les métriques Kafka.</p>
 <hr />
-<h2 id="publication-des-evenements-eventenvelope">Publication des événements — EventEnvelope</h2>
+<h2 id="publication-des-evenements-eventenvelope">Publication des événements • EventEnvelope</h2>
 <p>Chaque événement publié dans Kafka est wrappé dans une enveloppe standardisée :</p>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">record</span> <span class="nc">EventEnvelope</span><span class="p">(</span>
 <span class="w">        </span><span class="n">UUID</span><span class="w"> </span><span class="n">eventId</span><span class="p">,</span><span class="w">       </span><span class="c1">// identifiant unique de l&#39;événement</span>
@@ -5707,7 +5707,7 @@ Sans cette option, un producer qui retente une publication après un timeout ré
 <span class="w">    </span><span class="n">kafkaTemplate</span><span class="p">.</span><span class="na">send</span><span class="p">(</span><span class="n">topic</span><span class="p">,</span><span class="w"> </span><span class="n">eventId</span><span class="p">.</span><span class="na">toString</span><span class="p">(),</span><span class="w"> </span><span class="n">payload</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>L'<code>eventId</code> sert de <strong>clé Kafka</strong> — il garantit que deux publications du même événement atterrissent dans la même partition, et permet l'idempotence côté consumer.</p>
+<p>L'<code>eventId</code> sert de <strong>clé Kafka</strong> • il garantit que deux publications du même événement atterrissent dans la même partition, et permet l'idempotence côté consumer.</p>
 <hr />
 <h2 id="idempotence-cote-consumer">Idempotence côté consumer</h2>
 <p>Kafka peut redélivrer un message (crash avant commit d'offset, rebalance). Le consumer doit gérer ce cas.</p>
@@ -5766,9 +5766,9 @@ Sans cette option, un producer qui retente une publication après un timeout ré
 </tr>
 </tbody>
 </table>
-<p>Inutile de retenter 3 fois un message dont le format JSON est invalide — il sera toujours invalide. Le DLT immédiat évite de bloquer le flux pour rien.</p>
+<p>Inutile de retenter 3 fois un message dont le format JSON est invalide • il sera toujours invalide. Le DLT immédiat évite de bloquer le flux pour rien.</p>
 <hr />
-<h2 id="consumer-lag-signal-dalerte">Consumer Lag — signal d'alerte</h2>
+<h2 id="consumer-lag-signal-dalerte">Consumer Lag • signal d'alerte</h2>
 <p>Le <strong>consumer lag</strong> est la différence entre le dernier offset produit et le dernier offset consommé.</p>
 <div class="highlight"><pre><span></span><code>Lag = offset_produit - offset_consommé
 </code></pre></div>
@@ -5781,9 +5781,9 @@ Sans cette option, un producer qui retente une publication après un timeout ré
 <h2 id="conclusion">Conclusion</h2>
 <p>La résilience Kafka repose sur trois mécanismes complémentaires :</p>
 <ul>
-<li><strong>Retry avec backoff exponentiel</strong> — absorber les erreurs temporaires sans surcharger le système</li>
-<li><strong>Dead Letter Topic</strong> — isoler les messages irrécupérables sans bloquer le flux principal</li>
-<li><strong>Idempotence consumer</strong> — traiter sans danger les doublons inévitables</li>
+<li><strong>Retry avec backoff exponentiel</strong> • absorber les erreurs temporaires sans surcharger le système</li>
+<li><strong>Dead Letter Topic</strong> • isoler les messages irrécupérables sans bloquer le flux principal</li>
+<li><strong>Idempotence consumer</strong> • traiter sans danger les doublons inévitables</li>
 </ul>
 <p>Ces trois patterns sont non négociables en production event-driven.</p>
 <hr />

@@ -1874,7 +1874,7 @@
   <span class="md-ellipsis">
     
   
-    (NEW) AOP — Programmation Orientée Aspect
+    (NEW) AOP • Programmation Orientée Aspect
   
 
     
@@ -2659,7 +2659,7 @@
   <span class="md-ellipsis">
     
   
-    CORS — Cross-Origin Resource Sharing
+    CORS • Cross-Origin Resource Sharing
   
 
     
@@ -5552,13 +5552,13 @@
 </table>
 <div class="highlight"><pre><span></span><code><span class="nd">@Transactional</span><span class="p">(</span><span class="n">propagation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Propagation</span><span class="p">.</span><span class="na">REQUIRES_NEW</span><span class="p">)</span>
 <span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">sendNotification</span><span class="p">(</span><span class="n">Order</span><span class="w"> </span><span class="n">order</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="c1">// Transaction indépendante — un échec ici ne rollback pas la commande</span>
+<span class="w">    </span><span class="c1">// Transaction indépendante • un échec ici ne rollback pas la commande</span>
 <span class="p">}</span>
 </code></pre></div>
 <hr />
 <h2 id="problemes-courants">Problèmes courants</h2>
 <h3 id="lost-update">Lost Update</h3>
-<p>Deux transactions lisent puis écrivent la même donnée — la dernière écriture écrase la première.</p>
+<p>Deux transactions lisent puis écrivent la même donnée • la dernière écriture écrase la première.</p>
 <p><strong>Solution</strong> : optimistic locking avec <code>@Version</code>.</p>
 <h3 id="n1-queries-dans-une-transaction">N+1 queries dans une transaction</h3>
 <div class="highlight"><pre><span></span><code><span class="n">List</span><span class="o">&lt;</span><span class="n">Order</span><span class="o">&gt;</span><span class="w"> </span><span class="n">orders</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">orderRepository</span><span class="p">.</span><span class="na">findAll</span><span class="p">();</span>
@@ -5581,8 +5581,8 @@
 </code></pre></div>
 <p>Deux approches :</p>
 <ul>
-<li><strong>Choreography</strong> — chaque service écoute les événements et réagit</li>
-<li><strong>Orchestration</strong> — un coordinateur central pilote la séquence</li>
+<li><strong>Choreography</strong> • chaque service écoute les événements et réagit</li>
+<li><strong>Orchestration</strong> • un coordinateur central pilote la séquence</li>
 </ul>
 <h3 id="outbox-pattern">Outbox Pattern</h3>
 <p>Garantit qu'un événement est publié si et seulement si la transaction locale réussit :</p>

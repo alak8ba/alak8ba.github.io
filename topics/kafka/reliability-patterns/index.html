@@ -825,7 +825,7 @@
 <span class="md-ellipsis">
     
   
-    (NEW) AOP — Programmation Orientée Aspect
+    (NEW) AOP • Programmation Orientée Aspect
   
 
     
@@ -1198,7 +1198,7 @@
 <span class="md-ellipsis">
     
   
-    CORS — Cross-Origin Resource Sharing
+    CORS • Cross-Origin Resource Sharing
   
 
     
@@ -2324,7 +2324,7 @@ un pipeline événementiel robuste.</p>
     CON --&gt; R[Retry Queue]
     CON --&gt; D[Dead Letter Topic]</code></pre></p>
 <hr/>
-<h1 id="1-outbox-pattern">1 — Outbox Pattern</h1>
+<h1 id="1-outbox-pattern">1 • Outbox Pattern</h1>
 <p>Le Outbox Pattern garantit la cohérence
 entre la base de données et les événements.</p>
 <p>Au lieu de publier directement dans Kafka,
@@ -2340,7 +2340,7 @@ le service enregistre l’événement dans une table
 </ul>
 </div>
 <hr/>
-<h1 id="2-retry">2 — Retry</h1>
+<h1 id="2-retry">2 • Retry</h1>
 <p>Les erreurs temporaires sont fréquentes
 dans les systèmes distribués :</p>
 <ul>
@@ -2358,7 +2358,7 @@ Retry<span class="w"> </span><span class="m">3</span><span class="w"> </span>→
 Le retry est généralement limité
 pour éviter les boucles infinies.</p>
 <hr/>
-<h1 id="3-dead-letter-topic-dlt">3 — Dead Letter Topic (DLT)</h1>
+<h1 id="3-dead-letter-topic-dlt">3 • Dead Letter Topic (DLT)</h1>
 <p>Si un message échoue après tous les retries,
 il est envoyé dans un <strong>Dead Letter Topic</strong>.</p>
 <p>Convention :
@@ -2375,7 +2375,7 @@ booking-platform.events.DLT
 <li>rejoués</li>
 </ul>
 <hr/>
-<h1 id="4-idempotent-consumers">4 — Idempotent Consumers</h1>
+<h1 id="4-idempotent-consumers">4 • Idempotent Consumers</h1>
 <p>Dans Kafka, un message peut être livré
 plusieurs fois.</p>
 <p>Un consumer doit donc être <strong>idempotent</strong>.</p>

@@ -1874,7 +1874,7 @@
   <span class="md-ellipsis">
     
   
-    (NEW) AOP — Programmation Orientée Aspect
+    (NEW) AOP • Programmation Orientée Aspect
   
 
     
@@ -2659,7 +2659,7 @@
   <span class="md-ellipsis">
     
   
-    CORS — Cross-Origin Resource Sharing
+    CORS • Cross-Origin Resource Sharing
   
 
     
@@ -2952,12 +2952,12 @@
   <a href="#gestion-globale-restcontrolleradvice" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Gestion globale — @RestControllerAdvice
+        Gestion globale • @RestControllerAdvice
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Gestion globale — @RestControllerAdvice">
+    <nav class="md-nav" aria-label="Gestion globale • @RestControllerAdvice">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2991,7 +2991,7 @@
   <a href="#pattern-fonctionnel-gestion-des-exceptions-en-batch" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Pattern fonctionnel — gestion des exceptions en batch
+        Pattern fonctionnel • gestion des exceptions en batch
       
     </span>
   </a>
@@ -3002,7 +3002,7 @@
   <a href="#strategie-de-propagation-ou-logguer" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Stratégie de propagation — où logguer ?
+        Stratégie de propagation • où logguer ?
       
     </span>
   </a>
@@ -3013,12 +3013,12 @@
   <a href="#sync-vs-async-comportement-different" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Sync vs Async — comportement différent
+        Sync vs Async • comportement différent
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Sync vs Async — comportement différent">
+    <nav class="md-nav" aria-label="Sync vs Async • comportement différent">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -5381,12 +5381,12 @@
   <a href="#gestion-globale-restcontrolleradvice" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Gestion globale — @RestControllerAdvice
+        Gestion globale • @RestControllerAdvice
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Gestion globale — @RestControllerAdvice">
+    <nav class="md-nav" aria-label="Gestion globale • @RestControllerAdvice">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -5420,7 +5420,7 @@
   <a href="#pattern-fonctionnel-gestion-des-exceptions-en-batch" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Pattern fonctionnel — gestion des exceptions en batch
+        Pattern fonctionnel • gestion des exceptions en batch
       
     </span>
   </a>
@@ -5431,7 +5431,7 @@
   <a href="#strategie-de-propagation-ou-logguer" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Stratégie de propagation — où logguer ?
+        Stratégie de propagation • où logguer ?
       
     </span>
   </a>
@@ -5442,12 +5442,12 @@
   <a href="#sync-vs-async-comportement-different" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Sync vs Async — comportement différent
+        Sync vs Async • comportement différent
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Sync vs Async — comportement différent">
+    <nav class="md-nav" aria-label="Sync vs Async • comportement différent">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -5578,7 +5578,7 @@
 <h2 id="types-dexceptions">Types d'exceptions</h2>
 <h3 id="exceptions-metier-checked">Exceptions métier (checked)</h3>
 <p>Représentent des règles business violées. Elles sont <strong>attendues</strong> et font partie du fonctionnement normal du système.</p>
-<p>Dans kore-batch, <code>FunctionalException</code> est une checked exception — le compilateur oblige le développeur à la gérer explicitement :</p>
+<p>Dans kore-batch, <code>FunctionalException</code> est une checked exception • le compilateur oblige le développeur à la gérer explicitement :</p>
 <div class="highlight"><pre><span></span><code><span class="cm">/**</span>
 <span class="cm"> * Exception fonctionnelle : erreur métier attendue, n&#39;interrompt pas le batch.</span>
 <span class="cm"> * Doit être catchée dans le processor et comptabilisée dans la synthèse.</span>
@@ -5597,7 +5597,7 @@
 </code></pre></div>
 <p>Le fait d'étendre <code>Exception</code> (et non <code>RuntimeException</code>) force le caller à soit la catcher, soit la déclarer dans sa signature. C'est un choix architectural délibéré.</p>
 <h3 id="exceptions-techniques-unchecked">Exceptions techniques (unchecked)</h3>
-<p>Proviennent de problèmes d'infrastructure — base de données indisponible, Kafka down, timeout. Elles étendent <code>RuntimeException</code> et remontent librement dans la stack.</p>
+<p>Proviennent de problèmes d'infrastructure • base de données indisponible, Kafka down, timeout. Elles étendent <code>RuntimeException</code> et remontent librement dans la stack.</p>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">TechnicalException</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">RuntimeException</span><span class="w"> </span><span class="p">{</span>
 
 <span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">TechnicalException</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">message</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="kd">super</span><span class="p">(</span><span class="n">message</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
@@ -5608,7 +5608,7 @@
 <span class="p">}</span>
 </code></pre></div>
 <h3 id="nullpointerexception">NullPointerException</h3>
-<p>La NPE est une exception runtime non voulue — elle indique généralement un bug, pas un cas métier.</p>
+<p>La NPE est une exception runtime non voulue • elle indique généralement un bug, pas un cas métier.</p>
 <p>Bonnes pratiques pour l'éviter :</p>
 <div class="highlight"><pre><span></span><code><span class="c1">// A eviter</span>
 <span class="n">String</span><span class="w"> </span><span class="n">pays</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">assure</span><span class="p">.</span><span class="na">getPays</span><span class="p">().</span><span class="na">toUpperCase</span><span class="p">();</span><span class="w"> </span><span class="c1">// NPE si pays est null</span>
@@ -5623,9 +5623,9 @@
 <span class="w">        </span><span class="p">.</span><span class="na">filter</span><span class="p">(</span><span class="n">p</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="o">!</span><span class="n">p</span><span class="p">.</span><span class="na">isBlank</span><span class="p">())</span>
 <span class="w">        </span><span class="p">.</span><span class="na">orElseThrow</span><span class="p">(()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">FunctionalException</span><span class="p">(</span><span class="s">&quot;Pays absent&quot;</span><span class="p">));</span>
 </code></pre></div>
-<p>Dans un système robuste, une NPE en production est considérée comme un bug — elle ne doit jamais atteindre le client.</p>
+<p>Dans un système robuste, une NPE en production est considérée comme un bug • elle ne doit jamais atteindre le client.</p>
 <hr />
-<h2 id="gestion-globale-restcontrolleradvice">Gestion globale — @RestControllerAdvice</h2>
+<h2 id="gestion-globale-restcontrolleradvice">Gestion globale • @RestControllerAdvice</h2>
 <p>Spring Boot permet de centraliser la gestion des exceptions en un seul endroit via <code>@RestControllerAdvice</code>. Cela évite de dupliquer le traitement des erreurs dans chaque controller.</p>
 <p>Implémentation réelle dans kore-hexagonal :</p>
 <div class="highlight"><pre><span></span><code><span class="nd">@RestControllerAdvice</span>
@@ -5716,7 +5716,7 @@
 </code></pre></div>
 <p>Toutes les exceptions métier étendent <code>RuntimeException</code> côté REST. Elles remontent naturellement jusqu'au <code>GlobalExceptionHandler</code>.</p>
 <hr />
-<h2 id="pattern-fonctionnel-gestion-des-exceptions-en-batch">Pattern fonctionnel — gestion des exceptions en batch</h2>
+<h2 id="pattern-fonctionnel-gestion-des-exceptions-en-batch">Pattern fonctionnel • gestion des exceptions en batch</h2>
 <p>Dans un contexte batch, la stratégie est différente. Une erreur sur un item ne doit pas arrêter le traitement de tous les autres.</p>
 <p>Implémentation réelle dans kore-batch (<code>AssureItemProcessor</code>) :</p>
 <div class="highlight"><pre><span></span><code><span class="nd">@Slf4j</span>
@@ -5766,13 +5766,13 @@
 </code></pre></div>
 <p><strong>Ce que ce pattern garantit :</strong></p>
 <ul>
-<li>La <code>FunctionalException</code> est catchée dans le processor — elle n'atteint jamais Spring Batch</li>
+<li>La <code>FunctionalException</code> est catchée dans le processor • elle n'atteint jamais Spring Batch</li>
 <li>Pas de throw = pas de mécanisme de skip = pas de rollback transactionnel</li>
 <li>Chaque item KO est comptabilisé dans la synthèse avec sa référence</li>
 <li>Le rapport final liste précisément les items en erreur et leur cause</li>
 </ul>
 <hr />
-<h2 id="strategie-de-propagation-ou-logguer">Stratégie de propagation — où logguer ?</h2>
+<h2 id="strategie-de-propagation-ou-logguer">Stratégie de propagation • où logguer ?</h2>
 <p>Une règle fondamentale :</p>
 <blockquote>
 <p>une exception ne doit pas être loggée plusieurs fois dans la même stack</p>
@@ -5805,11 +5805,11 @@
 </table>
 <p>Logguer à chaque couche produit du bruit dans les logs et complique l'investigation d'incidents.</p>
 <hr />
-<h2 id="sync-vs-async-comportement-different">Sync vs Async — comportement différent</h2>
+<h2 id="sync-vs-async-comportement-different">Sync vs Async • comportement différent</h2>
 <h3 id="rest-synchrone">REST (synchrone)</h3>
 <p>L'exception remonte directement dans la stack HTTP. Le <code>GlobalExceptionHandler</code> la transforme en réponse JSON. Le client reçoit le code HTTP et le message d'erreur.</p>
 <h3 id="kafka-asynchrone">Kafka (asynchrone)</h3>
-<p>L'exception ne peut pas remonter vers un client — il n'y en a pas. Elle doit être :</p>
+<p>L'exception ne peut pas remonter vers un client • il n'y en a pas. Elle doit être :</p>
 <ul>
 <li>loggée avec le contexte de l'événement</li>
 <li>gérée par le mécanisme de retry</li>
@@ -5837,7 +5837,7 @@
 <hr />
 <h2 id="voir-aussi">Voir aussi</h2>
 <ul>
-<li><a href="../../java/spring/aop-spring/">AOP — Programmation Orientée Aspect</a></li>
+<li><a href="../../java/spring/aop-spring/">AOP • Programmation Orientée Aspect</a></li>
 <li><a href="../logging-architecture-java/">Logging Architecture Java</a></li>
 <li><a href="../metrics-monitoring-prometheus-grafana/">Metrics, Actuator, Prometheus &amp; Grafana</a></li>
 <li><a href="../../kafka/retry-and-dlt-pattern/">Retry and DLT Pattern</a></li>

@@ -1874,7 +1874,7 @@
   <span class="md-ellipsis">
     
   
-    (NEW) AOP — Programmation Orientée Aspect
+    (NEW) AOP • Programmation Orientée Aspect
   
 
     
@@ -2720,7 +2720,7 @@
   <span class="md-ellipsis">
     
   
-    CORS — Cross-Origin Resource Sharing
+    CORS • Cross-Origin Resource Sharing
   
 
     
@@ -5398,7 +5398,7 @@
 </ul>
 <p>Le read model devient une projection adaptée aux besoins du frontend.</p>
 <hr />
-<h1 id="implementation-reelle-kore-hexagonal">Implémentation réelle — kore-hexagonal</h1>
+<h1 id="implementation-reelle-kore-hexagonal">Implémentation réelle • kore-hexagonal</h1>
 <p>Ce pattern est implémenté dans kore-hexagonal sur le domaine Booking.</p>
 <h2 id="flux-complet">Flux complet</h2>
 <div class="highlight"><pre><span></span><code>[Write side]                          [Read side]
@@ -5498,9 +5498,9 @@ KafkaEventProducer                               |
 <li>Le <code>switch</code> sur <code>eventType</code> rend le handler extensible sans modifier la logique existante</li>
 <li>Le read model est mis à jour de façon asynchrone, sans bloquer le write side</li>
 </ul>
-<h2 id="4-le-controller-de-lecture-separe-du-write">4. Le controller de lecture — séparé du write</h2>
+<h2 id="4-le-controller-de-lecture-separe-du-write">4. Le controller de lecture • séparé du write</h2>
 <div class="highlight"><pre><span></span><code><span class="cm">/**</span>
-<span class="cm"> * Endpoints lecture seule — Read model CQRS.</span>
+<span class="cm"> * Endpoints lecture seule • Read model CQRS.</span>
 <span class="cm"> * Retourne des projections depuis booking_read_model,</span>
 <span class="cm"> * sans passer par le domaine d’écriture.</span>
 <span class="cm"> */</span>
@@ -5578,7 +5578,7 @@ KafkaEventProducer                               |
 <ul>
 <li>pré-calculer les vues via événements est plus efficace que reconstruire les relations ORM à chaque requête</li>
 <li>la cohérence éventuelle est acceptable quand les données de lecture n’ont pas besoin d’être à la milliseconde près</li>
-<li>l’idempotence du consumer est non négociable en production — Kafka peut redélivrer</li>
+<li>l’idempotence du consumer est non négociable en production • Kafka peut redélivrer</li>
 </ul>
 <hr />
 <h1 id="conclusion">Conclusion</h1>
@@ -5593,7 +5593,7 @@ KafkaEventProducer                               |
 <li><a href="../sync-vs-async/">Sync vs Async</a></li>
 <li><a href="../../java/spring/hibernate-jpa/">Hibernate / JPA</a></li>
 <li><a href="../../database/transaction-patterns/">Transaction Patterns</a></li>
-<li><a href="../../../socles/kore-hexagonal/architecture/">kore-hexagonal — Architecture</a></li>
+<li><a href="../../../socles/kore-hexagonal/architecture/">kore-hexagonal • Architecture</a></li>
 </ul>
 
 

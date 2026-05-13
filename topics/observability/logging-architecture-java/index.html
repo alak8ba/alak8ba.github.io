@@ -1874,7 +1874,7 @@
   <span class="md-ellipsis">
     
   
-    (NEW) AOP — Programmation Orientée Aspect
+    (NEW) AOP • Programmation Orientée Aspect
   
 
     
@@ -2659,7 +2659,7 @@
   <span class="md-ellipsis">
     
   
-    CORS — Cross-Origin Resource Sharing
+    CORS • Cross-Origin Resource Sharing
   
 
     
@@ -2885,12 +2885,12 @@
   <a href="#slf4j-la-facade-standard" class="md-nav__link">
     <span class="md-ellipsis">
       
-        SLF4J — la façade standard
+        SLF4J • la façade standard
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="SLF4J — la façade standard">
+    <nav class="md-nav" aria-label="SLF4J • la façade standard">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2924,12 +2924,12 @@
   <a href="#logback-limplementation-par-defaut" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Logback — l'implémentation par défaut
+        Logback • l'implémentation par défaut
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Logback — l&#39;implémentation par défaut">
+    <nav class="md-nav" aria-label="Logback • l&#39;implémentation par défaut">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -3025,7 +3025,7 @@
   <a href="#listener-de-job-kore-batch" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Listener de job — kore-batch
+        Listener de job • kore-batch
       
     </span>
   </a>
@@ -3036,7 +3036,7 @@
   <a href="#listener-de-step-avec-detail-par-partition" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Listener de step — avec détail par partition
+        Listener de step • avec détail par partition
       
     </span>
   </a>
@@ -3052,7 +3052,7 @@
   <a href="#mdc-mapped-diagnostic-context" class="md-nav__link">
     <span class="md-ellipsis">
       
-        MDC — Mapped Diagnostic Context
+        MDC • Mapped Diagnostic Context
       
     </span>
   </a>
@@ -5392,12 +5392,12 @@
   <a href="#slf4j-la-facade-standard" class="md-nav__link">
     <span class="md-ellipsis">
       
-        SLF4J — la façade standard
+        SLF4J • la façade standard
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="SLF4J — la façade standard">
+    <nav class="md-nav" aria-label="SLF4J • la façade standard">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -5431,12 +5431,12 @@
   <a href="#logback-limplementation-par-defaut" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Logback — l'implémentation par défaut
+        Logback • l'implémentation par défaut
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Logback — l&#39;implémentation par défaut">
+    <nav class="md-nav" aria-label="Logback • l&#39;implémentation par défaut">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -5532,7 +5532,7 @@
   <a href="#listener-de-job-kore-batch" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Listener de job — kore-batch
+        Listener de job • kore-batch
       
     </span>
   </a>
@@ -5543,7 +5543,7 @@
   <a href="#listener-de-step-avec-detail-par-partition" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Listener de step — avec détail par partition
+        Listener de step • avec détail par partition
       
     </span>
   </a>
@@ -5559,7 +5559,7 @@
   <a href="#mdc-mapped-diagnostic-context" class="md-nav__link">
     <span class="md-ellipsis">
       
-        MDC — Mapped Diagnostic Context
+        MDC • Mapped Diagnostic Context
       
     </span>
   </a>
@@ -5673,7 +5673,7 @@
 <li>le support production</li>
 <li>la détection de comportements anormaux</li>
 </ul>
-<p>Une architecture de logging bien conçue permet de comprendre ce que fait réellement le système pendant son exécution — sans avoir à redéployer ou attacher un debugger.</p>
+<p>Une architecture de logging bien conçue permet de comprendre ce que fait réellement le système pendant son exécution • sans avoir à redéployer ou attacher un debugger.</p>
 <hr />
 <h2 id="architecture-en-trois-couches">Architecture en trois couches</h2>
 <div class="highlight"><pre><span></span><code>Code applicatif
@@ -5686,7 +5686,7 @@ Console / Fichier / Loki / ELK
 </code></pre></div>
 <p>Cette séparation permet de changer d'implémentation sans toucher au code.</p>
 <hr />
-<h2 id="slf4j-la-facade-standard">SLF4J — la façade standard</h2>
+<h2 id="slf4j-la-facade-standard">SLF4J • la façade standard</h2>
 <p>SLF4J (Simple Logging Facade for Java) est l'API de logging standard. Le code applicatif ne dépend que de SLF4J, jamais de l'implémentation concrète.</p>
 <h3 id="declaration-classique">Déclaration classique</h3>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.slf4j.Logger</span><span class="p">;</span>
@@ -5711,9 +5711,9 @@ Console / Fichier / Loki / ELK
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-<p><code>@Slf4j</code> évite le boilerplate — c'est équivalent à déclarer <code>private static final Logger log = LoggerFactory.getLogger(AssureItemProcessor.class)</code>.</p>
+<p><code>@Slf4j</code> évite le boilerplate • c'est équivalent à déclarer <code>private static final Logger log = LoggerFactory.getLogger(AssureItemProcessor.class)</code>.</p>
 <hr />
-<h2 id="logback-limplementation-par-defaut">Logback — l'implémentation par défaut</h2>
+<h2 id="logback-limplementation-par-defaut">Logback • l'implémentation par défaut</h2>
 <p>Logback est inclus automatiquement via <code>spring-boot-starter-logging</code>. Il gère :</p>
 <ul>
 <li>l'écriture des logs (console, fichier, Loki...)</li>
@@ -5800,7 +5800,7 @@ Console / Fichier / Loki / ELK
 <div class="highlight"><pre><span></span><code><span class="c1">// Mauvais : concaténation String (coûteux si log désactivé)</span>
 <span class="n">log</span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="s">&quot;Traitement de &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">assure</span><span class="p">.</span><span class="na">getReference</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; OK&quot;</span><span class="p">);</span>
 
-<span class="c1">// Correct : paramètres lazy — la String n&#39;est construite que si le niveau est actif</span>
+<span class="c1">// Correct : paramètres lazy • la String n&#39;est construite que si le niveau est actif</span>
 <span class="n">log</span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="s">&quot;Traitement ref={} OK&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">assure</span><span class="p">.</span><span class="na">getReference</span><span class="p">());</span>
 </code></pre></div>
 <h3 id="logging-structure-avec-structuredarguments-logstash">Logging structuré avec StructuredArguments (Logstash)</h3>
@@ -5819,11 +5819,11 @@ Console / Fichier / Loki / ELK
 <span class="w">  </span><span class="nt">&quot;error&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Identifiant invalide (doit faire 10 caracteres)&quot;</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>Le champ <code>reference</code> devient un champ JSON indexé — requêtable directement dans Grafana ou Kibana.</p>
+<p>Le champ <code>reference</code> devient un champ JSON indexé • requêtable directement dans Grafana ou Kibana.</p>
 <hr />
 <h2 id="logging-dans-les-listeners-spring-batch">Logging dans les listeners Spring Batch</h2>
 <p>Le pattern listeners est la bonne approche pour logguer les événements de cycle de vie d'un batch sans polluer le code métier.</p>
-<h3 id="listener-de-job-kore-batch">Listener de job — kore-batch</h3>
+<h3 id="listener-de-job-kore-batch">Listener de job • kore-batch</h3>
 <div class="highlight"><pre><span></span><code><span class="nd">@Slf4j</span>
 <span class="nd">@Component</span>
 <span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">BatchJobExecutionListener</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">JobExecutionListener</span><span class="w"> </span><span class="p">{</span>
@@ -5857,7 +5857,7 @@ Console / Fichier / Loki / ELK
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-<h3 id="listener-de-step-avec-detail-par-partition">Listener de step — avec détail par partition</h3>
+<h3 id="listener-de-step-avec-detail-par-partition">Listener de step • avec détail par partition</h3>
 <div class="highlight"><pre><span></span><code><span class="nd">@Slf4j</span>
 <span class="nd">@Component</span>
 <span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">TraitementAssuresStepListener</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">StepExecutionListener</span><span class="w"> </span><span class="p">{</span>
@@ -5894,7 +5894,7 @@ Console / Fichier / Loki / ELK
 - connaître le nombre d'items traités, OK, KO
 - identifier les références en erreur sans ouvrir la base</p>
 <hr />
-<h2 id="mdc-mapped-diagnostic-context">MDC — Mapped Diagnostic Context</h2>
+<h2 id="mdc-mapped-diagnostic-context">MDC • Mapped Diagnostic Context</h2>
 <p>Le MDC permet d'injecter automatiquement du contexte dans tous les logs produits pendant un traitement.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.slf4j.MDC</span><span class="p">;</span>
 
@@ -5950,7 +5950,7 @@ Console / Fichier / Loki / ELK
 <hr />
 <h2 id="bonnes-pratiques">Bonnes pratiques</h2>
 <ul>
-<li>utiliser <code>@Slf4j</code> (Lombok) — jamais <code>System.out.println</code></li>
+<li>utiliser <code>@Slf4j</code> (Lombok) • jamais <code>System.out.println</code></li>
 <li>préférer les paramètres <code>{}</code> à la concaténation String</li>
 <li>ne jamais logger de données sensibles (mot de passe, numéro de carte, NIR)</li>
 <li>logguer à la frontière du système, pas dans chaque couche</li>
@@ -5993,7 +5993,7 @@ Console / Fichier / Loki / ELK
 <li><a href="../metrics-monitoring-prometheus-grafana/">Metrics, Actuator, Prometheus &amp; Grafana</a></li>
 <li><a href="../../distributed/distributed-tracing-and-correlation/">Distributed Tracing &amp; Correlation</a></li>
 <li><a href="../../devops/observability-pattern/">Observability Pattern</a></li>
-<li><a href="../../spring/spring-batch-advanced-patterns/">Spring Batch — Patterns avancés</a></li>
+<li><a href="../../spring/spring-batch-advanced-patterns/">Spring Batch • Patterns avancés</a></li>
 </ul>
 
 

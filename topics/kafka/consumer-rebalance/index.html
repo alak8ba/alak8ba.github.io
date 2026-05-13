@@ -825,7 +825,7 @@
 <span class="md-ellipsis">
     
   
-    (NEW) AOP — Programmation Orientée Aspect
+    (NEW) AOP • Programmation Orientée Aspect
   
 
     
@@ -1301,7 +1301,7 @@
 <span class="md-ellipsis">
     
   
-    CORS — Cross-Origin Resource Sharing
+    CORS • Cross-Origin Resource Sharing
   
 
     
@@ -2518,7 +2518,7 @@ Après : C1 → P0,P1  C2 → P2  C3 → P3
 </code></pre></div>
 <p>Préféré en production pour réduire l'impact des rebalances.</p>
 <h3 id="cooperativestickyassignor">CooperativeStickyAssignor</h3>
-<p>Rebalance <strong>incrémental</strong> — seules les partitions qui changent de propriétaire sont révoquées :</p>
+<p>Rebalance <strong>incrémental</strong> • seules les partitions qui changent de propriétaire sont révoquées :</p>
 <div class="highlight"><pre><span></span><code>partition.assignment.strategy=org.apache.kafka.clients.consumer.CooperativeStickyAssignor
 </code></pre></div>
 <ul>
@@ -2589,7 +2589,7 @@ Après : C1 → P0,P1  C2 → P2  C3 → P3
 <h2 id="synthese">Synthèse</h2>
 <ul>
 <li>le rebalance est le mécanisme de redistribution des partitions dans un consumer group</li>
-<li>c'est coûteux — il interrompt la consommation</li>
+<li>c'est coûteux • il interrompt la consommation</li>
 <li>CooperativeStickyAssignor réduit considérablement l'impact</li>
 <li>les timeouts mal configurés sont la cause principale des rebalances intempestifs</li>
 </ul>

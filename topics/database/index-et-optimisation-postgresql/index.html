@@ -1874,7 +1874,7 @@
   <span class="md-ellipsis">
     
   
-    (NEW) AOP — Programmation Orientée Aspect
+    (NEW) AOP • Programmation Orientée Aspect
   
 
     
@@ -2659,7 +2659,7 @@
   <span class="md-ellipsis">
     
   
-    CORS — Cross-Origin Resource Sharing
+    CORS • Cross-Origin Resource Sharing
   
 
     
@@ -3670,7 +3670,7 @@
   <a href="#exemple-complet-table-de-traitement-batch" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Exemple complet — table de traitement batch
+        Exemple complet • table de traitement batch
       
     </span>
   </a>
@@ -3681,12 +3681,12 @@
   <a href="#flush-postgresql-et-jpa" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Flush — PostgreSQL et JPA
+        Flush • PostgreSQL et JPA
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Flush — PostgreSQL et JPA">
+    <nav class="md-nav" aria-label="Flush • PostgreSQL et JPA">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -5941,7 +5941,7 @@
   <a href="#exemple-complet-table-de-traitement-batch" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Exemple complet — table de traitement batch
+        Exemple complet • table de traitement batch
       
     </span>
   </a>
@@ -5952,12 +5952,12 @@
   <a href="#flush-postgresql-et-jpa" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Flush — PostgreSQL et JPA
+        Flush • PostgreSQL et JPA
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Flush — PostgreSQL et JPA">
+    <nav class="md-nav" aria-label="Flush • PostgreSQL et JPA">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -6154,7 +6154,7 @@ Plus il y a d'index, plus le VACUUM est long.</p>
 considerablement la maintenance.</p>
 <hr />
 <h2 id="la-selectivite-le-critere-cle">La selectivite : le critere cle</h2>
-<p>Un index est utile seulement si la colonne a une <strong>selectivite elevee</strong> —
+<p>Un index est utile seulement si la colonne a une <strong>selectivite elevee</strong> •
 c'est-a-dire que la valeur filtree represente une petite fraction des lignes.</p>
 <div class="highlight"><pre><span></span><code><span class="c1">-- BONNE selectivite : EMAIL est unique → index tres efficace</span>
 <span class="k">WHERE</span><span class="w"> </span><span class="n">email</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;alice@example.com&#39;</span><span class="w">  </span><span class="c1">-- retourne 1 ligne sur 1 000 000</span>
@@ -6162,7 +6162,7 @@ c'est-a-dire que la valeur filtree represente une petite fraction des lignes.</p
 <span class="c1">-- MAUVAISE selectivite : STATUT a 2 valeurs → index inutile</span>
 <span class="k">WHERE</span><span class="w"> </span><span class="n">statut</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;ACTIF&#39;</span><span class="w">  </span><span class="c1">-- retourne 500 000 lignes sur 1 000 000</span>
 </code></pre></div>
-<p>Quand un index renvoie trop de lignes, PostgreSQL prefere le <strong>sequential scan</strong> —
+<p>Quand un index renvoie trop de lignes, PostgreSQL prefere le <strong>sequential scan</strong> •
 il est plus rapide que de suivre l'index puis lire chaque ligne individuellement.</p>
 <p><strong>Regle pratique :</strong> un index est efficace si la requete retourne moins de
 <strong>5 a 10% des lignes</strong> de la table.</p>
@@ -6361,7 +6361,7 @@ de performance (localisation rapide du conflit).</p>
 </code></pre></div>
 <p>A executer apres une insertion/mise a jour batch massive.</p>
 <hr />
-<h2 id="exemple-complet-table-de-traitement-batch">Exemple complet — table de traitement batch</h2>
+<h2 id="exemple-complet-table-de-traitement-batch">Exemple complet • table de traitement batch</h2>
 <p>Index typiques pour une table utilisee dans un batch de traitement :</p>
 <div class="highlight"><pre><span></span><code><span class="c1">-- Cle primaire (auto-cree)</span>
 <span class="c1">-- Contrainte UNIQUE sur la reference metier (auto-cree)</span>
@@ -6390,7 +6390,7 @@ de performance (localisation rapide du conflit).</p>
 <span class="nt">&lt;/changeSet&gt;</span>
 </code></pre></div>
 <hr />
-<h2 id="flush-postgresql-et-jpa">Flush — PostgreSQL et JPA</h2>
+<h2 id="flush-postgresql-et-jpa">Flush • PostgreSQL et JPA</h2>
 <h3 id="flush-postgresql-wal-checkpoint">Flush PostgreSQL (WAL / Checkpoint)</h3>
 <p>PostgreSQL n'ecrit pas directement les donnees sur disque a chaque transaction.
 Il utilise un <strong>Write-Ahead Log (WAL)</strong> : les modifications sont d'abord ecrites
@@ -6410,7 +6410,7 @@ Se produit a chaque <code>COMMIT</code> (par defaut <code>synchronous_commit = o
 <p>Les index sont mis a jour dans les <code>shared_buffers</code> (memoire) en meme temps
 que les donnees. La persistance sur disque se fait au checkpoint.
 Pendant la fenetre entre le commit et le checkpoint, les donnees et index
-sont en memoire — recuperables apres crash grace au WAL.</p>
+sont en memoire • recuperables apres crash grace au WAL.</p>
 <div class="highlight"><pre><span></span><code><span class="c1">-- Forcer un checkpoint (admin seulement)</span>
 <span class="k">CHECKPOINT</span><span class="p">;</span>
 
@@ -6419,7 +6419,7 @@ sont en memoire — recuperables apres crash grace au WAL.</p>
 </code></pre></div>
 <div class="admonition warning">
 <p class="admonition-title">Performance</p>
-<p><code>synchronous_commit = off</code> desactive le flush WAL au commit — gain de performance
+<p><code>synchronous_commit = off</code> desactive le flush WAL au commit • gain de performance
 mais risque de perte des dernieres transactions en cas de crash.
 A n'utiliser que pour des donnees non critiques (logs, metriques).</p>
 </div>

@@ -823,7 +823,7 @@
 <span class="md-ellipsis">
     
   
-    (NEW) AOP — Programmation Orientée Aspect
+    (NEW) AOP • Programmation Orientée Aspect
   
 
     
@@ -1158,7 +1158,7 @@
 <span class="md-ellipsis">
     
   
-    CORS — Cross-Origin Resource Sharing
+    CORS • Cross-Origin Resource Sharing
   
 
     
@@ -2204,7 +2204,7 @@ du système.</p>
 <li>le déploiement de l'application</li>
 </ul>
 <hr/>
-<h1 id="1-architecture-globale">1 — Architecture globale</h1>
+<h1 id="1-architecture-globale">1 • Architecture globale</h1>
 <p><pre class="mermaid"><code>flowchart LR
     User[Utilisateur]
     Frontend[React Frontend]
@@ -2224,7 +2224,7 @@ Description :
 - Le backend Spring Boot traite les requêtes.
 - PostgreSQL stocke les données métier.
 - Kafka transporte les événements du système.</p>
-<h1 id="2-flux-event-driven">2 — Flux Event-Driven</h1>
+<h1 id="2-flux-event-driven">2 • Flux Event-Driven</h1>
 <p><pre class="mermaid"><code>sequenceDiagram
 
 participant Client
@@ -2248,7 +2248,7 @@ Description :
 4. l'événement est enregistré dans l'outbox
 5. l'événement est publié dans Kafka
 6. les consumers mettent à jour les read models</p>
-<h1 id="3-flux-dauthentification-jwt">3 — Flux d’authentification JWT</h1>
+<h1 id="3-flux-dauthentification-jwt">3 • Flux d’authentification JWT</h1>
 <pre class="mermaid"><code>sequenceDiagram
 
 participant User
@@ -2274,7 +2274,7 @@ Backend-&gt;&gt;Frontend: Nouveau Access Token</code></pre>
 <li>le frontend utilise <code>/auth/me</code> pour récupérer l'utilisateur</li>
 <li>si le token expire, un refresh est effectué automatiquement</li>
 </ol>
-<h1 id="4-architecture-cicd">4 — Architecture CI/CD</h1>
+<h1 id="4-architecture-cicd">4 • Architecture CI/CD</h1>
 <pre class="mermaid"><code>flowchart LR
 
 Dev[Developer]
