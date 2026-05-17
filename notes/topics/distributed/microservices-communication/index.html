@@ -2514,7 +2514,7 @@
   <a href="#synchrone-rest-http" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Synchrone — REST HTTP
+        Synchrone • REST HTTP
       
     </span>
   </a>
@@ -2525,7 +2525,7 @@
   <a href="#asynchrone-kafka" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Asynchrone — Kafka
+        Asynchrone • Kafka
       
     </span>
   </a>
@@ -2541,7 +2541,7 @@
   <a href="#architecture-complete-kore-hexagonal" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Architecture complète — kore-hexagonal
+        Architecture complète • kore-hexagonal
       
     </span>
   </a>
@@ -5463,7 +5463,7 @@
   <a href="#synchrone-rest-http" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Synchrone — REST HTTP
+        Synchrone • REST HTTP
       
     </span>
   </a>
@@ -5474,7 +5474,7 @@
   <a href="#asynchrone-kafka" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Asynchrone — Kafka
+        Asynchrone • Kafka
       
     </span>
   </a>
@@ -5490,7 +5490,7 @@
   <a href="#architecture-complete-kore-hexagonal" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Architecture complète — kore-hexagonal
+        Architecture complète • kore-hexagonal
       
     </span>
   </a>
@@ -5657,7 +5657,7 @@
 <p>Toute communication passe par des interfaces explicites : API REST, gRPC, ou événements Kafka.</p>
 <hr />
 <h2 id="les-deux-modes-de-communication">Les deux modes de communication</h2>
-<h3 id="synchrone-rest-http">Synchrone — REST HTTP</h3>
+<h3 id="synchrone-rest-http">Synchrone • REST HTTP</h3>
 <p>L'appelant attend la réponse. Le flux est bloquant.</p>
 <div class="highlight"><pre><span></span><code>Client ──POST /bookings──&gt; BookingService
 Client  &lt;────201 Created── BookingService
@@ -5693,7 +5693,7 @@ Client  &lt;────201 Created── BookingService
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-<h3 id="asynchrone-kafka">Asynchrone — Kafka</h3>
+<h3 id="asynchrone-kafka">Asynchrone • Kafka</h3>
 <p>L'appelant publie un événement et continue sans attendre.</p>
 <div class="highlight"><pre><span></span><code>BookingService ──BookingCreatedEvent──&gt; [Kafka]
                                               |
@@ -5702,7 +5702,7 @@ Client  &lt;────201 Created── BookingService
                                     booking_read_model mis à jour
 </code></pre></div>
 <p>Implémentation dans kore-hexagonal :</p>
-<div class="highlight"><pre><span></span><code><span class="c1">// Publication — le handler ne sait pas qui consomme</span>
+<div class="highlight"><pre><span></span><code><span class="c1">// Publication • le handler ne sait pas qui consomme</span>
 <span class="nd">@Transactional</span>
 <span class="kd">public</span><span class="w"> </span><span class="n">UUID</span><span class="w"> </span><span class="nf">handle</span><span class="p">(</span><span class="n">CreateBookingCommand</span><span class="w"> </span><span class="n">cmd</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="n">Booking</span><span class="w"> </span><span class="n">booking</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Booking</span><span class="p">.</span><span class="na">create</span><span class="p">(</span>
@@ -5712,7 +5712,7 @@ Client  &lt;────201 Created── BookingService
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">booking</span><span class="p">.</span><span class="na">getId</span><span class="p">();</span>
 <span class="p">}</span>
 
-<span class="c1">// Consommation — indépendante du write side</span>
+<span class="c1">// Consommation • indépendante du write side</span>
 <span class="nd">@KafkaListener</span><span class="p">(</span><span class="n">topics</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;${app.kafka.topic}&quot;</span><span class="p">)</span>
 <span class="nd">@Transactional</span>
 <span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">consume</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">message</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span>
@@ -5721,7 +5721,7 @@ Client  &lt;────201 Created── BookingService
 <span class="p">}</span>
 </code></pre></div>
 <hr />
-<h2 id="architecture-complete-kore-hexagonal">Architecture complète — kore-hexagonal</h2>
+<h2 id="architecture-complete-kore-hexagonal">Architecture complète • kore-hexagonal</h2>
 <p>kore-hexagonal illustre comment un seul service peut combiner les deux modes :</p>
 <div class="highlight"><pre><span></span><code>                    [Client]
                        |
@@ -5749,12 +5749,12 @@ Client  &lt;────201 Created── BookingService
 <hr />
 <h2 id="separation-des-endpoints-lectureecriture">Séparation des endpoints lecture/écriture</h2>
 <p>kore-hexagonal sépare explicitement les controllers :</p>
-<div class="highlight"><pre><span></span><code><span class="c1">// Ecriture — passe par le domaine</span>
+<div class="highlight"><pre><span></span><code><span class="c1">// Ecriture • passe par le domaine</span>
 <span class="nd">@RestController</span>
 <span class="nd">@RequestMapping</span><span class="p">(</span><span class="s">&quot;/api/v1/bookings&quot;</span><span class="p">)</span>
 <span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">BookingController</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
 
-<span class="c1">// Lecture — bypass le domaine, lit le read model</span>
+<span class="c1">// Lecture • bypass le domaine, lit le read model</span>
 <span class="nd">@RestController</span>
 <span class="nd">@RequestMapping</span><span class="p">(</span><span class="s">&quot;/api/v1/projection/bookings&quot;</span><span class="p">)</span>
 <span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">BookingReadController</span><span class="w"> </span><span class="p">{</span>
@@ -5846,7 +5846,7 @@ Client  &lt;────201 Created── BookingService
                               [NotificationService] consomme
                               [AuditService] consomme
 </code></pre></div>
-<p>kore-hexagonal utilise la choreography — le write side publie des événements et ne sait pas qui les consomme.</p>
+<p>kore-hexagonal utilise la choreography • le write side publie des événements et ne sait pas qui les consomme.</p>
 <hr />
 <h2 id="observabilite">Observabilité</h2>
 <p>Sans observabilité, un système distribué est impossible à debugger. Les trois éléments indispensables :</p>
@@ -5857,7 +5857,7 @@ Client  &lt;────201 Created── BookingService
 </ul>
 <hr />
 <h2 id="conclusion">Conclusion</h2>
-<p>Les microservices ne simplifient pas — ils déplacent la complexité vers la communication. kore-hexagonal illustre les patterns essentiels :</p>
+<p>Les microservices ne simplifient pas • ils déplacent la complexité vers la communication. kore-hexagonal illustre les patterns essentiels :</p>
 <ul>
 <li>REST sync pour les opérations critiques avec réponse immédiate</li>
 <li>Kafka async pour propager les effets de bord sans couplage</li>

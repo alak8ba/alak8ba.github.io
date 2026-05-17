@@ -2553,7 +2553,7 @@
   <a href="#implementation-dans-kore-hexagonal-write-side" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Implémentation dans kore-hexagonal — write side
+        Implémentation dans kore-hexagonal • write side
       
     </span>
   </a>
@@ -2603,7 +2603,7 @@
   <a href="#implementation-dans-kore-hexagonal-publication-devenement" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Implémentation dans kore-hexagonal — publication d'événement
+        Implémentation dans kore-hexagonal • publication d'événement
       
     </span>
   </a>
@@ -2641,7 +2641,7 @@
   <a href="#pattern-hybride-le-cas-reel-de-kore-hexagonal" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Pattern hybride — le cas réel de kore-hexagonal
+        Pattern hybride • le cas réel de kore-hexagonal
       
     </span>
   </a>
@@ -2652,12 +2652,12 @@
   <a href="#gestion-des-erreurs-comportement-different" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Gestion des erreurs — comportement différent
+        Gestion des erreurs • comportement différent
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Gestion des erreurs — comportement différent">
+    <nav class="md-nav" aria-label="Gestion des erreurs • comportement différent">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2713,7 +2713,7 @@
   <a href="#observabilite-plus-critique-en-asynchrone" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Observabilité — plus critique en asynchrone
+        Observabilité • plus critique en asynchrone
       
     </span>
   </a>
@@ -5535,7 +5535,7 @@
   <a href="#implementation-dans-kore-hexagonal-write-side" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Implémentation dans kore-hexagonal — write side
+        Implémentation dans kore-hexagonal • write side
       
     </span>
   </a>
@@ -5585,7 +5585,7 @@
   <a href="#implementation-dans-kore-hexagonal-publication-devenement" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Implémentation dans kore-hexagonal — publication d'événement
+        Implémentation dans kore-hexagonal • publication d'événement
       
     </span>
   </a>
@@ -5623,7 +5623,7 @@
   <a href="#pattern-hybride-le-cas-reel-de-kore-hexagonal" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Pattern hybride — le cas réel de kore-hexagonal
+        Pattern hybride • le cas réel de kore-hexagonal
       
     </span>
   </a>
@@ -5634,12 +5634,12 @@
   <a href="#gestion-des-erreurs-comportement-different" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Gestion des erreurs — comportement différent
+        Gestion des erreurs • comportement différent
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Gestion des erreurs — comportement différent">
+    <nav class="md-nav" aria-label="Gestion des erreurs • comportement différent">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -5695,7 +5695,7 @@
   <a href="#observabilite-plus-critique-en-asynchrone" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Observabilité — plus critique en asynchrone
+        Observabilité • plus critique en asynchrone
       
     </span>
   </a>
@@ -5797,7 +5797,7 @@ Service A  &lt;──response── Service B
 <li>gRPC (appel RPC bloquant)</li>
 <li>Appel de méthode Java classique</li>
 </ul>
-<h3 id="implementation-dans-kore-hexagonal-write-side">Implémentation dans kore-hexagonal — write side</h3>
+<h3 id="implementation-dans-kore-hexagonal-write-side">Implémentation dans kore-hexagonal • write side</h3>
 <div class="highlight"><pre><span></span><code><span class="nd">@RestController</span>
 <span class="nd">@RequestMapping</span><span class="p">(</span><span class="s">&quot;/api/v1/bookings&quot;</span><span class="p">)</span>
 <span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">BookingController</span><span class="w"> </span><span class="p">{</span>
@@ -5810,12 +5810,12 @@ Service A  &lt;──response── Service B
 <span class="w">                </span><span class="n">request</span><span class="p">.</span><span class="na">assetRef</span><span class="p">(),</span><span class="w"> </span><span class="n">request</span><span class="p">.</span><span class="na">startDate</span><span class="p">(),</span><span class="w"> </span><span class="n">request</span><span class="p">.</span><span class="na">endDate</span><span class="p">()</span>
 <span class="w">        </span><span class="p">));</span>
 
-<span class="w">        </span><span class="c1">// Le client attend la réponse — flux synchrone</span>
+<span class="w">        </span><span class="c1">// Le client attend la réponse • flux synchrone</span>
 <span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">ResponseEntity</span><span class="p">.</span><span class="na">status</span><span class="p">(</span><span class="mi">201</span><span class="p">).</span><span class="na">body</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">BookingView</span><span class="p">(</span><span class="n">id</span><span class="p">));</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>Le handler est <code>@Transactional</code> — il persiste le booking et retourne l'UUID. Le client reçoit une réponse HTTP 201 avec l'identifiant créé.</p>
+<p>Le handler est <code>@Transactional</code> • il persiste le booking et retourne l'UUID. Le client reçoit une réponse HTTP 201 avec l'identifiant créé.</p>
 <h3 id="avantages">Avantages</h3>
 <ul>
 <li>simplicité conceptuelle et de debug</li>
@@ -5837,7 +5837,7 @@ Service A  (continue immédiatement)
                     Service B consomme
                     (plus tard, à son rythme)
 </code></pre></div>
-<h3 id="implementation-dans-kore-hexagonal-publication-devenement">Implémentation dans kore-hexagonal — publication d'événement</h3>
+<h3 id="implementation-dans-kore-hexagonal-publication-devenement">Implémentation dans kore-hexagonal • publication d'événement</h3>
 <div class="highlight"><pre><span></span><code><span class="nd">@Service</span>
 <span class="nd">@RequiredArgsConstructor</span>
 <span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">CreateBookingHandler</span><span class="w"> </span><span class="p">{</span>
@@ -5868,7 +5868,7 @@ Service A  (continue immédiatement)
 <span class="w">            </span><span class="n">ZonedDateTime</span><span class="p">.</span><span class="na">now</span><span class="p">(),</span>
 <span class="w">            </span><span class="n">objectMapper</span><span class="p">.</span><span class="na">valueToTree</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
 <span class="w">    </span><span class="p">);</span>
-<span class="w">    </span><span class="c1">// Publication dans Kafka — le producer n&#39;attend pas la consommation</span>
+<span class="w">    </span><span class="c1">// Publication dans Kafka • le producer n&#39;attend pas la consommation</span>
 <span class="w">    </span><span class="n">kafkaTemplate</span><span class="p">.</span><span class="na">send</span><span class="p">(</span><span class="n">topic</span><span class="p">,</span><span class="w"> </span><span class="n">envelope</span><span class="p">.</span><span class="na">eventId</span><span class="p">().</span><span class="na">toString</span><span class="p">(),</span>
 <span class="w">                       </span><span class="n">objectMapper</span><span class="p">.</span><span class="na">writeValueAsString</span><span class="p">(</span><span class="n">envelope</span><span class="p">));</span>
 <span class="p">}</span>
@@ -5887,7 +5887,7 @@ Service A  (continue immédiatement)
 <li>besoin d'observabilité forte (correlationId, tracing)</li>
 </ul>
 <hr />
-<h2 id="pattern-hybride-le-cas-reel-de-kore-hexagonal">Pattern hybride — le cas réel de kore-hexagonal</h2>
+<h2 id="pattern-hybride-le-cas-reel-de-kore-hexagonal">Pattern hybride • le cas réel de kore-hexagonal</h2>
 <p>En production, les systèmes n'utilisent pas l'un ou l'autre exclusivement. kore-hexagonal est un exemple typique de <strong>pattern hybride</strong> :</p>
 <div class="highlight"><pre><span></span><code>[Client HTTP]
       |
@@ -5910,14 +5910,14 @@ Service A  (continue immédiatement)
 - la mise à jour du read model ne bloque pas l'écriture
 - si le consumer est lent, l'écriture n'en pâtit pas</p>
 <hr />
-<h2 id="gestion-des-erreurs-comportement-different">Gestion des erreurs — comportement différent</h2>
+<h2 id="gestion-des-erreurs-comportement-different">Gestion des erreurs • comportement différent</h2>
 <h3 id="synchrone">Synchrone</h3>
 <p>L'erreur remonte directement dans la stack d'appel :</p>
 <div class="highlight"><pre><span></span><code>POST /bookings → BookingDomainException → GlobalExceptionHandler → HTTP 400
 </code></pre></div>
 <p>Le client sait immédiatement que son action a échoué.</p>
 <h3 id="asynchrone">Asynchrone</h3>
-<p>L'erreur ne peut pas remonter vers le client — il est déjà reparti :</p>
+<p>L'erreur ne peut pas remonter vers le client • il est déjà reparti :</p>
 <div class="highlight"><pre><span></span><code>Kafka message → consumer plante → retry (x3) → DLT → log + alerte Grafana
 </code></pre></div>
 <p>Le client ne saura jamais que le read model n'a pas été mis à jour, sauf si on lui envoie une notification.</p>
@@ -5947,7 +5947,7 @@ Service A  (continue immédiatement)
 </tr>
 </tbody>
 </table>
-<p>Dans kore-hexagonal, le write model (base principale) est <strong>fortement cohérent</strong> via <code>@Transactional</code>. Le read model est <strong>éventuellement cohérent</strong> — il peut avoir quelques millisecondes de retard sur le write model.</p>
+<p>Dans kore-hexagonal, le write model (base principale) est <strong>fortement cohérent</strong> via <code>@Transactional</code>. Le read model est <strong>éventuellement cohérent</strong> • il peut avoir quelques millisecondes de retard sur le write model.</p>
 <hr />
 <h2 id="quand-choisir-quoi">Quand choisir quoi</h2>
 <table>
@@ -5987,7 +5987,7 @@ Service A  (continue immédiatement)
 </tbody>
 </table>
 <hr />
-<h2 id="observabilite-plus-critique-en-asynchrone">Observabilité — plus critique en asynchrone</h2>
+<h2 id="observabilite-plus-critique-en-asynchrone">Observabilité • plus critique en asynchrone</h2>
 <p>En synchrone, la stack trace suffit pour débugger. En asynchrone, il faut :</p>
 <ul>
 <li>un <code>correlationId</code> propagé de l'HTTP jusqu'aux events Kafka</li>
@@ -5998,7 +5998,7 @@ Service A  (continue immédiatement)
 <p>Sans cette observabilité, le debugging d'un système async devient extrêmement difficile.</p>
 <hr />
 <h2 id="conclusion">Conclusion</h2>
-<p>Synchrone et asynchrone ne sont pas opposés — ils se complètent.</p>
+<p>Synchrone et asynchrone ne sont pas opposés • ils se complètent.</p>
 <ul>
 <li><strong>Synchrone</strong> pour les opérations où le client a besoin d'un résultat immédiat et fiable</li>
 <li><strong>Asynchrone</strong> pour propager les effets de bord, découpler les services, absorber la charge</li>

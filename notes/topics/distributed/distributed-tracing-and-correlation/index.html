@@ -2614,7 +2614,7 @@
   <a href="#correlation-id-le-fil-conducteur" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Correlation ID — le fil conducteur
+        Correlation ID • le fil conducteur
       
     </span>
   </a>
@@ -2625,7 +2625,7 @@
   <a href="#eventenvelope-correlationid-dans-kafka" class="md-nav__link">
     <span class="md-ellipsis">
       
-        EventEnvelope — correlationId dans Kafka
+        EventEnvelope • correlationId dans Kafka
       
     </span>
   </a>
@@ -2636,19 +2636,19 @@
   <a href="#mdc-injection-automatique-dans-les-logs" class="md-nav__link">
     <span class="md-ellipsis">
       
-        MDC — injection automatique dans les logs
+        MDC • injection automatique dans les logs
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="MDC — injection automatique dans les logs">
+    <nav class="md-nav" aria-label="MDC • injection automatique dans les logs">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#filtre-http-spring-injection-du-correlationid" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Filtre HTTP Spring — injection du correlationId
+        Filtre HTTP Spring • injection du correlationId
       
     </span>
   </a>
@@ -2675,12 +2675,12 @@
   <a href="#distributed-tracing-au-dela-du-correlationid" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Distributed Tracing — au-delà du correlationId
+        Distributed Tracing • au-delà du correlationId
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Distributed Tracing — au-delà du correlationId">
+    <nav class="md-nav" aria-label="Distributed Tracing • au-delà du correlationId">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2698,7 +2698,7 @@
   <a href="#opentelemetry-le-standard-actuel" class="md-nav__link">
     <span class="md-ellipsis">
       
-        OpenTelemetry — le standard actuel
+        OpenTelemetry • le standard actuel
       
     </span>
   </a>
@@ -2725,7 +2725,7 @@
   <a href="#correlation-dans-kafka-propagation-du-contexte" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Corrélation dans Kafka — propagation du contexte
+        Corrélation dans Kafka • propagation du contexte
       
     </span>
   </a>
@@ -5451,7 +5451,7 @@
   <a href="#correlation-id-le-fil-conducteur" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Correlation ID — le fil conducteur
+        Correlation ID • le fil conducteur
       
     </span>
   </a>
@@ -5462,7 +5462,7 @@
   <a href="#eventenvelope-correlationid-dans-kafka" class="md-nav__link">
     <span class="md-ellipsis">
       
-        EventEnvelope — correlationId dans Kafka
+        EventEnvelope • correlationId dans Kafka
       
     </span>
   </a>
@@ -5473,19 +5473,19 @@
   <a href="#mdc-injection-automatique-dans-les-logs" class="md-nav__link">
     <span class="md-ellipsis">
       
-        MDC — injection automatique dans les logs
+        MDC • injection automatique dans les logs
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="MDC — injection automatique dans les logs">
+    <nav class="md-nav" aria-label="MDC • injection automatique dans les logs">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#filtre-http-spring-injection-du-correlationid" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Filtre HTTP Spring — injection du correlationId
+        Filtre HTTP Spring • injection du correlationId
       
     </span>
   </a>
@@ -5512,12 +5512,12 @@
   <a href="#distributed-tracing-au-dela-du-correlationid" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Distributed Tracing — au-delà du correlationId
+        Distributed Tracing • au-delà du correlationId
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Distributed Tracing — au-delà du correlationId">
+    <nav class="md-nav" aria-label="Distributed Tracing • au-delà du correlationId">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -5535,7 +5535,7 @@
   <a href="#opentelemetry-le-standard-actuel" class="md-nav__link">
     <span class="md-ellipsis">
       
-        OpenTelemetry — le standard actuel
+        OpenTelemetry • le standard actuel
       
     </span>
   </a>
@@ -5562,7 +5562,7 @@
   <a href="#correlation-dans-kafka-propagation-du-contexte" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Corrélation dans Kafka — propagation du contexte
+        Corrélation dans Kafka • propagation du contexte
       
     </span>
   </a>
@@ -5667,7 +5667,7 @@
 <p>Si l'email n'est pas envoyé, où chercher ? Dans quel service ? Dans quel log ? A quel moment ?</p>
 <p>Sans mécanisme de corrélation, la réponse est : <strong>nulle part facilement</strong>.</p>
 <hr />
-<h2 id="correlation-id-le-fil-conducteur">Correlation ID — le fil conducteur</h2>
+<h2 id="correlation-id-le-fil-conducteur">Correlation ID • le fil conducteur</h2>
 <p>Un <strong>correlation ID</strong> est un identifiant unique généré à l'entrée du système et propagé à travers tous les composants.</p>
 <p>Chaque log, chaque event, chaque appel HTTP porte cet identifiant. Il permet de reconstituer le chemin complet d'une opération.</p>
 <div class="highlight"><pre><span></span><code>correlationId = &quot;7f8a-45ab-92cd-1234&quot;
@@ -5680,7 +5680,7 @@
 </code></pre></div>
 <p>En filtrant sur <code>correlationId=7f8a-45ab</code> dans Grafana Loki ou ELK, on retrouve instantanément toute la chaîne.</p>
 <hr />
-<h2 id="eventenvelope-correlationid-dans-kafka">EventEnvelope — correlationId dans Kafka</h2>
+<h2 id="eventenvelope-correlationid-dans-kafka">EventEnvelope • correlationId dans Kafka</h2>
 <p>Dans kore-hexagonal, chaque événement Kafka est wrappé dans une <code>EventEnvelope</code> qui porte son propre identifiant :</p>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">record</span> <span class="nc">EventEnvelope</span><span class="p">(</span>
 <span class="w">        </span><span class="n">UUID</span><span class="w"> </span><span class="n">eventId</span><span class="p">,</span><span class="w">           </span><span class="c1">// identifiant unique de l&#39;événement = correlationId Kafka</span>
@@ -5698,7 +5698,7 @@
 <span class="w">            </span><span class="n">ZonedDateTime</span><span class="p">.</span><span class="na">now</span><span class="p">(),</span>
 <span class="w">            </span><span class="n">objectMapper</span><span class="p">.</span><span class="na">valueToTree</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
 <span class="w">    </span><span class="p">);</span>
-<span class="w">    </span><span class="c1">// L&#39;eventId est la clé Kafka — il sert de correlationId</span>
+<span class="w">    </span><span class="c1">// L&#39;eventId est la clé Kafka • il sert de correlationId</span>
 <span class="w">    </span><span class="n">kafkaTemplate</span><span class="p">.</span><span class="na">send</span><span class="p">(</span><span class="n">topic</span><span class="p">,</span><span class="w"> </span><span class="n">eventId</span><span class="p">.</span><span class="na">toString</span><span class="p">(),</span>
 <span class="w">                       </span><span class="n">objectMapper</span><span class="p">.</span><span class="na">writeValueAsString</span><span class="p">(</span><span class="n">envelope</span><span class="p">));</span>
 <span class="p">}</span>
@@ -5714,7 +5714,7 @@
 <span class="p">}</span>
 </code></pre></div>
 <hr />
-<h2 id="mdc-injection-automatique-dans-les-logs">MDC — injection automatique dans les logs</h2>
+<h2 id="mdc-injection-automatique-dans-les-logs">MDC • injection automatique dans les logs</h2>
 <p>Le <strong>MDC</strong> (Mapped Diagnostic Context) permet d'injecter le correlationId automatiquement dans tous les logs d'un thread, sans le passer manuellement à chaque appel.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">org.slf4j.MDC</span><span class="p">;</span>
 
@@ -5729,7 +5729,7 @@
 <span class="c1">// Nettoyage obligatoire à la fin du traitement</span>
 <span class="n">MDC</span><span class="p">.</span><span class="na">clear</span><span class="p">();</span>
 </code></pre></div>
-<h3 id="filtre-http-spring-injection-du-correlationid">Filtre HTTP Spring — injection du correlationId</h3>
+<h3 id="filtre-http-spring-injection-du-correlationid">Filtre HTTP Spring • injection du correlationId</h3>
 <div class="highlight"><pre><span></span><code><span class="nd">@Component</span>
 <span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">CorrelationIdFilter</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">OncePerRequestFilter</span><span class="w"> </span><span class="p">{</span>
 
@@ -5751,7 +5751,7 @@
 <span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
 <span class="w">            </span><span class="n">chain</span><span class="p">.</span><span class="na">doFilter</span><span class="p">(</span><span class="n">request</span><span class="p">,</span><span class="w"> </span><span class="n">response</span><span class="p">);</span>
 <span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">finally</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="n">MDC</span><span class="p">.</span><span class="na">clear</span><span class="p">();</span><span class="w">  </span><span class="c1">// nettoyage obligatoire — risque de fuite mémoire sinon</span>
+<span class="w">            </span><span class="n">MDC</span><span class="p">.</span><span class="na">clear</span><span class="p">();</span><span class="w">  </span><span class="c1">// nettoyage obligatoire • risque de fuite mémoire sinon</span>
 <span class="w">        </span><span class="p">}</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
@@ -5767,7 +5767,7 @@
 </code></pre></div>
 <p>Le service downstream récupère le header et l'injecte dans son propre MDC via le même filtre.</p>
 <hr />
-<h2 id="distributed-tracing-au-dela-du-correlationid">Distributed Tracing — au-delà du correlationId</h2>
+<h2 id="distributed-tracing-au-dela-du-correlationid">Distributed Tracing • au-delà du correlationId</h2>
 <p>Le correlationId permet de filtrer les logs. Le <strong>distributed tracing</strong> reconstitue le chemin complet avec les durées.</p>
 <h3 id="concepts">Concepts</h3>
 <div class="highlight"><pre><span></span><code>Trace (cycle de vie complet d&#39;une requête)
@@ -5782,7 +5782,7 @@
 <li><strong>Trace</strong> : l'opération complète de bout en bout</li>
 <li><strong>Span</strong> : une opération individuelle (appel HTTP, requête SQL, publication Kafka)</li>
 </ul>
-<h3 id="opentelemetry-le-standard-actuel">OpenTelemetry — le standard actuel</h3>
+<h3 id="opentelemetry-le-standard-actuel">OpenTelemetry • le standard actuel</h3>
 <p>OpenTelemetry est le standard d'instrumentation pour le distributed tracing. Il collecte traces, métriques et logs avec un seul SDK.</p>
 <div class="highlight"><pre><span></span><code><span class="cm">&lt;!-- Dépendance Spring Boot --&gt;</span>
 <span class="nt">&lt;dependency&gt;</span>
@@ -5826,15 +5826,15 @@
 </tbody>
 </table>
 <hr />
-<h2 id="correlation-dans-kafka-propagation-du-contexte">Corrélation dans Kafka — propagation du contexte</h2>
+<h2 id="correlation-dans-kafka-propagation-du-contexte">Corrélation dans Kafka • propagation du contexte</h2>
 <p>En asynchrone, le contexte ne se propage pas automatiquement. Il faut l'injecter dans les headers Kafka.</p>
-<div class="highlight"><pre><span></span><code><span class="c1">// Producteur — injecter le correlationId dans les headers</span>
+<div class="highlight"><pre><span></span><code><span class="c1">// Producteur • injecter le correlationId dans les headers</span>
 <span class="n">ProducerRecord</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">record</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ProducerRecord</span><span class="o">&lt;&gt;</span><span class="p">(</span><span class="n">topic</span><span class="p">,</span><span class="w"> </span><span class="n">key</span><span class="p">,</span><span class="w"> </span><span class="n">payload</span><span class="p">);</span>
 <span class="kd">record</span><span class="err">.</span><span class="nc">headers</span><span class="p">().</span><span class="na">add</span><span class="p">(</span><span class="s">&quot;correlationId&quot;</span><span class="p">,</span>
 <span class="w">    </span><span class="n">MDC</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">&quot;correlationId&quot;</span><span class="p">).</span><span class="na">getBytes</span><span class="p">(</span><span class="n">StandardCharsets</span><span class="p">.</span><span class="na">UTF_8</span><span class="p">));</span>
 <span class="n">kafkaTemplate</span><span class="p">.</span><span class="na">send</span><span class="p">(</span><span class="n">record</span><span class="p">);</span>
 
-<span class="c1">// Consommateur — récupérer et réinjecter dans le MDC</span>
+<span class="c1">// Consommateur • récupérer et réinjecter dans le MDC</span>
 <span class="nd">@KafkaListener</span><span class="p">(</span><span class="n">topics</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;${app.kafka.topic}&quot;</span><span class="p">)</span>
 <span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">consume</span><span class="p">(</span><span class="n">ConsumerRecord</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">record</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="n">correlationId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">String</span><span class="p">(</span>
