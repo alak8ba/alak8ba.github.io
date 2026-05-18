@@ -245,6 +245,38 @@
          <lastmod>2026-05-18</lastmod>
     </url>
     <url>
+         <loc>https://alak8ba.github.io/notes/socles/kore-hexagonal/adrs/</loc>
+         <lastmod>2026-05-18</lastmod>
+    </url>
+    <url>
+         <loc>https://alak8ba.github.io/notes/socles/kore-hexagonal/adrs/ADR-001-hexagonal-architecture/</loc>
+         <lastmod>2026-05-18</lastmod>
+    </url>
+    <url>
+         <loc>https://alak8ba.github.io/notes/socles/kore-hexagonal/adrs/ADR-002-cqrs-read-model/</loc>
+         <lastmod>2026-05-18</lastmod>
+    </url>
+    <url>
+         <loc>https://alak8ba.github.io/notes/socles/kore-hexagonal/adrs/ADR-003-kafka-event-driven/</loc>
+         <lastmod>2026-05-18</lastmod>
+    </url>
+    <url>
+         <loc>https://alak8ba.github.io/notes/socles/kore-hexagonal/adrs/ADR-004-idempotent-consumers/</loc>
+         <lastmod>2026-05-18</lastmod>
+    </url>
+    <url>
+         <loc>https://alak8ba.github.io/notes/socles/kore-hexagonal/adrs/ADR-005-jwt-authentication/</loc>
+         <lastmod>2026-05-18</lastmod>
+    </url>
+    <url>
+         <loc>https://alak8ba.github.io/notes/socles/kore-hexagonal/adrs/ADR-006-testcontainers/</loc>
+         <lastmod>2026-05-18</lastmod>
+    </url>
+    <url>
+         <loc>https://alak8ba.github.io/notes/socles/kore-hexagonal/adrs/ADR-007-pull-based-deployment/</loc>
+         <lastmod>2026-05-18</lastmod>
+    </url>
+    <url>
          <loc>https://alak8ba.github.io/notes/topics/</loc>
          <lastmod>2026-05-18</lastmod>
     </url>
