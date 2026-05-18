@@ -7,12 +7,12 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <meta content="Backend architecture, event-driven systems and DevOps patterns" name="description"/>
 <meta content="A.KOUBA" name="author"/>
-<link href="https://alak8ba.github.io/notes/topics/devops/observability-pattern/" rel="canonical"/>
-<link href="../ci-cd-pipeline-pattern/" rel="prev"/>
-<link href="../../database/sql-joins-indexes/" rel="next"/>
+<link href="https://alak8ba.github.io/notes/socles/kore-hexagonal/observability/" rel="canonical"/>
+<link href="../security/" rel="prev"/>
+<link href="../error-handling/" rel="next"/>
 <link href="../../../assets/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.6.1, mkdocs-material-9.7.6" name="generator"/>
-<title>Observability Pattern - Engineering Notes</title>
+<title>Observabilité - Engineering Notes</title>
 <link href="../../../assets/stylesheets/main.484c7ddc.min.css" rel="stylesheet"/>
 <link href="../../../assets/stylesheets/palette.ab4e12ef.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -26,7 +26,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#observability-pattern">
+<a class="md-skip" href="#kore-hexagonal-observabilite">
           Aller au contenu
         </a>
 </div>
@@ -50,7 +50,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Observability Pattern
+              Observabilité
             
           </span>
 </div>
@@ -138,7 +138,7 @@
       </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../java/fundamentals/equals-vs-double-equals/">
+<a class="md-tabs__link" href="../../../topics/java/fundamentals/equals-vs-double-equals/">
           
   
   
@@ -147,7 +147,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../architecture/cqrs-pattern/">
+<a class="md-tabs__link" href="../../../topics/architecture/cqrs-pattern/">
           
   
   
@@ -156,7 +156,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../kafka/retry-and-dlt-pattern/">
+<a class="md-tabs__link" href="../../../topics/kafka/retry-and-dlt-pattern/">
           
   
   
@@ -165,7 +165,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../security/jwt-authentication-pattern/">
+<a class="md-tabs__link" href="../../../topics/security/jwt-authentication-pattern/">
           
   
   
@@ -174,7 +174,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../observability/logging-architecture-java/">
+<a class="md-tabs__link" href="../../../topics/observability/logging-architecture-java/">
           
   
   
@@ -182,8 +182,8 @@
 
         </a>
 </li>
-<li class="md-tabs__item md-tabs__item--active">
-<a class="md-tabs__link" href="../docker-production-pattern/">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../topics/devops/docker-production-pattern/">
           
   
   
@@ -192,7 +192,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../database/sql-joins-indexes/">
+<a class="md-tabs__link" href="../../../topics/database/sql-joins-indexes/">
           
   
   
@@ -201,7 +201,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../http/http-basics/">
+<a class="md-tabs__link" href="../../../topics/http/http-basics/">
           
   
   
@@ -210,7 +210,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../testing/testcontainers-pattern/">
+<a class="md-tabs__link" href="../../../topics/testing/testcontainers-pattern/">
           
   
   
@@ -219,7 +219,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../javascript/fundamentals/typescript-basics/">
+<a class="md-tabs__link" href="../../../topics/javascript/fundamentals/typescript-basics/">
           
   
   
@@ -227,8 +227,8 @@
 
         </a>
 </li>
-<li class="md-tabs__item">
-<a class="md-tabs__link" href="../../../socles/">
+<li class="md-tabs__item md-tabs__item--active">
+<a class="md-tabs__link" href="../../">
           
   
   
@@ -335,7 +335,7 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../java/fundamentals/equals-vs-double-equals/">
+<a class="md-nav__link" href="../../../topics/java/fundamentals/equals-vs-double-equals/">
 <span class="md-ellipsis">
     
   
@@ -347,7 +347,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../java/fundamentals/autoboxing/">
+<a class="md-nav__link" href="../../../topics/java/fundamentals/autoboxing/">
 <span class="md-ellipsis">
     
   
@@ -359,7 +359,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../java/fundamentals/final/">
+<a class="md-nav__link" href="../../../topics/java/fundamentals/final/">
 <span class="md-ellipsis">
     
   
@@ -371,7 +371,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../java/fundamentals/generics/">
+<a class="md-nav__link" href="../../../topics/java/fundamentals/generics/">
 <span class="md-ellipsis">
     
   
@@ -383,7 +383,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../java/fundamentals/instanceof/">
+<a class="md-nav__link" href="../../../topics/java/fundamentals/instanceof/">
 <span class="md-ellipsis">
     
   
@@ -395,7 +395,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../java/fundamentals/integer-cache/">
+<a class="md-nav__link" href="../../../topics/java/fundamentals/integer-cache/">
 <span class="md-ellipsis">
     
   
@@ -407,7 +407,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../java/fundamentals/java-protected/">
+<a class="md-nav__link" href="../../../topics/java/fundamentals/java-protected/">
 <span class="md-ellipsis">
     
   
@@ -419,7 +419,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../java/fundamentals/java-static/">
+<a class="md-nav__link" href="../../../topics/java/fundamentals/java-static/">
 <span class="md-ellipsis">
     
   
@@ -431,7 +431,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../java/fundamentals/static-generic-method/">
+<a class="md-nav__link" href="../../../topics/java/fundamentals/static-generic-method/">
 <span class="md-ellipsis">
     
   
@@ -469,7 +469,7 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../java/collections/list-set-map/">
+<a class="md-nav__link" href="../../../topics/java/collections/list-set-map/">
 <span class="md-ellipsis">
     
   
@@ -481,7 +481,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../java/collections/hashmap/">
+<a class="md-nav__link" href="../../../topics/java/collections/hashmap/">
 <span class="md-ellipsis">
     
   
@@ -493,7 +493,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../java/collections/hashmap-treemap-linkedhashmap/">
+<a class="md-nav__link" href="../../../topics/java/collections/hashmap-treemap-linkedhashmap/">
 <span class="md-ellipsis">
     
   
@@ -505,7 +505,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../java/collections/hashtable/">
+<a class="md-nav__link" href="../../../topics/java/collections/hashtable/">
 <span class="md-ellipsis">
     
   
@@ -517,7 +517,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../java/collections/concurrenthashmap/">
+<a class="md-nav__link" href="../../../topics/java/collections/concurrenthashmap/">
 <span class="md-ellipsis">
     
   
@@ -529,7 +529,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../java/collections/iterator/">
+<a class="md-nav__link" href="../../../topics/java/collections/iterator/">
 <span class="md-ellipsis">
     
   
@@ -541,7 +541,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../java/collections/algorithms-complexity/">
+<a class="md-nav__link" href="../../../topics/java/collections/algorithms-complexity/">
 <span class="md-ellipsis">
     
   
@@ -579,7 +579,7 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../java/concurrency/race-condition/">
+<a class="md-nav__link" href="../../../topics/java/concurrency/race-condition/">
 <span class="md-ellipsis">
     
   
@@ -591,7 +591,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../java/concurrency/deadlock/">
+<a class="md-nav__link" href="../../../topics/java/concurrency/deadlock/">
 <span class="md-ellipsis">
     
   
@@ -603,7 +603,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../java/concurrency/synchronized/">
+<a class="md-nav__link" href="../../../topics/java/concurrency/synchronized/">
 <span class="md-ellipsis">
     
   
@@ -615,7 +615,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../java/concurrency/volatile/">
+<a class="md-nav__link" href="../../../topics/java/concurrency/volatile/">
 <span class="md-ellipsis">
     
   
@@ -627,7 +627,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../java/concurrency/atomic/">
+<a class="md-nav__link" href="../../../topics/java/concurrency/atomic/">
 <span class="md-ellipsis">
     
   
@@ -665,7 +665,7 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../java/oop/inheritance/">
+<a class="md-nav__link" href="../../../topics/java/oop/inheritance/">
 <span class="md-ellipsis">
     
   
@@ -677,7 +677,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../java/oop/polymorphism/">
+<a class="md-nav__link" href="../../../topics/java/oop/polymorphism/">
 <span class="md-ellipsis">
     
   
@@ -689,7 +689,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../java/oop/solid/">
+<a class="md-nav__link" href="../../../topics/java/oop/solid/">
 <span class="md-ellipsis">
     
   
@@ -727,7 +727,7 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../java/design-patterns/singleton-pattern/">
+<a class="md-nav__link" href="../../../topics/java/design-patterns/singleton-pattern/">
 <span class="md-ellipsis">
     
   
@@ -739,7 +739,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../java/design-patterns/factory-pattern/">
+<a class="md-nav__link" href="../../../topics/java/design-patterns/factory-pattern/">
 <span class="md-ellipsis">
     
   
@@ -751,7 +751,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../java/design-patterns/dependency-injection/">
+<a class="md-nav__link" href="../../../topics/java/design-patterns/dependency-injection/">
 <span class="md-ellipsis">
     
   
@@ -789,7 +789,7 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../java/spring/bean-scopes/">
+<a class="md-nav__link" href="../../../topics/java/spring/bean-scopes/">
 <span class="md-ellipsis">
     
   
@@ -801,7 +801,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../java/spring/hibernate-jpa/">
+<a class="md-nav__link" href="../../../topics/java/spring/hibernate-jpa/">
 <span class="md-ellipsis">
     
   
@@ -813,7 +813,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../java/spring/aop-spring/">
+<a class="md-nav__link" href="../../../topics/java/spring/aop-spring/">
 <span class="md-ellipsis">
     
   
@@ -825,7 +825,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../spring/spring-batch-migration-sb2-java8-to-sb5-java21/">
+<a class="md-nav__link" href="../../../topics/spring/spring-batch-migration-sb2-java8-to-sb5-java21/">
 <span class="md-ellipsis">
     
   
@@ -837,7 +837,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../spring/spring-batch-advanced-patterns/">
+<a class="md-nav__link" href="../../../topics/spring/spring-batch-advanced-patterns/">
 <span class="md-ellipsis">
     
   
@@ -875,7 +875,7 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../java/database/acid/">
+<a class="md-nav__link" href="../../../topics/java/database/acid/">
 <span class="md-ellipsis">
     
   
@@ -916,7 +916,7 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../architecture/cqrs-pattern/">
+<a class="md-nav__link" href="../../../topics/architecture/cqrs-pattern/">
 <span class="md-ellipsis">
     
   
@@ -928,7 +928,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../architecture/rest-api-design/">
+<a class="md-nav__link" href="../../../topics/architecture/rest-api-design/">
 <span class="md-ellipsis">
     
   
@@ -940,7 +940,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../spring/hexagonal-architecture/">
+<a class="md-nav__link" href="../../../topics/spring/hexagonal-architecture/">
 <span class="md-ellipsis">
     
   
@@ -978,7 +978,7 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../kafka/retry-and-dlt-pattern/">
+<a class="md-nav__link" href="../../../topics/kafka/retry-and-dlt-pattern/">
 <span class="md-ellipsis">
     
   
@@ -990,7 +990,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../kafka/idempotent-consumers/">
+<a class="md-nav__link" href="../../../topics/kafka/idempotent-consumers/">
 <span class="md-ellipsis">
     
   
@@ -1002,7 +1002,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../kafka/outbox-pattern/">
+<a class="md-nav__link" href="../../../topics/kafka/outbox-pattern/">
 <span class="md-ellipsis">
     
   
@@ -1014,7 +1014,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../kafka/reliability-patterns/">
+<a class="md-nav__link" href="../../../topics/kafka/reliability-patterns/">
 <span class="md-ellipsis">
     
   
@@ -1026,7 +1026,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../kafka/consumer-rebalance/">
+<a class="md-nav__link" href="../../../topics/kafka/consumer-rebalance/">
 <span class="md-ellipsis">
     
   
@@ -1038,7 +1038,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../distributed/eventual-consistency/">
+<a class="md-nav__link" href="../../../topics/distributed/eventual-consistency/">
 <span class="md-ellipsis">
     
   
@@ -1050,7 +1050,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../distributed/microservices-communication/">
+<a class="md-nav__link" href="../../../topics/distributed/microservices-communication/">
 <span class="md-ellipsis">
     
   
@@ -1062,7 +1062,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../distributed/sync-vs-async/">
+<a class="md-nav__link" href="../../../topics/distributed/sync-vs-async/">
 <span class="md-ellipsis">
     
   
@@ -1074,7 +1074,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../distributed/kafka-resilience-patterns/">
+<a class="md-nav__link" href="../../../topics/distributed/kafka-resilience-patterns/">
 <span class="md-ellipsis">
     
   
@@ -1086,7 +1086,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../distributed/read-models-and-fetch-strategies/">
+<a class="md-nav__link" href="../../../topics/distributed/read-models-and-fetch-strategies/">
 <span class="md-ellipsis">
     
   
@@ -1098,7 +1098,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../distributed/distributed-tracing-and-correlation/">
+<a class="md-nav__link" href="../../../topics/distributed/distributed-tracing-and-correlation/">
 <span class="md-ellipsis">
     
   
@@ -1136,7 +1136,7 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../security/jwt-authentication-pattern/">
+<a class="md-nav__link" href="../../../topics/security/jwt-authentication-pattern/">
 <span class="md-ellipsis">
     
   
@@ -1148,7 +1148,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../security/cors/">
+<a class="md-nav__link" href="../../../topics/security/cors/">
 <span class="md-ellipsis">
     
   
@@ -1160,7 +1160,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../security/cookie-security/">
+<a class="md-nav__link" href="../../../topics/security/cookie-security/">
 <span class="md-ellipsis">
     
   
@@ -1172,7 +1172,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../security/http-security-headers/">
+<a class="md-nav__link" href="../../../topics/security/http-security-headers/">
 <span class="md-ellipsis">
     
   
@@ -1210,7 +1210,7 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../observability/logging-architecture-java/">
+<a class="md-nav__link" href="../../../topics/observability/logging-architecture-java/">
 <span class="md-ellipsis">
     
   
@@ -1222,7 +1222,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../observability/exception-handling-spring/">
+<a class="md-nav__link" href="../../../topics/observability/exception-handling-spring/">
 <span class="md-ellipsis">
     
   
@@ -1234,7 +1234,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../observability/metrics-monitoring-prometheus-grafana/">
+<a class="md-nav__link" href="../../../topics/observability/metrics-monitoring-prometheus-grafana/">
 <span class="md-ellipsis">
     
   
@@ -1248,9 +1248,9 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" id="__nav_9" type="checkbox"/>
-<label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_9" type="checkbox"/>
+<label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
 <span class="md-ellipsis">
     
   
@@ -1261,7 +1261,7 @@
   </span>
 <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-expanded="true" aria-labelledby="__nav_9_label" class="md-nav" data-md-level="1">
+<nav aria-expanded="false" aria-labelledby="__nav_9_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_9">
 <span class="md-nav__icon md-icon"></span>
             
@@ -1272,7 +1272,7 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../docker-production-pattern/">
+<a class="md-nav__link" href="../../../topics/devops/docker-production-pattern/">
 <span class="md-ellipsis">
     
   
@@ -1284,7 +1284,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../docker-networking/">
+<a class="md-nav__link" href="../../../topics/devops/docker-networking/">
 <span class="md-ellipsis">
     
   
@@ -1296,7 +1296,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../container-security/">
+<a class="md-nav__link" href="../../../topics/devops/container-security/">
 <span class="md-ellipsis">
     
   
@@ -1308,7 +1308,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../reverse-proxy-pattern/">
+<a class="md-nav__link" href="../../../topics/devops/reverse-proxy-pattern/">
 <span class="md-ellipsis">
     
   
@@ -1320,7 +1320,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../pull-based-deployment/">
+<a class="md-nav__link" href="../../../topics/devops/pull-based-deployment/">
 <span class="md-ellipsis">
     
   
@@ -1332,7 +1332,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../ci-cd-pipeline-pattern/">
+<a class="md-nav__link" href="../../../topics/devops/ci-cd-pipeline-pattern/">
 <span class="md-ellipsis">
     
   
@@ -1343,20 +1343,8 @@
   </span>
 </a>
 </li>
-<li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
-<label class="md-nav__link md-nav__link--active" for="__toc">
-<span class="md-ellipsis">
-    
-  
-    Observability Pattern
-  
-
-    
-  </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<a class="md-nav__link md-nav__link--active" href="./">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../topics/devops/observability-pattern/">
 <span class="md-ellipsis">
     
   
@@ -1366,148 +1354,6 @@
     
   </span>
 </a>
-<nav aria-label="Table des matières" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
-      Table des matières
-    </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#contexte">
-<span class="md-ellipsis">
-      
-        Contexte
-      
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#les-trois-piliers">
-<span class="md-ellipsis">
-      
-        Les trois piliers
-      
-    </span>
-</a>
-<nav aria-label="Les trois piliers" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#logs">
-<span class="md-ellipsis">
-      
-        Logs
-      
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#metrics">
-<span class="md-ellipsis">
-      
-        Metrics
-      
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#traces">
-<span class="md-ellipsis">
-      
-        Traces
-      
-    </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#stack-technique-courante">
-<span class="md-ellipsis">
-      
-        Stack technique courante
-      
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#instrumentation-spring-boot">
-<span class="md-ellipsis">
-      
-        Instrumentation Spring Boot
-      
-    </span>
-</a>
-<nav aria-label="Instrumentation Spring Boot" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#actuator-prometheus">
-<span class="md-ellipsis">
-      
-        Actuator + Prometheus
-      
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#micrometer-pour-les-metriques-custom">
-<span class="md-ellipsis">
-      
-        Micrometer pour les métriques custom
-      
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#structured-logging">
-<span class="md-ellipsis">
-      
-        Structured logging
-      
-    </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#health-checks">
-<span class="md-ellipsis">
-      
-        Health Checks
-      
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#alerting">
-<span class="md-ellipsis">
-      
-        Alerting
-      
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#synthese">
-<span class="md-ellipsis">
-      
-        Synthèse
-      
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#voir-aussi">
-<span class="md-ellipsis">
-      
-        Voir aussi
-      
-    </span>
-</a>
-</li>
-</ul>
-</nav>
 </li>
 </ul>
 </nav>
@@ -1536,7 +1382,7 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../database/sql-joins-indexes/">
+<a class="md-nav__link" href="../../../topics/database/sql-joins-indexes/">
 <span class="md-ellipsis">
     
   
@@ -1548,7 +1394,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../database/index-et-optimisation-postgresql/">
+<a class="md-nav__link" href="../../../topics/database/index-et-optimisation-postgresql/">
 <span class="md-ellipsis">
     
   
@@ -1560,7 +1406,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../database/transaction-patterns/">
+<a class="md-nav__link" href="../../../topics/database/transaction-patterns/">
 <span class="md-ellipsis">
     
   
@@ -1572,7 +1418,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../database/optimistic-locking/">
+<a class="md-nav__link" href="../../../topics/database/optimistic-locking/">
 <span class="md-ellipsis">
     
   
@@ -1610,7 +1456,7 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../http/http-basics/">
+<a class="md-nav__link" href="../../../topics/http/http-basics/">
 <span class="md-ellipsis">
     
   
@@ -1648,7 +1494,7 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../testing/testcontainers-pattern/">
+<a class="md-nav__link" href="../../../topics/testing/testcontainers-pattern/">
 <span class="md-ellipsis">
     
   
@@ -1686,7 +1532,7 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../javascript/fundamentals/typescript-basics/">
+<a class="md-nav__link" href="../../../topics/javascript/fundamentals/typescript-basics/">
 <span class="md-ellipsis">
     
   
@@ -1698,7 +1544,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../javascript/fundamentals/javascript-pitfalls/">
+<a class="md-nav__link" href="../../../topics/javascript/fundamentals/javascript-pitfalls/">
 <span class="md-ellipsis">
     
   
@@ -1712,9 +1558,9 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_14" type="checkbox"/>
-<label class="md-nav__link" for="__nav_14" id="__nav_14_label" tabindex="0">
+<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_14" type="checkbox"/>
+<label class="md-nav__link" for="__nav_14" id="__nav_14_label" tabindex="">
 <span class="md-ellipsis">
     
   
@@ -1725,7 +1571,7 @@
   </span>
 <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-expanded="false" aria-labelledby="__nav_14_label" class="md-nav" data-md-level="1">
+<nav aria-expanded="true" aria-labelledby="__nav_14_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_14">
 <span class="md-nav__icon md-icon"></span>
             
@@ -1736,7 +1582,7 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../socles/">
+<a class="md-nav__link" href="../../">
 <span class="md-ellipsis">
     
   
@@ -1747,9 +1593,9 @@
   </span>
 </a>
 </li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_14_2" type="checkbox"/>
-<label class="md-nav__link" for="__nav_14_2" id="__nav_14_2_label" tabindex="0">
+<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_14_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_14_2" id="__nav_14_2_label" tabindex="">
 <span class="md-ellipsis">
     
   
@@ -1760,7 +1606,7 @@
   </span>
 <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-expanded="false" aria-labelledby="__nav_14_2_label" class="md-nav" data-md-level="2">
+<nav aria-expanded="true" aria-labelledby="__nav_14_2_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_14_2">
 <span class="md-nav__icon md-icon"></span>
             
@@ -1771,7 +1617,7 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../socles/kore-hexagonal/">
+<a class="md-nav__link" href="../">
 <span class="md-ellipsis">
     
   
@@ -1783,7 +1629,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../socles/kore-hexagonal/architecture/">
+<a class="md-nav__link" href="../architecture/">
 <span class="md-ellipsis">
     
   
@@ -1795,7 +1641,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../socles/kore-hexagonal/ddd/">
+<a class="md-nav__link" href="../ddd/">
 <span class="md-ellipsis">
     
   
@@ -1807,7 +1653,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../socles/kore-hexagonal/bounded-contexts/">
+<a class="md-nav__link" href="../bounded-contexts/">
 <span class="md-ellipsis">
     
   
@@ -1819,7 +1665,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../socles/kore-hexagonal/security/">
+<a class="md-nav__link" href="../security/">
 <span class="md-ellipsis">
     
   
@@ -1830,8 +1676,20 @@
   </span>
 </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../socles/kore-hexagonal/observability/">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    
+  
+    Observabilité
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
 <span class="md-ellipsis">
     
   
@@ -1841,9 +1699,138 @@
     
   </span>
 </a>
+<nav aria-label="Table des matières" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#stack">
+<span class="md-ellipsis">
+      
+        Stack
+      
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../socles/kore-hexagonal/error-handling/">
+<a class="md-nav__link" href="#architecture">
+<span class="md-ellipsis">
+      
+        Architecture
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#isolation-du-port-actuator">
+<span class="md-ellipsis">
+      
+        Isolation du port Actuator
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#separation-dev-prod">
+<span class="md-ellipsis">
+      
+        Séparation dev / prod
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#metriques-disponibles">
+<span class="md-ellipsis">
+      
+        Métriques disponibles
+      
+    </span>
+</a>
+<nav aria-label="Métriques disponibles" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#jvm">
+<span class="md-ellipsis">
+      
+        JVM
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#base-de-donnees-hikaricp">
+<span class="md-ellipsis">
+      
+        Base de données — HikariCP
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#kafka">
+<span class="md-ellipsis">
+      
+        Kafka
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#http">
+<span class="md-ellipsis">
+      
+        HTTP
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#systeme">
+<span class="md-ellipsis">
+      
+        Système
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#logs">
+<span class="md-ellipsis">
+      
+        Logs
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#grafana-provisioning-automatique">
+<span class="md-ellipsis">
+      
+        Grafana — Provisioning automatique
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#principes-cles">
+<span class="md-ellipsis">
+      
+        Principes clés
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../error-handling/">
 <span class="md-ellipsis">
     
   
@@ -1855,7 +1842,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../socles/kore-hexagonal/tests/">
+<a class="md-nav__link" href="../tests/">
 <span class="md-ellipsis">
     
   
@@ -1867,7 +1854,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../socles/kore-hexagonal/frontend/">
+<a class="md-nav__link" href="../frontend/">
 <span class="md-ellipsis">
     
   
@@ -1879,7 +1866,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../socles/kore-hexagonal/ci-cd/">
+<a class="md-nav__link" href="../ci-cd/">
 <span class="md-ellipsis">
     
   
@@ -1891,7 +1878,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../socles/kore-hexagonal/setup/">
+<a class="md-nav__link" href="../setup/">
 <span class="md-ellipsis">
     
   
@@ -1926,7 +1913,7 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../socles/kore-hexagonal/adrs/">
+<a class="md-nav__link" href="../adrs/">
 <span class="md-ellipsis">
     
   
@@ -1938,7 +1925,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../socles/kore-hexagonal/adrs/ADR-001-hexagonal-architecture/">
+<a class="md-nav__link" href="../adrs/ADR-001-hexagonal-architecture/">
 <span class="md-ellipsis">
     
   
@@ -1950,7 +1937,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../socles/kore-hexagonal/adrs/ADR-002-cqrs-read-model/">
+<a class="md-nav__link" href="../adrs/ADR-002-cqrs-read-model/">
 <span class="md-ellipsis">
     
   
@@ -1962,7 +1949,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../socles/kore-hexagonal/adrs/ADR-003-kafka-event-driven/">
+<a class="md-nav__link" href="../adrs/ADR-003-kafka-event-driven/">
 <span class="md-ellipsis">
     
   
@@ -1974,7 +1961,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../socles/kore-hexagonal/adrs/ADR-004-idempotent-consumers/">
+<a class="md-nav__link" href="../adrs/ADR-004-idempotent-consumers/">
 <span class="md-ellipsis">
     
   
@@ -1986,7 +1973,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../socles/kore-hexagonal/adrs/ADR-005-jwt-authentication/">
+<a class="md-nav__link" href="../adrs/ADR-005-jwt-authentication/">
 <span class="md-ellipsis">
     
   
@@ -1998,7 +1985,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../socles/kore-hexagonal/adrs/ADR-006-testcontainers/">
+<a class="md-nav__link" href="../adrs/ADR-006-testcontainers/">
 <span class="md-ellipsis">
     
   
@@ -2010,7 +1997,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../socles/kore-hexagonal/adrs/ADR-007-pull-based-deployment/">
+<a class="md-nav__link" href="../adrs/ADR-007-pull-based-deployment/">
 <span class="md-ellipsis">
     
   
@@ -2022,7 +2009,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../socles/kore-hexagonal/adrs/ADR-008-kafka-retry-dlt/">
+<a class="md-nav__link" href="../adrs/ADR-008-kafka-retry-dlt/">
 <span class="md-ellipsis">
     
   
@@ -2034,7 +2021,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../socles/kore-hexagonal/adrs/ADR-009-outbox-pattern/">
+<a class="md-nav__link" href="../adrs/ADR-009-outbox-pattern/">
 <span class="md-ellipsis">
     
   
@@ -2046,7 +2033,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../socles/kore-hexagonal/adrs/ADR-010-api-streaming/">
+<a class="md-nav__link" href="../adrs/ADR-010-api-streaming/">
 <span class="md-ellipsis">
     
   
@@ -2058,7 +2045,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../socles/kore-hexagonal/adrs/ADR-011-container-security/">
+<a class="md-nav__link" href="../adrs/ADR-011-container-security/">
 <span class="md-ellipsis">
     
   
@@ -2070,7 +2057,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../socles/kore-hexagonal/adrs/ADR-012-rbac/">
+<a class="md-nav__link" href="../adrs/ADR-012-rbac/">
 <span class="md-ellipsis">
     
   
@@ -2087,9 +2074,9 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--nested">
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_14_3" type="checkbox"/>
-<label class="md-nav__link" for="__nav_14_3" id="__nav_14_3_label" tabindex="0">
+<label class="md-nav__link" for="__nav_14_3" id="__nav_14_3_label" tabindex="">
 <span class="md-ellipsis">
     
   
@@ -2111,7 +2098,7 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../socles/kore-batch/">
+<a class="md-nav__link" href="../../kore-batch/">
 <span class="md-ellipsis">
     
   
@@ -2123,7 +2110,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../socles/kore-batch/architecture/">
+<a class="md-nav__link" href="../../kore-batch/architecture/">
 <span class="md-ellipsis">
     
   
@@ -2135,7 +2122,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../socles/kore-batch/utilisation/">
+<a class="md-nav__link" href="../../kore-batch/utilisation/">
 <span class="md-ellipsis">
     
   
@@ -2147,7 +2134,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../socles/kore-batch/setup/">
+<a class="md-nav__link" href="../../kore-batch/setup/">
 <span class="md-ellipsis">
     
   
@@ -2159,7 +2146,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../socles/kore-batch/tests/">
+<a class="md-nav__link" href="../../kore-batch/tests/">
 <span class="md-ellipsis">
     
   
@@ -2171,7 +2158,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../socles/kore-batch/audit-mai-2026/">
+<a class="md-nav__link" href="../../kore-batch/audit-mai-2026/">
 <span class="md-ellipsis">
     
   
@@ -2206,7 +2193,7 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../socles/kore-batch/adrs/">
+<a class="md-nav__link" href="../../kore-batch/adrs/">
 <span class="md-ellipsis">
     
   
@@ -2218,7 +2205,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../socles/kore-batch/adrs/ADR-001-spring-batch-5/">
+<a class="md-nav__link" href="../../kore-batch/adrs/ADR-001-spring-batch-5/">
 <span class="md-ellipsis">
     
   
@@ -2230,7 +2217,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../socles/kore-batch/adrs/ADR-002-github-packages/">
+<a class="md-nav__link" href="../../kore-batch/adrs/ADR-002-github-packages/">
 <span class="md-ellipsis">
     
   
@@ -2242,7 +2229,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../socles/kore-batch/adrs/ADR-003-liquibase-vs-flyway/">
+<a class="md-nav__link" href="../../kore-batch/adrs/ADR-003-liquibase-vs-flyway/">
 <span class="md-ellipsis">
     
   
@@ -2254,7 +2241,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../socles/kore-batch/adrs/ADR-004-stepscope/">
+<a class="md-nav__link" href="../../kore-batch/adrs/ADR-004-stepscope/">
 <span class="md-ellipsis">
     
   
@@ -2266,7 +2253,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../socles/kore-batch/adrs/ADR-005-flatfileitemreader/">
+<a class="md-nav__link" href="../../kore-batch/adrs/ADR-005-flatfileitemreader/">
 <span class="md-ellipsis">
     
   
@@ -2278,7 +2265,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../socles/kore-batch/adrs/ADR-006-skip-policy/">
+<a class="md-nav__link" href="../../kore-batch/adrs/ADR-006-skip-policy/">
 <span class="md-ellipsis">
     
   
@@ -2290,7 +2277,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../socles/kore-batch/adrs/ADR-007-java-21/">
+<a class="md-nav__link" href="../../kore-batch/adrs/ADR-007-java-21/">
 <span class="md-ellipsis">
     
   
@@ -2307,9 +2294,9 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--nested">
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_14_4" type="checkbox"/>
-<label class="md-nav__link" for="__nav_14_4" id="__nav_14_4_label" tabindex="0">
+<label class="md-nav__link" for="__nav_14_4" id="__nav_14_4_label" tabindex="">
 <span class="md-ellipsis">
     
   
@@ -2331,7 +2318,7 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../socles/kore-genie/">
+<a class="md-nav__link" href="../../kore-genie/">
 <span class="md-ellipsis">
     
   
@@ -2343,7 +2330,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../socles/kore-genie/architecture/">
+<a class="md-nav__link" href="../../kore-genie/architecture/">
 <span class="md-ellipsis">
     
   
@@ -2355,7 +2342,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../socles/kore-genie/setup/">
+<a class="md-nav__link" href="../../kore-genie/setup/">
 <span class="md-ellipsis">
     
   
@@ -2387,24 +2374,96 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#contexte">
+<a class="md-nav__link" href="#stack">
 <span class="md-ellipsis">
       
-        Contexte
+        Stack
       
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#les-trois-piliers">
+<a class="md-nav__link" href="#architecture">
 <span class="md-ellipsis">
       
-        Les trois piliers
+        Architecture
       
     </span>
 </a>
-<nav aria-label="Les trois piliers" class="md-nav">
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#isolation-du-port-actuator">
+<span class="md-ellipsis">
+      
+        Isolation du port Actuator
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#separation-dev-prod">
+<span class="md-ellipsis">
+      
+        Séparation dev / prod
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#metriques-disponibles">
+<span class="md-ellipsis">
+      
+        Métriques disponibles
+      
+    </span>
+</a>
+<nav aria-label="Métriques disponibles" class="md-nav">
 <ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#jvm">
+<span class="md-ellipsis">
+      
+        JVM
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#base-de-donnees-hikaricp">
+<span class="md-ellipsis">
+      
+        Base de données — HikariCP
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#kafka">
+<span class="md-ellipsis">
+      
+        Kafka
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#http">
+<span class="md-ellipsis">
+      
+        HTTP
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#systeme">
+<span class="md-ellipsis">
+      
+        Système
+      
+    </span>
+</a>
+</li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#logs">
 <span class="md-ellipsis">
@@ -2414,108 +2473,23 @@
     </span>
 </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#metrics">
-<span class="md-ellipsis">
-      
-        Metrics
-      
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#traces">
-<span class="md-ellipsis">
-      
-        Traces
-      
-    </span>
-</a>
-</li>
 </ul>
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#stack-technique-courante">
+<a class="md-nav__link" href="#grafana-provisioning-automatique">
 <span class="md-ellipsis">
       
-        Stack technique courante
+        Grafana — Provisioning automatique
       
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#instrumentation-spring-boot">
+<a class="md-nav__link" href="#principes-cles">
 <span class="md-ellipsis">
       
-        Instrumentation Spring Boot
-      
-    </span>
-</a>
-<nav aria-label="Instrumentation Spring Boot" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#actuator-prometheus">
-<span class="md-ellipsis">
-      
-        Actuator + Prometheus
-      
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#micrometer-pour-les-metriques-custom">
-<span class="md-ellipsis">
-      
-        Micrometer pour les métriques custom
-      
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#structured-logging">
-<span class="md-ellipsis">
-      
-        Structured logging
-      
-    </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#health-checks">
-<span class="md-ellipsis">
-      
-        Health Checks
-      
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#alerting">
-<span class="md-ellipsis">
-      
-        Alerting
-      
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#synthese">
-<span class="md-ellipsis">
-      
-        Synthèse
-      
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#voir-aussi">
-<span class="md-ellipsis">
-      
-        Voir aussi
+        Principes clés
       
     </span>
 </a>
@@ -2528,200 +2502,123 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <nav class="md-tags">
-<a class="md-tag" href="../../../tags/#tag:devops">devops</a>
+<a class="md-tag" href="../../../tags/#tag:grafana">grafana</a>
+<a class="md-tag" href="../../../tags/#tag:hexagonal">hexagonal</a>
+<a class="md-tag" href="../../../tags/#tag:micrometer">micrometer</a>
 <a class="md-tag" href="../../../tags/#tag:observability">observability</a>
+<a class="md-tag" href="../../../tags/#tag:prometheus">prometheus</a>
+<a class="md-tag" href="../../../tags/#tag:socle">socle</a>
 </nav>
-<h1 id="observability-pattern">Observability Pattern</h1>
-<h2 id="contexte">Contexte</h2>
-<p>Dans les architectures distribuées, les problèmes sont difficiles à diagnostiquer. Un bug peut traverser plusieurs services, bases de données et brokers. Sans observabilité, le debugging devient de la devinette.</p>
-<p>L'observabilité repose sur trois piliers :</p>
+<h1 id="kore-hexagonal-observabilite">kore-hexagonal • Observabilité</h1>
+<h2 id="stack">Stack</h2>
 <ul>
-<li><strong>Logs</strong> • ce qui s'est passé</li>
-<li><strong>Metrics</strong> • comment le système se comporte</li>
-<li><strong>Traces</strong> • le chemin d'une requête à travers les services</li>
+<li>Spring Boot Actuator + Micrometer</li>
+<li>Prometheus 2.51+</li>
+<li>Grafana 10.4+</li>
 </ul>
 <hr/>
-<h2 id="les-trois-piliers">Les trois piliers</h2>
-<h3 id="logs">Logs</h3>
-<p>Enregistrement textuel des événements :</p>
-<div class="highlight"><pre><span></span><code>2026-01-15 10:30:00 INFO  [order-service] Order created: orderId=42, userId=7
-2026-01-15 10:30:01 ERROR [payment-service] Payment failed: orderId=42, reason=insufficient_funds
-</code></pre></div>
-<p>Bonnes pratiques :</p>
-<ul>
-<li>format structuré (JSON) pour le parsing automatique</li>
-<li>inclure un <code>correlationId</code> pour relier les logs entre services</li>
-<li>niveaux cohérents : ERROR pour les erreurs, WARN pour les situations dégradées, INFO pour les événements métier</li>
-</ul>
-<h3 id="metrics">Metrics</h3>
-<p>Mesures numériques agrégées dans le temps :</p>
-<div class="highlight"><pre><span></span><code>http_requests_total{method="POST", endpoint="/orders", status="201"} 1523
-http_request_duration_seconds{endpoint="/orders", quantile="0.99"} 0.45
-jvm_memory_used_bytes{area="heap"} 268435456
-</code></pre></div>
-<p>Types :</p>
-<ul>
-<li><strong>Counter</strong> • valeur qui ne fait qu'augmenter (nombre de requêtes)</li>
-<li><strong>Gauge</strong> • valeur qui monte et descend (mémoire utilisée)</li>
-<li><strong>Histogram</strong> • distribution des valeurs (latence)</li>
-</ul>
-<h3 id="traces">Traces</h3>
-<p>Suivi du parcours d'une requête à travers les services :</p>
-<div class="highlight"><pre><span></span><code>Trace: abc-123
-├── order-service    POST /orders     [120ms]
-│   ├── db-query     SELECT user      [5ms]
-│   └── kafka-produce order.created   [8ms]
-└── payment-service  process payment  [95ms]
-    └── db-query     INSERT payment   [12ms]
-</code></pre></div>
-<p>Chaque opération est un <strong>span</strong>. L'ensemble forme une <strong>trace</strong>.</p>
-<hr/>
-<h2 id="stack-technique-courante">Stack technique courante</h2>
+<h2 id="architecture">Architecture</h2>
 <pre class="mermaid"><code>flowchart LR
-    App[Application] --&gt;|logs| Loki
-    App --&gt;|metrics| Prometheus
-    App --&gt;|traces| Tempo
+    Backend["Backend :8080 (API)"]
+    Actuator["Actuator :8081 (métriques)"]
+    Prometheus["Prometheus"]
+    Grafana["Grafana"]
 
-    Loki --&gt; Grafana
-    Prometheus --&gt; Grafana
-    Tempo --&gt; Grafana</code></pre>
-<table>
-<thead>
-<tr>
-<th>Pilier</th>
-<th>Outil</th>
-<th>Rôle</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Logs</td>
-<td>Loki / ELK</td>
-<td>Collecte et recherche de logs</td>
-</tr>
-<tr>
-<td>Metrics</td>
-<td>Prometheus + Grafana</td>
-<td>Collecte et visualisation de métriques</td>
-</tr>
-<tr>
-<td>Traces</td>
-<td>Tempo / Jaeger</td>
-<td>Distributed tracing</td>
-</tr>
-<tr>
-<td>Alerting</td>
-<td>Grafana / AlertManager</td>
-<td>Notification en cas d'anomalie</td>
-</tr>
-</tbody>
-</table>
+    Backend --- Actuator
+    Prometheus --&gt;|scrape| Actuator
+    Grafana --&gt;|query| Prometheus</code></pre>
 <hr/>
-<h2 id="instrumentation-spring-boot">Instrumentation Spring Boot</h2>
-<h3 id="actuator-prometheus">Actuator + Prometheus</h3>
+<h2 id="isolation-du-port-actuator">Isolation du port Actuator</h2>
+<p>Deux ports distincts sont exposés par le backend :</p>
+<ul>
+<li><code>:8080</code> • API publique, exposée via Nginx</li>
+<li><code>:8081</code> • Actuator, <strong>jamais exposé publiquement</strong></li>
+</ul>
 <div class="highlight"><pre><span></span><code><span class="nt">management</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">server</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">8081</span>
 <span class="w">  </span><span class="nt">endpoints</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">web</span><span class="p">:</span>
 <span class="w">      </span><span class="nt">exposure</span><span class="p">:</span>
-<span class="w">        </span><span class="nt">include</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">health, prometheus, info</span>
-<span class="w">  </span><span class="nt">metrics</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">export</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">prometheus</span><span class="p">:</span>
-<span class="w">        </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">        </span><span class="nt">include</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">health,prometheus,info</span>
 </code></pre></div>
-<h3 id="micrometer-pour-les-metriques-custom">Micrometer pour les métriques custom</h3>
-<div class="highlight"><pre><span></span><code><span class="nd">@Component</span>
-<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">OrderMetrics</span><span class="w"> </span><span class="p">{</span>
-
-<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">Counter</span><span class="w"> </span><span class="n">ordersCreated</span><span class="p">;</span>
-
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">OrderMetrics</span><span class="p">(</span><span class="n">MeterRegistry</span><span class="w"> </span><span class="n">registry</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">ordersCreated</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Counter</span><span class="p">.</span><span class="na">builder</span><span class="p">(</span><span class="s">"orders.created.total"</span><span class="p">)</span>
-<span class="w">                </span><span class="p">.</span><span class="na">description</span><span class="p">(</span><span class="s">"Total orders created"</span><span class="p">)</span>
-<span class="w">                </span><span class="p">.</span><span class="na">register</span><span class="p">(</span><span class="n">registry</span><span class="p">);</span>
-<span class="w">    </span><span class="p">}</span>
-
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">orderCreated</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">ordersCreated</span><span class="p">.</span><span class="na">increment</span><span class="p">();</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-<h3 id="structured-logging">Structured logging</h3>
-<div class="highlight"><pre><span></span><code><span class="nt">&lt;encoder</span><span class="w"> </span><span class="na">class=</span><span class="s">"net.logstash.logback.encoder.LogstashEncoder"</span><span class="nt">/&gt;</span>
-</code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="n">log</span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="s">"Order created"</span><span class="p">,</span><span class="w"> </span><span class="n">kv</span><span class="p">(</span><span class="s">"orderId"</span><span class="p">,</span><span class="w"> </span><span class="n">order</span><span class="p">.</span><span class="na">getId</span><span class="p">()),</span><span class="w"> </span><span class="n">kv</span><span class="p">(</span><span class="s">"userId"</span><span class="p">,</span><span class="w"> </span><span class="n">user</span><span class="p">.</span><span class="na">getId</span><span class="p">()));</span>
-</code></pre></div>
+<p>Nginx ne route aucun trafic vers <code>:8081</code>. Prometheus atteint le backend directement via le réseau Docker interne, sans passer par le reverse proxy.</p>
+<p>Une <code>SecurityFilterChain</code> dédiée (<code>@Order(1)</code>) autorise les requêtes actuator sans JWT sur le port de management.</p>
 <hr/>
-<h2 id="health-checks">Health Checks</h2>
-<div class="highlight"><pre><span></span><code><span class="nt">management</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">endpoint</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">health</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">show-details</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">always</span>
-<span class="w">  </span><span class="nt">health</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">db</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">    </span><span class="nt">kafka</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-</code></pre></div>
-<p>Endpoint <code>/actuator/health</code> retourne l'état de chaque dépendance :</p>
-<div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UP"</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">"components"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">"db"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UP"</span><span class="w"> </span><span class="p">},</span>
-<span class="w">    </span><span class="nt">"kafka"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UP"</span><span class="w"> </span><span class="p">},</span>
-<span class="w">    </span><span class="nt">"diskSpace"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UP"</span><span class="w"> </span><span class="p">}</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
+<h2 id="separation-dev-prod">Séparation dev / prod</h2>
+<p>Deux configurations Prometheus versionnées :</p>
+<p><strong><code>prometheus.dev.yml</code></strong> — backend lancé localement (IDE)
+<div class="highlight"><pre><span></span><code><span class="nt">scrape_configs</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">job_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">backend</span>
+<span class="w">    </span><span class="nt">static_configs</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">targets</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">'host.docker.internal:8081'</span><span class="p p-Indicator">]</span>
+</code></pre></div></p>
+<p><strong><code>prometheus.prod.yml</code></strong> — communication via réseau Docker interne
+<div class="highlight"><pre><span></span><code><span class="nt">scrape_configs</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">job_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">backend</span>
+<span class="w">    </span><span class="nt">static_configs</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">targets</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">'backend:8081'</span><span class="p p-Indicator">]</span>
+</code></pre></div></p>
 <hr/>
-<h2 id="alerting">Alerting</h2>
-<p>Définir des alertes sur les métriques critiques :</p>
-<table>
-<thead>
-<tr>
-<th>Alerte</th>
-<th>Condition</th>
-<th>Sévérité</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Error rate élevé</td>
-<td><code>rate(http_5xx_total[5m]) &gt; 0.05</code></td>
-<td>Critical</td>
-</tr>
-<tr>
-<td>Latence p99</td>
-<td><code>http_duration_p99 &gt; 2s</code></td>
-<td>Warning</td>
-</tr>
-<tr>
-<td>Consumer lag</td>
-<td><code>kafka_consumer_lag &gt; 10000</code></td>
-<td>Warning</td>
-</tr>
-<tr>
-<td>Health down</td>
-<td><code>up == 0</code></td>
-<td>Critical</td>
-</tr>
-</tbody>
-</table>
-<hr/>
-<h2 id="synthese">Synthèse</h2>
+<h2 id="metriques-disponibles">Métriques disponibles</h2>
+<h3 id="jvm">JVM</h3>
 <ul>
-<li>l'observabilité n'est pas optionnelle en production distribuée</li>
-<li>les trois piliers (logs, metrics, traces) sont complémentaires</li>
-<li>le <code>correlationId</code> est indispensable pour tracer une requête entre services</li>
-<li>les alertes doivent être définies sur les SLOs, pas sur les métriques brutes</li>
-<li>instrumenter dès le développement, pas après le premier incident</li>
+<li>Heap utilisé / disponible</li>
+<li>Garbage collection (durée, fréquence)</li>
+<li>Threads actifs</li>
+<li>Classes chargées</li>
+</ul>
+<h3 id="base-de-donnees-hikaricp">Base de données — HikariCP</h3>
+<ul>
+<li>Connexions actives / idle / en attente</li>
+<li>Temps d'acquisition de connexion</li>
+</ul>
+<h3 id="kafka">Kafka</h3>
+<ul>
+<li>Producer : latence, taux d'envoi</li>
+<li>Consumer : lag, taux de traitement, métriques listener</li>
+</ul>
+<h3 id="http">HTTP</h3>
+<ul>
+<li>Nombre de requêtes par endpoint</li>
+<li>Temps de réponse (percentiles p50, p95, p99)</li>
+<li>Métriques Spring Security</li>
+</ul>
+<h3 id="systeme">Système</h3>
+<ul>
+<li>CPU, mémoire, uptime</li>
+</ul>
+<h3 id="logs">Logs</h3>
+<ul>
+<li>Logback : events par niveau (INFO, WARN, ERROR)</li>
 </ul>
 <hr/>
-<h2 id="voir-aussi">Voir aussi</h2>
+<h2 id="grafana-provisioning-automatique">Grafana — Provisioning automatique</h2>
+<p>Grafana charge automatiquement au démarrage :</p>
 <ul>
-<li><a href="../docker-production-pattern/">Docker Production Pattern</a></li>
-<li><a href="../ci-cd-pipeline-pattern/">CI/CD Pipeline Pattern</a></li>
-<li><a href="../../testing/testcontainers-pattern/">Testcontainers</a></li>
+<li>la datasource Prometheus</li>
+<li>le dashboard applicatif (JSON versionné dans le dépôt)</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="c1"># grafana/provisioning/datasources/prometheus.yml</span>
+<span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="nt">datasources</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Prometheus</span>
+<span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">prometheus</span>
+<span class="w">    </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://prometheus:9090</span>
+<span class="w">    </span><span class="nt">isDefault</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+</code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Compatibilité</p>
+<p>Le dashboard est sélectionné sans plugins Angular — compatible nativement avec Grafana 10+.</p>
+</div>
+<hr/>
+<h2 id="principes-cles">Principes clés</h2>
+<ul>
+<li>Port Actuator isolé, jamais accessible via Nginx</li>
+<li>Configuration Prometheus versionnée par environnement</li>
+<li>Dashboard Grafana versionné dans le dépôt</li>
+<li>Provisioning automatique au démarrage</li>
+<li>Aucune dépendance Angular (compatibilité Grafana 10+)</li>
 </ul>
 </article>
 </div>

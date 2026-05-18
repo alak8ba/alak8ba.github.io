@@ -12,13 +12,13 @@
         <meta name="author" content="A.KOUBA">
       
       
-        <link rel="canonical" href="https://alak8ba.github.io/notes/socles/kore-batch/adrs/">
+        <link rel="canonical" href="https://alak8ba.github.io/notes/socles/kore-hexagonal/frontend/">
       
       
-        <link rel="prev" href="../audit-mai-2026/">
+        <link rel="prev" href="../tests/">
       
       
-        <link rel="next" href="ADR-001-spring-batch-5/">
+        <link rel="next" href="../ci-cd/">
       
       
         
@@ -29,7 +29,7 @@
     
     
       
-        <title>Overview - Engineering Notes</title>
+        <title>Frontend React - Engineering Notes</title>
       
     
     
@@ -82,7 +82,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#kore-batch-architecture-decisions" class="md-skip">
+        <a href="#kore-hexagonal-frontend-react" class="md-skip">
           Aller au contenu
         </a>
       
@@ -115,7 +115,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Overview
+              Frontend React
             
           </span>
         </div>
@@ -3677,8 +3677,10 @@
                 
   
   
+    
   
   
+  
     
     
     
@@ -3692,13 +3694,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_14_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_14_2" checked>
         
           
           <label class="md-nav__link" for="__nav_14_2" id="__nav_14_2_label" tabindex="">
@@ -3719,7 +3719,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_14_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_14_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_14_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -3737,7 +3737,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kore-hexagonal/" class="md-nav__link">
+      <a href="../" class="md-nav__link">
         
   
   
@@ -3765,7 +3765,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kore-hexagonal/architecture/" class="md-nav__link">
+      <a href="../architecture/" class="md-nav__link">
         
   
   
@@ -3793,7 +3793,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kore-hexagonal/ddd/" class="md-nav__link">
+      <a href="../ddd/" class="md-nav__link">
         
   
   
@@ -3821,7 +3821,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kore-hexagonal/bounded-contexts/" class="md-nav__link">
+      <a href="../bounded-contexts/" class="md-nav__link">
         
   
   
@@ -3849,7 +3849,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kore-hexagonal/security/" class="md-nav__link">
+      <a href="../security/" class="md-nav__link">
         
   
   
@@ -3877,7 +3877,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kore-hexagonal/observability/" class="md-nav__link">
+      <a href="../observability/" class="md-nav__link">
         
   
   
@@ -3905,7 +3905,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kore-hexagonal/error-handling/" class="md-nav__link">
+      <a href="../error-handling/" class="md-nav__link">
         
   
   
@@ -3933,7 +3933,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kore-hexagonal/tests/" class="md-nav__link">
+      <a href="../tests/" class="md-nav__link">
         
   
   
@@ -3958,10 +3958,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../kore-hexagonal/frontend/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Frontend React
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -3977,6 +4004,81 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stack
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#intercepteur-axios-refresh-automatique" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Intercepteur Axios — Refresh automatique
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pagination-optimisee" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pagination optimisée
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gestion-des-erreurs-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gestion des erreurs API
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pages
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -3989,7 +4091,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kore-hexagonal/ci-cd/" class="md-nav__link">
+      <a href="../ci-cd/" class="md-nav__link">
         
   
   
@@ -4017,7 +4119,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kore-hexagonal/setup/" class="md-nav__link">
+      <a href="../setup/" class="md-nav__link">
         
   
   
@@ -4099,7 +4201,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kore-hexagonal/adrs/" class="md-nav__link">
+      <a href="../adrs/" class="md-nav__link">
         
   
   
@@ -4127,7 +4229,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kore-hexagonal/adrs/ADR-001-hexagonal-architecture/" class="md-nav__link">
+      <a href="../adrs/ADR-001-hexagonal-architecture/" class="md-nav__link">
         
   
   
@@ -4155,7 +4257,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kore-hexagonal/adrs/ADR-002-cqrs-read-model/" class="md-nav__link">
+      <a href="../adrs/ADR-002-cqrs-read-model/" class="md-nav__link">
         
   
   
@@ -4183,7 +4285,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kore-hexagonal/adrs/ADR-003-kafka-event-driven/" class="md-nav__link">
+      <a href="../adrs/ADR-003-kafka-event-driven/" class="md-nav__link">
         
   
   
@@ -4211,7 +4313,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kore-hexagonal/adrs/ADR-004-idempotent-consumers/" class="md-nav__link">
+      <a href="../adrs/ADR-004-idempotent-consumers/" class="md-nav__link">
         
   
   
@@ -4239,7 +4341,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kore-hexagonal/adrs/ADR-005-jwt-authentication/" class="md-nav__link">
+      <a href="../adrs/ADR-005-jwt-authentication/" class="md-nav__link">
         
   
   
@@ -4267,7 +4369,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kore-hexagonal/adrs/ADR-006-testcontainers/" class="md-nav__link">
+      <a href="../adrs/ADR-006-testcontainers/" class="md-nav__link">
         
   
   
@@ -4295,7 +4397,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kore-hexagonal/adrs/ADR-007-pull-based-deployment/" class="md-nav__link">
+      <a href="../adrs/ADR-007-pull-based-deployment/" class="md-nav__link">
         
   
   
@@ -4323,7 +4425,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kore-hexagonal/adrs/ADR-008-kafka-retry-dlt/" class="md-nav__link">
+      <a href="../adrs/ADR-008-kafka-retry-dlt/" class="md-nav__link">
         
   
   
@@ -4351,7 +4453,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kore-hexagonal/adrs/ADR-009-outbox-pattern/" class="md-nav__link">
+      <a href="../adrs/ADR-009-outbox-pattern/" class="md-nav__link">
         
   
   
@@ -4379,7 +4481,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kore-hexagonal/adrs/ADR-010-api-streaming/" class="md-nav__link">
+      <a href="../adrs/ADR-010-api-streaming/" class="md-nav__link">
         
   
   
@@ -4407,7 +4509,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kore-hexagonal/adrs/ADR-011-container-security/" class="md-nav__link">
+      <a href="../adrs/ADR-011-container-security/" class="md-nav__link">
         
   
   
@@ -4435,7 +4537,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kore-hexagonal/adrs/ADR-012-rbac/" class="md-nav__link">
+      <a href="../adrs/ADR-012-rbac/" class="md-nav__link">
         
   
   
@@ -4476,8 +4578,6 @@
                 
   
   
-    
-  
   
   
     
@@ -4493,11 +4593,13 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_14_3" checked>
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_14_3" >
         
           
           <label class="md-nav__link" for="__nav_14_3" id="__nav_14_3_label" tabindex="">
@@ -4518,7 +4620,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_14_3_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_14_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_14_3">
             <span class="md-nav__icon md-icon"></span>
             
@@ -4536,7 +4638,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../" class="md-nav__link">
+      <a href="../../kore-batch/" class="md-nav__link">
         
   
   
@@ -4564,7 +4666,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../architecture/" class="md-nav__link">
+      <a href="../../kore-batch/architecture/" class="md-nav__link">
         
   
   
@@ -4592,7 +4694,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../utilisation/" class="md-nav__link">
+      <a href="../../kore-batch/utilisation/" class="md-nav__link">
         
   
   
@@ -4620,7 +4722,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../setup/" class="md-nav__link">
+      <a href="../../kore-batch/setup/" class="md-nav__link">
         
   
   
@@ -4648,7 +4750,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tests/" class="md-nav__link">
+      <a href="../../kore-batch/tests/" class="md-nav__link">
         
   
   
@@ -4676,7 +4778,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../audit-mai-2026/" class="md-nav__link">
+      <a href="../../kore-batch/audit-mai-2026/" class="md-nav__link">
         
   
   
@@ -4701,8 +4803,6 @@
                 
   
   
-    
-  
   
   
     
@@ -4715,11 +4815,13 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_14_3_7" checked>
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_14_3_7" >
         
           
           <label class="md-nav__link" for="__nav_14_3_7" id="__nav_14_3_7_label" tabindex="0">
@@ -4740,7 +4842,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_14_3_7_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_14_3_7_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_14_3_7">
             <span class="md-nav__icon md-icon"></span>
             
@@ -4755,19 +4857,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../kore-batch/adrs/" class="md-nav__link">
         
   
   
@@ -4783,7 +4876,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -4796,7 +4888,7 @@
   
   
     <li class="md-nav__item">
-      <a href="ADR-001-spring-batch-5/" class="md-nav__link">
+      <a href="../../kore-batch/adrs/ADR-001-spring-batch-5/" class="md-nav__link">
         
   
   
@@ -4824,7 +4916,7 @@
   
   
     <li class="md-nav__item">
-      <a href="ADR-002-github-packages/" class="md-nav__link">
+      <a href="../../kore-batch/adrs/ADR-002-github-packages/" class="md-nav__link">
         
   
   
@@ -4852,7 +4944,7 @@
   
   
     <li class="md-nav__item">
-      <a href="ADR-003-liquibase-vs-flyway/" class="md-nav__link">
+      <a href="../../kore-batch/adrs/ADR-003-liquibase-vs-flyway/" class="md-nav__link">
         
   
   
@@ -4880,7 +4972,7 @@
   
   
     <li class="md-nav__item">
-      <a href="ADR-004-stepscope/" class="md-nav__link">
+      <a href="../../kore-batch/adrs/ADR-004-stepscope/" class="md-nav__link">
         
   
   
@@ -4908,7 +5000,7 @@
   
   
     <li class="md-nav__item">
-      <a href="ADR-005-flatfileitemreader/" class="md-nav__link">
+      <a href="../../kore-batch/adrs/ADR-005-flatfileitemreader/" class="md-nav__link">
         
   
   
@@ -4936,7 +5028,7 @@
   
   
     <li class="md-nav__item">
-      <a href="ADR-006-skip-policy/" class="md-nav__link">
+      <a href="../../kore-batch/adrs/ADR-006-skip-policy/" class="md-nav__link">
         
   
   
@@ -4964,7 +5056,7 @@
   
   
     <li class="md-nav__item">
-      <a href="ADR-007-java-21/" class="md-nav__link">
+      <a href="../../kore-batch/adrs/ADR-007-java-21/" class="md-nav__link">
         
   
   
@@ -5177,6 +5269,69 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stack
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#intercepteur-axios-refresh-automatique" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Intercepteur Axios — Refresh automatique
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pagination-optimisee" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pagination optimisée
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gestion-des-erreurs-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gestion des erreurs API
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pages
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -5196,7 +5351,28 @@
       
       
       
-        <a href="../../../tags/#tag:adr" class="md-tag">adr</a>
+        <a href="../../../tags/#tag:axios" class="md-tag">axios</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../../tags/#tag:frontend" class="md-tag">frontend</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../../tags/#tag:hexagonal" class="md-tag">hexagonal</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../../tags/#tag:react" class="md-tag">react</a>
       
     
       
@@ -5210,64 +5386,93 @@
       
       
       
-        <a href="../../../tags/#tag:spring-batch" class="md-tag">spring-batch</a>
+        <a href="../../../tags/#tag:typescript" class="md-tag">typescript</a>
       
     
   </nav>
 
 
 
-<h1 id="kore-batch-architecture-decisions">kore-batch - Architecture Decisions</h1>
-<p>7 ADR documentent les choix structurants pris lors de la création et de la modernisation du socle.</p>
+<h1 id="kore-hexagonal-frontend-react">kore-hexagonal • Frontend React</h1>
+<h2 id="stack">Stack</h2>
+<ul>
+<li>React 19 + Vite + TypeScript</li>
+<li>Tailwind CSS</li>
+<li>Axios — client HTTP avec intercepteur de refresh</li>
+</ul>
 <hr />
+<h2 id="intercepteur-axios-refresh-automatique">Intercepteur Axios — Refresh automatique</h2>
+<p>Gestion automatique du cycle de vie des tokens JWT sans intervention utilisateur :</p>
+<div class="highlight"><pre><span></span><code><span class="nx">axiosInstance</span><span class="p">.</span><span class="nx">interceptors</span><span class="p">.</span><span class="nx">response</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span>
+<span class="w">  </span><span class="p">(</span><span class="nx">response</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">response</span><span class="p">,</span>
+<span class="w">  </span><span class="k">async</span><span class="w"> </span><span class="p">(</span><span class="nx">error</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">originalRequest</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">error</span><span class="p">.</span><span class="nx">config</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">error</span><span class="p">.</span><span class="nx">response</span><span class="o">?</span><span class="p">.</span><span class="nx">status</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="mf">401</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="nx">originalRequest</span><span class="p">.</span><span class="nx">_retry</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">originalRequest</span><span class="p">.</span><span class="nx">_retry</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+<span class="w">      </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">await</span><span class="w"> </span><span class="nx">refreshToken</span><span class="p">();</span><span class="w">           </span><span class="c1">// refresh silencieux</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">axiosInstance</span><span class="p">(</span><span class="nx">originalRequest</span><span class="p">);</span><span class="w"> </span><span class="c1">// retry automatique</span>
+<span class="w">      </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">redirectToLogin</span><span class="p">();</span><span class="w">              </span><span class="c1">// redirect si refresh échoue</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">Promise</span><span class="p">.</span><span class="nx">reject</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">);</span>
+</code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Exclusion des endpoints auth</p>
+<p>Les endpoints <code>/auth/login</code> et <code>/auth/refresh</code> sont exclus de l'intercepteur pour éviter les boucles infinies.</p>
+</div>
+<hr />
+<h2 id="pagination-optimisee">Pagination optimisée</h2>
+<p>Le composant de liste implémente :</p>
+<ul>
+<li><strong>Mise en cache des pages</strong> déjà chargées — pas de re-fetch au retour arrière</li>
+<li><strong>Prefetch de la page suivante</strong> en arrière-plan</li>
+<li><strong>Prévention des requêtes doublons</strong> sur la même page</li>
+<li><strong>Gestion des états de chargement</strong> par page</li>
+</ul>
+<p>Résultat : navigation fluide sans blocages ni requêtes redondantes, compatible avec le rate limiting Nginx.</p>
+<hr />
+<h2 id="gestion-des-erreurs-api">Gestion des erreurs API</h2>
+<p>Normalisation des codes HTTP en messages utilisateur :</p>
 <table>
 <thead>
 <tr>
-<th>ADR</th>
-<th>Titre</th>
-<th>Décision</th>
+<th>Code HTTP</th>
+<th>Message affiché</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><a href="ADR-001-spring-batch-5/">ADR-001</a></td>
-<td>Migration Spring Batch 4 vers 5</td>
-<td>Adopter Spring Batch 5 / Spring Boot 3.3</td>
+<td>429</td>
+<td>Trop de requêtes, veuillez patienter</td>
 </tr>
 <tr>
-<td><a href="ADR-002-github-packages/">ADR-002</a></td>
-<td>Registry Maven</td>
-<td>GitHub Packages à la place de Nexus</td>
+<td>401</td>
+<td>Session expirée, reconnexion requise</td>
 </tr>
 <tr>
-<td><a href="ADR-003-liquibase-vs-flyway/">ADR-003</a></td>
-<td>Migration de schéma</td>
-<td>Liquibase à la place de Flyway</td>
+<td>403</td>
+<td>Accès non autorisé</td>
 </tr>
 <tr>
-<td><a href="ADR-004-stepscope/">ADR-004</a></td>
-<td>Thread-safety du reader</td>
-<td>SynchronizedItemStreamReader + @StepScope processor</td>
-</tr>
-<tr>
-<td><a href="ADR-005-flatfileitemreader/">ADR-005</a></td>
-<td>Lecture du fichier d'entrée</td>
-<td>FlatFileItemReader natif vs chargement en mémoire</td>
-</tr>
-<tr>
-<td><a href="ADR-006-skip-policy/">ADR-006</a></td>
-<td>Gestion des erreurs item</td>
-<td>Pattern fonctionnel conservé comme approche principale</td>
-</tr>
-<tr>
-<td><a href="ADR-007-java-21/">ADR-007</a></td>
-<td>Version Java</td>
-<td>Java 21 LTS comme cible</td>
+<td>500</td>
+<td>Erreur serveur, réessayez plus tard</td>
 </tr>
 </tbody>
 </table>
 <hr />
-<p>ADR-004, ADR-005 et ADR-006 correspondent aux patterns documentés dans <a href="../../../topics/spring/spring-batch-advanced-patterns/">Spring Batch - Patterns avancés</a>.</p>
+<h2 id="pages">Pages</h2>
+<ul>
+<li>Liste des entités avec pagination</li>
+<li>Détail d'une entité</li>
+<li>Formulaire de création</li>
+<li>Formulaire de modification</li>
+<li>Gestion des tokens JWT (cookies HttpOnly, intercepteur refresh automatique)</li>
+</ul>
 
 
 
