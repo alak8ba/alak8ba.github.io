@@ -1752,7 +1752,7 @@
 <a class="md-nav__link" href="#base-de-donnees-hikaricp">
 <span class="md-ellipsis">
       
-        Base de données — HikariCP
+        Base de données • HikariCP
       
     </span>
 </a>
@@ -1800,7 +1800,7 @@
 <a class="md-nav__link" href="#grafana-provisioning-automatique">
 <span class="md-ellipsis">
       
-        Grafana — Provisioning automatique
+        Grafana • Provisioning automatique
       
     </span>
 </a>
@@ -2420,7 +2420,7 @@
 <a class="md-nav__link" href="#base-de-donnees-hikaricp">
 <span class="md-ellipsis">
       
-        Base de données — HikariCP
+        Base de données • HikariCP
       
     </span>
 </a>
@@ -2468,7 +2468,7 @@
 <a class="md-nav__link" href="#grafana-provisioning-automatique">
 <span class="md-ellipsis">
       
-        Grafana — Provisioning automatique
+        Grafana • Provisioning automatique
       
     </span>
 </a>
@@ -2535,13 +2535,13 @@
 <hr/>
 <h2 id="separation-dev-prod">Séparation dev / prod</h2>
 <p>Deux configurations Prometheus versionnées :</p>
-<p><strong><code>prometheus.dev.yml</code></strong> — backend lancé localement (IDE)
+<p><strong><code>prometheus.dev.yml</code></strong> • backend lancé localement (IDE)
 <div class="highlight"><pre><span></span><code><span class="nt">scrape_configs</span><span class="p">:</span>
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">job_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">backend</span>
 <span class="w">    </span><span class="nt">static_configs</span><span class="p">:</span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">targets</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">'host.docker.internal:8081'</span><span class="p p-Indicator">]</span>
 </code></pre></div></p>
-<p><strong><code>prometheus.prod.yml</code></strong> — communication via réseau Docker interne
+<p><strong><code>prometheus.prod.yml</code></strong> • communication via réseau Docker interne
 <div class="highlight"><pre><span></span><code><span class="nt">scrape_configs</span><span class="p">:</span>
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">job_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">backend</span>
 <span class="w">    </span><span class="nt">static_configs</span><span class="p">:</span>
@@ -2556,7 +2556,7 @@
 <li>Threads actifs</li>
 <li>Classes chargées</li>
 </ul>
-<h3 id="base-de-donnees-hikaricp">Base de données — HikariCP</h3>
+<h3 id="base-de-donnees-hikaricp">Base de données • HikariCP</h3>
 <ul>
 <li>Connexions actives / idle / en attente</li>
 <li>Temps d'acquisition de connexion</li>
@@ -2581,7 +2581,7 @@
 <li>Logback : events par niveau (INFO, WARN, ERROR)</li>
 </ul>
 <hr/>
-<h2 id="grafana-provisioning-automatique">Grafana — Provisioning automatique</h2>
+<h2 id="grafana-provisioning-automatique">Grafana • Provisioning automatique</h2>
 <p>Grafana charge automatiquement au démarrage :</p>
 <ul>
 <li>la datasource Prometheus</li>
@@ -2597,7 +2597,7 @@
 </code></pre></div>
 <div class="admonition info">
 <p class="admonition-title">Compatibilité</p>
-<p>Le dashboard est sélectionné sans plugins Angular — compatible nativement avec Grafana 10+.</p>
+<p>Le dashboard est sélectionné sans plugins Angular • compatible nativement avec Grafana 10+.</p>
 </div>
 <hr/>
 <h2 id="principes-cles">Principes clés</h2>

@@ -5371,7 +5371,7 @@
 <li><strong>Idempotence producteur</strong> : <code>enable.idempotence=true</code> sur le producer Kafka</li>
 <li><strong>Enveloppe d'événement</strong> : <code>EventEnvelope</code> avec <code>eventId</code>, <code>eventType</code>, <code>occurredAt</code>, <code>payload</code></li>
 </ul>
-<div class="highlight"><pre><span></span><code><span class="c1">// Port sortant — indépendant de Kafka</span>
+<div class="highlight"><pre><span></span><code><span class="c1">// Port sortant • indépendant de Kafka</span>
 <span class="kd">public</span><span class="w"> </span><span class="kd">interface</span> <span class="nc">EventProducer</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">publish</span><span class="p">(</span><span class="n">DomainEvent</span><span class="w"> </span><span class="n">event</span><span class="p">);</span>
 <span class="p">}</span>
@@ -5389,8 +5389,8 @@
 - Cohérence éventuelle entre write side et read model
 - Infrastructure Kafka requise (Docker Compose en dev)</p>
 <h2 id="alternatives-ecartees">Alternatives écartées</h2>
-<p><strong>Appel REST synchrone</strong> — couplage fort, perte d'événements si le consommateur est indisponible, pas de replay.</p>
-<p><strong>Spring ApplicationEvent</strong> — limité à un seul processus JVM, pas adapté à un déploiement distribué.</p>
+<p><strong>Appel REST synchrone</strong> • couplage fort, perte d'événements si le consommateur est indisponible, pas de replay.</p>
+<p><strong>Spring ApplicationEvent</strong> • limité à un seul processus JVM, pas adapté à un déploiement distribué.</p>
 
 
 

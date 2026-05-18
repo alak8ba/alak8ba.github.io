@@ -1730,7 +1730,7 @@
 <a class="md-nav__link" href="#docker-security-least-privilege">
 <span class="md-ellipsis">
       
-        Docker Security — Least Privilege
+        Docker Security • Least Privilege
       
     </span>
 </a>
@@ -2370,7 +2370,7 @@
 <a class="md-nav__link" href="#docker-security-least-privilege">
 <span class="md-ellipsis">
       
-        Docker Security — Least Privilege
+        Docker Security • Least Privilege
       
     </span>
 </a>
@@ -2431,19 +2431,19 @@
 <h2 id="defense-en-profondeur">Défense en profondeur</h2>
 <p>La sécurité repose sur 6 couches indépendantes :</p>
 <ol>
-<li><strong>Authentification JWT</strong> — access token court + refresh token rotation</li>
-<li><strong>Autorisation RBAC</strong> — rôles portés dans le JWT, contrôlés par Spring Security</li>
-<li><strong>Reverse proxy sécurisé</strong> — Nginx avec terminaison TLS + headers de sécurité</li>
-<li><strong>Isolation réseau Docker</strong> — services internes non exposés publiquement</li>
-<li><strong>Conteneurs durcis</strong> — non-root, read-only filesystem, no-new-privileges</li>
-<li><strong>Firewall restrictif</strong> — UFW, ports 22/80/443 uniquement</li>
+<li><strong>Authentification JWT</strong> • access token court + refresh token rotation</li>
+<li><strong>Autorisation RBAC</strong> • rôles portés dans le JWT, contrôlés par Spring Security</li>
+<li><strong>Reverse proxy sécurisé</strong> • Nginx avec terminaison TLS + headers de sécurité</li>
+<li><strong>Isolation réseau Docker</strong> • services internes non exposés publiquement</li>
+<li><strong>Conteneurs durcis</strong> • non-root, read-only filesystem, no-new-privileges</li>
+<li><strong>Firewall restrictif</strong> • UFW, ports 22/80/443 uniquement</li>
 </ol>
 <hr/>
 <h2 id="authentification-jwt-renforcee">Authentification JWT renforcée</h2>
 <ul>
 <li>Access token stocké en cookie <code>HttpOnly</code> + <code>Secure</code> + <code>SameSite=Strict</code></li>
 <li>Refresh token : <strong>rotation à chaque utilisation</strong></li>
-<li><strong>Refresh tokens hachés en base</strong> — une compromission BDD n'expose pas de tokens exploitables</li>
+<li><strong>Refresh tokens hachés en base</strong> • une compromission BDD n'expose pas de tokens exploitables</li>
 <li><strong>Détection de réutilisation</strong> : si un token révoqué est réutilisé → tous les tokens actifs de l'utilisateur sont invalidés (protection session hijacking)</li>
 </ul>
 <hr/>
@@ -2458,7 +2458,7 @@
 </code></pre></div>
 <hr/>
 <h2 id="rate-limiting-nginx">Rate Limiting Nginx</h2>
-<p>Zones définies par type d'endpoint — seuils calibrés pour éviter les faux positifs tout en protégeant contre les abus :</p>
+<p>Zones définies par type d'endpoint • seuils calibrés pour éviter les faux positifs tout en protégeant contre les abus :</p>
 <table>
 <thead>
 <tr>
@@ -2471,17 +2471,17 @@
 <tr>
 <td><code>/auth/**</code></td>
 <td><code>auth_zone</code></td>
-<td>Bas — protection brute force</td>
+<td>Bas • protection brute force</td>
 </tr>
 <tr>
 <td><code>/api/**</code></td>
 <td><code>api_zone</code></td>
-<td>Modéré — usage normal</td>
+<td>Modéré • usage normal</td>
 </tr>
 <tr>
 <td><code>/api/**/page</code></td>
 <td><code>pagination_zone</code></td>
-<td>Adapté — le frontend pagine rapidement</td>
+<td>Adapté • le frontend pagine rapidement</td>
 </tr>
 </tbody>
 </table>
@@ -2490,7 +2490,7 @@
 <p>Le frontend effectue plusieurs requêtes en séquence rapide lors du scroll. Un seuil trop bas génère des <code>429 Too Many Requests</code> sur un usage légitime.</p>
 </div>
 <hr/>
-<h2 id="docker-security-least-privilege">Docker Security — Least Privilege</h2>
+<h2 id="docker-security-least-privilege">Docker Security • Least Privilege</h2>
 <div class="highlight"><pre><span></span><code><span class="nt">services</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">backend</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">user</span><span class="p">:</span><span class="w"> </span><span class="s">"1001:1001"</span><span class="w">        </span><span class="c1"># utilisateur non-root</span>
@@ -2531,14 +2531,14 @@
 </tr>
 <tr>
 <td>Nginx</td>
-<td>Public — ports 80 (ACME) + 443 (HTTPS)</td>
+<td>Public • ports 80 (ACME) + 443 (HTTPS)</td>
 </tr>
 </tbody>
 </table>
 <hr/>
 <h2 id="backend-spring-security">Backend Spring Security</h2>
 <ul>
-<li>Mode <strong>stateless</strong> — sessions désactivées</li>
+<li>Mode <strong>stateless</strong> • sessions désactivées</li>
 <li>BCrypt pour le hachage des mots de passe</li>
 <li>Optimistic locking (<code>@Version</code>) sur les agrégats</li>
 <li>Validation stricte des DTOs via Spring Validation</li>
@@ -2552,7 +2552,7 @@
 <li>Docker socket proxy pour les déploiements automatisés</li>
 <li>Protection anti-bots</li>
 <li>Monitoring sécurité et détection d'intrusion</li>
-<li>Score Lynis — SELinux, fail2ban Nginx, partition <code>/var</code></li>
+<li>Score Lynis • SELinux, fail2ban Nginx, partition <code>/var</code></li>
 </ul>
 </article>
 </div>

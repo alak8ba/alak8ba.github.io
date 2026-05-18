@@ -5365,7 +5365,7 @@
 
 
 
-<h1 id="adr-012-rbac-modele-dautorisation">ADR-012 • RBAC — Modèle d'autorisation</h1>
+<h1 id="adr-012-rbac-modele-dautorisation">ADR-012 • RBAC • Modèle d'autorisation</h1>
 <h2 id="statut">Statut</h2>
 <p>Accepté</p>
 <h2 id="contexte">Contexte</h2>
@@ -5395,7 +5395,7 @@
 <span class="w">    </span><span class="n">created_at</span><span class="w">    </span><span class="k">TIMESTAMP</span>
 <span class="p">)</span>
 </code></pre></div></p>
-<p>Le rôle est inclus dans le JWT — pas de consultation base à chaque requête.</p>
+<p>Le rôle est inclus dans le JWT • pas de consultation base à chaque requête.</p>
 <h2 id="consequences">Conséquences</h2>
 <p><strong>Positives</strong>
 - Modèle simple, compréhensible, natif Spring Security
@@ -5406,8 +5406,8 @@
 - Granularité limitée (pas de permissions par ressource)
 - Un changement de rôle n'est effectif qu'à la prochaine connexion (JWT)</p>
 <h2 id="alternatives-ecartees">Alternatives écartées</h2>
-<p><strong>ACL (Access Control Lists)</strong> — granularité fine mais complexité importante, disproportionnée pour ce socle.</p>
-<p><strong>ABAC (Attribute-Based Access Control)</strong> — puissant mais nécessite un moteur de règles, sur-dimensionné.</p>
+<p><strong>ACL (Access Control Lists)</strong> • granularité fine mais complexité importante, disproportionnée pour ce socle.</p>
+<p><strong>ABAC (Attribute-Based Access Control)</strong> • puissant mais nécessite un moteur de règles, sur-dimensionné.</p>
 
 
 

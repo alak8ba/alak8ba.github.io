@@ -5387,18 +5387,18 @@
 
 
 
-<h1 id="adr-010-api-streaming-sse-vs-websocket-vs-polling">ADR-010 • API Streaming — SSE vs WebSocket vs Polling</h1>
+<h1 id="adr-010-api-streaming-sse-vs-websocket-vs-polling">ADR-010 • API Streaming • SSE vs WebSocket vs Polling</h1>
 <h2 id="statut">Statut</h2>
 <p>Accepté</p>
 <h2 id="contexte">Contexte</h2>
 <p>Le frontend React doit afficher des données en quasi-temps réel. Trois approches sont possibles pour notifier l'interface des changements d'état côté backend.</p>
 <h2 id="decision">Décision</h2>
 <p>Adopter une stratégie <strong>pragmatique en deux phases</strong> :</p>
-<p><strong>Phase 1 (MVP)</strong> — Polling HTTP
+<p><strong>Phase 1 (MVP)</strong> • Polling HTTP
 <div class="highlight"><pre><span></span><code>GET /api/v1/projection/bookings  (toutes les N secondes)
 </code></pre></div>
 Simple, robuste, aucune connexion persistante.</p>
-<p><strong>Phase 2 (évolution)</strong> — Server-Sent Events (SSE)
+<p><strong>Phase 2 (évolution)</strong> • Server-Sent Events (SSE)
 <div class="highlight"><pre><span></span><code><span class="nd">@GetMapping</span><span class="p">(</span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;/api/events&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">produces</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">MediaType</span><span class="p">.</span><span class="na">TEXT_EVENT_STREAM_VALUE</span><span class="p">)</span>
 <span class="kd">public</span><span class="w"> </span><span class="n">SseEmitter</span><span class="w"> </span><span class="nf">streamEvents</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
 </code></pre></div>
@@ -5449,7 +5449,7 @@ SSE est prototypé côté backend. Le frontend peut s'y connecter pour recevoir 
 - Polling génère des requêtes même sans changement
 - SSE nécessite une gestion du reconnect côté frontend</p>
 <h2 id="alternatives-ecartees">Alternatives écartées</h2>
-<p><strong>WebSocket en phase 1</strong> — bidirectionnel mais disproportionné pour un dashboard consultatif.</p>
+<p><strong>WebSocket en phase 1</strong> • bidirectionnel mais disproportionné pour un dashboard consultatif.</p>
 
 
 

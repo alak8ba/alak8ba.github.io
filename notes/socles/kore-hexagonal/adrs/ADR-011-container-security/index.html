@@ -5383,8 +5383,8 @@
 <span class="w">    </span><span class="nt">tmpfs</span><span class="p">:</span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/tmp</span>
 </code></pre></div></p>
-<p><strong>Réseau interne Docker</strong> — PostgreSQL et Kafka ne sont pas exposés publiquement, uniquement accessibles via le réseau Docker interne.</p>
-<p><strong>Reverse proxy Nginx</strong> — point d'entrée unique, terminaison TLS, headers de sécurité, proxy vers le backend.</p>
+<p><strong>Réseau interne Docker</strong> • PostgreSQL et Kafka ne sont pas exposés publiquement, uniquement accessibles via le réseau Docker interne.</p>
+<p><strong>Reverse proxy Nginx</strong> • point d'entrée unique, terminaison TLS, headers de sécurité, proxy vers le backend.</p>
 <p><strong>Firewall UFW</strong>
 <div class="highlight"><pre><span></span><code>deny incoming (default)
 allow 22/ssh
@@ -5403,8 +5403,8 @@ allow 443/https
 - Configuration Docker Compose plus complexe
 - Certains outils nécessitent des ajustements (<code>/tmp</code> en tmpfs)</p>
 <h2 id="alternatives-ecartees">Alternatives écartées</h2>
-<p><strong>Conteneurs root</strong> — plus simple mais inacceptable en production.</p>
-<p><strong>Services internes exposés</strong> — augmente drastiquement la surface d'attaque.</p>
+<p><strong>Conteneurs root</strong> • plus simple mais inacceptable en production.</p>
+<p><strong>Services internes exposés</strong> • augmente drastiquement la surface d'attaque.</p>
 
 
 

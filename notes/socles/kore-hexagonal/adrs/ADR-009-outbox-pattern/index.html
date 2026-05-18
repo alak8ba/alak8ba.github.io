@@ -5365,11 +5365,11 @@
 
 
 
-<h1 id="adr-009-outbox-pattern-domain-events">ADR-009 • Outbox Pattern — Domain Events</h1>
+<h1 id="adr-009-outbox-pattern-domain-events">ADR-009 • Outbox Pattern • Domain Events</h1>
 <h2 id="statut">Statut</h2>
 <p>Accepté</p>
 <h2 id="contexte">Contexte</h2>
-<p>Après chaque commande, l'aggregate produit un événement de domaine qui doit être publié vers Kafka. Le problème classique du <strong>dual write</strong> apparaît : si la transaction en base réussit mais que la publication Kafka échoue, le système devient incohérent — les consommateurs ne sont jamais informés du changement.</p>
+<p>Après chaque commande, l'aggregate produit un événement de domaine qui doit être publié vers Kafka. Le problème classique du <strong>dual write</strong> apparaît : si la transaction en base réussit mais que la publication Kafka échoue, le système devient incohérent • les consommateurs ne sont jamais informés du changement.</p>
 <h2 id="decision">Décision</h2>
 <p>Adopter le pattern <strong>Outbox</strong> :</p>
 <ol>
@@ -5385,7 +5385,7 @@
 <span class="w">    </span><span class="n">published</span><span class="w">   </span><span class="nb">BOOLEAN</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="k">FALSE</span>
 <span class="p">);</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="c1">// Dans le handler de commande — même transaction</span>
+<div class="highlight"><pre><span></span><code><span class="c1">// Dans le handler de commande • même transaction</span>
 <span class="n">aggregate</span><span class="p">.</span><span class="na">apply</span><span class="p">(</span><span class="n">command</span><span class="p">);</span>
 <span class="n">outboxRepository</span><span class="p">.</span><span class="na">save</span><span class="p">(</span><span class="n">OutboxEvent</span><span class="p">.</span><span class="na">from</span><span class="p">(</span><span class="n">aggregate</span><span class="p">.</span><span class="na">pullEvents</span><span class="p">()));</span>
 <span class="n">aggregateRepository</span><span class="p">.</span><span class="na">save</span><span class="p">(</span><span class="n">aggregate</span><span class="p">);</span>
@@ -5402,8 +5402,8 @@
 - Composant publisher additionnel (polling ou CDC)
 - Légère latence entre commit et publication Kafka</p>
 <h2 id="alternatives-ecartees">Alternatives écartées</h2>
-<p><strong>Publication directe après transaction</strong> — risque de perte d'événement si Kafka est indisponible au moment de la publication.</p>
-<p><strong>Transactions distribuées (2PC)</strong> — non supportées nativement par Kafka, complexité excessive.</p>
+<p><strong>Publication directe après transaction</strong> • risque de perte d'événement si Kafka est indisponible au moment de la publication.</p>
+<p><strong>Transactions distribuées (2PC)</strong> • non supportées nativement par Kafka, complexité excessive.</p>
 
 
 
