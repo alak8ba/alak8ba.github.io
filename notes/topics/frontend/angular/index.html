@@ -4040,67 +4040,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Cas concrets">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#exemple-1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Exemple 1
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#exemple-2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Exemple 2
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#exemple-3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Exemple 3
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#exemple-4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Exemple 4
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#exemple-5" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Exemple 5
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
@@ -4900,67 +4839,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Cas concrets">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#exemple-1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Exemple 1
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#exemple-2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Exemple 2
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#exemple-3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Exemple 3
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#exemple-4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Exemple 4
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#exemple-5" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Exemple 5
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
@@ -5434,25 +5312,34 @@
 </ul>
 <hr />
 <h2 id="cas-concrets">Cas concrets</h2>
-<h3 id="exemple-1">Exemple 1</h3>
-<p>Observable vs Promise ?
-Observable : lazy, 0 à N valeurs, annulable, composable. Promise : eager, une seule valeur, non annulable.</p>
-<hr />
-<h3 id="exemple-2">Exemple 2</h3>
-<p>Change Detection Default vs OnPush ?
-Default : vérifie tout le sous-arbre à chaque événement. OnPush : vérifie seulement si une référence <code>@Input()</code> change ou si un <code>async pipe</code> émet.</p>
-<hr />
-<h3 id="exemple-3">Exemple 3</h3>
-<p>switchMap vs mergeMap vs concatMap vs exhaustMap ?
-switchMap : annule la précédente (recherche live). mergeMap : parallèle (uploads). concatMap : séquentiel (actions ordonnées). exhaustMap : ignore les nouvelles tant que la courante tourne (submit formulaire).</p>
-<hr />
-<h3 id="exemple-4">Exemple 4</h3>
-<p>Memory leak le plus courant en Angular ?
-Oublier <code>unsubscribe()</code>. Solution : <code>takeUntil(destroy$)</code> dans <code>ngOnDestroy</code>, ou <code>async pipe</code> qui gère le cycle de vie automatiquement.</p>
-<hr />
-<h3 id="exemple-5">Exemple 5</h3>
-<p>Standalone vs NgModule ?
-NgModule regroupait déclarations, imports et exports. Standalone (défaut Angular 17) : chaque composant déclare ses propres imports • moins de boilerplate, tree-shaking meilleur, tests plus simples.</p>
+<details class="question">
+<summary>Observable vs Promise ?</summary>
+<p><strong>Promise</strong> : eager (s'exécute immédiatement), une seule valeur, non annulable.
+<strong>Observable</strong> : lazy (s'exécute au subscribe), 0 à N valeurs, annulable (unsubscribe), composable avec les opérateurs RxJS.</p>
+</details>
+<details class="question">
+<summary>Change Detection Default vs OnPush ?</summary>
+<p>Default : vérifie tout le sous-arbre à chaque événement.
+OnPush : vérifie seulement si une référence <code>@Input()</code> change ou si un <code>async pipe</code> émet.</p>
+</details>
+<details class="question">
+<summary>switchMap vs mergeMap vs concatMap vs exhaustMap ?</summary>
+<ul>
+<li><code>switchMap</code> : annule la précédente • recherche live</li>
+<li><code>mergeMap</code> : parallèle • uploads simultanés</li>
+<li><code>concatMap</code> : séquentiel • actions ordonnées</li>
+<li><code>exhaustMap</code> : ignore les nouvelles tant que la courante tourne • submit formulaire</li>
+</ul>
+</details>
+<details class="question">
+<summary>Memory leak le plus courant en Angular ?</summary>
+<p>Oublier <code>unsubscribe()</code> sur un Observable.
+Solution : <code>takeUntil(destroy$)</code> dans <code>ngOnDestroy</code>, ou <code>async pipe</code> qui gère le cycle de vie automatiquement.</p>
+</details>
+<details class="question">
+<summary>Standalone vs NgModule ?</summary>
+<p>NgModule regroupait déclarations, imports et exports. Avec Standalone (défaut Angular 17), chaque composant déclare ses propres imports • moins de boilerplate, tree-shaking meilleur, tests plus simples.</p>
+</details>
 <hr />
 <h2 id="points-cles">Points clés</h2>
 <ul>

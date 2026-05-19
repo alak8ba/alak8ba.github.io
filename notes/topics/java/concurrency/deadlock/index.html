@@ -1567,56 +1567,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Cas concrets">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#exemple-1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Exemple 1
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#exemple-2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Exemple 2
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#exemple-3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Exemple 3
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#exemple-4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Exemple 4
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
@@ -4376,56 +4326,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Cas concrets">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#exemple-1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Exemple 1
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#exemple-2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Exemple 2
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#exemple-3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Exemple 3
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#exemple-4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Exemple 4
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
@@ -4615,22 +4515,22 @@ chacun attend une ressource détenue par l’autre</p>
 </ul>
 <hr />
 <h2 id="cas-concrets">Cas concrets</h2>
-<h3 id="exemple-1">Exemple 1</h3>
-<p>C’est quoi un deadlock ?
-Blocage mutuel entre threads</p>
-<hr />
-<h3 id="exemple-2">Exemple 2</h3>
-<p>Cause principale ?
-Ordre incohérent des locks</p>
-<hr />
-<h3 id="exemple-3">Exemple 3</h3>
-<p>Solution ?
-Ordre des locks / <code>tryLock</code> / simplification</p>
-<hr />
-<h3 id="exemple-4">Exemple 4</h3>
-<p>Deadlock ou race condition → lequel bloque le système ?
-Deadlock</p>
-<hr />
+<details class="question">
+<summary>C’est quoi un deadlock ?</summary>
+<p>Blocage mutuel entre threads</p>
+</details>
+<details class="question">
+<summary>Cause principale ?</summary>
+<p>Ordre incohérent des locks</p>
+</details>
+<details class="question">
+<summary>Solution ?</summary>
+<p>Ordre des locks / <code>tryLock</code> / simplification</p>
+</details>
+<details class="question">
+<summary>Deadlock ou race condition → lequel bloque le système ?</summary>
+<p>Deadlock</p>
+</details>
 <h2 id="points-cles">Points clés</h2>
 <ul>
 <li>un deadlock = blocage total entre threads</li>
