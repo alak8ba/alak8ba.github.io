@@ -12,31 +12,31 @@
         <meta name="author" content="A.KOUBA">
       
       
-        <link rel="canonical" href="https://alak8ba.github.io/notes/topics/java/design-patterns/singleton-pattern/">
+        <link rel="canonical" href="https://alak8ba.github.io/notes/topics/frontend/angular-testing/">
       
       
-        <link rel="prev" href="../../oop/solid/">
+        <link rel="prev" href="../angular-migrations/">
       
       
-        <link rel="next" href="../factory-pattern/">
+        <link rel="next" href="../angular-ssr/">
       
       
         
       
       
-      <link rel="icon" href="../../../../assets/favicon.png">
+      <link rel="icon" href="../../../assets/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
-        <title>Singleton - Engineering Notes</title>
+        <title>Angular • Testing - Engineering Notes</title>
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -55,9 +55,9 @@
       
     
     
-      <link rel="stylesheet" href="../../../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -82,7 +82,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#java-singleton-pattern-instance-unique" class="md-skip">
+        <a href="#angular-testing" class="md-skip">
           Aller au contenu
         </a>
       
@@ -98,7 +98,7 @@
   <nav class="md-header__inner md-grid" aria-label="En-tête">
     <a href="https://alak8ba.github.io" title="Engineering Notes" class="md-header__button md-logo" aria-label="Engineering Notes" data-md-component="logo">
       
-  <img src="../../../../assets/favicon.png" alt="logo">
+  <img src="../../../assets/favicon.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -115,7 +115,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Singleton
+              Angular • Testing
             
           </span>
         </div>
@@ -216,7 +216,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../.." class="md-tabs__link">
+      <a href="../../.." class="md-tabs__link">
         
   
   
@@ -235,7 +235,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../../about/" class="md-tabs__link">
+      <a href="../../../about/" class="md-tabs__link">
         
   
   
@@ -254,7 +254,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../../tags/" class="md-tabs__link">
+      <a href="../../../tags/" class="md-tabs__link">
         
   
   
@@ -271,8 +271,6 @@
   
   
   
-    
-  
   
     
     
@@ -280,13 +278,11 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../../fundamentals/equals-vs-double-equals/" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../java/fundamentals/equals-vs-double-equals/" class="md-tabs__link">
           
   
   
@@ -309,7 +305,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../architecture/cqrs-pattern/" class="md-tabs__link">
+        <a href="../../architecture/cqrs-pattern/" class="md-tabs__link">
           
   
   
@@ -329,7 +325,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../kafka/retry-and-dlt-pattern/" class="md-tabs__link">
+        <a href="../../kafka/retry-and-dlt-pattern/" class="md-tabs__link">
           
   
   
@@ -349,7 +345,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../security/jwt-authentication-pattern/" class="md-tabs__link">
+        <a href="../../security/jwt-authentication-pattern/" class="md-tabs__link">
           
   
   
@@ -369,7 +365,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../observability/logging-architecture-java/" class="md-tabs__link">
+        <a href="../../observability/logging-architecture-java/" class="md-tabs__link">
           
   
   
@@ -389,7 +385,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../devops/docker-production-pattern/" class="md-tabs__link">
+        <a href="../../devops/docker-production-pattern/" class="md-tabs__link">
           
   
   
@@ -409,7 +405,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../database/sql-joins-indexes/" class="md-tabs__link">
+        <a href="../../database/sql-joins-indexes/" class="md-tabs__link">
           
   
   
@@ -429,7 +425,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../http/http-basics/" class="md-tabs__link">
+        <a href="../../http/http-basics/" class="md-tabs__link">
           
   
   
@@ -449,7 +445,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../testing/testcontainers-pattern/" class="md-tabs__link">
+        <a href="../../testing/testcontainers-pattern/" class="md-tabs__link">
           
   
   
@@ -465,11 +461,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../../frontend/angular/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../angular/" class="md-tabs__link">
           
   
   
@@ -489,7 +487,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../javascript/fundamentals/typescript-basics/" class="md-tabs__link">
+        <a href="../../javascript/fundamentals/typescript-basics/" class="md-tabs__link">
           
   
   
@@ -509,7 +507,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../../socles/" class="md-tabs__link">
+        <a href="../../../socles/" class="md-tabs__link">
           
   
   
@@ -545,7 +543,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="https://alak8ba.github.io" title="Engineering Notes" class="md-nav__button md-logo" aria-label="Engineering Notes" data-md-component="logo">
       
-  <img src="../../../../assets/favicon.png" alt="logo">
+  <img src="../../../assets/favicon.png" alt="logo">
 
     </a>
     Engineering Notes
@@ -560,7 +558,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../.." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         
   
   
@@ -587,7 +585,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../about/" class="md-nav__link">
+      <a href="../../../about/" class="md-nav__link">
         
   
   
@@ -614,7 +612,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../tags/" class="md-nav__link">
+      <a href="../../../tags/" class="md-nav__link">
         
   
   
@@ -638,31 +636,28 @@
       
   
   
-    
   
   
-  
     
     
     
     
-      
-        
-        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
         
           
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
             
   
   
@@ -680,7 +675,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             
@@ -704,13 +699,10 @@
       
       
         
-          
-          
-        
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
@@ -719,7 +711,7 @@
         <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_1" >
         
           
-          <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="">
+          <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
             
   
   
@@ -755,7 +747,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../fundamentals/equals-vs-double-equals/" class="md-nav__link">
+      <a href="../../java/fundamentals/equals-vs-double-equals/" class="md-nav__link">
         
   
   
@@ -783,7 +775,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../fundamentals/autoboxing/" class="md-nav__link">
+      <a href="../../java/fundamentals/autoboxing/" class="md-nav__link">
         
   
   
@@ -811,7 +803,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../fundamentals/final/" class="md-nav__link">
+      <a href="../../java/fundamentals/final/" class="md-nav__link">
         
   
   
@@ -839,7 +831,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../fundamentals/generics/" class="md-nav__link">
+      <a href="../../java/fundamentals/generics/" class="md-nav__link">
         
   
   
@@ -867,7 +859,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../fundamentals/instanceof/" class="md-nav__link">
+      <a href="../../java/fundamentals/instanceof/" class="md-nav__link">
         
   
   
@@ -895,7 +887,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../fundamentals/integer-cache/" class="md-nav__link">
+      <a href="../../java/fundamentals/integer-cache/" class="md-nav__link">
         
   
   
@@ -923,7 +915,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../fundamentals/java-protected/" class="md-nav__link">
+      <a href="../../java/fundamentals/java-protected/" class="md-nav__link">
         
   
   
@@ -951,7 +943,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../fundamentals/java-static/" class="md-nav__link">
+      <a href="../../java/fundamentals/java-static/" class="md-nav__link">
         
   
   
@@ -979,7 +971,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../fundamentals/static-generic-method/" class="md-nav__link">
+      <a href="../../java/fundamentals/static-generic-method/" class="md-nav__link">
         
   
   
@@ -1021,13 +1013,10 @@
       
       
         
-          
-          
-        
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
@@ -1036,7 +1025,7 @@
         <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_2" >
         
           
-          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="">
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
             
   
   
@@ -1072,7 +1061,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../collections/list-set-map/" class="md-nav__link">
+      <a href="../../java/collections/list-set-map/" class="md-nav__link">
         
   
   
@@ -1100,7 +1089,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../collections/hashmap/" class="md-nav__link">
+      <a href="../../java/collections/hashmap/" class="md-nav__link">
         
   
   
@@ -1128,7 +1117,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../collections/hashmap-treemap-linkedhashmap/" class="md-nav__link">
+      <a href="../../java/collections/hashmap-treemap-linkedhashmap/" class="md-nav__link">
         
   
   
@@ -1156,7 +1145,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../collections/hashtable/" class="md-nav__link">
+      <a href="../../java/collections/hashtable/" class="md-nav__link">
         
   
   
@@ -1184,7 +1173,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../collections/concurrenthashmap/" class="md-nav__link">
+      <a href="../../java/collections/concurrenthashmap/" class="md-nav__link">
         
   
   
@@ -1212,7 +1201,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../collections/iterator/" class="md-nav__link">
+      <a href="../../java/collections/iterator/" class="md-nav__link">
         
   
   
@@ -1240,7 +1229,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../collections/algorithms-complexity/" class="md-nav__link">
+      <a href="../../java/collections/algorithms-complexity/" class="md-nav__link">
         
   
   
@@ -1282,13 +1271,10 @@
       
       
         
-          
-          
-        
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
@@ -1297,7 +1283,7 @@
         <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_3" >
         
           
-          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="">
+          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
             
   
   
@@ -1333,7 +1319,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../concurrency/race-condition/" class="md-nav__link">
+      <a href="../../java/concurrency/race-condition/" class="md-nav__link">
         
   
   
@@ -1361,7 +1347,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../concurrency/deadlock/" class="md-nav__link">
+      <a href="../../java/concurrency/deadlock/" class="md-nav__link">
         
   
   
@@ -1389,7 +1375,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../concurrency/synchronized/" class="md-nav__link">
+      <a href="../../java/concurrency/synchronized/" class="md-nav__link">
         
   
   
@@ -1417,7 +1403,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../concurrency/volatile/" class="md-nav__link">
+      <a href="../../java/concurrency/volatile/" class="md-nav__link">
         
   
   
@@ -1445,7 +1431,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../concurrency/atomic/" class="md-nav__link">
+      <a href="../../java/concurrency/atomic/" class="md-nav__link">
         
   
   
@@ -1487,13 +1473,10 @@
       
       
         
-          
-          
-        
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
@@ -1502,7 +1485,7 @@
         <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_4" >
         
           
-          <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="">
+          <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
             
   
   
@@ -1538,7 +1521,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../oop/inheritance/" class="md-nav__link">
+      <a href="../../java/oop/inheritance/" class="md-nav__link">
         
   
   
@@ -1566,7 +1549,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../oop/polymorphism/" class="md-nav__link">
+      <a href="../../java/oop/polymorphism/" class="md-nav__link">
         
   
   
@@ -1594,7 +1577,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../oop/solid/" class="md-nav__link">
+      <a href="../../java/oop/solid/" class="md-nav__link">
         
   
   
@@ -1627,31 +1610,28 @@
                 
   
   
-    
   
   
-  
     
     
     
     
       
       
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
         
           
-          
         
-      
-    
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_5" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_5" >
         
           
-          <label class="md-nav__link" for="__nav_4_5" id="__nav_4_5_label" tabindex="">
+          <label class="md-nav__link" for="__nav_4_5" id="__nav_4_5_label" tabindex="0">
             
   
   
@@ -1669,7 +1649,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4_5">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1684,37 +1664,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Singleton
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../java/design-patterns/singleton-pattern/" class="md-nav__link">
         
   
   
@@ -1730,175 +1683,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table des matières
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#principe" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Principe
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2-implementation-basique" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2. Implémentation basique
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3-probleme-en-multithreading" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3. Problème en multithreading
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4-version-thread-safe-synchronized" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4. Version thread-safe (synchronized)
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5-double-checked-locking-optimise" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5. Double-checked locking (optimisé)
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#6-meilleure-version-recommandee" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        💎 6. Meilleure version (recommandée)
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="💎 6. Meilleure version (recommandée)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#singleton-avec-enum" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Singleton avec enum
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#7-quand-utiliser" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        7. Quand utiliser ?
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#points-dattention" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Points d'attention
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#9-singleton-vs-di" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        9. Singleton vs DI
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#10-questions-classiques" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        10. Questions classiques
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#synthese" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Synthèse
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#voir-aussi" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Voir aussi
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1911,7 +1695,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../factory-pattern/" class="md-nav__link">
+      <a href="../../java/design-patterns/factory-pattern/" class="md-nav__link">
         
   
   
@@ -1939,7 +1723,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../dependency-injection/" class="md-nav__link">
+      <a href="../../java/design-patterns/dependency-injection/" class="md-nav__link">
         
   
   
@@ -1981,13 +1765,10 @@
       
       
         
-          
-          
-        
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
@@ -1996,7 +1777,7 @@
         <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_6" >
         
           
-          <label class="md-nav__link" for="__nav_4_6" id="__nav_4_6_label" tabindex="">
+          <label class="md-nav__link" for="__nav_4_6" id="__nav_4_6_label" tabindex="0">
             
   
   
@@ -2032,7 +1813,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../spring/bean-scopes/" class="md-nav__link">
+      <a href="../../java/spring/bean-scopes/" class="md-nav__link">
         
   
   
@@ -2060,7 +1841,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../spring/hibernate-jpa/" class="md-nav__link">
+      <a href="../../java/spring/hibernate-jpa/" class="md-nav__link">
         
   
   
@@ -2088,7 +1869,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../spring/aop-spring/" class="md-nav__link">
+      <a href="../../java/spring/aop-spring/" class="md-nav__link">
         
   
   
@@ -2116,7 +1897,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../spring/spring-batch-migration-sb2-java8-to-sb5-java21/" class="md-nav__link">
+      <a href="../../spring/spring-batch-migration-sb2-java8-to-sb5-java21/" class="md-nav__link">
         
   
   
@@ -2144,7 +1925,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../spring/spring-batch-advanced-patterns/" class="md-nav__link">
+      <a href="../../spring/spring-batch-advanced-patterns/" class="md-nav__link">
         
   
   
@@ -2186,13 +1967,10 @@
       
       
         
-          
-          
-        
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
@@ -2201,7 +1979,7 @@
         <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_7" >
         
           
-          <label class="md-nav__link" for="__nav_4_7" id="__nav_4_7_label" tabindex="">
+          <label class="md-nav__link" for="__nav_4_7" id="__nav_4_7_label" tabindex="0">
             
   
   
@@ -2237,7 +2015,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../database/acid/" class="md-nav__link">
+      <a href="../../java/database/acid/" class="md-nav__link">
         
   
   
@@ -2334,7 +2112,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../architecture/cqrs-pattern/" class="md-nav__link">
+      <a href="../../architecture/cqrs-pattern/" class="md-nav__link">
         
   
   
@@ -2362,7 +2140,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../architecture/rest-api-design/" class="md-nav__link">
+      <a href="../../architecture/rest-api-design/" class="md-nav__link">
         
   
   
@@ -2390,7 +2168,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../spring/hexagonal-architecture/" class="md-nav__link">
+      <a href="../../spring/hexagonal-architecture/" class="md-nav__link">
         
   
   
@@ -2479,7 +2257,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../kafka/retry-and-dlt-pattern/" class="md-nav__link">
+      <a href="../../kafka/retry-and-dlt-pattern/" class="md-nav__link">
         
   
   
@@ -2507,7 +2285,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../kafka/idempotent-consumers/" class="md-nav__link">
+      <a href="../../kafka/idempotent-consumers/" class="md-nav__link">
         
   
   
@@ -2535,7 +2313,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../kafka/outbox-pattern/" class="md-nav__link">
+      <a href="../../kafka/outbox-pattern/" class="md-nav__link">
         
   
   
@@ -2563,7 +2341,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../kafka/reliability-patterns/" class="md-nav__link">
+      <a href="../../kafka/reliability-patterns/" class="md-nav__link">
         
   
   
@@ -2591,7 +2369,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../kafka/consumer-rebalance/" class="md-nav__link">
+      <a href="../../kafka/consumer-rebalance/" class="md-nav__link">
         
   
   
@@ -2619,7 +2397,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../distributed/eventual-consistency/" class="md-nav__link">
+      <a href="../../distributed/eventual-consistency/" class="md-nav__link">
         
   
   
@@ -2647,7 +2425,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../distributed/microservices-communication/" class="md-nav__link">
+      <a href="../../distributed/microservices-communication/" class="md-nav__link">
         
   
   
@@ -2675,7 +2453,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../distributed/sync-vs-async/" class="md-nav__link">
+      <a href="../../distributed/sync-vs-async/" class="md-nav__link">
         
   
   
@@ -2703,7 +2481,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../distributed/kafka-resilience-patterns/" class="md-nav__link">
+      <a href="../../distributed/kafka-resilience-patterns/" class="md-nav__link">
         
   
   
@@ -2731,7 +2509,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../distributed/read-models-and-fetch-strategies/" class="md-nav__link">
+      <a href="../../distributed/read-models-and-fetch-strategies/" class="md-nav__link">
         
   
   
@@ -2759,7 +2537,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../distributed/distributed-tracing-and-correlation/" class="md-nav__link">
+      <a href="../../distributed/distributed-tracing-and-correlation/" class="md-nav__link">
         
   
   
@@ -2848,7 +2626,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../security/jwt-authentication-pattern/" class="md-nav__link">
+      <a href="../../security/jwt-authentication-pattern/" class="md-nav__link">
         
   
   
@@ -2876,7 +2654,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../security/cors/" class="md-nav__link">
+      <a href="../../security/cors/" class="md-nav__link">
         
   
   
@@ -2904,7 +2682,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../security/cookie-security/" class="md-nav__link">
+      <a href="../../security/cookie-security/" class="md-nav__link">
         
   
   
@@ -2932,7 +2710,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../security/http-security-headers/" class="md-nav__link">
+      <a href="../../security/http-security-headers/" class="md-nav__link">
         
   
   
@@ -3021,7 +2799,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../observability/logging-architecture-java/" class="md-nav__link">
+      <a href="../../observability/logging-architecture-java/" class="md-nav__link">
         
   
   
@@ -3049,7 +2827,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../observability/exception-handling-spring/" class="md-nav__link">
+      <a href="../../observability/exception-handling-spring/" class="md-nav__link">
         
   
   
@@ -3077,7 +2855,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../observability/metrics-monitoring-prometheus-grafana/" class="md-nav__link">
+      <a href="../../observability/metrics-monitoring-prometheus-grafana/" class="md-nav__link">
         
   
   
@@ -3166,7 +2944,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../devops/docker-production-pattern/" class="md-nav__link">
+      <a href="../../devops/docker-production-pattern/" class="md-nav__link">
         
   
   
@@ -3194,7 +2972,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../devops/docker-networking/" class="md-nav__link">
+      <a href="../../devops/docker-networking/" class="md-nav__link">
         
   
   
@@ -3222,7 +3000,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../devops/container-security/" class="md-nav__link">
+      <a href="../../devops/container-security/" class="md-nav__link">
         
   
   
@@ -3250,7 +3028,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../devops/reverse-proxy-pattern/" class="md-nav__link">
+      <a href="../../devops/reverse-proxy-pattern/" class="md-nav__link">
         
   
   
@@ -3278,7 +3056,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../devops/pull-based-deployment/" class="md-nav__link">
+      <a href="../../devops/pull-based-deployment/" class="md-nav__link">
         
   
   
@@ -3306,7 +3084,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../devops/ci-cd-pipeline-pattern/" class="md-nav__link">
+      <a href="../../devops/ci-cd-pipeline-pattern/" class="md-nav__link">
         
   
   
@@ -3334,7 +3112,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../devops/observability-pattern/" class="md-nav__link">
+      <a href="../../devops/observability-pattern/" class="md-nav__link">
         
   
   
@@ -3423,7 +3201,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../database/sql-joins-indexes/" class="md-nav__link">
+      <a href="../../database/sql-joins-indexes/" class="md-nav__link">
         
   
   
@@ -3451,7 +3229,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../database/index-et-optimisation-postgresql/" class="md-nav__link">
+      <a href="../../database/index-et-optimisation-postgresql/" class="md-nav__link">
         
   
   
@@ -3479,7 +3257,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../database/transaction-patterns/" class="md-nav__link">
+      <a href="../../database/transaction-patterns/" class="md-nav__link">
         
   
   
@@ -3507,7 +3285,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../database/optimistic-locking/" class="md-nav__link">
+      <a href="../../database/optimistic-locking/" class="md-nav__link">
         
   
   
@@ -3596,7 +3374,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../http/http-basics/" class="md-nav__link">
+      <a href="../../http/http-basics/" class="md-nav__link">
         
   
   
@@ -3685,7 +3463,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../testing/testcontainers-pattern/" class="md-nav__link">
+      <a href="../../testing/testcontainers-pattern/" class="md-nav__link">
         
   
   
@@ -3717,28 +3495,31 @@
       
   
   
+    
   
   
+  
     
     
     
     
+      
+        
+        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_13" checked>
         
           
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_13" >
-        
-          
-          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="">
             
   
   
@@ -3756,7 +3537,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_13">
             <span class="md-nav__icon md-icon"></span>
             
@@ -3774,7 +3555,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../frontend/angular/" class="md-nav__link">
+      <a href="../angular/" class="md-nav__link">
         
   
   
@@ -3802,7 +3583,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../frontend/angular-migrations/" class="md-nav__link">
+      <a href="../angular-migrations/" class="md-nav__link">
         
   
   
@@ -3827,10 +3608,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../../frontend/angular-testing/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Angular • Testing
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -3846,6 +3654,125 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#outils-disponibles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Outils disponibles
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tester-un-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tester un service
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tester-un-composant" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tester un composant
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mocker-une-dependance-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mocker une dépendance (service)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tester-un-guard-angular-14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tester un guard (Angular 14+)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tester-un-pipe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tester un pipe
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#migrer-de-karma-vers-jest" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Migrer de Karma vers Jest
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cas-concrets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cas concrets
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#points-cles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Points clés
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -3858,7 +3785,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../frontend/angular-ssr/" class="md-nav__link">
+      <a href="../angular-ssr/" class="md-nav__link">
         
   
   
@@ -3886,7 +3813,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../frontend/ngrx/" class="md-nav__link">
+      <a href="../ngrx/" class="md-nav__link">
         
   
   
@@ -3914,7 +3841,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../frontend/react/" class="md-nav__link">
+      <a href="../react/" class="md-nav__link">
         
   
   
@@ -3942,7 +3869,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../frontend/chartjs/" class="md-nav__link">
+      <a href="../chartjs/" class="md-nav__link">
         
   
   
@@ -4031,7 +3958,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../javascript/fundamentals/typescript-basics/" class="md-nav__link">
+      <a href="../../javascript/fundamentals/typescript-basics/" class="md-nav__link">
         
   
   
@@ -4059,7 +3986,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../javascript/fundamentals/javascript-pitfalls/" class="md-nav__link">
+      <a href="../../javascript/fundamentals/javascript-pitfalls/" class="md-nav__link">
         
   
   
@@ -4148,7 +4075,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../socles/" class="md-nav__link">
+      <a href="../../../socles/" class="md-nav__link">
         
   
   
@@ -4176,7 +4103,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../socles/kore-hexagonal/" class="md-nav__link">
+      <a href="../../../socles/kore-hexagonal/" class="md-nav__link">
         
   
   
@@ -4204,7 +4131,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../socles/kore-batch/" class="md-nav__link">
+      <a href="../../../socles/kore-batch/" class="md-nav__link">
         
   
   
@@ -4232,7 +4159,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../socles/kore-genie/" class="md-nav__link">
+      <a href="../../../socles/kore-genie/" class="md-nav__link">
         
   
   
@@ -4260,7 +4187,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../socles/kore-n8n/" class="md-nav__link">
+      <a href="../../../socles/kore-n8n/" class="md-nav__link">
         
   
   
@@ -4315,10 +4242,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#principe" class="md-nav__link">
+  <a href="#outils-disponibles" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Principe
+        Outils disponibles
       
     </span>
   </a>
@@ -4326,10 +4253,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-implementation-basique" class="md-nav__link">
+  <a href="#tester-un-service" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Implémentation basique
+        Tester un service
       
     </span>
   </a>
@@ -4337,10 +4264,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-probleme-en-multithreading" class="md-nav__link">
+  <a href="#tester-un-composant" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Problème en multithreading
+        Tester un composant
       
     </span>
   </a>
@@ -4348,10 +4275,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-version-thread-safe-synchronized" class="md-nav__link">
+  <a href="#mocker-une-dependance-service" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. Version thread-safe (synchronized)
+        Mocker une dépendance (service)
       
     </span>
   </a>
@@ -4359,10 +4286,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#5-double-checked-locking-optimise" class="md-nav__link">
+  <a href="#tester-un-guard-angular-14" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5. Double-checked locking (optimisé)
+        Tester un guard (Angular 14+)
       
     </span>
   </a>
@@ -4370,38 +4297,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#6-meilleure-version-recommandee" class="md-nav__link">
+  <a href="#tester-un-pipe" class="md-nav__link">
     <span class="md-ellipsis">
       
-        💎 6. Meilleure version (recommandée)
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="💎 6. Meilleure version (recommandée)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#singleton-avec-enum" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Singleton avec enum
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#7-quand-utiliser" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        7. Quand utiliser ?
+        Tester un pipe
       
     </span>
   </a>
@@ -4409,10 +4308,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#points-dattention" class="md-nav__link">
+  <a href="#migrer-de-karma-vers-jest" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Points d'attention
+        Migrer de Karma vers Jest
       
     </span>
   </a>
@@ -4420,10 +4319,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#9-singleton-vs-di" class="md-nav__link">
+  <a href="#cas-concrets" class="md-nav__link">
     <span class="md-ellipsis">
       
-        9. Singleton vs DI
+        Cas concrets
       
     </span>
   </a>
@@ -4431,32 +4330,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#10-questions-classiques" class="md-nav__link">
+  <a href="#points-cles" class="md-nav__link">
     <span class="md-ellipsis">
       
-        10. Questions classiques
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#synthese" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Synthèse
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#voir-aussi" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Voir aussi
+        Points clés
       
     </span>
   </a>
@@ -4484,177 +4361,268 @@
       
       
       
-        <a href="../../../../tags/#tag:design-patterns" class="md-tag">design-patterns</a>
+        <a href="../../../tags/#tag:angular" class="md-tag">angular</a>
       
     
       
       
       
       
-        <a href="../../../../tags/#tag:java" class="md-tag">java</a>
+        <a href="../../../tags/#tag:frontend" class="md-tag">frontend</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../../tags/#tag:jasmine" class="md-tag">jasmine</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../../tags/#tag:jest" class="md-tag">jest</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../../tags/#tag:testing" class="md-tag">testing</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../../tags/#tag:typescript" class="md-tag">typescript</a>
       
     
   </nav>
 
 
 
-<h1 id="java-singleton-pattern-instance-unique">Java • Singleton Pattern (Instance unique)</h1>
-<p>Le <strong>Singleton Pattern</strong> est un design pattern qui garantit qu’une classe n’a <strong>qu’une seule instance</strong> dans toute l’application.</p>
+<h1 id="angular-testing">Angular • Testing</h1>
 <hr />
-<h2 id="principe">Principe</h2>
-<p>Une seule instance
-accès global à cette instance</p>
-<hr />
-<h2 id="2-implementation-basique">2. Implémentation basique</h2>
-<div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nc">Singleton</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="n">Singleton</span><span class="w"> </span><span class="n">instance</span><span class="p">;</span>
-
-<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="nf">Singleton</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span>
-
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="n">Singleton</span><span class="w"> </span><span class="nf">getInstance</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">instance</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="n">instance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Singleton</span><span class="p">();</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">instance</span><span class="p">;</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-<p>Problème :</p>
-<ul>
-<li>❌ pas thread-safe</li>
-</ul>
-<hr />
-<h2 id="3-probleme-en-multithreading">3. Problème en multithreading</h2>
-<p>Deux threads peuvent créer <strong>deux instances différentes</strong></p>
-<p>💥 bug critique</p>
-<hr />
-<h2 id="4-version-thread-safe-synchronized">4. Version thread-safe (synchronized)</h2>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">synchronized</span><span class="w"> </span><span class="n">Singleton</span><span class="w"> </span><span class="nf">getInstance</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">instance</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">instance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Singleton</span><span class="p">();</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">instance</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div>
-<p>safe
-plus lent</p>
-<hr />
-<h2 id="5-double-checked-locking-optimise">5. Double-checked locking (optimisé)</h2>
-<div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nc">Singleton</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">volatile</span><span class="w"> </span><span class="n">Singleton</span><span class="w"> </span><span class="n">instance</span><span class="p">;</span>
-
-<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="nf">Singleton</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span>
-
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="n">Singleton</span><span class="w"> </span><span class="nf">getInstance</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">instance</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="kd">synchronized</span><span class="w"> </span><span class="p">(</span><span class="n">Singleton</span><span class="p">.</span><span class="na">class</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">instance</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                    </span><span class="n">instance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Singleton</span><span class="p">();</span>
-<span class="w">                </span><span class="p">}</span>
-<span class="w">            </span><span class="p">}</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">instance</span><span class="p">;</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-<p>performant
-thread-safe</p>
-<hr />
-<h2 id="6-meilleure-version-recommandee">💎 6. Meilleure version (recommandée)</h2>
-<h3 id="singleton-avec-enum">Singleton avec <code>enum</code></h3>
-<div class="highlight"><pre><span></span><code><span class="kd">enum</span><span class="w"> </span><span class="n">Singleton</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">INSTANCE</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div>
-<div class="admonition tip">
-<p class="admonition-title">Avantages</p>
-<ul>
-<li>thread-safe automatiquement</li>
-<li>protège contre la sérialisation</li>
-<li>protège contre la réflexion</li>
-</ul>
-</div>
-<hr />
-<h2 id="7-quand-utiliser">7. Quand utiliser ?</h2>
-<ul>
-<li>configuration globale</li>
-<li>logger</li>
-<li>cache</li>
-<li>connexion unique</li>
-</ul>
-<hr />
-<h2 id="points-dattention">Points d'attention</h2>
-<ul>
-<li>singleton global = couplage</li>
-<li>difficile à tester</li>
-<li>abus de singleton</li>
-</ul>
-<hr />
-<h2 id="9-singleton-vs-di">9. Singleton vs DI</h2>
+<h2 id="outils-disponibles">Outils disponibles</h2>
 <table>
 <thead>
 <tr>
-<th></th>
-<th>Singleton</th>
-<th>DI</th>
+<th>Outil</th>
+<th>Rôle</th>
+<th>Défaut Angular</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>instance</td>
-<td>unique globale</td>
-<td>gérée par container</td>
+<td>Jasmine</td>
+<td>Framework de test (describe/it/expect)</td>
+<td>✅ oui</td>
 </tr>
 <tr>
-<td>flexibilité</td>
-<td>faible</td>
-<td>élevée</td>
+<td>Karma</td>
+<td>Runner navigateur</td>
+<td>✅ oui (déprécié)</td>
 </tr>
 <tr>
-<td>test</td>
-<td>difficile</td>
-<td>facile</td>
+<td>Jest</td>
+<td>Runner Node.js, plus rapide</td>
+<td>Alternative recommandée</td>
+</tr>
+<tr>
+<td>TestBed</td>
+<td>Utilitaire Angular pour créer des composants en test</td>
+<td>✅ natif</td>
+</tr>
+<tr>
+<td>HttpClientTestingModule</td>
+<td>Mock des appels HTTP</td>
+<td>✅ natif</td>
 </tr>
 </tbody>
 </table>
 <hr />
-<h2 id="10-questions-classiques">10. Questions classiques</h2>
-<details class="question">
-<summary>objectif du Singleton ?</summary>
-<p>une seule instance</p>
-</details>
-<details class="question">
-<summary>problème principal ?</summary>
-<p>thread-safety</p>
-</details>
-<details class="question">
-<summary>meilleure implémentation ?</summary>
-<p>enum</p>
-</details>
-<div class="admonition note">
-<p class="admonition-title">À retenir</p>
-<ul>
-<li>Singleton = instance unique</li>
-<li>attention au multi-thread</li>
-<li>enum = solution moderne</li>
-<li>ne pas en abuser</li>
-</ul>
-</div>
+<h2 id="tester-un-service">Tester un service</h2>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">TestBed</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;@angular/core/testing&#39;</span><span class="p">;</span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">HttpClientTestingModule</span><span class="p">,</span><span class="w"> </span><span class="nx">HttpTestingController</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;@angular/common/http/testing&#39;</span><span class="p">;</span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">UserService</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;./user.service&#39;</span><span class="p">;</span>
+
+<span class="nx">describe</span><span class="p">(</span><span class="s1">&#39;UserService&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">let</span><span class="w"> </span><span class="nx">service</span><span class="o">:</span><span class="w"> </span><span class="kt">UserService</span><span class="p">;</span>
+<span class="w">  </span><span class="kd">let</span><span class="w"> </span><span class="nx">httpMock</span><span class="o">:</span><span class="w"> </span><span class="kt">HttpTestingController</span><span class="p">;</span>
+
+<span class="w">  </span><span class="nx">beforeEach</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">TestBed</span><span class="p">.</span><span class="nx">configureTestingModule</span><span class="p">({</span>
+<span class="w">      </span><span class="nx">imports</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="nx">HttpClientTestingModule</span><span class="p">],</span>
+<span class="w">    </span><span class="p">});</span>
+<span class="w">    </span><span class="nx">service</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">TestBed</span><span class="p">.</span><span class="nx">inject</span><span class="p">(</span><span class="nx">UserService</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">httpMock</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">TestBed</span><span class="p">.</span><span class="nx">inject</span><span class="p">(</span><span class="nx">HttpTestingController</span><span class="p">);</span>
+<span class="w">  </span><span class="p">});</span>
+
+<span class="w">  </span><span class="nx">afterEach</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">httpMock</span><span class="p">.</span><span class="nx">verify</span><span class="p">());</span><span class="w">   </span><span class="c1">// vérifie qu&#39;il n&#39;y a pas de requêtes en attente</span>
+
+<span class="w">  </span><span class="nx">it</span><span class="p">(</span><span class="s1">&#39;should fetch users&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">mockUsers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;1&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Alice&#39;</span><span class="w"> </span><span class="p">}];</span>
+
+<span class="w">    </span><span class="nx">service</span><span class="p">.</span><span class="nx">getAll</span><span class="p">().</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">users</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">expect</span><span class="p">(</span><span class="nx">users</span><span class="p">).</span><span class="nx">toEqual</span><span class="p">(</span><span class="nx">mockUsers</span><span class="p">);</span>
+<span class="w">    </span><span class="p">});</span>
+
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">req</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">httpMock</span><span class="p">.</span><span class="nx">expectOne</span><span class="p">(</span><span class="s1">&#39;/api/users&#39;</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">expect</span><span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">request</span><span class="p">.</span><span class="nx">method</span><span class="p">).</span><span class="nx">toBe</span><span class="p">(</span><span class="s1">&#39;GET&#39;</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">req</span><span class="p">.</span><span class="nx">flush</span><span class="p">(</span><span class="nx">mockUsers</span><span class="p">);</span><span class="w">   </span><span class="c1">// simule la réponse</span>
+<span class="w">  </span><span class="p">});</span>
+<span class="p">});</span>
+</code></pre></div>
 <hr />
-<h2 id="synthese">Synthèse</h2>
-<ul>
-<li>garantit une seule instance</li>
-<li>accès global</li>
-<li>nécessite une implémentation correcte</li>
-<li>peut créer du couplage</li>
-</ul>
-<p>Le Singleton est puissant, mais doit être utilisé avec précaution.</p>
+<h2 id="tester-un-composant">Tester un composant</h2>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">ComponentFixture</span><span class="p">,</span><span class="w"> </span><span class="nx">TestBed</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;@angular/core/testing&#39;</span><span class="p">;</span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">UserCardComponent</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;./user-card.component&#39;</span><span class="p">;</span>
+
+<span class="nx">describe</span><span class="p">(</span><span class="s1">&#39;UserCardComponent&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">let</span><span class="w"> </span><span class="nx">component</span><span class="o">:</span><span class="w"> </span><span class="kt">UserCardComponent</span><span class="p">;</span>
+<span class="w">  </span><span class="kd">let</span><span class="w"> </span><span class="nx">fixture</span><span class="o">:</span><span class="w"> </span><span class="kt">ComponentFixture</span><span class="o">&lt;</span><span class="nx">UserCardComponent</span><span class="o">&gt;</span><span class="p">;</span>
+
+<span class="w">  </span><span class="nx">beforeEach</span><span class="p">(</span><span class="k">async</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">await</span><span class="w"> </span><span class="nx">TestBed</span><span class="p">.</span><span class="nx">configureTestingModule</span><span class="p">({</span>
+<span class="w">      </span><span class="nx">imports</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="nx">UserCardComponent</span><span class="p">],</span><span class="w">   </span><span class="c1">// standalone : s&#39;importe lui-même</span>
+<span class="w">    </span><span class="p">}).</span><span class="nx">compileComponents</span><span class="p">();</span>
+
+<span class="w">    </span><span class="nx">fixture</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">TestBed</span><span class="p">.</span><span class="nx">createComponent</span><span class="p">(</span><span class="nx">UserCardComponent</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">component</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">fixture</span><span class="p">.</span><span class="nx">componentInstance</span><span class="p">;</span>
+<span class="w">  </span><span class="p">});</span>
+
+<span class="w">  </span><span class="nx">it</span><span class="p">(</span><span class="s1">&#39;should display user name&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">component</span><span class="p">.</span><span class="nx">user</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;1&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Alice&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">email</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;alice@test.com&#39;</span><span class="w"> </span><span class="p">};</span>
+<span class="w">    </span><span class="nx">fixture</span><span class="p">.</span><span class="nx">detectChanges</span><span class="p">();</span><span class="w">   </span><span class="c1">// déclenche ngOnInit + rendu</span>
+
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">el</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">fixture</span><span class="p">.</span><span class="nx">nativeElement</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;h2&#39;</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">expect</span><span class="p">(</span><span class="nx">el</span><span class="p">.</span><span class="nx">textContent</span><span class="p">).</span><span class="nx">toContain</span><span class="p">(</span><span class="s1">&#39;Alice&#39;</span><span class="p">);</span>
+<span class="w">  </span><span class="p">});</span>
+
+<span class="w">  </span><span class="nx">it</span><span class="p">(</span><span class="s1">&#39;should emit event on click&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">component</span><span class="p">.</span><span class="nx">user</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;1&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Alice&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">email</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;alice@test.com&#39;</span><span class="w"> </span><span class="p">};</span>
+<span class="w">    </span><span class="nx">fixture</span><span class="p">.</span><span class="nx">detectChanges</span><span class="p">();</span>
+
+<span class="w">    </span><span class="nx">jest</span><span class="p">.</span><span class="nx">spyOn</span><span class="p">(</span><span class="nx">component</span><span class="p">.</span><span class="nx">userSelected</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;emit&#39;</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">fixture</span><span class="p">.</span><span class="nx">nativeElement</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;button&#39;</span><span class="p">).</span><span class="nx">click</span><span class="p">();</span>
+
+<span class="w">    </span><span class="nx">expect</span><span class="p">(</span><span class="nx">component</span><span class="p">.</span><span class="nx">userSelected</span><span class="p">.</span><span class="nx">emit</span><span class="p">).</span><span class="nx">toHaveBeenCalledWith</span><span class="p">(</span><span class="nx">component</span><span class="p">.</span><span class="nx">user</span><span class="p">);</span>
+<span class="w">  </span><span class="p">});</span>
+<span class="p">});</span>
+</code></pre></div>
 <hr />
-<h2 id="voir-aussi">Voir aussi</h2>
+<h2 id="mocker-une-dependance-service">Mocker une dépendance (service)</h2>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">mockAuthService</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">isLoggedIn</span><span class="o">:</span><span class="w"> </span><span class="kt">jest.fn</span><span class="p">().</span><span class="nx">mockReturnValue</span><span class="p">(</span><span class="kc">true</span><span class="p">),</span>
+<span class="w">  </span><span class="nx">getUser</span><span class="o">:</span><span class="w"> </span><span class="kt">jest.fn</span><span class="p">().</span><span class="nx">mockReturnValue</span><span class="p">({</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;1&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Alice&#39;</span><span class="w"> </span><span class="p">}),</span>
+<span class="p">};</span>
+
+<span class="k">await</span><span class="w"> </span><span class="nx">TestBed</span><span class="p">.</span><span class="nx">configureTestingModule</span><span class="p">({</span>
+<span class="w">  </span><span class="nx">imports</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="nx">MyComponent</span><span class="p">],</span>
+<span class="w">  </span><span class="nx">providers</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nx">provide</span><span class="o">:</span><span class="w"> </span><span class="kt">AuthService</span><span class="p">,</span><span class="w"> </span><span class="nx">useValue</span><span class="o">:</span><span class="w"> </span><span class="kt">mockAuthService</span><span class="w"> </span><span class="p">}</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}).</span><span class="nx">compileComponents</span><span class="p">();</span>
+</code></pre></div>
+<hr />
+<h2 id="tester-un-guard-angular-14">Tester un guard (Angular 14+)</h2>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">TestBed</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;@angular/core/testing&#39;</span><span class="p">;</span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Router</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;@angular/router&#39;</span><span class="p">;</span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">authGuard</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;./auth.guard&#39;</span><span class="p">;</span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">AuthService</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;./auth.service&#39;</span><span class="p">;</span>
+
+<span class="nx">describe</span><span class="p">(</span><span class="s1">&#39;authGuard&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">let</span><span class="w"> </span><span class="nx">authService</span><span class="o">:</span><span class="w"> </span><span class="kt">jasmine.SpyObj</span><span class="o">&lt;</span><span class="nx">AuthService</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">  </span><span class="kd">let</span><span class="w"> </span><span class="nx">router</span><span class="o">:</span><span class="w"> </span><span class="kt">jasmine.SpyObj</span><span class="o">&lt;</span><span class="nx">Router</span><span class="o">&gt;</span><span class="p">;</span>
+
+<span class="w">  </span><span class="nx">beforeEach</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">authService</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">jasmine</span><span class="p">.</span><span class="nx">createSpyObj</span><span class="p">(</span><span class="s1">&#39;AuthService&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;isLoggedIn&#39;</span><span class="p">]);</span>
+<span class="w">    </span><span class="nx">router</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">jasmine</span><span class="p">.</span><span class="nx">createSpyObj</span><span class="p">(</span><span class="s1">&#39;Router&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;createUrlTree&#39;</span><span class="p">]);</span>
+
+<span class="w">    </span><span class="nx">TestBed</span><span class="p">.</span><span class="nx">configureTestingModule</span><span class="p">({</span>
+<span class="w">      </span><span class="nx">providers</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span><span class="w"> </span><span class="nx">provide</span><span class="o">:</span><span class="w"> </span><span class="kt">AuthService</span><span class="p">,</span><span class="w"> </span><span class="nx">useValue</span><span class="o">:</span><span class="w"> </span><span class="kt">authService</span><span class="w"> </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span><span class="w"> </span><span class="nx">provide</span><span class="o">:</span><span class="w"> </span><span class="kt">Router</span><span class="p">,</span><span class="w"> </span><span class="nx">useValue</span><span class="o">:</span><span class="w"> </span><span class="kt">router</span><span class="w"> </span><span class="p">},</span>
+<span class="w">      </span><span class="p">]</span>
+<span class="w">    </span><span class="p">});</span>
+<span class="w">  </span><span class="p">});</span>
+
+<span class="w">  </span><span class="nx">it</span><span class="p">(</span><span class="s1">&#39;should allow access when logged in&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">authService</span><span class="p">.</span><span class="nx">isLoggedIn</span><span class="p">.</span><span class="nx">and</span><span class="p">.</span><span class="nx">returnValue</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">TestBed</span><span class="p">.</span><span class="nx">runInInjectionContext</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">authGuard</span><span class="p">({}</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">any</span><span class="p">,</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">any</span><span class="p">));</span>
+<span class="w">    </span><span class="nx">expect</span><span class="p">(</span><span class="nx">result</span><span class="p">).</span><span class="nx">toBeTrue</span><span class="p">();</span>
+<span class="w">  </span><span class="p">});</span>
+
+<span class="w">  </span><span class="nx">it</span><span class="p">(</span><span class="s1">&#39;should redirect when not logged in&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">authService</span><span class="p">.</span><span class="nx">isLoggedIn</span><span class="p">.</span><span class="nx">and</span><span class="p">.</span><span class="nx">returnValue</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">router</span><span class="p">.</span><span class="nx">createUrlTree</span><span class="p">.</span><span class="nx">and</span><span class="p">.</span><span class="nx">returnValue</span><span class="p">(</span><span class="s1">&#39;/login&#39;</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">any</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">TestBed</span><span class="p">.</span><span class="nx">runInInjectionContext</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">authGuard</span><span class="p">({}</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">any</span><span class="p">,</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">any</span><span class="p">));</span>
+<span class="w">    </span><span class="nx">expect</span><span class="p">(</span><span class="nx">router</span><span class="p">.</span><span class="nx">createUrlTree</span><span class="p">).</span><span class="nx">toHaveBeenCalledWith</span><span class="p">([</span><span class="s1">&#39;/login&#39;</span><span class="p">]);</span>
+<span class="w">  </span><span class="p">});</span>
+<span class="p">});</span>
+</code></pre></div>
+<hr />
+<h2 id="tester-un-pipe">Tester un pipe</h2>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">TruncatePipe</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;./truncate.pipe&#39;</span><span class="p">;</span>
+
+<span class="nx">describe</span><span class="p">(</span><span class="s1">&#39;TruncatePipe&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">pipe</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">TruncatePipe</span><span class="p">();</span>
+
+<span class="w">  </span><span class="nx">it</span><span class="p">(</span><span class="s1">&#39;should truncate long strings&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">expect</span><span class="p">(</span><span class="nx">pipe</span><span class="p">.</span><span class="nx">transform</span><span class="p">(</span><span class="s1">&#39;Hello world this is a long text&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">10</span><span class="p">)).</span><span class="nx">toBe</span><span class="p">(</span><span class="s1">&#39;Hello worl…&#39;</span><span class="p">);</span>
+<span class="w">  </span><span class="p">});</span>
+
+<span class="w">  </span><span class="nx">it</span><span class="p">(</span><span class="s1">&#39;should not truncate short strings&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">expect</span><span class="p">(</span><span class="nx">pipe</span><span class="p">.</span><span class="nx">transform</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">10</span><span class="p">)).</span><span class="nx">toBe</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">);</span>
+<span class="w">  </span><span class="p">});</span>
+<span class="p">});</span>
+</code></pre></div>
+<hr />
+<h2 id="migrer-de-karma-vers-jest">Migrer de Karma vers Jest</h2>
+<div class="highlight"><pre><span></span><code><span class="c1"># Supprimer Karma</span>
+npm<span class="w"> </span>uninstall<span class="w"> </span>karma<span class="w"> </span>karma-chrome-launcher<span class="w"> </span>karma-coverage<span class="w"> </span>karma-jasmine<span class="w"> </span>karma-jasmine-html-reporter
+
+<span class="c1"># Installer Jest</span>
+npm<span class="w"> </span>install<span class="w"> </span>--save-dev<span class="w"> </span>jest<span class="w"> </span>jest-environment-jsdom<span class="w"> </span>@types/jest<span class="w"> </span>jest-preset-angular
+
+<span class="c1"># angular.json — remplacer le builder de test</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="nt">&quot;test&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;builder&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;@angular-devkit/build-angular:jest&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;options&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;tsConfig&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;tsconfig.spec.json&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;polyfills&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;zone.js&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;zone.js/testing&quot;</span><span class="p">]</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<hr />
+<h2 id="cas-concrets">Cas concrets</h2>
+<details class="question">
+<summary>Différence entre shallow et deep rendering ?</summary>
+<p>Shallow : le composant est rendu sans ses enfants (remplacés par des stubs). Deep : toute l'arborescence est rendue. Shallow est plus rapide et isole mieux les tests unitaires — préférable pour les composants purs.</p>
+</details>
+<details class="question">
+<summary>Quand utiliser fixture.detectChanges() ?</summary>
+<p>À chaque fois qu'on modifie des données qui doivent se refléter dans le DOM. Sans cet appel, le template ne se met pas à jour. <code>autoDetectChanges()</code> peut l'automatiser mais rend les tests moins prévisibles.</p>
+</details>
+<details class="question">
+<summary>Pourquoi httpMock.verify() dans afterEach ?</summary>
+<p>Pour s'assurer qu'aucune requête HTTP attendue n'est restée sans réponse. Sans ce check, des requêtes oubliées passent silencieusement et faussent les tests suivants.</p>
+</details>
+<details class="question">
+<summary>Jest vs Jasmine/Karma ?</summary>
+<p>Jest : plus rapide (pas de navigateur réel), meilleure DX (snapshots, mocks intégrés, messages d'erreur plus clairs). Karma est officiellement déprécié depuis Angular 16. Jest est la voie recommandée pour les nouveaux projets.</p>
+</details>
+<hr />
+<h2 id="points-cles">Points clés</h2>
 <ul>
-<li><a href="../dependency-injection/">Dependency Injection</a></li>
-<li><a href="../../spring/bean-scopes/">Bean Scopes (Spring)</a></li>
-<li><a href="../../concurrency/synchronized/">synchronized</a></li>
+<li><code>TestBed</code> est le cœur des tests Angular — il crée un module de test léger</li>
+<li>toujours appeler <code>fixture.detectChanges()</code> après avoir modifié les inputs</li>
+<li><code>HttpClientTestingModule</code> + <code>HttpTestingController</code> pour mocker les appels HTTP</li>
+<li><code>useValue</code> pour injecter des mocks de services</li>
+<li>Jest remplace Karma — plus rapide, meilleure DX, officiellement recommandé</li>
 </ul>
 
 
@@ -4736,10 +4704,10 @@ thread-safe</p>
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "toc.follow", "content.code.copy", "search.highlight", "search.suggest"], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "toc.follow", "content.code.copy", "search.highlight", "search.suggest"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": null}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>
