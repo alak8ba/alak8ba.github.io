@@ -12,27 +12,31 @@
         <meta name="author" content="A.KOUBA">
       
       
-        <link rel="canonical" href="https://alak8ba.github.io/notes/patterns/event-driven-system/">
+        <link rel="canonical" href="https://alak8ba.github.io/notes/topics/devops/docker-run/">
       
       
+        <link rel="prev" href="../../observability/metrics-monitoring-prometheus-grafana/">
+      
+      
+        <link rel="next" href="../docker-production-pattern/">
       
       
         
       
       
-      <link rel="icon" href="../../assets/favicon.png">
+      <link rel="icon" href="../../../assets/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
-        <title>Event driven system - Engineering Notes</title>
+        <title>Docker Run • -v et -w - Engineering Notes</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -51,9 +55,9 @@
       
     
     
-      <link rel="stylesheet" href="../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -77,6 +81,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#docker-run-comprendre-v-et-w" class="md-skip">
+          Aller au contenu
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -89,7 +98,7 @@
   <nav class="md-header__inner md-grid" aria-label="En-tête">
     <a href="https://alak8ba.github.io" title="Engineering Notes" class="md-header__button md-logo" aria-label="Engineering Notes" data-md-component="logo">
       
-  <img src="../../assets/favicon.png" alt="logo">
+  <img src="../../../assets/favicon.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -106,7 +115,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Event driven system
+              Docker Run • -v et -w
             
           </span>
         </div>
@@ -207,7 +216,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../.." class="md-tabs__link">
+      <a href="../../.." class="md-tabs__link">
         
   
   
@@ -226,7 +235,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../about/" class="md-tabs__link">
+      <a href="../../../about/" class="md-tabs__link">
         
   
   
@@ -245,7 +254,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../tags/" class="md-tabs__link">
+      <a href="../../../tags/" class="md-tabs__link">
         
   
   
@@ -273,7 +282,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../topics/java/fundamentals/equals-vs-double-equals/" class="md-tabs__link">
+        <a href="../../java/fundamentals/equals-vs-double-equals/" class="md-tabs__link">
           
   
   
@@ -296,7 +305,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../topics/architecture/cqrs-pattern/" class="md-tabs__link">
+        <a href="../../architecture/cqrs-pattern/" class="md-tabs__link">
           
   
   
@@ -316,7 +325,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../topics/kafka/retry-and-dlt-pattern/" class="md-tabs__link">
+        <a href="../../kafka/retry-and-dlt-pattern/" class="md-tabs__link">
           
   
   
@@ -336,7 +345,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../topics/security/jwt-authentication-pattern/" class="md-tabs__link">
+        <a href="../../security/jwt-authentication-pattern/" class="md-tabs__link">
           
   
   
@@ -356,7 +365,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../topics/observability/logging-architecture-java/" class="md-tabs__link">
+        <a href="../../observability/logging-architecture-java/" class="md-tabs__link">
           
   
   
@@ -372,11 +381,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../topics/devops/docker-run/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
           
   
   
@@ -396,7 +407,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../topics/database/sql-joins-indexes/" class="md-tabs__link">
+        <a href="../../database/sql-joins-indexes/" class="md-tabs__link">
           
   
   
@@ -416,7 +427,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../topics/http/http-basics/" class="md-tabs__link">
+        <a href="../../http/http-basics/" class="md-tabs__link">
           
   
   
@@ -436,7 +447,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../topics/testing/testcontainers-pattern/" class="md-tabs__link">
+        <a href="../../testing/testcontainers-pattern/" class="md-tabs__link">
           
   
   
@@ -456,7 +467,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../topics/frontend/angular/" class="md-tabs__link">
+        <a href="../../frontend/angular/" class="md-tabs__link">
           
   
   
@@ -476,7 +487,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../topics/javascript/fundamentals/typescript-basics/" class="md-tabs__link">
+        <a href="../../javascript/fundamentals/typescript-basics/" class="md-tabs__link">
           
   
   
@@ -496,7 +507,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../socles/" class="md-tabs__link">
+        <a href="../../../socles/" class="md-tabs__link">
           
   
   
@@ -532,7 +543,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="https://alak8ba.github.io" title="Engineering Notes" class="md-nav__button md-logo" aria-label="Engineering Notes" data-md-component="logo">
       
-  <img src="../../assets/favicon.png" alt="logo">
+  <img src="../../../assets/favicon.png" alt="logo">
 
     </a>
     Engineering Notes
@@ -547,7 +558,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         
   
   
@@ -574,7 +585,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../about/" class="md-nav__link">
+      <a href="../../../about/" class="md-nav__link">
         
   
   
@@ -601,7 +612,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tags/" class="md-nav__link">
+      <a href="../../../tags/" class="md-nav__link">
         
   
   
@@ -736,7 +747,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/java/fundamentals/equals-vs-double-equals/" class="md-nav__link">
+      <a href="../../java/fundamentals/equals-vs-double-equals/" class="md-nav__link">
         
   
   
@@ -764,7 +775,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/java/fundamentals/autoboxing/" class="md-nav__link">
+      <a href="../../java/fundamentals/autoboxing/" class="md-nav__link">
         
   
   
@@ -792,7 +803,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/java/fundamentals/final/" class="md-nav__link">
+      <a href="../../java/fundamentals/final/" class="md-nav__link">
         
   
   
@@ -820,7 +831,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/java/fundamentals/generics/" class="md-nav__link">
+      <a href="../../java/fundamentals/generics/" class="md-nav__link">
         
   
   
@@ -848,7 +859,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/java/fundamentals/instanceof/" class="md-nav__link">
+      <a href="../../java/fundamentals/instanceof/" class="md-nav__link">
         
   
   
@@ -876,7 +887,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/java/fundamentals/integer-cache/" class="md-nav__link">
+      <a href="../../java/fundamentals/integer-cache/" class="md-nav__link">
         
   
   
@@ -904,7 +915,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/java/fundamentals/java-protected/" class="md-nav__link">
+      <a href="../../java/fundamentals/java-protected/" class="md-nav__link">
         
   
   
@@ -932,7 +943,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/java/fundamentals/java-static/" class="md-nav__link">
+      <a href="../../java/fundamentals/java-static/" class="md-nav__link">
         
   
   
@@ -960,7 +971,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/java/fundamentals/static-generic-method/" class="md-nav__link">
+      <a href="../../java/fundamentals/static-generic-method/" class="md-nav__link">
         
   
   
@@ -1050,7 +1061,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/java/collections/list-set-map/" class="md-nav__link">
+      <a href="../../java/collections/list-set-map/" class="md-nav__link">
         
   
   
@@ -1078,7 +1089,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/java/collections/hashmap/" class="md-nav__link">
+      <a href="../../java/collections/hashmap/" class="md-nav__link">
         
   
   
@@ -1106,7 +1117,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/java/collections/hashmap-treemap-linkedhashmap/" class="md-nav__link">
+      <a href="../../java/collections/hashmap-treemap-linkedhashmap/" class="md-nav__link">
         
   
   
@@ -1134,7 +1145,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/java/collections/hashtable/" class="md-nav__link">
+      <a href="../../java/collections/hashtable/" class="md-nav__link">
         
   
   
@@ -1162,7 +1173,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/java/collections/concurrenthashmap/" class="md-nav__link">
+      <a href="../../java/collections/concurrenthashmap/" class="md-nav__link">
         
   
   
@@ -1190,7 +1201,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/java/collections/iterator/" class="md-nav__link">
+      <a href="../../java/collections/iterator/" class="md-nav__link">
         
   
   
@@ -1218,7 +1229,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/java/collections/algorithms-complexity/" class="md-nav__link">
+      <a href="../../java/collections/algorithms-complexity/" class="md-nav__link">
         
   
   
@@ -1308,7 +1319,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/java/concurrency/race-condition/" class="md-nav__link">
+      <a href="../../java/concurrency/race-condition/" class="md-nav__link">
         
   
   
@@ -1336,7 +1347,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/java/concurrency/deadlock/" class="md-nav__link">
+      <a href="../../java/concurrency/deadlock/" class="md-nav__link">
         
   
   
@@ -1364,7 +1375,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/java/concurrency/synchronized/" class="md-nav__link">
+      <a href="../../java/concurrency/synchronized/" class="md-nav__link">
         
   
   
@@ -1392,7 +1403,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/java/concurrency/volatile/" class="md-nav__link">
+      <a href="../../java/concurrency/volatile/" class="md-nav__link">
         
   
   
@@ -1420,7 +1431,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/java/concurrency/atomic/" class="md-nav__link">
+      <a href="../../java/concurrency/atomic/" class="md-nav__link">
         
   
   
@@ -1510,7 +1521,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/java/oop/inheritance/" class="md-nav__link">
+      <a href="../../java/oop/inheritance/" class="md-nav__link">
         
   
   
@@ -1538,7 +1549,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/java/oop/polymorphism/" class="md-nav__link">
+      <a href="../../java/oop/polymorphism/" class="md-nav__link">
         
   
   
@@ -1566,7 +1577,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/java/oop/solid/" class="md-nav__link">
+      <a href="../../java/oop/solid/" class="md-nav__link">
         
   
   
@@ -1656,7 +1667,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/java/design-patterns/singleton-pattern/" class="md-nav__link">
+      <a href="../../java/design-patterns/singleton-pattern/" class="md-nav__link">
         
   
   
@@ -1684,7 +1695,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/java/design-patterns/factory-pattern/" class="md-nav__link">
+      <a href="../../java/design-patterns/factory-pattern/" class="md-nav__link">
         
   
   
@@ -1712,7 +1723,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/java/design-patterns/dependency-injection/" class="md-nav__link">
+      <a href="../../java/design-patterns/dependency-injection/" class="md-nav__link">
         
   
   
@@ -1802,7 +1813,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/java/spring/bean-scopes/" class="md-nav__link">
+      <a href="../../java/spring/bean-scopes/" class="md-nav__link">
         
   
   
@@ -1830,7 +1841,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/java/spring/hibernate-jpa/" class="md-nav__link">
+      <a href="../../java/spring/hibernate-jpa/" class="md-nav__link">
         
   
   
@@ -1858,7 +1869,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/java/spring/aop-spring/" class="md-nav__link">
+      <a href="../../java/spring/aop-spring/" class="md-nav__link">
         
   
   
@@ -1886,7 +1897,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/spring/spring-batch-migration-sb2-java8-to-sb5-java21/" class="md-nav__link">
+      <a href="../../spring/spring-batch-migration-sb2-java8-to-sb5-java21/" class="md-nav__link">
         
   
   
@@ -1914,7 +1925,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/spring/spring-batch-advanced-patterns/" class="md-nav__link">
+      <a href="../../spring/spring-batch-advanced-patterns/" class="md-nav__link">
         
   
   
@@ -2004,7 +2015,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/java/database/acid/" class="md-nav__link">
+      <a href="../../java/database/acid/" class="md-nav__link">
         
   
   
@@ -2101,7 +2112,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/architecture/cqrs-pattern/" class="md-nav__link">
+      <a href="../../architecture/cqrs-pattern/" class="md-nav__link">
         
   
   
@@ -2129,7 +2140,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/architecture/rest-api-design/" class="md-nav__link">
+      <a href="../../architecture/rest-api-design/" class="md-nav__link">
         
   
   
@@ -2157,7 +2168,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/spring/hexagonal-architecture/" class="md-nav__link">
+      <a href="../../spring/hexagonal-architecture/" class="md-nav__link">
         
   
   
@@ -2246,7 +2257,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/kafka/retry-and-dlt-pattern/" class="md-nav__link">
+      <a href="../../kafka/retry-and-dlt-pattern/" class="md-nav__link">
         
   
   
@@ -2274,7 +2285,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/kafka/idempotent-consumers/" class="md-nav__link">
+      <a href="../../kafka/idempotent-consumers/" class="md-nav__link">
         
   
   
@@ -2302,7 +2313,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/kafka/outbox-pattern/" class="md-nav__link">
+      <a href="../../kafka/outbox-pattern/" class="md-nav__link">
         
   
   
@@ -2330,7 +2341,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/kafka/reliability-patterns/" class="md-nav__link">
+      <a href="../../kafka/reliability-patterns/" class="md-nav__link">
         
   
   
@@ -2358,7 +2369,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/kafka/consumer-rebalance/" class="md-nav__link">
+      <a href="../../kafka/consumer-rebalance/" class="md-nav__link">
         
   
   
@@ -2386,7 +2397,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/distributed/eventual-consistency/" class="md-nav__link">
+      <a href="../../distributed/eventual-consistency/" class="md-nav__link">
         
   
   
@@ -2414,7 +2425,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/distributed/microservices-communication/" class="md-nav__link">
+      <a href="../../distributed/microservices-communication/" class="md-nav__link">
         
   
   
@@ -2442,7 +2453,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/distributed/sync-vs-async/" class="md-nav__link">
+      <a href="../../distributed/sync-vs-async/" class="md-nav__link">
         
   
   
@@ -2470,7 +2481,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/distributed/kafka-resilience-patterns/" class="md-nav__link">
+      <a href="../../distributed/kafka-resilience-patterns/" class="md-nav__link">
         
   
   
@@ -2498,7 +2509,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/distributed/read-models-and-fetch-strategies/" class="md-nav__link">
+      <a href="../../distributed/read-models-and-fetch-strategies/" class="md-nav__link">
         
   
   
@@ -2526,7 +2537,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/distributed/distributed-tracing-and-correlation/" class="md-nav__link">
+      <a href="../../distributed/distributed-tracing-and-correlation/" class="md-nav__link">
         
   
   
@@ -2615,7 +2626,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/security/jwt-authentication-pattern/" class="md-nav__link">
+      <a href="../../security/jwt-authentication-pattern/" class="md-nav__link">
         
   
   
@@ -2643,7 +2654,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/security/cors/" class="md-nav__link">
+      <a href="../../security/cors/" class="md-nav__link">
         
   
   
@@ -2671,7 +2682,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/security/cookie-security/" class="md-nav__link">
+      <a href="../../security/cookie-security/" class="md-nav__link">
         
   
   
@@ -2699,7 +2710,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/security/http-security-headers/" class="md-nav__link">
+      <a href="../../security/http-security-headers/" class="md-nav__link">
         
   
   
@@ -2788,7 +2799,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/observability/logging-architecture-java/" class="md-nav__link">
+      <a href="../../observability/logging-architecture-java/" class="md-nav__link">
         
   
   
@@ -2816,7 +2827,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/observability/exception-handling-spring/" class="md-nav__link">
+      <a href="../../observability/exception-handling-spring/" class="md-nav__link">
         
   
   
@@ -2844,7 +2855,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/observability/metrics-monitoring-prometheus-grafana/" class="md-nav__link">
+      <a href="../../observability/metrics-monitoring-prometheus-grafana/" class="md-nav__link">
         
   
   
@@ -2876,28 +2887,31 @@
       
   
   
+    
   
   
+  
     
     
     
     
+      
+        
+        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" checked>
         
           
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_9" >
-        
-          
-          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="">
             
   
   
@@ -2915,7 +2929,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_9">
             <span class="md-nav__icon md-icon"></span>
             
@@ -2930,10 +2944,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../topics/devops/docker-run/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Docker Run • -v et -w
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -2949,6 +2990,125 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#commande-de-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Commande de référence
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#decomposition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Décomposition
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-v-bind-mount-entre-hote-et-conteneur" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        -v • Bind mount entre hôte et conteneur
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-w-repertoire-de-travail" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        -w • Répertoire de travail
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#schema" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Schéma
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#variantes-utiles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Variantes utiles
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cas-concrets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cas concrets
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#points-cles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Points clés
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#voir-aussi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Voir aussi
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -2961,7 +3121,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/devops/docker-production-pattern/" class="md-nav__link">
+      <a href="../docker-production-pattern/" class="md-nav__link">
         
   
   
@@ -2989,7 +3149,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/devops/docker-networking/" class="md-nav__link">
+      <a href="../docker-networking/" class="md-nav__link">
         
   
   
@@ -3017,7 +3177,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/devops/container-security/" class="md-nav__link">
+      <a href="../container-security/" class="md-nav__link">
         
   
   
@@ -3045,7 +3205,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/devops/reverse-proxy-pattern/" class="md-nav__link">
+      <a href="../reverse-proxy-pattern/" class="md-nav__link">
         
   
   
@@ -3073,7 +3233,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/devops/pull-based-deployment/" class="md-nav__link">
+      <a href="../pull-based-deployment/" class="md-nav__link">
         
   
   
@@ -3101,7 +3261,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/devops/ci-cd-pipeline-pattern/" class="md-nav__link">
+      <a href="../ci-cd-pipeline-pattern/" class="md-nav__link">
         
   
   
@@ -3129,7 +3289,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/devops/observability-pattern/" class="md-nav__link">
+      <a href="../observability-pattern/" class="md-nav__link">
         
   
   
@@ -3218,7 +3378,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/database/sql-joins-indexes/" class="md-nav__link">
+      <a href="../../database/sql-joins-indexes/" class="md-nav__link">
         
   
   
@@ -3246,7 +3406,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/database/index-et-optimisation-postgresql/" class="md-nav__link">
+      <a href="../../database/index-et-optimisation-postgresql/" class="md-nav__link">
         
   
   
@@ -3274,7 +3434,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/database/transaction-patterns/" class="md-nav__link">
+      <a href="../../database/transaction-patterns/" class="md-nav__link">
         
   
   
@@ -3302,7 +3462,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/database/optimistic-locking/" class="md-nav__link">
+      <a href="../../database/optimistic-locking/" class="md-nav__link">
         
   
   
@@ -3391,7 +3551,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/http/http-basics/" class="md-nav__link">
+      <a href="../../http/http-basics/" class="md-nav__link">
         
   
   
@@ -3480,7 +3640,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/testing/testcontainers-pattern/" class="md-nav__link">
+      <a href="../../testing/testcontainers-pattern/" class="md-nav__link">
         
   
   
@@ -3569,7 +3729,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/frontend/angular/" class="md-nav__link">
+      <a href="../../frontend/angular/" class="md-nav__link">
         
   
   
@@ -3597,7 +3757,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/frontend/angular-migrations/" class="md-nav__link">
+      <a href="../../frontend/angular-migrations/" class="md-nav__link">
         
   
   
@@ -3625,7 +3785,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/frontend/angular-testing/" class="md-nav__link">
+      <a href="../../frontend/angular-testing/" class="md-nav__link">
         
   
   
@@ -3653,7 +3813,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/frontend/angular-ssr/" class="md-nav__link">
+      <a href="../../frontend/angular-ssr/" class="md-nav__link">
         
   
   
@@ -3681,7 +3841,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/frontend/ngrx/" class="md-nav__link">
+      <a href="../../frontend/ngrx/" class="md-nav__link">
         
   
   
@@ -3709,7 +3869,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/frontend/react/" class="md-nav__link">
+      <a href="../../frontend/react/" class="md-nav__link">
         
   
   
@@ -3737,7 +3897,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/frontend/chartjs/" class="md-nav__link">
+      <a href="../../frontend/chartjs/" class="md-nav__link">
         
   
   
@@ -3826,7 +3986,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/javascript/fundamentals/typescript-basics/" class="md-nav__link">
+      <a href="../../javascript/fundamentals/typescript-basics/" class="md-nav__link">
         
   
   
@@ -3854,7 +4014,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/javascript/fundamentals/javascript-pitfalls/" class="md-nav__link">
+      <a href="../../javascript/fundamentals/javascript-pitfalls/" class="md-nav__link">
         
   
   
@@ -3943,7 +4103,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../socles/" class="md-nav__link">
+      <a href="../../../socles/" class="md-nav__link">
         
   
   
@@ -3971,7 +4131,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../socles/kore-hexagonal/" class="md-nav__link">
+      <a href="../../../socles/kore-hexagonal/" class="md-nav__link">
         
   
   
@@ -3999,7 +4159,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../socles/kore-batch/" class="md-nav__link">
+      <a href="../../../socles/kore-batch/" class="md-nav__link">
         
   
   
@@ -4027,7 +4187,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../socles/kore-genie/" class="md-nav__link">
+      <a href="../../../socles/kore-genie/" class="md-nav__link">
         
   
   
@@ -4055,7 +4215,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../socles/kore-n8n/" class="md-nav__link">
+      <a href="../../../socles/kore-n8n/" class="md-nav__link">
         
   
   
@@ -4100,6 +4260,115 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#commande-de-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Commande de référence
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#decomposition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Décomposition
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-v-bind-mount-entre-hote-et-conteneur" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        -v • Bind mount entre hôte et conteneur
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-w-repertoire-de-travail" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        -w • Répertoire de travail
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#schema" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Schéma
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#variantes-utiles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Variantes utiles
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cas-concrets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cas concrets
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#points-cles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Points clés
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#voir-aussi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Voir aussi
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -4114,9 +4383,212 @@
                 
                   
 
+  <nav class="md-tags" >
+    
+      
+      
+      
+      
+        <a href="../../../tags/#tag:containers" class="md-tag">containers</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../../tags/#tag:devops" class="md-tag">devops</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../../tags/#tag:docker" class="md-tag">docker</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../../tags/#tag:volumes" class="md-tag">volumes</a>
+      
+    
+  </nav>
 
 
-  <h1>Event driven system</h1>
+
+<h1 id="docker-run-comprendre-v-et-w">Docker Run • Comprendre <code>-v</code> et <code>-w</code></h1>
+<p><code>docker run</code> lance un nouveau conteneur à partir d'une image. Les deux options les plus structurantes en développement sont <code>-v</code> (volume) et <code>-w</code> (working directory). Cette page se concentre sur leur fonctionnement pratique.</p>
+<hr />
+<h2 id="commande-de-reference">Commande de référence</h2>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--name<span class="w"> </span>mon-node<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-v<span class="w"> </span>C:<span class="se">\w</span>orkspace<span class="se">\m</span>on-app:/app<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-w<span class="w"> </span>/app<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>node:24.14-slim<span class="w"> </span>bash
+</code></pre></div>
+<hr />
+<h2 id="decomposition">Décomposition</h2>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Rôle</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>docker run</code></td>
+<td>Crée et démarre un nouveau conteneur à partir d'une image</td>
+</tr>
+<tr>
+<td><code>-it</code></td>
+<td>Mode interactif (<code>-i</code>) + terminal (<code>-t</code>) • indispensable pour <code>bash</code></td>
+</tr>
+<tr>
+<td><code>--name mon-node</code></td>
+<td>Nom lisible au lieu du nom aléatoire par défaut</td>
+</tr>
+<tr>
+<td><code>-v &lt;hôte&gt;:&lt;conteneur&gt;</code></td>
+<td>Monte un dossier hôte dans le conteneur (volume bind-mount)</td>
+</tr>
+<tr>
+<td><code>-w &lt;chemin&gt;</code></td>
+<td>Définit le répertoire de travail dans le conteneur</td>
+</tr>
+<tr>
+<td><code>node:24.14-slim</code></td>
+<td>Image utilisée (Node.js 24.14 version allégée)</td>
+</tr>
+<tr>
+<td><code>bash</code></td>
+<td>Commande exécutée au démarrage</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="-v-bind-mount-entre-hote-et-conteneur"><code>-v</code> • Bind mount entre hôte et conteneur</h2>
+<div class="highlight"><pre><span></span><code>-v<span class="w"> </span>C:<span class="se">\w</span>orkspace<span class="se">\m</span>on-app:/app
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Hôte (Windows)</th>
+<th>Conteneur (Linux)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>C:\workspace\mon-app</code></td>
+<td><code>/app</code></td>
+</tr>
+</tbody>
+</table>
+<p>C'est un <strong>pont</strong> entre le système de fichiers hôte et le conteneur :</p>
+<ul>
+<li>Le code reste sur l'hôte (versionné par Git, édité par l'IDE)</li>
+<li>Le conteneur voit les fichiers dans <code>/app</code></li>
+<li>Les modifications sont synchronisées dans les deux sens en temps réel</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Sans <code>-v</code></p>
+<ul>
+<li>Le conteneur a son propre disque éphémère</li>
+<li>Le code n'est pas partagé avec l'hôte</li>
+<li>Tout ce qui est créé dans le conteneur est perdu à sa suppression</li>
+</ul>
+</div>
+<div class="admonition success">
+<p class="admonition-title">Avec <code>-v</code></p>
+<ul>
+<li>Code partagé hôte ↔ conteneur</li>
+<li>Modifications visibles instantanément</li>
+<li>Pattern standard en développement (hot reload, debug)</li>
+</ul>
+</div>
+<hr />
+<h2 id="-w-repertoire-de-travail"><code>-w</code> • Répertoire de travail</h2>
+<div class="highlight"><pre><span></span><code>-w<span class="w"> </span>/app
+</code></pre></div>
+<p>Définit le répertoire courant à l'entrée du conteneur.</p>
+<ul>
+<li>Sans <code>-w</code> : on arrive dans <code>/root</code> (ou le <code>WORKDIR</code> défini dans le Dockerfile)</li>
+<li>Avec <code>-w /app</code> : on arrive directement dans le dossier monté</li>
+</ul>
+<p>Avantage : pas de <code>cd /app</code> au démarrage, les commandes <code>npm install</code>, <code>node</code>, etc. s'exécutent directement dans le projet.</p>
+<hr />
+<h2 id="schema">Schéma</h2>
+<div class="highlight"><pre><span></span><code>HÔTE (Windows)                CONTENEUR (Linux)
+─────────────────             ─────────────────
+C:\workspace\mon-app  ───v───  /app
+                                 │
+                                 ▼  (-w)
+                              répertoire courant
+</code></pre></div>
+<hr />
+<h2 id="variantes-utiles">Variantes utiles</h2>
+<div class="highlight"><pre><span></span><code><span class="c1"># Volume nommé (géré par Docker, indépendant du chemin hôte)</span>
+docker<span class="w"> </span>run<span class="w"> </span>-v<span class="w"> </span>node_modules_cache:/app/node_modules<span class="w"> </span>...
+
+<span class="c1"># Volume en lecture seule</span>
+docker<span class="w"> </span>run<span class="w"> </span>-v<span class="w"> </span>./config:/etc/app/config:ro<span class="w"> </span>...
+
+<span class="c1"># Plusieurs volumes</span>
+docker<span class="w"> </span>run<span class="w"> </span>-v<span class="w"> </span>./src:/app/src<span class="w"> </span>-v<span class="w"> </span>./tests:/app/tests<span class="w"> </span>...
+
+<span class="c1"># Variables d&#39;environnement</span>
+docker<span class="w"> </span>run<span class="w"> </span>-e<span class="w"> </span><span class="nv">NODE_ENV</span><span class="o">=</span>development<span class="w"> </span>...
+
+<span class="c1"># Port forwarding (hôte:conteneur)</span>
+docker<span class="w"> </span>run<span class="w"> </span>-p<span class="w"> </span><span class="m">3000</span>:3000<span class="w"> </span>...
+
+<span class="c1"># Conteneur supprimé automatiquement à la sortie</span>
+docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>...
+</code></pre></div>
+<hr />
+<h2 id="cas-concrets">Cas concrets</h2>
+<details class="question">
+<summary>Pourquoi mes modifications de fichiers ne sont pas vues dans le conteneur ?</summary>
+<p>Probablement parce que <code>-v</code> n'a pas été utilisé. Sans bind-mount, le conteneur travaille sur sa propre copie du système de fichiers. Vérifier avec <code>docker inspect &lt;nom&gt;</code> la section <code>Mounts</code>.</p>
+</details>
+<details class="question">
+<summary>Comment éviter que <code>node_modules</code> de l'hôte écrase celui du conteneur ?</summary>
+<p>Monter <code>node_modules</code> comme volume nommé qui prend le pas sur le bind :
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>-v<span class="w"> </span>./src:/app/src<span class="w"> </span>-v<span class="w"> </span>node_modules_cache:/app/node_modules<span class="w"> </span>...
+</code></pre></div>
+Les dépendances installées dans le conteneur restent isolées de l'hôte. Utile sur Windows/Mac où les performances des bind-mounts sur <code>node_modules</code> sont mauvaises.</p>
+</details>
+<details class="question">
+<summary>Volume nommé vs bind mount ?</summary>
+<p><strong>Bind mount</strong> (<code>-v /chemin/hôte:/chemin/conteneur</code>) : lié à un chemin précis de l'hôte. Idéal pour le dev.
+<strong>Volume nommé</strong> (<code>-v nom_volume:/chemin</code>) : géré par Docker, stocké dans <code>/var/lib/docker/volumes/</code>. Portable, performant, idéal pour les données persistantes (DB, caches).</p>
+</details>
+<details class="question">
+<summary>Pourquoi <code>-it</code> est-il nécessaire pour <code>bash</code> ?</summary>
+<p><code>bash</code> attend une entrée standard interactive. Sans <code>-i</code> (stdin attaché), le shell se ferme immédiatement. Sans <code>-t</code> (pseudo-terminal), pas de couleurs ni de complétion. Les deux ensemble donnent un terminal utilisable.</p>
+</details>
+<details class="question">
+<summary>Différence entre <code>docker run</code> et <code>docker exec</code> ?</summary>
+<p><code>docker run</code> : crée un <strong>nouveau</strong> conteneur à partir d'une image.
+<code>docker exec</code> : exécute une commande dans un conteneur <strong>déjà en cours d'exécution</strong>.
+Pour ouvrir un shell dans un conteneur existant : <code>docker exec -it mon-node bash</code>.</p>
+</details>
+<hr />
+<h2 id="points-cles">Points clés</h2>
+<ul>
+<li><code>-v</code> est le pont entre le code de l'hôte et le conteneur — sans lui, pas de hot reload, pas de persistance</li>
+<li><code>-w</code> évite un <code>cd</code> manuel et clarifie l'intention du conteneur</li>
+<li><code>--rm</code> est indispensable pour les conteneurs jetables (sinon ils s'accumulent en <code>Exited</code>)</li>
+<li>En équipe : passer à <code>docker compose</code> dès que plus d'un service ou plusieurs variables d'environnement</li>
+<li>Sur Windows/Mac : préférer un volume nommé pour <code>node_modules</code> à cause des performances des bind-mounts cross-OS</li>
+</ul>
+<hr />
+<h2 id="voir-aussi">Voir aussi</h2>
+<ul>
+<li><a href="../docker-production-pattern/">Docker Production Pattern</a></li>
+<li><a href="../docker-networking/">Docker Networking</a></li>
+<li><a href="../container-security/">Container Security</a></li>
+</ul>
 
 
 
@@ -4124,7 +4596,8 @@
 
 
 
-
+  
+  
 
 
 
@@ -4196,10 +4669,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "toc.follow", "content.code.copy", "search.highlight", "search.suggest"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "toc.follow", "content.code.copy", "search.highlight", "search.suggest"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>
