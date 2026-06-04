@@ -18,7 +18,7 @@
         <link rel="prev" href="../monitoring-paiement/">
       
       
-        <link rel="next" href="../../devops/run-mco-sre/">
+        <link rel="next" href="../kafka-en-paiement/">
       
       
         
@@ -3404,6 +3404,90 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kafka-en-paiement/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kafka en paiement
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../paiement-vocabulaire/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Paiement vocabulaire
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pci-dss-applique/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pci dss applique
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -5352,7 +5436,7 @@
 <p>Une fuite Metaspace typique : <code>ClassLoader</code> non libéré (hot-redéploiement Tomcat, libs qui créent des proxys dynamiques sans bornes). Signal d'alarme : Metaspace qui croît indéfiniment dans <code>jstat -gc</code>.</p>
 <h3 id="off-heap">Off-heap</h3>
 <p>Pas géré par le GC. Sources :
-- <strong>DirectByteBuffer</strong> (NIO, Netty) — libéré par finalizer, peut traîner
+- <strong>DirectByteBuffer</strong> (NIO, Netty) · libéré par finalizer, peut traîner
 - <strong>JNI</strong> (libs natives)
 - <strong>Compressed class space</strong>
 - <strong>Thread stacks</strong> (par défaut 512 Ko à 1 Mo × nb threads)</p>
@@ -5519,14 +5603,14 @@
 </table>
 <h3 id="outils-danalyse-offline">Outils d'analyse offline</h3>
 <ul>
-<li><strong>GCViewer</strong> — desktop, gratuit, lecture humaine des logs unifiés</li>
-<li><strong>GCEasy</strong> (gceasy.io) — upload du log, analyse automatique avec recommandations</li>
-<li><strong>Garbage Cat</strong> — CLI, parsing rapide</li>
-<li><strong>JIT Watch</strong> — pour le code généré par le JIT</li>
+<li><strong>GCViewer</strong> · desktop, gratuit, lecture humaine des logs unifiés</li>
+<li><strong>GCEasy</strong> (gceasy.io) · upload du log, analyse automatique avec recommandations</li>
+<li><strong>Garbage Cat</strong> · CLI, parsing rapide</li>
+<li><strong>JIT Watch</strong> · pour le code généré par le JIT</li>
 </ul>
 <hr />
 <h2 id="outofmemoryerror-les-8-types-et-leurs-causes">OutOfMemoryError · les 8 types et leurs causes</h2>
-<p>Tous les OOM ne se valent pas. La JVM précise toujours <strong>le type</strong> dans le message — c'est la clé pour diagnostiquer.</p>
+<p>Tous les OOM ne se valent pas. La JVM précise toujours <strong>le type</strong> dans le message · c'est la clé pour diagnostiquer.</p>
 <table>
 <thead>
 <tr>
@@ -5684,7 +5768,7 @@ jcmd<span class="w"> </span>&lt;PID&gt;<span class="w"> </span>JFR.check
 jcmd<span class="w"> </span>&lt;PID&gt;<span class="w"> </span>JFR.stop<span class="w"> </span><span class="nv">name</span><span class="o">=</span>incident
 jcmd<span class="w"> </span>&lt;PID&gt;<span class="w"> </span>JFR.dump<span class="w"> </span><span class="nv">name</span><span class="o">=</span>incident<span class="w"> </span><span class="nv">filename</span><span class="o">=</span>/tmp/incident.jfr
 </code></pre></div>
-<p>Analyse offline : <strong>JDK Mission Control (JMC)</strong>. Vues complètes — CPU samples, allocations par classe, contention de threads, I/O, etc.</p>
+<p>Analyse offline : <strong>JDK Mission Control (JMC)</strong>. Vues complètes · CPU samples, allocations par classe, contention de threads, I/O, etc.</p>
 <h3 id="async-profiler">async-profiler</h3>
 <p>Profiler natif basé sur perf, <strong>plus précis</strong> que JFR sur les CPU samples. Très utilisé en prod.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Profile CPU pendant 30s, génère un flamegraph SVG</span>
@@ -5786,8 +5870,8 @@ Méthode : (1) activer <code>-XX:+HeapDumpOnOutOfMemoryError</code>, (2) attendr
 <hr />
 <h2 id="voir-aussi">Voir aussi</h2>
 <ul>
-<li><a href="../../devops/run-mco-sre/">RUN, MCO et SRE</a> — méthodologie d'exploitation</li>
-<li><a href="../monitoring-paiement/">Monitoring de Plateforme de Paiement</a> — application au domaine monétique, investigation pas à pas</li>
+<li><a href="../../devops/run-mco-sre/">RUN, MCO et SRE</a> · méthodologie d'exploitation</li>
+<li><a href="../monitoring-paiement/">Monitoring de Plateforme de Paiement</a> · application au domaine monétique, investigation pas à pas</li>
 <li><a href="../logging-architecture-java/">Logging Architecture Java</a></li>
 <li><a href="../metrics-monitoring-prometheus-grafana/">Metrics Monitoring · Prometheus + Grafana</a></li>
 </ul>

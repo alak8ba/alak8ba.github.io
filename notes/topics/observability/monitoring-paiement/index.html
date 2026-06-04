@@ -3469,6 +3469,90 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kafka-en-paiement/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kafka en paiement
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../paiement-vocabulaire/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Paiement vocabulaire
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pci-dss-applique/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pci dss applique
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -5563,7 +5647,7 @@ mpstat<span class="w"> </span>-P<span class="w"> </span>ALL<span class="w"> </sp
 pidstat<span class="w"> </span>-u<span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">5</span>
 ps<span class="w"> </span>aux<span class="w"> </span>--sort<span class="o">=</span>-%cpu<span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-10
 </code></pre></div>
-<p><strong>Comprendre le Load Average</strong> — le chiffre le plus mal interprété de Linux :</p>
+<p><strong>Comprendre le Load Average</strong> · le chiffre le plus mal interprété de Linux :</p>
 <div class="highlight"><pre><span></span><code>load average: 2.15, 1.98, 1.85   (moyennes sur 1, 5, 15 min)
 </code></pre></div>
 <p>C'est le nombre moyen de processus <strong>en cours d'exécution OU en attente</strong> d'une ressource (CPU, I/O). À comparer <strong>au nombre de vCPU</strong> de la machine :</p>
@@ -5745,7 +5829,7 @@ mtr<span class="w"> </span>-rwc<span class="w"> </span><span class="m">50</span>
 <span class="c1"># Capturer un trafic spécifique (incident)</span>
 tcpdump<span class="w"> </span>-i<span class="w"> </span>eth0<span class="w"> </span>-w<span class="w"> </span>/tmp/capture.pcap<span class="w"> </span>host<span class="w"> </span>acquirer.bank.com<span class="w"> </span>and<span class="w"> </span>port<span class="w"> </span><span class="m">443</span>
 </code></pre></div>
-<p><strong>Mesure de débit avec <code>iperf3</code></strong> — l'outil de référence pour valider si un goulot d'étranglement vient du réseau :</p>
+<p><strong>Mesure de débit avec <code>iperf3</code></strong> · l'outil de référence pour valider si un goulot d'étranglement vient du réseau :</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Sur la machine cible (serveur)</span>
 iperf3<span class="w"> </span>-s
 <span class="c1"># Écoute sur le port 5201 TCP par défaut</span>
@@ -5920,7 +6004,7 @@ jcmd<span class="w"> </span>&lt;PID&gt;<span class="w"> </span>ManagementAgent.s
 <span class="c1"># URL : http://host:8080/manager/status</span>
 <span class="c1"># Vue : threads actifs, sessions, mémoire heap, déploiements</span>
 </code></pre></div>
-<p><strong>APM (Application Performance Monitoring)</strong> — si l'entreprise dispose d'une solution, le diagnostic devient beaucoup plus rapide :</p>
+<p><strong>APM (Application Performance Monitoring)</strong> · si l'entreprise dispose d'une solution, le diagnostic devient beaucoup plus rapide :</p>
 <table>
 <thead>
 <tr>

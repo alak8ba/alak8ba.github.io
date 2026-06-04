@@ -12,13 +12,13 @@
         <meta name="author" content="A.KOUBA">
       
       
-        <link rel="canonical" href="https://alak8ba.github.io/notes/topics/spring/spring-batch-advanced-patterns/">
+        <link rel="canonical" href="https://alak8ba.github.io/notes/topics/observability/pci-dss-applique/">
       
       
-        <link rel="prev" href="../spring-batch-migration-sb2-java8-to-sb5-java21/">
+        <link rel="prev" href="../paiement-vocabulaire/">
       
       
-        <link rel="next" href="../../java/database/acid/">
+        <link rel="next" href="../../devops/run-mco-sre/">
       
       
         
@@ -29,7 +29,7 @@
     
     
       
-        <title>Spring Batch - Patterns avancés - Engineering Notes</title>
+        <title>Pci dss applique - Engineering Notes</title>
       
     
     
@@ -82,7 +82,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#spring-batch-patterns-avances-et-experience-production" class="md-skip">
+        <a href="#pci-dss-applique-ce-qui-change-dans-le-code-et-lexploitation" class="md-skip">
           Aller au contenu
         </a>
       
@@ -115,7 +115,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Spring Batch - Patterns avancés
+              Pci dss applique
             
           </span>
         </div>
@@ -271,8 +271,6 @@
   
   
   
-    
-  
   
     
     
@@ -280,12 +278,10 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
+      <li class="md-tabs__item">
         <a href="../../java/fundamentals/equals-vs-double-equals/" class="md-tabs__link">
           
   
@@ -365,11 +361,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../observability/logging-architecture-java/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../logging-architecture-java/" class="md-tabs__link">
           
   
   
@@ -638,31 +636,28 @@
       
   
   
-    
   
   
-  
     
     
     
     
-      
-        
-        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
         
           
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
             
   
   
@@ -680,7 +675,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             
@@ -704,13 +699,10 @@
       
       
         
-          
-          
-        
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
@@ -719,7 +711,7 @@
         <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_1" >
         
           
-          <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="">
+          <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
             
   
   
@@ -1021,13 +1013,10 @@
       
       
         
-          
-          
-        
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
@@ -1036,7 +1025,7 @@
         <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_2" >
         
           
-          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="">
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
             
   
   
@@ -1282,13 +1271,10 @@
       
       
         
-          
-          
-        
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
@@ -1297,7 +1283,7 @@
         <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_3" >
         
           
-          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="">
+          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
             
   
   
@@ -1487,13 +1473,10 @@
       
       
         
-          
-          
-        
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
@@ -1502,7 +1485,7 @@
         <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_4" >
         
           
-          <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="">
+          <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
             
   
   
@@ -1636,13 +1619,10 @@
       
       
         
-          
-          
-        
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
@@ -1651,7 +1631,7 @@
         <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_5" >
         
           
-          <label class="md-nav__link" for="__nav_4_5" id="__nav_4_5_label" tabindex="">
+          <label class="md-nav__link" for="__nav_4_5" id="__nav_4_5_label" tabindex="0">
             
   
   
@@ -1776,31 +1756,28 @@
                 
   
   
-    
   
   
-  
     
     
     
     
       
       
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
         
           
-          
         
-      
-    
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_6" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_6" >
         
           
-          <label class="md-nav__link" for="__nav_4_6" id="__nav_4_6_label" tabindex="">
+          <label class="md-nav__link" for="__nav_4_6" id="__nav_4_6_label" tabindex="0">
             
   
   
@@ -1818,7 +1795,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_6_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_6_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4_6">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1920,7 +1897,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../spring-batch-migration-sb2-java8-to-sb5-java21/" class="md-nav__link">
+      <a href="../../spring/spring-batch-migration-sb2-java8-to-sb5-java21/" class="md-nav__link">
         
   
   
@@ -1945,37 +1922,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Spring Batch - Patterns avancés
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../spring/spring-batch-advanced-patterns/" class="md-nav__link">
         
   
   
@@ -1991,265 +1941,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table des matières
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#contexte" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Contexte
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#1-stepscope-la-bonne-facon-de-gerer-la-concurrence" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1. @StepScope • La bonne façon de gérer la concurrence
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="1. @StepScope • La bonne façon de gérer la concurrence">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#le-probleme-du-singleton-partage" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Le problème du singleton partagé
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#la-solution-stepscope" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        La solution : @StepScope
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2-flatfileitemreader-lecture-streamee-vs-chargement-memoire" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2. FlatFileItemReader • Lecture streamée vs chargement mémoire
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="2. FlatFileItemReader • Lecture streamée vs chargement mémoire">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#le-probleme-du-chargement-en-memoire" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Le problème du chargement en mémoire
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#la-solution-flatfileitemreader-natif" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        La solution : FlatFileItemReader natif
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3-chunk-sizing-et-impact-transactionnel" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3. Chunk • Sizing et impact transactionnel
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="3. Chunk • Sizing et impact transactionnel">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#choisir-la-bonne-valeur" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Choisir la bonne valeur
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4-gestion-derreurs-skip-natif-vs-pattern-fonctionnel" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4. Gestion d'erreurs • Skip natif vs Pattern fonctionnel
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="4. Gestion d&#39;erreurs • Skip natif vs Pattern fonctionnel">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#skip-natif-spring-batch" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Skip natif Spring Batch
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#pattern-fonctionnel" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Pattern fonctionnel
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#comparatif" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Comparatif
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5-exploiter-le-framework-au-dela-du-readerprocessorwriter" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5. Exploiter le framework • Au-delà du Reader/Processor/Writer
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="5. Exploiter le framework • Au-delà du Reader/Processor/Writer">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#listeners" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Listeners
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#jobrepository-postgresql" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        JobRepository PostgreSQL
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#metriques-micrometer-actuator" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Métriques Micrometer + Actuator
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#synthese" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Synthèse
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#voir-aussi" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Voir aussi
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -2276,13 +1967,10 @@
       
       
         
-          
-          
-        
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
@@ -2291,7 +1979,7 @@
         <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_7" >
         
           
-          <label class="md-nav__link" for="__nav_4_7" id="__nav_4_7_label" tabindex="">
+          <label class="md-nav__link" for="__nav_4_7" id="__nav_4_7_label" tabindex="0">
             
   
   
@@ -2480,7 +2168,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../hexagonal-architecture/" class="md-nav__link">
+      <a href="../../spring/hexagonal-architecture/" class="md-nav__link">
         
   
   
@@ -3054,28 +2742,31 @@
       
   
   
+    
   
   
+  
     
     
     
     
+      
+        
+        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" checked>
         
           
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
-        
-          
-          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="">
             
   
   
@@ -3093,7 +2784,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_8">
             <span class="md-nav__icon md-icon"></span>
             
@@ -3111,7 +2802,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../observability/logging-architecture-java/" class="md-nav__link">
+      <a href="../logging-architecture-java/" class="md-nav__link">
         
   
   
@@ -3139,7 +2830,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../observability/exception-handling-spring/" class="md-nav__link">
+      <a href="../exception-handling-spring/" class="md-nav__link">
         
   
   
@@ -3167,7 +2858,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../observability/metrics-monitoring-prometheus-grafana/" class="md-nav__link">
+      <a href="../metrics-monitoring-prometheus-grafana/" class="md-nav__link">
         
   
   
@@ -3195,7 +2886,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../observability/monitoring-paiement/" class="md-nav__link">
+      <a href="../monitoring-paiement/" class="md-nav__link">
         
   
   
@@ -3223,7 +2914,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../observability/java-production-deep-dive/" class="md-nav__link">
+      <a href="../java-production-deep-dive/" class="md-nav__link">
         
   
   
@@ -3251,7 +2942,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../observability/kafka-en-paiement/" class="md-nav__link">
+      <a href="../kafka-en-paiement/" class="md-nav__link">
         
   
   
@@ -3279,7 +2970,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../observability/paiement-vocabulaire/" class="md-nav__link">
+      <a href="../paiement-vocabulaire/" class="md-nav__link">
         
   
   
@@ -3304,10 +2995,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../observability/pci-dss-applique/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pci dss applique
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -3323,6 +3041,359 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#les-12-grands-principes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Les 12 grands principes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#le-concept-central-cde-et-tokenization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Le concept central · CDE et tokenization
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Le concept central · CDE et tokenization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cde-cardholder-data-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CDE · Cardholder Data Environment
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tokenization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tokenization
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#donnees-interdites-de-stockage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Données interdites de stockage
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#impact-cote-code-applicatif" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Impact côté code applicatif
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Impact côté code applicatif">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#masquage-a-laffichage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Masquage à l'affichage
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#encryption-en-base" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Encryption en base
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#jamais-dans-une-url" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Jamais dans une URL
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#impact-cote-logs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Impact côté logs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Impact côté logs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#regles-dor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Règles d'or
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#logs-autorises-et-structure-typique" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Logs autorisés et structure typique
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#audit-log-specifique-requirement-10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Audit log spécifique (Requirement 10)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#impact-cote-monitoring-et-observabilite" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Impact côté monitoring et observabilité
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Impact côté monitoring et observabilité">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#metriques-prometheus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Métriques Prometheus
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#apm-dynatrace-appdynamics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        APM (Dynatrace / AppDynamics)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#heap-dumps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Heap dumps
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#network-tls-et-segmentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Network · TLS et segmentation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Network · TLS et segmentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tls-strict" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TLS strict
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#segmentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Segmentation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-management-hsm-et-rotation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key management · HSM et rotation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Key management · HSM et rotation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hsm-hardware-security-module" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HSM (Hardware Security Module)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rotation-des-cles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rotation des clés
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#patching-et-cve-requirement-6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Patching et CVE · Requirement 6
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cas-concrets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cas concrets
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#points-cles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Points clés
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#voir-aussi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Voir aussi
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -4713,10 +4784,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#contexte" class="md-nav__link">
+  <a href="#les-12-grands-principes" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Contexte
+        Les 12 grands principes
       
     </span>
   </a>
@@ -4724,22 +4795,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#1-stepscope-la-bonne-facon-de-gerer-la-concurrence" class="md-nav__link">
+  <a href="#le-concept-central-cde-et-tokenization" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. @StepScope • La bonne façon de gérer la concurrence
+        Le concept central · CDE et tokenization
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="1. @StepScope • La bonne façon de gérer la concurrence">
+    <nav class="md-nav" aria-label="Le concept central · CDE et tokenization">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#le-probleme-du-singleton-partage" class="md-nav__link">
+  <a href="#cde-cardholder-data-environment" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Le problème du singleton partagé
+        CDE · Cardholder Data Environment
       
     </span>
   </a>
@@ -4747,10 +4818,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#la-solution-stepscope" class="md-nav__link">
+  <a href="#tokenization" class="md-nav__link">
     <span class="md-ellipsis">
       
-        La solution : @StepScope
+        Tokenization
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#donnees-interdites-de-stockage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Données interdites de stockage
       
     </span>
   </a>
@@ -4763,22 +4845,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-flatfileitemreader-lecture-streamee-vs-chargement-memoire" class="md-nav__link">
+  <a href="#impact-cote-code-applicatif" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. FlatFileItemReader • Lecture streamée vs chargement mémoire
+        Impact côté code applicatif
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="2. FlatFileItemReader • Lecture streamée vs chargement mémoire">
+    <nav class="md-nav" aria-label="Impact côté code applicatif">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#le-probleme-du-chargement-en-memoire" class="md-nav__link">
+  <a href="#masquage-a-laffichage" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Le problème du chargement en mémoire
+        Masquage à l'affichage
       
     </span>
   </a>
@@ -4786,10 +4868,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#la-solution-flatfileitemreader-natif" class="md-nav__link">
+  <a href="#encryption-en-base" class="md-nav__link">
     <span class="md-ellipsis">
       
-        La solution : FlatFileItemReader natif
+        Encryption en base
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#jamais-dans-une-url" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Jamais dans une URL
       
     </span>
   </a>
@@ -4802,22 +4895,44 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-chunk-sizing-et-impact-transactionnel" class="md-nav__link">
+  <a href="#impact-cote-logs" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Chunk • Sizing et impact transactionnel
+        Impact côté logs
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="3. Chunk • Sizing et impact transactionnel">
+    <nav class="md-nav" aria-label="Impact côté logs">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#choisir-la-bonne-valeur" class="md-nav__link">
+  <a href="#regles-dor" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Choisir la bonne valeur
+        Règles d'or
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#logs-autorises-et-structure-typique" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Logs autorisés et structure typique
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#audit-log-specifique-requirement-10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Audit log spécifique (Requirement 10)
       
     </span>
   </a>
@@ -4830,22 +4945,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-gestion-derreurs-skip-natif-vs-pattern-fonctionnel" class="md-nav__link">
+  <a href="#impact-cote-monitoring-et-observabilite" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. Gestion d'erreurs • Skip natif vs Pattern fonctionnel
+        Impact côté monitoring et observabilité
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="4. Gestion d&#39;erreurs • Skip natif vs Pattern fonctionnel">
+    <nav class="md-nav" aria-label="Impact côté monitoring et observabilité">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#skip-natif-spring-batch" class="md-nav__link">
+  <a href="#metriques-prometheus" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Skip natif Spring Batch
+        Métriques Prometheus
       
     </span>
   </a>
@@ -4853,10 +4968,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#pattern-fonctionnel" class="md-nav__link">
+  <a href="#apm-dynatrace-appdynamics" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Pattern fonctionnel
+        APM (Dynatrace / AppDynamics)
       
     </span>
   </a>
@@ -4864,10 +4979,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#comparatif" class="md-nav__link">
+  <a href="#heap-dumps" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Comparatif
+        Heap dumps
       
     </span>
   </a>
@@ -4880,22 +4995,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#5-exploiter-le-framework-au-dela-du-readerprocessorwriter" class="md-nav__link">
+  <a href="#network-tls-et-segmentation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5. Exploiter le framework • Au-delà du Reader/Processor/Writer
+        Network · TLS et segmentation
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="5. Exploiter le framework • Au-delà du Reader/Processor/Writer">
+    <nav class="md-nav" aria-label="Network · TLS et segmentation">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#listeners" class="md-nav__link">
+  <a href="#tls-strict" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Listeners
+        TLS strict
       
     </span>
   </a>
@@ -4903,21 +5018,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#jobrepository-postgresql" class="md-nav__link">
+  <a href="#segmentation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        JobRepository PostgreSQL
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#metriques-micrometer-actuator" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Métriques Micrometer + Actuator
+        Segmentation
       
     </span>
   </a>
@@ -4930,10 +5034,71 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#synthese" class="md-nav__link">
+  <a href="#key-management-hsm-et-rotation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Synthèse
+        Key management · HSM et rotation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Key management · HSM et rotation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hsm-hardware-security-module" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HSM (Hardware Security Module)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rotation-des-cles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rotation des clés
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#patching-et-cve-requirement-6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Patching et CVE · Requirement 6
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cas-concrets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cas concrets
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#points-cles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Points clés
       
     </span>
   </a>
@@ -4972,270 +5137,363 @@
       
       
       
-        <a href="../../../tags/#tag:java" class="md-tag">java</a>
+        <a href="../../../tags/#tag:compliance" class="md-tag">compliance</a>
       
     
       
       
       
       
-        <a href="../../../tags/#tag:spring" class="md-tag">spring</a>
+        <a href="../../../tags/#tag:conformité" class="md-tag">conformité</a>
       
     
       
       
       
       
-        <a href="../../../tags/#tag:spring-batch" class="md-tag">spring-batch</a>
+        <a href="../../../tags/#tag:monétique" class="md-tag">monétique</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../../tags/#tag:paiement" class="md-tag">paiement</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../../tags/#tag:pci-dss" class="md-tag">pci-dss</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../../tags/#tag:sécurité" class="md-tag">sécurité</a>
       
     
   </nav>
 
 
 
-<h1 id="spring-batch-patterns-avances-et-experience-production">Spring Batch • Patterns avancés et expérience production</h1>
-<h2 id="contexte">Contexte</h2>
-<p>Spring Batch est un framework puissant mais dont la maîtrise réelle se révèle dans les détails d'implémentation. Ces notes documentent les patterns avancés issus d'une expérience de terrain sur des batchs de traitement de données à forte volumétrie.</p>
+<h1 id="pci-dss-applique-ce-qui-change-dans-le-code-et-lexploitation">PCI DSS Appliqué · Ce qui change dans le code et l'exploitation</h1>
+<p>PCI DSS (Payment Card Industry Data Security Standard) est le standard de sécurité imposé par les schemes (Visa, Mastercard, Amex, JCB, Discover) à tout acteur qui stocke, traite ou transmet des données de cartes de paiement. Pas une option · un prérequis légal pour opérer.</p>
+<p>Cette page se concentre sur <strong>ce que ça change concrètement</strong> côté dev, code, exploitation et monitoring · pas une lecture exhaustive de la norme.</p>
 <hr />
-<h2 id="1-stepscope-la-bonne-facon-de-gerer-la-concurrence">1. @StepScope • La bonne façon de gérer la concurrence</h2>
-<h3 id="le-probleme-du-singleton-partage">Le problème du singleton partagé</h3>
-<p>Avec le partitioning (parallélisme), Spring Batch crée N workers qui exécutent le même step en parallèle. Si le reader est un bean singleton, tous les threads partagent la même instance • race conditions garanties.</p>
-<p><strong>Pattern à éviter :</strong></p>
-<div class="highlight"><pre><span></span><code><span class="nd">@Component</span>
-<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MonItemReader</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">ItemReader</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">items</span><span class="p">;</span>
-<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">index</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">synchronized</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="nf">read</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">  </span><span class="c1">// synchronized = patch, pas une solution</span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">index</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">items</span><span class="p">.</span><span class="na">size</span><span class="p">())</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">items</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">index</span><span class="o">++</span><span class="p">);</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-<p><code>synchronized</code> sérialise les lectures et annule partiellement le bénéfice du parallélisme. C'est un patch sur un problème de conception.</p>
-<h3 id="la-solution-stepscope">La solution : @StepScope</h3>
-<p><code>@StepScope</code> est un scope Spring spécifique à Spring Batch. Un bean <code>@StepScope</code> crée une <strong>nouvelle instance pour chaque StepExecution</strong>. Avec le partitioning, chaque partition obtient sa propre instance • aucun partage, aucun verrou.</p>
-<div class="highlight"><pre><span></span><code><span class="nd">@Component</span>
-<span class="nd">@StepScope</span><span class="w">  </span><span class="c1">// Une instance par partition → thread-safe par construction</span>
-<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">AssureItemReader</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">ItemReader</span><span class="o">&lt;</span><span class="n">AssureDto</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
-
-<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">FlatFileItemReader</span><span class="o">&lt;</span><span class="n">AssureDto</span><span class="o">&gt;</span><span class="w"> </span><span class="n">delegate</span><span class="p">;</span>
-
-<span class="w">    </span><span class="nd">@BeforeStep</span>
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">beforeStep</span><span class="p">(</span><span class="n">StepExecution</span><span class="w"> </span><span class="n">stepExecution</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">inputFile</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stepExecution</span><span class="p">.</span><span class="na">getJobParameters</span><span class="p">().</span><span class="na">getString</span><span class="p">(</span><span class="s">&quot;inputFile&quot;</span><span class="p">);</span>
-
-<span class="w">        </span><span class="n">delegate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">FlatFileItemReaderBuilder</span><span class="o">&lt;</span><span class="n">AssureDto</span><span class="o">&gt;</span><span class="p">()</span>
-<span class="w">                </span><span class="p">.</span><span class="na">name</span><span class="p">(</span><span class="s">&quot;assureItemReader&quot;</span><span class="p">)</span>
-<span class="w">                </span><span class="p">.</span><span class="na">resource</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">FileSystemResource</span><span class="p">(</span><span class="n">inputFile</span><span class="p">))</span>
-<span class="w">                </span><span class="p">.</span><span class="na">lineMapper</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">AssureLineMapper</span><span class="p">())</span>
-<span class="w">                </span><span class="p">.</span><span class="na">build</span><span class="p">();</span>
-
-<span class="w">        </span><span class="n">delegate</span><span class="p">.</span><span class="na">open</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">ExecutionContext</span><span class="p">());</span>
-<span class="w">    </span><span class="p">}</span>
-
-<span class="w">    </span><span class="nd">@Override</span>
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">AssureDto</span><span class="w"> </span><span class="nf">read</span><span class="p">()</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">delegate</span><span class="p">.</span><span class="na">read</span><span class="p">();</span><span class="w">  </span><span class="c1">// Thread-safe : instance isolée par partition</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-<p><strong>Avantages :</strong>
-- Parallélisme pleinement efficace
-- Pas de race condition
-- Code plus simple et lisible
-- Conforme aux conventions Spring Batch</p>
-<div class="admonition warning">
-<p class="admonition-title">Point d'attention</p>
-<p><code>@StepScope</code> ne peut pas être injecté dans un contexte hors step (ex : <code>@Configuration</code>). Utiliser un proxy via <code>@Bean @StepScope</code> dans une <code>@Configuration</code>.</p>
-</div>
-<hr />
-<h2 id="2-flatfileitemreader-lecture-streamee-vs-chargement-memoire">2. FlatFileItemReader • Lecture streamée vs chargement mémoire</h2>
-<h3 id="le-probleme-du-chargement-en-memoire">Le problème du chargement en mémoire</h3>
-<p>Charger toutes les lignes d'un fichier dans une <code>List</code> avant traitement expose à un <code>OutOfMemoryError</code> sur des fichiers volumineux.</p>
-<div class="highlight"><pre><span></span><code><span class="c1">// Fragile sur les gros volumes</span>
-<span class="kd">private</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">lignes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Files</span><span class="p">.</span><span class="na">readAllLines</span><span class="p">(</span><span class="n">Path</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">inputFile</span><span class="p">));</span>
-</code></pre></div>
-<h3 id="la-solution-flatfileitemreader-natif">La solution : FlatFileItemReader natif</h3>
-<p>Spring Batch fournit un <code>FlatFileItemReader</code> qui lit <strong>ligne par ligne</strong>, sans charger l'intégralité en mémoire. Il est également thread-safe quand utilisé avec <code>@StepScope</code>.</p>
-<div class="highlight"><pre><span></span><code><span class="n">delegate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">FlatFileItemReaderBuilder</span><span class="o">&lt;</span><span class="n">AssureDto</span><span class="o">&gt;</span><span class="p">()</span>
-<span class="w">    </span><span class="p">.</span><span class="na">name</span><span class="p">(</span><span class="s">&quot;assureItemReader&quot;</span><span class="p">)</span>
-<span class="w">    </span><span class="p">.</span><span class="na">resource</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">FileSystemResource</span><span class="p">(</span><span class="n">inputFile</span><span class="p">))</span>
-<span class="w">    </span><span class="p">.</span><span class="na">lineMapper</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">AssureLineMapper</span><span class="p">())</span><span class="w">  </span><span class="c1">// Parse le format (fixe, CSV, etc.)</span>
-<span class="w">    </span><span class="p">.</span><span class="na">encoding</span><span class="p">(</span><span class="s">&quot;ISO-8859-1&quot;</span><span class="p">)</span>
-<span class="w">    </span><span class="p">.</span><span class="na">build</span><span class="p">();</span>
-</code></pre></div>
-<p><strong>Avantages :</strong>
-- Mémoire constante quelle que soit la taille du fichier
-- Thread-safe avec <code>@StepScope</code>
-- Support natif des encodages, delimiters, formats à largeur fixe</p>
-<hr />
-<h2 id="3-chunk-sizing-et-impact-transactionnel">3. Chunk • Sizing et impact transactionnel</h2>
-<p>Le chunk est le nombre d'items lus/traités avant un <strong>commit transactionnel</strong>.</p>
-<p>Spring Batch lit N items → les traite → les écrit → commite. En cas d'erreur dans le write, le rollback ne porte que sur ce chunk.</p>
-<div class="highlight"><pre><span></span><code><span class="p">.</span><span class="o">&lt;</span><span class="n">AssureDto</span><span class="p">,</span><span class="w"> </span><span class="n">AssureResultDto</span><span class="o">&gt;</span><span class="n">chunk</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="n">transactionManager</span><span class="p">)</span>
-</code></pre></div>
-<h3 id="choisir-la-bonne-valeur">Choisir la bonne valeur</h3>
+<h2 id="les-12-grands-principes">Les 12 grands principes</h2>
 <table>
 <thead>
 <tr>
-<th>Chunk</th>
-<th>Comportement</th>
-<th>Usage</th>
+<th>#</th>
+<th>Principe (résumé)</th>
+<th>Côté code/run</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>1</td>
-<td>Rollback précis, N commits</td>
-<td>Données critiques, coût de rollback élevé</td>
+<td>Firewall et segmentation réseau</td>
+<td>DMZ pour les composants exposés, isolation CDE</td>
 </tr>
 <tr>
-<td>10–50</td>
-<td>Bon équilibre performance/granularité</td>
-<td>Cas standard</td>
+<td>2</td>
+<td>Ne pas utiliser les configs par défaut (mots de passe, comptes)</td>
+<td>Hardening serveurs, comptes nommés</td>
 </tr>
 <tr>
-<td>100+</td>
-<td>Performant, rollback large</td>
-<td>Traitement léger, pas de contrainte transactionnelle forte</td>
+<td>3</td>
+<td>Protéger les données de carte stockées</td>
+<td><strong>Tokenization, encryption AES-256, masquage</strong></td>
+</tr>
+<tr>
+<td>4</td>
+<td>Chiffrer la transmission sur réseaux publics</td>
+<td>TLS 1.2+ obligatoire, pas de SSL, pas de TLS 1.0/1.1</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Antivirus / antimalware à jour</td>
+<td>EDR sur tous les serveurs</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Systèmes et apps sécurisés (CVE patching, secure dev)</td>
+<td>Dependabot, SCA, SAST, code reviews</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Restreindre l'accès aux données carte (besoin d'en connaître)</td>
+<td>RBAC strict, séparation des rôles</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Identifiant unique par utilisateur, MFA</td>
+<td>Pas de compte partagé, SSO + MFA</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Sécurité physique</td>
+<td>Datacenters certifiés</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Tracer tous les accès aux données carte</td>
+<td><strong>Audit log immuable, centralisé, conservé 1 an</strong></td>
+</tr>
+<tr>
+<td>11</td>
+<td>Tester régulièrement la sécurité</td>
+<td>Pentest annuel, scans trimestriels</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Politique de sécurité formalisée</td>
+<td>Documentation, formation, plan incident</td>
 </tr>
 </tbody>
 </table>
-<p><strong>Règle pratique :</strong> commencer par 10, monitorer les temps d'exécution et ajuster selon le profil du traitement.</p>
 <hr />
-<h2 id="4-gestion-derreurs-skip-natif-vs-pattern-fonctionnel">4. Gestion d'erreurs • Skip natif vs Pattern fonctionnel</h2>
-<p>Deux approches coexistent selon le contexte.</p>
-<h3 id="skip-natif-spring-batch">Skip natif Spring Batch</h3>
-<p>Le mécanisme standard du framework :</p>
-<div class="highlight"><pre><span></span><code><span class="k">new</span><span class="w"> </span><span class="n">StepBuilder</span><span class="p">(</span><span class="s">&quot;monStep&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">jobRepository</span><span class="p">)</span>
-<span class="w">    </span><span class="p">.</span><span class="o">&lt;</span><span class="n">Input</span><span class="p">,</span><span class="w"> </span><span class="n">Output</span><span class="o">&gt;</span><span class="n">chunk</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="n">transactionManager</span><span class="p">)</span>
-<span class="w">    </span><span class="p">.</span><span class="na">reader</span><span class="p">(</span><span class="n">reader</span><span class="p">())</span>
-<span class="w">    </span><span class="p">.</span><span class="na">processor</span><span class="p">(</span><span class="n">processor</span><span class="p">())</span>
-<span class="w">    </span><span class="p">.</span><span class="na">writer</span><span class="p">(</span><span class="n">writer</span><span class="p">())</span>
-<span class="w">    </span><span class="p">.</span><span class="na">faultTolerant</span><span class="p">()</span>
-<span class="w">    </span><span class="p">.</span><span class="na">skip</span><span class="p">(</span><span class="n">FunctionalException</span><span class="p">.</span><span class="na">class</span><span class="p">)</span><span class="w">     </span><span class="c1">// Ignorer ces exceptions</span>
-<span class="w">    </span><span class="p">.</span><span class="na">skipLimit</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span><span class="w">                       </span><span class="c1">// Stopper si &gt; 100 skips</span>
-<span class="w">    </span><span class="p">.</span><span class="na">noSkip</span><span class="p">(</span><span class="n">TechnicalException</span><span class="p">.</span><span class="na">class</span><span class="p">)</span><span class="w">    </span><span class="c1">// Fatale : arrêter le batch</span>
-<span class="w">    </span><span class="p">.</span><span class="na">build</span><span class="p">();</span>
+<h2 id="le-concept-central-cde-et-tokenization">Le concept central · CDE et tokenization</h2>
+<h3 id="cde-cardholder-data-environment">CDE · Cardholder Data Environment</h3>
+<p>C'est le <strong>périmètre</strong> qui touche aux données de carte. Tout ce qui :
+- stocke un PAN (numéro de carte)
+- traite un PAN
+- ou est connecté à un système qui en traite</p>
+<p>est dans le CDE et doit respecter PCI DSS. <strong>L'objectif d'architecture est de réduire le CDE</strong> au maximum.</p>
+<h3 id="tokenization">Tokenization</h3>
+<p>Remplacer le PAN par un <strong>token</strong> sans valeur intrinsèque dès qu'il rentre dans le système.</p>
+<div class="highlight"><pre><span></span><code>[Marchand]
+  PAN 4111 1111 1111 1111
+        ↓
+  [Vault tokenization] (composant PCI DSS L1)
+        ↓
+  Token &quot;TOK-a3f2e9...8b&quot;
+        ↓
+  [Tout le reste du SI] → ne voit plus jamais le PAN
 </code></pre></div>
-<p><strong>Quand l'utiliser :</strong> erreurs rares, pas besoin de rapport détaillé par item, équipe familière avec Spring Batch.</p>
-<h3 id="pattern-fonctionnel">Pattern fonctionnel</h3>
-<p>Les erreurs métier sont <strong>catchées dans le processor</strong> et stockées dans une synthèse • jamais propagées comme exceptions.</p>
-<div class="highlight"><pre><span></span><code><span class="nd">@Override</span>
-<span class="kd">public</span><span class="w"> </span><span class="n">AssureResultDto</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="n">AssureDto</span><span class="w"> </span><span class="n">assure</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">valider</span><span class="p">(</span><span class="n">assure</span><span class="p">);</span>
-<span class="w">        </span><span class="n">synthese</span><span class="p">.</span><span class="na">incrementOK</span><span class="p">();</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">AssureResultDto</span><span class="p">.</span><span class="na">ok</span><span class="p">(</span><span class="n">assure</span><span class="p">);</span>
-
-<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">FunctionalException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">synthese</span><span class="p">.</span><span class="na">incrementKO</span><span class="p">();</span>
-<span class="w">        </span><span class="n">synthese</span><span class="p">.</span><span class="na">addNumeroEnErreur</span><span class="p">(</span><span class="n">assure</span><span class="p">.</span><span class="na">getNumPension</span><span class="p">());</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">AssureResultDto</span><span class="p">.</span><span class="na">ko</span><span class="p">(</span><span class="n">assure</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="na">getMessage</span><span class="p">());</span>
-<span class="w">        </span><span class="c1">// Pas de throw → pas de skip → pas de rollback</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-<p><strong>Quand l'utiliser :</strong> batchs de reporting nécessitant une synthèse détaillée (liste précise des items en erreur, compteurs par type d'erreur, rapport fonctionnel).</p>
-<h3 id="comparatif">Comparatif</h3>
+<p>Bénéfice : le reste du SI sort du CDE → réduction massive du périmètre audité.</p>
+<h3 id="donnees-interdites-de-stockage">Données interdites de stockage</h3>
 <table>
 <thead>
 <tr>
-<th>Critère</th>
-<th>Pattern fonctionnel</th>
-<th>Skip natif</th>
+<th>Donnée</th>
+<th>Stockable ?</th>
+<th>Si oui, comment</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Rapport d'erreurs</td>
-<td>Détaillé par item</td>
-<td>Compteur global</td>
+<td>PAN (numéro complet)</td>
+<td>Oui mais évité</td>
+<td>Chiffré AES-256 ou masqué</td>
 </tr>
 <tr>
-<td>Contrôle</td>
-<td>Total</td>
-<td>Délégué au framework</td>
+<td>Cardholder name</td>
+<td>Oui</td>
+<td>Sans contrainte spécifique</td>
 </tr>
 <tr>
-<td>Convention Spring Batch</td>
-<td>Non standard</td>
-<td>Standard</td>
+<td>Expiration date</td>
+<td>Oui</td>
+<td>Sans contrainte spécifique</td>
 </tr>
 <tr>
-<td>Interaction transactionnelle</td>
-<td>Aucune</td>
-<td>Rollback par chunk</td>
+<td>Service code</td>
+<td>Oui</td>
+<td>Sans contrainte spécifique</td>
 </tr>
 <tr>
-<td>Cas d'usage</td>
-<td>Reporting détaillé</td>
-<td>Erreurs rares et simples</td>
+<td><strong>CVV / CVC / CID</strong></td>
+<td><strong>JAMAIS</strong></td>
+<td>Interdit après autorisation</td>
+</tr>
+<tr>
+<td><strong>PIN / PIN block</strong></td>
+<td><strong>JAMAIS</strong></td>
+<td>Interdit après autorisation</td>
+</tr>
+<tr>
+<td><strong>Full track data (magnétique/chip)</strong></td>
+<td><strong>JAMAIS</strong></td>
+<td>Interdit après autorisation</td>
 </tr>
 </tbody>
 </table>
-<div class="admonition tip">
-<p class="admonition-title">Combinaison</p>
-<p>Les deux patterns sont combinables : pattern fonctionnel pour les erreurs métier attendues, skip natif pour les exceptions techniques imprévues.</p>
-</div>
+<p>Règle d'or : <strong>CVV/CVC ne survit jamais à l'autorisation</strong>. Si tu en trouves un dans une DB, un log ou une trace : incident PCI DSS immédiat.</p>
 <hr />
-<h2 id="5-exploiter-le-framework-au-dela-du-readerprocessorwriter">5. Exploiter le framework • Au-delà du Reader/Processor/Writer</h2>
-<p>Un batch de production exploite toutes les capacités du framework.</p>
-<h3 id="listeners">Listeners</h3>
-<div class="highlight"><pre><span></span><code><span class="nd">@Component</span>
-<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">BatchJobExecutionListener</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">JobExecutionListener</span><span class="w"> </span><span class="p">{</span>
+<h2 id="impact-cote-code-applicatif">Impact côté code applicatif</h2>
+<h3 id="masquage-a-laffichage">Masquage à l'affichage</h3>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">maskPan</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">pan</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Format autorisé : 6 premiers + 4 derniers, le reste masqué</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">pan</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">pan</span><span class="p">.</span><span class="na">length</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">13</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;****&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">pan</span><span class="p">.</span><span class="na">substring</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;******&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">pan</span><span class="p">.</span><span class="na">substring</span><span class="p">(</span><span class="n">pan</span><span class="p">.</span><span class="na">length</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">4</span><span class="p">);</span>
+<span class="w">    </span><span class="c1">// 411111******1111</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="encryption-en-base">Encryption en base</h3>
+<p>Préférer <strong>tokenization</strong> (vault dédié) à l'encryption applicative. Si encryption nécessaire :</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// AES-256-GCM avec clé en HSM ou KMS</span>
+<span class="nd">@Convert</span><span class="p">(</span><span class="n">converter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PanEncryptedConverter</span><span class="p">.</span><span class="na">class</span><span class="p">)</span>
+<span class="nd">@Column</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;pan_encrypted&quot;</span><span class="p">)</span>
+<span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">pan</span><span class="p">;</span>
 
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">PanEncryptedConverter</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">AttributeConverter</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="kt">byte</span><span class="o">[]&gt;</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="nd">@Override</span>
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">beforeJob</span><span class="p">(</span><span class="n">JobExecution</span><span class="w"> </span><span class="n">jobExecution</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">log</span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="s">&quot;Job démarré : {}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">jobExecution</span><span class="p">.</span><span class="na">getJobInstance</span><span class="p">().</span><span class="na">getJobName</span><span class="p">());</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">byte</span><span class="o">[]</span><span class="w"> </span><span class="nf">convertToDatabaseColumn</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">pan</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">kmsClient</span><span class="p">.</span><span class="na">encrypt</span><span class="p">(</span><span class="s">&quot;pci-pan-key&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">pan</span><span class="p">.</span><span class="na">getBytes</span><span class="p">());</span>
 <span class="w">    </span><span class="p">}</span>
-
 <span class="w">    </span><span class="nd">@Override</span>
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">afterJob</span><span class="p">(</span><span class="n">JobExecution</span><span class="w"> </span><span class="n">jobExecution</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">log</span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="s">&quot;Job terminé : {} | Statut : {} | Durée : {}ms&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="n">jobExecution</span><span class="p">.</span><span class="na">getJobInstance</span><span class="p">().</span><span class="na">getJobName</span><span class="p">(),</span>
-<span class="w">            </span><span class="n">jobExecution</span><span class="p">.</span><span class="na">getStatus</span><span class="p">(),</span>
-<span class="w">            </span><span class="n">Duration</span><span class="p">.</span><span class="na">between</span><span class="p">(</span><span class="n">jobExecution</span><span class="p">.</span><span class="na">getStartTime</span><span class="p">(),</span><span class="w"> </span><span class="n">jobExecution</span><span class="p">.</span><span class="na">getEndTime</span><span class="p">()).</span><span class="na">toMillis</span><span class="p">()</span>
-<span class="w">        </span><span class="p">);</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">convertToEntityAttribute</span><span class="p">(</span><span class="kt">byte</span><span class="o">[]</span><span class="w"> </span><span class="n">cipher</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">String</span><span class="p">(</span><span class="n">kmsClient</span><span class="p">.</span><span class="na">decrypt</span><span class="p">(</span><span class="s">&quot;pci-pan-key&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">cipher</span><span class="p">));</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-<h3 id="jobrepository-postgresql">JobRepository PostgreSQL</h3>
-<p>Persistance des métadonnées d'exécution (jobs, steps, paramètres, statuts) en base de données plutôt qu'en mémoire.</p>
-<div class="highlight"><pre><span></span><code><span class="nt">spring</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">batch</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">jdbc</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">initialize-schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">always</span>
-<span class="w">    </span><span class="nt">job</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<h3 id="jamais-dans-une-url">Jamais dans une URL</h3>
+<div class="highlight"><pre><span></span><code>❌ GET /transactions?pan=4111111111111111
+✅ POST /transactions  body: { &quot;panToken&quot;: &quot;TOK-a3f2...&quot; }
 </code></pre></div>
-<p>Permet de rejouer un job échoué, d'auditer les exécutions passées, de surveiller les tendances.</p>
-<h3 id="metriques-micrometer-actuator">Métriques Micrometer + Actuator</h3>
-<div class="highlight"><pre><span></span><code><span class="nt">management</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">endpoints</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">web</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">exposure</span><span class="p">:</span>
-<span class="w">        </span><span class="nt">include</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">health, prometheus, metrics</span>
-</code></pre></div>
-<p>Spring Batch expose nativement des métriques via Micrometer : durée des steps, nombre d'items traités, taux d'erreur.</p>
+<p>Les URLs finissent dans les access logs Nginx, Tomcat, navigateurs, proxies, monitoring URL · partout où elles ne devraient pas.</p>
 <hr />
-<h2 id="synthese">Synthèse</h2>
+<h2 id="impact-cote-logs">Impact côté logs</h2>
+<p>C'est <strong>le piège n°1</strong> des équipes qui découvrent PCI DSS. Un dev en debug log son objet <code>PaymentRequest</code> toString → PAN en clair dans Splunk → audit fail.</p>
+<h3 id="regles-dor">Règles d'or</h3>
+<ol>
+<li><strong>Aucun PAN complet dans les logs</strong>, même en niveau ERROR</li>
+<li><strong>Aucun CVV nulle part, jamais</strong></li>
+<li>Toujours <strong>masquer</strong> ou <strong>tokeniser</strong> avant le log</li>
+<li><strong>toString() / Lombok @ToString</strong> : exclure les champs sensibles</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="nd">@ToString</span><span class="p">(</span><span class="n">exclude</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="s">&quot;pan&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;cvv&quot;</span><span class="p">})</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">PaymentRequest</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">pan</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">cvv</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">BigDecimal</span><span class="w"> </span><span class="n">amount</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Ou mieux : ne jamais avoir <code>cvv</code> en mémoire après l'envoi à la banque.</p>
+<h3 id="logs-autorises-et-structure-typique">Logs autorisés et structure typique</h3>
+<div class="highlight"><pre><span></span><code>INFO  txId=tx-9281 merchant=42 amount=42.50 currency=EUR
+      pan=411111******1111 status=AUTHORIZED auth_code=A1B2C3
+</code></pre></div>
+<p><code>pan</code> masqué selon BIN visible + 4 derniers. Suffit pour debug, conforme PCI DSS.</p>
+<h3 id="audit-log-specifique-requirement-10">Audit log spécifique (Requirement 10)</h3>
+<p>Pour les accès aux données carte, log <strong>immuable</strong> dédié :</p>
+<div class="highlight"><pre><span></span><code>ts=2026-06-04T14:32:11Z user=jdoe action=READ_PAN entity=txId-9281 reason=incident-INC-4321 ip=10.20.3.42
+</code></pre></div>
+<p>Conservation <strong>minimum 1 an</strong> (3 mois en ligne, 9 mois archivé chiffré).</p>
+<hr />
+<h2 id="impact-cote-monitoring-et-observabilite">Impact côté monitoring et observabilité</h2>
+<h3 id="metriques-prometheus">Métriques Prometheus</h3>
+<p>Ne jamais mettre une donnée carte dans un <strong>label</strong>. Les labels finissent en time series, accessibles via API Grafana, et restent stockées des mois.</p>
+<div class="highlight"><pre><span></span><code>❌ payment_authorizations_total{pan=&quot;411111******1111&quot;, merchant=&quot;42&quot;} 1
+✅ payment_authorizations_total{merchant=&quot;42&quot;, scheme=&quot;VISA&quot;, country=&quot;FR&quot;} 1
+</code></pre></div>
+<h3 id="apm-dynatrace-appdynamics">APM (Dynatrace / AppDynamics)</h3>
+<p>Ces outils capturent automatiquement les <strong>valeurs de paramètres</strong> des méthodes (pour le distributed tracing). Risque : capture du PAN passé en paramètre.</p>
+<p>Solution : configurer le <strong>data masking</strong> de l'APM sur les méthodes qui touchent au PAN, ou marquer les classes avec une annotation que l'agent reconnaît.</p>
+<h3 id="heap-dumps">Heap dumps</h3>
+<p>Un heap dump capture <strong>tout</strong> ce qui est en mémoire · y compris les objets <code>String</code> contenant des PAN, CVV, etc.</p>
+<p>Règles :
+- Chiffrer les heap dumps au moment de la génération
+- Stockage sur volume chiffré
+- Accès restreint et logué
+- Destruction après analyse</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Heap dump direct sur volume chiffré, accès root only</span>
+-XX:HeapDumpPath<span class="o">=</span>/secure-dumps/<span class="w">   </span><span class="c1"># mount LUKS, mode 700</span>
+</code></pre></div>
+<hr />
+<h2 id="network-tls-et-segmentation">Network · TLS et segmentation</h2>
+<h3 id="tls-strict">TLS strict</h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># nginx.conf · PCI DSS-compliant</span>
+<span class="k">ssl_protocols</span><span class="w"> </span><span class="s">TLSv1.2</span><span class="w"> </span><span class="s">TLSv1.3</span><span class="p">;</span>
+<span class="k">ssl_ciphers</span><span class="w"> </span><span class="s">ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-CHACHA20-POLY1305</span><span class="p">;</span>
+<span class="k">ssl_prefer_server_ciphers</span><span class="w"> </span><span class="no">on</span><span class="p">;</span>
+<span class="k">ssl_session_tickets</span><span class="w"> </span><span class="no">off</span><span class="p">;</span>
+<span class="k">add_header</span><span class="w"> </span><span class="s">Strict-Transport-Security</span><span class="w"> </span><span class="s">&quot;max-age=63072000</span><span class="p">;</span><span class="w"> </span><span class="k">includeSubDomains</span><span class="p">;</span><span class="w"> </span><span class="k">preload&quot;</span><span class="p">;</span>
+</code></pre></div>
+<p>Tester avec <strong>SSL Labs</strong> ou <strong>testssl.sh</strong>. Cible : A+ obligatoire.</p>
+<h3 id="segmentation">Segmentation</h3>
+<p>CDE doit être <strong>isolé</strong> par firewall des autres réseaux :
+- Production CDE / Production hors CDE / Staging / Dev → 4 VLAN distincts
+- Aucun flux direct DB CDE ↔ DB hors CDE
+- Bastions pour l'accès opérateurs, avec session recording</p>
+<hr />
+<h2 id="key-management-hsm-et-rotation">Key management · HSM et rotation</h2>
+<h3 id="hsm-hardware-security-module">HSM (Hardware Security Module)</h3>
+<p>Stockage matériel des clés cryptographiques. La clé <strong>ne sort jamais</strong> du HSM. Le code applicatif demande "chiffre/déchiffre ceci avec la clé K42" mais ne voit jamais K42.</p>
+<p>Standards : FIPS 140-2 niveau 3 ou supérieur. Solutions : Thales Luna, AWS CloudHSM, Azure Dedicated HSM.</p>
+<h3 id="rotation-des-cles">Rotation des clés</h3>
+<p>Imposée par PCI DSS Requirement 3.6 :
+- <strong>Clés de chiffrement de données</strong> : rotation au moins annuelle
+- <strong>Clés exposées (compromission soupçonnée)</strong> : rotation immédiate
+- Versioning des clés dans le ciphertext (<code>v1</code>, <code>v2</code>...) pour pouvoir déchiffrer l'historique</p>
+<div class="highlight"><pre><span></span><code>PAN chiffré : {v: 3, iv: &quot;...&quot;, data: &quot;...&quot;}
+                 ↑ version de clé utilisée
+</code></pre></div>
+<hr />
+<h2 id="patching-et-cve-requirement-6">Patching et CVE · Requirement 6</h2>
+<p>Toute CVE critique doit être patchée <strong>sous 30 jours</strong>. En pratique on vise plus court sur les composants exposés.</p>
+<p>Outils :
+- <strong>Dependabot</strong> / <strong>Renovate</strong> sur GitHub
+- <strong>OWASP Dependency-Check</strong> en CI
+- <strong>Snyk</strong> ou <strong>GitHub Advanced Security</strong> pour la SCA
+- <strong>Trivy</strong> pour scanner les images Docker</p>
+<p>Workflow type :
+<div class="highlight"><pre><span></span><code>CVE détectée → ticket sécu → analyse impact → patch → tests → déploiement
+                                  ↑
+                               SLA : 30j critique, 90j high
+</code></pre></div></p>
+<hr />
+<h2 id="cas-concrets">Cas concrets</h2>
+<details class="question">
+<summary>Que faire si on découvre un PAN dans les logs de prod ?</summary>
+<p>Incident PCI DSS. Procédure : (1) identifier la fenêtre temporelle et le périmètre concerné, (2) purger immédiatement les logs concernés (en gardant trace de la purge), (3) corriger le code qui a loggué le PAN, (4) déclarer l'incident en interne (RSSI, DPO si données personnelles aussi), (5) postmortem avec actions correctives pérennes. Selon l'ampleur : notification du QSA / banques / clients.</p>
+</details>
+<details class="question">
+<summary>Faut-il chiffrer même les données dans les volumes Kafka ?</summary>
+<p>Idéalement, ne <strong>pas</strong> mettre de PAN brut dans Kafka. Tokeniser avant. Si impossible : chiffrer au niveau message (clé applicative, déchiffrée juste au moment du besoin) + chiffrer les volumes (LUKS, disque géré). PCI DSS exige le chiffrement at rest.</p>
+</details>
+<details class="question">
+<summary>Heap dump auto sur OOM en prod, c'est compatible PCI DSS ?</summary>
+<p>Oui mais avec précautions : (1) volume de destination chiffré (LUKS), (2) accès restreint root, (3) logué dans l'audit trail, (4) destruction après analyse documentée. Sans ces précautions : risque de fuite massive de PAN/CVV dans un fichier <code>.hprof</code> lisible.</p>
+</details>
+<details class="question">
+<summary>Le CVV est-il dans les messages Kafka ?</summary>
+<p>JAMAIS. Le CVV ne survit pas à l'autorisation initiale. Il rentre dans la requête HTTPS du marchand, est envoyé à la banque, et est <strong>détruit en mémoire</strong> immédiatement après. Aucune persistance, aucun log, aucun message Kafka.</p>
+</details>
+<details class="question">
+<summary>Mon Tomcat log les requêtes en POST. Y a-t-il un risque ?</summary>
+<p>Si le body POST contient un PAN ou un CVV en clair → oui. Les access logs Tomcat ne loggent normalement que le path et les paramètres URL (pas le body), donc les POST sont OK par défaut. Mais si quelqu'un a activé <code>request.dumper</code> ou un filter de debug qui log le body, danger. Toujours vérifier la config.</p>
+</details>
+<details class="question">
+<summary>Comment réduire le périmètre CDE de mon SI ?</summary>
+<p><strong>Tokenizer dès la réception</strong>. Le composant qui reçoit le PAN du marchand le transforme immédiatement en token via un vault. Le reste du SI ne voit que des tokens et sort du CDE. C'est la stratégie qui réduit le plus le coût audit / certification.</p>
+</details>
+<hr />
+<h2 id="points-cles">Points clés</h2>
 <ul>
-<li><code>@StepScope</code> est la bonne réponse à la concurrence dans les batchs partitionnés • pas <code>synchronized</code></li>
-<li><code>FlatFileItemReader</code> streame ligne par ligne • ne pas charger un fichier entier en mémoire</li>
-<li>Le chunk size est un compromis performance/granularité transactionnelle • justifier le choix</li>
-<li>Le pattern fonctionnel est plus adapté que le skip natif pour les batchs de reporting détaillé</li>
-<li>Un batch de production exploite listeners, JobRepository persisté et métriques</li>
+<li>PCI DSS impose 12 requirements, dont les plus impactants côté tech : protection des données stockées, chiffrement transit, RBAC, audit log immuable, patching</li>
+<li><strong>Tokenization</strong> est la stratégie qui réduit le CDE et donc le coût de mise en conformité</li>
+<li><strong>CVV, PIN, full track</strong> : jamais persistés, jamais loggués, jamais dans Kafka</li>
+<li><strong>PAN masqué</strong> (6+4) suffit pour les logs et metrics</li>
+<li><strong>Aucune donnée carte dans une URL</strong> (access logs)</li>
+<li>TLS 1.2+ obligatoire, viser A+ SSL Labs</li>
+<li>HSM ou KMS pour les clés, rotation annuelle minimum</li>
+<li>Heap dumps sur volume chiffré, accès tracé</li>
+<li>Audit log dédié pour tout accès au PAN, conservation 1 an</li>
+<li>CVE critique patchée sous 30 jours</li>
 </ul>
 <hr />
 <h2 id="voir-aussi">Voir aussi</h2>
 <ul>
-<li><a href="../spring-batch-migration-sb2-java8-to-sb5-java21/">Migration Spring Batch 4 → 5</a></li>
-<li><a href="../../database/index-et-optimisation-postgresql/">Index et optimisation PostgreSQL</a></li>
-<li><a href="../../java/spring/bean-scopes/">Bean Scopes Spring</a></li>
-<li><a href="../../database/transaction-patterns/">Transaction Patterns</a></li>
-<li><a href="../../devops/observability-pattern/">Observability Pattern</a></li>
+<li><a href="../monitoring-paiement/">Monitoring de Plateforme de Paiement</a> · patterns de logs et metrics</li>
+<li><a href="../kafka-en-paiement/">Kafka en Paiement</a> · données dans les topics et DLT</li>
+<li><a href="../paiement-vocabulaire/">Vocabulaire &amp; Architecture du Paiement</a></li>
+<li><a href="../../security/http-security-headers/">HTTP Security Headers</a></li>
+<li><a href="../../security/jwt-authentication-pattern/">JWT Authentication Pattern</a></li>
 </ul>
 
 
