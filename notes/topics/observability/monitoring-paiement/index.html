@@ -3218,6 +3218,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#diagnostic-typique-scenario-complet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagnostic typique • scénario complet
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#synthese-parcours-dinvestigation-type" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -5087,6 +5098,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#diagnostic-typique-scenario-complet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagnostic typique • scénario complet
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#synthese-parcours-dinvestigation-type" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -5372,6 +5394,15 @@
 <li>une perte de confiance difficile à reconquérir</li>
 </ul>
 <p>Conséquence : <strong>disponibilité quasi-totale exigée</strong> (99.95% à 99.99%), <strong>monitoring temps réel obligatoire</strong>, <strong>incident management ultra-rapide</strong> (P1 = traitement immédiat 24/7).</p>
+<div class="admonition info">
+<p class="admonition-title">MCO vs MCS</p>
+<p>Sur un système critique on distingue deux périmètres complémentaires :</p>
+<ul>
+<li><strong>MCO</strong> • Maintien en Condition Opérationnelle → garder le service en état de fonctionnement (perfs, dispo, incidents)</li>
+<li><strong>MCS</strong> • Maintien en Condition de Sécurité → garder le niveau de sécurité (patchs, CVE, conformité PCI DSS, certifications)</li>
+</ul>
+<p>Sur une plateforme de paiement, le MCS est aussi critique que le MCO : une vulnérabilité non patchée peut coûter plus cher qu'une indisponibilité.</p>
+</div>
 <hr />
 <h2 id="les-3-niveaux-appliques-au-paiement">Les 3 niveaux appliqués au paiement</h2>
 <h3 id="niveau-infra">Niveau infra</h3>
@@ -5500,9 +5531,45 @@ htop
 mpstat<span class="w"> </span>-P<span class="w"> </span>ALL<span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">5</span>
 <span class="c1"># %iowait élevé → le CPU attend les disques ou le réseau, pas un vrai problème CPU</span>
 
-<span class="c1"># Top des processus consommateurs</span>
+<span class="c1"># Top des processus consommateurs (alternative ps)</span>
 pidstat<span class="w"> </span>-u<span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">5</span>
+ps<span class="w"> </span>aux<span class="w"> </span>--sort<span class="o">=</span>-%cpu<span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-10
 </code></pre></div>
+<p><strong>Comprendre le Load Average</strong> — le chiffre le plus mal interprété de Linux :</p>
+<div class="highlight"><pre><span></span><code>load average: 2.15, 1.98, 1.85   (moyennes sur 1, 5, 15 min)
+</code></pre></div>
+<p>C'est le nombre moyen de processus <strong>en cours d'exécution OU en attente</strong> d'une ressource (CPU, I/O). À comparer <strong>au nombre de vCPU</strong> de la machine :</p>
+<table>
+<thead>
+<tr>
+<th>Machine</th>
+<th>Load 1</th>
+<th>Load 4</th>
+<th>Load 8</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1 vCPU</td>
+<td>100% utilisé</td>
+<td>saturé × 4</td>
+<td>saturé × 8</td>
+</tr>
+<tr>
+<td>4 vCPU</td>
+<td>25% utilisé</td>
+<td>100% pile poil</td>
+<td>saturé × 2</td>
+</tr>
+<tr>
+<td>8 vCPU</td>
+<td>12% utilisé</td>
+<td>50% utilisé</td>
+<td>100% utilisé</td>
+</tr>
+</tbody>
+</table>
+<p>Règle pratique : <strong>load &gt; nb cores → saturation</strong>, <strong>load &gt; nb cores × 2 → urgence</strong>.</p>
 <p><strong>Signaux à connaître</strong> :</p>
 <table>
 <thead>
@@ -5544,16 +5611,25 @@ free<span class="w"> </span>-h
 <span class="c1"># Détail par processus</span>
 ps<span class="w"> </span>aux<span class="w"> </span>--sort<span class="o">=</span>-%mem<span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-10
 
+<span class="c1"># Détails kernel (caches, slabs, swappable)</span>
+cat<span class="w"> </span>/proc/meminfo<span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-20
+<span class="c1"># MemTotal, MemAvailable, SwapTotal, SwapFree, Cached, Buffers...</span>
+
 <span class="c1"># Suivi temps réel</span>
 vmstat<span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">10</span>
 <span class="c1"># Colonne si/so : swap-in/swap-out. Si &gt; 0 sustained = manque de RAM réel</span>
 </code></pre></div>
 <p><strong>Réflexes</strong> :
 - <code>swap</code> qui s'active = RAM saturée, performances en chute libre
-- Heap Java qui dépasse <code>Xmx</code> → impossible (limite logicielle), mais le RSS du process peut dépasser de 30% à cause des structures off-heap (DirectByteBuffer, Metaspace, threads)</p>
+- Heap Java qui dépasse <code>Xmx</code> → impossible (limite logicielle), mais le RSS du process peut dépasser de 30% à cause des structures off-heap (DirectByteBuffer, Metaspace, threads)
+- Lire <code>available</code> (vraie RAM dispo) et <strong>pas</strong> <code>free</code> (mythe Linux : le cache pris pour de l'occupé)</p>
 <h4 id="disque">Disque</h4>
 <div class="highlight"><pre><span></span><code><span class="c1"># Espace disque par filesystem</span>
 df<span class="w"> </span>-h
+<span class="c1"># Filesystem      Size  Used Avail Use% Mounted on</span>
+<span class="c1"># /dev/sda1        50G   35G   15G  70% /</span>
+<span class="c1"># /dev/sda2         8G    1G    7G  12% [SWAP]</span>
+<span class="c1"># /dev/sda3       512M   50M  462M  10% /boot/efi</span>
 <span class="c1"># Alerter dès 80%, critique à 95%</span>
 
 <span class="c1"># Plus gros consommateurs sous un répertoire</span>
@@ -5567,10 +5643,55 @@ iotop<span class="w"> </span>-oP
 <span class="c1"># logs ouverts en écriture par dizaines = leak)</span>
 lsof<span class="w"> </span>-p<span class="w"> </span>&lt;PID&gt;<span class="w"> </span><span class="p">|</span><span class="w"> </span>wc<span class="w"> </span>-l
 </code></pre></div>
+<p><strong>Comprendre les partitions Linux typiques</strong> :</p>
+<table>
+<thead>
+<tr>
+<th>Mount</th>
+<th>Rôle</th>
+<th>Volumétrie</th>
+<th>Risques si plein</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/</code> (root)</td>
+<td>Système, applications, logs par défaut</td>
+<td>20-100 Go selon machine</td>
+<td>DB qui crashe, écritures qui échouent partout</td>
+</tr>
+<tr>
+<td><code>[SWAP]</code></td>
+<td>Extension disque de la RAM</td>
+<td>Souvent = RAM physique</td>
+<td>Si très utilisée = pression RAM grave</td>
+</tr>
+<tr>
+<td><code>/boot/efi</code></td>
+<td>Démarrage UEFI</td>
+<td>100-500 Mo</td>
+<td>Empêche le prochain reboot</td>
+</tr>
+<tr>
+<td><code>/var</code></td>
+<td>Logs, caches, données apps</td>
+<td>Souvent dédié</td>
+<td>Logs qui saturent → appli muette</td>
+</tr>
+<tr>
+<td><code>/data</code></td>
+<td>Données métier (DB, Kafka)</td>
+<td>Dédié, gros volume</td>
+<td>Impact direct sur le service</td>
+</tr>
+</tbody>
+</table>
+<p>Sur une plateforme de paiement, <strong>séparer <code>/var/log</code> du <code>/</code></strong> est une bonne pratique : si les logs explosent, le système continue à tourner.</p>
 <p><strong>Signaux clés</strong> :
 - <code>await</code> (iostat) &gt; 50ms sur un SSD = disque saturé
 - <code>%util</code> &gt; 80% = device saturé
-- Filesystem plein = écritures qui échouent, base de données qui plante</p>
+- Filesystem plein = écritures qui échouent, base de données qui plante
+- Swap utilisé &gt; 0 sustained = RAM saturée, vérifier en priorité avant le disque</p>
 <h4 id="reseau">Réseau</h4>
 <div class="highlight"><pre><span></span><code><span class="c1"># Connexions actives - filtrer sur le port applicatif</span>
 ss<span class="w"> </span>-tnp<span class="w"> </span>state<span class="w"> </span>established<span class="w"> </span><span class="s1">&#39;( dport = :8080 or sport = :8080 )&#39;</span>
@@ -5582,6 +5703,13 @@ ss<span class="w"> </span>-tan<span class="w"> </span><span class="p">|</span><s
 <span class="c1"># Statistiques par interface</span>
 ip<span class="w"> </span>-s<span class="w"> </span>link<span class="w"> </span>show<span class="w"> </span>eth0
 
+<span class="c1"># Bande passante temps réel par flux et IP</span>
+iftop<span class="w"> </span>-i<span class="w"> </span>eth0
+<span class="c1"># Vue interactive : qui consomme le réseau en ce moment</span>
+
+<span class="c1"># Bande passante temps réel agrégée (entrée/sortie)</span>
+nload<span class="w"> </span>eth0
+
 <span class="c1"># Latence et perte vers une banque acquéreur</span>
 ping<span class="w"> </span>-c<span class="w"> </span><span class="m">10</span><span class="w"> </span>acquirer.bank.com
 mtr<span class="w"> </span>-rwc<span class="w"> </span><span class="m">50</span><span class="w"> </span>acquirer.bank.com
@@ -5589,6 +5717,23 @@ mtr<span class="w"> </span>-rwc<span class="w"> </span><span class="m">50</span>
 <span class="c1"># Capturer un trafic spécifique (incident)</span>
 tcpdump<span class="w"> </span>-i<span class="w"> </span>eth0<span class="w"> </span>-w<span class="w"> </span>/tmp/capture.pcap<span class="w"> </span>host<span class="w"> </span>acquirer.bank.com<span class="w"> </span>and<span class="w"> </span>port<span class="w"> </span><span class="m">443</span>
 </code></pre></div>
+<p><strong>Mesure de débit avec <code>iperf3</code></strong> — l'outil de référence pour valider si un goulot d'étranglement vient du réseau :</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Sur la machine cible (serveur)</span>
+iperf3<span class="w"> </span>-s
+<span class="c1"># Écoute sur le port 5201 TCP par défaut</span>
+
+<span class="c1"># Depuis la machine source (client)</span>
+iperf3<span class="w"> </span>-c<span class="w"> </span>&lt;ip-serveur&gt;<span class="w">                </span><span class="c1"># test TCP 10s</span>
+iperf3<span class="w"> </span>-c<span class="w"> </span>&lt;ip-serveur&gt;<span class="w"> </span>-t<span class="w"> </span><span class="m">30</span><span class="w">          </span><span class="c1"># test 30 secondes</span>
+iperf3<span class="w"> </span>-c<span class="w"> </span>&lt;ip-serveur&gt;<span class="w"> </span>--bidir<span class="w">        </span><span class="c1"># bidirectionnel (émission + réception)</span>
+iperf3<span class="w"> </span>-c<span class="w"> </span>&lt;ip-serveur&gt;<span class="w"> </span>-u<span class="w"> </span>-b<span class="w"> </span>100M<span class="w">     </span><span class="c1"># UDP à 100 Mbit/s (mesure pertes + gigue)</span>
+iperf3<span class="w"> </span>-c<span class="w"> </span>&lt;ip-serveur&gt;<span class="w"> </span>-P<span class="w"> </span><span class="m">4</span><span class="w">           </span><span class="c1"># 4 flux parallèles</span>
+
+<span class="c1"># Lecture résultat</span>
+<span class="c1"># [  5]  0.00-10.00 sec  1.10 GBytes  945 Mbits/sec</span>
+<span class="c1">#                                      ↑ débit moyen mesuré</span>
+</code></pre></div>
+<p>Cas d'usage typique : un appli paie est lente, on suspecte le réseau vers la DB Oracle. On lance <code>iperf3</code> entre l'appli et Oracle → si on obtient les 1 Gbit/s attendu, le réseau est innocent, le bug est dans l'appli ou la DB.</p>
 <p><strong>Patterns à reconnaître</strong> :
 - Beaucoup de connexions <code>CLOSE_WAIT</code> = côté local on n'a pas fermé → bug applicatif
 - Beaucoup de <code>SYN_RECV</code> = SYN flood ou backlog saturé
@@ -5614,10 +5759,22 @@ jstat<span class="w"> </span>-gc<span class="w"> </span>&lt;PID&gt;<span class="
 <span class="c1"># - YGC/FGC : nombre de jeunes / full GC depuis le démarrage</span>
 <span class="c1"># - FGCT : temps total passé en Full GC. Si croît vite → pression GC</span>
 
+<span class="c1"># Variante en pourcentages (lecture plus rapide)</span>
+jstat<span class="w"> </span>-gcutil<span class="w"> </span>&lt;PID&gt;<span class="w"> </span>5s
+<span class="c1">#   S0     S1     E      O      M     CCS    YGC    YGCT    FGC    FGCT     GCT</span>
+<span class="c1">#  0.00  56.50  82.14  72.31  98.21  93.45    245   12.301      5    8.752  21.053</span>
+<span class="c1"># Si la colonne O dépasse 80% durablement après un Full GC = fuite mémoire confirmée</span>
+
 <span class="c1"># Synthèse JVM</span>
 jcmd<span class="w"> </span>&lt;PID&gt;<span class="w"> </span>VM.info
 jcmd<span class="w"> </span>&lt;PID&gt;<span class="w"> </span>VM.uptime
 jcmd<span class="w"> </span>&lt;PID&gt;<span class="w"> </span>VM.system_properties
+
+<span class="c1"># Vue heap rapide (alternative à jstat)</span>
+jcmd<span class="w"> </span>&lt;PID&gt;<span class="w"> </span>GC.heap_info
+<span class="c1"># garbage-first heap   total 8388608K, used 4123456K</span>
+<span class="c1"># region size 8192K, 503 young (4120576K), 0 survivors (0K)</span>
+<span class="c1"># Metaspace       used 52345K, capacity 53120K</span>
 </code></pre></div>
 <h4 id="thread-dump-la-technique-pour-appli-qui-rame">Thread dump • LA technique pour appli qui rame</h4>
 <div class="highlight"><pre><span></span><code><span class="c1"># Méthode 1 : signal SIGQUIT (le PID Java reçoit le signal)</span>
@@ -5687,6 +5844,9 @@ jcmd<span class="w"> </span>&lt;PID&gt;<span class="w"> </span>GC.heap_dump<span
 jcmd<span class="w"> </span>&lt;PID&gt;<span class="w"> </span>GC.run
 jcmd<span class="w"> </span>&lt;PID&gt;<span class="w"> </span>GC.heap_dump<span class="w"> </span>/tmp/heap.hprof
 
+<span class="c1"># Alternative avec jmap (force un Full GC + ne garde que les objets vivants)</span>
+jmap<span class="w"> </span>-dump:live,format<span class="o">=</span>b,file<span class="o">=</span>/tmp/heap.hprof<span class="w"> </span>&lt;PID&gt;
+
 <span class="c1"># Auto-dump sur OutOfMemoryError (à activer dans les JVM args)</span>
 <span class="c1"># -XX:+HeapDumpOnOutOfMemoryError</span>
 <span class="c1"># -XX:HeapDumpPath=/var/dumps/</span>
@@ -5727,7 +5887,43 @@ tail<span class="w"> </span>-f<span class="w"> </span>/opt/tomcat/logs/localhost
 jconsole<span class="w"> </span>&lt;PID&gt;<span class="w">    </span><span class="c1"># GUI - ouvrir MBeans → Catalina → ThreadPool</span>
 <span class="c1"># OU</span>
 jcmd<span class="w"> </span>&lt;PID&gt;<span class="w"> </span>ManagementAgent.start_local
+
+<span class="c1"># Tomcat Manager (interface web, à activer dans tomcat-users.xml)</span>
+<span class="c1"># URL : http://host:8080/manager/status</span>
+<span class="c1"># Vue : threads actifs, sessions, mémoire heap, déploiements</span>
 </code></pre></div>
+<p><strong>APM (Application Performance Monitoring)</strong> — si l'entreprise dispose d'une solution, le diagnostic devient beaucoup plus rapide :</p>
+<table>
+<thead>
+<tr>
+<th>APM</th>
+<th>Forces</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Dynatrace</strong></td>
+<td>Auto-instrumentation, distributed tracing, IA d'analyse</td>
+</tr>
+<tr>
+<td><strong>AppDynamics</strong></td>
+<td>Cartographie des transactions, baseline auto, code-level</td>
+</tr>
+<tr>
+<td><strong>Datadog APM</strong></td>
+<td>Intégration native Datadog, dashboards puissants</td>
+</tr>
+<tr>
+<td><strong>New Relic</strong></td>
+<td>Vue end-to-end, BPM, RUM frontend</td>
+</tr>
+<tr>
+<td><strong>Glowroot</strong></td>
+<td>Open source, instrumentation Java légère</td>
+</tr>
+</tbody>
+</table>
+<p>Un APM remonte automatiquement les <strong>transactions lentes</strong>, les <strong>stack traces</strong> des erreurs et la <strong>carte des appels</strong> sortants (DB, banques acquéreurs). Plus besoin de plonger dans les thread dumps à chaque incident.</p>
 <p><strong>Métriques Tomcat à surveiller</strong> :
 - <code>currentThreadsBusy</code> / <code>maxThreads</code> : si proche de 100%, on rejette les requêtes
 - <code>connectionCount</code> : connexions ouvertes en cours
@@ -5816,6 +6012,51 @@ docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </spa
 <span class="k">sum</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="o">(</span><span class="k">group</span><span class="p">,</span><span class="w"> </span><span class="nv">topic</span><span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="nv">kafka_consumergroup_lag</span><span class="o">)</span>
 </code></pre></div>
 <p>Si le dashboard Grafana montre une <strong>chute du taux d'autorisation sur une seule banque</strong> et <strong>les autres niveaux sont verts</strong>, l'investigation est terminée : c'est un incident chez le partenaire. On bascule sur la procédure de communication acquéreur.</p>
+<hr />
+<h3 id="diagnostic-typique-scenario-complet">Diagnostic typique • scénario complet</h3>
+<p>Un cas d'école qui revient souvent en paiement et qui illustre tout le raisonnement infra → applicatif → métier :</p>
+<blockquote>
+<p>Un opérateur métier signale : <strong>« Le paiement est très lent depuis 10 minutes. »</strong></p>
+</blockquote>
+<p>Procédure étape par étape :</p>
+<div class="highlight"><pre><span></span><code>[ 1 ] Triage 30s
+      → uptime : load 4 sur 8 vCPU → OK
+      → dernier déploiement il y a 3 jours → pas de corrélation
+      → time-window : depuis 14h10
+
+[ 2 ] Infra
+      → top / mpstat → CPU à 20 %                              OK ✅
+      → free -h     → MemAvailable 12 Gi sur 32 Gi              OK ✅
+      → df -h       → / à 65 %, /var à 70 %                     OK ✅
+      → ss / mtr    → latence vers banques &lt; 50 ms              OK ✅
+
+      Conclusion partielle : le serveur va bien. Le problème est plus haut.
+
+[ 3 ] Applicatif (Tomcat + JVM)
+      → access logs : durée moyenne /paiement = 7 s          ALERTE ❌
+      → jconsole / JMX : currentThreadsBusy = 195 / 200      ALERTE ❌
+      → jstack ×3 : 180 threads BLOCKED sur
+                    HikariPool.getConnection                ALERTE ❌
+
+[ 4 ] Base de données
+      → métriques Hikari : pool = 50 / 50 saturé             ALERTE ❌
+      → v$session : 50 sessions ACTIVE sur Oracle
+      → v$sql : query SELECT facture WHERE merchant_id = ?
+                qui durait 30 ms hier dure 4 s aujourd&#39;hui   ALERTE ❌
+      → EXPLAIN PLAN : FULL TABLE SCAN
+                       au lieu d&#39;INDEX RANGE SCAN            ROOT CAUSE ⚠️
+
+[ 5 ] Action
+      → Hint /*+ INDEX(facture FACTURE_MERCHANT_IDX) */ en attendant
+      → Ouverture ticket DBA pour rebuild stats sur la table FACTURE
+      → Communication marchand : retour à la normale dans 10 min
+
+[ 6 ] Postmortem
+      → Pourquoi les stats Oracle ne sont plus à jour ?
+      → Job DBMS_STATS auto-désactivé depuis la dernière migration
+      → Action permanente : remettre le job + alerter sur sa désactivation
+</code></pre></div>
+<p><strong>Ce qu'il faut retenir</strong> : un serveur peut être <strong>vert sur tous les niveaux infra</strong> et le service être <strong>rouge en applicatif</strong> parce que tous les threads attendent une connexion DB. C'est l'exemple type qu'un manager de RUN attend du candidat : la capacité à <strong>descendre dans la stack jusqu'à la cause racine</strong> sans se laisser rassurer par les premiers tableaux de bord verts.</p>
 <hr />
 <h3 id="synthese-parcours-dinvestigation-type">Synthèse • parcours d'investigation type</h3>
 <div class="highlight"><pre><span></span><code>Alerte (latence p99 &gt; 2s)
