@@ -12,13 +12,13 @@
         <meta name="author" content="A.KOUBA">
       
       
-        <link rel="canonical" href="https://alak8ba.github.io/notes/topics/frontend/angular-migrations/">
+        <link rel="canonical" href="https://alak8ba.github.io/notes/topics/devops/run-mco-sre/">
       
       
-        <link rel="prev" href="../angular/">
+        <link rel="prev" href="../../observability/monitoring-paiement/">
       
       
-        <link rel="next" href="../angular-testing/">
+        <link rel="next" href="../docker-run/">
       
       
         
@@ -29,7 +29,7 @@
     
     
       
-        <title>Angular • Migrations entre versions - Engineering Notes</title>
+        <title>RUN, MCO et SRE - Engineering Notes</title>
       
     
     
@@ -82,7 +82,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#angular-migrations-entre-versions" class="md-skip">
+        <a href="#run-mco-et-sre-maintenir-un-systeme-en-production" class="md-skip">
           Aller au contenu
         </a>
       
@@ -115,7 +115,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Angular • Migrations entre versions
+              RUN, MCO et SRE
             
           </span>
         </div>
@@ -381,11 +381,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../devops/run-mco-sre/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
           
   
   
@@ -461,13 +463,11 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../angular/" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../frontend/angular/" class="md-tabs__link">
           
   
   
@@ -2915,28 +2915,31 @@
       
   
   
+    
   
   
+  
     
     
     
     
+      
+        
+        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" checked>
         
           
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_9" >
-        
-          
-          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="">
             
   
   
@@ -2954,7 +2957,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_9">
             <span class="md-nav__icon md-icon"></span>
             
@@ -2969,10 +2972,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../devops/run-mco-sre/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RUN, MCO et SRE
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -2988,6 +3018,214 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#build-vs-run" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Build vs RUN
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mco-maintien-en-conditions-operationnelles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MCO • Maintien en Conditions Opérationnelles
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sre-site-reliability-engineering" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SRE • Site Reliability Engineering
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#les-3-niveaux-de-monitoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Les 3 niveaux de monitoring
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Les 3 niveaux de monitoring">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-infrastructure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Infrastructure
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-applicatif" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Applicatif
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-metier-transactionnel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Métier / transactionnel
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stack-technique-dobservabilite" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stack technique d'observabilité
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Stack technique d&#39;observabilité">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#metriques" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Métriques
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#logs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Logs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alertes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Alertes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cycle-de-vie-dun-incident" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cycle de vie d'un incident
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sla-slo-et-sli" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SLA, SLO et SLI
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cas-concrets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cas concrets
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#points-cles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Points clés
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#voir-aussi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Voir aussi
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -3000,7 +3238,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../devops/docker-run/" class="md-nav__link">
+      <a href="../docker-run/" class="md-nav__link">
         
   
   
@@ -3028,7 +3266,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../devops/docker-production-pattern/" class="md-nav__link">
+      <a href="../docker-production-pattern/" class="md-nav__link">
         
   
   
@@ -3056,7 +3294,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../devops/docker-networking/" class="md-nav__link">
+      <a href="../docker-networking/" class="md-nav__link">
         
   
   
@@ -3084,7 +3322,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../devops/container-security/" class="md-nav__link">
+      <a href="../container-security/" class="md-nav__link">
         
   
   
@@ -3112,7 +3350,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../devops/reverse-proxy-pattern/" class="md-nav__link">
+      <a href="../reverse-proxy-pattern/" class="md-nav__link">
         
   
   
@@ -3140,7 +3378,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../devops/pull-based-deployment/" class="md-nav__link">
+      <a href="../pull-based-deployment/" class="md-nav__link">
         
   
   
@@ -3168,7 +3406,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../devops/ci-cd-pipeline-pattern/" class="md-nav__link">
+      <a href="../ci-cd-pipeline-pattern/" class="md-nav__link">
         
   
   
@@ -3196,7 +3434,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../devops/observability-pattern/" class="md-nav__link">
+      <a href="../observability-pattern/" class="md-nav__link">
         
   
   
@@ -3579,31 +3817,28 @@
       
   
   
-    
   
   
-  
     
     
     
     
-      
-        
-        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_13" checked>
         
           
-          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="">
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_13" >
+        
+          
+          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
             
   
   
@@ -3621,7 +3856,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_13">
             <span class="md-nav__icon md-icon"></span>
             
@@ -3639,7 +3874,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../angular/" class="md-nav__link">
+      <a href="../../frontend/angular/" class="md-nav__link">
         
   
   
@@ -3664,37 +3899,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Angular • Migrations entre versions
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../frontend/angular-migrations/" class="md-nav__link">
         
   
   
@@ -3710,342 +3918,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table des matières
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#commande-universelle" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Commande universelle
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#v12-v13" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        v12 → v13
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="v12 → v13">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#changements-majeurs" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Changements majeurs
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#migration" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Migration
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#breaking-changes-frequents" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Breaking changes fréquents
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#v13-v14" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        v13 → v14
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="v13 → v14">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#changements-majeurs_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Changements majeurs
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#standalone-premier-apercu" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Standalone · premier aperçu
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#typed-forms-migration" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Typed Forms · migration
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#v14-v15" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        v14 → v15
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="v14 → v15">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#changements-majeurs_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Changements majeurs
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#functional-guard-v15" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Functional guard (v15+)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#bootstrap-standalone-v15" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Bootstrap standalone (v15+)
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#v15-v16" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        v15 → v16
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="v15 → v16">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#changements-majeurs_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Changements majeurs
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#required-input" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Required Input
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#destroyref-alternative-au-pattern-destroy" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        DestroyRef · alternative au pattern destroy$
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#signals-premier-apercu" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Signals · premier aperçu
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#v16-v17" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        v16 → v17
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="v16 → v17">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#changements-majeurs_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Changements majeurs
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#nouveau-control-flow" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Nouveau control flow
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#defer-chargement-differe" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        @defer · chargement différé
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#migration-automatique-v17" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Migration automatique v17
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#recapitulatif-des-versions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Récapitulatif des versions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#cas-concrets" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Cas concrets
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#points-cles" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Points clés
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -4058,7 +3930,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../angular-testing/" class="md-nav__link">
+      <a href="../../frontend/angular-testing/" class="md-nav__link">
         
   
   
@@ -4086,7 +3958,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../angular-ssr/" class="md-nav__link">
+      <a href="../../frontend/angular-ssr/" class="md-nav__link">
         
   
   
@@ -4114,7 +3986,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ngrx/" class="md-nav__link">
+      <a href="../../frontend/ngrx/" class="md-nav__link">
         
   
   
@@ -4142,7 +4014,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../react/" class="md-nav__link">
+      <a href="../../frontend/react/" class="md-nav__link">
         
   
   
@@ -4170,7 +4042,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../chartjs/" class="md-nav__link">
+      <a href="../../frontend/chartjs/" class="md-nav__link">
         
   
   
@@ -4655,10 +4527,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#commande-universelle" class="md-nav__link">
+  <a href="#build-vs-run" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Commande universelle
+        Build vs RUN
       
     </span>
   </a>
@@ -4666,22 +4538,44 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#v12-v13" class="md-nav__link">
+  <a href="#mco-maintien-en-conditions-operationnelles" class="md-nav__link">
     <span class="md-ellipsis">
       
-        v12 → v13
+        MCO • Maintien en Conditions Opérationnelles
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="v12 → v13">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sre-site-reliability-engineering" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SRE • Site Reliability Engineering
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#les-3-niveaux-de-monitoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Les 3 niveaux de monitoring
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Les 3 niveaux de monitoring">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#changements-majeurs" class="md-nav__link">
+  <a href="#1-infrastructure" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Changements majeurs
+        1. Infrastructure
       
     </span>
   </a>
@@ -4689,10 +4583,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#migration" class="md-nav__link">
+  <a href="#2-applicatif" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Migration
+        2. Applicatif
       
     </span>
   </a>
@@ -4700,10 +4594,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#breaking-changes-frequents" class="md-nav__link">
+  <a href="#3-metier-transactionnel" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Breaking changes fréquents
+        3. Métier / transactionnel
       
     </span>
   </a>
@@ -4716,22 +4610,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#v13-v14" class="md-nav__link">
+  <a href="#stack-technique-dobservabilite" class="md-nav__link">
     <span class="md-ellipsis">
       
-        v13 → v14
+        Stack technique d'observabilité
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="v13 → v14">
+    <nav class="md-nav" aria-label="Stack technique d&#39;observabilité">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#changements-majeurs_1" class="md-nav__link">
+  <a href="#metriques" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Changements majeurs
+        Métriques
       
     </span>
   </a>
@@ -4739,10 +4633,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#standalone-premier-apercu" class="md-nav__link">
+  <a href="#logs" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Standalone · premier aperçu
+        Logs
       
     </span>
   </a>
@@ -4750,10 +4644,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#typed-forms-migration" class="md-nav__link">
+  <a href="#alertes" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Typed Forms · migration
+        Alertes
       
     </span>
   </a>
@@ -4766,182 +4660,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#v14-v15" class="md-nav__link">
+  <a href="#cycle-de-vie-dun-incident" class="md-nav__link">
     <span class="md-ellipsis">
       
-        v14 → v15
+        Cycle de vie d'un incident
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="v14 → v15">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#changements-majeurs_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Changements majeurs
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#functional-guard-v15" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Functional guard (v15+)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#bootstrap-standalone-v15" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Bootstrap standalone (v15+)
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#v15-v16" class="md-nav__link">
+  <a href="#sla-slo-et-sli" class="md-nav__link">
     <span class="md-ellipsis">
       
-        v15 → v16
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="v15 → v16">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#changements-majeurs_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Changements majeurs
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#required-input" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Required Input
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#destroyref-alternative-au-pattern-destroy" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        DestroyRef · alternative au pattern destroy$
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#signals-premier-apercu" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Signals · premier aperçu
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#v16-v17" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        v16 → v17
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="v16 → v17">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#changements-majeurs_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Changements majeurs
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#nouveau-control-flow" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Nouveau control flow
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#defer-chargement-differe" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        @defer · chargement différé
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#migration-automatique-v17" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Migration automatique v17
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#recapitulatif-des-versions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Récapitulatif des versions
+        SLA, SLO et SLI
       
     </span>
   </a>
@@ -4970,6 +4703,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#voir-aussi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Voir aussi
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -4991,271 +4735,309 @@
       
       
       
-        <a href="../../../tags/#tag:angular" class="md-tag">angular</a>
+        <a href="../../../tags/#tag:devops" class="md-tag">devops</a>
       
     
       
       
       
       
-        <a href="../../../tags/#tag:frontend" class="md-tag">frontend</a>
+        <a href="../../../tags/#tag:exploitation" class="md-tag">exploitation</a>
       
     
       
       
       
       
-        <a href="../../../tags/#tag:migration" class="md-tag">migration</a>
+        <a href="../../../tags/#tag:incident" class="md-tag">incident</a>
       
     
       
       
       
       
-        <a href="../../../tags/#tag:typescript" class="md-tag">typescript</a>
+        <a href="../../../tags/#tag:mco" class="md-tag">mco</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../../tags/#tag:run" class="md-tag">run</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../../tags/#tag:sre" class="md-tag">sre</a>
       
     
   </nav>
 
 
 
-<h1 id="angular-migrations-entre-versions">Angular • Migrations entre versions</h1>
+<h1 id="run-mco-et-sre-maintenir-un-systeme-en-production">RUN, MCO et SRE • Maintenir un système en production</h1>
+<p>Le cycle de vie d'une application se découpe schématiquement en deux phases : <strong>Build</strong> (on la construit) et <strong>RUN</strong> (on la fait tourner en production). Cette page clarifie le périmètre du RUN, le vocabulaire associé (MCO, SRE) et les activités qui le structurent.</p>
 <hr />
-<h2 id="commande-universelle">Commande universelle</h2>
-<div class="highlight"><pre><span></span><code><span class="c1"># Mettre à jour Angular vers la version cible</span>
-ng<span class="w"> </span>update<span class="w"> </span>@angular/core@17<span class="w"> </span>@angular/cli@17
-
-<span class="c1"># Vérifier ce qui sera mis à jour avant d&#39;exécuter</span>
-ng<span class="w"> </span>update<span class="w"> </span>--dry-run
-</code></pre></div>
-<hr />
-<h2 id="v12-v13">v12 → v13</h2>
-<h3 id="changements-majeurs">Changements majeurs</h3>
-<ul>
-<li><strong>Ivy obligatoire</strong> • View Engine définitivement supprimé</li>
-<li><strong>TypeScript 4.4+</strong> requis</li>
-<li><strong>Node 12</strong> fin de support • Node 14+ requis</li>
-<li><code>ng build</code> produit des bundles ES2017 par défaut</li>
-<li><strong>Persistent build cache</strong> activé par défaut (builds plus rapides)</li>
-</ul>
-<h3 id="migration">Migration</h3>
-<div class="highlight"><pre><span></span><code>ng<span class="w"> </span>update<span class="w"> </span>@angular/core@13<span class="w"> </span>@angular/cli@13
-</code></pre></div>
-<h3 id="breaking-changes-frequents">Breaking changes fréquents</h3>
-<div class="highlight"><pre><span></span><code><span class="c1">// Avant v13 · import depuis les sous-packages internes</span>
-<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">ComponentFixture</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;@angular/core/testing&#39;</span><span class="p">;</span>
-
-<span class="c1">// v13+ · inchangé, mais les librairies tierces qui importaient</span>
-<span class="c1">// des APIs internes d&#39;Angular cassent → mettre à jour les dépendances</span>
-</code></pre></div>
-<hr />
-<h2 id="v13-v14">v13 → v14</h2>
-<h3 id="changements-majeurs_1">Changements majeurs</h3>
-<ul>
-<li><strong>Standalone components</strong> (expérimental) • premier pas sans NgModule</li>
-<li><strong>Typed Reactive Forms</strong> • <code>FormControl&lt;string&gt;</code> au lieu de <code>FormControl</code></li>
-<li><code>inject()</code> utilisable en dehors du constructeur (limité)</li>
-<li><code>NgModel</code> requiert <code>FormsModule</code> importé explicitement</li>
-</ul>
-<h3 id="standalone-premier-apercu">Standalone · premier aperçu</h3>
-<div class="highlight"><pre><span></span><code><span class="kd">@Component</span><span class="p">({</span>
-<span class="w">  </span><span class="nx">standalone</span><span class="o">:</span><span class="w"> </span><span class="kt">true</span><span class="p">,</span>
-<span class="w">  </span><span class="nx">imports</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="nx">CommonModule</span><span class="p">],</span>
-<span class="w">  </span><span class="nx">template</span><span class="o">:</span><span class="w"> </span><span class="sb">`...`</span>
-<span class="p">})</span>
-<span class="k">export</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nx">MyComponent</span><span class="w"> </span><span class="p">{}</span>
-</code></pre></div>
-<h3 id="typed-forms-migration">Typed Forms · migration</h3>
-<div class="highlight"><pre><span></span><code><span class="c1">// Avant v14</span>
-<span class="nx">form</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">FormGroup</span><span class="p">({</span>
-<span class="w">  </span><span class="nx">email</span><span class="o">:</span><span class="w"> </span><span class="kt">new</span><span class="w"> </span><span class="nx">FormControl</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">),</span><span class="w">  </span><span class="c1">// type: FormControl&lt;string | null&gt;</span>
-<span class="p">});</span>
-
-<span class="c1">// v14+</span>
-<span class="nx">form</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">FormGroup</span><span class="p">({</span>
-<span class="w">  </span><span class="nx">email</span><span class="o">:</span><span class="w"> </span><span class="kt">new</span><span class="w"> </span><span class="nx">FormControl</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">nonNullable</span><span class="o">:</span><span class="w"> </span><span class="kt">true</span><span class="w"> </span><span class="p">}),</span>
-<span class="p">});</span>
-
-<span class="c1">// Migration automatique disponible</span>
-<span class="nx">ng</span><span class="w"> </span><span class="nx">update</span><span class="w"> </span><span class="kd">@angular</span><span class="o">/</span><span class="nx">core</span><span class="err">@</span><span class="mf">14</span><span class="w"> </span><span class="o">--</span><span class="nx">migrate</span><span class="o">-</span><span class="nx">only</span><span class="w"> </span><span class="o">--</span><span class="nx">name</span><span class="o">=</span><span class="nx">migration</span><span class="o">-</span><span class="nx">v14</span><span class="o">-</span><span class="nx">typed</span><span class="o">-</span><span class="nx">forms</span>
-</code></pre></div>
-<hr />
-<h2 id="v14-v15">v14 → v15</h2>
-<h3 id="changements-majeurs_2">Changements majeurs</h3>
-<ul>
-<li><strong>Standalone stable</strong> • <code>bootstrapApplication()</code> disponible</li>
-<li><strong>Functional guards</strong> et intercepteurs sans classes</li>
-<li><strong>Directive Composition API</strong> · <code>hostDirectives</code></li>
-<li>Router : <code>RouterLink</code> standalone, <code>provideRouter()</code></li>
-<li><code>NgOptimizedImage</code> disponible</li>
-</ul>
-<h3 id="functional-guard-v15">Functional guard (v15+)</h3>
-<div class="highlight"><pre><span></span><code><span class="c1">// Avant v15 · classe obligatoire</span>
-<span class="kd">@Injectable</span><span class="p">()</span>
-<span class="k">export</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nx">AuthGuard</span><span class="w"> </span><span class="k">implements</span><span class="w"> </span><span class="nx">CanActivate</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nx">canActivate</span><span class="p">()</span><span class="o">:</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
-<span class="p">}</span>
-
-<span class="c1">// v15+ · fonction</span>
-<span class="k">export</span><span class="w"> </span><span class="kd">const</span><span class="w"> </span><span class="nx">authGuard</span><span class="o">:</span><span class="w"> </span><span class="kt">CanActivateFn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">route</span><span class="p">,</span><span class="w"> </span><span class="nx">state</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">inject</span><span class="p">(</span><span class="nx">AuthService</span><span class="p">).</span><span class="nx">isLoggedIn</span><span class="p">();</span>
-<span class="p">};</span>
-</code></pre></div>
-<h3 id="bootstrap-standalone-v15">Bootstrap standalone (v15+)</h3>
-<div class="highlight"><pre><span></span><code><span class="c1">// main.ts sans AppModule</span>
-<span class="nx">bootstrapApplication</span><span class="p">(</span><span class="nx">AppComponent</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nx">providers</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">    </span><span class="nx">provideRouter</span><span class="p">(</span><span class="nx">routes</span><span class="p">),</span>
-<span class="w">    </span><span class="nx">provideHttpClient</span><span class="p">(),</span>
-<span class="w">    </span><span class="nx">provideAnimations</span><span class="p">(),</span>
-<span class="w">  </span><span class="p">]</span>
-<span class="p">});</span>
-</code></pre></div>
-<hr />
-<h2 id="v15-v16">v15 → v16</h2>
-<h3 id="changements-majeurs_3">Changements majeurs</h3>
-<ul>
-<li><strong>Signals</strong> (developer preview) • <code>signal()</code>, <code>computed()</code>, <code>effect()</code></li>
-<li><strong>Required inputs</strong> • <code>@Input({ required: true })</code></li>
-<li><code>inject()</code> utilisable partout dans le contexte d'injection</li>
-<li><code>DestroyRef</code> • alternative à <code>takeUntil(destroy$)</code></li>
-<li>Jest support officiel (expérimental)</li>
-</ul>
-<h3 id="required-input">Required Input</h3>
-<div class="highlight"><pre><span></span><code><span class="c1">// v16+</span>
-<span class="kd">@Input</span><span class="p">({</span><span class="w"> </span><span class="nx">required</span><span class="o">:</span><span class="w"> </span><span class="kt">true</span><span class="w"> </span><span class="p">})</span><span class="w"> </span><span class="nx">userId</span><span class="o">!:</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span>
-<span class="c1">// Erreur à la compilation si le parent ne passe pas userId</span>
-</code></pre></div>
-<h3 id="destroyref-alternative-au-pattern-destroy">DestroyRef · alternative au pattern destroy$</h3>
-<div class="highlight"><pre><span></span><code><span class="c1">// Avant v16</span>
-<span class="k">private</span><span class="w"> </span><span class="nx">destroy$</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Subject</span><span class="o">&lt;</span><span class="ow">void</span><span class="o">&gt;</span><span class="p">();</span>
-<span class="nx">ngOnDestroy</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">destroy$</span><span class="p">.</span><span class="nx">next</span><span class="p">();</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">destroy$</span><span class="p">.</span><span class="nx">complete</span><span class="p">();</span><span class="w"> </span><span class="p">}</span>
-<span class="nx">obs$</span><span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">takeUntil</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">destroy$</span><span class="p">)).</span><span class="nx">subscribe</span><span class="p">();</span>
-
-<span class="c1">// v16+</span>
-<span class="k">private</span><span class="w"> </span><span class="nx">destroyRef</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">inject</span><span class="p">(</span><span class="nx">DestroyRef</span><span class="p">);</span>
-<span class="nx">obs$</span><span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">takeUntilDestroyed</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">destroyRef</span><span class="p">)).</span><span class="nx">subscribe</span><span class="p">();</span>
-</code></pre></div>
-<h3 id="signals-premier-apercu">Signals · premier aperçu</h3>
-<div class="highlight"><pre><span></span><code><span class="nx">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">signal</span><span class="p">(</span><span class="mf">0</span><span class="p">);</span>
-<span class="nx">doubled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">computed</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">count</span><span class="p">()</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">2</span><span class="p">);</span>
-
-<span class="nx">increment</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">count</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="nx">v</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">v</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">1</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
-</code></pre></div>
-<hr />
-<h2 id="v16-v17">v16 → v17</h2>
-<h3 id="changements-majeurs_4">Changements majeurs</h3>
-<ul>
-<li><strong>Standalone par défaut</strong> • <code>ng generate component</code> crée des standalone</li>
-<li><strong>Nouveau control flow</strong> • <code>@if</code>, <code>@for</code>, <code>@switch</code> remplacent <code>*ngIf</code>, <code>*ngFor</code></li>
-<li><strong><code>@defer</code></strong> • chargement différé déclaratif dans le template</li>
-<li><strong>esbuild</strong> par défaut • builds ~70% plus rapides</li>
-<li>SSR amélioré • <code>provideClientHydration()</code></li>
-<li>Signals stable (hors toute l'API)</li>
-</ul>
-<h3 id="nouveau-control-flow">Nouveau control flow</h3>
-<div class="highlight"><pre><span></span><code><span class="cm">&lt;!-- Avant v17 --&gt;</span>
-<span class="p">&lt;</span><span class="nt">div</span> <span class="err">*</span><span class="na">ngIf</span><span class="o">=</span><span class="s">&quot;user; else loading&quot;</span><span class="p">&gt;</span>{{ user.name }}<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">ng-template</span> <span class="err">#</span><span class="na">loading</span><span class="p">&gt;</span>Chargement...<span class="p">&lt;/</span><span class="nt">ng-template</span><span class="p">&gt;</span>
-
-<span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
-  <span class="p">&lt;</span><span class="nt">li</span> <span class="err">*</span><span class="na">ngFor</span><span class="o">=</span><span class="s">&quot;let item of items; trackBy: trackById&quot;</span><span class="p">&gt;</span>{{ item.name }}<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
-<span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
-
-<span class="cm">&lt;!-- v17+ --&gt;</span>
-@if (user) {
-  <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>{{ user.name }}<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-} @else {
-  <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>Chargement...<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-}
-
-<span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
-  @for (item of items; track item.id) {
-    <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>{{ item.name }}<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
-  } @empty {
-    <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>Aucun élément<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
-  }
-<span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
-</code></pre></div>
-<h3 id="defer-chargement-differe">@defer · chargement différé</h3>
-<div class="highlight"><pre><span></span><code>@defer (on viewport) {
-  <span class="p">&lt;</span><span class="nt">app-heavy-chart</span> <span class="p">/&gt;</span>
-} @placeholder {
-  <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>Graphique...<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-} @loading {
-  <span class="p">&lt;</span><span class="nt">spinner</span> <span class="p">/&gt;</span>
-}
-</code></pre></div>
-<h3 id="migration-automatique-v17">Migration automatique v17</h3>
-<div class="highlight"><pre><span></span><code>ng<span class="w"> </span>update<span class="w"> </span>@angular/core@17<span class="w"> </span>@angular/cli@17
-
-<span class="c1"># Migrer le control flow automatiquement</span>
-ng<span class="w"> </span>generate<span class="w"> </span>@angular/core:control-flow
-</code></pre></div>
-<hr />
-<h2 id="recapitulatif-des-versions">Récapitulatif des versions</h2>
+<h2 id="build-vs-run">Build vs RUN</h2>
 <table>
 <thead>
 <tr>
-<th>Version</th>
-<th>Année</th>
-<th>Apport principal</th>
+<th>Phase</th>
+<th>Objectif</th>
+<th>Profil dominant</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>v13</td>
-<td>2021</td>
-<td>Ivy obligatoire • build cache</td>
+<td><strong>Build</strong></td>
+<td>Concevoir et livrer une nouvelle version</td>
+<td>Développeur · Tech Lead</td>
 </tr>
 <tr>
-<td>v14</td>
-<td>2022</td>
-<td>Standalone (exp.) • Typed Forms</td>
-</tr>
-<tr>
-<td>v15</td>
-<td>2022</td>
-<td>Standalone stable • Functional guards</td>
-</tr>
-<tr>
-<td>v16</td>
-<td>2023</td>
-<td>Signals (preview) • Required inputs • DestroyRef</td>
-</tr>
-<tr>
-<td>v17</td>
-<td>2023</td>
-<td>Standalone défaut • @if/@for • @defer • esbuild</td>
+<td><strong>RUN</strong></td>
+<td>Garder l'application disponible et performante au quotidien</td>
+<td>Ingénieur d'exploitation · SRE · Responsable d'applications</td>
 </tr>
 </tbody>
 </table>
+<p>Le RUN ne crée pas, il <strong>maintient en condition opérationnelle</strong> :</p>
+<ul>
+<li>Garantir la disponibilité</li>
+<li>Surveiller le comportement (monitoring)</li>
+<li>Gérer les incidents quand quelque chose casse</li>
+<li>Appliquer les changements sans perturber le service</li>
+<li>Coordonner les mises à jour, montées de version, patchs</li>
+</ul>
+<hr />
+<h2 id="mco-maintien-en-conditions-operationnelles">MCO • Maintien en Conditions Opérationnelles</h2>
+<p>Le MCO est le terme officiel pour désigner l'ensemble des activités du RUN. Il englobe :</p>
+<ul>
+<li><strong>Supervision</strong> : tableaux de bord, dashboards, alertes</li>
+<li><strong>Gestion d'incidents</strong> : détection, qualification, résolution, postmortem</li>
+<li><strong>Gestion des changements</strong> : déploiement contrôlé, plans de rollback</li>
+<li><strong>Gestion de capacité</strong> : anticipation des besoins (CPU, RAM, stockage, débit)</li>
+<li><strong>Gestion de configuration</strong> : maintien de la cohérence des environnements</li>
+<li><strong>Documentation opérationnelle</strong> : runbooks, procédures d'escalade</li>
+</ul>
+<p>C'est typiquement le périmètre d'un poste de <strong>Responsable d'applications</strong> ou d'<strong>ingénieur production / exploitation</strong>.</p>
+<hr />
+<h2 id="sre-site-reliability-engineering">SRE • Site Reliability Engineering</h2>
+<p>Approche issue de Google qui applique des <strong>principes logiciels à l'exploitation</strong>. Plutôt que de séparer "dev" et "ops", on industrialise l'exploitation avec du code.</p>
+<table>
+<thead>
+<tr>
+<th>Pilier SRE</th>
+<th>En pratique</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Automatisation</td>
+<td>Réduire le toil (tâches manuelles répétitives)</td>
+</tr>
+<tr>
+<td>Observabilité</td>
+<td>Tout mesurer, tout tracer, tout corréler</td>
+</tr>
+<tr>
+<td>Error budget</td>
+<td>Accepter un quota d'indisponibilité, l'utiliser pour livrer plus vite</td>
+</tr>
+<tr>
+<td>Postmortems blameless</td>
+<td>Apprendre des incidents sans chercher de coupable</td>
+</tr>
+<tr>
+<td>Runbooks</td>
+<td>Procédures d'intervention prêtes à l'emploi</td>
+</tr>
+<tr>
+<td>SLO / SLI / SLA</td>
+<td>Objectifs mesurables, indicateurs, contrats</td>
+</tr>
+</tbody>
+</table>
+<p>Une équipe SRE = équipe de RUN moderne qui mélange skill dev (Python, Go, scripts) et culture exploitation.</p>
+<hr />
+<h2 id="les-3-niveaux-de-monitoring">Les 3 niveaux de monitoring</h2>
+<p>C'est la structure mentale clé du RUN. Toute supervision se décline sur ces 3 niveaux, du plus bas vers le plus haut :</p>
+<h3 id="1-infrastructure">1. Infrastructure</h3>
+<blockquote>
+<p>Est-ce que la machine tient ?</p>
+</blockquote>
+<ul>
+<li>CPU, RAM, heap JVM, espace disque</li>
+<li>Réseau (bande passante, latence)</li>
+<li>Saturation des pools de connexion système</li>
+</ul>
+<p><strong>Outils typiques</strong> : Node Exporter, cAdvisor, agents systèmes.</p>
+<h3 id="2-applicatif">2. Applicatif</h3>
+<blockquote>
+<p>Est-ce que l'application répond bien ?</p>
+</blockquote>
+<ul>
+<li>Temps de réponse (p50, p95, p99)</li>
+<li>Taux d'erreurs HTTP (4xx, 5xx)</li>
+<li>Threads occupés (Tomcat, pool worker)</li>
+<li>Latence des appels base de données</li>
+<li>Saturation du heap, GC pauses</li>
+<li>Connexions externes (web services tiers)</li>
+</ul>
+<p><strong>Outils typiques</strong> : Micrometer, OpenTelemetry, APM (Datadog, New Relic, Dynatrace).</p>
+<h3 id="3-metier-transactionnel">3. Métier / transactionnel</h3>
+<blockquote>
+<p>Est-ce que le business fonctionne ?</p>
+</blockquote>
+<p>C'est le niveau le plus important sur un système critique. Il dépend du domaine :</p>
+<table>
+<thead>
+<tr>
+<th>Domaine</th>
+<th>Indicateurs métier</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Paiement / monétique</td>
+<td>Volume de transactions/min, taux d'autorisation, taux de refus par banque, latence end-to-end</td>
+</tr>
+<tr>
+<td>E-commerce</td>
+<td>Taux de conversion, panier moyen, erreurs de checkout</td>
+</tr>
+<tr>
+<td>SaaS</td>
+<td>Sessions actives, MAU/DAU, fonctionnalités utilisées</td>
+</tr>
+<tr>
+<td>Streaming</td>
+<td>Lag de traitement, débit, taux de messages perdus</td>
+</tr>
+</tbody>
+</table>
+<p>Un système peut être <strong>OK techniquement</strong> (CPU bas, latence correcte) et <strong>KO métier</strong> (les transactions ne passent plus). C'est ce que doit détecter un bon RUN.</p>
+<hr />
+<h2 id="stack-technique-dobservabilite">Stack technique d'observabilité</h2>
+<p>Trois familles à mettre en place pour couvrir le RUN :</p>
+<h3 id="metriques">Métriques</h3>
+<p>Chiffres mesurés en continu, stockés en time-series, visualisés sur dashboards.</p>
+<div class="highlight"><pre><span></span><code>Application → Micrometer → Prometheus (scraping) → Grafana (visualisation)
+</code></pre></div>
+<h3 id="logs">Logs</h3>
+<p>Traces texte produites par l'application. Centralisées pour pouvoir chercher rapidement pendant un incident.</p>
+<div class="highlight"><pre><span></span><code>Application → Logback → fichier ou stdout → Promtail/Filebeat → Loki/Elasticsearch → Grafana/Kibana
+</code></pre></div>
+<h3 id="alertes">Alertes</h3>
+<p>Seuils définis à l'avance qui déclenchent une notification (mail, SMS, Slack, PagerDuty).</p>
+<div class="highlight"><pre><span></span><code>Prometheus → Alertmanager → astreinte
+</code></pre></div>
+<p>Sur un système critique : alertes en cascade, <strong>astreinte 24/7</strong>, escalade automatique si non-acquittement.</p>
+<hr />
+<h2 id="cycle-de-vie-dun-incident">Cycle de vie d'un incident</h2>
+<div class="highlight"><pre><span></span><code>Détection → Qualification → Communication → Investigation → Résolution → Postmortem
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Étape</th>
+<th>Activité</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Détection</td>
+<td>Alerte automatique ou signalement utilisateur</td>
+</tr>
+<tr>
+<td>Qualification</td>
+<td>Sévérité (P1/P2/P3), périmètre, impact métier</td>
+</tr>
+<tr>
+<td>Communication</td>
+<td>Statut interne, communication client si SLA</td>
+</tr>
+<tr>
+<td>Investigation</td>
+<td>Lecture logs, analyse métriques, thread dumps, corrélation</td>
+</tr>
+<tr>
+<td>Résolution</td>
+<td>Rollback, restart, fix temporaire, contournement</td>
+</tr>
+<tr>
+<td>Postmortem</td>
+<td>Cause racine, actions correctives, partage des apprentissages</td>
+</tr>
+</tbody>
+</table>
+<p>La <strong>communication</strong> pendant l'incident est aussi importante que sa résolution technique. Un incident mal communiqué coûte plus cher en confiance qu'un incident long mais bien expliqué.</p>
+<hr />
+<h2 id="sla-slo-et-sli">SLA, SLO et SLI</h2>
+<table>
+<thead>
+<tr>
+<th>Acronyme</th>
+<th>Définition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>SLI</strong> • Service Level Indicator</td>
+<td>La mesure (ex : taux de requêtes réussies)</td>
+</tr>
+<tr>
+<td><strong>SLO</strong> • Service Level Objective</td>
+<td>L'objectif interne (ex : 99.9% sur 30 jours glissants)</td>
+</tr>
+<tr>
+<td><strong>SLA</strong> • Service Level Agreement</td>
+<td>L'engagement contractuel client (ex : 99.5% mensuel sinon pénalité)</td>
+</tr>
+</tbody>
+</table>
+<p>Le <strong>SLO est plus exigeant que le SLA</strong> : il sert de signal d'alerte interne avant l'engagement contractuel.</p>
+<p><strong>Error budget</strong> = (1 - SLO) × période. Si on est à 99.9% sur 30 jours, on a 43 minutes d'indisponibilité "budgétisée". Cet error budget peut être consommé pour livrer plus de nouvelles versions (= plus de risque).</p>
 <hr />
 <h2 id="cas-concrets">Cas concrets</h2>
 <details class="question">
-<summary>Pourquoi ng update ne suffit pas toujours ?</summary>
-<p><code>ng update</code> met à jour les dépendances et exécute les migrations automatiques, mais certaines APIs supprimées nécessitent une intervention manuelle. Toujours lire le <code>CHANGELOG</code> et tester sur une branche dédiée.</p>
+<summary>Quelle différence entre un dev et un ingénieur RUN ?</summary>
+<p>Un dev livre des features et passe à autre chose. Un RUN garde l'application vivante. Mais la frontière se brouille : un bon dev anticipe le RUN (logs structurés, métriques exposées, code idempotent), un bon RUN code (scripts, automatisation, dashboards as code). Le SRE est précisément cette intersection.</p>
 </details>
 <details class="question">
-<summary>NgModule est-il mort depuis v17 ?</summary>
-<p>Non · NgModule reste supporté et fonctionnel. Standalone est le défaut pour les nouveaux projets, mais une migration forcée n'est pas nécessaire sur un projet existant.</p>
+<summary>Comment investiguer une alerte de latence haute ?</summary>
+<p>Procédure type : (1) vérifier infra (CPU/RAM/disque), (2) vérifier applicatif (threads, pool DB, GC), (3) lire les logs de la fenêtre d'alerte, (4) corréler avec les déploiements récents, (5) checker les dépendances externes (banque acquéreur, API tierces). Le runbook doit guider chaque étape.</p>
 </details>
 <details class="question">
-<summary>Comment migrer *ngFor vers @for ?</summary>
-<p>Angular fournit un schematic automatique : <code>ng generate @angular/core:control-flow</code>. Il convertit tous les <code>*ngIf</code>, <code>*ngFor</code>, <code>*ngSwitch</code> du projet en une seule commande.</p>
+<summary>Postmortem blameless, c'est quoi concrètement ?</summary>
+<p>Compte rendu d'incident qui décrit <strong>ce qui s'est passé, pourquoi, et comment éviter la répétition</strong>, sans nommer de coupable. Le but : encourager la remontée d'info honnête. Si une personne sait qu'elle sera punie, elle cachera la cause réelle. Sans blame, on apprend plus.</p>
 </details>
 <details class="question">
-<summary>Signals remplace-t-il RxJS ?</summary>
-<p>Non. Signals gère l'état synchrone local (UI state). RxJS reste indispensable pour les flux asynchrones : HTTP, WebSocket, événements complexes. Les deux coexistent.</p>
+<summary>Pourquoi monitorer le métier et pas juste la technique ?</summary>
+<p>Parce qu'un système peut être "vert" techniquement et défaillant fonctionnellement. Exemple : tous les serveurs répondent en 50ms, mais 100% des transactions vers une banque acquéreur échouent depuis 10 minutes. Sans monitoring métier, on rate l'incident le plus coûteux.</p>
+</details>
+<details class="question">
+<summary>Toil, c'est quoi ?</summary>
+<p>Terme SRE pour les tâches manuelles répétitives, sans valeur durable (redémarrer un service à la main, nettoyer un disque à chaque alerte, etc.). Objectif d'une équipe SRE : passer &lt; 50% du temps en toil. Ce qui dépasse doit être automatisé.</p>
 </details>
 <hr />
 <h2 id="points-cles">Points clés</h2>
 <ul>
-<li>chaque version majeure = une migration <code>ng update</code> + lecture des breaking changes</li>
-<li>v14 → v17 : transition progressive vers le monde standalone</li>
-<li><code>@if</code> / <code>@for</code> v17 sont plus performants que les directives structurelles (moins d'overhead)</li>
-<li>Signals + <code>takeUntilDestroyed</code> simplifient la gestion du cycle de vie</li>
-<li>esbuild (v17) réduit le temps de build de ~70% · argument fort pour migrer</li>
+<li>RUN = MCO = maintien d'une application en production, par opposition au Build</li>
+<li>SRE = approche moderne du RUN, mélange dev et exploitation</li>
+<li>Monitoring sur 3 niveaux : infra, applicatif, <strong>métier</strong> (le plus critique)</li>
+<li>Stack standard : métriques (Prometheus/Micrometer) + logs (Loki/ELK) + alertes (Alertmanager)</li>
+<li>Un incident bien géré = détection rapide + communication claire + postmortem honnête</li>
+<li>SLO interne plus strict que SLA externe • error budget pour arbitrer vélocité vs stabilité</li>
+</ul>
+<hr />
+<h2 id="voir-aussi">Voir aussi</h2>
+<ul>
+<li><a href="../../observability/monitoring-paiement/">Monitoring de plateforme de paiement</a> — application concrète au domaine monétique</li>
+<li><a href="../../observability/metrics-monitoring-prometheus-grafana/">Metrics Monitoring · Prometheus + Grafana</a></li>
+<li><a href="../../observability/logging-architecture-java/">Logging Architecture Java</a></li>
+<li><a href="../observability-pattern/">Observability Pattern</a></li>
 </ul>
 
 

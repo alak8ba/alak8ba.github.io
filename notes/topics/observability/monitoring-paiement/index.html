@@ -12,13 +12,13 @@
         <meta name="author" content="A.KOUBA">
       
       
-        <link rel="canonical" href="https://alak8ba.github.io/notes/topics/frontend/angular-migrations/">
+        <link rel="canonical" href="https://alak8ba.github.io/notes/topics/observability/monitoring-paiement/">
       
       
-        <link rel="prev" href="../angular/">
+        <link rel="prev" href="../metrics-monitoring-prometheus-grafana/">
       
       
-        <link rel="next" href="../angular-testing/">
+        <link rel="next" href="../../devops/run-mco-sre/">
       
       
         
@@ -29,7 +29,7 @@
     
     
       
-        <title>Angular • Migrations entre versions - Engineering Notes</title>
+        <title>Monitoring de Plateforme de Paiement - Engineering Notes</title>
       
     
     
@@ -82,7 +82,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#angular-migrations-entre-versions" class="md-skip">
+        <a href="#monitoring-dune-plateforme-de-paiement" class="md-skip">
           Aller au contenu
         </a>
       
@@ -115,7 +115,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Angular • Migrations entre versions
+              Monitoring de Plateforme de Paiement
             
           </span>
         </div>
@@ -361,11 +361,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../observability/logging-architecture-java/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../logging-architecture-java/" class="md-tabs__link">
           
   
   
@@ -461,13 +463,11 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../angular/" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../frontend/angular/" class="md-tabs__link">
           
   
   
@@ -2742,28 +2742,31 @@
       
   
   
+    
   
   
+  
     
     
     
     
+      
+        
+        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" checked>
         
           
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
-        
-          
-          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="">
             
   
   
@@ -2781,7 +2784,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_8">
             <span class="md-nav__icon md-icon"></span>
             
@@ -2799,7 +2802,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../observability/logging-architecture-java/" class="md-nav__link">
+      <a href="../logging-architecture-java/" class="md-nav__link">
         
   
   
@@ -2827,7 +2830,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../observability/exception-handling-spring/" class="md-nav__link">
+      <a href="../exception-handling-spring/" class="md-nav__link">
         
   
   
@@ -2855,7 +2858,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../observability/metrics-monitoring-prometheus-grafana/" class="md-nav__link">
+      <a href="../metrics-monitoring-prometheus-grafana/" class="md-nav__link">
         
   
   
@@ -2880,10 +2883,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../observability/monitoring-paiement/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Monitoring de Plateforme de Paiement
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -2899,6 +2929,286 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#pourquoi-le-monitoring-paiement-est-different" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pourquoi le monitoring paiement est différent
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#les-3-niveaux-appliques-au-paiement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Les 3 niveaux appliqués au paiement
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Les 3 niveaux appliqués au paiement">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#niveau-infra" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Niveau infra
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#niveau-applicatif" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Niveau applicatif
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#niveau-metier-le-plus-important" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Niveau métier • le plus important
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stack-technique-typique" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stack technique typique
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#consumer-lag-kafka-un-super-exemple-de-monitoring-metier-temps-reel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Consumer Lag Kafka • un super exemple de monitoring métier temps réel
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Consumer Lag Kafka • un super exemple de monitoring métier temps réel">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#le-contexte" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Le contexte
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#definition-du-consumer-lag" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Définition du consumer lag
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pourquoi-cest-un-indicateur-metier-crucial" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pourquoi c'est un indicateur métier crucial
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comment-lexposer-en-prometheus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Comment l'exposer en Prometheus
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comment-alerter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Comment alerter
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pourquoi-cest-ton-meilleur-argument-en-entretien-run" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pourquoi c'est ton meilleur argument en entretien RUN
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#logs-en-contexte-paiement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Logs en contexte paiement
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gestion-dincident-en-paiement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gestion d'incident en paiement
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Gestion d&#39;incident en paiement">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#severites-typiques" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sévérités typiques
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#procedure-dastreinte" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Procédure d'astreinte
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#boucle-dinvestigation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Boucle d'investigation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conformite-dans-le-monitoring-paiement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conformité dans le monitoring paiement
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cas-concrets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cas concrets
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#points-cles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Points clés
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#voir-aussi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Voir aussi
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -3579,31 +3889,28 @@
       
   
   
-    
   
   
-  
     
     
     
     
-      
-        
-        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_13" checked>
         
           
-          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="">
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_13" >
+        
+          
+          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
             
   
   
@@ -3621,7 +3928,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_13">
             <span class="md-nav__icon md-icon"></span>
             
@@ -3639,7 +3946,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../angular/" class="md-nav__link">
+      <a href="../../frontend/angular/" class="md-nav__link">
         
   
   
@@ -3664,37 +3971,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Angular • Migrations entre versions
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../frontend/angular-migrations/" class="md-nav__link">
         
   
   
@@ -3710,342 +3990,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table des matières
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#commande-universelle" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Commande universelle
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#v12-v13" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        v12 → v13
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="v12 → v13">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#changements-majeurs" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Changements majeurs
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#migration" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Migration
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#breaking-changes-frequents" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Breaking changes fréquents
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#v13-v14" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        v13 → v14
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="v13 → v14">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#changements-majeurs_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Changements majeurs
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#standalone-premier-apercu" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Standalone · premier aperçu
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#typed-forms-migration" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Typed Forms · migration
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#v14-v15" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        v14 → v15
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="v14 → v15">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#changements-majeurs_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Changements majeurs
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#functional-guard-v15" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Functional guard (v15+)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#bootstrap-standalone-v15" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Bootstrap standalone (v15+)
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#v15-v16" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        v15 → v16
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="v15 → v16">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#changements-majeurs_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Changements majeurs
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#required-input" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Required Input
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#destroyref-alternative-au-pattern-destroy" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        DestroyRef · alternative au pattern destroy$
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#signals-premier-apercu" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Signals · premier aperçu
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#v16-v17" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        v16 → v17
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="v16 → v17">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#changements-majeurs_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Changements majeurs
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#nouveau-control-flow" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Nouveau control flow
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#defer-chargement-differe" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        @defer · chargement différé
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#migration-automatique-v17" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Migration automatique v17
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#recapitulatif-des-versions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Récapitulatif des versions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#cas-concrets" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Cas concrets
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#points-cles" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Points clés
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -4058,7 +4002,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../angular-testing/" class="md-nav__link">
+      <a href="../../frontend/angular-testing/" class="md-nav__link">
         
   
   
@@ -4086,7 +4030,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../angular-ssr/" class="md-nav__link">
+      <a href="../../frontend/angular-ssr/" class="md-nav__link">
         
   
   
@@ -4114,7 +4058,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ngrx/" class="md-nav__link">
+      <a href="../../frontend/ngrx/" class="md-nav__link">
         
   
   
@@ -4142,7 +4086,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../react/" class="md-nav__link">
+      <a href="../../frontend/react/" class="md-nav__link">
         
   
   
@@ -4170,7 +4114,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../chartjs/" class="md-nav__link">
+      <a href="../../frontend/chartjs/" class="md-nav__link">
         
   
   
@@ -4655,10 +4599,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#commande-universelle" class="md-nav__link">
+  <a href="#pourquoi-le-monitoring-paiement-est-different" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Commande universelle
+        Pourquoi le monitoring paiement est différent
       
     </span>
   </a>
@@ -4666,22 +4610,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#v12-v13" class="md-nav__link">
+  <a href="#les-3-niveaux-appliques-au-paiement" class="md-nav__link">
     <span class="md-ellipsis">
       
-        v12 → v13
+        Les 3 niveaux appliqués au paiement
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="v12 → v13">
+    <nav class="md-nav" aria-label="Les 3 niveaux appliqués au paiement">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#changements-majeurs" class="md-nav__link">
+  <a href="#niveau-infra" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Changements majeurs
+        Niveau infra
       
     </span>
   </a>
@@ -4689,10 +4633,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#migration" class="md-nav__link">
+  <a href="#niveau-applicatif" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Migration
+        Niveau applicatif
       
     </span>
   </a>
@@ -4700,10 +4644,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#breaking-changes-frequents" class="md-nav__link">
+  <a href="#niveau-metier-le-plus-important" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Breaking changes fréquents
+        Niveau métier • le plus important
       
     </span>
   </a>
@@ -4716,22 +4660,33 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#v13-v14" class="md-nav__link">
+  <a href="#stack-technique-typique" class="md-nav__link">
     <span class="md-ellipsis">
       
-        v13 → v14
+        Stack technique typique
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="v13 → v14">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#consumer-lag-kafka-un-super-exemple-de-monitoring-metier-temps-reel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Consumer Lag Kafka • un super exemple de monitoring métier temps réel
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Consumer Lag Kafka • un super exemple de monitoring métier temps réel">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#changements-majeurs_1" class="md-nav__link">
+  <a href="#le-contexte" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Changements majeurs
+        Le contexte
       
     </span>
   </a>
@@ -4739,10 +4694,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#standalone-premier-apercu" class="md-nav__link">
+  <a href="#definition-du-consumer-lag" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Standalone · premier aperçu
+        Définition du consumer lag
       
     </span>
   </a>
@@ -4750,10 +4705,43 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#typed-forms-migration" class="md-nav__link">
+  <a href="#pourquoi-cest-un-indicateur-metier-crucial" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Typed Forms · migration
+        Pourquoi c'est un indicateur métier crucial
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comment-lexposer-en-prometheus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Comment l'exposer en Prometheus
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comment-alerter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Comment alerter
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pourquoi-cest-ton-meilleur-argument-en-entretien-run" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pourquoi c'est ton meilleur argument en entretien RUN
       
     </span>
   </a>
@@ -4766,22 +4754,33 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#v14-v15" class="md-nav__link">
+  <a href="#logs-en-contexte-paiement" class="md-nav__link">
     <span class="md-ellipsis">
       
-        v14 → v15
+        Logs en contexte paiement
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="v14 → v15">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gestion-dincident-en-paiement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gestion d'incident en paiement
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Gestion d&#39;incident en paiement">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#changements-majeurs_2" class="md-nav__link">
+  <a href="#severites-typiques" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Changements majeurs
+        Sévérités typiques
       
     </span>
   </a>
@@ -4789,10 +4788,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#functional-guard-v15" class="md-nav__link">
+  <a href="#procedure-dastreinte" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Functional guard (v15+)
+        Procédure d'astreinte
       
     </span>
   </a>
@@ -4800,10 +4799,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#bootstrap-standalone-v15" class="md-nav__link">
+  <a href="#boucle-dinvestigation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Bootstrap standalone (v15+)
+        Boucle d'investigation
       
     </span>
   </a>
@@ -4816,132 +4815,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#v15-v16" class="md-nav__link">
+  <a href="#conformite-dans-le-monitoring-paiement" class="md-nav__link">
     <span class="md-ellipsis">
       
-        v15 → v16
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="v15 → v16">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#changements-majeurs_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Changements majeurs
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#required-input" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Required Input
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#destroyref-alternative-au-pattern-destroy" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        DestroyRef · alternative au pattern destroy$
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#signals-premier-apercu" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Signals · premier aperçu
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#v16-v17" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        v16 → v17
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="v16 → v17">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#changements-majeurs_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Changements majeurs
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#nouveau-control-flow" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Nouveau control flow
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#defer-chargement-differe" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        @defer · chargement différé
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#migration-automatique-v17" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Migration automatique v17
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#recapitulatif-des-versions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Récapitulatif des versions
+        Conformité dans le monitoring paiement
       
     </span>
   </a>
@@ -4970,6 +4847,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#voir-aussi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Voir aussi
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -4991,271 +4879,344 @@
       
       
       
-        <a href="../../../tags/#tag:angular" class="md-tag">angular</a>
+        <a href="../../../tags/#tag:consumer-lag" class="md-tag">consumer-lag</a>
       
     
       
       
       
       
-        <a href="../../../tags/#tag:frontend" class="md-tag">frontend</a>
+        <a href="../../../tags/#tag:incident" class="md-tag">incident</a>
       
     
       
       
       
       
-        <a href="../../../tags/#tag:migration" class="md-tag">migration</a>
+        <a href="../../../tags/#tag:kafka" class="md-tag">kafka</a>
       
     
       
       
       
       
-        <a href="../../../tags/#tag:typescript" class="md-tag">typescript</a>
+        <a href="../../../tags/#tag:monitoring" class="md-tag">monitoring</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../../tags/#tag:monétique" class="md-tag">monétique</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../../tags/#tag:observability" class="md-tag">observability</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../../tags/#tag:paiement" class="md-tag">paiement</a>
       
     
   </nav>
 
 
 
-<h1 id="angular-migrations-entre-versions">Angular • Migrations entre versions</h1>
+<h1 id="monitoring-dune-plateforme-de-paiement">Monitoring d'une Plateforme de Paiement</h1>
+<p>Une plateforme monétique a des contraintes spécifiques qu'un monitoring générique ne couvre pas. Cette page applique les principes du <a href="../../devops/run-mco-sre/">RUN / MCO / SRE</a> au domaine <strong>paiement temps réel</strong>, avec un focus sur le monitoring métier et le consumer lag Kafka.</p>
 <hr />
-<h2 id="commande-universelle">Commande universelle</h2>
-<div class="highlight"><pre><span></span><code><span class="c1"># Mettre à jour Angular vers la version cible</span>
-ng<span class="w"> </span>update<span class="w"> </span>@angular/core@17<span class="w"> </span>@angular/cli@17
-
-<span class="c1"># Vérifier ce qui sera mis à jour avant d&#39;exécuter</span>
-ng<span class="w"> </span>update<span class="w"> </span>--dry-run
-</code></pre></div>
-<hr />
-<h2 id="v12-v13">v12 → v13</h2>
-<h3 id="changements-majeurs">Changements majeurs</h3>
+<h2 id="pourquoi-le-monitoring-paiement-est-different">Pourquoi le monitoring paiement est différent</h2>
+<p>Sur une appli SaaS classique, une indispo de 5 minutes est inconfortable. Sur une plateforme de paiement, c'est :</p>
 <ul>
-<li><strong>Ivy obligatoire</strong> • View Engine définitivement supprimé</li>
-<li><strong>TypeScript 4.4+</strong> requis</li>
-<li><strong>Node 12</strong> fin de support • Node 14+ requis</li>
-<li><code>ng build</code> produit des bundles ES2017 par défaut</li>
-<li><strong>Persistent build cache</strong> activé par défaut (builds plus rapides)</li>
+<li>des millions d'euros de transactions non traitées</li>
+<li>des marchands en panne sans alternative</li>
+<li>des engagements contractuels SLA pénalisés</li>
+<li>une perte de confiance difficile à reconquérir</li>
 </ul>
-<h3 id="migration">Migration</h3>
-<div class="highlight"><pre><span></span><code>ng<span class="w"> </span>update<span class="w"> </span>@angular/core@13<span class="w"> </span>@angular/cli@13
-</code></pre></div>
-<h3 id="breaking-changes-frequents">Breaking changes fréquents</h3>
-<div class="highlight"><pre><span></span><code><span class="c1">// Avant v13 · import depuis les sous-packages internes</span>
-<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">ComponentFixture</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;@angular/core/testing&#39;</span><span class="p">;</span>
-
-<span class="c1">// v13+ · inchangé, mais les librairies tierces qui importaient</span>
-<span class="c1">// des APIs internes d&#39;Angular cassent → mettre à jour les dépendances</span>
-</code></pre></div>
+<p>Conséquence : <strong>disponibilité quasi-totale exigée</strong> (99.95% à 99.99%), <strong>monitoring temps réel obligatoire</strong>, <strong>incident management ultra-rapide</strong> (P1 = traitement immédiat 24/7).</p>
 <hr />
-<h2 id="v13-v14">v13 → v14</h2>
-<h3 id="changements-majeurs_1">Changements majeurs</h3>
-<ul>
-<li><strong>Standalone components</strong> (expérimental) • premier pas sans NgModule</li>
-<li><strong>Typed Reactive Forms</strong> • <code>FormControl&lt;string&gt;</code> au lieu de <code>FormControl</code></li>
-<li><code>inject()</code> utilisable en dehors du constructeur (limité)</li>
-<li><code>NgModel</code> requiert <code>FormsModule</code> importé explicitement</li>
-</ul>
-<h3 id="standalone-premier-apercu">Standalone · premier aperçu</h3>
-<div class="highlight"><pre><span></span><code><span class="kd">@Component</span><span class="p">({</span>
-<span class="w">  </span><span class="nx">standalone</span><span class="o">:</span><span class="w"> </span><span class="kt">true</span><span class="p">,</span>
-<span class="w">  </span><span class="nx">imports</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="nx">CommonModule</span><span class="p">],</span>
-<span class="w">  </span><span class="nx">template</span><span class="o">:</span><span class="w"> </span><span class="sb">`...`</span>
-<span class="p">})</span>
-<span class="k">export</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nx">MyComponent</span><span class="w"> </span><span class="p">{}</span>
-</code></pre></div>
-<h3 id="typed-forms-migration">Typed Forms · migration</h3>
-<div class="highlight"><pre><span></span><code><span class="c1">// Avant v14</span>
-<span class="nx">form</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">FormGroup</span><span class="p">({</span>
-<span class="w">  </span><span class="nx">email</span><span class="o">:</span><span class="w"> </span><span class="kt">new</span><span class="w"> </span><span class="nx">FormControl</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">),</span><span class="w">  </span><span class="c1">// type: FormControl&lt;string | null&gt;</span>
-<span class="p">});</span>
-
-<span class="c1">// v14+</span>
-<span class="nx">form</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">FormGroup</span><span class="p">({</span>
-<span class="w">  </span><span class="nx">email</span><span class="o">:</span><span class="w"> </span><span class="kt">new</span><span class="w"> </span><span class="nx">FormControl</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">nonNullable</span><span class="o">:</span><span class="w"> </span><span class="kt">true</span><span class="w"> </span><span class="p">}),</span>
-<span class="p">});</span>
-
-<span class="c1">// Migration automatique disponible</span>
-<span class="nx">ng</span><span class="w"> </span><span class="nx">update</span><span class="w"> </span><span class="kd">@angular</span><span class="o">/</span><span class="nx">core</span><span class="err">@</span><span class="mf">14</span><span class="w"> </span><span class="o">--</span><span class="nx">migrate</span><span class="o">-</span><span class="nx">only</span><span class="w"> </span><span class="o">--</span><span class="nx">name</span><span class="o">=</span><span class="nx">migration</span><span class="o">-</span><span class="nx">v14</span><span class="o">-</span><span class="nx">typed</span><span class="o">-</span><span class="nx">forms</span>
-</code></pre></div>
-<hr />
-<h2 id="v14-v15">v14 → v15</h2>
-<h3 id="changements-majeurs_2">Changements majeurs</h3>
-<ul>
-<li><strong>Standalone stable</strong> • <code>bootstrapApplication()</code> disponible</li>
-<li><strong>Functional guards</strong> et intercepteurs sans classes</li>
-<li><strong>Directive Composition API</strong> · <code>hostDirectives</code></li>
-<li>Router : <code>RouterLink</code> standalone, <code>provideRouter()</code></li>
-<li><code>NgOptimizedImage</code> disponible</li>
-</ul>
-<h3 id="functional-guard-v15">Functional guard (v15+)</h3>
-<div class="highlight"><pre><span></span><code><span class="c1">// Avant v15 · classe obligatoire</span>
-<span class="kd">@Injectable</span><span class="p">()</span>
-<span class="k">export</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nx">AuthGuard</span><span class="w"> </span><span class="k">implements</span><span class="w"> </span><span class="nx">CanActivate</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nx">canActivate</span><span class="p">()</span><span class="o">:</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
-<span class="p">}</span>
-
-<span class="c1">// v15+ · fonction</span>
-<span class="k">export</span><span class="w"> </span><span class="kd">const</span><span class="w"> </span><span class="nx">authGuard</span><span class="o">:</span><span class="w"> </span><span class="kt">CanActivateFn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">route</span><span class="p">,</span><span class="w"> </span><span class="nx">state</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">inject</span><span class="p">(</span><span class="nx">AuthService</span><span class="p">).</span><span class="nx">isLoggedIn</span><span class="p">();</span>
-<span class="p">};</span>
-</code></pre></div>
-<h3 id="bootstrap-standalone-v15">Bootstrap standalone (v15+)</h3>
-<div class="highlight"><pre><span></span><code><span class="c1">// main.ts sans AppModule</span>
-<span class="nx">bootstrapApplication</span><span class="p">(</span><span class="nx">AppComponent</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nx">providers</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">    </span><span class="nx">provideRouter</span><span class="p">(</span><span class="nx">routes</span><span class="p">),</span>
-<span class="w">    </span><span class="nx">provideHttpClient</span><span class="p">(),</span>
-<span class="w">    </span><span class="nx">provideAnimations</span><span class="p">(),</span>
-<span class="w">  </span><span class="p">]</span>
-<span class="p">});</span>
-</code></pre></div>
-<hr />
-<h2 id="v15-v16">v15 → v16</h2>
-<h3 id="changements-majeurs_3">Changements majeurs</h3>
-<ul>
-<li><strong>Signals</strong> (developer preview) • <code>signal()</code>, <code>computed()</code>, <code>effect()</code></li>
-<li><strong>Required inputs</strong> • <code>@Input({ required: true })</code></li>
-<li><code>inject()</code> utilisable partout dans le contexte d'injection</li>
-<li><code>DestroyRef</code> • alternative à <code>takeUntil(destroy$)</code></li>
-<li>Jest support officiel (expérimental)</li>
-</ul>
-<h3 id="required-input">Required Input</h3>
-<div class="highlight"><pre><span></span><code><span class="c1">// v16+</span>
-<span class="kd">@Input</span><span class="p">({</span><span class="w"> </span><span class="nx">required</span><span class="o">:</span><span class="w"> </span><span class="kt">true</span><span class="w"> </span><span class="p">})</span><span class="w"> </span><span class="nx">userId</span><span class="o">!:</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span>
-<span class="c1">// Erreur à la compilation si le parent ne passe pas userId</span>
-</code></pre></div>
-<h3 id="destroyref-alternative-au-pattern-destroy">DestroyRef · alternative au pattern destroy$</h3>
-<div class="highlight"><pre><span></span><code><span class="c1">// Avant v16</span>
-<span class="k">private</span><span class="w"> </span><span class="nx">destroy$</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Subject</span><span class="o">&lt;</span><span class="ow">void</span><span class="o">&gt;</span><span class="p">();</span>
-<span class="nx">ngOnDestroy</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">destroy$</span><span class="p">.</span><span class="nx">next</span><span class="p">();</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">destroy$</span><span class="p">.</span><span class="nx">complete</span><span class="p">();</span><span class="w"> </span><span class="p">}</span>
-<span class="nx">obs$</span><span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">takeUntil</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">destroy$</span><span class="p">)).</span><span class="nx">subscribe</span><span class="p">();</span>
-
-<span class="c1">// v16+</span>
-<span class="k">private</span><span class="w"> </span><span class="nx">destroyRef</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">inject</span><span class="p">(</span><span class="nx">DestroyRef</span><span class="p">);</span>
-<span class="nx">obs$</span><span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">takeUntilDestroyed</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">destroyRef</span><span class="p">)).</span><span class="nx">subscribe</span><span class="p">();</span>
-</code></pre></div>
-<h3 id="signals-premier-apercu">Signals · premier aperçu</h3>
-<div class="highlight"><pre><span></span><code><span class="nx">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">signal</span><span class="p">(</span><span class="mf">0</span><span class="p">);</span>
-<span class="nx">doubled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">computed</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">count</span><span class="p">()</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">2</span><span class="p">);</span>
-
-<span class="nx">increment</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">count</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="nx">v</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">v</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">1</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
-</code></pre></div>
-<hr />
-<h2 id="v16-v17">v16 → v17</h2>
-<h3 id="changements-majeurs_4">Changements majeurs</h3>
-<ul>
-<li><strong>Standalone par défaut</strong> • <code>ng generate component</code> crée des standalone</li>
-<li><strong>Nouveau control flow</strong> • <code>@if</code>, <code>@for</code>, <code>@switch</code> remplacent <code>*ngIf</code>, <code>*ngFor</code></li>
-<li><strong><code>@defer</code></strong> • chargement différé déclaratif dans le template</li>
-<li><strong>esbuild</strong> par défaut • builds ~70% plus rapides</li>
-<li>SSR amélioré • <code>provideClientHydration()</code></li>
-<li>Signals stable (hors toute l'API)</li>
-</ul>
-<h3 id="nouveau-control-flow">Nouveau control flow</h3>
-<div class="highlight"><pre><span></span><code><span class="cm">&lt;!-- Avant v17 --&gt;</span>
-<span class="p">&lt;</span><span class="nt">div</span> <span class="err">*</span><span class="na">ngIf</span><span class="o">=</span><span class="s">&quot;user; else loading&quot;</span><span class="p">&gt;</span>{{ user.name }}<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">ng-template</span> <span class="err">#</span><span class="na">loading</span><span class="p">&gt;</span>Chargement...<span class="p">&lt;/</span><span class="nt">ng-template</span><span class="p">&gt;</span>
-
-<span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
-  <span class="p">&lt;</span><span class="nt">li</span> <span class="err">*</span><span class="na">ngFor</span><span class="o">=</span><span class="s">&quot;let item of items; trackBy: trackById&quot;</span><span class="p">&gt;</span>{{ item.name }}<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
-<span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
-
-<span class="cm">&lt;!-- v17+ --&gt;</span>
-@if (user) {
-  <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>{{ user.name }}<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-} @else {
-  <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>Chargement...<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-}
-
-<span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
-  @for (item of items; track item.id) {
-    <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>{{ item.name }}<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
-  } @empty {
-    <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>Aucun élément<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
-  }
-<span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
-</code></pre></div>
-<h3 id="defer-chargement-differe">@defer · chargement différé</h3>
-<div class="highlight"><pre><span></span><code>@defer (on viewport) {
-  <span class="p">&lt;</span><span class="nt">app-heavy-chart</span> <span class="p">/&gt;</span>
-} @placeholder {
-  <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>Graphique...<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-} @loading {
-  <span class="p">&lt;</span><span class="nt">spinner</span> <span class="p">/&gt;</span>
-}
-</code></pre></div>
-<h3 id="migration-automatique-v17">Migration automatique v17</h3>
-<div class="highlight"><pre><span></span><code>ng<span class="w"> </span>update<span class="w"> </span>@angular/core@17<span class="w"> </span>@angular/cli@17
-
-<span class="c1"># Migrer le control flow automatiquement</span>
-ng<span class="w"> </span>generate<span class="w"> </span>@angular/core:control-flow
-</code></pre></div>
-<hr />
-<h2 id="recapitulatif-des-versions">Récapitulatif des versions</h2>
+<h2 id="les-3-niveaux-appliques-au-paiement">Les 3 niveaux appliqués au paiement</h2>
+<h3 id="niveau-infra">Niveau infra</h3>
+<p>Standard : CPU, RAM, heap JVM, disque, réseau. Rien de spécifique au paiement, mais avec des seuils plus stricts (alerte à 70% au lieu de 85%, marge de sécurité).</p>
+<h3 id="niveau-applicatif">Niveau applicatif</h3>
 <table>
 <thead>
 <tr>
-<th>Version</th>
-<th>Année</th>
-<th>Apport principal</th>
+<th>Indicateur</th>
+<th>Pourquoi c'est critique en paiement</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>v13</td>
-<td>2021</td>
-<td>Ivy obligatoire • build cache</td>
+<td>Temps de réponse p99</td>
+<td>Une autorisation &gt; 3s = timeout côté marchand</td>
 </tr>
 <tr>
-<td>v14</td>
-<td>2022</td>
-<td>Standalone (exp.) • Typed Forms</td>
+<td>Threads Tomcat occupés</td>
+<td>Si saturation, les nouvelles transactions sont rejetées</td>
 </tr>
 <tr>
-<td>v15</td>
-<td>2022</td>
-<td>Standalone stable • Functional guards</td>
+<td>Pool connexions Oracle</td>
+<td>Saturation = blocage en cascade</td>
 </tr>
 <tr>
-<td>v16</td>
-<td>2023</td>
-<td>Signals (preview) • Required inputs • DestroyRef</td>
+<td>Heap Java + GC pauses</td>
+<td>Stop-the-world &gt; 1s = chute de débit visible</td>
 </tr>
 <tr>
-<td>v17</td>
-<td>2023</td>
-<td>Standalone défaut • @if/@for • @defer • esbuild</td>
+<td>Latence vers banques acquéreurs</td>
+<td>Critère métier intégré : si &gt; seuil, alerte</td>
 </tr>
 </tbody>
 </table>
+<h3 id="niveau-metier-le-plus-important">Niveau métier • le plus important</h3>
+<p>C'est ce qui distingue un bon responsable d'applications monétiques d'un simple ingénieur d'exploitation. Les indicateurs métier en paiement :</p>
+<table>
+<thead>
+<tr>
+<th>Indicateur</th>
+<th>Définition</th>
+<th>Seuil d'alerte typique</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>TPS</strong> • Transactions per second</td>
+<td>Débit instantané</td>
+<td>Chute &gt; 30% sur 5 min</td>
+</tr>
+<tr>
+<td><strong>Taux d'autorisation</strong></td>
+<td>% de transactions acceptées par les banques</td>
+<td>Baisse &gt; 5 points</td>
+</tr>
+<tr>
+<td><strong>Taux de refus</strong></td>
+<td>% refusées (motifs variés)</td>
+<td>Pic anormal</td>
+</tr>
+<tr>
+<td><strong>Taux d'échec technique</strong></td>
+<td>% timeout, erreurs réseau</td>
+<td>&gt; 1% sustained</td>
+</tr>
+<tr>
+<td><strong>Latence end-to-end</strong></td>
+<td>Du POST marchand à la réponse</td>
+<td>p99 &gt; 2s</td>
+</tr>
+<tr>
+<td><strong>Volume par banque acquéreur</strong></td>
+<td>Ventilation par partenaire</td>
+<td>Chute brutale d'une banque</td>
+</tr>
+<tr>
+<td><strong>Volume par marchand top-N</strong></td>
+<td>Détection d'une fraude ou panne marchand</td>
+<td>Pic ou chute anormal</td>
+</tr>
+</tbody>
+</table>
+<p>Un système peut être <strong>vert sur les niveaux 1 et 2</strong> et <strong>rouge sur le niveau 3</strong>. Exemple : tous les serveurs répondent en 50ms, mais 100% des autorisations vers une banque acquéreur échouent depuis 8 minutes. C'est cette alerte que doit voir le RUN en premier.</p>
+<hr />
+<h2 id="stack-technique-typique">Stack technique typique</h2>
+<div class="highlight"><pre><span></span><code>Application Java (Tomcat, Spring) → Micrometer
+                                       ↓
+                                  Prometheus (scraping toutes les 15s)
+                                       ↓
+                                  Grafana (dashboards temps réel)
+                                       ↓
+                                  Alertmanager → astreinte (PagerDuty, OpsGenie)
+
+Logs (catalina.out, applicatifs) → Filebeat/Promtail → Elasticsearch/Loki → Kibana/Grafana
+</code></pre></div>
+<p>C'est exactement la stack standard de l'industrie. La spécificité paiement n'est pas dans les outils mais dans <strong>les métriques qu'on expose</strong> et <strong>les seuils qu'on définit</strong>.</p>
+<hr />
+<h2 id="consumer-lag-kafka-un-super-exemple-de-monitoring-metier-temps-reel">Consumer Lag Kafka • un super exemple de monitoring métier temps réel</h2>
+<h3 id="le-contexte">Le contexte</h3>
+<p>Beaucoup de plateformes de paiement modernes utilisent Kafka pour découpler les flux : front d'acquisition → topic Kafka → consumer qui appelle la banque acquéreur → topic réponse → consumer qui notifie le marchand.</p>
+<h3 id="definition-du-consumer-lag">Définition du consumer lag</h3>
+<p>Le lag d'un consumer Kafka, c'est <strong>le nombre de messages produits mais pas encore lus</strong> par un consumer group sur un topic donné.</p>
+<div class="highlight"><pre><span></span><code>Topic « auth-requests » :
+    Partition 0 : offset producer = 12 543 091
+                  offset consumer = 12 542 850
+                  LAG = 241 messages
+</code></pre></div>
+<h3 id="pourquoi-cest-un-indicateur-metier-crucial">Pourquoi c'est un indicateur métier crucial</h3>
+<table>
+<thead>
+<tr>
+<th>Cas</th>
+<th>Interprétation métier</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Lag stable proche de 0</td>
+<td>Le système traite en temps réel, tout va bien</td>
+</tr>
+<tr>
+<td>Lag qui augmente lentement</td>
+<td>Le consumer ne suit plus le débit • risque de timeout marchand</td>
+</tr>
+<tr>
+<td>Lag qui explose</td>
+<td>Quelque chose bloque (banque acquéreur ralentie, pool DB saturé, GC pause)</td>
+</tr>
+<tr>
+<td>Lag qui redescend après pic</td>
+<td>Récupération en cours • capacité de rattrapage OK</td>
+</tr>
+</tbody>
+</table>
+<p>C'est <strong>un monitoring du flux métier, pas de la machine</strong>. Le serveur peut être à 20% de CPU et le lag être catastrophique parce que le consumer attend la banque.</p>
+<h3 id="comment-lexposer-en-prometheus">Comment l'exposer en Prometheus</h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Kafka Lag Exporter (Strimzi, kafka-exporter, Burrow…)</span>
+<span class="l l-Scalar l-Scalar-Plain">kafka_consumergroup_lag{group=&quot;auth-consumer&quot;, topic=&quot;auth-requests&quot;, partition=&quot;0&quot;} 241</span>
+</code></pre></div>
+<h3 id="comment-alerter">Comment alerter</h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># règle Prometheus</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">alert</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">KafkaConsumerLagHigh</span>
+<span class="w">  </span><span class="nt">expr</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sum by (group, topic) (kafka_consumergroup_lag) &gt; 5000</span>
+<span class="w">  </span><span class="nt">for</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2m</span>
+<span class="w">  </span><span class="nt">labels</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">severity</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">P1</span>
+<span class="w">  </span><span class="nt">annotations</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">summary</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Consumer</span><span class="nv"> </span><span class="s">{{</span><span class="nv"> </span><span class="s">$labels.group</span><span class="nv"> </span><span class="s">}}</span><span class="nv"> </span><span class="s">en</span><span class="nv"> </span><span class="s">retard</span><span class="nv"> </span><span class="s">de</span><span class="nv"> </span><span class="s">{{</span><span class="nv"> </span><span class="s">$value</span><span class="nv"> </span><span class="s">}}</span><span class="nv"> </span><span class="s">messages&quot;</span>
+<span class="w">    </span><span class="nt">runbook</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;https://runbook.internal/kafka-lag&quot;</span>
+</code></pre></div>
+<h3 id="pourquoi-cest-ton-meilleur-argument-en-entretien-run">Pourquoi c'est ton meilleur argument en entretien RUN</h3>
+<p>Le consumer lag c'est exactement la mentalité <strong>monitoring du business plutôt que de la machine</strong>. C'est la même logique que surveiller un taux d'autorisation ou un volume de transactions par minute : on ne regarde pas "la machine va bien" mais "le flux métier est traité à temps".</p>
+<p>Si tu as exposé du Kafka lag avec Micrometer + Grafana sur un projet réel, tu peux dire <strong>"j'ai mis en place du monitoring temps réel orienté métier"</strong> — c'est exactement le vocabulaire qu'un responsable d'application monétique attend.</p>
+<hr />
+<h2 id="logs-en-contexte-paiement">Logs en contexte paiement</h2>
+<p>Trois principes clés :</p>
+<ol>
+<li><strong>Identifiant de transaction</strong> dans chaque ligne (trace ID, correlation ID, payment ID). Sans ça, on perd des heures pendant un incident.</li>
+<li><strong>Structured logging</strong> (JSON) pour permettre des recherches efficaces : <code>level=ERROR amount=42.5 acquirer=BNP duration_ms=2543</code></li>
+<li><strong>Pas de données sensibles</strong> dans les logs (PAN, CVV, expiration) → conformité PCI DSS</li>
+</ol>
+<p>Centralisation typique : Filebeat / Promtail → Elasticsearch / Loki → Kibana / Grafana. Indispensable pour corréler 10 microservices pendant un incident.</p>
+<hr />
+<h2 id="gestion-dincident-en-paiement">Gestion d'incident en paiement</h2>
+<h3 id="severites-typiques">Sévérités typiques</h3>
+<table>
+<thead>
+<tr>
+<th>Sévérité</th>
+<th>Critère</th>
+<th>SLA interne</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>P1</td>
+<td>Service totalement indisponible OU &gt; 50% transactions en échec</td>
+<td>Prise en compte &lt; 15 min, communication client &lt; 30 min</td>
+</tr>
+<tr>
+<td>P2</td>
+<td>Une banque acquéreur down OU latence dégradée significative</td>
+<td>Prise en compte &lt; 1h</td>
+</tr>
+<tr>
+<td>P3</td>
+<td>Bug fonctionnel sans impact métier</td>
+<td>Prise en compte &lt; 4h ouvrées</td>
+</tr>
+</tbody>
+</table>
+<h3 id="procedure-dastreinte">Procédure d'astreinte</h3>
+<div class="highlight"><pre><span></span><code>Alerte Alertmanager → PagerDuty → SMS + appel
+        ↓ (si non acquitté en 5 min)
+   Escalade niveau 2
+        ↓ (si non acquitté en 10 min)
+   Escalade manager
+</code></pre></div>
+<h3 id="boucle-dinvestigation">Boucle d'investigation</h3>
+<div class="highlight"><pre><span></span><code>Alerte → Dashboard Grafana → Identifier le niveau impacté (infra/appli/métier)
+       → Lecture logs filtrés sur la fenêtre + ID transaction
+       → Corréler avec déploiements récents (changelog)
+       → Tester les dépendances externes (ping banques)
+       → Si nécessaire : thread dump (kill -3 JVM), heap dump (jmap)
+       → Rollback ou fix → Vérifier retour à la normale → Postmortem
+</code></pre></div>
+<hr />
+<h2 id="conformite-dans-le-monitoring-paiement">Conformité dans le monitoring paiement</h2>
+<table>
+<thead>
+<tr>
+<th>Norme</th>
+<th>Implication pour le monitoring</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>PCI DSS</strong></td>
+<td>Aucune donnée carte (PAN, CVV) dans les logs ou métriques</td>
+</tr>
+<tr>
+<td><strong>RGPD</strong></td>
+<td>Données personnelles : minimisation, durée de rétention bornée</td>
+</tr>
+<tr>
+<td><strong>DSP2</strong></td>
+<td>Traçabilité des opérations d'authentification forte (SCA)</td>
+</tr>
+</tbody>
+</table>
+<p>Sur un dashboard ou un dump heap, tout ce qui est sensible doit être masqué ou exclu. C'est un réflexe à intégrer dès l'instrumentation.</p>
 <hr />
 <h2 id="cas-concrets">Cas concrets</h2>
 <details class="question">
-<summary>Pourquoi ng update ne suffit pas toujours ?</summary>
-<p><code>ng update</code> met à jour les dépendances et exécute les migrations automatiques, mais certaines APIs supprimées nécessitent une intervention manuelle. Toujours lire le <code>CHANGELOG</code> et tester sur une branche dédiée.</p>
+<summary>Pourquoi le monitoring métier prime sur le monitoring infra ?</summary>
+<p>Parce qu'un système peut être vert techniquement (CPU bas, latence correcte) et défaillant métier (transactions vers une banque tombées à zéro). Le métier touche directement le chiffre d'affaires et les SLA client. C'est l'alerte qui doit déclencher en premier.</p>
 </details>
 <details class="question">
-<summary>NgModule est-il mort depuis v17 ?</summary>
-<p>Non · NgModule reste supporté et fonctionnel. Standalone est le défaut pour les nouveaux projets, mais une migration forcée n'est pas nécessaire sur un projet existant.</p>
+<summary>Comment expliquer le consumer lag à un non-technique ?</summary>
+<p>« C'est le retard accumulé entre ce qui rentre dans le système et ce qui en sort. Si le lag est de 5 000 messages, ça veut dire que 5 000 paiements sont en file d'attente et n'ont pas encore été traités. En temps réel, c'est inacceptable. »</p>
 </details>
 <details class="question">
-<summary>Comment migrer *ngFor vers @for ?</summary>
-<p>Angular fournit un schematic automatique : <code>ng generate @angular/core:control-flow</code>. Il convertit tous les <code>*ngIf</code>, <code>*ngFor</code>, <code>*ngSwitch</code> du projet en une seule commande.</p>
+<summary>Quels outils pour exposer le consumer lag Kafka ?</summary>
+<p><code>kafka-exporter</code> (Burrow), <code>Strimzi Kafka Exporter</code> ou directement les métriques JMX exposées via Micrometer dans une appli Spring Boot. Ces métriques arrivent ensuite dans Prometheus et sont visualisées dans Grafana.</p>
 </details>
 <details class="question">
-<summary>Signals remplace-t-il RxJS ?</summary>
-<p>Non. Signals gère l'état synchrone local (UI state). RxJS reste indispensable pour les flux asynchrones : HTTP, WebSocket, événements complexes. Les deux coexistent.</p>
+<summary>Pourquoi l'identifiant de transaction dans les logs est si important ?</summary>
+<p>Parce qu'une transaction passe par 5 à 10 microservices. Sans ID corrélé partout, retrouver toutes les traces d'une transaction qui a échoué peut prendre des heures. Avec un ID dans chaque log, une seule recherche Kibana donne tout le parcours.</p>
+</details>
+<details class="question">
+<summary>Quelle latence p99 viser sur une autorisation paiement ?</summary>
+<p>Dépend du marchand et du flux, mais typiquement &lt; 2 secondes end-to-end. Au-delà, le terminal de paiement ou la page e-commerce timeout. Le p99 est plus important que la moyenne : il révèle les cas pathologiques que la moyenne lisse.</p>
+</details>
+<details class="question">
+<summary>Thread dump et heap dump, quand les utiliser ?</summary>
+<p><strong>Thread dump</strong> (<code>kill -3</code> ou <code>jstack</code>) : quand l'appli rame ou se fige, pour voir ce que font tous les threads (deadlock ? attente synchronized ? appel externe bloquant ?). <strong>Heap dump</strong> (<code>jmap -dump</code>) : quand on suspecte une fuite mémoire ou un OutOfMemoryError, pour voir ce qui occupe la heap. Outils d'analyse : Eclipse MAT, VisualVM.</p>
 </details>
 <hr />
 <h2 id="points-cles">Points clés</h2>
 <ul>
-<li>chaque version majeure = une migration <code>ng update</code> + lecture des breaking changes</li>
-<li>v14 → v17 : transition progressive vers le monde standalone</li>
-<li><code>@if</code> / <code>@for</code> v17 sont plus performants que les directives structurelles (moins d'overhead)</li>
-<li>Signals + <code>takeUntilDestroyed</code> simplifient la gestion du cycle de vie</li>
-<li>esbuild (v17) réduit le temps de build de ~70% · argument fort pour migrer</li>
+<li>Le monitoring paiement = stack standard, mais avec des <strong>seuils plus stricts</strong> et un <strong>monitoring métier obligatoire</strong></li>
+<li>Indicateurs métier = TPS, taux d'autorisation, taux de refus, latence end-to-end, volume par banque acquéreur</li>
+<li>Le <strong>consumer lag Kafka</strong> est l'archétype du monitoring métier temps réel : on surveille le flux, pas la machine</li>
+<li>ID de transaction corrélé dans tous les logs = indispensable pour l'investigation</li>
+<li>P1 = traitement immédiat 24/7, astreinte avec escalade automatique</li>
+<li>Conformité PCI DSS / RGPD = jamais de donnée sensible dans logs ou métriques</li>
+</ul>
+<hr />
+<h2 id="voir-aussi">Voir aussi</h2>
+<ul>
+<li><a href="../../devops/run-mco-sre/">RUN, MCO et SRE</a> — les fondations du raisonnement</li>
+<li><a href="../metrics-monitoring-prometheus-grafana/">Metrics Monitoring · Prometheus + Grafana</a></li>
+<li><a href="../logging-architecture-java/">Logging Architecture Java</a></li>
+<li><a href="../../kafka/consumer-rebalance/">Consumer Rebalance</a></li>
+<li><a href="../../kafka/reliability-patterns/">Reliability Patterns</a></li>
+<li><a href="../../distributed/kafka-resilience-patterns/">Kafka Resilience Patterns</a></li>
 </ul>
 
 
