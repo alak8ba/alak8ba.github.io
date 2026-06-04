@@ -12,13 +12,13 @@
         <meta name="author" content="A.KOUBA">
       
       
-        <link rel="canonical" href="https://alak8ba.github.io/notes/topics/spring/spring-batch-migration-sb2-java8-to-sb5-java21/">
+        <link rel="canonical" href="https://alak8ba.github.io/notes/topics/observability/java-production-deep-dive/">
       
       
-        <link rel="prev" href="../../java/spring/aop-spring/">
+        <link rel="prev" href="../monitoring-paiement/">
       
       
-        <link rel="next" href="../spring-batch-advanced-patterns/">
+        <link rel="next" href="../../devops/run-mco-sre/">
       
       
         
@@ -29,7 +29,7 @@
     
     
       
-        <title>Spring Batch - Migration SB4/Java8 → SB5/Java21 - Engineering Notes</title>
+        <title>Java en Production • Deep-Dive - Engineering Notes</title>
       
     
     
@@ -82,7 +82,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#migration-spring-batch-4-java-8-vers-spring-boot-3-spring-batch-5-java-21" class="md-skip">
+        <a href="#java-en-production-deep-dive" class="md-skip">
           Aller au contenu
         </a>
       
@@ -115,7 +115,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Spring Batch - Migration SB4/Java8 → SB5/Java21
+              Java en Production • Deep-Dive
             
           </span>
         </div>
@@ -271,8 +271,6 @@
   
   
   
-    
-  
   
     
     
@@ -280,12 +278,10 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
+      <li class="md-tabs__item">
         <a href="../../java/fundamentals/equals-vs-double-equals/" class="md-tabs__link">
           
   
@@ -365,11 +361,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../observability/logging-architecture-java/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../logging-architecture-java/" class="md-tabs__link">
           
   
   
@@ -638,31 +636,28 @@
       
   
   
-    
   
   
-  
     
     
     
     
-      
-        
-        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
         
           
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
             
   
   
@@ -680,7 +675,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             
@@ -704,13 +699,10 @@
       
       
         
-          
-          
-        
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
@@ -719,7 +711,7 @@
         <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_1" >
         
           
-          <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="">
+          <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
             
   
   
@@ -1021,13 +1013,10 @@
       
       
         
-          
-          
-        
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
@@ -1036,7 +1025,7 @@
         <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_2" >
         
           
-          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="">
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
             
   
   
@@ -1282,13 +1271,10 @@
       
       
         
-          
-          
-        
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
@@ -1297,7 +1283,7 @@
         <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_3" >
         
           
-          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="">
+          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
             
   
   
@@ -1487,13 +1473,10 @@
       
       
         
-          
-          
-        
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
@@ -1502,7 +1485,7 @@
         <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_4" >
         
           
-          <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="">
+          <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
             
   
   
@@ -1636,13 +1619,10 @@
       
       
         
-          
-          
-        
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
@@ -1651,7 +1631,7 @@
         <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_5" >
         
           
-          <label class="md-nav__link" for="__nav_4_5" id="__nav_4_5_label" tabindex="">
+          <label class="md-nav__link" for="__nav_4_5" id="__nav_4_5_label" tabindex="0">
             
   
   
@@ -1776,31 +1756,28 @@
                 
   
   
-    
   
   
-  
     
     
     
     
       
       
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
         
           
-          
         
-      
-    
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_6" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_6" >
         
           
-          <label class="md-nav__link" for="__nav_4_6" id="__nav_4_6_label" tabindex="">
+          <label class="md-nav__link" for="__nav_4_6" id="__nav_4_6_label" tabindex="0">
             
   
   
@@ -1818,7 +1795,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_6_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_6_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4_6">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1917,37 +1894,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Spring Batch - Migration SB4/Java8 → SB5/Java21
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../spring/spring-batch-migration-sb2-java8-to-sb5-java21/" class="md-nav__link">
         
   
   
@@ -1963,248 +1913,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table des matières
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#contexte" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Contexte
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#chemin-de-migration-java" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Chemin de migration Java
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Chemin de migration Java">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#pourquoi-ne-pas-sauter-directement-de-java-8-a-java-21" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Pourquoi ne pas sauter directement de Java 8 à Java 21 ?
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#ce-qui-change-a-chaque-etape" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Ce qui change à chaque étape
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#chemin-de-migration-spring-boot" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Chemin de migration Spring Boot
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Chemin de migration Spring Boot">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#spring-boot-2-spring-boot-3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Spring Boot 2 → Spring Boot 3
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#changements-spring-batch-4-spring-batch-5" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Changements Spring Batch 4 → Spring Batch 5
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Changements Spring Batch 4 → Spring Batch 5">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-suppression-de-jobbuilderfactory-et-stepbuilderfactory" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1. Suppression de JobBuilderFactory et StepBuilderFactory
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-enablebatchprocessing-nest-plus-necessaire" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2. @EnableBatchProcessing n'est plus nécessaire
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-instanciation-generique-supplier-remplace-clazznewinstance" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3. Instanciation générique : Supplier remplace clazz.newInstance()
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-itemwriter-list-remplace-par-chunk" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4. ItemWriter : List remplacé par Chunk
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#5-thread-safety-du-reader-avec-partitioning-trois-approches" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5. Thread-safety du reader avec partitioning : trois approches
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="5. Thread-safety du reader avec partitioning : trois approches">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#option-a-stepscope-une-instance-par-partition" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Option A : @StepScope - une instance par partition
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#option-b-synchronizeditemstreamreader-un-reader-partage-recommande-sb5" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Option B : SynchronizedItemStreamReader - un reader partagé (recommandé SB5)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#comparaison-des-trois-approches" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Comparaison des trois approches
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#6-chunk-definition-et-bonnes-pratiques" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        6. Chunk - définition et bonnes pratiques
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#7-skip-policy-gestion-native-des-erreurs" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        7. Skip Policy - gestion native des erreurs
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#recapitulatif-des-changements-appliques-dans-kore-batch" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Récapitulatif des changements appliqués dans kore-batch
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -2217,7 +1925,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../spring-batch-advanced-patterns/" class="md-nav__link">
+      <a href="../../spring/spring-batch-advanced-patterns/" class="md-nav__link">
         
   
   
@@ -2259,13 +1967,10 @@
       
       
         
-          
-          
-        
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
@@ -2274,7 +1979,7 @@
         <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_7" >
         
           
-          <label class="md-nav__link" for="__nav_4_7" id="__nav_4_7_label" tabindex="">
+          <label class="md-nav__link" for="__nav_4_7" id="__nav_4_7_label" tabindex="0">
             
   
   
@@ -2463,7 +2168,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../hexagonal-architecture/" class="md-nav__link">
+      <a href="../../spring/hexagonal-architecture/" class="md-nav__link">
         
   
   
@@ -3037,28 +2742,31 @@
       
   
   
+    
   
   
+  
     
     
     
     
+      
+        
+        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" checked>
         
           
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
-        
-          
-          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="">
             
   
   
@@ -3076,7 +2784,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_8">
             <span class="md-nav__icon md-icon"></span>
             
@@ -3094,7 +2802,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../observability/logging-architecture-java/" class="md-nav__link">
+      <a href="../logging-architecture-java/" class="md-nav__link">
         
   
   
@@ -3122,7 +2830,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../observability/exception-handling-spring/" class="md-nav__link">
+      <a href="../exception-handling-spring/" class="md-nav__link">
         
   
   
@@ -3150,7 +2858,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../observability/metrics-monitoring-prometheus-grafana/" class="md-nav__link">
+      <a href="../metrics-monitoring-prometheus-grafana/" class="md-nav__link">
         
   
   
@@ -3178,7 +2886,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../observability/monitoring-paiement/" class="md-nav__link">
+      <a href="../monitoring-paiement/" class="md-nav__link">
         
   
   
@@ -3203,10 +2911,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../observability/java-production-deep-dive/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Java en Production • Deep-Dive
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -3222,6 +2957,448 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#modele-memoire-de-la-jvm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Modèle mémoire de la JVM
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Modèle mémoire de la JVM">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#heap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Heap
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metaspace" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Metaspace
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#off-heap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Off-heap
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#garbage-collectors-choisir-le-bon" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Garbage Collectors · choisir le bon
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Garbage Collectors · choisir le bon">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#choix-typiques-en-paiement-temps-reel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Choix typiques en paiement / temps réel
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tuning-gc-concret-flags-essentiels" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tuning GC concret · flags essentiels
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tuning GC concret · flags essentiels">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dimensionner-le-heap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dimensionner le heap
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#g1gc-tuning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        G1GC tuning
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#zgc-tuning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ZGC tuning
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#logs-gc-configuration-et-lecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Logs GC · configuration et lecture
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Logs GC · configuration et lecture">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configuration-moderne-jvm-9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuration moderne (JVM 9+)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a-surveiller" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        À surveiller
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#outils-danalyse-offline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Outils d'analyse offline
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#outofmemoryerror-les-8-types-et-leurs-causes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OutOfMemoryError · les 8 types et leurs causes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="OutOfMemoryError · les 8 types et leurs causes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#auto-dump-sur-oom-a-mettre-en-prod" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Auto-dump sur OOM (à mettre en prod)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#thread-tuning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Thread tuning
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Thread tuning">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#taille-de-la-stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Taille de la stack
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pool-tomcat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pool Tomcat
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pool-hikaricp-db" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pool HikariCP (DB)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#virtual-threads-java-21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Virtual Threads (Java 21+)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#jvm-flags-essentiels-en-production" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        JVM flags essentiels en production
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#java-agents-profilage-et-observabilite" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Java Agents · profilage et observabilité
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Java Agents · profilage et observabilité">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#java-flight-recorder-jfr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Java Flight Recorder (JFR)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#async-profiler" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        async-profiler
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#byte-buddy-asm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Byte Buddy / ASM
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#outils-danalyse-offline_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Outils d'analyse offline
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Outils d&#39;analyse offline">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#eclipse-mat-memory-analyzer-tool" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Eclipse MAT (Memory Analyzer Tool)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#visualvm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VisualVM
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#jdk-mission-control-jmc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        JDK Mission Control (JMC)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#intellij-profiler" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IntelliJ Profiler
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cas-concrets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cas concrets
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#points-cles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Points clés
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#voir-aussi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Voir aussi
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -4612,33 +4789,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#contexte" class="md-nav__link">
+  <a href="#modele-memoire-de-la-jvm" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Contexte
+        Modèle mémoire de la JVM
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#chemin-de-migration-java" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Chemin de migration Java
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Chemin de migration Java">
+    <nav class="md-nav" aria-label="Modèle mémoire de la JVM">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#pourquoi-ne-pas-sauter-directement-de-java-8-a-java-21" class="md-nav__link">
+  <a href="#heap" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Pourquoi ne pas sauter directement de Java 8 à Java 21 ?
+        Heap
       
     </span>
   </a>
@@ -4646,10 +4812,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#ce-qui-change-a-chaque-etape" class="md-nav__link">
+  <a href="#metaspace" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Ce qui change à chaque étape
+        Metaspace
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#off-heap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Off-heap
       
     </span>
   </a>
@@ -4662,22 +4839,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#chemin-de-migration-spring-boot" class="md-nav__link">
+  <a href="#garbage-collectors-choisir-le-bon" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Chemin de migration Spring Boot
+        Garbage Collectors · choisir le bon
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Chemin de migration Spring Boot">
+    <nav class="md-nav" aria-label="Garbage Collectors · choisir le bon">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#spring-boot-2-spring-boot-3" class="md-nav__link">
+  <a href="#choix-typiques-en-paiement-temps-reel" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Spring Boot 2 → Spring Boot 3
+        Choix typiques en paiement / temps réel
       
     </span>
   </a>
@@ -4690,22 +4867,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#changements-spring-batch-4-spring-batch-5" class="md-nav__link">
+  <a href="#tuning-gc-concret-flags-essentiels" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Changements Spring Batch 4 → Spring Batch 5
+        Tuning GC concret · flags essentiels
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Changements Spring Batch 4 → Spring Batch 5">
+    <nav class="md-nav" aria-label="Tuning GC concret · flags essentiels">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-suppression-de-jobbuilderfactory-et-stepbuilderfactory" class="md-nav__link">
+  <a href="#dimensionner-le-heap" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Suppression de JobBuilderFactory et StepBuilderFactory
+        Dimensionner le heap
       
     </span>
   </a>
@@ -4713,10 +4890,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-enablebatchprocessing-nest-plus-necessaire" class="md-nav__link">
+  <a href="#g1gc-tuning" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. @EnableBatchProcessing n'est plus nécessaire
+        G1GC tuning
       
     </span>
   </a>
@@ -4724,93 +4901,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-instanciation-generique-supplier-remplace-clazznewinstance" class="md-nav__link">
+  <a href="#zgc-tuning" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Instanciation générique : Supplier remplace clazz.newInstance()
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-itemwriter-list-remplace-par-chunk" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4. ItemWriter : List remplacé par Chunk
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#5-thread-safety-du-reader-avec-partitioning-trois-approches" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5. Thread-safety du reader avec partitioning : trois approches
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="5. Thread-safety du reader avec partitioning : trois approches">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#option-a-stepscope-une-instance-par-partition" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Option A : @StepScope - une instance par partition
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#option-b-synchronizeditemstreamreader-un-reader-partage-recommande-sb5" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Option B : SynchronizedItemStreamReader - un reader partagé (recommandé SB5)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#comparaison-des-trois-approches" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Comparaison des trois approches
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#6-chunk-definition-et-bonnes-pratiques" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        6. Chunk - définition et bonnes pratiques
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#7-skip-policy-gestion-native-des-erreurs" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        7. Skip Policy - gestion native des erreurs
+        ZGC tuning
       
     </span>
   </a>
@@ -4823,10 +4917,293 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#recapitulatif-des-changements-appliques-dans-kore-batch" class="md-nav__link">
+  <a href="#logs-gc-configuration-et-lecture" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Récapitulatif des changements appliqués dans kore-batch
+        Logs GC · configuration et lecture
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Logs GC · configuration et lecture">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configuration-moderne-jvm-9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuration moderne (JVM 9+)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a-surveiller" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        À surveiller
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#outils-danalyse-offline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Outils d'analyse offline
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#outofmemoryerror-les-8-types-et-leurs-causes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OutOfMemoryError · les 8 types et leurs causes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="OutOfMemoryError · les 8 types et leurs causes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#auto-dump-sur-oom-a-mettre-en-prod" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Auto-dump sur OOM (à mettre en prod)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#thread-tuning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Thread tuning
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Thread tuning">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#taille-de-la-stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Taille de la stack
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pool-tomcat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pool Tomcat
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pool-hikaricp-db" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pool HikariCP (DB)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#virtual-threads-java-21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Virtual Threads (Java 21+)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#jvm-flags-essentiels-en-production" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        JVM flags essentiels en production
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#java-agents-profilage-et-observabilite" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Java Agents · profilage et observabilité
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Java Agents · profilage et observabilité">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#java-flight-recorder-jfr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Java Flight Recorder (JFR)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#async-profiler" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        async-profiler
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#byte-buddy-asm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Byte Buddy / ASM
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#outils-danalyse-offline_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Outils d'analyse offline
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Outils d&#39;analyse offline">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#eclipse-mat-memory-analyzer-tool" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Eclipse MAT (Memory Analyzer Tool)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#visualvm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VisualVM
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#jdk-mission-control-jmc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        JDK Mission Control (JMC)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#intellij-profiler" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IntelliJ Profiler
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cas-concrets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cas concrets
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#points-cles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Points clés
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#voir-aussi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Voir aussi
       
     </span>
   </a>
@@ -4854,6 +5231,13 @@
       
       
       
+        <a href="../../../tags/#tag:gc" class="md-tag">gc</a>
+      
+    
+      
+      
+      
+      
         <a href="../../../tags/#tag:java" class="md-tag">java</a>
       
     
@@ -4861,475 +5245,552 @@
       
       
       
-        <a href="../../../tags/#tag:spring" class="md-tag">spring</a>
+        <a href="../../../tags/#tag:jvm" class="md-tag">jvm</a>
       
     
       
       
       
       
-        <a href="../../../tags/#tag:spring-batch" class="md-tag">spring-batch</a>
+        <a href="../../../tags/#tag:observability" class="md-tag">observability</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../../tags/#tag:oom" class="md-tag">oom</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../../tags/#tag:production" class="md-tag">production</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../../tags/#tag:run" class="md-tag">run</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../../tags/#tag:tuning" class="md-tag">tuning</a>
       
     
   </nav>
 
 
 
-<h1 id="migration-spring-batch-4-java-8-vers-spring-boot-3-spring-batch-5-java-21">Migration Spring Batch 4 / Java 8 vers Spring Boot 3 / Spring Batch 5 / Java 21</h1>
-<h2 id="contexte">Contexte</h2>
-<p>Ce document capture les changements effectués lors de la modernisation d'un socle
-Spring Batch de production (2018-2021) vers la stack actuelle.</p>
+<h1 id="java-en-production-deep-dive">Java en Production · Deep-Dive</h1>
+<p>Cette page concentre les éléments qu'un ingénieur RUN doit connaître pour gérer une application Java en production critique : modèle mémoire, garbage collectors, tuning, analyse d'OOM, threads, agents et outils d'analyse offline.</p>
+<p>Le fil rouge : <strong>rester debout sous charge</strong> et <strong>diagnostiquer vite quand ça casse</strong>.</p>
 <hr />
-<h2 id="chemin-de-migration-java">Chemin de migration Java</h2>
-<h3 id="pourquoi-ne-pas-sauter-directement-de-java-8-a-java-21">Pourquoi ne pas sauter directement de Java 8 à Java 21 ?</h3>
-<p>Java suit un cycle de LTS (Long Term Support). Chaque version LTS apporte des
-changements qui peuvent nécessiter des adaptations. Sauter plusieurs versions augmente
-le risque de régression et rend le débogage difficile.</p>
-<div class="highlight"><pre><span></span><code>Java 8 (LTS) → Java 11 (LTS) → Java 17 (LTS) → Java 21 (LTS)
+<h2 id="modele-memoire-de-la-jvm">Modèle mémoire de la JVM</h2>
+<div class="highlight"><pre><span></span><code>┌────────────────────────────────────────────────────────────────┐
+│                       JVM PROCESS (RSS)                         │
+│                                                                 │
+│  ┌──────────────────────────────────────────────────────────┐  │
+│  │                    HEAP (-Xms / -Xmx)                     │  │
+│  │  ┌────────────────────┐  ┌─────────────────────────────┐ │  │
+│  │  │   Young Generation  │  │      Old Generation         │ │  │
+│  │  │  ┌──────┐ ┌─┐ ┌─┐  │  │                             │ │  │
+│  │  │  │ Eden │ │S│ │S│  │  │  objets long-vivants        │ │  │
+│  │  │  └──────┘ └─┘ └─┘  │  │                             │ │  │
+│  │  └────────────────────┘  └─────────────────────────────┘ │  │
+│  └──────────────────────────────────────────────────────────┘  │
+│                                                                 │
+│  ┌─────────────────┐  ┌──────────────────┐  ┌───────────────┐ │
+│  │   Metaspace      │  │ Code Cache (JIT) │  │ Thread Stacks │ │
+│  │  (classes, etc.) │  │                  │  │   (-Xss)      │ │
+│  └─────────────────┘  └──────────────────┘  └───────────────┘ │
+│                                                                 │
+│  ┌──────────────────────────────────────────────────────────┐  │
+│  │ OFF-HEAP : DirectByteBuffer, Native, NIO, libs JNI        │  │
+│  └──────────────────────────────────────────────────────────┘  │
+└────────────────────────────────────────────────────────────────┘
 </code></pre></div>
-<h3 id="ce-qui-change-a-chaque-etape">Ce qui change à chaque étape</h3>
-<p><strong>Java 8 → Java 11</strong>
-- Suppression de <code>javax.*</code> → <code>jakarta.*</code> (préparation)
-- <code>Optional</code>, <code>var</code> (Java 10), <code>String.isBlank()</code>, <code>List.of()</code>
-- Modules (Project Jigsaw) : certaines API internes (<code>sun.*</code>) bloquées
-- Suppression de JavaEE et CORBA du JDK</p>
-<p><strong>Java 11 → Java 17</strong>
-- Records (Java 16) : classes immuables déclaratives
-- Sealed classes : hiérarchies fermées
-- Pattern matching <code>instanceof</code>
-- <code>clazz.newInstance()</code> <strong>déprécié</strong> → supprimer, utiliser <code>Supplier&lt;T&gt;</code>
-- Accès aux API internes (<code>--add-opens</code>) requis pour certaines librairies</p>
-<p><strong>Java 17 → Java 21 (LTS actuel)</strong>
-- Virtual threads (Project Loom) : concurrence légère
-- Pattern matching complet (switch expressions)
-- Sequenced collections
-- <code>clazz.newInstance()</code> <strong>supprimé</strong> → <code>Supplier&lt;T&gt;</code> obligatoire
-- <code>String Templates</code> (preview)</p>
-<hr />
-<h2 id="chemin-de-migration-spring-boot">Chemin de migration Spring Boot</h2>
-<div class="highlight"><pre><span></span><code>Spring Boot 2.1 / Spring Batch 4 → Spring Boot 3.3 / Spring Batch 5
-</code></pre></div>
-<h3 id="spring-boot-2-spring-boot-3">Spring Boot 2 → Spring Boot 3</h3>
-<p><strong>Prérequis absolu : Java 17 minimum</strong></p>
+<h3 id="heap">Heap</h3>
+<p>Limité par <code>-Xms</code> (taille initiale) et <code>-Xmx</code> (taille maximale). Découpé en 2 grandes générations :</p>
 <table>
 <thead>
 <tr>
-<th>Changement</th>
-<th>Impact</th>
+<th>Zone</th>
+<th>Rôle</th>
+<th>Cycle de vie typique</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>javax.*</code> → <code>jakarta.*</code></td>
-<td>Tous les imports JPA, Validation, Servlet</td>
+<td><strong>Eden</strong></td>
+<td>Tous les nouveaux objets y atterrissent</td>
+<td>Minor GC fréquent les évacue</td>
 </tr>
 <tr>
-<td>Spring Security 6</td>
-<td>Configuration DSL réécrite</td>
+<td><strong>Survivor (S0/S1)</strong></td>
+<td>Objets ayant survécu à 1+ Minor GC</td>
+<td>Promotion vers Old après N passages</td>
 </tr>
 <tr>
-<td>Spring Data 3</td>
-<td>Méthodes dépréciées supprimées</td>
-</tr>
-<tr>
-<td>Actuator</td>
-<td>Format des endpoints changé</td>
-</tr>
-<tr>
-<td>Auto-configuration</td>
-<td>Fichiers <code>spring.factories</code> → <code>AutoConfiguration.imports</code></td>
+<td><strong>Old (Tenured)</strong></td>
+<td>Objets long-vivants (caches, sessions)</td>
+<td>Major / Full GC les nettoie</td>
 </tr>
 </tbody>
 </table>
-<hr />
-<h2 id="changements-spring-batch-4-spring-batch-5">Changements Spring Batch 4 → Spring Batch 5</h2>
-<h3 id="1-suppression-de-jobbuilderfactory-et-stepbuilderfactory">1. Suppression de JobBuilderFactory et StepBuilderFactory</h3>
-<p><strong>Avant (Spring Batch 4) :</strong>
-<div class="highlight"><pre><span></span><code><span class="nd">@Autowired</span>
-<span class="kd">private</span><span class="w"> </span><span class="n">JobBuilderFactory</span><span class="w"> </span><span class="n">jobBuilderFactory</span><span class="p">;</span>
-
-<span class="nd">@Autowired</span>
-<span class="kd">private</span><span class="w"> </span><span class="n">StepBuilderFactory</span><span class="w"> </span><span class="n">stepBuilderFactory</span><span class="p">;</span>
-
-<span class="kd">public</span><span class="w"> </span><span class="n">Job</span><span class="w"> </span><span class="nf">monJob</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">jobBuilderFactory</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">&quot;monJob&quot;</span><span class="p">)</span>
-<span class="w">        </span><span class="p">.</span><span class="na">start</span><span class="p">(</span><span class="n">step</span><span class="p">())</span>
-<span class="w">        </span><span class="p">.</span><span class="na">build</span><span class="p">();</span>
-<span class="p">}</span>
-
-<span class="kd">public</span><span class="w"> </span><span class="n">Step</span><span class="w"> </span><span class="nf">step</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">stepBuilderFactory</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">&quot;monStep&quot;</span><span class="p">)</span>
-<span class="w">        </span><span class="p">.</span><span class="na">chunk</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-<span class="w">        </span><span class="p">.</span><span class="na">reader</span><span class="p">(</span><span class="n">reader</span><span class="p">())</span>
-<span class="w">        </span><span class="p">.</span><span class="na">processor</span><span class="p">(</span><span class="n">processor</span><span class="p">())</span>
-<span class="w">        </span><span class="p">.</span><span class="na">writer</span><span class="p">(</span><span class="n">writer</span><span class="p">())</span>
-<span class="w">        </span><span class="p">.</span><span class="na">build</span><span class="p">();</span>
-<span class="p">}</span>
-</code></pre></div></p>
-<p><strong>Après (Spring Batch 5) :</strong>
-<div class="highlight"><pre><span></span><code><span class="c1">// JobRepository injecté directement</span>
-<span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">JobRepository</span><span class="w"> </span><span class="n">jobRepository</span><span class="p">;</span>
-<span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">PlatformTransactionManager</span><span class="w"> </span><span class="n">transactionManager</span><span class="p">;</span>
-
-<span class="kd">public</span><span class="w"> </span><span class="n">Job</span><span class="w"> </span><span class="nf">monJob</span><span class="p">(</span><span class="n">Step</span><span class="w"> </span><span class="n">step</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">JobBuilder</span><span class="p">(</span><span class="s">&quot;monJob&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">jobRepository</span><span class="p">)</span>
-<span class="w">        </span><span class="p">.</span><span class="na">start</span><span class="p">(</span><span class="n">step</span><span class="p">)</span>
-<span class="w">        </span><span class="p">.</span><span class="na">build</span><span class="p">();</span>
-<span class="p">}</span>
-
-<span class="kd">public</span><span class="w"> </span><span class="n">Step</span><span class="w"> </span><span class="nf">step</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">StepBuilder</span><span class="p">(</span><span class="s">&quot;monStep&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">jobRepository</span><span class="p">)</span>
-<span class="w">        </span><span class="p">.</span><span class="o">&lt;</span><span class="n">Input</span><span class="p">,</span><span class="w"> </span><span class="n">Output</span><span class="o">&gt;</span><span class="n">chunk</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="n">transactionManager</span><span class="p">)</span><span class="w"> </span><span class="c1">// TransactionManager explicite</span>
-<span class="w">        </span><span class="p">.</span><span class="na">reader</span><span class="p">(</span><span class="n">reader</span><span class="p">())</span>
-<span class="w">        </span><span class="p">.</span><span class="na">processor</span><span class="p">(</span><span class="n">processor</span><span class="p">())</span>
-<span class="w">        </span><span class="p">.</span><span class="na">writer</span><span class="p">(</span><span class="n">writer</span><span class="p">())</span>
-<span class="w">        </span><span class="p">.</span><span class="na">build</span><span class="p">();</span>
-<span class="p">}</span>
-</code></pre></div></p>
-<p><strong>Pourquoi ce changement ?</strong>
-Les factories étaient des wrappers qui masquaient les dépendances réelles.
-Spring Batch 5 préfère l'injection explicite pour plus de clarté et de testabilité.</p>
-<hr />
-<h3 id="2-enablebatchprocessing-nest-plus-necessaire">2. @EnableBatchProcessing n'est plus nécessaire</h3>
-<p><strong>Avant :</strong> <code>@EnableBatchProcessing</code> était obligatoire pour activer Spring Batch.</p>
-<p><strong>Après :</strong> Spring Boot 3 auto-configure Spring Batch. L'annotation est même
-contre-productive car elle désactive certaines auto-configurations.</p>
-<div class="highlight"><pre><span></span><code><span class="c1">// Supprimer cette annotation</span>
-<span class="c1">// @EnableBatchProcessing  &lt;- NE PLUS METTRE</span>
-<span class="nd">@Configuration</span>
-<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">BatchConfiguration</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
+<p><strong>Principe générationnel</strong> : 90% des objets meurent jeunes. Concentrer le GC sur Eden = beaucoup d'objets nettoyés pour peu de travail.</p>
+<h3 id="metaspace">Metaspace</h3>
+<p>Stocke les <strong>métadonnées des classes</strong> chargées (depuis Java 8, remplace PermGen).</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Configurer une borne (sinon limité par la RAM machine)</span>
+-XX:MetaspaceSize<span class="o">=</span>256m<span class="w"> </span>-XX:MaxMetaspaceSize<span class="o">=</span>512m
 </code></pre></div>
+<p>Une fuite Metaspace typique : <code>ClassLoader</code> non libéré (hot-redéploiement Tomcat, libs qui créent des proxys dynamiques sans bornes). Signal d'alarme : Metaspace qui croît indéfiniment dans <code>jstat -gc</code>.</p>
+<h3 id="off-heap">Off-heap</h3>
+<p>Pas géré par le GC. Sources :
+- <strong>DirectByteBuffer</strong> (NIO, Netty) — libéré par finalizer, peut traîner
+- <strong>JNI</strong> (libs natives)
+- <strong>Compressed class space</strong>
+- <strong>Thread stacks</strong> (par défaut 512 Ko à 1 Mo × nb threads)</p>
+<p><strong>Conséquence importante</strong> : un processus Java avec <code>-Xmx8g</code> peut consommer <strong>10-12 Go de RSS</strong> sur Linux. C'est normal. Ne pas paniquer si <code>top</code> montre plus que le <code>-Xmx</code>.</p>
 <hr />
-<h3 id="3-instanciation-generique-supplier-remplace-clazznewinstance">3. Instanciation générique : Supplier<T> remplace clazz.newInstance()</h3>
-<p><strong>Avant (Spring Batch 4 / Java 8) :</strong>
-<div class="highlight"><pre><span></span><code><span class="c1">// Dans l&#39;agrégateur - reflexion Java</span>
-<span class="n">T</span><span class="w"> </span><span class="n">synthese</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">clazz</span><span class="p">.</span><span class="na">newInstance</span><span class="p">();</span><span class="w"> </span><span class="c1">// Déprécié Java 9, supprimé Java 17+</span>
-</code></pre></div></p>
-<p><strong>Après (Spring Batch 5 / Java 21) :</strong>
-<div class="highlight"><pre><span></span><code><span class="c1">// Supplier&lt;T&gt; - lambda, type-safe, pas de reflexion</span>
-<span class="kd">public</span><span class="w"> </span><span class="kd">abstract</span><span class="w"> </span><span class="kd">class</span> <span class="nc">AbstractBatchAggregator</span><span class="o">&lt;</span><span class="n">T</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">ISynthese</span><span class="o">&gt;</span>
-<span class="w">    </span><span class="kd">implements</span><span class="w"> </span><span class="n">StepExecutionAggregator</span><span class="w"> </span><span class="p">{</span>
-
-<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">Supplier</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">syntheseFactory</span><span class="p">;</span>
-
-<span class="w">    </span><span class="kd">protected</span><span class="w"> </span><span class="nf">AbstractBatchAggregator</span><span class="p">(</span><span class="n">Supplier</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">syntheseFactory</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">syntheseFactory</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">syntheseFactory</span><span class="p">;</span>
-<span class="w">    </span><span class="p">}</span>
-
-<span class="w">    </span><span class="c1">// Usage : super(MonSynthese::new)</span>
-<span class="p">}</span>
-</code></pre></div></p>
-<hr />
-<h3 id="4-itemwriter-list-remplace-par-chunk">4. ItemWriter : List<T> remplacé par Chunk<T></h3>
-<p><strong>Avant :</strong>
-<div class="highlight"><pre><span></span><code><span class="nd">@Override</span>
-<span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">write</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;?</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">items</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
-</code></pre></div></p>
-<p><strong>Après :</strong>
-<div class="highlight"><pre><span></span><code><span class="nd">@Override</span>
-<span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">write</span><span class="p">(</span><span class="n">Chunk</span><span class="o">&lt;?</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">chunk</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">T</span><span class="w"> </span><span class="n">item</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">chunk</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div></p>
-<hr />
-<h3 id="5-thread-safety-du-reader-avec-partitioning-trois-approches">5. Thread-safety du reader avec partitioning : trois approches</h3>
-<p>En Spring Batch 4, la concurrence entre partitions était gérée manuellement
-avec <code>synchronized</code>. Spring Batch 5 propose deux solutions officielles selon
-le cas d'usage.</p>
-<p><strong>Avant (Spring Batch 4) - A abandonner :</strong>
-<div class="highlight"><pre><span></span><code><span class="nd">@Component</span>
-<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MonItemReader</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">ItemReader</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
-
-<span class="w">    </span><span class="nd">@BeforeStep</span>
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">synchronized</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">beforeStep</span><span class="p">(</span><span class="n">StepExecution</span><span class="w"> </span><span class="n">stepExecution</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="c1">// synchronized pour gérer la concurrence - mauvaise pratique</span>
-<span class="w">    </span><span class="p">}</span>
-
-<span class="w">    </span><span class="nd">@Override</span>
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">synchronized</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="nf">read</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="c1">// contention entre threads - gain du parallelisme annulé</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div></p>
-<hr />
-<h4 id="option-a-stepscope-une-instance-par-partition">Option A : @StepScope - une instance par partition</h4>
-<p>Chaque partition reçoit sa propre instance du reader.
-Adapté quand chaque partition doit lire une source différente
-(N fichiers, plage de lignes, offset BDD différent).</p>
-<div class="highlight"><pre><span></span><code><span class="nd">@Component</span>
-<span class="nd">@StepScope</span><span class="w"> </span><span class="c1">// Une instance par StepExecution / partition</span>
-<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MonItemReader</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">ItemReader</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
-
-<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">FlatFileItemReader</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">delegate</span><span class="p">;</span>
-
-<span class="w">    </span><span class="nd">@BeforeStep</span>
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">beforeStep</span><span class="p">(</span><span class="n">StepExecution</span><span class="w"> </span><span class="n">stepExecution</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">delegate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">FlatFileItemReaderBuilder</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">()</span>
-<span class="w">            </span><span class="p">.</span><span class="na">resource</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">FileSystemResource</span><span class="p">(</span><span class="n">inputFile</span><span class="p">))</span>
-<span class="w">            </span><span class="p">.</span><span class="na">lineMapper</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">MonLineMapper</span><span class="p">())</span>
-<span class="w">            </span><span class="p">.</span><span class="na">build</span><span class="p">();</span>
-<span class="w">        </span><span class="n">delegate</span><span class="p">.</span><span class="na">open</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">ExecutionContext</span><span class="p">());</span>
-<span class="w">    </span><span class="p">}</span>
-
-<span class="w">    </span><span class="nd">@Override</span>
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="nf">read</span><span class="p">()</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">delegate</span><span class="p">.</span><span class="na">read</span><span class="p">();</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-<p><strong>Attention :</strong> avec <code>SimplePartitioner</code> et un seul fichier, chaque partition
-lit le fichier entier → duplication des données.
-Exemple : gridSize=4, 200 lignes → total=800 (x4).</p>
-<p>Utiliser <code>@StepScope</code> avec :
-- <code>MultiResourcePartitioner</code> (1 fichier par partition)
-- Un partitioner custom par plage de lignes
-- <code>JdbcPagingItemReader</code> (offset/limit différents par partition)</p>
-<hr />
-<h4 id="option-b-synchronizeditemstreamreader-un-reader-partage-recommande-sb5">Option B : SynchronizedItemStreamReader - un reader partagé (recommandé SB5)</h4>
-<p>Un seul reader singleton partagé entre toutes les partitions.
-<code>SynchronizedItemStreamReader</code> synchronise les appels <code>read()</code> nativement.
-Chaque item est lu <strong>une seule fois</strong> et dispatché à <strong>un seul worker</strong>.</p>
-<div class="highlight"><pre><span></span><code><span class="nd">@Component</span><span class="w"> </span><span class="c1">// singleton - pas de @StepScope</span>
-<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MonItemReader</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">ItemReader</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
-
-<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">SynchronizedItemStreamReader</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">synchronizedReader</span><span class="p">;</span>
-
-<span class="w">    </span><span class="nd">@BeforeStep</span>
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">beforeStep</span><span class="p">(</span><span class="n">StepExecution</span><span class="w"> </span><span class="n">stepExecution</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">FlatFileItemReader</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">delegate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">FlatFileItemReaderBuilder</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">()</span>
-<span class="w">            </span><span class="p">.</span><span class="na">name</span><span class="p">(</span><span class="s">&quot;monItemReader&quot;</span><span class="p">)</span>
-<span class="w">            </span><span class="p">.</span><span class="na">resource</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">FileSystemResource</span><span class="p">(</span><span class="n">inputFile</span><span class="p">))</span>
-<span class="w">            </span><span class="p">.</span><span class="na">lineMapper</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">MonLineMapper</span><span class="p">())</span>
-<span class="w">            </span><span class="p">.</span><span class="na">encoding</span><span class="p">(</span><span class="s">&quot;ISO-8859-1&quot;</span><span class="p">)</span>
-<span class="w">            </span><span class="p">.</span><span class="na">build</span><span class="p">();</span>
-
-<span class="w">        </span><span class="n">synchronizedReader</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">SynchronizedItemStreamReader</span><span class="o">&lt;&gt;</span><span class="p">();</span>
-<span class="w">        </span><span class="n">synchronizedReader</span><span class="p">.</span><span class="na">setDelegate</span><span class="p">(</span><span class="n">delegate</span><span class="p">);</span>
-<span class="w">        </span><span class="n">synchronizedReader</span><span class="p">.</span><span class="na">open</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">ExecutionContext</span><span class="p">());</span>
-<span class="w">    </span><span class="p">}</span>
-
-<span class="w">    </span><span class="nd">@Override</span>
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="nf">read</span><span class="p">()</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">synchronizedReader</span><span class="p">.</span><span class="na">read</span><span class="p">();</span><span class="w"> </span><span class="c1">// thread-safe via wrapper Spring Batch</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-<p>Exemple : gridSize=4, 200 lignes → total=200 (correct), vrai parallelisme.</p>
-<hr />
-<h4 id="comparaison-des-trois-approches">Comparaison des trois approches</h4>
+<h2 id="garbage-collectors-choisir-le-bon">Garbage Collectors · choisir le bon</h2>
 <table>
 <thead>
 <tr>
-<th>Approche</th>
-<th>Thread-safety</th>
-<th>Données dupliquées</th>
-<th>Parallelisme</th>
-<th>Cas d'usage</th>
+<th>GC</th>
+<th>Disponibilité</th>
+<th>Forces</th>
+<th>Faiblesses</th>
+<th>Quand l'utiliser</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>synchronized</code> (SB4)</td>
-<td>Manuel</td>
-<td>Non</td>
-<td>Partiel (contention)</td>
-<td>Abandonner</td>
+<td><strong>Serial</strong></td>
+<td>Toutes versions</td>
+<td>Simple, peu de mémoire</td>
+<td>Stop-the-world long</td>
+<td>CLI, batch, embarqué</td>
 </tr>
 <tr>
-<td><code>@StepScope</code></td>
-<td>Isolation</td>
-<td>Oui si 1 fichier</td>
-<td>Oui (données séparées)</td>
-<td>N fichiers / plages</td>
+<td><strong>Parallel</strong> (Throughput)</td>
+<td>Toutes versions</td>
+<td>Débit maximum</td>
+<td>Pauses non bornées</td>
+<td>Batch hors ligne</td>
 </tr>
 <tr>
-<td><code>SynchronizedItemStreamReader</code></td>
-<td>Framework</td>
-<td>Non</td>
-<td>Oui (items dispatches)</td>
-<td>1 fichier / 1 source</td>
+<td><strong>CMS</strong> (Concurrent Mark Sweep)</td>
+<td>Déprécié Java 9, supprimé Java 14</td>
+<td>Pauses courtes (historique)</td>
+<td>Fragmentation, fin de vie</td>
+<td>Migration vers G1 obligatoire</td>
+</tr>
+<tr>
+<td><strong>G1</strong> (Garbage First)</td>
+<td>Java 8+, défaut Java 9+</td>
+<td>Pauses prévisibles, gros heaps</td>
+<td>Légèrement moins de débit</td>
+<td><strong>Choix par défaut prod</strong></td>
+</tr>
+<tr>
+<td><strong>ZGC</strong></td>
+<td>Java 11+ (stable 15+)</td>
+<td>Pauses &lt; 10 ms, heaps multi-To</td>
+<td>Plus de RAM utilisée</td>
+<td>Latence critique, gros heaps</td>
+</tr>
+<tr>
+<td><strong>Shenandoah</strong></td>
+<td>Java 12+ (Red Hat)</td>
+<td>Pauses très courtes</td>
+<td>Moins répandu</td>
+<td>Alternative ZGC, faible latence</td>
+</tr>
+<tr>
+<td><strong>Epsilon</strong></td>
+<td>Java 11+</td>
+<td>Pas de GC</td>
+<td>Pour benchmark uniquement</td>
+<td>Tests de performance pures</td>
 </tr>
 </tbody>
 </table>
-<p><strong>Règle :</strong> le processor garde toujours <code>@StepScope</code> car il maintient
-un état propre par partition (synthèse, compteurs).</p>
-<hr />
-<h3 id="6-chunk-definition-et-bonnes-pratiques">6. Chunk - définition et bonnes pratiques</h3>
-<p>Le <strong>chunk</strong> est le nombre d'items traités avant un commit en base.</p>
-<div class="highlight"><pre><span></span><code>read() x chunk → process() x chunk → write() → COMMIT
+<h3 id="choix-typiques-en-paiement-temps-reel">Choix typiques en paiement / temps réel</h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># JVM 11 LTS : G1GC par défaut, suffisant pour 95% des cas</span>
+-XX:+UseG1GC
+
+<span class="c1"># JVM 17/21 LTS sur heap &gt; 16 Go avec exigence latence : ZGC</span>
+-XX:+UseZGC<span class="w"> </span>-XX:+UseLargePages
+
+<span class="c1"># Forcer le débit (batch) : Parallel</span>
+-XX:+UseParallelGC
 </code></pre></div>
-<p><strong>Choix de la taille :</strong></p>
-<table>
-<thead>
-<tr>
-<th>Taille</th>
-<th>Usage</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>Items volumineux, traitement long par item, rollback fin</td>
-</tr>
-<tr>
-<td>10-50</td>
-<td>Fichiers CSV standards, bonne balance perf/rollback</td>
-</tr>
-<tr>
-<td>100-500</td>
-<td>Gros volumes, items légers, réseau performant</td>
-</tr>
-<tr>
-<td>1000+</td>
-<td>Batch pur BDD, pas de traitement complexe</td>
-</tr>
-</tbody>
-</table>
-<div class="highlight"><pre><span></span><code><span class="c1">// Chunk de 10 avec TransactionManager explicite (obligatoire SB5)</span>
-<span class="p">.</span><span class="o">&lt;</span><span class="n">Input</span><span class="p">,</span><span class="w"> </span><span class="n">Output</span><span class="o">&gt;</span><span class="n">chunk</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="n">transactionManager</span><span class="p">)</span>
+<hr />
+<h2 id="tuning-gc-concret-flags-essentiels">Tuning GC concret · flags essentiels</h2>
+<h3 id="dimensionner-le-heap">Dimensionner le heap</h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Toujours Xms = Xmx en production pour éviter les retailles</span>
+-Xms8g<span class="w"> </span>-Xmx8g
+
+<span class="c1"># Mémoire en %, plus moderne (JVM 10+, utile en conteneur)</span>
+-XX:InitialRAMPercentage<span class="o">=</span><span class="m">70</span><span class="w"> </span>-XX:MaxRAMPercentage<span class="o">=</span><span class="m">70</span>
+
+<span class="c1"># Important en conteneur : la JVM doit voir les limites cgroup</span>
+-XX:+UseContainerSupport<span class="w">   </span><span class="c1"># actif par défaut JVM 10+</span>
+</code></pre></div>
+<h3 id="g1gc-tuning">G1GC tuning</h3>
+<div class="highlight"><pre><span></span><code>-XX:+UseG1GC
+
+<span class="c1"># Objectif de pause (la JVM ajuste les régions pour atteindre la cible)</span>
+-XX:MaxGCPauseMillis<span class="o">=</span><span class="m">200</span>
+
+<span class="c1"># Pourcentage d&#39;occupation old gen qui déclenche un Mixed GC concurrent</span>
+-XX:InitiatingHeapOccupancyPercent<span class="o">=</span><span class="m">45</span>
+
+<span class="c1"># Taille des régions G1 (1 Mo à 32 Mo, puissances de 2)</span>
+-XX:G1HeapRegionSize<span class="o">=</span>16m
+
+<span class="c1"># Démarrer concurrent marking plus tôt pour éviter Full GC</span>
+-XX:G1ReservePercent<span class="o">=</span><span class="m">15</span>
+</code></pre></div>
+<h3 id="zgc-tuning">ZGC tuning</h3>
+<div class="highlight"><pre><span></span><code>-XX:+UseZGC
+
+<span class="c1"># Bornes mémoire identiques à Xmx</span>
+-Xmx16g<span class="w"> </span>-Xms16g
+
+<span class="c1"># Logs GC ZGC plus verbeux</span>
+-Xlog:gc*,gc+heap<span class="o">=</span>debug:file<span class="o">=</span>/var/log/app/gc.log
 </code></pre></div>
 <hr />
-<h3 id="7-skip-policy-gestion-native-des-erreurs">7. Skip Policy - gestion native des erreurs</h3>
-<p>Spring Batch propose deux approches pour gérer les erreurs item par item :</p>
-<p><strong>Approche 1 - Pattern fonctionnel (ce socle)</strong>
-<div class="highlight"><pre><span></span><code><span class="c1">// Le processor catch les erreurs et retourne un résultat KO</span>
-<span class="c1">// Le batch ne s&#39;arrête jamais, toutes les erreurs sont comptabilisées</span>
-<span class="k">try</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">valider</span><span class="p">(</span><span class="n">item</span><span class="p">);</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">ResultDto</span><span class="p">.</span><span class="na">ok</span><span class="p">(</span><span class="n">item</span><span class="p">);</span>
-<span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">FunctionalException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">synthese</span><span class="p">.</span><span class="na">incrementErreurFonctionnelle</span><span class="p">();</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">ResultDto</span><span class="p">.</span><span class="na">ko</span><span class="p">(</span><span class="n">item</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="na">getMessage</span><span class="p">());</span>
-<span class="p">}</span>
-</code></pre></div></p>
-<p><strong>Approche 2 - Skip natif Spring Batch</strong>
-<div class="highlight"><pre><span></span><code><span class="c1">// Spring Batch gère le skip nativement</span>
-<span class="k">new</span><span class="w"> </span><span class="n">StepBuilder</span><span class="p">(</span><span class="s">&quot;monStep&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">jobRepository</span><span class="p">)</span>
-<span class="w">    </span><span class="p">.</span><span class="o">&lt;</span><span class="n">Input</span><span class="p">,</span><span class="w"> </span><span class="n">Output</span><span class="o">&gt;</span><span class="n">chunk</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="n">transactionManager</span><span class="p">)</span>
-<span class="w">    </span><span class="p">.</span><span class="na">reader</span><span class="p">(</span><span class="n">reader</span><span class="p">())</span>
-<span class="w">    </span><span class="p">.</span><span class="na">processor</span><span class="p">(</span><span class="n">processor</span><span class="p">())</span>
-<span class="w">    </span><span class="p">.</span><span class="na">writer</span><span class="p">(</span><span class="n">writer</span><span class="p">())</span>
-<span class="w">    </span><span class="p">.</span><span class="na">faultTolerant</span><span class="p">()</span>
-<span class="w">    </span><span class="p">.</span><span class="na">skip</span><span class="p">(</span><span class="n">FunctionalException</span><span class="p">.</span><span class="na">class</span><span class="p">)</span><span class="w">    </span><span class="c1">// Exceptions à ignorer</span>
-<span class="w">    </span><span class="p">.</span><span class="na">skipLimit</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span><span class="w">                      </span><span class="c1">// Max 100 skips avant échec</span>
-<span class="w">    </span><span class="p">.</span><span class="na">noSkip</span><span class="p">(</span><span class="n">TechnicalException</span><span class="p">.</span><span class="na">class</span><span class="p">)</span><span class="w">   </span><span class="c1">// Exceptions fatales</span>
-<span class="w">    </span><span class="p">.</span><span class="na">build</span><span class="p">();</span>
-</code></pre></div></p>
-<p><strong>Comparaison :</strong></p>
+<h2 id="logs-gc-configuration-et-lecture">Logs GC · configuration et lecture</h2>
+<h3 id="configuration-moderne-jvm-9">Configuration moderne (JVM 9+)</h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Format unifié `-Xlog:`</span>
+-Xlog:gc*:file<span class="o">=</span>/var/log/app/gc.log:time,uptime,level,tags:filecount<span class="o">=</span><span class="m">10</span>,filesize<span class="o">=</span>100M
+
+<span class="c1"># Décomposition :</span>
+<span class="c1"># gc*                 → tous les tags GC</span>
+<span class="c1"># file=...            → vers fichier</span>
+<span class="c1"># time,uptime,level,tags → format de chaque ligne</span>
+<span class="c1"># filecount=10        → rotation sur 10 fichiers</span>
+<span class="c1"># filesize=100M       → taille par fichier</span>
+</code></pre></div>
+<h3 id="a-surveiller">À surveiller</h3>
 <table>
 <thead>
 <tr>
-<th>Critère</th>
-<th>Pattern fonctionnel</th>
-<th>Skip natif SB</th>
+<th>Métrique</th>
+<th>Seuil d'alarme</th>
+<th>Action</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Contrôle</td>
-<td>Total</td>
-<td>Délégué au framework</td>
+<td>Durée Full GC</td>
+<td>&gt; 1 seconde</td>
+<td>Tuner ou changer de GC</td>
 </tr>
 <tr>
-<td>Synthèse custom</td>
-<td>Oui (objet partagé)</td>
-<td>Via SkipListener</td>
+<td>Fréquence Full GC</td>
+<td>&gt; 1 par minute</td>
+<td>Pression mémoire, fuite probable</td>
 </tr>
 <tr>
-<td>Lisibilité</td>
-<td>Explicite</td>
-<td>Déclaratif</td>
+<td>Heap après Full GC</td>
+<td>&gt; 70% sustained</td>
+<td>Fuite confirmée, dumper le heap</td>
 </tr>
 <tr>
-<td>Conformité SB</td>
-<td>Moins conventionnel</td>
-<td>Standard</td>
+<td>Promotion failure</td>
+<td>tout occurrence</td>
+<td>Mixed GC trop tardif, ajuster IHOP</td>
 </tr>
 <tr>
-<td>Recommandation</td>
-<td>Reporting détaillé</td>
-<td>Cas simples</td>
+<td>Concurrent Mark Sweep abort</td>
+<td>sustained</td>
+<td>Old gen trop pleine au démarrage du cycle</td>
 </tr>
 </tbody>
 </table>
+<h3 id="outils-danalyse-offline">Outils d'analyse offline</h3>
+<ul>
+<li><strong>GCViewer</strong> — desktop, gratuit, lecture humaine des logs unifiés</li>
+<li><strong>GCEasy</strong> (gceasy.io) — upload du log, analyse automatique avec recommandations</li>
+<li><strong>Garbage Cat</strong> — CLI, parsing rapide</li>
+<li><strong>JIT Watch</strong> — pour le code généré par le JIT</li>
+</ul>
 <hr />
-<h2 id="recapitulatif-des-changements-appliques-dans-kore-batch">Récapitulatif des changements appliqués dans kore-batch</h2>
+<h2 id="outofmemoryerror-les-8-types-et-leurs-causes">OutOfMemoryError · les 8 types et leurs causes</h2>
+<p>Tous les OOM ne se valent pas. La JVM précise toujours <strong>le type</strong> dans le message — c'est la clé pour diagnostiquer.</p>
 <table>
 <thead>
 <tr>
-<th>Elément</th>
-<th>Avant (SB4/Java8)</th>
-<th>Après (SB5/Java21)</th>
+<th>Type</th>
+<th>Message JVM</th>
+<th>Cause typique</th>
+<th>Solution</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Job construction</td>
-<td><code>JobBuilderFactory</code></td>
-<td><code>new JobBuilder(name, repo)</code></td>
+<td><strong>Java heap space</strong></td>
+<td><code>OutOfMemoryError: Java heap space</code></td>
+<td>Fuite ou heap sous-dimensionnée</td>
+<td>Heap dump + MAT, augmenter <code>-Xmx</code></td>
 </tr>
 <tr>
-<td>Step construction</td>
-<td><code>StepBuilderFactory</code></td>
-<td><code>new StepBuilder(name, repo)</code></td>
+<td><strong>GC overhead limit</strong></td>
+<td><code>OutOfMemoryError: GC overhead limit exceeded</code></td>
+<td>&gt; 98% du temps en GC pour &lt; 2% libéré</td>
+<td>Même que ci-dessus, GC déjà à bout</td>
 </tr>
 <tr>
-<td>Activation batch</td>
-<td><code>@EnableBatchProcessing</code></td>
-<td>Auto-configuré</td>
+<td><strong>Metaspace</strong></td>
+<td><code>OutOfMemoryError: Metaspace</code></td>
+<td>Fuite ClassLoader (hot-deploy Tomcat, proxys dynamiques)</td>
+<td>Augmenter <code>MaxMetaspaceSize</code>, traquer le leak</td>
 </tr>
 <tr>
-<td>Chunk</td>
-<td><code>.chunk(10)</code></td>
-<td><code>.chunk(10, transactionManager)</code></td>
+<td><strong>Direct buffer memory</strong></td>
+<td><code>OutOfMemoryError: Direct buffer memory</code></td>
+<td>Trop de DirectByteBuffer (Netty, NIO)</td>
+<td>Augmenter <code>-XX:MaxDirectMemorySize</code>, fix code</td>
 </tr>
 <tr>
-<td>ItemWriter</td>
-<td><code>List&lt;T&gt;</code></td>
-<td><code>Chunk&lt;T&gt;</code></td>
+<td><strong>Unable to create native thread</strong></td>
+<td><code>OutOfMemoryError: unable to create new native thread</code></td>
+<td>Trop de threads vs limite OS</td>
+<td>Réduire pools, augmenter <code>ulimit -u</code></td>
 </tr>
 <tr>
-<td>Instanciation générique</td>
-<td><code>clazz.newInstance()</code></td>
-<td><code>Supplier&lt;T&gt;</code></td>
+<td><strong>Requested array size exceeds VM limit</strong></td>
+<td><code>OutOfMemoryError: Requested array size exceeds VM limit</code></td>
+<td>Allocation tableau &gt; 2^31 éléments</td>
+<td>Bug applicatif, lecture massive non streamée</td>
 </tr>
 <tr>
-<td>Reader thread-safe (1 fichier)</td>
-<td><code>synchronized</code></td>
-<td><code>SynchronizedItemStreamReader</code></td>
+<td><strong>Compressed class space</strong></td>
+<td><code>OutOfMemoryError: Compressed class space</code></td>
+<td>Trop de classes chargées</td>
+<td>Augmenter <code>CompressedClassSpaceSize</code></td>
 </tr>
 <tr>
-<td>Reader thread-safe (N fichiers)</td>
-<td><code>synchronized</code></td>
-<td><code>@StepScope</code> + partitioner</td>
-</tr>
-<tr>
-<td>Java</td>
-<td>8</td>
-<td>21 (LTS)</td>
-</tr>
-<tr>
-<td>Spring Boot</td>
-<td>2.1.3</td>
-<td>3.3.5</td>
-</tr>
-<tr>
-<td>JodaTime</td>
-<td>Utilisé</td>
-<td><code>java.time</code></td>
-</tr>
-<tr>
-<td>Lombok</td>
-<td>Absent</td>
-<td><code>@RequiredArgsConstructor</code>, <code>@Slf4j</code></td>
-</tr>
-<tr>
-<td>Tests</td>
-<td>H2 en mémoire</td>
-<td>Testcontainers (vrai PostgreSQL)</td>
+<td><strong>Reason stack_trace_with_native_method</strong></td>
+<td><code>OutOfMemoryError: reason ...</code></td>
+<td>Lib native qui crashe</td>
+<td>Vérifier libs JNI, agents natifs</td>
 </tr>
 </tbody>
 </table>
+<h3 id="auto-dump-sur-oom-a-mettre-en-prod">Auto-dump sur OOM (à mettre en prod)</h3>
+<div class="highlight"><pre><span></span><code>-XX:+HeapDumpOnOutOfMemoryError
+-XX:HeapDumpPath<span class="o">=</span>/var/dumps/heap-%p-%t.hprof
+-XX:OnOutOfMemoryError<span class="o">=</span><span class="s2">&quot;/scripts/notify-oom.sh&quot;</span>
+-XX:+ExitOnOutOfMemoryError<span class="w">    </span><span class="c1"># crash propre plutôt que zombi</span>
+</code></pre></div>
+<hr />
+<h2 id="thread-tuning">Thread tuning</h2>
+<h3 id="taille-de-la-stack">Taille de la stack</h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Par défaut : 1 Mo. Réduire à 512k pour héberger plus de threads</span>
+-Xss512k
+
+<span class="c1"># Calcul : 1000 threads × 1 Mo = 1 Go off-heap juste pour les stacks</span>
+</code></pre></div>
+<h3 id="pool-tomcat">Pool Tomcat</h3>
+<div class="highlight"><pre><span></span><code><span class="cm">&lt;!-- server.xml --&gt;</span>
+<span class="nt">&lt;Connector</span><span class="w"> </span><span class="na">port=</span><span class="s">&quot;8080&quot;</span>
+<span class="w">           </span><span class="na">maxThreads=</span><span class="s">&quot;400&quot;</span><span class="w">          </span><span class="err">&lt;!--</span><span class="w"> </span><span class="err">threads</span><span class="w"> </span><span class="err">disponibles</span><span class="w"> </span><span class="err">--</span><span class="nt">&gt;</span>
+<span class="w">           </span>minSpareThreads=&quot;50&quot;
+<span class="w">           </span>acceptCount=&quot;100&quot;<span class="w">         </span><span class="cm">&lt;!-- file d&#39;attente avant rejet --&gt;</span>
+<span class="w">           </span>connectionTimeout=&quot;20000&quot;
+<span class="w">           </span>keepAliveTimeout=&quot;60000&quot;/&gt;
+</code></pre></div>
+<p><strong>Règle empirique</strong> :
+- <code>maxThreads</code> ≈ 200 à 800 selon mémoire dispo et type de workload
+- Workload bloquant (DB lente, banque acquéreur) → augmenter
+- Workload non bloquant → réduire et utiliser de l'async (WebFlux, virtual threads)</p>
+<h3 id="pool-hikaricp-db">Pool HikariCP (DB)</h3>
+<div class="highlight"><pre><span></span><code><span class="nt">spring.datasource.hikari</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">maximum-pool-size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">50</span>
+<span class="w">  </span><span class="nt">minimum-idle</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span>
+<span class="w">  </span><span class="nt">connection-timeout</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3000</span>
+<span class="w">  </span><span class="nt">validation-timeout</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2000</span>
+<span class="w">  </span><span class="nt">max-lifetime</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1800000</span>
+<span class="w">  </span><span class="nt">leak-detection-threshold</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">60000</span><span class="w">   </span><span class="c1"># warn si connexion sortie &gt; 60s</span>
+</code></pre></div>
+<p><strong>Règle empirique</strong> : <code>pool-size = (nb cores × 2) + nb disques</code> est le point de départ classique. <strong>Trop grand = pas mieux</strong>, contrairement à l'intuition (contention sur la DB).</p>
+<h3 id="virtual-threads-java-21">Virtual Threads (Java 21+)</h3>
+<p>Game changer pour les workloads bloquants.</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Avant (Java 17)</span>
+<span class="n">ExecutorService</span><span class="w"> </span><span class="n">pool</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Executors</span><span class="p">.</span><span class="na">newFixedThreadPool</span><span class="p">(</span><span class="mi">200</span><span class="p">);</span>
+
+<span class="c1">// Avec virtual threads (Java 21)</span>
+<span class="n">ExecutorService</span><span class="w"> </span><span class="n">pool</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Executors</span><span class="p">.</span><span class="na">newVirtualThreadPerTaskExecutor</span><span class="p">();</span>
+<span class="c1">// Chaque tâche = 1 virtual thread, peut en avoir des millions</span>
+</code></pre></div>
+<p>Bénéfice direct : un appel bloquant vers une banque acquéreur ne monopolise plus un thread carrier. <strong>Pas besoin de WebFlux</strong> pour scaler.</p>
+<p>Compatibilité Tomcat 11+ : flag <code>useVirtualThreadsForServletInvocations</code>.</p>
+<hr />
+<h2 id="jvm-flags-essentiels-en-production">JVM flags essentiels en production</h2>
+<div class="highlight"><pre><span></span><code><span class="c1"># === Memory &amp; GC ===</span>
+-Xms8g<span class="w"> </span>-Xmx8g
+-XX:+UseG1GC
+-XX:MaxGCPauseMillis<span class="o">=</span><span class="m">200</span>
+-XX:+HeapDumpOnOutOfMemoryError
+-XX:HeapDumpPath<span class="o">=</span>/var/dumps/
+-XX:+ExitOnOutOfMemoryError
+
+<span class="c1"># === Logs GC ===</span>
+-Xlog:gc*:file<span class="o">=</span>/var/log/app/gc.log:time,uptime,level,tags:filecount<span class="o">=</span><span class="m">10</span>,filesize<span class="o">=</span>100M
+
+<span class="c1"># === Logs de classes (utile pour debug ClassLoader leak) ===</span>
+-Xlog:class+load<span class="o">=</span>info:file<span class="o">=</span>/var/log/app/classloading.log
+
+<span class="c1"># === Diagnostic toujours actif ===</span>
+-XX:+UnlockDiagnosticVMOptions
+-XX:+PrintFlagsFinal<span class="w">              </span><span class="c1"># voir tous les flags effectifs (à mettre temporairement)</span>
+-XX:+PreserveFramePointer<span class="w">         </span><span class="c1"># nécessaire pour async-profiler</span>
+
+<span class="c1"># === Container awareness (JVM 10+) ===</span>
+-XX:+UseContainerSupport
+-XX:MaxRAMPercentage<span class="o">=</span><span class="m">75</span>.0
+
+<span class="c1"># === Code cache (rare mais utile sur grosse appli) ===</span>
+-XX:ReservedCodeCacheSize<span class="o">=</span>512m
+
+<span class="c1"># === Crash dump ===</span>
+-XX:ErrorFile<span class="o">=</span>/var/dumps/hs_err_pid%p.log
+
+<span class="c1"># === Network (timeout DNS, propagation cluster) ===</span>
+-Djava.net.preferIPv4Stack<span class="o">=</span><span class="nb">true</span>
+-Dsun.net.inetaddr.ttl<span class="o">=</span><span class="m">60</span><span class="w">         </span><span class="c1"># cache DNS plus court (défaut = forever)</span>
+</code></pre></div>
+<hr />
+<h2 id="java-agents-profilage-et-observabilite">Java Agents · profilage et observabilité</h2>
+<h3 id="java-flight-recorder-jfr">Java Flight Recorder (JFR)</h3>
+<p>Profiler officiel intégré à la JVM. <strong>Quasi zéro overhead</strong> (&lt; 1%), utilisable en production.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Démarrer un enregistrement de 60 secondes</span>
+jcmd<span class="w"> </span>&lt;PID&gt;<span class="w"> </span>JFR.start<span class="w"> </span><span class="nv">name</span><span class="o">=</span>incident<span class="w"> </span><span class="nv">duration</span><span class="o">=</span>60s<span class="w"> </span><span class="nv">filename</span><span class="o">=</span>/tmp/incident.jfr
+
+<span class="c1"># Voir les enregistrements actifs</span>
+jcmd<span class="w"> </span>&lt;PID&gt;<span class="w"> </span>JFR.check
+
+<span class="c1"># Stopper et flusher</span>
+jcmd<span class="w"> </span>&lt;PID&gt;<span class="w"> </span>JFR.stop<span class="w"> </span><span class="nv">name</span><span class="o">=</span>incident
+jcmd<span class="w"> </span>&lt;PID&gt;<span class="w"> </span>JFR.dump<span class="w"> </span><span class="nv">name</span><span class="o">=</span>incident<span class="w"> </span><span class="nv">filename</span><span class="o">=</span>/tmp/incident.jfr
+</code></pre></div>
+<p>Analyse offline : <strong>JDK Mission Control (JMC)</strong>. Vues complètes — CPU samples, allocations par classe, contention de threads, I/O, etc.</p>
+<h3 id="async-profiler">async-profiler</h3>
+<p>Profiler natif basé sur perf, <strong>plus précis</strong> que JFR sur les CPU samples. Très utilisé en prod.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Profile CPU pendant 30s, génère un flamegraph SVG</span>
+./profiler.sh<span class="w"> </span>-d<span class="w"> </span><span class="m">30</span><span class="w"> </span>-f<span class="w"> </span>/tmp/cpu.svg<span class="w"> </span>&lt;PID&gt;
+
+<span class="c1"># Profile allocations</span>
+./profiler.sh<span class="w"> </span>-d<span class="w"> </span><span class="m">30</span><span class="w"> </span>-e<span class="w"> </span>alloc<span class="w"> </span>-f<span class="w"> </span>/tmp/alloc.svg<span class="w"> </span>&lt;PID&gt;
+
+<span class="c1"># Profile lock contention</span>
+./profiler.sh<span class="w"> </span>-d<span class="w"> </span><span class="m">30</span><span class="w"> </span>-e<span class="w"> </span>lock<span class="w"> </span>-f<span class="w"> </span>/tmp/lock.svg<span class="w"> </span>&lt;PID&gt;
+</code></pre></div>
+<p>Le <strong>flamegraph</strong> : visualisation où la largeur des barres = temps CPU passé. Un bloc large en haut = méthode chaude. Indispensable pour optimiser.</p>
+<h3 id="byte-buddy-asm">Byte Buddy / ASM</h3>
+<p>Pour les agents custom (instrumentation à la volée). Utilisé par tous les APM modernes (Datadog, Dynatrace, AppDynamics) pour s'attacher sans modifier le code.</p>
+<hr />
+<h2 id="outils-danalyse-offline_1">Outils d'analyse offline</h2>
+<h3 id="eclipse-mat-memory-analyzer-tool">Eclipse MAT (Memory Analyzer Tool)</h3>
+<p>Le <strong>standard</strong> pour analyser un heap dump (.hprof). Vues clés :</p>
+<table>
+<thead>
+<tr>
+<th>Vue</th>
+<th>À quoi ça sert</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Leak Suspects Report</strong></td>
+<td>MAT identifie automatiquement les objets retenus de manière suspecte</td>
+</tr>
+<tr>
+<td><strong>Dominator Tree</strong></td>
+<td>Qui retient le plus de mémoire (vue agrégée par sous-arbre)</td>
+</tr>
+<tr>
+<td><strong>Histogram</strong></td>
+<td>Classes triées par nombre d'instances ou bytes occupés</td>
+</tr>
+<tr>
+<td><strong>OQL (Object Query Language)</strong></td>
+<td>Requête SQL-like sur le heap (<code>SELECT * FROM java.lang.String WHERE s.value.length &gt; 1000</code>)</td>
+</tr>
+<tr>
+<td><strong>Path to GC Roots</strong></td>
+<td>Pourquoi un objet n'est pas collecté (chaîne de références)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="visualvm">VisualVM</h3>
+<p>GUI tout-en-un (gratuit) : monitoring temps réel, sampling CPU, thread inspector, heap dump basique.</p>
+<h3 id="jdk-mission-control-jmc">JDK Mission Control (JMC)</h3>
+<p>Compagnon de JFR. Vues très riches pour analyser un enregistrement de prod : événements GC, allocations, threads, I/O, exceptions, latency.</p>
+<h3 id="intellij-profiler">IntelliJ Profiler</h3>
+<p>Intégré directement dans IntelliJ Ultimate. Pratique pour profiler local + lire les flamegraphs.</p>
+<hr />
+<h2 id="cas-concrets">Cas concrets</h2>
+<details class="question">
+<summary>Comment détecter une fuite mémoire ?</summary>
+<p>Signal classique : la <code>Old generation</code> (jstat -gcutil colonne O) ne redescend jamais après les Full GC. Elle croît lentement jusqu'à l'OOM.
+Méthode : (1) activer <code>-XX:+HeapDumpOnOutOfMemoryError</code>, (2) attendre l'OOM ou forcer un dump avec <code>jmap -dump:live</code>, (3) ouvrir dans MAT, (4) lire le <strong>Leak Suspects Report</strong>, (5) suivre le <strong>Path to GC Roots</strong> de l'objet suspect.</p>
+</details>
+<details class="question">
+<summary>Quelle différence entre Minor GC, Major GC et Full GC ?</summary>
+<p><strong>Minor GC</strong> : nettoie seulement la Young generation. Très rapide (ms). <strong>Major GC</strong> : nettoie la Old generation. Plus long. <strong>Full GC</strong> : nettoie TOUT (Young + Old + Metaspace). C'est le plus coûteux, à minimiser absolument en production.</p>
+</details>
+<details class="question">
+<summary>Pourquoi <code>Xms = Xmx</code> en production ?</summary>
+<p>Sans ça, la JVM démarre avec une heap petite et la grandit à chaud quand nécessaire. Chaque agrandissement = pause + risque de fragmentation. En prod, on alloue dès le départ le maximum pour éviter ce coût.</p>
+</details>
+<details class="question">
+<summary>G1 ou ZGC pour une plateforme de paiement ?</summary>
+<p><strong>G1</strong> pour 99% des cas : par défaut depuis Java 9, pauses prévisibles (~200ms), heap jusqu'à 32 Go bien géré. <strong>ZGC</strong> si la latence p99 doit rester &lt; 10ms quelle que soit la taille du heap (jusqu'au To). Le surcoût RAM (~10-15%) est le compromis.</p>
+</details>
+<details class="question">
+<summary>Comment lire un thread dump efficacement ?</summary>
+<p>Faire 3 dumps espacés de 10s avec <code>jstack</code>. Comparer : un thread <code>BLOCKED</code> au même endroit dans les 3 dumps = contention forte sur un lock. Chercher <code>socketRead0</code> (appel réseau bloquant), <code>getConnection</code> (pool DB saturé), <code>synchronized</code> répété (lock contention). Le mot-clé <code>Found one Java-level deadlock</code> en bas du dump = deadlock détecté par la JVM.</p>
+</details>
+<details class="question">
+<summary>Quand passer aux Virtual Threads ?</summary>
+<p>Si l'appli est <strong>bloquante par nature</strong> (appels DB, HTTP synchrones vers des banques acquéreurs) : passer aux virtual threads Java 21 retire le besoin de gros pools de threads physiques et améliore drastiquement le scaling sans rewrite. Sur du CPU-bound ou full async (WebFlux), pas de gain.</p>
+</details>
+<details class="question">
+<summary>Production en conteneur, quoi de spécial ?</summary>
+<p>Activer <code>-XX:+UseContainerSupport</code> (défaut JVM 10+), utiliser <code>-XX:MaxRAMPercentage</code> plutôt que <code>-Xmx</code> (calcul automatique en fonction des limites cgroup), monter le dump path sur un volume persistant (<code>-XX:HeapDumpPath=/dumps</code>) sinon perdu au crash, exporter les métriques JVM via Micrometer + Prometheus.</p>
+</details>
+<hr />
+<h2 id="points-cles">Points clés</h2>
+<ul>
+<li>La JVM = heap (Xms/Xmx) + Metaspace + Code Cache + Thread stacks + Off-heap. Le RSS dépasse toujours le Xmx</li>
+<li>G1GC par défaut en prod • ZGC quand latence p99 critique avec gros heap</li>
+<li><code>-Xms = -Xmx</code> toujours en production</li>
+<li>Logs GC actifs en permanence (<code>-Xlog:gc*</code>)</li>
+<li>Auto-dump sur OOM (<code>-XX:+HeapDumpOnOutOfMemoryError</code>) + <code>-XX:+ExitOnOutOfMemoryError</code></li>
+<li>Les 8 types d'OOM ont des causes différentes • toujours lire le message complet</li>
+<li>3 thread dumps espacés &gt; 1 thread dump isolé</li>
+<li>JFR + async-profiler = la combinaison gagnante pour profiler en prod</li>
+<li>Virtual Threads (Java 21) = game changer sur workloads bloquants</li>
+</ul>
+<hr />
+<h2 id="voir-aussi">Voir aussi</h2>
+<ul>
+<li><a href="../../devops/run-mco-sre/">RUN, MCO et SRE</a> — méthodologie d'exploitation</li>
+<li><a href="../monitoring-paiement/">Monitoring de Plateforme de Paiement</a> — application au domaine monétique, investigation pas à pas</li>
+<li><a href="../logging-architecture-java/">Logging Architecture Java</a></li>
+<li><a href="../metrics-monitoring-prometheus-grafana/">Metrics Monitoring · Prometheus + Grafana</a></li>
+</ul>
 
 
 
