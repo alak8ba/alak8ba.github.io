@@ -12,13 +12,13 @@
         <meta name="author" content="A.KOUBA">
       
       
-        <link rel="canonical" href="https://alak8ba.github.io/notes/topics/observability/exception-handling-spring/">
+        <link rel="canonical" href="https://alak8ba.github.io/notes/topics/observability/profil-build-vers-run/">
       
       
-        <link rel="prev" href="../logging-architecture-java/">
+        <link rel="prev" href="../incidents-vecu-terrain/">
       
       
-        <link rel="next" href="../metrics-monitoring-prometheus-grafana/">
+        <link rel="next" href="../kafka-en-paiement/">
       
       
         
@@ -29,7 +29,7 @@
     
     
       
-        <title>Exception Handling Spring - Engineering Notes</title>
+        <title>Profil • Pourquoi passer du BUILD au RUN - Engineering Notes</title>
       
     
     
@@ -82,7 +82,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#gestion-des-exceptions-resilience-dans-spring-boot" class="md-skip">
+        <a href="#profil-pourquoi-passer-du-build-au-run-maintenant" class="md-skip">
           Aller au contenu
         </a>
       
@@ -115,7 +115,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Exception Handling Spring
+              Profil • Pourquoi passer du BUILD au RUN
             
           </span>
         </div>
@@ -2827,37 +2827,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Exception Handling Spring
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../exception-handling-spring/" class="md-nav__link">
         
   
   
@@ -2873,220 +2846,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table des matières
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#introduction" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Introduction
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#types-dexceptions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Types d'exceptions
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Types d&#39;exceptions">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#exceptions-metier-checked" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Exceptions métier (checked)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#exceptions-techniques-unchecked" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Exceptions techniques (unchecked)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#nullpointerexception" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        NullPointerException
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#gestion-globale-restcontrolleradvice" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Gestion globale • @RestControllerAdvice
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Gestion globale • @RestControllerAdvice">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#structure-de-reponse-standardisee" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Structure de réponse standardisée
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#hierarchie-des-exceptions-dans-kore-hexagonal" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Hiérarchie des exceptions dans kore-hexagonal
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#pattern-fonctionnel-gestion-des-exceptions-en-batch" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Pattern fonctionnel • gestion des exceptions en batch
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#strategie-de-propagation-ou-logguer" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Stratégie de propagation • où logguer ?
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#sync-vs-async-comportement-different" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Sync vs Async • comportement différent
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Sync vs Async • comportement différent">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#rest-synchrone" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        REST (synchrone)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#kafka-asynchrone" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Kafka (asynchrone)
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#production-mindset" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Production mindset
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#conclusion" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Conclusion
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#voir-aussi" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Voir aussi
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -3208,10 +2967,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../profil-build-vers-run/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Profil • Pourquoi passer du BUILD au RUN
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -3227,6 +3013,103 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-une-carriere-build-complete-exactement-au-bon-moment-pour-basculer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Une carrière BUILD complète, exactement au bon moment pour basculer
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-adaptabilite-reelle-et-capacite-a-integrer-rapidement-les-outils-run" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Adaptabilité réelle et capacité à intégrer rapidement les outils RUN
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-connaissance-des-applications-de-linterieur-analyse-de-lexterieur-facilitee" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Connaissance des applications de l'intérieur · analyse de l'extérieur facilitée
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-pourquoi-monext-specifiquement-et-pourquoi-maintenant" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Pourquoi Monext spécifiquement, et pourquoi maintenant
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-le-pont-vers-le-run-est-deja-en-construction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Le pont vers le RUN est déjà en construction
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#synthese-ce-que-japporte-quun-autre-candidat-naura-pas-forcement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Synthèse · ce que j'apporte qu'un autre candidat n'aura pas forcément
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#voir-aussi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Voir aussi
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -4701,10 +4584,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#introduction" class="md-nav__link">
+  <a href="#1-une-carriere-build-complete-exactement-au-bon-moment-pour-basculer" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Introduction
+        1. Une carrière BUILD complète, exactement au bon moment pour basculer
       
     </span>
   </a>
@@ -4712,99 +4595,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#types-dexceptions" class="md-nav__link">
+  <a href="#2-adaptabilite-reelle-et-capacite-a-integrer-rapidement-les-outils-run" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Types d'exceptions
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Types d&#39;exceptions">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#exceptions-metier-checked" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Exceptions métier (checked)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#exceptions-techniques-unchecked" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Exceptions techniques (unchecked)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#nullpointerexception" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        NullPointerException
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#gestion-globale-restcontrolleradvice" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Gestion globale • @RestControllerAdvice
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Gestion globale • @RestControllerAdvice">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#structure-de-reponse-standardisee" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Structure de réponse standardisée
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#hierarchie-des-exceptions-dans-kore-hexagonal" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Hiérarchie des exceptions dans kore-hexagonal
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#pattern-fonctionnel-gestion-des-exceptions-en-batch" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Pattern fonctionnel • gestion des exceptions en batch
+        2. Adaptabilité réelle et capacité à intégrer rapidement les outils RUN
       
     </span>
   </a>
@@ -4812,10 +4606,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#strategie-de-propagation-ou-logguer" class="md-nav__link">
+  <a href="#3-connaissance-des-applications-de-linterieur-analyse-de-lexterieur-facilitee" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Stratégie de propagation • où logguer ?
+        3. Connaissance des applications de l'intérieur · analyse de l'extérieur facilitée
       
     </span>
   </a>
@@ -4823,49 +4617,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#sync-vs-async-comportement-different" class="md-nav__link">
+  <a href="#4-pourquoi-monext-specifiquement-et-pourquoi-maintenant" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Sync vs Async • comportement différent
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Sync vs Async • comportement différent">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#rest-synchrone" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        REST (synchrone)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#kafka-asynchrone" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Kafka (asynchrone)
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#production-mindset" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Production mindset
+        4. Pourquoi Monext spécifiquement, et pourquoi maintenant
       
     </span>
   </a>
@@ -4873,10 +4628,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#conclusion" class="md-nav__link">
+  <a href="#5-le-pont-vers-le-run-est-deja-en-construction" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Conclusion
+        5. Le pont vers le RUN est déjà en construction
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#synthese-ce-que-japporte-quun-autre-candidat-naura-pas-forcement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Synthèse · ce que j'apporte qu'un autre candidat n'aura pas forcément
       
     </span>
   </a>
@@ -4915,319 +4681,148 @@
       
       
       
-        <a href="../../../tags/#tag:java" class="md-tag">java</a>
+        <a href="../../../tags/#tag:build-vers-run" class="md-tag">build-vers-run</a>
       
     
       
       
       
       
-        <a href="../../../tags/#tag:observability" class="md-tag">observability</a>
+        <a href="../../../tags/#tag:candidature" class="md-tag">candidature</a>
       
     
       
       
       
       
-        <a href="../../../tags/#tag:resilience" class="md-tag">resilience</a>
+        <a href="../../../tags/#tag:feedback" class="md-tag">feedback</a>
       
     
       
       
       
       
-        <a href="../../../tags/#tag:spring" class="md-tag">spring</a>
+        <a href="../../../tags/#tag:mco" class="md-tag">mco</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../../tags/#tag:monext" class="md-tag">monext</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../../tags/#tag:profil" class="md-tag">profil</a>
       
     
   </nav>
 
 
 
-<h1 id="gestion-des-exceptions-resilience-dans-spring-boot">Gestion des Exceptions &amp; Résilience dans Spring Boot</h1>
-<div class="admonition note">
-<p>Note de contexte (12 mai 2026) : cette note constitue un retour d'expérience suite à des échanges avec des experts du domaine. Elle est rédigée le jour même et vise à structurer les notions abordées pour consolidation et montée en compétence.</p>
-</div>
-<h2 id="introduction">Introduction</h2>
-<p>La gestion des exceptions est un élément central des systèmes backend en production.</p>
-<p>Elle ne consiste pas uniquement à "catch des erreurs", mais à définir une stratégie claire de :</p>
+<h1 id="profil-pourquoi-passer-du-build-au-run-maintenant">Profil · Pourquoi Passer du BUILD au RUN Maintenant</h1>
+<p>Cette page complète les <a href="../incidents-vecu-terrain/">retours d'expérience d'incidents</a>. Elle pose à plat ce qui me différencie d'un autre candidat, y compris d'un profil plus expérimenté du domaine, pour un poste de responsable d'applications en environnement de production critique.</p>
+<p>Cinq angles, chacun assumé sans exagération.</p>
+<hr />
+<h2 id="1-une-carriere-build-complete-exactement-au-bon-moment-pour-basculer">1. Une carrière BUILD complète, exactement au bon moment pour basculer</h2>
+<p>Pour un poste RUN, il y a une vraie différence entre :</p>
 <ul>
-<li>propagation des erreurs</li>
-<li>traitement centralisé</li>
-<li>séparation erreurs métier vs techniques</li>
-<li>observabilité des failures</li>
-<li>résilience du système</li>
+<li>Quelqu'un qui a démarré directement en exploitation et y est resté</li>
+<li>Quelqu'un qui a parcouru <strong>un cycle complet du BUILD</strong> sur toutes ses générations technologiques avant de basculer</li>
 </ul>
-<p>Une mauvaise gestion des exceptions peut rendre un système instable, difficile à debugger et invisible en production.</p>
-<hr />
-<h2 id="types-dexceptions">Types d'exceptions</h2>
-<h3 id="exceptions-metier-checked">Exceptions métier (checked)</h3>
-<p>Représentent des règles business violées. Elles sont <strong>attendues</strong> et font partie du fonctionnement normal du système.</p>
-<p>Dans kore-batch, <code>FunctionalException</code> est une checked exception • le compilateur oblige le développeur à la gérer explicitement :</p>
-<div class="highlight"><pre><span></span><code><span class="cm">/**</span>
-<span class="cm"> * Exception fonctionnelle : erreur métier attendue, n&#39;interrompt pas le batch.</span>
-<span class="cm"> * Doit être catchée dans le processor et comptabilisée dans la synthèse.</span>
-<span class="cm"> */</span>
-<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">FunctionalException</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span>
-
-<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">component</span><span class="p">;</span>
-<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">action</span><span class="p">;</span>
-
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">FunctionalException</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">component</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">action</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">message</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="kd">super</span><span class="p">(</span><span class="n">message</span><span class="p">);</span>
-<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">component</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">component</span><span class="p">;</span>
-<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">action</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">action</span><span class="p">;</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-<p>Le fait d'étendre <code>Exception</code> (et non <code>RuntimeException</code>) force le caller à soit la catcher, soit la déclarer dans sa signature. C'est un choix architectural délibéré.</p>
-<h3 id="exceptions-techniques-unchecked">Exceptions techniques (unchecked)</h3>
-<p>Proviennent de problèmes d'infrastructure • base de données indisponible, Kafka down, timeout. Elles étendent <code>RuntimeException</code> et remontent librement dans la stack.</p>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">TechnicalException</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">RuntimeException</span><span class="w"> </span><span class="p">{</span>
-
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">TechnicalException</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">message</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="kd">super</span><span class="p">(</span><span class="n">message</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
-
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">TechnicalException</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">message</span><span class="p">,</span><span class="w"> </span><span class="n">Throwable</span><span class="w"> </span><span class="n">cause</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="kd">super</span><span class="p">(</span><span class="n">message</span><span class="p">,</span><span class="w"> </span><span class="n">cause</span><span class="p">);</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-<h3 id="nullpointerexception">NullPointerException</h3>
-<p>La NPE est une exception runtime non voulue • elle indique généralement un bug, pas un cas métier.</p>
-<p>Bonnes pratiques pour l'éviter :</p>
-<div class="highlight"><pre><span></span><code><span class="c1">// A eviter</span>
-<span class="n">String</span><span class="w"> </span><span class="n">pays</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">assure</span><span class="p">.</span><span class="na">getPays</span><span class="p">().</span><span class="na">toUpperCase</span><span class="p">();</span><span class="w"> </span><span class="c1">// NPE si pays est null</span>
-
-<span class="c1">// Approche defensive</span>
-<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">assure</span><span class="p">.</span><span class="na">getPays</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">assure</span><span class="p">.</span><span class="na">getPays</span><span class="p">().</span><span class="na">isBlank</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">FunctionalException</span><span class="p">(</span><span class="s">&quot;Pays absent - ref=&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">assure</span><span class="p">.</span><span class="na">getReference</span><span class="p">());</span>
-<span class="p">}</span>
-
-<span class="c1">// Avec Optional (cas lecture)</span>
-<span class="n">Optional</span><span class="p">.</span><span class="na">ofNullable</span><span class="p">(</span><span class="n">assure</span><span class="p">.</span><span class="na">getPays</span><span class="p">())</span>
-<span class="w">        </span><span class="p">.</span><span class="na">filter</span><span class="p">(</span><span class="n">p</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="o">!</span><span class="n">p</span><span class="p">.</span><span class="na">isBlank</span><span class="p">())</span>
-<span class="w">        </span><span class="p">.</span><span class="na">orElseThrow</span><span class="p">(()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">FunctionalException</span><span class="p">(</span><span class="s">&quot;Pays absent&quot;</span><span class="p">));</span>
-</code></pre></div>
-<p>Dans un système robuste, une NPE en production est considérée comme un bug • elle ne doit jamais atteindre le client.</p>
-<hr />
-<h2 id="gestion-globale-restcontrolleradvice">Gestion globale • @RestControllerAdvice</h2>
-<p>Spring Boot permet de centraliser la gestion des exceptions en un seul endroit via <code>@RestControllerAdvice</code>. Cela évite de dupliquer le traitement des erreurs dans chaque controller.</p>
-<p>Implémentation réelle dans kore-hexagonal :</p>
-<div class="highlight"><pre><span></span><code><span class="nd">@RestControllerAdvice</span>
-<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">GlobalExceptionHandler</span><span class="w"> </span><span class="p">{</span>
-
-<span class="w">    </span><span class="c1">// Validation des @Valid/@NotNull sur les DTOs</span>
-<span class="w">    </span><span class="nd">@ExceptionHandler</span><span class="p">(</span><span class="n">MethodArgumentNotValidException</span><span class="p">.</span><span class="na">class</span><span class="p">)</span>
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">ResponseEntity</span><span class="o">&lt;</span><span class="n">ErrorResponse</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">handleValidation</span><span class="p">(</span>
-<span class="w">            </span><span class="n">MethodArgumentNotValidException</span><span class="w"> </span><span class="n">ex</span><span class="p">,</span><span class="w"> </span><span class="n">HttpServletRequest</span><span class="w"> </span><span class="n">request</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-
-<span class="w">        </span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">details</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ex</span><span class="p">.</span><span class="na">getBindingResult</span><span class="p">().</span><span class="na">getFieldErrors</span><span class="p">().</span><span class="na">stream</span><span class="p">()</span>
-<span class="w">                </span><span class="p">.</span><span class="na">collect</span><span class="p">(</span><span class="n">Collectors</span><span class="p">.</span><span class="na">toMap</span><span class="p">(</span>
-<span class="w">                    </span><span class="n">FieldError</span><span class="p">::</span><span class="n">getField</span><span class="p">,</span>
-<span class="w">                    </span><span class="n">FieldError</span><span class="p">::</span><span class="n">getDefaultMessage</span><span class="p">,</span>
-<span class="w">                    </span><span class="p">(</span><span class="n">existing</span><span class="p">,</span><span class="w"> </span><span class="n">replacement</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">existing</span>
-<span class="w">                </span><span class="p">));</span>
-
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">ResponseEntity</span><span class="p">.</span><span class="na">badRequest</span><span class="p">().</span><span class="na">body</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">ErrorResponse</span><span class="p">(</span>
-<span class="w">                </span><span class="n">ZonedDateTime</span><span class="p">.</span><span class="na">now</span><span class="p">(),</span><span class="w"> </span><span class="mi">400</span><span class="p">,</span>
-<span class="w">                </span><span class="s">&quot;Erreur de validation&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Les données envoyées sont invalides&quot;</span><span class="p">,</span>
-<span class="w">                </span><span class="n">request</span><span class="p">.</span><span class="na">getRequestURI</span><span class="p">(),</span><span class="w"> </span><span class="n">details</span>
-<span class="w">        </span><span class="p">));</span>
-<span class="w">    </span><span class="p">}</span>
-
-<span class="w">    </span><span class="c1">// Ressource introuvable -&gt; 404</span>
-<span class="w">    </span><span class="nd">@ExceptionHandler</span><span class="p">(</span><span class="n">BookingNotFoundException</span><span class="p">.</span><span class="na">class</span><span class="p">)</span>
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">ResponseEntity</span><span class="o">&lt;</span><span class="n">ErrorResponse</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">handleNotFound</span><span class="p">(</span>
-<span class="w">            </span><span class="n">BookingNotFoundException</span><span class="w"> </span><span class="n">ex</span><span class="p">,</span><span class="w"> </span><span class="n">HttpServletRequest</span><span class="w"> </span><span class="n">request</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">ResponseEntity</span><span class="p">.</span><span class="na">status</span><span class="p">(</span><span class="mi">404</span><span class="p">).</span><span class="na">body</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">ErrorResponse</span><span class="p">(</span>
-<span class="w">                </span><span class="n">ZonedDateTime</span><span class="p">.</span><span class="na">now</span><span class="p">(),</span><span class="w"> </span><span class="mi">404</span><span class="p">,</span>
-<span class="w">                </span><span class="s">&quot;Introuvable&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ex</span><span class="p">.</span><span class="na">getMessage</span><span class="p">(),</span>
-<span class="w">                </span><span class="n">request</span><span class="p">.</span><span class="na">getRequestURI</span><span class="p">(),</span><span class="w"> </span><span class="kc">null</span>
-<span class="w">        </span><span class="p">));</span>
-<span class="w">    </span><span class="p">}</span>
-
-<span class="w">    </span><span class="c1">// Règle métier violée -&gt; 400</span>
-<span class="w">    </span><span class="nd">@ExceptionHandler</span><span class="p">(</span><span class="n">BookingDomainException</span><span class="p">.</span><span class="na">class</span><span class="p">)</span>
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">ResponseEntity</span><span class="o">&lt;</span><span class="n">ErrorResponse</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">handleDomain</span><span class="p">(</span>
-<span class="w">            </span><span class="n">BookingDomainException</span><span class="w"> </span><span class="n">ex</span><span class="p">,</span><span class="w"> </span><span class="n">HttpServletRequest</span><span class="w"> </span><span class="n">request</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">ResponseEntity</span><span class="p">.</span><span class="na">badRequest</span><span class="p">().</span><span class="na">body</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">ErrorResponse</span><span class="p">(</span>
-<span class="w">                </span><span class="n">ZonedDateTime</span><span class="p">.</span><span class="na">now</span><span class="p">(),</span><span class="w"> </span><span class="mi">400</span><span class="p">,</span>
-<span class="w">                </span><span class="s">&quot;Règle métier violée&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ex</span><span class="p">.</span><span class="na">getMessage</span><span class="p">(),</span>
-<span class="w">                </span><span class="n">request</span><span class="p">.</span><span class="na">getRequestURI</span><span class="p">(),</span><span class="w"> </span><span class="kc">null</span>
-<span class="w">        </span><span class="p">));</span>
-<span class="w">    </span><span class="p">}</span>
-
-<span class="w">    </span><span class="c1">// Sécurité -&gt; 401</span>
-<span class="w">    </span><span class="nd">@ExceptionHandler</span><span class="p">(</span><span class="n">AuthException</span><span class="p">.</span><span class="na">class</span><span class="p">)</span>
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">ResponseEntity</span><span class="o">&lt;</span><span class="n">ErrorResponse</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">handleAuth</span><span class="p">(</span>
-<span class="w">            </span><span class="n">AuthException</span><span class="w"> </span><span class="n">ex</span><span class="p">,</span><span class="w"> </span><span class="n">HttpServletRequest</span><span class="w"> </span><span class="n">request</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">ResponseEntity</span><span class="p">.</span><span class="na">status</span><span class="p">(</span><span class="mi">401</span><span class="p">).</span><span class="na">body</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">ErrorResponse</span><span class="p">(</span>
-<span class="w">                </span><span class="n">ZonedDateTime</span><span class="p">.</span><span class="na">now</span><span class="p">(),</span><span class="w"> </span><span class="mi">401</span><span class="p">,</span>
-<span class="w">                </span><span class="s">&quot;Non autorisé&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ex</span><span class="p">.</span><span class="na">getMessage</span><span class="p">(),</span>
-<span class="w">                </span><span class="n">request</span><span class="p">.</span><span class="na">getRequestURI</span><span class="p">(),</span><span class="w"> </span><span class="kc">null</span>
-<span class="w">        </span><span class="p">));</span>
-<span class="w">    </span><span class="p">}</span>
-
-<span class="w">    </span><span class="c1">// Filet de sécurité : toute exception non gérée -&gt; 500</span>
-<span class="w">    </span><span class="nd">@ExceptionHandler</span><span class="p">(</span><span class="n">Exception</span><span class="p">.</span><span class="na">class</span><span class="p">)</span>
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">ResponseEntity</span><span class="o">&lt;</span><span class="n">ErrorResponse</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">handleGeneric</span><span class="p">(</span>
-<span class="w">            </span><span class="n">Exception</span><span class="w"> </span><span class="n">ex</span><span class="p">,</span><span class="w"> </span><span class="n">HttpServletRequest</span><span class="w"> </span><span class="n">request</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">ResponseEntity</span><span class="p">.</span><span class="na">internalServerError</span><span class="p">().</span><span class="na">body</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">ErrorResponse</span><span class="p">(</span>
-<span class="w">                </span><span class="n">ZonedDateTime</span><span class="p">.</span><span class="na">now</span><span class="p">(),</span><span class="w"> </span><span class="mi">500</span><span class="p">,</span>
-<span class="w">                </span><span class="s">&quot;Erreur interne&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Une erreur inattendue s&#39;est produite&quot;</span><span class="p">,</span>
-<span class="w">                </span><span class="n">request</span><span class="p">.</span><span class="na">getRequestURI</span><span class="p">(),</span><span class="w"> </span><span class="kc">null</span>
-<span class="w">        </span><span class="p">));</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-<h3 id="structure-de-reponse-standardisee">Structure de réponse standardisée</h3>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">record</span> <span class="nc">ErrorResponse</span><span class="p">(</span>
-<span class="w">        </span><span class="n">ZonedDateTime</span><span class="w"> </span><span class="n">timestamp</span><span class="p">,</span>
-<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">status</span><span class="p">,</span>
-<span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">error</span><span class="p">,</span>
-<span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">message</span><span class="p">,</span>
-<span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">path</span><span class="p">,</span>
-<span class="w">        </span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">details</span><span class="w">  </span><span class="c1">// null sauf pour les erreurs de validation</span>
-<span class="p">)</span><span class="w"> </span><span class="p">{}</span>
-</code></pre></div>
-<p>Tous les clients reçoivent le même format d'erreur quel que soit le type d'exception. Le <code>details</code> est renseigné uniquement pour les erreurs de validation champ par champ.</p>
-<h3 id="hierarchie-des-exceptions-dans-kore-hexagonal">Hiérarchie des exceptions dans kore-hexagonal</h3>
-<div class="highlight"><pre><span></span><code>Exception
-└── RuntimeException
-    └── BookingDomainException       (règle métier, 400)
-        └── BookingNotFoundException  (introuvable, 404)
-    └── AuthException                (auth, 401)
-    └── TokenNotFoundException       (token, 401)
-</code></pre></div>
-<p>Toutes les exceptions métier étendent <code>RuntimeException</code> côté REST. Elles remontent naturellement jusqu'au <code>GlobalExceptionHandler</code>.</p>
-<hr />
-<h2 id="pattern-fonctionnel-gestion-des-exceptions-en-batch">Pattern fonctionnel • gestion des exceptions en batch</h2>
-<p>Dans un contexte batch, la stratégie est différente. Une erreur sur un item ne doit pas arrêter le traitement de tous les autres.</p>
-<p>Implémentation réelle dans kore-batch (<code>AssureItemProcessor</code>) :</p>
-<div class="highlight"><pre><span></span><code><span class="nd">@Slf4j</span>
-<span class="nd">@Component</span>
-<span class="nd">@StepScope</span><span class="w">  </span><span class="c1">// une instance par partition, état propre</span>
-<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">AssureItemProcessor</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">ItemProcessor</span><span class="o">&lt;</span><span class="n">AssureDto</span><span class="p">,</span><span class="w"> </span><span class="n">AssureResultDto</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
-
-<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">IndividuSyntheseDto</span><span class="w"> </span><span class="n">synthese</span><span class="p">;</span>
-
-<span class="w">    </span><span class="nd">@BeforeStep</span>
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">beforeStep</span><span class="p">(</span><span class="n">StepExecution</span><span class="w"> </span><span class="n">stepExecution</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">synthese</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">IndividuSyntheseDto</span><span class="p">();</span>
-<span class="w">        </span><span class="n">stepExecution</span><span class="p">.</span><span class="na">getExecutionContext</span><span class="p">().</span><span class="na">put</span><span class="p">(</span><span class="n">ISynthese</span><span class="p">.</span><span class="na">SYNTHESE_KEY</span><span class="p">,</span><span class="w"> </span><span class="n">synthese</span><span class="p">);</span>
-<span class="w">    </span><span class="p">}</span>
-
-<span class="w">    </span><span class="nd">@Override</span>
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">AssureResultDto</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="n">AssureDto</span><span class="w"> </span><span class="n">assure</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">log</span><span class="p">.</span><span class="na">debug</span><span class="p">(</span><span class="s">&quot;Traitement individu ref={}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">assure</span><span class="p">.</span><span class="na">getReference</span><span class="p">());</span>
-<span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="n">valider</span><span class="p">(</span><span class="n">assure</span><span class="p">);</span>
-<span class="w">            </span><span class="n">synthese</span><span class="p">.</span><span class="na">incrementOK</span><span class="p">();</span>
-<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">AssureResultDto</span><span class="p">.</span><span class="na">ok</span><span class="p">(</span><span class="n">assure</span><span class="p">);</span>
-
-<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">FunctionalException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="n">log</span><span class="p">.</span><span class="na">warn</span><span class="p">(</span><span class="s">&quot;Erreur fonctionnelle [ref={}] : {}&quot;</span><span class="p">,</span>
-<span class="w">                </span><span class="n">assure</span><span class="p">.</span><span class="na">getReference</span><span class="p">(),</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="na">getMessage</span><span class="p">());</span>
-<span class="w">            </span><span class="n">synthese</span><span class="p">.</span><span class="na">incrementKO</span><span class="p">();</span>
-<span class="w">            </span><span class="n">synthese</span><span class="p">.</span><span class="na">incrementErreurFonctionnelle</span><span class="p">();</span>
-<span class="w">            </span><span class="n">synthese</span><span class="p">.</span><span class="na">addReferenceEnErreur</span><span class="p">(</span><span class="n">assure</span><span class="p">.</span><span class="na">getReference</span><span class="p">());</span>
-<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">AssureResultDto</span><span class="p">.</span><span class="na">ko</span><span class="p">(</span><span class="n">assure</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="na">getMessage</span><span class="p">());</span>
-<span class="w">            </span><span class="c1">// Pas de throw -&gt; pas de rollback -&gt; le batch continue</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">    </span><span class="p">}</span>
-
-<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">valider</span><span class="p">(</span><span class="n">AssureDto</span><span class="w"> </span><span class="n">assure</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">FunctionalException</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">assure</span><span class="p">.</span><span class="na">getIdentifiant</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">assure</span><span class="p">.</span><span class="na">getIdentifiant</span><span class="p">().</span><span class="na">isBlank</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">FunctionalException</span><span class="p">(</span><span class="n">getClass</span><span class="p">().</span><span class="na">getSimpleName</span><span class="p">(),</span><span class="w"> </span><span class="s">&quot;valider&quot;</span><span class="p">,</span>
-<span class="w">                </span><span class="s">&quot;Identifiant absent - ref=&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">assure</span><span class="p">.</span><span class="na">getReference</span><span class="p">());</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">assure</span><span class="p">.</span><span class="na">getIdentifiant</span><span class="p">().</span><span class="na">length</span><span class="p">()</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">FunctionalException</span><span class="p">(</span><span class="n">getClass</span><span class="p">().</span><span class="na">getSimpleName</span><span class="p">(),</span><span class="w"> </span><span class="s">&quot;valider&quot;</span><span class="p">,</span>
-<span class="w">                </span><span class="s">&quot;Identifiant invalide (doit faire 10 caracteres)&quot;</span><span class="p">);</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">        </span><span class="c1">// ...autres règles</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-<p><strong>Ce que ce pattern garantit :</strong></p>
+<p>J'ai connu <strong>Java 8 et avant</strong>, jusqu'à <strong>Java 21</strong>. <strong>Spring Batch 2/3</strong>, jusqu'à <strong>Spring Batch 5</strong>. <strong>Angular 1 et 2</strong> jusqu'à <strong>Angular 17</strong>. <strong>WebLogic, Tomcat 7, Oracle PL/SQL</strong> jusqu'à <strong>Kafka event-driven et architecture hexagonale moderne</strong>. Cette amplitude n'est pas qu'un argument de durée. Elle façonne une posture d'investigation très précise :</p>
 <ul>
-<li>La <code>FunctionalException</code> est catchée dans le processor • elle n'atteint jamais Spring Batch</li>
-<li>Pas de throw = pas de mécanisme de skip = pas de rollback transactionnel</li>
-<li>Chaque item KO est comptabilisé dans la synthèse avec sa référence</li>
-<li>Le rapport final liste précisément les items en erreur et leur cause</li>
+<li>Quand un incident touche un composant ancien, je l'ai vu en BUILD à un moment de ma carrière</li>
+<li>Quand il touche un composant moderne, je l'ai conçu ou intégré dans un projet récent</li>
+<li>Quand il touche une intégration entre deux mondes (legacy ↔ moderne), je connais les pièges typiques des deux côtés</li>
 </ul>
+<p><strong>Un dev qui passe au RUN avec ce bagage investigue avec plus de recul et un panel d'outils plus large</strong> que quelqu'un qui n'a connu que la production. C'est exactement la valeur que je propose d'apporter aujourd'hui.</p>
 <hr />
-<h2 id="strategie-de-propagation-ou-logguer">Stratégie de propagation • où logguer ?</h2>
-<p>Une règle fondamentale :</p>
-<blockquote>
-<p>une exception ne doit pas être loggée plusieurs fois dans la même stack</p>
-</blockquote>
+<h2 id="2-adaptabilite-reelle-et-capacite-a-integrer-rapidement-les-outils-run">2. Adaptabilité réelle et capacité à intégrer rapidement les outils RUN</h2>
+<p>L'entretien a soulevé le point de la disponibilité (astreinte, réveil de nuit, réajustement rapide des priorités). C'est honnête et nécessaire à vérifier.</p>
+<p><strong>Mon profil correspond aux conditions</strong> :</p>
+<ul>
+<li>Pas de blocage personnel sur les contraintes du poste, c'est intégré dans mon choix de candidater</li>
+<li>Habitude des contextes où il faut <strong>passer d'un sujet à un autre en heures</strong>, pas en semaines (10 ans de consulting m'y ont préparé)</li>
+<li>Aucune réticence à apprendre des outils nouveaux. Au contraire, ces 3 dernières années je l'ai fait sans aucune contrainte externe (voir section 5)</li>
+<li>Maturité personnelle pour accepter le changement sans qu'il soit un sujet en soi</li>
+</ul>
+<p>Je n'aborde pas ce poste comme une rupture, je l'aborde comme <strong>une suite cohérente avec ce que j'ai déjà entamé seul</strong>.</p>
+<hr />
+<h2 id="3-connaissance-des-applications-de-linterieur-analyse-de-lexterieur-facilitee">3. Connaissance des applications de l'intérieur · analyse de l'extérieur facilitée</h2>
+<p>Le RUN regarde une application <strong>depuis l'extérieur</strong> : métriques, logs, comportement.
+Le BUILD regarde une application <strong>depuis l'intérieur</strong> : code, architecture, choix techniques.</p>
+<p>Avoir longuement pratiqué le BUILD donne au RUN un avantage qu'un profil 100% exploitation n'a pas :</p>
+<ul>
+<li>Je sais <strong>pourquoi</strong> un comportement applicatif est anormal, pas juste <strong>qu'il l'est</strong></li>
+<li>Devant un thread dump, je reconnais immédiatement la signature d'un pattern de code que j'ai déjà écrit ou vu écrire</li>
+<li>Devant un comportement bizarre de pool de connexions, je sais d'où viennent les choix de configuration et comment le développeur aurait pu les écrire</li>
+<li>Devant un log obscur, je sais souvent à quel composant applicatif il appartient et avec quelle intention il a été écrit</li>
+</ul>
+<p>Cette connaissance interne <strong>raccourcit considérablement le temps d'investigation</strong> sur les incidents complexes. Elle facilite aussi la communication avec les équipes de développement, qui sont des interlocuteurs constants du RUN.</p>
+<hr />
+<h2 id="4-pourquoi-monext-specifiquement-et-pourquoi-maintenant">4. Pourquoi Monext spécifiquement, et pourquoi maintenant</h2>
+<p>Ce point a été le moins développé pendant l'entretien (temps limité à une heure). Il mérite d'être posé clairement.</p>
+<p>J'ai fait le tour de plusieurs clients dans la région <strong>Aix-Marseille</strong> au fil des années. À chaque mission, je laisse une trace techniquement et humainement positive · c'est ma marque de fabrique. Monext fait partie des entreprises de la région dont je connais la réputation depuis longtemps : qualité des opérateurs, exigence élevée, alignée avec la notoriété du nom.</p>
+<p>Que la rencontre avec Monext se passe <strong>précisément au moment où j'opère ma transition BUILD vers RUN</strong> n'est pas un hasard du calendrier pour moi. C'est un moment particulier que j'avais identifié comme une étape symbolique de mon parcours. <strong>C'est aussi la raison pour laquelle ce message arrive un peu tardivement</strong> · j'ai pris le temps de la réflexion avant de répondre, parce que ce n'est pas une candidature parmi d'autres pour moi.</p>
+<p>Je ne cherche pas à convaincre par cette section. Je veux simplement poser que <strong>mon envie de cette opportunité est réelle</strong>, <strong>réfléchie</strong>, et <strong>assumée</strong> · pas une formulation polie pour clore un mail.</p>
+<p>L'idée de côtoyer <strong>Romain</strong> et <strong>Rémy</strong> au quotidien, d'apprendre d'eux dans un environnement technique exigeant, fait partie de ce qui rend cette opportunité unique à mes yeux.</p>
+<hr />
+<h2 id="5-le-pont-vers-le-run-est-deja-en-construction">5. Le pont vers le RUN est déjà en construction</h2>
+<p>Sans objectif professionnel explicite, <strong>sans pression externe</strong>, je me suis trouvé naturellement attiré ces 3 dernières années par tout ce qui sort du périmètre dev pur :</p>
+<ul>
+<li><strong>VPS sous Linux</strong> · administration personnelle, configuration de zéro</li>
+<li><strong>Traefik · Nginx · NAT · sub-tunnelling</strong></li>
+<li><strong>Docker · orchestration · réseaux</strong></li>
+<li><strong>Let's Encrypt · TLS · headers de sécurité</strong></li>
+<li><strong>Backups · stratégie de restauration · drill</strong></li>
+<li><strong>DevSecOps / mise en production sécurisée</strong></li>
+<li><strong>Monitoring</strong> · Prometheus + Grafana, avec dashboards et alertes maison</li>
+</ul>
+<p>Ces compétences ne sont pas restées théoriques. Elles sont <strong>outillées et documentées</strong> dans mon écosystème de socles open source (les briques <code>kore-traefik</code>, <code>kore-monitoring</code>, <code>kore-watchtower</code>, <code>kore-backup</code>...) qui matérialisent ce que je sais faire sur ces sujets.</p>
+<p><strong>Ce que ça raconte</strong> : mon mouvement vers le RUN n'est pas une réorientation forcée par le marché. C'est une trajectoire que j'ai entamée seul, par curiosité, <strong>avant même cette opportunité</strong>. Le poste Monext serait l'aboutissement professionnel d'une démarche déjà engagée à titre personnel.</p>
+<hr />
+<h2 id="synthese-ce-que-japporte-quun-autre-candidat-naura-pas-forcement">Synthèse · ce que j'apporte qu'un autre candidat n'aura pas forcément</h2>
 <table>
 <thead>
 <tr>
-<th>Couche</th>
-<th>Comportement</th>
+<th>Avantage</th>
+<th>Pourquoi c'est rare</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Domain / Service</td>
-<td>Lancer l'exception, ne pas logger</td>
+<td>Carrière BUILD complète sur 4 générations Java</td>
+<td>Vue à 360° sur les composants legacy comme modernes</td>
 </tr>
 <tr>
-<td>Processor (batch)</td>
-<td>Catcher + logger au niveau <code>WARN</code></td>
+<td>Adaptabilité confirmée par 10 ans de consulting</td>
+<td>Habitude des changements de contexte rapides</td>
 </tr>
 <tr>
-<td>GlobalExceptionHandler (REST)</td>
-<td>Logger au niveau <code>ERROR</code> si 500</td>
+<td>Maîtrise interne des applications Java</td>
+<td>Investigation accélérée, pont naturel avec les devs</td>
 </tr>
 <tr>
-<td>Couches intermédiaires</td>
-<td>Laisser remonter sans re-logger</td>
+<td>Trajectoire RUN déjà entamée seul</td>
+<td>Pas une réorientation subie · une suite cohérente</td>
+</tr>
+<tr>
+<td>Motivation Monext spécifiquement, pas générique</td>
+<td>Choix réfléchi dans le cadre d'une transition assumée</td>
 </tr>
 </tbody>
 </table>
-<p>Logguer à chaque couche produit du bruit dans les logs et complique l'investigation d'incidents.</p>
-<hr />
-<h2 id="sync-vs-async-comportement-different">Sync vs Async • comportement différent</h2>
-<h3 id="rest-synchrone">REST (synchrone)</h3>
-<p>L'exception remonte directement dans la stack HTTP. Le <code>GlobalExceptionHandler</code> la transforme en réponse JSON. Le client reçoit le code HTTP et le message d'erreur.</p>
-<h3 id="kafka-asynchrone">Kafka (asynchrone)</h3>
-<p>L'exception ne peut pas remonter vers un client • il n'y en a pas. Elle doit être :</p>
-<ul>
-<li>loggée avec le contexte de l'événement</li>
-<li>gérée par le mécanisme de retry</li>
-<li>envoyée en DLT si les retries sont épuisés</li>
-</ul>
-<hr />
-<h2 id="production-mindset">Production mindset</h2>
-<p>Une bonne stratégie d'exception en production garantit :</p>
-<ul>
-<li>le client reçoit toujours une réponse structurée (pas de stack trace exposée)</li>
-<li>les erreurs 500 sont visibles dans les logs et les métriques</li>
-<li>les erreurs métier sont séparées des erreurs techniques</li>
-<li>le système continue de fonctionner même en cas d'erreur partielle (batch)</li>
-<li>chaque erreur est traçable avec son contexte (référence, userId, path)</li>
-</ul>
-<hr />
-<h2 id="conclusion">Conclusion</h2>
-<p>La gestion des exceptions n'est pas un simple mécanisme technique.</p>
-<p>C'est un pilier de la robustesse d'un système backend moderne, directement lié à l'observabilité, la résilience et la qualité globale de l'architecture.</p>
-<p>Deux contextes, deux stratégies :</p>
-<ul>
-<li><strong>REST</strong> : centralisation via <code>@RestControllerAdvice</code>, réponse standardisée, hiérarchie d'exceptions claire</li>
-<li><strong>Batch</strong> : pattern fonctionnel, erreurs comptabilisées sans interrompre le flux, synthèse détaillée</li>
-</ul>
 <hr />
 <h2 id="voir-aussi">Voir aussi</h2>
 <ul>
-<li><a href="../../java/spring/aop-spring/">AOP • Programmation Orientée Aspect</a></li>
-<li><a href="../logging-architecture-java/">Logging Architecture Java</a></li>
-<li><a href="../metrics-monitoring-prometheus-grafana/">Metrics, Actuator, Prometheus &amp; Grafana</a></li>
-<li><a href="../../kafka/retry-and-dlt-pattern/">Retry and DLT Pattern</a></li>
-<li><a href="../../kafka/idempotent-consumers/">Idempotent Consumers</a></li>
-<li><a href="../../distributed/kafka-resilience-patterns/">Kafka Resilience Patterns</a></li>
-<li><a href="../../database/transaction-patterns/">Transaction Patterns</a></li>
+<li><a href="../incidents-vecu-terrain/">Incidents Vécu Terrain</a> · les 3 REX qui illustrent la posture d'investigation</li>
+<li><a href="../../devops/run-mco-sre/">RUN, MCO et SRE</a></li>
+<li><a href="../monitoring-paiement/">Monitoring de Plateforme de Paiement</a></li>
+<li><a href="../java-production-deep-dive/">Java en Production · Deep-Dive</a></li>
 </ul>
 
 
