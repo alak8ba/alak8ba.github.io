@@ -12,13 +12,13 @@
         <meta name="author" content="A.KOUBA">
       
       
-        <link rel="canonical" href="https://alak8ba.github.io/notes/topics/distributed/sync-vs-async/">
+        <link rel="canonical" href="https://alak8ba.github.io/notes/topics/observability/incidents-vecu-terrain/">
       
       
-        <link rel="prev" href="../microservices-communication/">
+        <link rel="prev" href="../java-production-deep-dive/">
       
       
-        <link rel="next" href="../kafka-resilience-patterns/">
+        <link rel="next" href="../kafka-en-paiement/">
       
       
         
@@ -29,7 +29,7 @@
     
     
       
-        <title>Synchronous Vs Asynchronous - Engineering Notes</title>
+        <title>Incidents Vécu Terrain (3 REX) - Engineering Notes</title>
       
     
     
@@ -82,7 +82,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#synchrone-vs-asynchrone-dans-les-architectures-backend" class="md-skip">
+        <a href="#incidents-vecu-terrain-3-retours-dexperience" class="md-skip">
           Aller au contenu
         </a>
       
@@ -115,7 +115,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Synchronous Vs Asynchronous
+              Incidents Vécu Terrain (3 REX)
             
           </span>
         </div>
@@ -321,12 +321,10 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
+      <li class="md-tabs__item">
         <a href="../../kafka/retry-and-dlt-pattern/" class="md-tabs__link">
           
   
@@ -363,11 +361,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../observability/logging-architecture-java/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../logging-architecture-java/" class="md-tabs__link">
           
   
   
@@ -2200,31 +2200,28 @@
       
   
   
-    
   
   
-  
     
     
     
     
-      
-        
-        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
         
           
-          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
             
   
   
@@ -2242,7 +2239,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             
@@ -2400,7 +2397,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../eventual-consistency/" class="md-nav__link">
+      <a href="../../distributed/eventual-consistency/" class="md-nav__link">
         
   
   
@@ -2428,7 +2425,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../microservices-communication/" class="md-nav__link">
+      <a href="../../distributed/microservices-communication/" class="md-nav__link">
         
   
   
@@ -2453,37 +2450,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Synchronous Vs Asynchronous
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../distributed/sync-vs-async/" class="md-nav__link">
         
   
   
@@ -2499,253 +2469,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table des matières
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#la-question-fondamentale" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        La question fondamentale
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#communication-synchrone" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Communication synchrone
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Communication synchrone">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#exemples" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Exemples
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#implementation-dans-kore-hexagonal-write-side" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Implémentation dans kore-hexagonal • write side
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#avantages" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Avantages
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#inconvenients" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Inconvénients
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#communication-asynchrone" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Communication asynchrone
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Communication asynchrone">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#implementation-dans-kore-hexagonal-publication-devenement" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Implémentation dans kore-hexagonal • publication d'événement
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#avantages_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Avantages
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#inconvenients_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Inconvénients
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#pattern-hybride-le-cas-reel-de-kore-hexagonal" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Pattern hybride • le cas réel de kore-hexagonal
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#gestion-des-erreurs-comportement-different" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Gestion des erreurs • comportement différent
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Gestion des erreurs • comportement différent">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#synchrone" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Synchrone
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#asynchrone" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Asynchrone
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#coherence-des-donnees" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Cohérence des données
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#quand-choisir-quoi" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Quand choisir quoi
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#observabilite-plus-critique-en-asynchrone" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Observabilité • plus critique en asynchrone
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#conclusion" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Conclusion
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#voir-aussi" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Voir aussi
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -2758,7 +2481,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../kafka-resilience-patterns/" class="md-nav__link">
+      <a href="../../distributed/kafka-resilience-patterns/" class="md-nav__link">
         
   
   
@@ -2786,7 +2509,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../read-models-and-fetch-strategies/" class="md-nav__link">
+      <a href="../../distributed/read-models-and-fetch-strategies/" class="md-nav__link">
         
   
   
@@ -2814,7 +2537,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../distributed-tracing-and-correlation/" class="md-nav__link">
+      <a href="../../distributed/distributed-tracing-and-correlation/" class="md-nav__link">
         
   
   
@@ -3019,28 +2742,31 @@
       
   
   
+    
   
   
+  
     
     
     
     
+      
+        
+        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" checked>
         
           
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
-        
-          
-          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="">
             
   
   
@@ -3058,7 +2784,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_8">
             <span class="md-nav__icon md-icon"></span>
             
@@ -3076,7 +2802,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../observability/logging-architecture-java/" class="md-nav__link">
+      <a href="../logging-architecture-java/" class="md-nav__link">
         
   
   
@@ -3104,7 +2830,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../observability/exception-handling-spring/" class="md-nav__link">
+      <a href="../exception-handling-spring/" class="md-nav__link">
         
   
   
@@ -3132,7 +2858,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../observability/metrics-monitoring-prometheus-grafana/" class="md-nav__link">
+      <a href="../metrics-monitoring-prometheus-grafana/" class="md-nav__link">
         
   
   
@@ -3160,7 +2886,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../observability/monitoring-paiement/" class="md-nav__link">
+      <a href="../monitoring-paiement/" class="md-nav__link">
         
   
   
@@ -3188,7 +2914,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../observability/java-production-deep-dive/" class="md-nav__link">
+      <a href="../java-production-deep-dive/" class="md-nav__link">
         
   
   
@@ -3213,10 +2939,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../observability/incidents-vecu-terrain/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Incidents Vécu Terrain (3 REX)
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -3232,6 +2985,275 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-applicatour-2014-redemarrage-dun-serveur-linux-applicatif" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Applicatour · 2014 · Redémarrage d'un serveur Linux applicatif
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Applicatour · 2014 · Redémarrage d&#39;un serveur Linux applicatif">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#contexte" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contexte
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#investigation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Investigation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resolution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Résolution
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#limites-assumees" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limites assumées
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enseignement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enseignement
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-adsn-2017-logs-verbeux-infinispan-et-confiance-gagnee" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. ADSN · 2017 · Logs verbeux Infinispan et confiance gagnée
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. ADSN · 2017 · Logs verbeux Infinispan et confiance gagnée">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#contexte_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contexte
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#investigation_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Investigation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resolution_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Résolution
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#consequences-positives" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conséquences positives
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enseignement_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enseignement
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-cprp-sncf-2020-cause-externe-non-communiquee" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. CPRP SNCF · 2020 · Cause externe non communiquée
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. CPRP SNCF · 2020 · Cause externe non communiquée">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#contexte_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contexte
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#investigation_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Investigation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#demarche-complementaire-initiative" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Démarche complémentaire (initiative)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cause-racine" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cause racine
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#consequences" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conséquences
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enseignement_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enseignement
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lecture-transverse-ce-que-ces-trois-cas-racontent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lecture transverse · ce que ces trois cas racontent
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#voir-aussi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Voir aussi
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -3244,7 +3266,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../observability/kafka-en-paiement/" class="md-nav__link">
+      <a href="../kafka-en-paiement/" class="md-nav__link">
         
   
   
@@ -3272,7 +3294,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../observability/paiement-vocabulaire/" class="md-nav__link">
+      <a href="../paiement-vocabulaire/" class="md-nav__link">
         
   
   
@@ -3300,7 +3322,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../observability/pci-dss-applique/" class="md-nav__link">
+      <a href="../pci-dss-applique/" class="md-nav__link">
         
   
   
@@ -4706,33 +4728,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#la-question-fondamentale" class="md-nav__link">
+  <a href="#1-applicatour-2014-redemarrage-dun-serveur-linux-applicatif" class="md-nav__link">
     <span class="md-ellipsis">
       
-        La question fondamentale
+        1. Applicatour · 2014 · Redémarrage d'un serveur Linux applicatif
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#communication-synchrone" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Communication synchrone
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Communication synchrone">
+    <nav class="md-nav" aria-label="1. Applicatour · 2014 · Redémarrage d&#39;un serveur Linux applicatif">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#exemples" class="md-nav__link">
+  <a href="#contexte" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Exemples
+        Contexte
       
     </span>
   </a>
@@ -4740,10 +4751,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#implementation-dans-kore-hexagonal-write-side" class="md-nav__link">
+  <a href="#investigation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Implémentation dans kore-hexagonal • write side
+        Investigation
       
     </span>
   </a>
@@ -4751,10 +4762,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#avantages" class="md-nav__link">
+  <a href="#resolution" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Avantages
+        Résolution
       
     </span>
   </a>
@@ -4762,10 +4773,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#inconvenients" class="md-nav__link">
+  <a href="#limites-assumees" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Inconvénients
+        Limites assumées
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enseignement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enseignement
       
     </span>
   </a>
@@ -4778,22 +4800,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#communication-asynchrone" class="md-nav__link">
+  <a href="#2-adsn-2017-logs-verbeux-infinispan-et-confiance-gagnee" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Communication asynchrone
+        2. ADSN · 2017 · Logs verbeux Infinispan et confiance gagnée
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Communication asynchrone">
+    <nav class="md-nav" aria-label="2. ADSN · 2017 · Logs verbeux Infinispan et confiance gagnée">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#implementation-dans-kore-hexagonal-publication-devenement" class="md-nav__link">
+  <a href="#contexte_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Implémentation dans kore-hexagonal • publication d'événement
+        Contexte
       
     </span>
   </a>
@@ -4801,10 +4823,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#avantages_1" class="md-nav__link">
+  <a href="#investigation_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Avantages
+        Investigation
       
     </span>
   </a>
@@ -4812,10 +4834,32 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#inconvenients_1" class="md-nav__link">
+  <a href="#resolution_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Inconvénients
+        Résolution
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#consequences-positives" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conséquences positives
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enseignement_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enseignement
       
     </span>
   </a>
@@ -4828,33 +4872,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#pattern-hybride-le-cas-reel-de-kore-hexagonal" class="md-nav__link">
+  <a href="#3-cprp-sncf-2020-cause-externe-non-communiquee" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Pattern hybride • le cas réel de kore-hexagonal
+        3. CPRP SNCF · 2020 · Cause externe non communiquée
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#gestion-des-erreurs-comportement-different" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Gestion des erreurs • comportement différent
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Gestion des erreurs • comportement différent">
+    <nav class="md-nav" aria-label="3. CPRP SNCF · 2020 · Cause externe non communiquée">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#synchrone" class="md-nav__link">
+  <a href="#contexte_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Synchrone
+        Contexte
       
     </span>
   </a>
@@ -4862,10 +4895,54 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#asynchrone" class="md-nav__link">
+  <a href="#investigation_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Asynchrone
+        Investigation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#demarche-complementaire-initiative" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Démarche complémentaire (initiative)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cause-racine" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cause racine
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#consequences" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conséquences
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enseignement_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enseignement
       
     </span>
   </a>
@@ -4878,43 +4955,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#coherence-des-donnees" class="md-nav__link">
+  <a href="#lecture-transverse-ce-que-ces-trois-cas-racontent" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Cohérence des données
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#quand-choisir-quoi" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Quand choisir quoi
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#observabilite-plus-critique-en-asynchrone" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Observabilité • plus critique en asynchrone
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#conclusion" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Conclusion
+        Lecture transverse · ce que ces trois cas racontent
       
     </span>
   </a>
@@ -4953,274 +4997,184 @@
       
       
       
-        <a href="../../../tags/#tag:architecture" class="md-tag">architecture</a>
+        <a href="../../../tags/#tag:feedback" class="md-tag">feedback</a>
       
     
       
       
       
       
-        <a href="../../../tags/#tag:distributed" class="md-tag">distributed</a>
+        <a href="../../../tags/#tag:incident" class="md-tag">incident</a>
       
     
       
       
       
       
-        <a href="../../../tags/#tag:event-driven" class="md-tag">event-driven</a>
+        <a href="../../../tags/#tag:mco" class="md-tag">mco</a>
       
     
       
       
       
       
-        <a href="../../../tags/#tag:kafka" class="md-tag">kafka</a>
+        <a href="../../../tags/#tag:production" class="md-tag">production</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../../tags/#tag:retour-d-experience" class="md-tag">retour-d-experience</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../../tags/#tag:run" class="md-tag">run</a>
       
     
   </nav>
 
 
 
-<h1 id="synchrone-vs-asynchrone-dans-les-architectures-backend">Synchrone vs Asynchrone dans les Architectures Backend</h1>
-<div class="admonition note">
-<p>Note de contexte (12 mai 2026) : cette note constitue un retour d'expérience suite à des échanges avec des experts du domaine. Elle est rédigée le jour même et vise à structurer les notions abordées pour consolidation et montée en compétence.</p>
-</div>
-<h2 id="la-question-fondamentale">La question fondamentale</h2>
-<p>Quand deux composants doivent communiquer, un seul choix structurant se pose :</p>
-<blockquote>
-<p>est-ce que l'appelant attend la réponse, ou continue-t-il sans attendre ?</p>
-</blockquote>
-<p>Ce choix impacte la performance, la résilience, la scalabilité et la complexité du système.</p>
+<h1 id="incidents-vecu-terrain-3-retours-dexperience">Incidents Vécu Terrain · 3 Retours d'Expérience</h1>
+<p>Cette page rassemble trois incidents production que j'ai gérés à différents moments de ma carrière. L'idée : raconter chaque cas en restant <strong>factuel sur le déroulé</strong> et <strong>honnête sur les limites</strong>, pour montrer la posture d'investigation plutôt que les compétences sur papier.</p>
+<p>Les trois cas couvrent un spectre intéressant : un incident <strong>infra</strong> simple (2014), un incident <strong>applicatif</strong> complexe (2017) et un incident <strong>dépendance externe</strong> non documenté (2020). Trois niveaux différents, trois types de raisonnement.</p>
 <hr />
-<h2 id="communication-synchrone">Communication synchrone</h2>
-<p>L'appelant <strong>bloque</strong> jusqu'à recevoir la réponse.</p>
-<div class="highlight"><pre><span></span><code>Service A ──request──&gt; Service B
-Service A  &lt;──response── Service B
-    |
-    (reprend l&#39;exécution)
+<h2 id="1-applicatour-2014-redemarrage-dun-serveur-linux-applicatif">1. Applicatour · 2014 · Redémarrage d'un serveur Linux applicatif</h2>
+<h3 id="contexte">Contexte</h3>
+<p>Premier poste de production. Serveur Linux hébergeant les applications clients sous <strong>Apache Tomcat</strong>. Symptômes utilisateurs : lenteurs et indisponibilités sporadiques de plusieurs applications hébergées.</p>
+<h3 id="investigation">Investigation</h3>
+<p>À l'époque, sans outillage moderne (pas de Prometheus, pas d'APM), l'investigation s'est concentrée sur les couches <strong>infra</strong> avec les commandes Linux de base :</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Charge système et processus actifs</span>
+uptime
+top
+
+<span class="c1"># Mémoire disponible (lire la colonne &quot;available&quot;, pas &quot;free&quot;)</span>
+free<span class="w"> </span>-m
+
+<span class="c1"># Espace disque par partition</span>
+df<span class="w"> </span>-h
+<span class="c1"># Partitions à surveiller : / (système), /var (logs Tomcat), /tmp</span>
+
+<span class="c1"># Plus gros consommateurs de mémoire</span>
+ps<span class="w"> </span>aux<span class="w"> </span>--sort<span class="o">=</span>-%mem<span class="w"> </span><span class="p">|</span><span class="w"> </span>head
+
+<span class="c1"># Process Tomcat encore vivant ?</span>
+ps<span class="w"> </span>-ef<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-i<span class="w"> </span>tomcat
+ps<span class="w"> </span>-ef<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-i<span class="w"> </span>java
+
+<span class="c1"># Connexions réseau actives</span>
+netstat<span class="w"> </span>-an<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>:8080
+netstat<span class="w"> </span>-tnp<span class="w"> </span><span class="p">|</span><span class="w"> </span>wc<span class="w"> </span>-l
 </code></pre></div>
-<h3 id="exemples">Exemples</h3>
-<ul>
-<li>REST HTTP (<code>GET /bookings/123</code> → attend le JSON)</li>
-<li>gRPC (appel RPC bloquant)</li>
-<li>Appel de méthode Java classique</li>
-</ul>
-<h3 id="implementation-dans-kore-hexagonal-write-side">Implémentation dans kore-hexagonal • write side</h3>
-<div class="highlight"><pre><span></span><code><span class="nd">@RestController</span>
-<span class="nd">@RequestMapping</span><span class="p">(</span><span class="s">&quot;/api/v1/bookings&quot;</span><span class="p">)</span>
-<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">BookingController</span><span class="w"> </span><span class="p">{</span>
-
-<span class="w">    </span><span class="nd">@PostMapping</span>
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">ResponseEntity</span><span class="o">&lt;</span><span class="n">BookingView</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">create</span><span class="p">(</span>
-<span class="w">            </span><span class="nd">@Valid</span><span class="w"> </span><span class="nd">@RequestBody</span><span class="w"> </span><span class="n">CreateBookingRequest</span><span class="w"> </span><span class="n">request</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-
-<span class="w">        </span><span class="n">UUID</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">createHandler</span><span class="p">.</span><span class="na">handle</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">CreateBookingCommand</span><span class="p">(</span>
-<span class="w">                </span><span class="n">request</span><span class="p">.</span><span class="na">assetRef</span><span class="p">(),</span><span class="w"> </span><span class="n">request</span><span class="p">.</span><span class="na">startDate</span><span class="p">(),</span><span class="w"> </span><span class="n">request</span><span class="p">.</span><span class="na">endDate</span><span class="p">()</span>
-<span class="w">        </span><span class="p">));</span>
-
-<span class="w">        </span><span class="c1">// Le client attend la réponse • flux synchrone</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">ResponseEntity</span><span class="p">.</span><span class="na">status</span><span class="p">(</span><span class="mi">201</span><span class="p">).</span><span class="na">body</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">BookingView</span><span class="p">(</span><span class="n">id</span><span class="p">));</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-<p>Le handler est <code>@Transactional</code> • il persiste le booking et retourne l'UUID. Le client reçoit une réponse HTTP 201 avec l'identifiant créé.</p>
-<h3 id="avantages">Avantages</h3>
-<ul>
-<li>simplicité conceptuelle et de debug</li>
-<li>cohérence immédiate (le client sait si l'opération a réussi)</li>
-<li>flux de contrôle clair</li>
-</ul>
-<h3 id="inconvenients">Inconvénients</h3>
-<ul>
-<li>couplage temporel : si Service B est lent, Service A attend</li>
-<li>propagation des pannes : si Service B est down, Service A échoue</li>
-<li>latence cumulée dans les chaînes d'appels</li>
-</ul>
+<p>Résultat : indicateurs cohérents avec une saturation mémoire / file descriptors qui empêchait le bon fonctionnement des applications.</p>
+<h3 id="resolution">Résolution</h3>
+<p>Redémarrage propre de la machine via un script shell (ordre maîtrisé : arrêt Tomcat → arrêt services dépendants → reboot → redémarrage Tomcat → vérification logs). Toutes les applications clients ont repris leur marche.</p>
+<h3 id="limites-assumees">Limites assumées</h3>
+<p>Je n'ai pas pu déterminer la <strong>cause racine</strong> précise de l'épuisement des ressources. À l'époque, sans outillage d'observabilité moderne (heap dumps centralisés, métriques historiques), la séquence "détecter / contenir / corriger / postmortem" se réduisait souvent à "redémarrer proprement et observer si ça se reproduit".</p>
+<h3 id="enseignement">Enseignement</h3>
+<p>Cet incident a posé les bases de ma <strong>discipline de redémarrage</strong> : ne jamais relancer dans l'urgence sans ordre, toujours scripter la séquence pour qu'elle soit reproductible, et capturer un état (au moins logs et métriques système) avant de tout couper. Réflexes qui sont restés tout au long de ma carrière.</p>
 <hr />
-<h2 id="communication-asynchrone">Communication asynchrone</h2>
-<p>L'appelant <strong>publie un événement</strong> et continue sans attendre de réponse.</p>
-<div class="highlight"><pre><span></span><code>Service A ──event──&gt; [Broker Kafka]
-Service A  (continue immédiatement)
-                         |
-                    Service B consomme
-                    (plus tard, à son rythme)
-</code></pre></div>
-<h3 id="implementation-dans-kore-hexagonal-publication-devenement">Implémentation dans kore-hexagonal • publication d'événement</h3>
-<div class="highlight"><pre><span></span><code><span class="nd">@Service</span>
-<span class="nd">@RequiredArgsConstructor</span>
-<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">CreateBookingHandler</span><span class="w"> </span><span class="p">{</span>
-
-<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">BookingRepository</span><span class="w"> </span><span class="n">bookingRepository</span><span class="p">;</span>
-<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">EventProducer</span><span class="w"> </span><span class="n">eventProducer</span><span class="p">;</span>
-
-<span class="w">    </span><span class="nd">@Transactional</span>
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">UUID</span><span class="w"> </span><span class="nf">handle</span><span class="p">(</span><span class="n">CreateBookingCommand</span><span class="w"> </span><span class="n">cmd</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="c1">// 1. Logique métier synchrone</span>
-<span class="w">        </span><span class="n">Booking</span><span class="w"> </span><span class="n">booking</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Booking</span><span class="p">.</span><span class="na">create</span><span class="p">(</span>
-<span class="w">            </span><span class="n">cmd</span><span class="p">.</span><span class="na">assetRef</span><span class="p">(),</span><span class="w"> </span><span class="n">cmd</span><span class="p">.</span><span class="na">startDate</span><span class="p">(),</span><span class="w"> </span><span class="n">cmd</span><span class="p">.</span><span class="na">endDate</span><span class="p">());</span>
-<span class="w">        </span><span class="n">bookingRepository</span><span class="p">.</span><span class="na">save</span><span class="p">(</span><span class="n">booking</span><span class="p">);</span>
-
-<span class="w">        </span><span class="c1">// 2. Publication asynchrone des événements de domaine</span>
-<span class="w">        </span><span class="n">booking</span><span class="p">.</span><span class="na">pullEvents</span><span class="p">().</span><span class="na">forEach</span><span class="p">(</span><span class="n">eventProducer</span><span class="p">::</span><span class="n">publish</span><span class="p">);</span>
-
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">booking</span><span class="p">.</span><span class="na">getId</span><span class="p">();</span>
-<span class="w">        </span><span class="c1">// Le handler ne sait pas ce que les consumers vont faire</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="nd">@Override</span>
-<span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">publish</span><span class="p">(</span><span class="n">DomainEvent</span><span class="w"> </span><span class="n">event</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">EventEnvelope</span><span class="w"> </span><span class="n">envelope</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">EventEnvelope</span><span class="p">(</span>
-<span class="w">            </span><span class="n">UUID</span><span class="p">.</span><span class="na">randomUUID</span><span class="p">(),</span>
-<span class="w">            </span><span class="n">event</span><span class="p">.</span><span class="na">eventType</span><span class="p">(),</span>
-<span class="w">            </span><span class="n">ZonedDateTime</span><span class="p">.</span><span class="na">now</span><span class="p">(),</span>
-<span class="w">            </span><span class="n">objectMapper</span><span class="p">.</span><span class="na">valueToTree</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
-<span class="w">    </span><span class="p">);</span>
-<span class="w">    </span><span class="c1">// Publication dans Kafka • le producer n&#39;attend pas la consommation</span>
-<span class="w">    </span><span class="n">kafkaTemplate</span><span class="p">.</span><span class="na">send</span><span class="p">(</span><span class="n">topic</span><span class="p">,</span><span class="w"> </span><span class="n">envelope</span><span class="p">.</span><span class="na">eventId</span><span class="p">().</span><span class="na">toString</span><span class="p">(),</span>
-<span class="w">                       </span><span class="n">objectMapper</span><span class="p">.</span><span class="na">writeValueAsString</span><span class="p">(</span><span class="n">envelope</span><span class="p">));</span>
-<span class="p">}</span>
-</code></pre></div>
-<p>Le consumer (<code>BookingEventHandler</code>) met à jour le read model de façon <strong>indépendante</strong>, sans bloquer le write side.</p>
-<h3 id="avantages_1">Avantages</h3>
+<h2 id="2-adsn-2017-logs-verbeux-infinispan-et-confiance-gagnee">2. ADSN · 2017 · Logs verbeux Infinispan et confiance gagnée</h2>
+<h3 id="contexte_1">Contexte</h3>
+<p>Application en production hébergée à <strong>Venelles</strong>. Les logs <strong>Infinispan</strong> (cache distribué Java) ont déclenché une alerte côté supervision : volume anormalement élevé, messages d'erreur récurrents. L'équipe a remonté un incident à traiter en urgence.</p>
+<h3 id="investigation_1">Investigation</h3>
+<p>Journée complète d'analyse, surtout côté <strong>applicatif</strong>, en combinant <strong>Splunk</strong> pour la centralisation des logs et les outils Java pour l'inspection JVM :</p>
+<p><strong>Via Splunk</strong> :</p>
 <ul>
-<li>découplage temporel : le producer ne dépend pas de la disponibilité des consumers</li>
-<li>résilience : si un consumer est down, les messages s'accumulent et sont traités au redémarrage</li>
-<li>scalabilité : on ajoute des consumers sans toucher au producer</li>
+<li>Requêtes ciblées sur la fenêtre temporelle de l'alerte</li>
+<li>Filtrage par composant Infinispan et par niveau de log</li>
+<li>Corrélation des messages d'erreur entre serveurs du cluster</li>
+<li>Comparaison avec les fenêtres précédentes pour qualifier l'anomalie</li>
+<li>Identification des hosts émetteurs et des patterns de fréquence</li>
 </ul>
-<h3 id="inconvenients_1">Inconvénients</h3>
+<p><strong>Côté machine et JVM</strong> :</p>
 <ul>
-<li>cohérence éventuelle uniquement</li>
-<li>debugging plus difficile (flux non linéaire)</li>
-<li>besoin d'observabilité forte (correlationId, tracing)</li>
+<li>Lecture des logs Tomcat (<code>catalina.out</code>)</li>
+<li>Analyse des <strong>thread dumps</strong> (<code>jstack</code>) pour identifier les threads bloqués ou en boucle</li>
+<li>Vérification de l'état des pools de connexions DB</li>
+<li>Inspection mémoire à la demande (<code>jmap</code>)</li>
+<li>Corrélation des messages d'erreur avec les patterns Infinispan connus</li>
+<li>Identification des composants applicatifs émetteurs et de leur contexte d'appel</li>
 </ul>
+<h3 id="resolution_1">Résolution</h3>
+<p>Rapport d'analyse remis à la direction technique : <strong>rien de critique côté fonctionnel</strong>. Les logs verbeux étaient liés au comportement normal d'Infinispan dans un mode de réplication particulier, sans impact métier observable.</p>
+<p>Le ticket a été <strong>clôturé sans patch applicatif</strong>, avec recommandation de réduire le niveau de log si volumétrie problématique.</p>
+<h3 id="consequences-positives">Conséquences positives</h3>
+<p>À partir de cet incident :</p>
+<ul>
+<li>Confiance accordée par le <strong>chef de projet</strong> et l'<strong>architecte</strong> de l'équipe pour intervenir directement sur les machines de l'architecte</li>
+<li>Sollicitation régulière pour les <strong>tickets N2</strong> côté Build</li>
+<li>Étapes <strong>Qualif et Intégration accélérées</strong> sur mes livrables pour mise en prod rapide (ce qui était rare avant l'arrivée de la culture DevOps)</li>
+</ul>
+<h3 id="enseignement_1">Enseignement</h3>
+<p>Un incident bien diagnostiqué n'a pas besoin d'une correction technique pour être valorisé. Le vrai livrable est le <strong>rapport d'analyse rassurant</strong> : "voilà ce que c'est, voilà pourquoi ce n'est pas grave, voilà ce qu'on fait pour éviter le bruit à l'avenir". C'est exactement le rôle d'un responsable d'application en run.</p>
 <hr />
-<h2 id="pattern-hybride-le-cas-reel-de-kore-hexagonal">Pattern hybride • le cas réel de kore-hexagonal</h2>
-<p>En production, les systèmes n'utilisent pas l'un ou l'autre exclusivement. kore-hexagonal est un exemple typique de <strong>pattern hybride</strong> :</p>
-<div class="highlight"><pre><span></span><code>[Client HTTP]
-      |
-  REST sync       ← création du booking, réponse 201 immédiate
-      |
-[CreateBookingHandler]
-      |
-  JPA save        ← écriture synchrone en base
-      |
-  Kafka publish   ← déclenchement asynchrone du read model
-      |
-[BookingEventConsumer]  ← traitement asynchrone, indépendant
-      |
-  booking_read_model mise à jour
-</code></pre></div>
-<p><strong>Lecture (GET)</strong> : synchrone via <code>BookingReadController</code> → lit directement <code>booking_read_model</code></p>
-<p><strong>Ecriture (POST/PUT)</strong> : synchrone pour la persistance métier, asynchrone pour la propagation aux consumers</p>
-<p>Ce choix est délibéré :
-- le client a une réponse immédiate sur le résultat de son action
-- la mise à jour du read model ne bloque pas l'écriture
-- si le consumer est lent, l'écriture n'en pâtit pas</p>
+<h2 id="3-cprp-sncf-2020-cause-externe-non-communiquee">3. CPRP SNCF · 2020 · Cause externe non communiquée</h2>
+<h3 id="contexte_2">Contexte</h3>
+<p>Incident de production sur une application du domaine retraites. Symptômes intermittents difficiles à reproduire. Pas de signal évident côté infra ou applicatif.</p>
+<h3 id="investigation_2">Investigation</h3>
+<p>Approche méthodique du bas vers le haut :</p>
+<ul>
+<li>Vérification de la machine : CPU, RAM, disque — RAS</li>
+<li>Analyse de <strong>heap dumps Java</strong> générés à différents moments</li>
+<li>Vérification du comportement de la JVM (GC, threads)</li>
+<li>Tests de reproduction sur environnement hors production : <strong>rien d'anormal</strong>, impossible de répliquer</li>
+</ul>
+<p>L'incident résistait à l'investigation classique. C'est l'environnement (prod uniquement) qui était la clé.</p>
+<h3 id="demarche-complementaire-initiative">Démarche complémentaire (initiative)</h3>
+<p>Plutôt que de clôturer en "non reproductible", j'ai pris contact de moi-même avec différents acteurs autour du périmètre : équipes d'exploitation, équipes Base de Données, équipes hébergement. Cette ouverture m'a permis de découvrir progressivement le contexte caché de l'incident.</p>
+<h3 id="cause-racine">Cause racine</h3>
+<p><strong>Connexion vers la base de données instable</strong> sur l'environnement de production uniquement. Investigation poussée via mes échanges informels : une partie de la base de données avait été <strong>migrée en parallèle</strong> par une équipe distante (Montauban) sans que l'information remonte officiellement au moment de l'incident.</p>
+<p>Côté technique : trouvé avant la communication officielle. Côté process : symptôme d'une <strong>lacune de communication inter-équipes</strong> typique du secteur public à l'époque.</p>
+<h3 id="consequences">Conséquences</h3>
+<p>Ticket clôturé une fois la cause établie. Conséquence durable de l'incident sur l'équipe : initiative personnelle de <strong>scripter l'intégralité du processus de livraison en production</strong>, là où on s'appuyait jusqu'alors sur des fichiers Excel décrivant les étapes à exécuter manuellement.</p>
+<p>Cet incident n'était pas évitable côté équipe applicative (cause externe non communiquée), mais il a servi de déclencheur pour rendre nos livraisons <strong>plus robustes, traçables, automatisées</strong> — démarche que je qualifierais aujourd'hui de "pré-DevOps" sur ce contexte.</p>
+<h3 id="enseignement_2">Enseignement</h3>
+<p>Sur les incidents qui résistent à l'analyse technique, <strong>l'enquête se gagne souvent au téléphone</strong> plutôt que dans les logs. Réflexe à garder : élargir le périmètre de l'investigation aux <strong>équipes adjacentes</strong> dès qu'on tape un mur côté technique pur.</p>
 <hr />
-<h2 id="gestion-des-erreurs-comportement-different">Gestion des erreurs • comportement différent</h2>
-<h3 id="synchrone">Synchrone</h3>
-<p>L'erreur remonte directement dans la stack d'appel :</p>
-<div class="highlight"><pre><span></span><code>POST /bookings → BookingDomainException → GlobalExceptionHandler → HTTP 400
-</code></pre></div>
-<p>Le client sait immédiatement que son action a échoué.</p>
-<h3 id="asynchrone">Asynchrone</h3>
-<p>L'erreur ne peut pas remonter vers le client • il est déjà reparti :</p>
-<div class="highlight"><pre><span></span><code>Kafka message → consumer plante → retry (x3) → DLT → log + alerte Grafana
-</code></pre></div>
-<p>Le client ne saura jamais que le read model n'a pas été mis à jour, sauf si on lui envoie une notification.</p>
-<hr />
-<h2 id="coherence-des-donnees">Cohérence des données</h2>
+<h2 id="lecture-transverse-ce-que-ces-trois-cas-racontent">Lecture transverse · ce que ces trois cas racontent</h2>
 <table>
 <thead>
 <tr>
-<th>Modèle</th>
-<th>Cohérence</th>
-<th>Performance</th>
-<th>Cas d'usage</th>
+<th>Année</th>
+<th>Lieu</th>
+<th>Niveau dominant</th>
+<th>Posture clé</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Synchrone</td>
-<td>Forte (immédiate)</td>
-<td>Plus lente</td>
-<td>Opérations critiques, validation</td>
+<td>2014</td>
+<td>Applicatour</td>
+<td>Infra (Linux, Tomcat)</td>
+<td>Discipline du redémarrage scripté</td>
 </tr>
 <tr>
-<td>Asynchrone</td>
-<td>Eventuelle</td>
-<td>Plus rapide</td>
-<td>Notifications, projections, pipelines</td>
+<td>2017</td>
+<td>ADSN</td>
+<td>Applicatif (JVM, Infinispan)</td>
+<td>Rapport d'analyse comme livrable</td>
+</tr>
+<tr>
+<td>2020</td>
+<td>CPRP SNCF</td>
+<td>Dépendance externe (DB / inter-équipes)</td>
+<td>Investigation hors logs</td>
 </tr>
 </tbody>
 </table>
-<p>Dans kore-hexagonal, le write model (base principale) est <strong>fortement cohérent</strong> via <code>@Transactional</code>. Le read model est <strong>éventuellement cohérent</strong> • il peut avoir quelques millisecondes de retard sur le write model.</p>
-<hr />
-<h2 id="quand-choisir-quoi">Quand choisir quoi</h2>
-<table>
-<thead>
-<tr>
-<th>Situation</th>
-<th>Synchrone</th>
-<th>Asynchrone</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Le client a besoin du résultat immédiatement</td>
-<td>Oui</td>
-<td>Non</td>
-</tr>
-<tr>
-<td>L'opération peut être longue</td>
-<td>Non</td>
-<td>Oui</td>
-</tr>
-<tr>
-<td>Plusieurs services doivent réagir au même événement</td>
-<td>Non</td>
-<td>Oui</td>
-</tr>
-<tr>
-<td>La cohérence immédiate est critique</td>
-<td>Oui</td>
-<td>Non</td>
-</tr>
-<tr>
-<td>Le système doit absorber des pics de charge</td>
-<td>Non</td>
-<td>Oui</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h2 id="observabilite-plus-critique-en-asynchrone">Observabilité • plus critique en asynchrone</h2>
-<p>En synchrone, la stack trace suffit pour débugger. En asynchrone, il faut :</p>
-<ul>
-<li>un <code>correlationId</code> propagé de l'HTTP jusqu'aux events Kafka</li>
-<li>des logs structurés avec ce correlationId dans chaque consumer</li>
-<li>des métriques sur le consumer lag pour détecter les retards</li>
-<li>un dashboard Grafana montrant le flux de bout en bout</li>
-</ul>
-<p>Sans cette observabilité, le debugging d'un système async devient extrêmement difficile.</p>
-<hr />
-<h2 id="conclusion">Conclusion</h2>
-<p>Synchrone et asynchrone ne sont pas opposés • ils se complètent.</p>
-<ul>
-<li><strong>Synchrone</strong> pour les opérations où le client a besoin d'un résultat immédiat et fiable</li>
-<li><strong>Asynchrone</strong> pour propager les effets de bord, découpler les services, absorber la charge</li>
-</ul>
-<p>kore-hexagonal illustre ce pattern : écriture synchrone + propagation asynchrone via Kafka. C'est l'architecture standard des systèmes distribués modernes.</p>
+<p>Sur 6 ans d'écart, le <strong>niveau d'investigation</strong> s'est déplacé du bas (machine) vers le haut (process et dépendances), et l'outillage s'est étoffé. Le <strong>réflexe constant</strong> est resté : ne pas relancer dans la panique, qualifier avant de corriger, capturer ce qui peut servir au postmortem.</p>
+<p>Ce que ces trois cas ne couvrent pas (et que je n'ai jamais eu en charge) : un contexte de <strong>transactions critiques à la milliseconde</strong> avec astreinte 24/7. C'est précisément le saut que j'envisage, et la raison pour laquelle un poste de RUN sur plateforme temps réel m'intéresse aujourd'hui.</p>
 <hr />
 <h2 id="voir-aussi">Voir aussi</h2>
 <ul>
-<li><a href="../microservices-communication/">Microservices Communication</a></li>
-<li><a href="../kafka-resilience-patterns/">Kafka Resilience Patterns</a></li>
-<li><a href="../../kafka/retry-and-dlt-pattern/">Retry and DLT Pattern</a></li>
-<li><a href="../../kafka/outbox-pattern/">Outbox Pattern</a></li>
-<li><a href="../eventual-consistency/">Eventual Consistency</a></li>
-<li><a href="../../kafka/idempotent-consumers/">Idempotent Consumers</a></li>
+<li><a href="../../devops/run-mco-sre/">RUN, MCO et SRE</a></li>
+<li><a href="../monitoring-paiement/">Monitoring de Plateforme de Paiement</a></li>
+<li><a href="../java-production-deep-dive/">Java en Production · Deep-Dive</a></li>
 </ul>
 
 
