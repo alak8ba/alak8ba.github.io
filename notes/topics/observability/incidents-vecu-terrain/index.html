@@ -29,7 +29,7 @@
     
     
       
-        <title>Incidents Vécu Terrain (3 REX) - Engineering Notes</title>
+        <title>Investigation d'Incidents • 3 Patterns - Engineering Notes</title>
       
     
     
@@ -82,7 +82,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#incidents-vecu-terrain-3-retours-dexperience" class="md-skip">
+        <a href="#investigation-dincidents-3-patterns-recurrents" class="md-skip">
           Aller au contenu
         </a>
       
@@ -115,7 +115,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Incidents Vécu Terrain (3 REX)
+              Investigation d'Incidents • 3 Patterns
             
           </span>
         </div>
@@ -2958,7 +2958,7 @@
   <span class="md-ellipsis">
     
   
-    Incidents Vécu Terrain (3 REX)
+    Investigation d'Incidents • 3 Patterns
   
 
     
@@ -2976,7 +2976,7 @@
   <span class="md-ellipsis">
     
   
-    Incidents Vécu Terrain (3 REX)
+    Investigation d'Incidents • 3 Patterns
   
 
     
@@ -3002,22 +3002,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-applicatour-redemarrage-dun-serveur-linux-applicatif" class="md-nav__link">
+  <a href="#pattern-1-saturation-infrastructure-contexte-pme-outillage-limite" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Applicatour · Redémarrage d'un serveur Linux applicatif
+        Pattern 1 · Saturation Infrastructure (contexte PME, outillage limité)
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="1. Applicatour · Redémarrage d&#39;un serveur Linux applicatif">
+    <nav class="md-nav" aria-label="Pattern 1 · Saturation Infrastructure (contexte PME, outillage limité)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#contexte" class="md-nav__link">
+  <a href="#contexte-type" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Contexte
+        Contexte type
       
     </span>
   </a>
@@ -3025,10 +3025,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#investigation" class="md-nav__link">
+  <a href="#symptomes" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Investigation
+        Symptômes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#investigation-type" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Investigation type
       
     </span>
   </a>
@@ -3047,10 +3058,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#limites-assumees" class="md-nav__link">
+  <a href="#limite-assumee" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Limites assumées
+        Limite assumée
       
     </span>
   </a>
@@ -3074,22 +3085,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-adsn-logs-verbeux-infinispan-et-confiance-gagnee" class="md-nav__link">
+  <a href="#pattern-2-anomalie-applicative-apparente-client-exigeant-sur-son-domaine" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. ADSN · Logs verbeux Infinispan et confiance gagnée
+        Pattern 2 · Anomalie Applicative Apparente (client exigeant sur son domaine)
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="2. ADSN · Logs verbeux Infinispan et confiance gagnée">
+    <nav class="md-nav" aria-label="Pattern 2 · Anomalie Applicative Apparente (client exigeant sur son domaine)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#contexte_1" class="md-nav__link">
+  <a href="#contexte-type_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Contexte
+        Contexte type
       
     </span>
   </a>
@@ -3097,10 +3108,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#investigation_1" class="md-nav__link">
+  <a href="#symptomes_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Investigation
+        Symptômes
       
     </span>
   </a>
@@ -3108,10 +3119,32 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#resolution_1" class="md-nav__link">
+  <a href="#investigation-type_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Résolution
+        Investigation type
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resolution-typique" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Résolution typique
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#effet-de-bord" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Effet de bord
       
     </span>
   </a>
@@ -3135,22 +3168,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-cprp-sncf-cause-externe-non-communiquee" class="md-nav__link">
+  <a href="#pattern-3-cause-externe-non-communiquee-grande-structure-secteur-public" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. CPRP SNCF · Cause externe non communiquée
+        Pattern 3 · Cause Externe Non Communiquée (grande structure / secteur public)
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="3. CPRP SNCF · Cause externe non communiquée">
+    <nav class="md-nav" aria-label="Pattern 3 · Cause Externe Non Communiquée (grande structure / secteur public)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#contexte_2" class="md-nav__link">
+  <a href="#contexte-type_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Contexte
+        Contexte type
       
     </span>
   </a>
@@ -3158,10 +3191,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#investigation_2" class="md-nav__link">
+  <a href="#symptomes_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Investigation
+        Symptômes
       
     </span>
   </a>
@@ -3169,10 +3202,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#demarche-complementaire-initiative" class="md-nav__link">
+  <a href="#investigation-type_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Démarche complémentaire (initiative)
+        Investigation type
       
     </span>
   </a>
@@ -3180,10 +3213,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#cause-racine" class="md-nav__link">
+  <a href="#demarche-complementaire" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Cause racine
+        Démarche complémentaire
       
     </span>
   </a>
@@ -3191,10 +3224,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#consequences" class="md-nav__link">
+  <a href="#cause-racine-type" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Conséquences
+        Cause racine type
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#effet-de-bord-positif" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Effet de bord positif
       
     </span>
   </a>
@@ -3218,13 +3262,30 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#lecture-transverse-ce-que-ces-trois-cas-racontent" class="md-nav__link">
+  <a href="#lecture-transverse-choisir-le-bon-pattern" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Lecture transverse · ce que ces trois cas racontent
+        Lecture transverse · choisir le bon pattern
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Lecture transverse · choisir le bon pattern">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#limite-du-modele" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limite du modèle
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -3262,7 +3323,7 @@
   <span class="md-ellipsis">
     
   
-    Profil • Pourquoi passer du BUILD au RUN
+    BUILD vers RUN • Transition de Profil
   
 
     
@@ -4745,22 +4806,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-applicatour-redemarrage-dun-serveur-linux-applicatif" class="md-nav__link">
+  <a href="#pattern-1-saturation-infrastructure-contexte-pme-outillage-limite" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Applicatour · Redémarrage d'un serveur Linux applicatif
+        Pattern 1 · Saturation Infrastructure (contexte PME, outillage limité)
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="1. Applicatour · Redémarrage d&#39;un serveur Linux applicatif">
+    <nav class="md-nav" aria-label="Pattern 1 · Saturation Infrastructure (contexte PME, outillage limité)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#contexte" class="md-nav__link">
+  <a href="#contexte-type" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Contexte
+        Contexte type
       
     </span>
   </a>
@@ -4768,10 +4829,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#investigation" class="md-nav__link">
+  <a href="#symptomes" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Investigation
+        Symptômes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#investigation-type" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Investigation type
       
     </span>
   </a>
@@ -4790,10 +4862,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#limites-assumees" class="md-nav__link">
+  <a href="#limite-assumee" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Limites assumées
+        Limite assumée
       
     </span>
   </a>
@@ -4817,22 +4889,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-adsn-logs-verbeux-infinispan-et-confiance-gagnee" class="md-nav__link">
+  <a href="#pattern-2-anomalie-applicative-apparente-client-exigeant-sur-son-domaine" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. ADSN · Logs verbeux Infinispan et confiance gagnée
+        Pattern 2 · Anomalie Applicative Apparente (client exigeant sur son domaine)
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="2. ADSN · Logs verbeux Infinispan et confiance gagnée">
+    <nav class="md-nav" aria-label="Pattern 2 · Anomalie Applicative Apparente (client exigeant sur son domaine)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#contexte_1" class="md-nav__link">
+  <a href="#contexte-type_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Contexte
+        Contexte type
       
     </span>
   </a>
@@ -4840,10 +4912,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#investigation_1" class="md-nav__link">
+  <a href="#symptomes_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Investigation
+        Symptômes
       
     </span>
   </a>
@@ -4851,10 +4923,32 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#resolution_1" class="md-nav__link">
+  <a href="#investigation-type_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Résolution
+        Investigation type
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resolution-typique" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Résolution typique
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#effet-de-bord" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Effet de bord
       
     </span>
   </a>
@@ -4878,22 +4972,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-cprp-sncf-cause-externe-non-communiquee" class="md-nav__link">
+  <a href="#pattern-3-cause-externe-non-communiquee-grande-structure-secteur-public" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. CPRP SNCF · Cause externe non communiquée
+        Pattern 3 · Cause Externe Non Communiquée (grande structure / secteur public)
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="3. CPRP SNCF · Cause externe non communiquée">
+    <nav class="md-nav" aria-label="Pattern 3 · Cause Externe Non Communiquée (grande structure / secteur public)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#contexte_2" class="md-nav__link">
+  <a href="#contexte-type_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Contexte
+        Contexte type
       
     </span>
   </a>
@@ -4901,10 +4995,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#investigation_2" class="md-nav__link">
+  <a href="#symptomes_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Investigation
+        Symptômes
       
     </span>
   </a>
@@ -4912,10 +5006,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#demarche-complementaire-initiative" class="md-nav__link">
+  <a href="#investigation-type_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Démarche complémentaire (initiative)
+        Investigation type
       
     </span>
   </a>
@@ -4923,10 +5017,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#cause-racine" class="md-nav__link">
+  <a href="#demarche-complementaire" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Cause racine
+        Démarche complémentaire
       
     </span>
   </a>
@@ -4934,10 +5028,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#consequences" class="md-nav__link">
+  <a href="#cause-racine-type" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Conséquences
+        Cause racine type
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#effet-de-bord-positif" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Effet de bord positif
       
     </span>
   </a>
@@ -4961,13 +5066,30 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#lecture-transverse-ce-que-ces-trois-cas-racontent" class="md-nav__link">
+  <a href="#lecture-transverse-choisir-le-bon-pattern" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Lecture transverse · ce que ces trois cas racontent
+        Lecture transverse · choisir le bon pattern
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Lecture transverse · choisir le bon pattern">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#limite-du-modele" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limite du modèle
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -5003,14 +5125,14 @@
       
       
       
-        <a href="../../../tags/#tag:feedback" class="md-tag">feedback</a>
+        <a href="../../../tags/#tag:incident" class="md-tag">incident</a>
       
     
       
       
       
       
-        <a href="../../../tags/#tag:incident" class="md-tag">incident</a>
+        <a href="../../../tags/#tag:investigation" class="md-tag">investigation</a>
       
     
       
@@ -5024,14 +5146,14 @@
       
       
       
-        <a href="../../../tags/#tag:production" class="md-tag">production</a>
+        <a href="../../../tags/#tag:patterns" class="md-tag">patterns</a>
       
     
       
       
       
       
-        <a href="../../../tags/#tag:retour-d-experience" class="md-tag">retour-d-experience</a>
+        <a href="../../../tags/#tag:production" class="md-tag">production</a>
       
     
       
@@ -5045,15 +5167,20 @@
 
 
 
-<h1 id="incidents-vecu-terrain-3-retours-dexperience">Incidents Vécu Terrain · 3 Retours d'Expérience</h1>
-<p>Cette page rassemble trois incidents production que j'ai gérés à différents moments de ma carrière. L'idée : raconter chaque cas en restant <strong>factuel sur le déroulé</strong> et <strong>honnête sur les limites</strong>, pour montrer la posture d'investigation plutôt que les compétences sur papier.</p>
-<p>Les trois cas couvrent un spectre intéressant : un incident <strong>infra</strong> simple, un incident <strong>applicatif</strong> complexe et un incident <strong>dépendance externe</strong> non documenté. Trois niveaux différents, trois types de raisonnement, étalés sur une dizaine d'années.</p>
+<h1 id="investigation-dincidents-3-patterns-recurrents">Investigation d'Incidents · 3 Patterns Récurrents</h1>
+<p>Trois patterns reviennent régulièrement en exploitation d'applications Java en production : un pattern <strong>infrastructure</strong>, un pattern <strong>applicatif</strong> et un pattern <strong>dépendance externe</strong>. Cette page les illustre à travers trois cas types.</p>
+<p>L'objectif : reconnaître rapidement le pattern pour engager la bonne approche d'investigation, plutôt que de tout passer en revue sans hypothèse de départ.</p>
 <hr />
-<h2 id="1-applicatour-redemarrage-dun-serveur-linux-applicatif">1. Applicatour · Redémarrage d'un serveur Linux applicatif</h2>
-<h3 id="contexte">Contexte</h3>
-<p>Premier poste de production. Serveur Linux hébergeant les applications clients sous <strong>Apache Tomcat</strong>. Symptômes utilisateurs : lenteurs et indisponibilités sporadiques de plusieurs applications hébergées.</p>
-<h3 id="investigation">Investigation</h3>
-<p>À l'époque, sans outillage moderne (pas de Prometheus, pas d'APM), l'investigation s'est concentrée sur les couches <strong>infra</strong> avec les commandes Linux de base :</p>
+<h2 id="pattern-1-saturation-infrastructure-contexte-pme-outillage-limite">Pattern 1 · Saturation Infrastructure (contexte PME, outillage limité)</h2>
+<h3 id="contexte-type">Contexte type</h3>
+<p>Serveur Linux unique hébergeant plusieurs applications clients sous Apache Tomcat. Petite structure, outillage d'observabilité limité (pas de Prometheus, pas d'APM), supervision basée sur les remontées utilisateurs.</p>
+<h3 id="symptomes">Symptômes</h3>
+<ul>
+<li>Lenteurs et indisponibilités sporadiques de plusieurs applications hébergées</li>
+<li>Pas de pattern temporel clair entre les incidents</li>
+</ul>
+<h3 id="investigation-type">Investigation type</h3>
+<p>Sans outillage d'observabilité historique, l'investigation se concentre sur les couches <strong>infra</strong> avec les commandes Linux de base :</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Charge système et processus actifs</span>
 uptime
 top
@@ -5076,23 +5203,29 @@ ps<span class="w"> </span>-ef<span class="w"> </span><span class="p">|</span><sp
 netstat<span class="w"> </span>-an<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>:8080
 netstat<span class="w"> </span>-tnp<span class="w"> </span><span class="p">|</span><span class="w"> </span>wc<span class="w"> </span>-l
 </code></pre></div>
-<p>Résultat : indicateurs cohérents avec une saturation mémoire / file descriptors qui empêchait le bon fonctionnement des applications.</p>
+<p>Résultat typique : indicateurs cohérents avec une saturation mémoire ou de file descriptors qui empêche le bon fonctionnement des applications.</p>
 <h3 id="resolution">Résolution</h3>
-<p>Redémarrage propre de la machine via un script shell (ordre maîtrisé : arrêt Tomcat → arrêt services dépendants → reboot → redémarrage Tomcat → vérification logs). Toutes les applications clients ont repris leur marche.</p>
-<h3 id="limites-assumees">Limites assumées</h3>
-<p>Je n'ai pas pu déterminer la <strong>cause racine</strong> précise de l'épuisement des ressources. À l'époque, sans outillage d'observabilité moderne (heap dumps centralisés, métriques historiques), la séquence "détecter / contenir / corriger / postmortem" se réduisait souvent à "redémarrer proprement et observer si ça se reproduit".</p>
+<p>Redémarrage propre via script shell maîtrisé (ordre déterministe : arrêt Tomcat → arrêt services dépendants → reboot → redémarrage Tomcat → vérification logs). Les applications reprennent leur marche.</p>
+<h3 id="limite-assumee">Limite assumée</h3>
+<p>Sans heap dumps centralisés ni métriques historiques, la cause racine précise reste <strong>difficile à déterminer</strong>. La séquence "détecter / contenir / corriger / postmortem" se réduit souvent à "redémarrer proprement et observer si ça se reproduit".</p>
 <h3 id="enseignement">Enseignement</h3>
-<p>Cet incident a posé les bases de ma <strong>discipline de redémarrage</strong> : ne jamais relancer dans l'urgence sans ordre, toujours scripter la séquence pour qu'elle soit reproductible, et capturer un état (au moins logs et métriques système) avant de tout couper. Réflexes qui sont restés tout au long de ma carrière.</p>
+<p>Discipline du redémarrage scripté à intégrer dès le début de la carrière en production : jamais relancer dans l'urgence sans ordre établi, toujours scripter la séquence pour reproductibilité, capturer un état (logs + métriques système) <strong>avant</strong> d'arrêter quoi que ce soit. Réflexes qui restent valables même avec un outillage moderne.</p>
 <hr />
-<h2 id="2-adsn-logs-verbeux-infinispan-et-confiance-gagnee">2. ADSN · Logs verbeux Infinispan et confiance gagnée</h2>
-<h3 id="contexte_1">Contexte</h3>
-<p>Application en production. Les logs <strong>Infinispan</strong> (cache distribué Java) ont déclenché une alerte côté supervision : volume anormalement élevé, messages d'erreur récurrents. L'équipe a remonté un incident à traiter en urgence.</p>
-<h3 id="investigation_1">Investigation</h3>
-<p>Journée complète d'analyse, surtout côté <strong>applicatif</strong>, en combinant <strong>Splunk</strong> pour la centralisation des logs et les outils Java pour l'inspection JVM :</p>
-<p><strong>Via Splunk</strong> :</p>
+<h2 id="pattern-2-anomalie-applicative-apparente-client-exigeant-sur-son-domaine">Pattern 2 · Anomalie Applicative Apparente (client exigeant sur son domaine)</h2>
+<h3 id="contexte-type_1">Contexte type</h3>
+<p>Application en production chez un client à fortes exigences fonctionnelles. Outillage de centralisation des logs en place (type Splunk). Composants Java avancés type cache distribué (Infinispan, Hazelcast).</p>
+<h3 id="symptomes_1">Symptômes</h3>
+<ul>
+<li>Volume de logs anormalement élevé sur un composant précis</li>
+<li>Messages d'erreur récurrents qui inquiètent la supervision</li>
+<li>Aucun signal utilisateur direct, pas d'impact métier observable</li>
+</ul>
+<h3 id="investigation-type_1">Investigation type</h3>
+<p>Journée complète d'analyse en combinant <strong>centralisation des logs</strong> et <strong>inspection JVM</strong> :</p>
+<p><strong>Via les logs centralisés (Splunk ou équivalent)</strong> :</p>
 <ul>
 <li>Requêtes ciblées sur la fenêtre temporelle de l'alerte</li>
-<li>Filtrage par composant Infinispan et par niveau de log</li>
+<li>Filtrage par composant et par niveau de log</li>
 <li>Corrélation des messages d'erreur entre serveurs du cluster</li>
 <li>Comparaison avec les fenêtres précédentes pour qualifier l'anomalie</li>
 <li>Identification des hosts émetteurs et des patterns de fréquence</li>
@@ -5103,74 +5236,86 @@ netstat<span class="w"> </span>-tnp<span class="w"> </span><span class="p">|</sp
 <li>Analyse des <strong>thread dumps</strong> (<code>jstack</code>) pour identifier les threads bloqués ou en boucle</li>
 <li>Vérification de l'état des pools de connexions DB</li>
 <li>Inspection mémoire à la demande (<code>jmap</code>)</li>
-<li>Corrélation des messages d'erreur avec les patterns Infinispan connus</li>
+<li>Corrélation des messages d'erreur avec les patterns connus du composant</li>
 <li>Identification des composants applicatifs émetteurs et de leur contexte d'appel</li>
 </ul>
-<p><strong>Signal de confiance immédiat</strong> : pendant l'analyse, l'architecte de l'équipe m'a <strong>libéré son poste</strong> pour que je puisse travailler directement sur sa machine, vu ma maîtrise des outils et du métier. Geste rare pendant un incident en cours, et qui en disait long sur le niveau de confiance accordé sur le moment.</p>
-<h3 id="resolution_1">Résolution</h3>
-<p>Rapport d'analyse remis à la direction technique : <strong>rien de critique côté fonctionnel</strong>. Les logs verbeux étaient liés au comportement normal d'Infinispan dans un mode de réplication particulier, sans impact métier observable.</p>
-<p>Le ticket a été <strong>clôturé sans patch applicatif</strong>, avec recommandation de réduire le niveau de log si volumétrie problématique.</p>
+<h3 id="resolution-typique">Résolution typique</h3>
+<p>Rapport d'analyse à la direction technique : <strong>rien de critique côté fonctionnel</strong>. Les logs verbeux étaient liés au comportement normal du composant dans un mode de réplication particulier, sans impact métier observable.</p>
+<p>Ticket clôturé <strong>sans patch applicatif</strong>, avec recommandation de réduire le niveau de log si la volumétrie devient problématique.</p>
+<h3 id="effet-de-bord">Effet de bord</h3>
+<p>Quand l'analyse est solide, elle déclenche une <strong>confiance des architectes et chefs de projet</strong> sur les sujets d'investigation et de fiabilité. Concrètement : délégation des tickets N2 sur d'autres sujets, qui sont alors pris en charge directement côté Build jusqu'à la livraison des correctifs.</p>
 <h3 id="enseignement_1">Enseignement</h3>
-<p>Un incident bien diagnostiqué n'a pas besoin d'une correction technique pour être valorisé. Le vrai livrable est le <strong>rapport d'analyse rassurant</strong> : "voilà ce que c'est, voilà pourquoi ce n'est pas grave, voilà ce qu'on fait pour éviter le bruit à l'avenir". C'est exactement le rôle d'un responsable d'application en run.</p>
+<p>Un incident bien diagnostiqué n'a <strong>pas besoin</strong> d'une correction technique pour être valorisé. Le vrai livrable est le <strong>rapport d'analyse rassurant</strong> : "voilà ce que c'est, voilà pourquoi ce n'est pas grave, voilà ce qu'on fait pour éviter le bruit à l'avenir". C'est exactement le rôle d'un responsable d'applications en RUN.</p>
 <hr />
-<h2 id="3-cprp-sncf-cause-externe-non-communiquee">3. CPRP SNCF · Cause externe non communiquée</h2>
-<h3 id="contexte_2">Contexte</h3>
-<p>Incident de production sur une application du domaine retraites. Symptômes intermittents difficiles à reproduire. Pas de signal évident côté infra ou applicatif.</p>
-<h3 id="investigation_2">Investigation</h3>
-<p>Approche méthodique du bas vers le haut :</p>
+<h2 id="pattern-3-cause-externe-non-communiquee-grande-structure-secteur-public">Pattern 3 · Cause Externe Non Communiquée (grande structure / secteur public)</h2>
+<h3 id="contexte-type_2">Contexte type</h3>
+<p>Application en production dans un environnement organisationnel cloisonné, typique du secteur public ou de grandes structures avec équipes distantes. Multiples équipes (exploitation, DBA, hébergement, applicatif) opèrent en silos avec une communication informelle.</p>
+<h3 id="symptomes_2">Symptômes</h3>
 <ul>
-<li>Vérification de la machine : CPU, RAM, disque · RAS</li>
-<li>Analyse de <strong>heap dumps Java</strong> générés à différents moments</li>
-<li>Vérification du comportement de la JVM (GC, threads)</li>
-<li>Tests de reproduction sur environnement hors production : <strong>rien d'anormal</strong>, impossible de répliquer</li>
+<li>Incident intermittent difficile à reproduire</li>
+<li>Pas de signal évident côté infra ou applicatif</li>
+<li>Tests de reproduction sur environnement hors production <strong>infructueux</strong></li>
 </ul>
-<p>L'incident résistait à l'investigation classique. C'est l'environnement (prod uniquement) qui était la clé.</p>
-<h3 id="demarche-complementaire-initiative">Démarche complémentaire (initiative)</h3>
-<p>Plutôt que de clôturer en "non reproductible", j'ai pris contact de moi-même avec différents acteurs autour du périmètre : équipes d'exploitation, équipes Base de Données, équipes hébergement. Cette ouverture m'a permis de découvrir progressivement le contexte caché de l'incident.</p>
-<h3 id="cause-racine">Cause racine</h3>
-<p><strong>Connexion vers la base de données instable</strong> sur l'environnement de production uniquement. Investigation poussée via mes échanges informels : une partie de la base de données avait été <strong>migrée en parallèle</strong> par une équipe distante (Montauban) sans que l'information remonte officiellement au moment de l'incident.</p>
-<p>Côté technique : trouvé avant la communication officielle. Côté process : symptôme d'une <strong>lacune de communication inter-équipes</strong> typique du secteur public à l'époque.</p>
-<h3 id="consequences">Conséquences</h3>
-<p>Ticket clôturé une fois la cause établie. Conséquence durable de l'incident sur l'équipe : initiative personnelle de <strong>scripter l'intégralité du processus de livraison en production</strong>, là où on s'appuyait jusqu'alors sur des fichiers Excel décrivant les étapes à exécuter manuellement.</p>
-<p>Cet incident n'était pas évitable côté équipe applicative (cause externe non communiquée), mais il a servi de déclencheur pour rendre nos livraisons <strong>plus robustes, traçables, automatisées</strong> · démarche que je qualifierais aujourd'hui de "pré-DevOps" sur ce contexte.</p>
+<h3 id="investigation-type_2">Investigation type</h3>
+<p>Approche méthodique du bas vers le haut, ne trouve rien d'anormal :</p>
+<ul>
+<li>Vérification machine : CPU, RAM, disque · RAS</li>
+<li>Analyse de <strong>heap dumps Java</strong> générés à différents moments</li>
+<li>Vérification du comportement JVM (GC, threads)</li>
+<li>Tests de reproduction hors production : impossible de répliquer</li>
+</ul>
+<p>L'incident résiste à l'investigation technique classique. C'est l'environnement (prod uniquement) qui détient la clé.</p>
+<h3 id="demarche-complementaire">Démarche complémentaire</h3>
+<p>Plutôt que clôturer en "non reproductible", la bonne approche est de <strong>prendre contact avec les équipes adjacentes</strong> : exploitation, base de données, hébergement, équipes distantes. Cette ouverture permet de découvrir le contexte caché.</p>
+<h3 id="cause-racine-type">Cause racine type</h3>
+<p><strong>Connexion instable vers une dépendance externe</strong> (souvent DB) sur l'environnement de production uniquement. Investigation poussée via les échanges informels : une partie de l'infrastructure avait été <strong>migrée en parallèle</strong> par une équipe distante sans que l'information remonte officiellement au moment de l'incident.</p>
+<p>Côté technique : la cause est trouvée avant la communication officielle. Côté process : c'est le symptôme d'une <strong>lacune de communication inter-équipes</strong> typique des grandes structures cloisonnées.</p>
+<h3 id="effet-de-bord-positif">Effet de bord positif</h3>
+<p>Un incident causé par un défaut de communication peut servir de déclencheur pour rendre les livraisons <strong>plus robustes, traçables, automatisées</strong> : scripter l'intégralité des étapes de livraison en production là où on s'appuie souvent sur des fichiers Excel manuels. Démarche que l'on qualifierait aujourd'hui de <strong>pré-DevOps</strong>.</p>
 <h3 id="enseignement_2">Enseignement</h3>
 <p>Sur les incidents qui résistent à l'analyse technique, <strong>l'enquête se gagne souvent au téléphone</strong> plutôt que dans les logs. Réflexe à garder : élargir le périmètre de l'investigation aux <strong>équipes adjacentes</strong> dès qu'on tape un mur côté technique pur.</p>
 <hr />
-<h2 id="lecture-transverse-ce-que-ces-trois-cas-racontent">Lecture transverse · ce que ces trois cas racontent</h2>
+<h2 id="lecture-transverse-choisir-le-bon-pattern">Lecture transverse · choisir le bon pattern</h2>
 <table>
 <thead>
 <tr>
-<th>Contexte</th>
+<th>Pattern</th>
 <th>Niveau dominant</th>
+<th>Outils centraux</th>
 <th>Posture clé</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Applicatour</td>
+<td>Saturation infra (PME)</td>
 <td>Infra (Linux, Tomcat)</td>
+<td>top, free, df, ps, netstat</td>
 <td>Discipline du redémarrage scripté</td>
 </tr>
 <tr>
-<td>ADSN</td>
-<td>Applicatif (JVM, Infinispan, Splunk)</td>
+<td>Anomalie applicative (client exigeant)</td>
+<td>Applicatif (JVM, cache, logs centralisés)</td>
+<td>jstack, jmap, Splunk</td>
 <td>Rapport d'analyse comme livrable</td>
 </tr>
 <tr>
-<td>CPRP SNCF</td>
+<td>Cause externe (secteur public)</td>
 <td>Dépendance externe (DB / inter-équipes)</td>
+<td>Contacts informels, téléphone</td>
 <td>Investigation hors logs</td>
 </tr>
 </tbody>
 </table>
-<p>Au fil des années, le <strong>niveau d'investigation</strong> s'est déplacé du bas (machine) vers le haut (process et dépendances), et l'outillage s'est étoffé. Le <strong>réflexe constant</strong> est resté : ne pas relancer dans la panique, qualifier avant de corriger, capturer ce qui peut servir au postmortem.</p>
-<p>Ce que ces trois cas ne couvrent pas (et que je n'ai jamais eu en charge) : un contexte de <strong>transactions critiques à la milliseconde</strong> avec astreinte 24/7. C'est précisément le saut que j'envisage, et la raison pour laquelle un poste de RUN sur plateforme temps réel m'intéresse aujourd'hui.</p>
+<p>Avec la maturité, le <strong>niveau d'investigation</strong> se déplace généralement du bas (machine) vers le haut (process et dépendances), et l'outillage s'étoffe. Le <strong>réflexe constant</strong> reste : ne pas relancer dans la panique, qualifier avant de corriger, capturer ce qui peut servir au postmortem.</p>
+<h3 id="limite-du-modele">Limite du modèle</h3>
+<p>Ces trois patterns ne couvrent pas tous les contextes. En particulier, ils n'illustrent pas les contextes de <strong>transactions critiques à la milliseconde</strong> avec astreinte 24/7, qui ajoutent une dimension d'urgence temporelle absente des cas ci-dessus. Sur ces contextes, l'outillage et la culture d'équipe deviennent les principaux leviers, pas la maîtrise individuelle.</p>
 <hr />
 <h2 id="voir-aussi">Voir aussi</h2>
 <ul>
 <li><a href="../../devops/run-mco-sre/">RUN, MCO et SRE</a></li>
 <li><a href="../monitoring-paiement/">Monitoring de Plateforme de Paiement</a></li>
 <li><a href="../java-production-deep-dive/">Java en Production · Deep-Dive</a></li>
+<li><a href="../profil-build-vers-run/">BUILD vers RUN · La Transition de Profil</a></li>
 </ul>
 
 
