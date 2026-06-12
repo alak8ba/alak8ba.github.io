@@ -29,7 +29,7 @@
     
     
       
-        <title>Investigation d'Incidents • 3 Patterns - Engineering Notes</title>
+        <title>Investigation d'Incidents • 4 Patterns - Engineering Notes</title>
       
     
     
@@ -82,7 +82,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#investigation-dincidents-3-patterns-recurrents" class="md-skip">
+        <a href="#investigation-dincidents-4-patterns-recurrents" class="md-skip">
           Aller au contenu
         </a>
       
@@ -115,7 +115,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Investigation d'Incidents • 3 Patterns
+              Investigation d'Incidents • 4 Patterns
             
           </span>
         </div>
@@ -2958,7 +2958,7 @@
   <span class="md-ellipsis">
     
   
-    Investigation d'Incidents • 3 Patterns
+    Investigation d'Incidents • 4 Patterns
   
 
     
@@ -2976,7 +2976,7 @@
   <span class="md-ellipsis">
     
   
-    Investigation d'Incidents • 3 Patterns
+    Investigation d'Incidents • 4 Patterns
   
 
     
@@ -3284,6 +3284,89 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#pattern-4-saturation-sous-charge-temps-reel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pattern 4 · Saturation Sous Charge Temps Réel
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pattern 4 · Saturation Sous Charge Temps Réel">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#le-signal_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Le signal
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#le-deroule-descendre-malgre-les-voyants-verts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Le déroulé · descendre malgré les voyants verts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ce-quon-trouve-dans-les-logs_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ce qu'on trouve dans les logs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cause-racine-type" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cause racine type
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resolution_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Résolution
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enseignement_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enseignement
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#lecture-transverse-choisir-le-bon-pattern" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3296,10 +3379,38 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#le-point-commun-des-trois" class="md-nav__link">
+  <a href="#le-point-commun-des-quatre" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Le point commun des trois
+        Le point commun des quatre
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#checklist-dinvestigation-universelle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Checklist d'investigation universelle
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Checklist d&#39;investigation universelle">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#etape-0-triage-30-secondes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 0 · Triage (30 secondes)
       
     </span>
   </a>
@@ -3307,10 +3418,87 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#limite-du-modele" class="md-nav__link">
+  <a href="#etape-1-infrastructure" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Limite du modèle
+        Étape 1 · Infrastructure
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-2-jvm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 2 · JVM
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-3-application-serveur-web" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 3 · Application / serveur web
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-4-base-de-donnees" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 4 · Base de données
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-5-dependances-externes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 5 · Dépendances externes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-6-metier-si-dashboards-dispo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 6 · Métier (si dashboards dispo)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-7-hors-technique" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 7 · Hors technique
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#regle-dor-finale" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Règle d'or finale
       
     </span>
   </a>
@@ -5121,6 +5309,89 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#pattern-4-saturation-sous-charge-temps-reel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pattern 4 · Saturation Sous Charge Temps Réel
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pattern 4 · Saturation Sous Charge Temps Réel">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#le-signal_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Le signal
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#le-deroule-descendre-malgre-les-voyants-verts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Le déroulé · descendre malgré les voyants verts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ce-quon-trouve-dans-les-logs_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ce qu'on trouve dans les logs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cause-racine-type" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cause racine type
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resolution_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Résolution
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enseignement_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enseignement
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#lecture-transverse-choisir-le-bon-pattern" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -5133,10 +5404,38 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#le-point-commun-des-trois" class="md-nav__link">
+  <a href="#le-point-commun-des-quatre" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Le point commun des trois
+        Le point commun des quatre
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#checklist-dinvestigation-universelle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Checklist d'investigation universelle
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Checklist d&#39;investigation universelle">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#etape-0-triage-30-secondes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 0 · Triage (30 secondes)
       
     </span>
   </a>
@@ -5144,10 +5443,87 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#limite-du-modele" class="md-nav__link">
+  <a href="#etape-1-infrastructure" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Limite du modèle
+        Étape 1 · Infrastructure
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-2-jvm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 2 · JVM
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-3-application-serveur-web" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 3 · Application / serveur web
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-4-base-de-donnees" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 4 · Base de données
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-5-dependances-externes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 5 · Dépendances externes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-6-metier-si-dashboards-dispo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 6 · Métier (si dashboards dispo)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-7-hors-technique" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 7 · Hors technique
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#regle-dor-finale" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Règle d'or finale
       
     </span>
   </a>
@@ -5233,8 +5609,8 @@
 
 
 
-<h1 id="investigation-dincidents-3-patterns-recurrents">Investigation d'Incidents · 3 Patterns Récurrents</h1>
-<p>Trois patterns reviennent régulièrement en exploitation d'applications Java en production : un pattern <strong>infrastructure</strong>, un pattern <strong>applicatif</strong> et un pattern <strong>dépendance externe</strong>. Cette page les déroule comme trois investigations concrètes, avec les commandes réellement tapées, les sorties typiques et les extraits de logs à reconnaître.</p>
+<h1 id="investigation-dincidents-4-patterns-recurrents">Investigation d'Incidents · 4 Patterns Récurrents</h1>
+<p>Quatre patterns reviennent régulièrement en exploitation d'applications Java en production : <strong>infrastructure</strong>, <strong>applicatif</strong>, <strong>dépendance externe</strong> et <strong>charge temps réel</strong>. Cette page les déroule comme des investigations concrètes, avec les commandes réellement tapées, les sorties typiques et les extraits de logs à reconnaître. Elle se termine par une <strong>checklist d'investigation universelle</strong> réutilisable comme runbook.</p>
 <p>L'objectif : reconnaître le pattern vite, pour engager la bonne approche au lieu de tout passer en revue sans hypothèse.</p>
 <hr />
 <h2 id="pattern-1-saturation-infrastructure">Pattern 1 · Saturation Infrastructure</h2>
@@ -5493,6 +5869,83 @@ ORA-12170: TNS:Connect timeout occurred
 <h3 id="enseignement_2">Enseignement</h3>
 <p>Sur les incidents qui résistent à l'analyse technique, surtout ceux qui ne se reproduisent qu'en prod, <strong>l'enquête se gagne souvent au téléphone</strong>. Réflexe à garder : dès qu'on tape un mur côté technique pur, élargir le périmètre aux <strong>équipes adjacentes</strong>. La cause d'un incident n'est pas toujours dans le système qu'on surveille.</p>
 <hr />
+<h2 id="pattern-4-saturation-sous-charge-temps-reel">Pattern 4 · Saturation Sous Charge Temps Réel</h2>
+<blockquote>
+<p>Plateforme transactionnelle critique · SLA serré · astreinte 24/7 · le serveur va bien mais le métier tombe</p>
+</blockquote>
+<p>Ce pattern est le plus exigeant. Contrairement aux trois précédents, l'urgence est <strong>temporelle</strong> : chaque minute de latence = des transactions perdues, un impact métier direct. Le piège classique : <strong>tous les voyants infra sont verts</strong> et pourtant le service est dégradé.</p>
+<h3 id="le-signal_3">Le signal</h3>
+<p>Alerte automatique : la latence p99 d'un endpoint critique passe de ~150 ms à plusieurs secondes. Le taux de timeout côté appelant grimpe. Sur un flux transactionnel, c'est P1 immédiat, astreinte réveillée.</p>
+<h3 id="le-deroule-descendre-malgre-les-voyants-verts">Le déroulé · descendre malgré les voyants verts</h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># [1] Infra : tout est vert, et c&#39;est ça le piège</span>
+$<span class="w"> </span>uptime
+<span class="w"> </span><span class="m">03</span>:14:22<span class="w"> </span>up<span class="w"> </span><span class="m">210</span><span class="w"> </span>days,<span class="w"> </span>load<span class="w"> </span>average:<span class="w"> </span><span class="m">2</span>.10,<span class="w"> </span><span class="m">1</span>.95,<span class="w"> </span><span class="m">1</span>.80<span class="w">   </span><span class="c1"># 8 cœurs → OK</span>
+$<span class="w"> </span>free<span class="w"> </span>-m
+<span class="w">              </span>total<span class="w">   </span>used<span class="w">   </span>available
+Mem:<span class="w">           </span><span class="m">32000</span><span class="w">  </span><span class="m">18000</span><span class="w">      </span><span class="m">12000</span><span class="w">                  </span><span class="c1"># RAM OK</span>
+<span class="c1"># CPU bas, RAM dispo, disque OK → un débutant conclut &quot;le serveur va bien&quot;</span>
+<span class="c1"># et passe à côté de l&#39;incident</span>
+</code></pre></div>
+<p>Le serveur est sain. Mais le service est dégradé. <strong>C'est exactement là que la connaissance applicative fait la différence</strong> : on ne s'arrête pas aux métriques machine.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># [2] Applicatif : où sont les threads ?</span>
+$<span class="w"> </span><span class="k">for</span><span class="w"> </span>i<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">3</span><span class="p">;</span><span class="w"> </span><span class="k">do</span><span class="w"> </span>jstack<span class="w"> </span>&lt;PID&gt;<span class="w"> </span>&gt;<span class="w"> </span>/tmp/dump-<span class="nv">$i</span>.txt<span class="p">;</span><span class="w"> </span>sleep<span class="w"> </span><span class="m">10</span><span class="p">;</span><span class="w"> </span><span class="k">done</span>
+
+<span class="c1"># Compter les threads bloqués au même endroit dans les 3 dumps</span>
+$<span class="w"> </span>grep<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;BLOCKED&quot;</span><span class="w"> </span>/tmp/dump-*.txt
+/tmp/dump-1.txt:182
+/tmp/dump-2.txt:185
+/tmp/dump-3.txt:184
+
+<span class="c1"># Sur quoi bloquent-ils ?</span>
+$<span class="w"> </span>grep<span class="w"> </span>-A3<span class="w"> </span><span class="s2">&quot;BLOCKED\|WAITING&quot;</span><span class="w"> </span>/tmp/dump-1.txt<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-i<span class="w"> </span><span class="s2">&quot;hikari\|getConnection\|socketRead&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span><span class="p">|</span><span class="w"> </span>uniq<span class="w"> </span>-c<span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span>-rn
+<span class="w">   </span><span class="m">180</span><span class="w"> </span>at<span class="w"> </span>com.zaxxer.hikari.pool.HikariPool.getConnection
+<span class="w">     </span><span class="m">2</span><span class="w"> </span>at<span class="w"> </span>java.net.SocketInputStream.socketRead0
+</code></pre></div>
+<p><strong>180 threads sur 200 bloqués sur <code>HikariPool.getConnection</code></strong> : tous les threads applicatifs attendent une connexion à la base qui ne vient jamais. Le pool est saturé.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># [3] Pourquoi le pool est-il vide ? Métriques HikariCP (via Micrometer/Actuator)</span>
+$<span class="w"> </span>curl<span class="w"> </span>-s<span class="w"> </span>localhost:8080/actuator/metrics/hikaricp.connections.pending<span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span>.
+<span class="o">{</span><span class="w"> </span><span class="s2">&quot;name&quot;</span>:<span class="w"> </span><span class="s2">&quot;hikaricp.connections.pending&quot;</span>,<span class="w"> </span><span class="s2">&quot;measurements&quot;</span>:<span class="w"> </span><span class="o">[{</span><span class="s2">&quot;value&quot;</span>:<span class="w"> </span><span class="m">178</span><span class="o">}]</span><span class="w"> </span><span class="o">}</span>
+$<span class="w"> </span>curl<span class="w"> </span>-s<span class="w"> </span>localhost:8080/actuator/metrics/hikaricp.connections.active<span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span>.
+<span class="o">{</span><span class="w"> </span><span class="s2">&quot;name&quot;</span>:<span class="w"> </span><span class="s2">&quot;hikaricp.connections.active&quot;</span>,<span class="w"> </span><span class="s2">&quot;measurements&quot;</span>:<span class="w"> </span><span class="o">[{</span><span class="s2">&quot;value&quot;</span>:<span class="w"> </span><span class="m">50</span><span class="o">}]</span><span class="w"> </span><span class="o">}</span>
+<span class="c1"># 50/50 actives, 178 en attente → les connexions sortent mais ne reviennent pas</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="c1">-- [4] Côté base : qu&#39;est-ce qui retient les connexions ?</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="n">sql_id</span><span class="p">,</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">sessions</span><span class="p">,</span><span class="w"> </span><span class="k">MAX</span><span class="p">(</span><span class="n">seconds_in_wait</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">max_wait</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">v$session</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;ACTIVE&#39;</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">username</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;APP_USER&#39;</span>
+<span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">sql_id</span><span class="w"> </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">sessions</span><span class="w"> </span><span class="k">DESC</span><span class="p">;</span>
+<span class="c1">--  SQL_ID         SESSIONS   MAX_WAIT</span>
+<span class="c1">--  4f9j2k8s...      48          37     ← 48 sessions sur la même requête, 37s d&#39;attente</span>
+
+<span class="c1">-- Le plan d&#39;exécution de cette requête</span>
+<span class="k">EXPLAIN</span><span class="w"> </span><span class="n">PLAN</span><span class="w"> </span><span class="k">FOR</span><span class="w"> </span><span class="o">&lt;</span><span class="n">la_requete</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="k">TABLE</span><span class="p">(</span><span class="n">DBMS_XPLAN</span><span class="p">.</span><span class="n">DISPLAY</span><span class="p">);</span>
+<span class="c1">--  | Operation             | Name            |</span>
+<span class="c1">--  | TABLE ACCESS FULL     | TRANSACTIONS    |   ← FULL SCAN au lieu d&#39;INDEX RANGE SCAN</span>
+</code></pre></div>
+<h3 id="ce-quon-trouve-dans-les-logs_2">Ce qu'on trouve dans les logs</h3>
+<div class="highlight"><pre><span></span><code>WARN  [HikariPool-1 housekeeper]
+  HikariPool-1 - Connection is not available, request timed out after 30000ms
+  (total=50, active=50, idle=0, waiting=178)
+
+ERROR [http-nio-8080-exec-200] c.app.payment.AuthController
+  org.springframework.dao.QueryTimeoutException: JDBC query timed out
+</code></pre></div>
+<p>Côté monitoring métier (Grafana), le <strong>consumer lag explose</strong> ou le <strong>taux d'autorisation chute</strong> — le signe que le flux n'est plus traité en temps réel.</p>
+<h3 id="cause-racine-type">Cause racine type</h3>
+<p>Une <strong>requête devenue lente</strong> (plan d'exécution dégradé après une mise à jour de statistiques, un index manquant, une volumétrie qui a franchi un seuil) monopolise les connexions. Comme chaque transaction attend une connexion, <strong>toute la plateforme ralentit en cascade</strong> alors que l'infra est parfaitement saine.</p>
+<h3 id="resolution_2">Résolution</h3>
+<p>À chaud, restaurer le service :</p>
+<div class="highlight"><pre><span></span><code><span class="c1">-- Forcer le bon plan en attendant (hint)</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="cm">/*+ INDEX(transactions tx_merchant_date_idx) */</span><span class="w"> </span><span class="p">...</span>
+
+<span class="c1">-- OU tuer les sessions qui bloquent si une requête est partie en vrille</span>
+<span class="k">ALTER</span><span class="w"> </span><span class="k">SYSTEM</span><span class="w"> </span><span class="n">KILL</span><span class="w"> </span><span class="k">SESSION</span><span class="w"> </span><span class="s1">&#39;sid,serial#&#39;</span><span class="w"> </span><span class="k">IMMEDIATE</span><span class="p">;</span>
+</code></pre></div>
+<p>À froid, corriger durablement : reconstruire l'index ou figer le plan (SQL Plan Baseline), comprendre pourquoi les stats ont changé, ajuster le <code>connection-timeout</code> Hikari pour échouer vite plutôt que de tout faire attendre 30s.</p>
+<h3 id="enseignement_3">Enseignement</h3>
+<p>Sur une plateforme temps réel, <strong>le monitoring métier prime sur le monitoring infra</strong>. Un serveur vert ne disculpe rien : si les threads applicatifs attendent tous une connexion DB, le service est mort même avec un CPU à 5%. La capacité à <strong>descendre du métier (latence p99) jusqu'à la cause racine (plan SQL)</strong> en passant par les threads et le pool est exactement ce qui distingue un responsable d'applications d'un opérateur infra. Et sur ces incidents, <strong>chaque minute compte</strong> : il faut un runbook prêt, pas une investigation improvisée.</p>
+<hr />
 <h2 id="lecture-transverse-choisir-le-bon-pattern">Lecture transverse · choisir le bon pattern</h2>
 <table>
 <thead>
@@ -5526,19 +5979,76 @@ ORA-12170: TNS:Connect timeout occurred
 <td>Dépendance migrée non communiquée</td>
 <td>Investigation hors logs, au téléphone</td>
 </tr>
+<tr>
+<td>Charge temps réel</td>
+<td>Latence p99, infra verte</td>
+<td>jstack ×3, HikariCP, v$session</td>
+<td>Pool DB saturé par requête lente</td>
+<td>Monitoring métier &gt; infra, runbook prêt</td>
+</tr>
 </tbody>
 </table>
 <p>Avec la maturité, le <strong>niveau d'investigation</strong> se déplace du bas (machine) vers le haut (process et dépendances), et l'outillage s'étoffe. Le <strong>réflexe constant</strong> reste : ne pas relancer dans la panique, qualifier avant de corriger, capturer ce qui peut servir au postmortem.</p>
-<h3 id="le-point-commun-des-trois">Le point commun des trois</h3>
-<p>Dans les trois cas, <strong>la première hypothèse évidente n'était pas la cause finale</strong> :</p>
+<h3 id="le-point-commun-des-quatre">Le point commun des quatre</h3>
+<p>Dans les quatre cas, <strong>la première hypothèse évidente n'était pas la cause finale</strong> :</p>
 <ul>
 <li>Pattern 1 : "c'est la RAM" → en partie, mais ulimit et logrotate étaient les vrais leviers durables</li>
 <li>Pattern 2 : "le cache plante" → non, il se reconfigurait normalement</li>
 <li>Pattern 3 : "c'est notre code" → non, une migration externe non communiquée</li>
+<li>Pattern 4 : "le serveur va bien" → justement, et c'est le piège : tout bloquait sur le pool DB</li>
 </ul>
 <p>D'où la règle : <strong>qualifier avant de conclure</strong>. Les tableaux de bord verts ne disculpent pas, et les logs alarmants ne condamnent pas. Seul le faisceau d'indices tranche.</p>
-<h3 id="limite-du-modele">Limite du modèle</h3>
-<p>Ces trois patterns ne couvrent pas les contextes de <strong>transactions critiques à la milliseconde</strong> avec astreinte 24/7, qui ajoutent une dimension d'urgence temporelle absente des cas ci-dessus. Sur ces contextes, l'outillage temps réel et la culture d'équipe deviennent les principaux leviers, plus que la maîtrise individuelle.</p>
+<hr />
+<h2 id="checklist-dinvestigation-universelle">Checklist d'investigation universelle</h2>
+<p>Un runbook réutilisable, à dérouler <strong>dans l'ordre</strong> quand une alerte tombe. L'idée n'est pas de tout exécuter à chaque fois, mais d'avoir un fil conducteur pour ne rien oublier sous pression.</p>
+<h3 id="etape-0-triage-30-secondes">Étape 0 · Triage (30 secondes)</h3>
+<div class="highlight"><pre><span></span><code>uptime<span class="w">                      </span><span class="c1"># charge récente vs ancienne (1min vs 15min)</span>
+date<span class="w">                        </span><span class="c1"># noter l&#39;heure exacte de l&#39;incident</span>
+<span class="c1"># Y a-t-il eu un déploiement récent ? (&lt; 30 min = suspect n°1)</span>
+</code></pre></div>
+<h3 id="etape-1-infrastructure">Étape 1 · Infrastructure</h3>
+<div class="highlight"><pre><span></span><code>top<span class="w"> </span>/<span class="w"> </span>htop<span class="w">                  </span><span class="c1"># CPU, processus chauds</span>
+free<span class="w"> </span>-m<span class="w">                     </span><span class="c1"># RAM : lire &quot;available&quot;, swap actif ?</span>
+df<span class="w"> </span>-h<span class="w">                       </span><span class="c1"># disque : / et /var pleins ?</span>
+du<span class="w"> </span>-sh<span class="w"> </span>/var/log/*<span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span>-h<span class="w"> </span><span class="c1"># logs qui saturent ?</span>
+ps<span class="w"> </span>aux<span class="w"> </span>--sort<span class="o">=</span>-%mem<span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w">  </span><span class="c1"># gros consommateurs</span>
+cat<span class="w"> </span>/proc/&lt;PID&gt;/limits<span class="w">      </span><span class="c1"># ulimit (open files, processes)</span>
+ss<span class="w"> </span>-tan<span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">&#39;{print $1}&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span><span class="p">|</span><span class="w"> </span>uniq<span class="w"> </span>-c<span class="w">   </span><span class="c1"># états TCP (CLOSE_WAIT ?)</span>
+</code></pre></div>
+<h3 id="etape-2-jvm">Étape 2 · JVM</h3>
+<div class="highlight"><pre><span></span><code>jps<span class="w"> </span>-lv<span class="w">                     </span><span class="c1"># identifier le PID + flags</span>
+jstat<span class="w"> </span>-gcutil<span class="w"> </span>&lt;PID&gt;<span class="w"> </span>2s<span class="w"> </span><span class="m">5</span><span class="w">    </span><span class="c1"># GC : Old gen qui ne redescend pas ? Full GC en rafale ?</span>
+jstack<span class="w"> </span>&lt;PID&gt;<span class="w"> </span>×3<span class="w"> </span><span class="o">(</span>10s<span class="o">)</span><span class="w">       </span><span class="c1"># threads : BLOCKED au même endroit ?</span>
+jmap<span class="w"> </span>-dump:live,...<span class="w">         </span><span class="c1"># si OOM ou fuite suspectée → Eclipse MAT</span>
+</code></pre></div>
+<p>Mots-clés à chercher dans un thread dump : <code>getConnection</code> (pool DB), <code>socketRead0</code> (appel réseau bloquant), <code>synchronized</code> répété (contention), <code>Found one Java-level deadlock</code>.</p>
+<h3 id="etape-3-application-serveur-web">Étape 3 · Application / serveur web</h3>
+<div class="highlight"><pre><span></span><code>tail<span class="w"> </span>-f<span class="w"> </span>catalina.out<span class="w">                          </span><span class="c1"># erreurs applicatives</span>
+awk<span class="w"> </span><span class="s1">&#39;{print $9}&#39;</span><span class="w"> </span>localhost_access_log*<span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span><span class="p">|</span><span class="w"> </span>uniq<span class="w"> </span>-c<span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span>-rn<span class="w">   </span><span class="c1"># codes HTTP</span>
+<span class="c1"># JMX/Actuator : threads Tomcat busy, pool connexions</span>
+</code></pre></div>
+<h3 id="etape-4-base-de-donnees">Étape 4 · Base de données</h3>
+<p><div class="highlight"><pre><span></span><code><span class="c1"># Métriques pool : hikaricp.connections.pending &gt; 0 = saturation</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">v$session</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">status</span><span class="o">=</span><span class="s1">&#39;ACTIVE&#39;</span><span class="p">;</span><span class="w">   </span><span class="c1">-- sessions actives</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="n">blocking_session</span><span class="p">,</span><span class="w"> </span><span class="n">sid</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">v$session</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">blocking_session</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">;</span><span class="w">  </span><span class="c1">-- locks</span>
+<span class="k">EXPLAIN</span><span class="w"> </span><span class="n">PLAN</span><span class="w"> </span><span class="k">FOR</span><span class="w"> </span><span class="o">&lt;</span><span class="n">query</span><span class="o">&gt;</span><span class="p">;</span><span class="w">                           </span><span class="c1">-- plan dégradé ?</span>
+</code></pre></div></p>
+<h3 id="etape-5-dependances-externes">Étape 5 · Dépendances externes</h3>
+<div class="highlight"><pre><span></span><code>mtr<span class="w"> </span>-rwc<span class="w"> </span><span class="m">50</span><span class="w"> </span>&lt;dépendance&gt;<span class="w">                </span><span class="c1"># latence/perte réseau</span>
+curl<span class="w"> </span>-w<span class="w"> </span><span class="s2">&quot;DNS:%{time_namelookup} TCP:%{time_connect} SSL:%{time_appconnect} Total:%{time_total}\n&quot;</span><span class="w"> </span>...
+<span class="nb">echo</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>openssl<span class="w"> </span>s_client<span class="w"> </span>-connect<span class="w"> </span>host:443<span class="w"> </span><span class="p">|</span><span class="w"> </span>openssl<span class="w"> </span>x509<span class="w"> </span>-noout<span class="w"> </span>-dates<span class="w">   </span><span class="c1"># cert expiré ?</span>
+</code></pre></div>
+<h3 id="etape-6-metier-si-dashboards-dispo">Étape 6 · Métier (si dashboards dispo)</h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Le flux métier est-il traité ? (taux d&#39;autorisation, latence p99, consumer lag)</span>
+<span class="kr">histogram_quantile</span><span class="o">(</span><span class="mf">0.99</span><span class="p">,</span><span class="w"> </span><span class="kr">rate</span><span class="o">(</span><span class="nv">endpoint_duration_seconds_bucket</span><span class="p">[</span><span class="s">5m</span><span class="p">]</span><span class="o">))</span>
+</code></pre></div>
+<h3 id="etape-7-hors-technique">Étape 7 · Hors technique</h3>
+<p>Si les 6 étapes ne donnent rien : <strong>appeler les équipes adjacentes</strong> (exploitation, DBA, réseau, équipes distantes). Vérifier les changements récents non communiqués (migration, bascule, maintenance).</p>
+<h3 id="regle-dor-finale">Règle d'or finale</h3>
+<blockquote>
+<p><strong>Ne jamais redémarrer dans la panique.</strong> Capturer un état (thread dump, métriques, logs de la fenêtre) <strong>avant</strong> toute action corrective. Un redémarrage efface les preuves : on perd le postmortem.</p>
+</blockquote>
 <hr />
 <h2 id="voir-aussi">Voir aussi</h2>
 <ul>
