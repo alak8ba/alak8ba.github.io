@@ -18,14 +18,14 @@
         <link rel="prev" href="../volatile/">
       
       
-        <link rel="next" href="../../oop/inheritance/">
+        <link rel="next" href="../executor-completablefuture/">
       
       
         
       
       
       <link rel="icon" href="../../../../assets/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -33,7 +33,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -449,7 +449,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../testing/testcontainers-pattern/" class="md-tabs__link">
+        <a href="../../../testing/tests-junit-mockito-spring/" class="md-tabs__link">
           
   
   
@@ -1000,6 +1000,34 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fundamentals/exceptions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exceptions • checked vs unchecked
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1516,10 +1544,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-exemple-classique" class="md-nav__link">
+  <a href="#1-exemple-classique" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Exemple classique
+        1. Exemple classique
       
     </span>
   </a>
@@ -1527,10 +1555,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#mais-en-version-thread-safe" class="md-nav__link">
+  <a href="#2-pourquoi-cest-important" class="md-nav__link">
     <span class="md-ellipsis">
       
-        MAIS en version thread-safe
+        2. Pourquoi c’est important ?
       
     </span>
   </a>
@@ -1538,10 +1566,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-pourquoi-cest-important" class="md-nav__link">
+  <a href="#3-solution-avec-atomic" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Pourquoi c’est important ?
+        3. Solution avec Atomic
       
     </span>
   </a>
@@ -1549,10 +1577,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-solution-avec-atomic" class="md-nav__link">
+  <a href="#4-classes-principales" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. Solution avec Atomic
+        4. Classes principales
       
     </span>
   </a>
@@ -1560,10 +1588,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#5-classes-principales" class="md-nav__link">
+  <a href="#5-methodes-importantes" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5. Classes principales
+        5. Méthodes importantes
       
     </span>
   </a>
@@ -1571,10 +1599,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#6-methodes-importantes" class="md-nav__link">
+  <a href="#6-compare-and-set-cas" class="md-nav__link">
     <span class="md-ellipsis">
       
-        6. Méthodes importantes
+        6. Compare-And-Set (CAS)
       
     </span>
   </a>
@@ -1582,10 +1610,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#7-compare-and-set-cas" class="md-nav__link">
+  <a href="#7-atomic-vs-synchronized" class="md-nav__link">
     <span class="md-ellipsis">
       
-        7. Compare-And-Set (CAS)
+        7. Atomic vs synchronized
       
     </span>
   </a>
@@ -1593,26 +1621,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#8-atomic-vs-synchronized" class="md-nav__link">
+  <a href="#8-quand-utiliser-atomic" class="md-nav__link">
     <span class="md-ellipsis">
       
-        8. Atomic vs synchronized
+        8. Quand utiliser Atomic ?
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#9-quand-utiliser-atomic" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        9. Quand utiliser Atomic ?
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="9. Quand utiliser Atomic ?">
+    <nav class="md-nav" aria-label="8. Quand utiliser Atomic ?">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1654,10 +1671,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#10-questions-classiques" class="md-nav__link">
+  <a href="#9-questions-classiques" class="md-nav__link">
     <span class="md-ellipsis">
       
-        10. Questions classiques
+        9. Questions classiques
       
     </span>
   </a>
@@ -1690,6 +1707,34 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../executor-completablefuture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ExecutorService & CompletableFuture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -1831,6 +1876,34 @@
     
   
     SOLID
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../oop/clean-code/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Clean Code
   
 
     
@@ -1993,6 +2066,90 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../design-patterns/strategy-pattern/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Strategy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../design-patterns/builder-pattern/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Builder
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../design-patterns/observer-pattern/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Observer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -2057,6 +2214,90 @@
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../spring/spring-boot-fondamentaux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Spring Boot • Fondamentaux et avantages
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../spring/declarer-un-bean/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Déclarer un bean
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../spring/controller-vs-restcontroller/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    @Controller vs @RestController
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
             
               
                 
@@ -3970,6 +4211,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../testing/tests-junit-mockito-spring/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    JUnit 5, Mockito & Spring Boot Test
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../testing/testcontainers-pattern/" class="md-nav__link">
         
   
@@ -4779,10 +5048,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-exemple-classique" class="md-nav__link">
+  <a href="#1-exemple-classique" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Exemple classique
+        1. Exemple classique
       
     </span>
   </a>
@@ -4790,10 +5059,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#mais-en-version-thread-safe" class="md-nav__link">
+  <a href="#2-pourquoi-cest-important" class="md-nav__link">
     <span class="md-ellipsis">
       
-        MAIS en version thread-safe
+        2. Pourquoi c’est important ?
       
     </span>
   </a>
@@ -4801,10 +5070,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-pourquoi-cest-important" class="md-nav__link">
+  <a href="#3-solution-avec-atomic" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Pourquoi c’est important ?
+        3. Solution avec Atomic
       
     </span>
   </a>
@@ -4812,10 +5081,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-solution-avec-atomic" class="md-nav__link">
+  <a href="#4-classes-principales" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. Solution avec Atomic
+        4. Classes principales
       
     </span>
   </a>
@@ -4823,10 +5092,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#5-classes-principales" class="md-nav__link">
+  <a href="#5-methodes-importantes" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5. Classes principales
+        5. Méthodes importantes
       
     </span>
   </a>
@@ -4834,10 +5103,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#6-methodes-importantes" class="md-nav__link">
+  <a href="#6-compare-and-set-cas" class="md-nav__link">
     <span class="md-ellipsis">
       
-        6. Méthodes importantes
+        6. Compare-And-Set (CAS)
       
     </span>
   </a>
@@ -4845,10 +5114,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#7-compare-and-set-cas" class="md-nav__link">
+  <a href="#7-atomic-vs-synchronized" class="md-nav__link">
     <span class="md-ellipsis">
       
-        7. Compare-And-Set (CAS)
+        7. Atomic vs synchronized
       
     </span>
   </a>
@@ -4856,26 +5125,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#8-atomic-vs-synchronized" class="md-nav__link">
+  <a href="#8-quand-utiliser-atomic" class="md-nav__link">
     <span class="md-ellipsis">
       
-        8. Atomic vs synchronized
+        8. Quand utiliser Atomic ?
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#9-quand-utiliser-atomic" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        9. Quand utiliser Atomic ?
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="9. Quand utiliser Atomic ?">
+    <nav class="md-nav" aria-label="8. Quand utiliser Atomic ?">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -4917,10 +5175,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#10-questions-classiques" class="md-nav__link">
+  <a href="#9-questions-classiques" class="md-nav__link">
     <span class="md-ellipsis">
       
-        10. Questions classiques
+        9. Questions classiques
       
     </span>
   </a>
@@ -4992,7 +5250,7 @@
 <p>des opérations <strong>atomiques</strong> (indivisibles)
 <strong>thread-safe sans lock explicite</strong></p>
 <hr />
-<h2 id="2-exemple-classique">2. Exemple classique</h2>
+<h2 id="1-exemple-classique">1. Exemple classique</h2>
 <div class="highlight"><pre><span></span><code><span class="n">AtomicInteger</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">AtomicInteger</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
 
 <span class="n">count</span><span class="p">.</span><span class="na">incrementAndGet</span><span class="p">();</span>
@@ -5000,8 +5258,9 @@
 <p>équivalent à :</p>
 <div class="highlight"><pre><span></span><code><span class="n">count</span><span class="o">++</span><span class="p">;</span>
 </code></pre></div>
-<h2 id="mais-en-version-thread-safe">MAIS en version thread-safe</h2>
-<h2 id="3-pourquoi-cest-important">3. Pourquoi c’est important ?</h2>
+<p>MAIS en version thread-safe</p>
+<hr />
+<h2 id="2-pourquoi-cest-important">2. Pourquoi c’est important ?</h2>
 <div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="n">count</span><span class="o">++</span><span class="p">;</span><span class="w"> </span><span class="c1">// ❌ pas thread-safe</span>
 </code></pre></div>
@@ -5011,13 +5270,13 @@
 <li>race condition possible</li>
 </ul>
 <hr />
-<h2 id="4-solution-avec-atomic">4. Solution avec Atomic</h2>
+<h2 id="3-solution-avec-atomic">3. Solution avec Atomic</h2>
 <div class="highlight"><pre><span></span><code><span class="n">AtomicInteger</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">AtomicInteger</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
 
 <span class="n">count</span><span class="p">.</span><span class="na">incrementAndGet</span><span class="p">();</span><span class="w"> </span><span class="c1">// ✔️ thread-safe</span>
 </code></pre></div>
 <hr />
-<h2 id="5-classes-principales">5. Classes principales</h2>
+<h2 id="4-classes-principales">4. Classes principales</h2>
 <ul>
 <li><code>AtomicInteger</code></li>
 <li><code>AtomicLong</code></li>
@@ -5025,14 +5284,14 @@
 <li><code>AtomicReference&lt;T&gt;</code></li>
 </ul>
 <hr />
-<h2 id="6-methodes-importantes">6. Méthodes importantes</h2>
+<h2 id="5-methodes-importantes">5. Méthodes importantes</h2>
 <div class="highlight"><pre><span></span><code><span class="n">count</span><span class="p">.</span><span class="na">get</span><span class="p">();</span><span class="w">               </span><span class="c1">// lire</span>
 <span class="n">count</span><span class="p">.</span><span class="na">set</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span><span class="w">             </span><span class="c1">// écrire</span>
 <span class="n">count</span><span class="p">.</span><span class="na">incrementAndGet</span><span class="p">();</span><span class="w">   </span><span class="c1">// ++</span>
 <span class="n">count</span><span class="p">.</span><span class="na">compareAndSet</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="c1">// CAS</span>
 </code></pre></div>
 <hr />
-<h2 id="7-compare-and-set-cas">7. Compare-And-Set (CAS)</h2>
+<h2 id="6-compare-and-set-cas">6. Compare-And-Set (CAS)</h2>
 <p>principe :</p>
 <div class="highlight"><pre><span></span><code><span class="n">count</span><span class="p">.</span><span class="na">compareAndSet</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
 </code></pre></div>
@@ -5048,7 +5307,7 @@
 </ul>
 <p><img alt="CAS vs synchronized" src="../../../../assets/atomic_illustration.svg" /></p>
 <hr />
-<h2 id="8-atomic-vs-synchronized">8. Atomic vs synchronized</h2>
+<h2 id="7-atomic-vs-synchronized">7. Atomic vs synchronized</h2>
 <table>
 <thead>
 <tr>
@@ -5081,7 +5340,7 @@
 </tbody>
 </table>
 <hr />
-<h2 id="9-quand-utiliser-atomic">9. Quand utiliser Atomic ?</h2>
+<h2 id="8-quand-utiliser-atomic">8. Quand utiliser Atomic ?</h2>
 <h3 id="bon-cas">Bon cas</h3>
 <ul>
 <li>compteur</li>
@@ -5102,7 +5361,7 @@
 <li>oublier les conditions de course</li>
 </ul>
 <hr />
-<h2 id="10-questions-classiques">10. Questions classiques</h2>
+<h2 id="9-questions-classiques">9. Questions classiques</h2>
 <details class="question">
 <summary><code>AtomicInteger</code> est thread-safe ?</summary>
 <p>Oui</p>
@@ -5115,7 +5374,6 @@
 <summary>basé sur quoi ?</summary>
 <p>CAS (compare-and-set)</p>
 </details>
-<hr />
 <hr />
 <h2 id="synthese">Synthèse</h2>
 <ul>
@@ -5194,11 +5452,10 @@ Les classes Atomic permettent un code concurrent rapide et sûr sans blocage.</l
         <a href="https://www.linkedin.com/in/akouba" target="_blank">
             LinkedIn
         </a>
-<!--        •-->
-<!--        <a href="https://calendly.com/rdv-akouba" target="_blank">-->
-<!--            Prendre RDV-->
-<!--        </a>-->
-
+        <!-- •-->
+        <!-- <a href="https://calendly.com/rdv-akouba" target="_blank">-->
+        <!-- Prendre RDV-->
+        <!-- </a>-->
     </div>
 </div>
       
@@ -5218,7 +5475,7 @@ Les classes Atomic permettent un code concurrent rapide et sûr sans blocage.</l
       <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "toc.follow", "content.code.copy", "search.highlight", "search.suggest"], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": null}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
     
   </body>
