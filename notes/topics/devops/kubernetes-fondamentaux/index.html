@@ -1,0 +1,3016 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="fr">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="Backend architecture, event-driven systems and DevOps patterns" name="description"/>
+<meta content="A.KOUBA" name="author"/>
+<link href="https://alak8ba.github.io/notes/topics/devops/kubernetes-fondamentaux/" rel="canonical"/>
+<link href="../observability-pattern/" rel="prev"/>
+<link href="../docker-compose-vs-kubernetes/" rel="next"/>
+<link href="../../../assets/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.7.7" name="generator"/>
+<title>(NEW) Kubernetes • Fondamentaux - Engineering Notes</title>
+<link href="../../../assets/stylesheets/main.ec1eaa64.min.css" rel="stylesheet"/>
+<link href="../../../assets/stylesheets/palette.ab4e12ef.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<link href="../../../stylesheets/extra.css" rel="stylesheet"/>
+<script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+</head>
+<body data-md-color-accent="light-blue" data-md-color-primary="blue-grey" data-md-color-scheme="slate" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#kubernetes-fondamentaux">
+          Aller au contenu
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="En-tête" class="md-header__inner md-grid">
+<a aria-label="Engineering Notes" class="md-header__button md-logo" data-md-component="logo" href="https://alak8ba.github.io" title="Engineering Notes">
+<img alt="logo" src="../../../assets/favicon.png"/>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            Engineering Notes
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              (NEW) Kubernetes • Fondamentaux
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Toggle theme" class="md-option" data-md-color-accent="light-blue" data-md-color-media="" data-md-color-primary="blue-grey" data-md-color-scheme="slate" id="__palette_0" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Toggle theme">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"></path></svg>
+</label>
+<input aria-label="Toggle theme" class="md-option" data-md-color-accent="light-blue" data-md-color-media="" data-md-color-primary="blue-grey" data-md-color-scheme="default" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_0" hidden="" title="Toggle theme">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"></path></svg>
+</label>
+</form>
+<script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Rechercher" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Rechercher" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+</label>
+<nav aria-label="Recherche" class="md-search__options">
+<button aria-label="Effacer" class="md-search__icon md-icon" tabindex="-1" title="Effacer" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+</button>
+</nav>
+<div class="md-search__suggest" data-md-component="search-suggest"></div>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="" tabindex="0">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initialisation de la recherche
+          </div>
+<ol class="md-search-result__list" role="presentation"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<nav aria-label="Onglets" class="md-tabs" data-md-component="tabs">
+<div class="md-grid">
+<ul class="md-tabs__list">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../..">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../about/">
+        
+  
+  
+    
+  
+  Auteur
+
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../tags/">
+        
+  
+  
+    
+  
+  Tags
+
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../java/fundamentals/equals-vs-double-equals/">
+          
+  
+  
+  Java
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../architecture/cqrs-pattern/">
+          
+  
+  
+  Architecture
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../kafka/retry-and-dlt-pattern/">
+          
+  
+  
+  Event Driven Systems
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../security/sso-oauth2-oidc-saml/">
+          
+  
+  
+  Security
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../observability/logging-architecture-java/">
+          
+  
+  
+  Observability
+
+        </a>
+</li>
+<li class="md-tabs__item md-tabs__item--active">
+<a class="md-tabs__link" href="../run-mco-sre/">
+          
+  
+  
+  DevOps
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../database/sql-joins-indexes/">
+          
+  
+  
+  Database
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../http/http-basics/">
+          
+  
+  
+  HTTP
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../testing/tests-junit-mockito-spring/">
+          
+  
+  
+  Testing
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../frontend/angular/">
+          
+  
+  
+  Frontend
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../javascript/fundamentals/typescript-basics/">
+          
+  
+  
+  JavaScript
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../agile/scrum/">
+          
+  
+  
+  Agilité
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../synthese/panorama-java-spring-backend/">
+          
+  
+  
+  Synthèses
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../socles/">
+          
+  
+  
+  Socles
+
+        </a>
+</li>
+</ul>
+</div>
+</nav>
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="Engineering Notes" class="md-nav__button md-logo" data-md-component="logo" href="https://alak8ba.github.io" title="Engineering Notes">
+<img alt="logo" src="../../../assets/favicon.png"/>
+</a>
+    Engineering Notes
+  </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../..">
+<span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../about/">
+<span class="md-ellipsis">
+    
+  
+    Auteur
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../tags/">
+<span class="md-ellipsis">
+    
+  
+    Tags
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Java
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Java
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Fondamentaux
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_1_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_1">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Fondamentaux
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/fundamentals/equals-vs-double-equals/">
+<span class="md-ellipsis">
+    
+  
+    == vs equals()
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/fundamentals/autoboxing/">
+<span class="md-ellipsis">
+    
+  
+    Autoboxing
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/fundamentals/final/">
+<span class="md-ellipsis">
+    
+  
+    final
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/fundamentals/generics/">
+<span class="md-ellipsis">
+    
+  
+    Generics
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/fundamentals/instanceof/">
+<span class="md-ellipsis">
+    
+  
+    instanceof
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/fundamentals/integer-cache/">
+<span class="md-ellipsis">
+    
+  
+    Integer Cache
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/fundamentals/java-protected/">
+<span class="md-ellipsis">
+    
+  
+    protected
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/fundamentals/java-static/">
+<span class="md-ellipsis">
+    
+  
+    static
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/fundamentals/static-generic-method/">
+<span class="md-ellipsis">
+    
+  
+    Méthodes génériques statiques
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/fundamentals/exceptions/">
+<span class="md-ellipsis">
+    
+  
+    Exceptions • checked vs unchecked
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/fundamentals/versions-java-8-17-21/">
+<span class="md-ellipsis">
+    
+  
+    (NEW) Java 8, 17, 21 • versions et migration
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Collections
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Collections
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/collections/list-set-map/">
+<span class="md-ellipsis">
+    
+  
+    List, Set, Map
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/collections/hashmap/">
+<span class="md-ellipsis">
+    
+  
+    HashMap
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/collections/hashmap-treemap-linkedhashmap/">
+<span class="md-ellipsis">
+    
+  
+    HashMap vs TreeMap vs LinkedHashMap
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/collections/hashtable/">
+<span class="md-ellipsis">
+    
+  
+    Hashtable
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/collections/concurrenthashmap/">
+<span class="md-ellipsis">
+    
+  
+    ConcurrentHashMap
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/collections/iterator/">
+<span class="md-ellipsis">
+    
+  
+    Iterator
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/collections/algorithms-complexity/">
+<span class="md-ellipsis">
+    
+  
+    Complexité des algorithmes
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Concurrence
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_3">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Concurrence
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/concurrency/race-condition/">
+<span class="md-ellipsis">
+    
+  
+    Race Condition
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/concurrency/deadlock/">
+<span class="md-ellipsis">
+    
+  
+    Deadlock
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/concurrency/synchronized/">
+<span class="md-ellipsis">
+    
+  
+    synchronized
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/concurrency/volatile/">
+<span class="md-ellipsis">
+    
+  
+    volatile
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/concurrency/atomic/">
+<span class="md-ellipsis">
+    
+  
+    Atomic
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/concurrency/executor-completablefuture/">
+<span class="md-ellipsis">
+    
+  
+    ExecutorService &amp; CompletableFuture
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    POO
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_4_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_4">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    POO
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/oop/inheritance/">
+<span class="md-ellipsis">
+    
+  
+    Héritage
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/oop/polymorphism/">
+<span class="md-ellipsis">
+    
+  
+    Polymorphisme
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/oop/solid/">
+<span class="md-ellipsis">
+    
+  
+    SOLID
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/oop/clean-code/">
+<span class="md-ellipsis">
+    
+  
+    Clean Code
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_5" id="__nav_4_5_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Design Patterns
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_5_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_5">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Design Patterns
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/design-patterns/singleton-pattern/">
+<span class="md-ellipsis">
+    
+  
+    Singleton
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/design-patterns/factory-pattern/">
+<span class="md-ellipsis">
+    
+  
+    Factory
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/design-patterns/dependency-injection/">
+<span class="md-ellipsis">
+    
+  
+    Dependency Injection
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/design-patterns/strategy-pattern/">
+<span class="md-ellipsis">
+    
+  
+    Strategy
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/design-patterns/builder-pattern/">
+<span class="md-ellipsis">
+    
+  
+    Builder
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/design-patterns/observer-pattern/">
+<span class="md-ellipsis">
+    
+  
+    Observer
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_6" id="__nav_4_6_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Spring
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_6_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_6">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Spring
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/spring/spring-boot-fondamentaux/">
+<span class="md-ellipsis">
+    
+  
+    Spring Boot • Fondamentaux et avantages
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/spring/declarer-un-bean/">
+<span class="md-ellipsis">
+    
+  
+    Déclarer un bean
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/spring/controller-vs-restcontroller/">
+<span class="md-ellipsis">
+    
+  
+    @Controller vs @RestController
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/spring/bean-scopes/">
+<span class="md-ellipsis">
+    
+  
+    Bean Scopes
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/spring/hibernate-jpa/">
+<span class="md-ellipsis">
+    
+  
+    Hibernate / JPA
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/spring/aop-spring/">
+<span class="md-ellipsis">
+    
+  
+    (NEW) AOP • Programmation Orientée Aspect
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/spring/spring-boot-2-vs-3/">
+<span class="md-ellipsis">
+    
+  
+    (NEW) Spring Boot 2 → 3 • ce qui change
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/spring/bom-gestion-des-dependances/">
+<span class="md-ellipsis">
+    
+  
+    (NEW) BOM • gestion des dépendances
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../spring/spring-batch-migration-sb2-java8-to-sb5-java21/">
+<span class="md-ellipsis">
+    
+  
+    Spring Batch - Migration SB4/Java8 → SB5/Java21
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../spring/spring-batch-advanced-patterns/">
+<span class="md-ellipsis">
+    
+  
+    Spring Batch - Patterns avancés
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4_7" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_7" id="__nav_4_7_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Base de données
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_7_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_7">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Base de données
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/database/acid/">
+<span class="md-ellipsis">
+    
+  
+    ACID
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_5_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_5">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Architecture
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../architecture/cqrs-pattern/">
+<span class="md-ellipsis">
+    
+  
+    CQRS Pattern
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../architecture/rest-api-design/">
+<span class="md-ellipsis">
+    
+  
+    REST API Design
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../spring/hexagonal-architecture/">
+<span class="md-ellipsis">
+    
+  
+    Hexagonal Architecture
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../architecture/api-gateway-pattern/">
+<span class="md-ellipsis">
+    
+  
+    (NEW) API Gateway • rôle et limites
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Event Driven Systems
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_6_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_6">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Event Driven Systems
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../kafka/retry-and-dlt-pattern/">
+<span class="md-ellipsis">
+    
+  
+    Retry and DLT Pattern
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../kafka/idempotent-consumers/">
+<span class="md-ellipsis">
+    
+  
+    Idempotent Consumers
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../kafka/outbox-pattern/">
+<span class="md-ellipsis">
+    
+  
+    Outbox Pattern
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../kafka/reliability-patterns/">
+<span class="md-ellipsis">
+    
+  
+    Reliability Patterns
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../kafka/consumer-rebalance/">
+<span class="md-ellipsis">
+    
+  
+    Consumer Rebalance
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../distributed/eventual-consistency/">
+<span class="md-ellipsis">
+    
+  
+    Eventual Consistency
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../distributed/microservices-communication/">
+<span class="md-ellipsis">
+    
+  
+    Microservices Communication
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../distributed/sync-vs-async/">
+<span class="md-ellipsis">
+    
+  
+    Synchronous Vs Asynchronous
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../distributed/kafka-resilience-patterns/">
+<span class="md-ellipsis">
+    
+  
+    Kafka Resilience Patterns
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../distributed/read-models-and-fetch-strategies/">
+<span class="md-ellipsis">
+    
+  
+    Read Models Vs fetch Strategies
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../distributed/distributed-tracing-and-correlation/">
+<span class="md-ellipsis">
+    
+  
+    Distributed Tracing And Correlation
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_7" type="checkbox"/>
+<label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Security
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_7_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_7">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Security
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../security/sso-oauth2-oidc-saml/">
+<span class="md-ellipsis">
+    
+  
+    (NEW) SSO • OAuth2, OIDC et SAML
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../security/jwt-authentication-pattern/">
+<span class="md-ellipsis">
+    
+  
+    JWT Authentication Pattern
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../security/cors/">
+<span class="md-ellipsis">
+    
+  
+    CORS • Cross-Origin Resource Sharing
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../security/cookie-security/">
+<span class="md-ellipsis">
+    
+  
+    Cookie Security
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../security/http-security-headers/">
+<span class="md-ellipsis">
+    
+  
+    HTTP Security Headers
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_8" type="checkbox"/>
+<label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Observability
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_8_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_8">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Observability
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../observability/logging-architecture-java/">
+<span class="md-ellipsis">
+    
+  
+    Logging Architecture Java
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../observability/exception-handling-spring/">
+<span class="md-ellipsis">
+    
+  
+    Exception Handling Spring
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../observability/metrics-monitoring-prometheus-grafana/">
+<span class="md-ellipsis">
+    
+  
+    Metrics Monitoring Prometheus Grafana
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../observability/monitoring-paiement/">
+<span class="md-ellipsis">
+    
+  
+    Monitoring de Plateforme de Paiement
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../observability/java-production-deep-dive/">
+<span class="md-ellipsis">
+    
+  
+    Java en Production • Deep-Dive
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../observability/incidents-vecu-terrain/">
+<span class="md-ellipsis">
+    
+  
+    Investigation d'Incidents • 4 Patterns
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../observability/profil-build-vers-run/">
+<span class="md-ellipsis">
+    
+  
+    BUILD vers RUN • Transition de Profil
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../observability/kafka-en-paiement/">
+<span class="md-ellipsis">
+    
+  
+    Kafka en paiement
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../observability/paiement-vocabulaire/">
+<span class="md-ellipsis">
+    
+  
+    Paiement vocabulaire
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../observability/pci-dss-applique/">
+<span class="md-ellipsis">
+    
+  
+    Pci dss applique
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_9" type="checkbox"/>
+<label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="">
+<span class="md-ellipsis">
+    
+  
+    DevOps
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="true" aria-labelledby="__nav_9_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_9">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    DevOps
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../run-mco-sre/">
+<span class="md-ellipsis">
+    
+  
+    RUN, MCO et SRE
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../docker-run/">
+<span class="md-ellipsis">
+    
+  
+    Docker Run • -v et -w
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../docker-production-pattern/">
+<span class="md-ellipsis">
+    
+  
+    Docker Production Pattern
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../docker-networking/">
+<span class="md-ellipsis">
+    
+  
+    Docker Networking
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../container-security/">
+<span class="md-ellipsis">
+    
+  
+    Container Security
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../reverse-proxy-pattern/">
+<span class="md-ellipsis">
+    
+  
+    Reverse Proxy Pattern
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../pull-based-deployment/">
+<span class="md-ellipsis">
+    
+  
+    Pull-based Deployment
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../ci-cd-pipeline-pattern/">
+<span class="md-ellipsis">
+    
+  
+    CI/CD Pipeline Pattern
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../observability-pattern/">
+<span class="md-ellipsis">
+    
+  
+    Observability Pattern
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    
+  
+    (NEW) Kubernetes • Fondamentaux
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+<span class="md-ellipsis">
+    
+  
+    (NEW) Kubernetes • Fondamentaux
+  
+
+    
+  </span>
+</a>
+<nav aria-label="Table des matières" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#contexte">
+<span class="md-ellipsis">
+      
+        Contexte
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#architecture-dun-cluster">
+<span class="md-ellipsis">
+      
+        Architecture d'un cluster
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#les-objets-a-connaitre">
+<span class="md-ellipsis">
+      
+        Les objets à connaître
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#un-deploiement-complet-commente">
+<span class="md-ellipsis">
+      
+        Un déploiement complet, commenté
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#les-probes-le-point-le-plus-mal-compris">
+<span class="md-ellipsis">
+      
+        Les probes • le point le plus mal compris
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ressources-et-le-cas-particulier-de-la-jvm">
+<span class="md-ellipsis">
+      
+        Ressources, et le cas particulier de la JVM
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#configuration-et-secrets">
+<span class="md-ellipsis">
+      
+        Configuration et secrets
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#deploiement-retour-arriere-mise-a-lechelle">
+<span class="md-ellipsis">
+      
+        Déploiement, retour arrière, mise à l'échelle
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#diagnostic-les-commandes-qui-servent-vraiment">
+<span class="md-ellipsis">
+      
+        Diagnostic • les commandes qui servent vraiment
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#securite-et-exploitation">
+<span class="md-ellipsis">
+      
+        Sécurité et exploitation
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#questions-typiques-reponses-courtes">
+<span class="md-ellipsis">
+      
+        Questions typiques, réponses courtes
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#voir-aussi">
+<span class="md-ellipsis">
+      
+        Voir aussi
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../docker-compose-vs-kubernetes/">
+<span class="md-ellipsis">
+    
+  
+    (NEW) Docker Compose vs Kubernetes
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_10" type="checkbox"/>
+<label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Database
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_10_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_10">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Database
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../database/sql-joins-indexes/">
+<span class="md-ellipsis">
+    
+  
+    SQL Joins et Index
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../database/index-et-optimisation-postgresql/">
+<span class="md-ellipsis">
+    
+  
+    Index et optimisation PostgreSQL
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../database/transaction-patterns/">
+<span class="md-ellipsis">
+    
+  
+    Transaction Patterns
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../database/optimistic-locking/">
+<span class="md-ellipsis">
+    
+  
+    Optimistic Locking
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_11" type="checkbox"/>
+<label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    HTTP
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_11_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_11">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    HTTP
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../http/http-basics/">
+<span class="md-ellipsis">
+    
+  
+    HTTP Basics
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../http/html-vs-html5/">
+<span class="md-ellipsis">
+    
+  
+    (NEW) HTML vs HTML5
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_12" type="checkbox"/>
+<label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Testing
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_12_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_12">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Testing
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../testing/tests-junit-mockito-spring/">
+<span class="md-ellipsis">
+    
+  
+    JUnit 5, Mockito &amp; Spring Boot Test
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../testing/testcontainers-pattern/">
+<span class="md-ellipsis">
+    
+  
+    Testcontainers
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_13" type="checkbox"/>
+<label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Frontend
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_13_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_13">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Frontend
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../frontend/angular/">
+<span class="md-ellipsis">
+    
+  
+    Angular • Fondamentaux &amp; Patterns
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../frontend/angular-migrations/">
+<span class="md-ellipsis">
+    
+  
+    Angular • Migrations entre versions
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../frontend/angular-testing/">
+<span class="md-ellipsis">
+    
+  
+    Angular • Testing
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../frontend/angular-ssr/">
+<span class="md-ellipsis">
+    
+  
+    Angular • SSR
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../frontend/ngrx/">
+<span class="md-ellipsis">
+    
+  
+    NgRx • State Management
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../frontend/react/">
+<span class="md-ellipsis">
+    
+  
+    React • Fondamentaux &amp; Hooks
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../frontend/chartjs/">
+<span class="md-ellipsis">
+    
+  
+    Chart.js • Visualisation de données
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../frontend/vuejs/">
+<span class="md-ellipsis">
+    
+  
+    (NEW) Vue.js • Fondamentaux &amp; comparaison
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_14" type="checkbox"/>
+<label class="md-nav__link" for="__nav_14" id="__nav_14_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    JavaScript
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_14_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_14">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    JavaScript
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../javascript/fundamentals/typescript-basics/">
+<span class="md-ellipsis">
+    
+  
+    TypeScript - Typage statique
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../javascript/fundamentals/javascript-pitfalls/">
+<span class="md-ellipsis">
+    
+  
+    JavaScript - Subtilités
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_15" type="checkbox"/>
+<label class="md-nav__link" for="__nav_15" id="__nav_15_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Agilité
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_15_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_15">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Agilité
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agile/scrum/">
+<span class="md-ellipsis">
+    
+  
+    (NEW) Scrum • cadre de travail itératif
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agile/safe/">
+<span class="md-ellipsis">
+    
+  
+    (NEW) SAFe • agilité à l'échelle
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agile/montees-de-version-et-cadence/">
+<span class="md-ellipsis">
+    
+  
+    (NEW) Montées de version et cadence
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_16" type="checkbox"/>
+<label class="md-nav__link" for="__nav_16" id="__nav_16_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Synthèses
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_16_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_16">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Synthèses
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../synthese/panorama-java-spring-backend/">
+<span class="md-ellipsis">
+    
+  
+    Panorama backend Java / Spring
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_17" type="checkbox"/>
+<label class="md-nav__link" for="__nav_17" id="__nav_17_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Socles
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_17_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_17">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Socles
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../socles/">
+<span class="md-ellipsis">
+    
+  
+    Vue d'ensemble
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../socles/kore-hexagonal/">
+<span class="md-ellipsis">
+    
+  
+    kore-hexagonal
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../socles/kore-batch/">
+<span class="md-ellipsis">
+    
+  
+    kore-batch
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../socles/kore-genie/">
+<span class="md-ellipsis">
+    
+  
+    kore-genie
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../socles/kore-n8n/">
+<span class="md-ellipsis">
+    
+  
+    kore-n8n
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../socles/kore-traefik/">
+<span class="md-ellipsis">
+    
+  
+    kore-traefik
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../socles/kore-monitoring/">
+<span class="md-ellipsis">
+    
+  
+    kore-monitoring
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../socles/kore-watchtower/">
+<span class="md-ellipsis">
+    
+  
+    kore-watchtower
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../socles/kore-backup/">
+<span class="md-ellipsis">
+    
+  
+    kore-backup
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../socles/kore-kafka/">
+<span class="md-ellipsis">
+    
+  
+    kore-kafka
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../socles/kore-bot/">
+<span class="md-ellipsis">
+    
+  
+    kore-bot
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Table des matières" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#contexte">
+<span class="md-ellipsis">
+      
+        Contexte
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#architecture-dun-cluster">
+<span class="md-ellipsis">
+      
+        Architecture d'un cluster
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#les-objets-a-connaitre">
+<span class="md-ellipsis">
+      
+        Les objets à connaître
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#un-deploiement-complet-commente">
+<span class="md-ellipsis">
+      
+        Un déploiement complet, commenté
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#les-probes-le-point-le-plus-mal-compris">
+<span class="md-ellipsis">
+      
+        Les probes • le point le plus mal compris
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ressources-et-le-cas-particulier-de-la-jvm">
+<span class="md-ellipsis">
+      
+        Ressources, et le cas particulier de la JVM
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#configuration-et-secrets">
+<span class="md-ellipsis">
+      
+        Configuration et secrets
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#deploiement-retour-arriere-mise-a-lechelle">
+<span class="md-ellipsis">
+      
+        Déploiement, retour arrière, mise à l'échelle
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#diagnostic-les-commandes-qui-servent-vraiment">
+<span class="md-ellipsis">
+      
+        Diagnostic • les commandes qui servent vraiment
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#securite-et-exploitation">
+<span class="md-ellipsis">
+      
+        Sécurité et exploitation
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#questions-typiques-reponses-courtes">
+<span class="md-ellipsis">
+      
+        Questions typiques, réponses courtes
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#voir-aussi">
+<span class="md-ellipsis">
+      
+        Voir aussi
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<nav class="md-tags">
+<a class="md-tag" href="../../../tags/#tag:conteneurs">conteneurs</a>
+<a class="md-tag" href="../../../tags/#tag:devops">devops</a>
+<a class="md-tag" href="../../../tags/#tag:docker">docker</a>
+<a class="md-tag" href="../../../tags/#tag:kubernetes">kubernetes</a>
+<a class="md-tag" href="../../../tags/#tag:orchestration">orchestration</a>
+</nav>
+<h1 id="kubernetes-fondamentaux">Kubernetes • fondamentaux</h1>
+<h2 id="contexte">Contexte</h2>
+<p>Un conteneur seul répond à la question « comment empaqueter et exécuter une application ».
+Il ne répond à aucune des suivantes, qui apparaissent dès la production :</p>
+<ul>
+<li>que se passe-t-il si le processus meurt à 3 h du matin ?</li>
+<li>comment passer de 2 à 20 instances pendant un pic, puis revenir ?</li>
+<li>comment livrer une nouvelle version <strong>sans coupure</strong> ?</li>
+<li>comment une instance en trouve-t-elle une autre quand les adresses IP changent ?</li>
+<li>comment répartir les conteneurs sur dix machines en tenant compte de la mémoire disponible ?</li>
+</ul>
+<p><strong>Kubernetes est un orchestrateur</strong> : on lui décrit l'état souhaité, il travaille en
+permanence à le faire correspondre à l'état réel.</p>
+<div class="admonition note">
+<p class="admonition-title">Le modèle mental à retenir</p>
+<p>Kubernetes est une <strong>boucle de réconciliation</strong>. On ne lui donne pas d'ordres
+(« démarre 3 conteneurs ») mais une <strong>déclaration</strong> (« il doit y en avoir 3 »).
+Des contrôleurs comparent en boucle le souhaité et le réel, et corrigent l'écart.
+C'est ce qui produit l'auto-réparation : un pod supprimé est recréé, parce que l'écart
+réapparaît.</p>
+</div>
+<hr/>
+<h2 id="architecture-dun-cluster">Architecture d'un cluster</h2>
+<pre class="mermaid"><code>flowchart TD
+    subgraph CP[Control plane]
+      API[kube-apiserver] --- ETCD[(etcd : etat du cluster)]
+      API --- SCH[kube-scheduler]
+      API --- CM[controller-manager]
+    end
+    subgraph N1[Node 1]
+      K1[kubelet] --&gt; P1[Pod A]
+      K1 --&gt; P2[Pod B]
+      PR1[kube-proxy]
+    end
+    subgraph N2[Node 2]
+      K2[kubelet] --&gt; P3[Pod C]
+      PR2[kube-proxy]
+    end
+    API --&gt; K1
+    API --&gt; K2
+    USER[kubectl / CI] --&gt; API</code></pre>
+<table>
+<thead>
+<tr>
+<th>Composant</th>
+<th>Rôle</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>kube-apiserver</strong></td>
+<td>seule porte d'entrée : tout passe par son API REST</td>
+</tr>
+<tr>
+<td><strong>etcd</strong></td>
+<td>base clé/valeur qui contient <strong>tout</strong> l'état du cluster - la sauvegarde critique</td>
+</tr>
+<tr>
+<td><strong>kube-scheduler</strong></td>
+<td>choisit sur quel nœud placer un pod (ressources, affinités, contraintes)</td>
+</tr>
+<tr>
+<td><strong>controller-manager</strong></td>
+<td>les boucles de réconciliation (Deployment, ReplicaSet, Node…)</td>
+</tr>
+<tr>
+<td><strong>kubelet</strong></td>
+<td>agent sur chaque nœud : démarre les conteneurs, exécute les probes</td>
+</tr>
+<tr>
+<td><strong>kube-proxy</strong></td>
+<td>règles réseau permettant de joindre un Service</td>
+</tr>
+<tr>
+<td><strong>container runtime</strong></td>
+<td>containerd ou CRI-O (Docker n'est plus le runtime depuis la 1.24)</td>
+</tr>
+</tbody>
+</table>
+<hr/>
+<h2 id="les-objets-a-connaitre">Les objets à connaître</h2>
+<table>
+<thead>
+<tr>
+<th>Objet</th>
+<th>Rôle</th>
+<th>À quoi il correspond mentalement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Pod</strong></td>
+<td>plus petite unité déployable : un ou plusieurs conteneurs partageant réseau et volumes</td>
+<td>« une instance »</td>
+</tr>
+<tr>
+<td><strong>ReplicaSet</strong></td>
+<td>maintient N pods identiques</td>
+<td>rarement manipulé directement</td>
+</tr>
+<tr>
+<td><strong>Deployment</strong></td>
+<td>gère les ReplicaSet et les mises à jour progressives</td>
+<td><strong>l'objet du quotidien</strong> pour une application sans état</td>
+</tr>
+<tr>
+<td><strong>StatefulSet</strong></td>
+<td>pods avec identité et stockage stables</td>
+<td>base de données, Kafka, ZooKeeper</td>
+</tr>
+<tr>
+<td><strong>DaemonSet</strong></td>
+<td>un pod par nœud</td>
+<td>agent de logs, agent de métriques</td>
+</tr>
+<tr>
+<td><strong>Job / CronJob</strong></td>
+<td>exécution ponctuelle ou planifiée</td>
+<td>batch, purge, export</td>
+</tr>
+<tr>
+<td><strong>Service</strong></td>
+<td>adresse stable + répartition de charge vers un ensemble de pods</td>
+<td>le DNS interne</td>
+</tr>
+<tr>
+<td><strong>Ingress</strong></td>
+<td>routage HTTP externe, TLS, noms de domaine</td>
+<td>le reverse proxy</td>
+</tr>
+<tr>
+<td><strong>ConfigMap</strong></td>
+<td>configuration non sensible</td>
+<td>fichier <code>.properties</code></td>
+</tr>
+<tr>
+<td><strong>Secret</strong></td>
+<td>données sensibles</td>
+<td>mot de passe, jeton</td>
+</tr>
+<tr>
+<td><strong>PVC / PV</strong></td>
+<td>demande et fourniture de stockage persistant</td>
+<td>le volume</td>
+</tr>
+<tr>
+<td><strong>Namespace</strong></td>
+<td>cloisonnement logique + quotas</td>
+<td>l'environnement ou l'équipe</td>
+</tr>
+<tr>
+<td><strong>HPA</strong></td>
+<td>ajuste le nombre de réplicas selon des métriques</td>
+<td>l'autoscaling</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title">Un pod est éphémère</p>
+<p>Un pod a une IP, mais elle change à chaque recréation. <strong>On ne s'adresse jamais à un
+pod directement</strong> : on passe par un Service, dont le nom DNS est stable
+(<code>facturation.production.svc.cluster.local</code>). Toute configuration qui référence une IP
+de pod est cassée par nature.</p>
+</div>
+<hr/>
+<h2 id="un-deploiement-complet-commente">Un déploiement complet, commenté</h2>
+<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">apps/v1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Deployment</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">facturation</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">replicas</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3</span>
+<span class="w">  </span><span class="nt">selector</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">matchLabels</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> app</span><span class="p">:</span><span class="w"> </span><span class="nv">facturation</span><span class="w"> </span><span class="p p-Indicator">}</span>
+<span class="w">  </span><span class="nt">strategy</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">RollingUpdate</span>
+<span class="w">    </span><span class="nt">rollingUpdate</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">maxSurge</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span><span class="w">          </span><span class="c1"># un pod en plus pendant la bascule</span>
+<span class="w">      </span><span class="nt">maxUnavailable</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span><span class="w">    </span><span class="c1"># jamais moins que les 3 attendus → zéro coupure</span>
+<span class="w">  </span><span class="nt">template</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">metadata</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">labels</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> app</span><span class="p">:</span><span class="w"> </span><span class="nv">facturation</span><span class="w"> </span><span class="p p-Indicator">}</span>
+<span class="w">    </span><span class="nt">spec</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">containers</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">app</span>
+<span class="w">          </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">registry.exemple.fr/facturation:1.8.3</span><span class="w">   </span><span class="c1"># jamais :latest</span>
+<span class="w">          </span><span class="nt">ports</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[{</span><span class="nt"> containerPort</span><span class="p">:</span><span class="w"> </span><span class="nv">8080</span><span class="w"> </span><span class="p p-Indicator">}]</span>
+<span class="w">          </span><span class="nt">envFrom</span><span class="p">:</span>
+<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">configMapRef</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> name</span><span class="p">:</span><span class="w"> </span><span class="nv">facturation-config</span><span class="w"> </span><span class="p p-Indicator">}</span>
+<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">secretRef</span><span class="p">:</span><span class="w">    </span><span class="p p-Indicator">{</span><span class="nt"> name</span><span class="p">:</span><span class="w"> </span><span class="nv">facturation-secrets</span><span class="w"> </span><span class="p p-Indicator">}</span>
+<span class="w">          </span><span class="nt">resources</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">requests</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> cpu</span><span class="p">:</span><span class="w"> </span><span class="s">"250m"</span><span class="p p-Indicator">,</span><span class="nt"> memory</span><span class="p">:</span><span class="w"> </span><span class="s">"512Mi"</span><span class="w"> </span><span class="p p-Indicator">}</span><span class="w">   </span><span class="c1"># sert au scheduler</span>
+<span class="w">            </span><span class="nt">limits</span><span class="p">:</span><span class="w">   </span><span class="p p-Indicator">{</span><span class="nt"> cpu</span><span class="p">:</span><span class="w"> </span><span class="s">"1"</span><span class="p p-Indicator">,</span><span class="nt">    memory</span><span class="p">:</span><span class="w"> </span><span class="s">"1Gi"</span><span class="w"> </span><span class="p p-Indicator">}</span><span class="w">     </span><span class="c1"># plafond dur</span>
+<span class="w">          </span><span class="nt">startupProbe</span><span class="p">:</span><span class="w">                                   </span><span class="c1"># laisse le temps de démarrer</span>
+<span class="w">            </span><span class="nt">httpGet</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> path</span><span class="p">:</span><span class="w"> </span><span class="nv">/actuator/health/liveness</span><span class="p p-Indicator">,</span><span class="nt"> port</span><span class="p">:</span><span class="w"> </span><span class="nv">8080</span><span class="w"> </span><span class="p p-Indicator">}</span>
+<span class="w">            </span><span class="nt">failureThreshold</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">30</span>
+<span class="w">            </span><span class="nt">periodSeconds</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5</span>
+<span class="w">          </span><span class="nt">readinessProbe</span><span class="p">:</span><span class="w">                                 </span><span class="c1"># prêt à recevoir du trafic ?</span>
+<span class="w">            </span><span class="nt">httpGet</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> path</span><span class="p">:</span><span class="w"> </span><span class="nv">/actuator/health/readiness</span><span class="p p-Indicator">,</span><span class="nt"> port</span><span class="p">:</span><span class="w"> </span><span class="nv">8080</span><span class="w"> </span><span class="p p-Indicator">}</span>
+<span class="w">            </span><span class="nt">periodSeconds</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span>
+<span class="w">          </span><span class="nt">livenessProbe</span><span class="p">:</span><span class="w">                                  </span><span class="c1"># encore vivant ?</span>
+<span class="w">            </span><span class="nt">httpGet</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> path</span><span class="p">:</span><span class="w"> </span><span class="nv">/actuator/health/liveness</span><span class="p p-Indicator">,</span><span class="nt"> port</span><span class="p">:</span><span class="w"> </span><span class="nv">8080</span><span class="w"> </span><span class="p p-Indicator">}</span>
+<span class="w">            </span><span class="nt">periodSeconds</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">20</span>
+<span class="nn">---</span>
+<span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Service</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">facturation</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">selector</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> app</span><span class="p">:</span><span class="w"> </span><span class="nv">facturation</span><span class="w"> </span><span class="p p-Indicator">}</span><span class="w">     </span><span class="c1"># le lien Service → Pods se fait par label</span>
+<span class="w">  </span><span class="nt">ports</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[{</span><span class="nt"> port</span><span class="p">:</span><span class="w"> </span><span class="nv">80</span><span class="p p-Indicator">,</span><span class="nt"> targetPort</span><span class="p">:</span><span class="w"> </span><span class="nv">8080</span><span class="w"> </span><span class="p p-Indicator">}]</span>
+<span class="w">  </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ClusterIP</span><span class="w">                    </span><span class="c1"># visible seulement dans le cluster</span>
+<span class="nn">---</span>
+<span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">networking.k8s.io/v1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Ingress</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">facturation</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">rules</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">host</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">facturation.exemple.fr</span>
+<span class="w">      </span><span class="nt">http</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">paths</span><span class="p">:</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/</span>
+<span class="w">            </span><span class="nt">pathType</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Prefix</span>
+<span class="w">            </span><span class="nt">backend</span><span class="p">:</span>
+<span class="w">              </span><span class="nt">service</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> name</span><span class="p">:</span><span class="w"> </span><span class="nv">facturation</span><span class="p p-Indicator">,</span><span class="nt"> port</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> number</span><span class="p">:</span><span class="w"> </span><span class="nv">80</span><span class="w"> </span><span class="p p-Indicator">}</span><span class="w"> </span><span class="p p-Indicator">}</span>
+<span class="w">  </span><span class="nt">tls</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">hosts</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">facturation.exemple.fr</span><span class="p p-Indicator">]</span>
+<span class="w">      </span><span class="nt">secretName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">facturation-tls</span>
+</code></pre></div>
+<hr/>
+<h2 id="les-probes-le-point-le-plus-mal-compris">Les probes • le point le plus mal compris</h2>
+<table>
+<thead>
+<tr>
+<th>Probe</th>
+<th>Question posée</th>
+<th>Échec → conséquence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>startupProbe</strong></td>
+<td>le démarrage est-il terminé ?</td>
+<td>suspend les deux autres tant qu'elle n'a pas réussi</td>
+</tr>
+<tr>
+<td><strong>readinessProbe</strong></td>
+<td>ce pod peut-il recevoir du trafic <strong>maintenant</strong> ?</td>
+<td>pod <strong>retiré du Service</strong>, mais pas redémarré</td>
+</tr>
+<tr>
+<td><strong>livenessProbe</strong></td>
+<td>ce pod est-il irrécupérable ?</td>
+<td>pod <strong>tué et recréé</strong></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title">Erreurs classiques sur une application Spring Boot</p>
+<ul>
+<li><strong>même endpoint pour readiness et liveness</strong> : une dépendance indisponible (base
+  injoignable) rend la readiness rouge - normal - mais si c'est aussi la liveness,
+  Kubernetes redémarre en boucle des pods parfaitement sains. Utiliser les groupes
+  Spring Boot : <code>/actuator/health/readiness</code> et <code>/actuator/health/liveness</code>
+  (<code>management.endpoint.health.probes.enabled=true</code>).</li>
+<li><strong>pas de startupProbe</strong> sur une application qui démarre en 60 s : la liveness tue le
+  pod avant la fin du démarrage → <code>CrashLoopBackOff</code> permanent.</li>
+<li><strong>readiness sans arrêt propre</strong> : sans <code>preStop</code> ni <code>graceful shutdown</code>, les requêtes
+  en cours sont coupées à chaque déploiement (<code>server.shutdown=graceful</code> côté Boot).</li>
+</ul>
+</div>
+<hr/>
+<h2 id="ressources-et-le-cas-particulier-de-la-jvm">Ressources, et le cas particulier de la JVM</h2>
+<p><code>requests</code> sert au <strong>placement</strong>, <code>limits</code> est un <strong>plafond appliqué</strong>. Deux comportements
+très différents en cas de dépassement :</p>
+<ul>
+<li><strong>CPU</strong> → <em>throttling</em> : l'application ralentit, les latences montent, rien ne plante.
+  Symptôme trompeur, très fréquent quand la limite CPU est basse.</li>
+<li><strong>Mémoire</strong> → <strong>OOMKilled</strong> : le conteneur est tué net, code de sortie 137.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="nt">env</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">JAVA_TOOL_OPTIONS</span>
+<span class="w">    </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="s">"-XX:MaxRAMPercentage=75</span><span class="nv"> </span><span class="s">-XX:+UseG1GC</span><span class="nv"> </span><span class="s">-XX:+ExitOnOutOfMemoryError"</span>
+</code></pre></div>
+<p>La JVM moderne détecte les limites cgroup, mais la heap n'est pas toute la mémoire : métaspace,
+piles de threads, buffers directs et code natif s'ajoutent. Fixer <code>-Xmx</code> à la valeur de la
+limite garantit l'OOMKill ; viser 70 à 80 % via <code>MaxRAMPercentage</code>.
+→ <a href="../../observability/java-production-deep-dive/">Java en Production • Deep-Dive</a></p>
+<hr/>
+<h2 id="configuration-et-secrets">Configuration et secrets</h2>
+<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>create<span class="w"> </span>configmap<span class="w"> </span>facturation-config<span class="w"> </span>--from-literal<span class="o">=</span><span class="nv">SPRING_PROFILES_ACTIVE</span><span class="o">=</span>prod
+kubectl<span class="w"> </span>create<span class="w"> </span>secret<span class="w"> </span>generic<span class="w"> </span>facturation-secrets<span class="w"> </span>--from-literal<span class="o">=</span><span class="nv">DB_PASSWORD</span><span class="o">=</span><span class="s1">'…'</span>
+</code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Un Secret n'est pas chiffré</p>
+<p>Le contenu d'un Secret est simplement <strong>encodé en base64</strong> dans etcd. Sans chiffrement
+au repos activé et sans RBAC restrictif, quiconque peut lire les Secrets d'un namespace
+lit les mots de passe en clair. Les réponses sérieuses : chiffrement etcd,
+RBAC strict, et un gestionnaire externe (Vault, Sealed Secrets, External Secrets) -
+surtout si les manifestes sont versionnés dans Git.</p>
+</div>
+<p>Un changement de ConfigMap <strong>ne redémarre pas</strong> les pods automatiquement : soit on monte la
+ConfigMap en volume et l'application recharge, soit on annote le Deployment avec une somme de
+contrôle pour forcer un roulement.</p>
+<hr/>
+<h2 id="deploiement-retour-arriere-mise-a-lechelle">Déploiement, retour arrière, mise à l'échelle</h2>
+<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>deployment.yaml<span class="w">            </span><span class="c1"># applique l'état souhaité</span>
+kubectl<span class="w"> </span>rollout<span class="w"> </span>status<span class="w"> </span>deploy/facturation<span class="w">   </span><span class="c1"># suit la bascule</span>
+kubectl<span class="w"> </span>rollout<span class="w"> </span>undo<span class="w">   </span>deploy/facturation<span class="w">   </span><span class="c1"># retour à la révision précédente</span>
+kubectl<span class="w"> </span>scale<span class="w"> </span>deploy/facturation<span class="w"> </span>--replicas<span class="o">=</span><span class="m">6</span>
+kubectl<span class="w"> </span>autoscale<span class="w"> </span>deploy/facturation<span class="w"> </span>--min<span class="o">=</span><span class="m">3</span><span class="w"> </span>--max<span class="o">=</span><span class="m">10</span><span class="w"> </span>--cpu-percent<span class="o">=</span><span class="m">70</span>
+</code></pre></div>
+<p>Un rolling update remplace les pods progressivement selon <code>maxSurge</code> / <code>maxUnavailable</code>.
+Avec <code>maxUnavailable: 0</code>, la capacité ne descend jamais sous la cible : c'est la condition du
+déploiement sans coupure - à laquelle il faut ajouter la <strong>compatibilité ascendante du
+schéma de base</strong>, puisque deux versions cohabitent pendant la bascule.</p>
+<hr/>
+<h2 id="diagnostic-les-commandes-qui-servent-vraiment">Diagnostic • les commandes qui servent vraiment</h2>
+<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>get<span class="w"> </span>pods<span class="w"> </span>-n<span class="w"> </span>prod<span class="w"> </span>-o<span class="w"> </span>wide<span class="w">            </span><span class="c1"># etat, redemarrages, noeud</span>
+kubectl<span class="w"> </span>describe<span class="w"> </span>pod<span class="w"> </span>&lt;pod&gt;<span class="w">                  </span><span class="c1"># EVENTS : la cause est presque toujours ici</span>
+kubectl<span class="w"> </span>logs<span class="w"> </span>&lt;pod&gt;<span class="w"> </span>-f<span class="w"> </span>--tail<span class="o">=</span><span class="m">200</span>
+kubectl<span class="w"> </span>logs<span class="w"> </span>&lt;pod&gt;<span class="w"> </span>--previous<span class="w">               </span><span class="c1"># logs du conteneur mort : indispensable</span>
+kubectl<span class="w"> </span>get<span class="w"> </span>events<span class="w"> </span>-n<span class="w"> </span>prod<span class="w"> </span>--sort-by<span class="o">=</span>.lastTimestamp
+kubectl<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>&lt;pod&gt;<span class="w"> </span>--<span class="w"> </span>sh
+kubectl<span class="w"> </span>port-forward<span class="w"> </span>svc/facturation<span class="w"> </span><span class="m">8080</span>:80
+kubectl<span class="w"> </span>top<span class="w"> </span>pods<span class="w"> </span>-n<span class="w"> </span>prod<span class="w">                    </span><span class="c1"># consommation reelle</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>État observé</th>
+<th>Cause la plus fréquente</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Pending</code></td>
+<td>aucun nœud n'a les ressources demandées, ou PVC non lié</td>
+</tr>
+<tr>
+<td><code>ImagePullBackOff</code></td>
+<td>tag inexistant, ou secret de registre absent</td>
+</tr>
+<tr>
+<td><code>CrashLoopBackOff</code></td>
+<td>l'application plante au démarrage, ou liveness trop agressive</td>
+</tr>
+<tr>
+<td><code>OOMKilled</code> (exit 137)</td>
+<td>limite mémoire trop basse, ou fuite</td>
+</tr>
+<tr>
+<td><code>0/3 Ready</code></td>
+<td>readiness rouge : dépendance indisponible, mauvais chemin de probe</td>
+</tr>
+<tr>
+<td><code>Terminating</code> bloqué</td>
+<td>finalizer, ou arrêt applicatif qui ne rend pas la main</td>
+</tr>
+</tbody>
+</table>
+<hr/>
+<h2 id="securite-et-exploitation">Sécurité et exploitation</h2>
+<ul>
+<li><strong>RBAC</strong> : un ServiceAccount par application, droits minimaux - jamais <code>cluster-admin</code></li>
+<li><strong>conteneur non root</strong>, système de fichiers en lecture seule, capacités supprimées
+  → <a href="../container-security/">Container Security</a></li>
+<li><strong>NetworkPolicy</strong> : par défaut, tous les pods se parlent ; il faut fermer explicitement</li>
+<li><strong>PodDisruptionBudget</strong> : garantir un minimum d'instances pendant les opérations de
+  maintenance des nœuds</li>
+<li><strong>quotas et LimitRange</strong> par namespace, pour éviter qu'une équipe consomme le cluster</li>
+</ul>
+<p>Outillage habituel autour : <strong>Helm</strong> (paquets paramétrables) ou <strong>Kustomize</strong> (surcouches par
+environnement), et <strong>ArgoCD / Flux</strong> pour le GitOps - le cluster tire l'état depuis Git au
+lieu que la CI pousse. → <a href="../pull-based-deployment/">Pull-Based Deployment</a></p>
+<hr/>
+<h2 id="questions-typiques-reponses-courtes">Questions typiques, réponses courtes</h2>
+<p><strong>« Qu'est-ce qu'un pod ? »</strong>
+La plus petite unité déployable : un ou plusieurs conteneurs qui partagent l'espace réseau et
+des volumes. Un conteneur applicatif, éventuellement accompagné d'un sidecar. Il est
+éphémère : on s'adresse toujours au Service, pas au pod.</p>
+<p><strong>« Différence entre Deployment et StatefulSet ? »</strong>
+Le Deployment gère des pods interchangeables et sans état, remplacés dans n'importe quel
+ordre. Le StatefulSet donne à chaque pod une identité stable (<code>app-0</code>, <code>app-1</code>), un volume
+attaché à cette identité, et un ordre de création et de suppression. Bases de données et
+brokers → StatefulSet.</p>
+<p><strong>« Différence entre readiness et liveness ? »</strong>
+La readiness décide si le pod reçoit du trafic ; son échec le retire du Service sans le
+redémarrer. La liveness décide s'il faut le tuer. Les confondre fait redémarrer en boucle des
+pods sains quand une dépendance externe est indisponible.</p>
+<p><strong>« Comment gérer la configuration ? »</strong>
+ConfigMap pour le non sensible, Secret pour le reste, injectés en variables d'environnement
+ou en volume. Les Secrets ne sont pas chiffrés par défaut : chiffrement etcd, RBAC, et un
+gestionnaire externe dès que les manifestes sont dans Git.</p>
+<p><strong>« Un déploiement sans coupure, comment ? »</strong>
+Rolling update avec <code>maxUnavailable: 0</code>, readiness fiable, arrêt gracieux côté application
+avec <code>preStop</code>, plusieurs réplicas, PodDisruptionBudget - et surtout des changements de
+schéma de base <strong>compatibles dans les deux sens</strong>, puisque deux versions tournent en même
+temps.</p>
+<hr/>
+<h2 id="voir-aussi">Voir aussi</h2>
+<ul>
+<li><a href="../docker-compose-vs-kubernetes/">Docker Compose vs Kubernetes</a></li>
+<li><a href="../docker-production-pattern/">Docker Production Pattern</a></li>
+<li><a href="../docker-networking/">Docker Networking</a></li>
+<li><a href="../container-security/">Container Security</a></li>
+<li><a href="../pull-based-deployment/">Pull-Based Deployment</a></li>
+<li><a href="../observability-pattern/">Observability Pattern</a></li>
+<li><a href="../run-mco-sre/">RUN, MCO et SRE</a></li>
+</ul>
+</article>
+</div>
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+</div>
+<button class="md-top md-icon" data-md-component="top" hidden="" type="button">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Retour en haut de la page
+</button>
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-footer-copyright">
+<div class="md-footer-copyright__highlight">
+        © 2026 • Engineering Notes
+
+    </div>
+<div style="margin-top:5px; font-size:0.5rem;">
+<a href="mailto:contact@alkouba.fr">
+            contact@alkouba.fr
+        </a>
+        •
+        <a href="tel:+33636422463">
+            +33 6 36 42 24 63
+        </a>
+        •
+        <a href="https://github.com/alak8ba" target="_blank">
+            GitHub
+        </a>
+        •
+        <a href="https://www.linkedin.com/in/akouba" target="_blank">
+            LinkedIn
+        </a>
+<!-- •-->
+<!-- <a href="https://calendly.com/rdv-akouba" target="_blank">-->
+<!-- Prendre RDV-->
+<!-- </a>-->
+</div>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "toc.follow", "content.code.copy", "search.highlight", "search.suggest"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": null}</script>
+<script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+</body>
+</html>

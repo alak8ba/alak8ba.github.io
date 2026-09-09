@@ -1,0 +1,3120 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="fr">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="Backend architecture, event-driven systems and DevOps patterns" name="description"/>
+<meta content="A.KOUBA" name="author"/>
+<link href="https://alak8ba.github.io/notes/topics/security/sso-oauth2-oidc-saml/" rel="canonical"/>
+<link href="../../distributed/distributed-tracing-and-correlation/" rel="prev"/>
+<link href="../jwt-authentication-pattern/" rel="next"/>
+<link href="../../../assets/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.7.7" name="generator"/>
+<title>(NEW) SSO • OAuth2, OIDC et SAML - Engineering Notes</title>
+<link href="../../../assets/stylesheets/main.ec1eaa64.min.css" rel="stylesheet"/>
+<link href="../../../assets/stylesheets/palette.ab4e12ef.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<link href="../../../stylesheets/extra.css" rel="stylesheet"/>
+<script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+</head>
+<body data-md-color-accent="light-blue" data-md-color-primary="blue-grey" data-md-color-scheme="slate" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#sso-single-sign-on-oauth2-oidc-saml">
+          Aller au contenu
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="En-tête" class="md-header__inner md-grid">
+<a aria-label="Engineering Notes" class="md-header__button md-logo" data-md-component="logo" href="https://alak8ba.github.io" title="Engineering Notes">
+<img alt="logo" src="../../../assets/favicon.png"/>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            Engineering Notes
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              (NEW) SSO • OAuth2, OIDC et SAML
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Toggle theme" class="md-option" data-md-color-accent="light-blue" data-md-color-media="" data-md-color-primary="blue-grey" data-md-color-scheme="slate" id="__palette_0" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Toggle theme">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"></path></svg>
+</label>
+<input aria-label="Toggle theme" class="md-option" data-md-color-accent="light-blue" data-md-color-media="" data-md-color-primary="blue-grey" data-md-color-scheme="default" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_0" hidden="" title="Toggle theme">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"></path></svg>
+</label>
+</form>
+<script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Rechercher" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Rechercher" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+</label>
+<nav aria-label="Recherche" class="md-search__options">
+<button aria-label="Effacer" class="md-search__icon md-icon" tabindex="-1" title="Effacer" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+</button>
+</nav>
+<div class="md-search__suggest" data-md-component="search-suggest"></div>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="" tabindex="0">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initialisation de la recherche
+          </div>
+<ol class="md-search-result__list" role="presentation"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<nav aria-label="Onglets" class="md-tabs" data-md-component="tabs">
+<div class="md-grid">
+<ul class="md-tabs__list">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../..">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../about/">
+        
+  
+  
+    
+  
+  Auteur
+
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../tags/">
+        
+  
+  
+    
+  
+  Tags
+
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../java/fundamentals/equals-vs-double-equals/">
+          
+  
+  
+  Java
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../architecture/cqrs-pattern/">
+          
+  
+  
+  Architecture
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../kafka/retry-and-dlt-pattern/">
+          
+  
+  
+  Event Driven Systems
+
+        </a>
+</li>
+<li class="md-tabs__item md-tabs__item--active">
+<a class="md-tabs__link" href="./">
+          
+  
+  
+  Security
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../observability/logging-architecture-java/">
+          
+  
+  
+  Observability
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../devops/run-mco-sre/">
+          
+  
+  
+  DevOps
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../database/sql-joins-indexes/">
+          
+  
+  
+  Database
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../http/http-basics/">
+          
+  
+  
+  HTTP
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../testing/tests-junit-mockito-spring/">
+          
+  
+  
+  Testing
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../frontend/angular/">
+          
+  
+  
+  Frontend
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../javascript/fundamentals/typescript-basics/">
+          
+  
+  
+  JavaScript
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../agile/scrum/">
+          
+  
+  
+  Agilité
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../synthese/panorama-java-spring-backend/">
+          
+  
+  
+  Synthèses
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../socles/">
+          
+  
+  
+  Socles
+
+        </a>
+</li>
+</ul>
+</div>
+</nav>
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="Engineering Notes" class="md-nav__button md-logo" data-md-component="logo" href="https://alak8ba.github.io" title="Engineering Notes">
+<img alt="logo" src="../../../assets/favicon.png"/>
+</a>
+    Engineering Notes
+  </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../..">
+<span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../about/">
+<span class="md-ellipsis">
+    
+  
+    Auteur
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../tags/">
+<span class="md-ellipsis">
+    
+  
+    Tags
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Java
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Java
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Fondamentaux
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_1_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_1">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Fondamentaux
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/fundamentals/equals-vs-double-equals/">
+<span class="md-ellipsis">
+    
+  
+    == vs equals()
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/fundamentals/autoboxing/">
+<span class="md-ellipsis">
+    
+  
+    Autoboxing
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/fundamentals/final/">
+<span class="md-ellipsis">
+    
+  
+    final
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/fundamentals/generics/">
+<span class="md-ellipsis">
+    
+  
+    Generics
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/fundamentals/instanceof/">
+<span class="md-ellipsis">
+    
+  
+    instanceof
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/fundamentals/integer-cache/">
+<span class="md-ellipsis">
+    
+  
+    Integer Cache
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/fundamentals/java-protected/">
+<span class="md-ellipsis">
+    
+  
+    protected
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/fundamentals/java-static/">
+<span class="md-ellipsis">
+    
+  
+    static
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/fundamentals/static-generic-method/">
+<span class="md-ellipsis">
+    
+  
+    Méthodes génériques statiques
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/fundamentals/exceptions/">
+<span class="md-ellipsis">
+    
+  
+    Exceptions • checked vs unchecked
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/fundamentals/versions-java-8-17-21/">
+<span class="md-ellipsis">
+    
+  
+    (NEW) Java 8, 17, 21 • versions et migration
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Collections
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Collections
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/collections/list-set-map/">
+<span class="md-ellipsis">
+    
+  
+    List, Set, Map
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/collections/hashmap/">
+<span class="md-ellipsis">
+    
+  
+    HashMap
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/collections/hashmap-treemap-linkedhashmap/">
+<span class="md-ellipsis">
+    
+  
+    HashMap vs TreeMap vs LinkedHashMap
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/collections/hashtable/">
+<span class="md-ellipsis">
+    
+  
+    Hashtable
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/collections/concurrenthashmap/">
+<span class="md-ellipsis">
+    
+  
+    ConcurrentHashMap
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/collections/iterator/">
+<span class="md-ellipsis">
+    
+  
+    Iterator
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/collections/algorithms-complexity/">
+<span class="md-ellipsis">
+    
+  
+    Complexité des algorithmes
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Concurrence
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_3">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Concurrence
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/concurrency/race-condition/">
+<span class="md-ellipsis">
+    
+  
+    Race Condition
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/concurrency/deadlock/">
+<span class="md-ellipsis">
+    
+  
+    Deadlock
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/concurrency/synchronized/">
+<span class="md-ellipsis">
+    
+  
+    synchronized
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/concurrency/volatile/">
+<span class="md-ellipsis">
+    
+  
+    volatile
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/concurrency/atomic/">
+<span class="md-ellipsis">
+    
+  
+    Atomic
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/concurrency/executor-completablefuture/">
+<span class="md-ellipsis">
+    
+  
+    ExecutorService &amp; CompletableFuture
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    POO
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_4_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_4">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    POO
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/oop/inheritance/">
+<span class="md-ellipsis">
+    
+  
+    Héritage
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/oop/polymorphism/">
+<span class="md-ellipsis">
+    
+  
+    Polymorphisme
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/oop/solid/">
+<span class="md-ellipsis">
+    
+  
+    SOLID
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/oop/clean-code/">
+<span class="md-ellipsis">
+    
+  
+    Clean Code
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_5" id="__nav_4_5_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Design Patterns
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_5_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_5">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Design Patterns
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/design-patterns/singleton-pattern/">
+<span class="md-ellipsis">
+    
+  
+    Singleton
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/design-patterns/factory-pattern/">
+<span class="md-ellipsis">
+    
+  
+    Factory
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/design-patterns/dependency-injection/">
+<span class="md-ellipsis">
+    
+  
+    Dependency Injection
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/design-patterns/strategy-pattern/">
+<span class="md-ellipsis">
+    
+  
+    Strategy
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/design-patterns/builder-pattern/">
+<span class="md-ellipsis">
+    
+  
+    Builder
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/design-patterns/observer-pattern/">
+<span class="md-ellipsis">
+    
+  
+    Observer
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_6" id="__nav_4_6_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Spring
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_6_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_6">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Spring
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/spring/spring-boot-fondamentaux/">
+<span class="md-ellipsis">
+    
+  
+    Spring Boot • Fondamentaux et avantages
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/spring/declarer-un-bean/">
+<span class="md-ellipsis">
+    
+  
+    Déclarer un bean
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/spring/controller-vs-restcontroller/">
+<span class="md-ellipsis">
+    
+  
+    @Controller vs @RestController
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/spring/bean-scopes/">
+<span class="md-ellipsis">
+    
+  
+    Bean Scopes
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/spring/hibernate-jpa/">
+<span class="md-ellipsis">
+    
+  
+    Hibernate / JPA
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/spring/aop-spring/">
+<span class="md-ellipsis">
+    
+  
+    (NEW) AOP • Programmation Orientée Aspect
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/spring/spring-boot-2-vs-3/">
+<span class="md-ellipsis">
+    
+  
+    (NEW) Spring Boot 2 → 3 • ce qui change
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/spring/bom-gestion-des-dependances/">
+<span class="md-ellipsis">
+    
+  
+    (NEW) BOM • gestion des dépendances
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../spring/spring-batch-migration-sb2-java8-to-sb5-java21/">
+<span class="md-ellipsis">
+    
+  
+    Spring Batch - Migration SB4/Java8 → SB5/Java21
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../spring/spring-batch-advanced-patterns/">
+<span class="md-ellipsis">
+    
+  
+    Spring Batch - Patterns avancés
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4_7" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_7" id="__nav_4_7_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Base de données
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_7_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_7">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Base de données
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/database/acid/">
+<span class="md-ellipsis">
+    
+  
+    ACID
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_5_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_5">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Architecture
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../architecture/cqrs-pattern/">
+<span class="md-ellipsis">
+    
+  
+    CQRS Pattern
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../architecture/rest-api-design/">
+<span class="md-ellipsis">
+    
+  
+    REST API Design
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../spring/hexagonal-architecture/">
+<span class="md-ellipsis">
+    
+  
+    Hexagonal Architecture
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../architecture/api-gateway-pattern/">
+<span class="md-ellipsis">
+    
+  
+    (NEW) API Gateway • rôle et limites
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Event Driven Systems
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_6_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_6">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Event Driven Systems
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../kafka/retry-and-dlt-pattern/">
+<span class="md-ellipsis">
+    
+  
+    Retry and DLT Pattern
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../kafka/idempotent-consumers/">
+<span class="md-ellipsis">
+    
+  
+    Idempotent Consumers
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../kafka/outbox-pattern/">
+<span class="md-ellipsis">
+    
+  
+    Outbox Pattern
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../kafka/reliability-patterns/">
+<span class="md-ellipsis">
+    
+  
+    Reliability Patterns
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../kafka/consumer-rebalance/">
+<span class="md-ellipsis">
+    
+  
+    Consumer Rebalance
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../distributed/eventual-consistency/">
+<span class="md-ellipsis">
+    
+  
+    Eventual Consistency
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../distributed/microservices-communication/">
+<span class="md-ellipsis">
+    
+  
+    Microservices Communication
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../distributed/sync-vs-async/">
+<span class="md-ellipsis">
+    
+  
+    Synchronous Vs Asynchronous
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../distributed/kafka-resilience-patterns/">
+<span class="md-ellipsis">
+    
+  
+    Kafka Resilience Patterns
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../distributed/read-models-and-fetch-strategies/">
+<span class="md-ellipsis">
+    
+  
+    Read Models Vs fetch Strategies
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../distributed/distributed-tracing-and-correlation/">
+<span class="md-ellipsis">
+    
+  
+    Distributed Tracing And Correlation
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_7" type="checkbox"/>
+<label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+<span class="md-ellipsis">
+    
+  
+    Security
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="true" aria-labelledby="__nav_7_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_7">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Security
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    
+  
+    (NEW) SSO • OAuth2, OIDC et SAML
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+<span class="md-ellipsis">
+    
+  
+    (NEW) SSO • OAuth2, OIDC et SAML
+  
+
+    
+  </span>
+</a>
+<nav aria-label="Table des matières" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#contexte">
+<span class="md-ellipsis">
+      
+        Contexte
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#vocabulaire">
+<span class="md-ellipsis">
+      
+        Vocabulaire
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#les-trois-familles-de-protocoles">
+<span class="md-ellipsis">
+      
+        Les trois familles de protocoles
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#flux-oidc-authorization-code-pkce">
+<span class="md-ellipsis">
+      
+        Flux OIDC • Authorization Code + PKCE
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#les-trois-jetons-et-a-quoi-ils-servent">
+<span class="md-ellipsis">
+      
+        Les trois jetons, et à quoi ils servent
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ce-que-lapi-doit-valider">
+<span class="md-ellipsis">
+      
+        Ce que l'API doit valider
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#le-cas-dune-spa-deux-options-defendables">
+<span class="md-ellipsis">
+      
+        Le cas d'une SPA • deux options défendables
+      
+    </span>
+</a>
+<nav aria-label="Le cas d'une SPA • deux options défendables" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#option-1-jetons-dans-le-navigateur">
+<span class="md-ellipsis">
+      
+        Option 1 - jetons dans le navigateur
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#option-2-bff-backend-for-frontend">
+<span class="md-ellipsis">
+      
+        Option 2 - BFF (Backend For Frontend)
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sessions-et-deconnexion-la-ou-le-sso-se-complique">
+<span class="md-ellipsis">
+      
+        Sessions et déconnexion • là où le SSO se complique
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#kerberos-et-sso-windows">
+<span class="md-ellipsis">
+      
+        Kerberos et SSO Windows
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#roles-et-autorisation">
+<span class="md-ellipsis">
+      
+        Rôles et autorisation
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#pieges-rencontres-en-production">
+<span class="md-ellipsis">
+      
+        Pièges rencontrés en production
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#questions-typiques-reponses-courtes">
+<span class="md-ellipsis">
+      
+        Questions typiques, réponses courtes
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#voir-aussi">
+<span class="md-ellipsis">
+      
+        Voir aussi
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../jwt-authentication-pattern/">
+<span class="md-ellipsis">
+    
+  
+    JWT Authentication Pattern
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../cors/">
+<span class="md-ellipsis">
+    
+  
+    CORS • Cross-Origin Resource Sharing
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../cookie-security/">
+<span class="md-ellipsis">
+    
+  
+    Cookie Security
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../http-security-headers/">
+<span class="md-ellipsis">
+    
+  
+    HTTP Security Headers
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_8" type="checkbox"/>
+<label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Observability
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_8_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_8">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Observability
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../observability/logging-architecture-java/">
+<span class="md-ellipsis">
+    
+  
+    Logging Architecture Java
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../observability/exception-handling-spring/">
+<span class="md-ellipsis">
+    
+  
+    Exception Handling Spring
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../observability/metrics-monitoring-prometheus-grafana/">
+<span class="md-ellipsis">
+    
+  
+    Metrics Monitoring Prometheus Grafana
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../observability/monitoring-paiement/">
+<span class="md-ellipsis">
+    
+  
+    Monitoring de Plateforme de Paiement
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../observability/java-production-deep-dive/">
+<span class="md-ellipsis">
+    
+  
+    Java en Production • Deep-Dive
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../observability/incidents-vecu-terrain/">
+<span class="md-ellipsis">
+    
+  
+    Investigation d'Incidents • 4 Patterns
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../observability/profil-build-vers-run/">
+<span class="md-ellipsis">
+    
+  
+    BUILD vers RUN • Transition de Profil
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../observability/kafka-en-paiement/">
+<span class="md-ellipsis">
+    
+  
+    Kafka en paiement
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../observability/paiement-vocabulaire/">
+<span class="md-ellipsis">
+    
+  
+    Paiement vocabulaire
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../observability/pci-dss-applique/">
+<span class="md-ellipsis">
+    
+  
+    Pci dss applique
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_9" type="checkbox"/>
+<label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    DevOps
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_9_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_9">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    DevOps
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../devops/run-mco-sre/">
+<span class="md-ellipsis">
+    
+  
+    RUN, MCO et SRE
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../devops/docker-run/">
+<span class="md-ellipsis">
+    
+  
+    Docker Run • -v et -w
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../devops/docker-production-pattern/">
+<span class="md-ellipsis">
+    
+  
+    Docker Production Pattern
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../devops/docker-networking/">
+<span class="md-ellipsis">
+    
+  
+    Docker Networking
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../devops/container-security/">
+<span class="md-ellipsis">
+    
+  
+    Container Security
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../devops/reverse-proxy-pattern/">
+<span class="md-ellipsis">
+    
+  
+    Reverse Proxy Pattern
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../devops/pull-based-deployment/">
+<span class="md-ellipsis">
+    
+  
+    Pull-based Deployment
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../devops/ci-cd-pipeline-pattern/">
+<span class="md-ellipsis">
+    
+  
+    CI/CD Pipeline Pattern
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../devops/observability-pattern/">
+<span class="md-ellipsis">
+    
+  
+    Observability Pattern
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../devops/kubernetes-fondamentaux/">
+<span class="md-ellipsis">
+    
+  
+    (NEW) Kubernetes • Fondamentaux
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../devops/docker-compose-vs-kubernetes/">
+<span class="md-ellipsis">
+    
+  
+    (NEW) Docker Compose vs Kubernetes
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_10" type="checkbox"/>
+<label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Database
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_10_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_10">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Database
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../database/sql-joins-indexes/">
+<span class="md-ellipsis">
+    
+  
+    SQL Joins et Index
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../database/index-et-optimisation-postgresql/">
+<span class="md-ellipsis">
+    
+  
+    Index et optimisation PostgreSQL
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../database/transaction-patterns/">
+<span class="md-ellipsis">
+    
+  
+    Transaction Patterns
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../database/optimistic-locking/">
+<span class="md-ellipsis">
+    
+  
+    Optimistic Locking
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_11" type="checkbox"/>
+<label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    HTTP
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_11_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_11">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    HTTP
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../http/http-basics/">
+<span class="md-ellipsis">
+    
+  
+    HTTP Basics
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../http/html-vs-html5/">
+<span class="md-ellipsis">
+    
+  
+    (NEW) HTML vs HTML5
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_12" type="checkbox"/>
+<label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Testing
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_12_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_12">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Testing
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../testing/tests-junit-mockito-spring/">
+<span class="md-ellipsis">
+    
+  
+    JUnit 5, Mockito &amp; Spring Boot Test
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../testing/testcontainers-pattern/">
+<span class="md-ellipsis">
+    
+  
+    Testcontainers
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_13" type="checkbox"/>
+<label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Frontend
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_13_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_13">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Frontend
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../frontend/angular/">
+<span class="md-ellipsis">
+    
+  
+    Angular • Fondamentaux &amp; Patterns
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../frontend/angular-migrations/">
+<span class="md-ellipsis">
+    
+  
+    Angular • Migrations entre versions
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../frontend/angular-testing/">
+<span class="md-ellipsis">
+    
+  
+    Angular • Testing
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../frontend/angular-ssr/">
+<span class="md-ellipsis">
+    
+  
+    Angular • SSR
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../frontend/ngrx/">
+<span class="md-ellipsis">
+    
+  
+    NgRx • State Management
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../frontend/react/">
+<span class="md-ellipsis">
+    
+  
+    React • Fondamentaux &amp; Hooks
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../frontend/chartjs/">
+<span class="md-ellipsis">
+    
+  
+    Chart.js • Visualisation de données
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../frontend/vuejs/">
+<span class="md-ellipsis">
+    
+  
+    (NEW) Vue.js • Fondamentaux &amp; comparaison
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_14" type="checkbox"/>
+<label class="md-nav__link" for="__nav_14" id="__nav_14_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    JavaScript
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_14_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_14">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    JavaScript
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../javascript/fundamentals/typescript-basics/">
+<span class="md-ellipsis">
+    
+  
+    TypeScript - Typage statique
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../javascript/fundamentals/javascript-pitfalls/">
+<span class="md-ellipsis">
+    
+  
+    JavaScript - Subtilités
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_15" type="checkbox"/>
+<label class="md-nav__link" for="__nav_15" id="__nav_15_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Agilité
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_15_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_15">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Agilité
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agile/scrum/">
+<span class="md-ellipsis">
+    
+  
+    (NEW) Scrum • cadre de travail itératif
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agile/safe/">
+<span class="md-ellipsis">
+    
+  
+    (NEW) SAFe • agilité à l'échelle
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agile/montees-de-version-et-cadence/">
+<span class="md-ellipsis">
+    
+  
+    (NEW) Montées de version et cadence
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_16" type="checkbox"/>
+<label class="md-nav__link" for="__nav_16" id="__nav_16_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Synthèses
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_16_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_16">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Synthèses
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../synthese/panorama-java-spring-backend/">
+<span class="md-ellipsis">
+    
+  
+    Panorama backend Java / Spring
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_17" type="checkbox"/>
+<label class="md-nav__link" for="__nav_17" id="__nav_17_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Socles
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_17_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_17">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Socles
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../socles/">
+<span class="md-ellipsis">
+    
+  
+    Vue d'ensemble
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../socles/kore-hexagonal/">
+<span class="md-ellipsis">
+    
+  
+    kore-hexagonal
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../socles/kore-batch/">
+<span class="md-ellipsis">
+    
+  
+    kore-batch
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../socles/kore-genie/">
+<span class="md-ellipsis">
+    
+  
+    kore-genie
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../socles/kore-n8n/">
+<span class="md-ellipsis">
+    
+  
+    kore-n8n
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../socles/kore-traefik/">
+<span class="md-ellipsis">
+    
+  
+    kore-traefik
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../socles/kore-monitoring/">
+<span class="md-ellipsis">
+    
+  
+    kore-monitoring
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../socles/kore-watchtower/">
+<span class="md-ellipsis">
+    
+  
+    kore-watchtower
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../socles/kore-backup/">
+<span class="md-ellipsis">
+    
+  
+    kore-backup
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../socles/kore-kafka/">
+<span class="md-ellipsis">
+    
+  
+    kore-kafka
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../socles/kore-bot/">
+<span class="md-ellipsis">
+    
+  
+    kore-bot
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Table des matières" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#contexte">
+<span class="md-ellipsis">
+      
+        Contexte
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#vocabulaire">
+<span class="md-ellipsis">
+      
+        Vocabulaire
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#les-trois-familles-de-protocoles">
+<span class="md-ellipsis">
+      
+        Les trois familles de protocoles
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#flux-oidc-authorization-code-pkce">
+<span class="md-ellipsis">
+      
+        Flux OIDC • Authorization Code + PKCE
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#les-trois-jetons-et-a-quoi-ils-servent">
+<span class="md-ellipsis">
+      
+        Les trois jetons, et à quoi ils servent
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ce-que-lapi-doit-valider">
+<span class="md-ellipsis">
+      
+        Ce que l'API doit valider
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#le-cas-dune-spa-deux-options-defendables">
+<span class="md-ellipsis">
+      
+        Le cas d'une SPA • deux options défendables
+      
+    </span>
+</a>
+<nav aria-label="Le cas d'une SPA • deux options défendables" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#option-1-jetons-dans-le-navigateur">
+<span class="md-ellipsis">
+      
+        Option 1 - jetons dans le navigateur
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#option-2-bff-backend-for-frontend">
+<span class="md-ellipsis">
+      
+        Option 2 - BFF (Backend For Frontend)
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sessions-et-deconnexion-la-ou-le-sso-se-complique">
+<span class="md-ellipsis">
+      
+        Sessions et déconnexion • là où le SSO se complique
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#kerberos-et-sso-windows">
+<span class="md-ellipsis">
+      
+        Kerberos et SSO Windows
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#roles-et-autorisation">
+<span class="md-ellipsis">
+      
+        Rôles et autorisation
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#pieges-rencontres-en-production">
+<span class="md-ellipsis">
+      
+        Pièges rencontrés en production
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#questions-typiques-reponses-courtes">
+<span class="md-ellipsis">
+      
+        Questions typiques, réponses courtes
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#voir-aussi">
+<span class="md-ellipsis">
+      
+        Voir aussi
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<nav class="md-tags">
+<a class="md-tag" href="../../../tags/#tag:authentication">authentication</a>
+<a class="md-tag" href="../../../tags/#tag:oauth2">oauth2</a>
+<a class="md-tag" href="../../../tags/#tag:oidc">oidc</a>
+<a class="md-tag" href="../../../tags/#tag:saml">saml</a>
+<a class="md-tag" href="../../../tags/#tag:security">security</a>
+<a class="md-tag" href="../../../tags/#tag:sso">sso</a>
+</nav>
+<h1 id="sso-single-sign-on-oauth2-oidc-saml">SSO • Single Sign-On (OAuth2, OIDC, SAML)</h1>
+<h2 id="contexte">Contexte</h2>
+<p>Dans un système d'information d'entreprise, un utilisateur travaille sur plusieurs
+applications dans la même journée :</p>
+<ul>
+<li>un ERP</li>
+<li>un intranet</li>
+<li>deux ou trois applications métier</li>
+<li>des outils SaaS (messagerie, GED, ticketing)</li>
+</ul>
+<p>Sans mécanisme commun, chaque application gère ses propres comptes,
+ses propres mots de passe et sa propre politique de sécurité.</p>
+<p>Les conséquences sont connues :</p>
+<ul>
+<li>multiplication des mots de passe, donc mots de passe faibles ou réutilisés</li>
+<li>arrivée / départ d'un collaborateur à répercuter dans N applications</li>
+<li>aucune vision centrale de « qui a accès à quoi »</li>
+<li>MFA impossible à généraliser</li>
+</ul>
+<p>Le <strong>SSO (Single Sign-On)</strong> répond à ce problème :
+<strong>l'utilisateur s'authentifie une seule fois auprès d'un fournisseur d'identité,
+et les applications lui font confiance.</strong></p>
+<hr/>
+<div class="admonition note">
+<p class="admonition-title">Le point à ne pas confondre</p>
+<p>Le SSO est une <strong>propriété</strong> du système d'information : une seule authentification
+pour plusieurs applications.</p>
+<p>OAuth2, OIDC, SAML et Kerberos sont les <strong>protocoles</strong> qui permettent de l'obtenir.</p>
+<p>Le JWT n'est ni l'un ni l'autre : c'est un <strong>format de jeton</strong>, souvent utilisé
+par OIDC pour transporter l'identité.</p>
+</div>
+<hr/>
+<h2 id="vocabulaire">Vocabulaire</h2>
+<table>
+<thead>
+<tr>
+<th>Terme</th>
+<th>Signification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Authentification</td>
+<td><strong>qui</strong> est l'utilisateur (prouver son identité)</td>
+</tr>
+<tr>
+<td>Autorisation</td>
+<td><strong>ce qu'il a le droit de faire</strong> (rôles, scopes, permissions)</td>
+</tr>
+<tr>
+<td>IdP - Identity Provider</td>
+<td>le système qui authentifie : Keycloak, Entra ID, Okta, ADFS, Ping</td>
+</tr>
+<tr>
+<td>SP - Service Provider</td>
+<td>l'application qui délègue l'authentification (vocabulaire SAML)</td>
+</tr>
+<tr>
+<td>RP - Relying Party</td>
+<td>même rôle que le SP, en vocabulaire OIDC</td>
+</tr>
+<tr>
+<td>Client</td>
+<td>l'application enregistrée auprès de l'IdP (vocabulaire OAuth2)</td>
+</tr>
+<tr>
+<td>Resource Server</td>
+<td>l'API qui valide le jeton pour protéger ses endpoints</td>
+</tr>
+<tr>
+<td>Assertion / Token</td>
+<td>la preuve signée émise par l'IdP et vérifiée par l'application</td>
+</tr>
+<tr>
+<td>Fédération</td>
+<td>faire confiance à un IdP externe (partenaire, client, annuaire d'un autre SI)</td>
+</tr>
+</tbody>
+</table>
+<hr/>
+<h2 id="les-trois-familles-de-protocoles">Les trois familles de protocoles</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>OAuth 2.0</th>
+<th>OIDC (OpenID Connect)</th>
+<th>SAML 2.0</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sert à</td>
+<td><strong>autoriser</strong> un accès à une API</td>
+<td><strong>authentifier</strong> un utilisateur</td>
+<td><strong>authentifier</strong> un utilisateur</td>
+</tr>
+<tr>
+<td>Construit sur</td>
+<td>HTTP + JSON</td>
+<td>OAuth 2.0 (surcouche)</td>
+<td>XML + signatures XML-DSig</td>
+</tr>
+<tr>
+<td>Jeton</td>
+<td><code>access_token</code> (souvent JWT)</td>
+<td><code>id_token</code> (JWT obligatoire)</td>
+<td>assertion XML</td>
+</tr>
+<tr>
+<td>Transport</td>
+<td>header <code>Authorization: Bearer</code></td>
+<td>idem + endpoint <code>userinfo</code></td>
+<td>POST de formulaire, redirections</td>
+</tr>
+<tr>
+<td>Terrain typique</td>
+<td>API, mobile, machine-to-machine</td>
+<td>SPA, applications web modernes</td>
+<td>grands SI, ADFS, SaaS historique</td>
+</tr>
+<tr>
+<td>Découverte</td>
+<td>-</td>
+<td><code>/.well-known/openid-configuration</code></td>
+<td>fichier de métadonnées XML</td>
+</tr>
+<tr>
+<td>Verdict</td>
+<td>ne fait <strong>pas</strong> d'authentification à lui seul</td>
+<td>standard par défaut aujourd'hui</td>
+<td>encore très présent, à savoir lire</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title">Le piège classique</p>
+<p>« On fait de l'authentification en OAuth2 » est une phrase fausse.
+OAuth2 délègue une <strong>autorisation d'accès</strong>, il ne dit rien de l'identité de l'utilisateur.
+C'est OIDC, la surcouche, qui apporte l'<code>id_token</code> et donc l'authentification.</p>
+</div>
+<hr/>
+<h2 id="flux-oidc-authorization-code-pkce">Flux OIDC • Authorization Code + PKCE</h2>
+<p>C'est le flux à connaître : celui recommandé aujourd'hui pour les applications web
+comme pour les SPA.</p>
+<pre class="mermaid"><code>sequenceDiagram
+participant U as Utilisateur
+participant APP as Application (RP)
+participant IDP as Identity Provider
+participant API as API (Resource Server)
+
+U-&gt;&gt;APP: accès à une page protégée
+APP--&gt;&gt;U: redirect /authorize (client_id, redirect_uri, scope, state, code_challenge)
+U-&gt;&gt;IDP: authentification (mot de passe + MFA)
+IDP--&gt;&gt;U: redirect vers redirect_uri avec un code
+U-&gt;&gt;APP: code d'autorisation
+APP-&gt;&gt;IDP: POST /token (code + code_verifier)
+IDP--&gt;&gt;APP: id_token + access_token + refresh_token
+APP-&gt;&gt;API: GET /resource (Authorization: Bearer access_token)
+API-&gt;&gt;IDP: clés publiques JWKS (mises en cache)
+API--&gt;&gt;APP: 200 OK</code></pre>
+<p>Les points qui font la sécurité de ce flux :</p>
+<ul>
+<li>le <strong>code d'autorisation</strong> transite par le navigateur, mais il est inutilisable seul</li>
+<li>l'échange code → jetons se fait <strong>de serveur à serveur</strong>, hors du navigateur</li>
+<li><strong>PKCE</strong> (<code>code_challenge</code> / <code>code_verifier</code>) empêche l'interception du code par une
+  autre application sur le poste</li>
+<li><strong><code>state</code></strong> protège contre le CSRF au retour de redirection</li>
+<li><strong><code>nonce</code></strong> lie l'<code>id_token</code> à la demande initiale</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Flux à ne plus utiliser</p>
+<ul>
+<li><strong>Implicit flow</strong> (<code>response_type=token</code>) : le jeton passe dans l'URL, il finit dans
+  l'historique et les logs. Remplacé par Authorization Code + PKCE.</li>
+<li><strong>Resource Owner Password Credentials</strong> : l'application manipule le mot de passe de
+  l'utilisateur, ce qui interdit MFA et SSO. Réservé à des cas de migration.</li>
+<li><strong>Client Credentials</strong> reste valide, mais <strong>uniquement</strong> pour du machine-to-machine
+  (batch, service à service) - il n'y a pas d'utilisateur derrière.</li>
+</ul>
+</div>
+<hr/>
+<h2 id="les-trois-jetons-et-a-quoi-ils-servent">Les trois jetons, et à quoi ils servent</h2>
+<table>
+<thead>
+<tr>
+<th>Jeton</th>
+<th>Question à laquelle il répond</th>
+<th>Destinataire</th>
+<th>Ne jamais faire</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id_token</code></td>
+<td><strong>qui</strong> est connecté</td>
+<td>l'application cliente</td>
+<td>l'envoyer à une API comme jeton d'accès</td>
+</tr>
+<tr>
+<td><code>access_token</code></td>
+<td><strong>quels accès</strong> sont autorisés</td>
+<td>l'API (resource server)</td>
+<td>le stocker dans un endroit lisible par du JS non maîtrisé</td>
+</tr>
+<tr>
+<td><code>refresh_token</code></td>
+<td>obtenir un nouvel <code>access_token</code></td>
+<td>l'IdP uniquement</td>
+<td>l'exposer au navigateur sans rotation</td>
+</tr>
+</tbody>
+</table>
+<p>Ordres de grandeur en production :</p>
+<ul>
+<li><code>access_token</code> : 5 à 15 minutes</li>
+<li><code>id_token</code> : durée courte, il ne sert qu'à établir la session applicative</li>
+<li><code>refresh_token</code> : heures à jours, avec <strong>rotation</strong> et révocation possible</li>
+</ul>
+<hr/>
+<h2 id="ce-que-lapi-doit-valider">Ce que l'API doit valider</h2>
+<p>Un resource server qui décode le JWT sans le vérifier n'authentifie rien.
+La validation minimale :</p>
+<ol>
+<li><strong>signature</strong> vérifiée avec la clé publique de l'IdP (JWKS, <code>kid</code>, cache + rafraîchissement)</li>
+<li><strong><code>iss</code></strong> - l'émetteur est bien l'IdP attendu</li>
+<li><strong><code>aud</code></strong> - le jeton a été émis <strong>pour cette API</strong>, pas pour une autre</li>
+<li><strong><code>exp</code> / <code>nbf</code></strong> - validité temporelle, avec une tolérance d'horloge de quelques secondes</li>
+<li><strong><code>scope</code> / rôles</strong> - autorisation effective sur l'endpoint appelé</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="c1">// Resource server : validation déléguée à Spring Security</span>
+<span class="nd">@Configuration</span>
+<span class="nd">@EnableWebSecurity</span>
+<span class="kd">class</span> <span class="nc">SecurityConfig</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="nd">@Bean</span>
+<span class="w">    </span><span class="n">SecurityFilterChain</span><span class="w"> </span><span class="nf">filterChain</span><span class="p">(</span><span class="n">HttpSecurity</span><span class="w"> </span><span class="n">http</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">http</span>
+<span class="w">            </span><span class="p">.</span><span class="na">authorizeHttpRequests</span><span class="p">(</span><span class="n">auth</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">auth</span>
+<span class="w">                </span><span class="p">.</span><span class="na">requestMatchers</span><span class="p">(</span><span class="s">"/actuator/health"</span><span class="p">).</span><span class="na">permitAll</span><span class="p">()</span>
+<span class="w">                </span><span class="p">.</span><span class="na">requestMatchers</span><span class="p">(</span><span class="s">"/api/admin/**"</span><span class="p">).</span><span class="na">hasRole</span><span class="p">(</span><span class="s">"ADMIN"</span><span class="p">)</span>
+<span class="w">                </span><span class="p">.</span><span class="na">anyRequest</span><span class="p">().</span><span class="na">authenticated</span><span class="p">())</span>
+<span class="w">            </span><span class="p">.</span><span class="na">oauth2ResourceServer</span><span class="p">(</span><span class="n">oauth2</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">oauth2</span>
+<span class="w">                </span><span class="p">.</span><span class="na">jwt</span><span class="p">(</span><span class="n">jwt</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">jwt</span><span class="p">.</span><span class="na">jwtAuthenticationConverter</span><span class="p">(</span><span class="n">rolesConverter</span><span class="p">())))</span>
+<span class="w">            </span><span class="p">.</span><span class="na">sessionManagement</span><span class="p">(</span><span class="n">s</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="na">sessionCreationPolicy</span><span class="p">(</span><span class="n">STATELESS</span><span class="p">))</span>
+<span class="w">            </span><span class="p">.</span><span class="na">csrf</span><span class="p">(</span><span class="n">csrf</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">csrf</span><span class="p">.</span><span class="na">disable</span><span class="p">())</span><span class="w">   </span><span class="c1">// légitime seulement si aucun cookie d'auth</span>
+<span class="w">            </span><span class="p">.</span><span class="na">build</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="nt">spring</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">security</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">oauth2</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">resourceserver</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">jwt</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">issuer-uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://idp.exemple.fr/realms/interne</span>
+<span class="w">          </span><span class="nt">audiences</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">facturation-api</span>
+</code></pre></div>
+<p>Deux dépendances distinctes, deux rôles distincts :</p>
+<table>
+<thead>
+<tr>
+<th>Besoin</th>
+<th>Starter Spring</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>l'application <strong>fait</strong> le login et gère la session utilisateur</td>
+<td><code>spring-boot-starter-oauth2-client</code></td>
+</tr>
+<tr>
+<td>l'API <strong>valide</strong> un jeton reçu</td>
+<td><code>spring-boot-starter-oauth2-resource-server</code></td>
+</tr>
+</tbody>
+</table>
+<hr/>
+<h2 id="le-cas-dune-spa-deux-options-defendables">Le cas d'une SPA • deux options défendables</h2>
+<h3 id="option-1-jetons-dans-le-navigateur">Option 1 - jetons dans le navigateur</h3>
+<p>La SPA porte le flux Authorization Code + PKCE et stocke les jetons côté client.</p>
+<ul>
+<li>simple à mettre en place, pas de composant supplémentaire</li>
+<li>toute faille XSS devient un vol de jeton : le <code>localStorage</code> est lisible par n'importe
+  quel script chargé dans la page</li>
+</ul>
+<h3 id="option-2-bff-backend-for-frontend">Option 2 - BFF (Backend For Frontend)</h3>
+<p>Un backend maison porte le flux, garde les jetons côté serveur et n'expose au navigateur
+qu'un <strong>cookie de session <code>HttpOnly</code>, <code>Secure</code>, <code>SameSite</code></strong>.</p>
+<ul>
+<li>le jeton n'est jamais accessible au JavaScript</li>
+<li>il faut alors se protéger du CSRF (jeton anti-CSRF, <code>SameSite=Lax</code> ou <code>Strict</code>)</li>
+<li>c'est l'option retenue dès qu'il y a une exigence de sécurité forte</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">La formulation qui résume le choix</p>
+<p>« Dans une SPA, on privilégie le pattern BFF : le flux OIDC est porté par le backend,
+le navigateur ne reçoit qu'un cookie <code>HttpOnly</code>. Le jeton reste hors de portée du JS,
+donc hors de portée d'une XSS. Le prix à payer, c'est un composant de plus et la
+protection CSRF à remettre en place. »</p>
+</div>
+<hr/>
+<h2 id="sessions-et-deconnexion-la-ou-le-sso-se-complique">Sessions et déconnexion • là où le SSO se complique</h2>
+<p>Le SSO crée <strong>plusieurs sessions superposées</strong> :</p>
+<div class="highlight"><pre><span></span><code>Session IdP        (cookie sur le domaine de l'IdP)
+   ├── Session application A     (cookie ou jeton)
+   ├── Session application B
+   └── Session application C
+</code></pre></div>
+<p>Se déconnecter de A ne déconnecte ni l'IdP, ni B, ni C. D'où :</p>
+<table>
+<thead>
+<tr>
+<th>Mécanisme</th>
+<th>Effet</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Logout local</td>
+<td>détruit la session de l'application seule - l'utilisateur se reconnecte sans mot de passe</td>
+</tr>
+<tr>
+<td>RP-initiated logout (<code>end_session_endpoint</code>)</td>
+<td>ferme aussi la session IdP</td>
+</tr>
+<tr>
+<td>Front-channel logout</td>
+<td>l'IdP charge des iframes de déconnexion des autres applications (fragile, bloqué par les navigateurs)</td>
+</tr>
+<tr>
+<td>Back-channel logout</td>
+<td>l'IdP appelle une URL serveur de chaque application (fiable, à privilégier)</td>
+</tr>
+<tr>
+<td>SLO SAML</td>
+<td>équivalent côté SAML, historiquement peu fiable en pratique</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title">Un JWT ne se révoque pas</p>
+<p>Tant qu'il n'est pas expiré, un JWT signé reste valide : l'API n'interroge personne
+pour le vérifier. Trois réponses, à combiner :</p>
+<ul>
+<li>durée de vie <strong>courte</strong> de l'<code>access_token</code></li>
+<li>révocation portée par le <strong><code>refresh_token</code></strong> côté IdP</li>
+<li>introspection (<code>/introspect</code>) ou liste de révocation quand la coupure doit être
+  immédiate - au prix d'un appel réseau par requête</li>
+</ul>
+</div>
+<hr/>
+<h2 id="kerberos-et-sso-windows">Kerberos et SSO Windows</h2>
+<p>Dans un SI avec Active Directory, l'utilisateur est déjà authentifié par son poste.
+Le SSO « transparent » repose alors sur <strong>Kerberos via SPNEGO</strong> : le navigateur présente
+un ticket, aucun écran de login n'apparaît.</p>
+<p>En pratique aujourd'hui, on l'utilise en <strong>amont</strong> : Kerberos authentifie l'utilisateur
+auprès de l'IdP (Keycloak, ADFS), et l'IdP émet ensuite des jetons OIDC pour les
+applications. Les applications ne parlent que OIDC, jamais Kerberos.</p>
+<hr/>
+<h2 id="roles-et-autorisation">Rôles et autorisation</h2>
+<p>L'authentification donne l'identité. Il reste à décider des droits.</p>
+<pre class="mermaid"><code>flowchart LR
+    IDP[IdP : groupes et roles] --&gt;|claims dans le jeton| API[API]
+    API --&gt; RBAC[Controle d acces applicatif]
+    RBAC --&gt; DEC{autorise ?}</code></pre>
+<p>Deux stratégies, souvent combinées :</p>
+<ul>
+<li><strong>rôles portés par le jeton</strong> - rapide, aucun appel supplémentaire, mais un changement
+  de droit n'est effectif qu'au renouvellement du jeton</li>
+<li><strong>rôles résolus par l'application</strong> - le jeton porte seulement l'identité, les droits
+  fins sont lus en base à chaque requête</li>
+</ul>
+<p>Règle de conception : les <strong>rôles métier structurants</strong> dans l'IdP,
+les <strong>permissions fines</strong> dans l'application.</p>
+<hr/>
+<h2 id="pieges-rencontres-en-production">Pièges rencontrés en production</h2>
+<table>
+<thead>
+<tr>
+<th>Piège</th>
+<th>Symptôme</th>
+<th>Correction</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>aud</code> non validée</td>
+<td>un jeton émis pour une autre application est accepté</td>
+<td>valider explicitement l'audience</td>
+</tr>
+<tr>
+<td>JWKS non mis en cache</td>
+<td>l'IdP est appelé à chaque requête : latence et point de rupture</td>
+<td>cache, rafraîchi sur <code>kid</code> inconnu</td>
+</tr>
+<tr>
+<td>Horloges désynchronisées</td>
+<td><code>401</code> intermittents en cluster</td>
+<td>NTP + tolérance de quelques secondes</td>
+</tr>
+<tr>
+<td><code>redirect_uri</code> en wildcard</td>
+<td>redirection vers un domaine contrôlé par un attaquant</td>
+<td>liste blanche exacte</td>
+</tr>
+<tr>
+<td><code>id_token</code> utilisé comme jeton d'API</td>
+<td>fonctionne en recette, refusé par une gateway sérieuse</td>
+<td>envoyer l'<code>access_token</code></td>
+</tr>
+<tr>
+<td>Session applicative plus longue que le jeton</td>
+<td>l'utilisateur reste « connecté » sans droits valides</td>
+<td>aligner les durées de vie</td>
+</tr>
+<tr>
+<td>Rôles dupliqués IdP / base applicative</td>
+<td>droits incohérents selon le chemin d'appel</td>
+<td>une seule source de vérité par type de droit</td>
+</tr>
+</tbody>
+</table>
+<hr/>
+<h2 id="questions-typiques-reponses-courtes">Questions typiques, réponses courtes</h2>
+<p><strong>« Différence entre authentification et autorisation ? »</strong>
+L'authentification établit l'identité, l'autorisation établit les droits. Les deux sont
+séparées : un utilisateur correctement authentifié peut légitimement recevoir un <code>403</code>.</p>
+<p><strong>« OAuth2 ou OIDC ? »</strong>
+OIDC pour connecter un utilisateur, OAuth2 pour autoriser l'accès à une API.
+OIDC étant une surcouche d'OAuth2, on met en place OIDC et on obtient les deux.</p>
+<p><strong>« SAML ou OIDC ? »</strong>
+OIDC pour tout ce qui est neuf : JSON, adapté au mobile et aux SPA, découverte automatique.
+SAML quand l'IdP ou le SaaS en face ne parle que SAML - ce qui reste fréquent dans les
+grands SI.</p>
+<p><strong>« Où stocker le jeton dans une SPA ? »</strong>
+Idéalement nulle part côté navigateur : BFF et cookie <code>HttpOnly</code>. À défaut, en mémoire -
+jamais en <code>localStorage</code> si l'exposition XSS n'est pas maîtrisée.</p>
+<p><strong>« Comment déconnecter un utilisateur immédiatement ? »</strong>
+La déconnexion applicative ne suffit pas : back-channel logout côté IdP, révocation du
+<code>refresh_token</code>, et l'<code>access_token</code> en cours reste valide jusqu'à expiration - d'où sa
+durée de vie courte.</p>
+<hr/>
+<h2 id="voir-aussi">Voir aussi</h2>
+<ul>
+<li><a href="../jwt-authentication-pattern/">JWT Authentication Pattern</a></li>
+<li><a href="../cookie-security/">Cookie Security</a></li>
+<li><a href="../cors/">CORS</a></li>
+<li><a href="../http-security-headers/">HTTP Security Headers</a></li>
+<li><a href="../../architecture/api-gateway-pattern/">API Gateway Pattern</a></li>
+<li><a href="../../http/html-vs-html5/">HTML vs HTML5</a></li>
+</ul>
+</article>
+</div>
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+</div>
+<button class="md-top md-icon" data-md-component="top" hidden="" type="button">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Retour en haut de la page
+</button>
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-footer-copyright">
+<div class="md-footer-copyright__highlight">
+        © 2026 • Engineering Notes
+
+    </div>
+<div style="margin-top:5px; font-size:0.5rem;">
+<a href="mailto:contact@alkouba.fr">
+            contact@alkouba.fr
+        </a>
+        •
+        <a href="tel:+33636422463">
+            +33 6 36 42 24 63
+        </a>
+        •
+        <a href="https://github.com/alak8ba" target="_blank">
+            GitHub
+        </a>
+        •
+        <a href="https://www.linkedin.com/in/akouba" target="_blank">
+            LinkedIn
+        </a>
+<!-- •-->
+<!-- <a href="https://calendly.com/rdv-akouba" target="_blank">-->
+<!-- Prendre RDV-->
+<!-- </a>-->
+</div>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "toc.follow", "content.code.copy", "search.highlight", "search.suggest"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": null}</script>
+<script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+</body>
+</html>

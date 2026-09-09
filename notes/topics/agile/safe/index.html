@@ -1,0 +1,3012 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="fr">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="Backend architecture, event-driven systems and DevOps patterns" name="description"/>
+<meta content="A.KOUBA" name="author"/>
+<link href="https://alak8ba.github.io/notes/topics/agile/safe/" rel="canonical"/>
+<link href="../scrum/" rel="prev"/>
+<link href="../montees-de-version-et-cadence/" rel="next"/>
+<link href="../../../assets/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.7.7" name="generator"/>
+<title>(NEW) SAFe • agilité à l'échelle - Engineering Notes</title>
+<link href="../../../assets/stylesheets/main.ec1eaa64.min.css" rel="stylesheet"/>
+<link href="../../../assets/stylesheets/palette.ab4e12ef.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<link href="../../../stylesheets/extra.css" rel="stylesheet"/>
+<script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+</head>
+<body data-md-color-accent="light-blue" data-md-color-primary="blue-grey" data-md-color-scheme="slate" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#safe-agilite-a-lechelle">
+          Aller au contenu
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="En-tête" class="md-header__inner md-grid">
+<a aria-label="Engineering Notes" class="md-header__button md-logo" data-md-component="logo" href="https://alak8ba.github.io" title="Engineering Notes">
+<img alt="logo" src="../../../assets/favicon.png"/>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            Engineering Notes
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              (NEW) SAFe • agilité à l'échelle
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Toggle theme" class="md-option" data-md-color-accent="light-blue" data-md-color-media="" data-md-color-primary="blue-grey" data-md-color-scheme="slate" id="__palette_0" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Toggle theme">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"></path></svg>
+</label>
+<input aria-label="Toggle theme" class="md-option" data-md-color-accent="light-blue" data-md-color-media="" data-md-color-primary="blue-grey" data-md-color-scheme="default" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_0" hidden="" title="Toggle theme">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"></path></svg>
+</label>
+</form>
+<script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Rechercher" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Rechercher" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+</label>
+<nav aria-label="Recherche" class="md-search__options">
+<button aria-label="Effacer" class="md-search__icon md-icon" tabindex="-1" title="Effacer" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+</button>
+</nav>
+<div class="md-search__suggest" data-md-component="search-suggest"></div>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="" tabindex="0">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initialisation de la recherche
+          </div>
+<ol class="md-search-result__list" role="presentation"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<nav aria-label="Onglets" class="md-tabs" data-md-component="tabs">
+<div class="md-grid">
+<ul class="md-tabs__list">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../..">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../about/">
+        
+  
+  
+    
+  
+  Auteur
+
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../tags/">
+        
+  
+  
+    
+  
+  Tags
+
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../java/fundamentals/equals-vs-double-equals/">
+          
+  
+  
+  Java
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../architecture/cqrs-pattern/">
+          
+  
+  
+  Architecture
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../kafka/retry-and-dlt-pattern/">
+          
+  
+  
+  Event Driven Systems
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../security/sso-oauth2-oidc-saml/">
+          
+  
+  
+  Security
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../observability/logging-architecture-java/">
+          
+  
+  
+  Observability
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../devops/run-mco-sre/">
+          
+  
+  
+  DevOps
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../database/sql-joins-indexes/">
+          
+  
+  
+  Database
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../http/http-basics/">
+          
+  
+  
+  HTTP
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../testing/tests-junit-mockito-spring/">
+          
+  
+  
+  Testing
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../frontend/angular/">
+          
+  
+  
+  Frontend
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../javascript/fundamentals/typescript-basics/">
+          
+  
+  
+  JavaScript
+
+        </a>
+</li>
+<li class="md-tabs__item md-tabs__item--active">
+<a class="md-tabs__link" href="../scrum/">
+          
+  
+  
+  Agilité
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../synthese/panorama-java-spring-backend/">
+          
+  
+  
+  Synthèses
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../socles/">
+          
+  
+  
+  Socles
+
+        </a>
+</li>
+</ul>
+</div>
+</nav>
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="Engineering Notes" class="md-nav__button md-logo" data-md-component="logo" href="https://alak8ba.github.io" title="Engineering Notes">
+<img alt="logo" src="../../../assets/favicon.png"/>
+</a>
+    Engineering Notes
+  </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../..">
+<span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../about/">
+<span class="md-ellipsis">
+    
+  
+    Auteur
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../tags/">
+<span class="md-ellipsis">
+    
+  
+    Tags
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Java
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Java
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Fondamentaux
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_1_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_1">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Fondamentaux
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/fundamentals/equals-vs-double-equals/">
+<span class="md-ellipsis">
+    
+  
+    == vs equals()
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/fundamentals/autoboxing/">
+<span class="md-ellipsis">
+    
+  
+    Autoboxing
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/fundamentals/final/">
+<span class="md-ellipsis">
+    
+  
+    final
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/fundamentals/generics/">
+<span class="md-ellipsis">
+    
+  
+    Generics
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/fundamentals/instanceof/">
+<span class="md-ellipsis">
+    
+  
+    instanceof
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/fundamentals/integer-cache/">
+<span class="md-ellipsis">
+    
+  
+    Integer Cache
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/fundamentals/java-protected/">
+<span class="md-ellipsis">
+    
+  
+    protected
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/fundamentals/java-static/">
+<span class="md-ellipsis">
+    
+  
+    static
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/fundamentals/static-generic-method/">
+<span class="md-ellipsis">
+    
+  
+    Méthodes génériques statiques
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/fundamentals/exceptions/">
+<span class="md-ellipsis">
+    
+  
+    Exceptions • checked vs unchecked
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/fundamentals/versions-java-8-17-21/">
+<span class="md-ellipsis">
+    
+  
+    (NEW) Java 8, 17, 21 • versions et migration
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Collections
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Collections
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/collections/list-set-map/">
+<span class="md-ellipsis">
+    
+  
+    List, Set, Map
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/collections/hashmap/">
+<span class="md-ellipsis">
+    
+  
+    HashMap
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/collections/hashmap-treemap-linkedhashmap/">
+<span class="md-ellipsis">
+    
+  
+    HashMap vs TreeMap vs LinkedHashMap
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/collections/hashtable/">
+<span class="md-ellipsis">
+    
+  
+    Hashtable
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/collections/concurrenthashmap/">
+<span class="md-ellipsis">
+    
+  
+    ConcurrentHashMap
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/collections/iterator/">
+<span class="md-ellipsis">
+    
+  
+    Iterator
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/collections/algorithms-complexity/">
+<span class="md-ellipsis">
+    
+  
+    Complexité des algorithmes
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Concurrence
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_3">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Concurrence
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/concurrency/race-condition/">
+<span class="md-ellipsis">
+    
+  
+    Race Condition
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/concurrency/deadlock/">
+<span class="md-ellipsis">
+    
+  
+    Deadlock
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/concurrency/synchronized/">
+<span class="md-ellipsis">
+    
+  
+    synchronized
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/concurrency/volatile/">
+<span class="md-ellipsis">
+    
+  
+    volatile
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/concurrency/atomic/">
+<span class="md-ellipsis">
+    
+  
+    Atomic
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/concurrency/executor-completablefuture/">
+<span class="md-ellipsis">
+    
+  
+    ExecutorService &amp; CompletableFuture
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    POO
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_4_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_4">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    POO
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/oop/inheritance/">
+<span class="md-ellipsis">
+    
+  
+    Héritage
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/oop/polymorphism/">
+<span class="md-ellipsis">
+    
+  
+    Polymorphisme
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/oop/solid/">
+<span class="md-ellipsis">
+    
+  
+    SOLID
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/oop/clean-code/">
+<span class="md-ellipsis">
+    
+  
+    Clean Code
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_5" id="__nav_4_5_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Design Patterns
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_5_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_5">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Design Patterns
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/design-patterns/singleton-pattern/">
+<span class="md-ellipsis">
+    
+  
+    Singleton
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/design-patterns/factory-pattern/">
+<span class="md-ellipsis">
+    
+  
+    Factory
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/design-patterns/dependency-injection/">
+<span class="md-ellipsis">
+    
+  
+    Dependency Injection
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/design-patterns/strategy-pattern/">
+<span class="md-ellipsis">
+    
+  
+    Strategy
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/design-patterns/builder-pattern/">
+<span class="md-ellipsis">
+    
+  
+    Builder
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/design-patterns/observer-pattern/">
+<span class="md-ellipsis">
+    
+  
+    Observer
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_6" id="__nav_4_6_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Spring
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_6_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_6">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Spring
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/spring/spring-boot-fondamentaux/">
+<span class="md-ellipsis">
+    
+  
+    Spring Boot • Fondamentaux et avantages
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/spring/declarer-un-bean/">
+<span class="md-ellipsis">
+    
+  
+    Déclarer un bean
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/spring/controller-vs-restcontroller/">
+<span class="md-ellipsis">
+    
+  
+    @Controller vs @RestController
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/spring/bean-scopes/">
+<span class="md-ellipsis">
+    
+  
+    Bean Scopes
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/spring/hibernate-jpa/">
+<span class="md-ellipsis">
+    
+  
+    Hibernate / JPA
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/spring/aop-spring/">
+<span class="md-ellipsis">
+    
+  
+    (NEW) AOP • Programmation Orientée Aspect
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/spring/spring-boot-2-vs-3/">
+<span class="md-ellipsis">
+    
+  
+    (NEW) Spring Boot 2 → 3 • ce qui change
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/spring/bom-gestion-des-dependances/">
+<span class="md-ellipsis">
+    
+  
+    (NEW) BOM • gestion des dépendances
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../spring/spring-batch-migration-sb2-java8-to-sb5-java21/">
+<span class="md-ellipsis">
+    
+  
+    Spring Batch - Migration SB4/Java8 → SB5/Java21
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../spring/spring-batch-advanced-patterns/">
+<span class="md-ellipsis">
+    
+  
+    Spring Batch - Patterns avancés
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4_7" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_7" id="__nav_4_7_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Base de données
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_7_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_7">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Base de données
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/database/acid/">
+<span class="md-ellipsis">
+    
+  
+    ACID
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_5_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_5">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Architecture
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../architecture/cqrs-pattern/">
+<span class="md-ellipsis">
+    
+  
+    CQRS Pattern
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../architecture/rest-api-design/">
+<span class="md-ellipsis">
+    
+  
+    REST API Design
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../spring/hexagonal-architecture/">
+<span class="md-ellipsis">
+    
+  
+    Hexagonal Architecture
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../architecture/api-gateway-pattern/">
+<span class="md-ellipsis">
+    
+  
+    (NEW) API Gateway • rôle et limites
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Event Driven Systems
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_6_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_6">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Event Driven Systems
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../kafka/retry-and-dlt-pattern/">
+<span class="md-ellipsis">
+    
+  
+    Retry and DLT Pattern
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../kafka/idempotent-consumers/">
+<span class="md-ellipsis">
+    
+  
+    Idempotent Consumers
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../kafka/outbox-pattern/">
+<span class="md-ellipsis">
+    
+  
+    Outbox Pattern
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../kafka/reliability-patterns/">
+<span class="md-ellipsis">
+    
+  
+    Reliability Patterns
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../kafka/consumer-rebalance/">
+<span class="md-ellipsis">
+    
+  
+    Consumer Rebalance
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../distributed/eventual-consistency/">
+<span class="md-ellipsis">
+    
+  
+    Eventual Consistency
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../distributed/microservices-communication/">
+<span class="md-ellipsis">
+    
+  
+    Microservices Communication
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../distributed/sync-vs-async/">
+<span class="md-ellipsis">
+    
+  
+    Synchronous Vs Asynchronous
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../distributed/kafka-resilience-patterns/">
+<span class="md-ellipsis">
+    
+  
+    Kafka Resilience Patterns
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../distributed/read-models-and-fetch-strategies/">
+<span class="md-ellipsis">
+    
+  
+    Read Models Vs fetch Strategies
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../distributed/distributed-tracing-and-correlation/">
+<span class="md-ellipsis">
+    
+  
+    Distributed Tracing And Correlation
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_7" type="checkbox"/>
+<label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Security
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_7_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_7">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Security
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../security/sso-oauth2-oidc-saml/">
+<span class="md-ellipsis">
+    
+  
+    (NEW) SSO • OAuth2, OIDC et SAML
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../security/jwt-authentication-pattern/">
+<span class="md-ellipsis">
+    
+  
+    JWT Authentication Pattern
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../security/cors/">
+<span class="md-ellipsis">
+    
+  
+    CORS • Cross-Origin Resource Sharing
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../security/cookie-security/">
+<span class="md-ellipsis">
+    
+  
+    Cookie Security
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../security/http-security-headers/">
+<span class="md-ellipsis">
+    
+  
+    HTTP Security Headers
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_8" type="checkbox"/>
+<label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Observability
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_8_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_8">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Observability
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../observability/logging-architecture-java/">
+<span class="md-ellipsis">
+    
+  
+    Logging Architecture Java
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../observability/exception-handling-spring/">
+<span class="md-ellipsis">
+    
+  
+    Exception Handling Spring
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../observability/metrics-monitoring-prometheus-grafana/">
+<span class="md-ellipsis">
+    
+  
+    Metrics Monitoring Prometheus Grafana
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../observability/monitoring-paiement/">
+<span class="md-ellipsis">
+    
+  
+    Monitoring de Plateforme de Paiement
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../observability/java-production-deep-dive/">
+<span class="md-ellipsis">
+    
+  
+    Java en Production • Deep-Dive
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../observability/incidents-vecu-terrain/">
+<span class="md-ellipsis">
+    
+  
+    Investigation d'Incidents • 4 Patterns
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../observability/profil-build-vers-run/">
+<span class="md-ellipsis">
+    
+  
+    BUILD vers RUN • Transition de Profil
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../observability/kafka-en-paiement/">
+<span class="md-ellipsis">
+    
+  
+    Kafka en paiement
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../observability/paiement-vocabulaire/">
+<span class="md-ellipsis">
+    
+  
+    Paiement vocabulaire
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../observability/pci-dss-applique/">
+<span class="md-ellipsis">
+    
+  
+    Pci dss applique
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_9" type="checkbox"/>
+<label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    DevOps
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_9_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_9">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    DevOps
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../devops/run-mco-sre/">
+<span class="md-ellipsis">
+    
+  
+    RUN, MCO et SRE
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../devops/docker-run/">
+<span class="md-ellipsis">
+    
+  
+    Docker Run • -v et -w
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../devops/docker-production-pattern/">
+<span class="md-ellipsis">
+    
+  
+    Docker Production Pattern
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../devops/docker-networking/">
+<span class="md-ellipsis">
+    
+  
+    Docker Networking
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../devops/container-security/">
+<span class="md-ellipsis">
+    
+  
+    Container Security
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../devops/reverse-proxy-pattern/">
+<span class="md-ellipsis">
+    
+  
+    Reverse Proxy Pattern
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../devops/pull-based-deployment/">
+<span class="md-ellipsis">
+    
+  
+    Pull-based Deployment
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../devops/ci-cd-pipeline-pattern/">
+<span class="md-ellipsis">
+    
+  
+    CI/CD Pipeline Pattern
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../devops/observability-pattern/">
+<span class="md-ellipsis">
+    
+  
+    Observability Pattern
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../devops/kubernetes-fondamentaux/">
+<span class="md-ellipsis">
+    
+  
+    (NEW) Kubernetes • Fondamentaux
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../devops/docker-compose-vs-kubernetes/">
+<span class="md-ellipsis">
+    
+  
+    (NEW) Docker Compose vs Kubernetes
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_10" type="checkbox"/>
+<label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Database
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_10_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_10">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Database
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../database/sql-joins-indexes/">
+<span class="md-ellipsis">
+    
+  
+    SQL Joins et Index
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../database/index-et-optimisation-postgresql/">
+<span class="md-ellipsis">
+    
+  
+    Index et optimisation PostgreSQL
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../database/transaction-patterns/">
+<span class="md-ellipsis">
+    
+  
+    Transaction Patterns
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../database/optimistic-locking/">
+<span class="md-ellipsis">
+    
+  
+    Optimistic Locking
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_11" type="checkbox"/>
+<label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    HTTP
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_11_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_11">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    HTTP
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../http/http-basics/">
+<span class="md-ellipsis">
+    
+  
+    HTTP Basics
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../http/html-vs-html5/">
+<span class="md-ellipsis">
+    
+  
+    (NEW) HTML vs HTML5
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_12" type="checkbox"/>
+<label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Testing
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_12_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_12">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Testing
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../testing/tests-junit-mockito-spring/">
+<span class="md-ellipsis">
+    
+  
+    JUnit 5, Mockito &amp; Spring Boot Test
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../testing/testcontainers-pattern/">
+<span class="md-ellipsis">
+    
+  
+    Testcontainers
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_13" type="checkbox"/>
+<label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Frontend
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_13_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_13">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Frontend
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../frontend/angular/">
+<span class="md-ellipsis">
+    
+  
+    Angular • Fondamentaux &amp; Patterns
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../frontend/angular-migrations/">
+<span class="md-ellipsis">
+    
+  
+    Angular • Migrations entre versions
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../frontend/angular-testing/">
+<span class="md-ellipsis">
+    
+  
+    Angular • Testing
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../frontend/angular-ssr/">
+<span class="md-ellipsis">
+    
+  
+    Angular • SSR
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../frontend/ngrx/">
+<span class="md-ellipsis">
+    
+  
+    NgRx • State Management
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../frontend/react/">
+<span class="md-ellipsis">
+    
+  
+    React • Fondamentaux &amp; Hooks
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../frontend/chartjs/">
+<span class="md-ellipsis">
+    
+  
+    Chart.js • Visualisation de données
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../frontend/vuejs/">
+<span class="md-ellipsis">
+    
+  
+    (NEW) Vue.js • Fondamentaux &amp; comparaison
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_14" type="checkbox"/>
+<label class="md-nav__link" for="__nav_14" id="__nav_14_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    JavaScript
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_14_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_14">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    JavaScript
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../javascript/fundamentals/typescript-basics/">
+<span class="md-ellipsis">
+    
+  
+    TypeScript - Typage statique
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../javascript/fundamentals/javascript-pitfalls/">
+<span class="md-ellipsis">
+    
+  
+    JavaScript - Subtilités
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_15" type="checkbox"/>
+<label class="md-nav__link" for="__nav_15" id="__nav_15_label" tabindex="">
+<span class="md-ellipsis">
+    
+  
+    Agilité
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="true" aria-labelledby="__nav_15_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_15">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Agilité
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../scrum/">
+<span class="md-ellipsis">
+    
+  
+    (NEW) Scrum • cadre de travail itératif
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    
+  
+    (NEW) SAFe • agilité à l'échelle
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+<span class="md-ellipsis">
+    
+  
+    (NEW) SAFe • agilité à l'échelle
+  
+
+    
+  </span>
+</a>
+<nav aria-label="Table des matières" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#contexte">
+<span class="md-ellipsis">
+      
+        Contexte
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#lidee-centrale">
+<span class="md-ellipsis">
+      
+        L'idée centrale
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#les-roles-ajoutes-par-rapport-a-scrum">
+<span class="md-ellipsis">
+      
+        Les rôles ajoutés par rapport à Scrum
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#la-cadence-le-pi">
+<span class="md-ellipsis">
+      
+        La cadence • le PI
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#le-decoupage-du-travail">
+<span class="md-ellipsis">
+      
+        Le découpage du travail
+      
+    </span>
+</a>
+<nav aria-label="Le découpage du travail" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#wsjf-la-priorisation">
+<span class="md-ellipsis">
+      
+        WSJF • la priorisation
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#les-metriques">
+<span class="md-ellipsis">
+      
+        Les métriques
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#safe-et-devops">
+<span class="md-ellipsis">
+      
+        SAFe et DevOps
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#les-critiques-a-connaitre-et-a-assumer">
+<span class="md-ellipsis">
+      
+        Les critiques • à connaître et à assumer
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#scrum-et-safe-cote-a-cote">
+<span class="md-ellipsis">
+      
+        Scrum et SAFe côte à côte
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ce-que-ca-change-pour-un-developpeur-concretement">
+<span class="md-ellipsis">
+      
+        Ce que ça change pour un développeur, concrètement
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#questions-typiques-reponses-courtes">
+<span class="md-ellipsis">
+      
+        Questions typiques, réponses courtes
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#voir-aussi">
+<span class="md-ellipsis">
+      
+        Voir aussi
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../montees-de-version-et-cadence/">
+<span class="md-ellipsis">
+    
+  
+    (NEW) Montées de version et cadence
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_16" type="checkbox"/>
+<label class="md-nav__link" for="__nav_16" id="__nav_16_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Synthèses
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_16_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_16">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Synthèses
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../synthese/panorama-java-spring-backend/">
+<span class="md-ellipsis">
+    
+  
+    Panorama backend Java / Spring
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_17" type="checkbox"/>
+<label class="md-nav__link" for="__nav_17" id="__nav_17_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Socles
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_17_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_17">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Socles
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../socles/">
+<span class="md-ellipsis">
+    
+  
+    Vue d'ensemble
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../socles/kore-hexagonal/">
+<span class="md-ellipsis">
+    
+  
+    kore-hexagonal
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../socles/kore-batch/">
+<span class="md-ellipsis">
+    
+  
+    kore-batch
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../socles/kore-genie/">
+<span class="md-ellipsis">
+    
+  
+    kore-genie
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../socles/kore-n8n/">
+<span class="md-ellipsis">
+    
+  
+    kore-n8n
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../socles/kore-traefik/">
+<span class="md-ellipsis">
+    
+  
+    kore-traefik
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../socles/kore-monitoring/">
+<span class="md-ellipsis">
+    
+  
+    kore-monitoring
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../socles/kore-watchtower/">
+<span class="md-ellipsis">
+    
+  
+    kore-watchtower
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../socles/kore-backup/">
+<span class="md-ellipsis">
+    
+  
+    kore-backup
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../socles/kore-kafka/">
+<span class="md-ellipsis">
+    
+  
+    kore-kafka
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../socles/kore-bot/">
+<span class="md-ellipsis">
+    
+  
+    kore-bot
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Table des matières" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#contexte">
+<span class="md-ellipsis">
+      
+        Contexte
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#lidee-centrale">
+<span class="md-ellipsis">
+      
+        L'idée centrale
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#les-roles-ajoutes-par-rapport-a-scrum">
+<span class="md-ellipsis">
+      
+        Les rôles ajoutés par rapport à Scrum
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#la-cadence-le-pi">
+<span class="md-ellipsis">
+      
+        La cadence • le PI
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#le-decoupage-du-travail">
+<span class="md-ellipsis">
+      
+        Le découpage du travail
+      
+    </span>
+</a>
+<nav aria-label="Le découpage du travail" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#wsjf-la-priorisation">
+<span class="md-ellipsis">
+      
+        WSJF • la priorisation
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#les-metriques">
+<span class="md-ellipsis">
+      
+        Les métriques
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#safe-et-devops">
+<span class="md-ellipsis">
+      
+        SAFe et DevOps
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#les-critiques-a-connaitre-et-a-assumer">
+<span class="md-ellipsis">
+      
+        Les critiques • à connaître et à assumer
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#scrum-et-safe-cote-a-cote">
+<span class="md-ellipsis">
+      
+        Scrum et SAFe côte à côte
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ce-que-ca-change-pour-un-developpeur-concretement">
+<span class="md-ellipsis">
+      
+        Ce que ça change pour un développeur, concrètement
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#questions-typiques-reponses-courtes">
+<span class="md-ellipsis">
+      
+        Questions typiques, réponses courtes
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#voir-aussi">
+<span class="md-ellipsis">
+      
+        Voir aussi
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<nav class="md-tags">
+<a class="md-tag" href="../../../tags/#tag:agile">agile</a>
+<a class="md-tag" href="../../../tags/#tag:methodologie">methodologie</a>
+<a class="md-tag" href="../../../tags/#tag:organisation">organisation</a>
+<a class="md-tag" href="../../../tags/#tag:safe">safe</a>
+<a class="md-tag" href="../../../tags/#tag:scrum">scrum</a>
+</nav>
+<h1 id="safe-agilite-a-lechelle">SAFe • agilité à l'échelle</h1>
+<h2 id="contexte">Contexte</h2>
+<p>Scrum fonctionne pour une équipe de dix personnes sur un produit. Il ne dit rien du cas
+suivant, qui est celui de la plupart des grandes DSI :</p>
+<ul>
+<li>huit équipes contribuent au <strong>même</strong> système</li>
+<li>l'équipe A a besoin d'une API que l'équipe C doit livrer d'abord</li>
+<li>une plateforme commune est utilisée par tout le monde</li>
+<li>le budget est annuel et voté par un comité</li>
+<li>la mise en production est coordonnée entre plusieurs applications</li>
+</ul>
+<p>Multiplier les équipes Scrum indépendantes ne résout ni les dépendances, ni la priorisation
+entre équipes, ni la cohérence d'architecture. <strong>SAFe (Scaled Agile Framework)</strong> est le
+cadre le plus déployé pour traiter ces trois questions - et le plus critiqué, pour de bonnes
+raisons qu'il faut savoir exposer.</p>
+<hr/>
+<h2 id="lidee-centrale">L'idée centrale</h2>
+<div class="admonition note">
+<p class="admonition-title">En une phrase</p>
+<p>SAFe synchronise plusieurs équipes agiles sur <strong>une même cadence</strong> et un <strong>même train</strong>,
+et remplace la planification annuelle par un engagement à 8–12 semaines, planifié
+ensemble dans une même salle.</p>
+</div>
+<p>L'unité n'est plus l'équipe mais l'<strong>ART</strong> - Agile Release Train : 5 à 12 équipes,
+50 à 125 personnes, qui livrent ensemble une solution.</p>
+<pre class="mermaid"><code>flowchart TD
+    P[Portfolio : Epics, budgets, Lean Portfolio Management] --&gt; ST[Solution Train : plusieurs ARTs]
+    ST --&gt; ART[Agile Release Train : 50 a 125 personnes]
+    ART --&gt; E1[Equipe 1 : Scrum]
+    ART --&gt; E2[Equipe 2 : Scrum]
+    ART --&gt; E3[Equipe 3 : Kanban]</code></pre>
+<p>Quatre configurations, du plus léger au plus lourd :</p>
+<table>
+<thead>
+<tr>
+<th>Configuration</th>
+<th>Périmètre</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Essential SAFe</strong></td>
+<td>un ART - le socle minimal, et le seul indispensable</td>
+</tr>
+<tr>
+<td>Large Solution</td>
+<td>plusieurs ARTs sur une même solution (Solution Train)</td>
+</tr>
+<tr>
+<td>Portfolio</td>
+<td>financement par flux de valeur, gouvernance lean</td>
+</tr>
+<tr>
+<td>Full SAFe</td>
+<td>les trois niveaux réunis</td>
+</tr>
+</tbody>
+</table>
+<hr/>
+<h2 id="les-roles-ajoutes-par-rapport-a-scrum">Les rôles ajoutés par rapport à Scrum</h2>
+<table>
+<thead>
+<tr>
+<th>Rôle</th>
+<th>Équivalent mental</th>
+<th>Responsabilité</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>RTE</strong> - Release Train Engineer</td>
+<td>« Scrum Master du train »</td>
+<td>anime la cadence de l'ART, lève les obstacles inter-équipes</td>
+</tr>
+<tr>
+<td><strong>Product Management</strong></td>
+<td>« PO du train »</td>
+<td>définit les Features et leur ordre pour tout l'ART</td>
+</tr>
+<tr>
+<td><strong>System Architect</strong></td>
+<td>architecte transverse</td>
+<td>cohérence technique, Architectural Runway</td>
+</tr>
+<tr>
+<td><strong>Business Owners</strong></td>
+<td>sponsors métier</td>
+<td>valident la valeur métier et l'engagement du PI</td>
+</tr>
+<tr>
+<td><strong>Product Owner</strong></td>
+<td>inchangé</td>
+<td>backlog d'<strong>une</strong> équipe, décline les Features en Stories</td>
+</tr>
+<tr>
+<td><strong>Scrum Master / Team Coach</strong></td>
+<td>inchangé</td>
+<td>accompagne une équipe</td>
+</tr>
+</tbody>
+</table>
+<p>Le PO en SAFe a un périmètre plus étroit qu'en Scrum pur : la vision produit remonte au
+Product Management du train. C'est un point de friction fréquent en pratique.</p>
+<hr/>
+<h2 id="la-cadence-le-pi">La cadence • le PI</h2>
+<p>Le <strong>PI (Program Increment)</strong> est l'unité de temps du train : 8 à 12 semaines, soit
+généralement <strong>5 itérations de 2 semaines</strong>, dont la dernière est l'<strong>IP Iteration</strong>
+(Innovation &amp; Planning) - non engagée, réservée à l'innovation, la formation, la dette
+technique et le tampon d'imprévus.</p>
+<pre class="mermaid"><code>flowchart LR
+    PIP[PI Planning : 2 jours] --&gt; I1[Iteration 1]
+    I1 --&gt; I2[Iteration 2]
+    I2 --&gt; I3[Iteration 3]
+    I3 --&gt; I4[Iteration 4]
+    I4 --&gt; IP[IP Iteration : innovation, dette, tampon]
+    IP --&gt; IA[Inspect and Adapt]
+    IA --&gt; PIP</code></pre>
+<table>
+<thead>
+<tr>
+<th>Cérémonie</th>
+<th>Fréquence</th>
+<th>Objet</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>PI Planning</strong></td>
+<td>par PI, 2 jours</td>
+<td>toutes les équipes planifient ensemble, en présence</td>
+</tr>
+<tr>
+<td>ART Sync / PO Sync</td>
+<td>hebdomadaire</td>
+<td>avancement et dépendances entre équipes</td>
+</tr>
+<tr>
+<td>Scrum of Scrums</td>
+<td>hebdomadaire</td>
+<td>obstacles inter-équipes</td>
+</tr>
+<tr>
+<td><strong>System Demo</strong></td>
+<td>toutes les 2 semaines</td>
+<td>démonstration du système <strong>intégré</strong>, pas d'une équipe</td>
+</tr>
+<tr>
+<td><strong>Inspect &amp; Adapt</strong></td>
+<td>fin de PI</td>
+<td>mesure de la prédictibilité + résolution de problèmes de fond</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">Le PI Planning, c'est le cœur du dispositif</p>
+<p>Deux jours, tout le train réuni. Chaque équipe construit son plan par itération, l'affiche
+sur un <strong>program board</strong>, et <strong>les dépendances sont tracées avec des fils entre équipes</strong>.
+Sortent de ces deux jours : les objectifs de PI par équipe (avec une valeur métier
+attribuée par les Business Owners), les risques traités en <strong>ROAM</strong> (Resolved, Owned,
+Accepted, Mitigated), et un vote de confiance de l'ensemble du train.</p>
+<p>C'est le mécanisme qui remplace le « chacun découvre en cours de route qu'il attend
+l'autre ». C'est aussi le poste de coût le plus visible : 100 personnes pendant 2 jours,
+six à huit fois par an.</p>
+</div>
+<hr/>
+<h2 id="le-decoupage-du-travail">Le découpage du travail</h2>
+<div class="highlight"><pre><span></span><code>Epic          (niveau portfolio, plusieurs PI, business case léger)
+  └── Capability   (niveau Large Solution, optionnel)
+        └── Feature     (tient dans UN PI, portée par le train)
+              └── Story      (tient dans UNE itération, portée par une équipe)
+                    └── Tâche
+</code></pre></div>
+<p>Une <strong>Enabler</strong> est l'équivalent technique à chaque niveau : socle, exploration,
+conformité, infrastructure. C'est le mécanisme qui rend la dette technique et
+l'<strong>Architectural Runway</strong> visibles dans le backlog, au lieu de les laisser au bon vouloir
+des équipes.</p>
+<h3 id="wsjf-la-priorisation">WSJF • la priorisation</h3>
+<p>SAFe impose une formule de priorisation, ce qui est l'un de ses apports réellement utiles :</p>
+<div class="highlight"><pre><span></span><code>WSJF = Coût du retard / Taille du travail
+
+Coût du retard = valeur métier + urgence temporelle + réduction de risque ou opportunité
+</code></pre></div>
+<p>Chaque terme est estimé en relatif (suite de Fibonacci), puis on trie par WSJF décroissant.
+La conséquence structurelle : <strong>un petit travail à forte valeur passe devant un gros travail
+à valeur équivalente</strong>, ce qui pousse mécaniquement à découper.</p>
+<hr/>
+<h2 id="les-metriques">Les métriques</h2>
+<table>
+<thead>
+<tr>
+<th>Métrique</th>
+<th>Ce qu'elle mesure</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>PI Predictability</strong></td>
+<td>objectifs atteints / objectifs prévus, par équipe et par train (cible 80–100 %)</td>
+</tr>
+<tr>
+<td>Flow velocity / flow time</td>
+<td>débit et délai de traversée du système</td>
+</tr>
+<tr>
+<td>Flow load</td>
+<td>travail en cours - le WIP au niveau du train</td>
+</tr>
+<tr>
+<td>Flow efficiency</td>
+<td>temps de travail réel / temps total, donc le temps d'attente</td>
+</tr>
+<tr>
+<td>Qualité</td>
+<td>régressions, temps de restauration, couverture, échecs de déploiement</td>
+</tr>
+</tbody>
+</table>
+<hr/>
+<h2 id="safe-et-devops">SAFe et DevOps</h2>
+<p>SAFe intègre explicitement l'ingénierie, ce que Scrum laisse de côté :</p>
+<ul>
+<li><strong>CALMR</strong> - Culture, Automation, Lean flow, Measurement, Recovery</li>
+<li><strong>Continuous Delivery Pipeline</strong> - Continuous Exploration → Integration → Deployment →
+  Release on Demand</li>
+<li>séparation <strong>déploiement / mise à disposition</strong> : on déploie en continu, on active la
+  fonctionnalité quand le métier le décide (feature toggles)</li>
+</ul>
+<p>C'est ce qui permet à un train de tenir une cadence de PI sans repousser l'intégration à la
+fin. Sans pipeline automatisé, la System Demo toutes les deux semaines est intenable.
+→ <a href="../../devops/ci-cd-pipeline-pattern/">CI/CD Pipeline Pattern</a></p>
+<hr/>
+<h2 id="les-critiques-a-connaitre-et-a-assumer">Les critiques • à connaître et à assumer</h2>
+<div class="admonition warning">
+<p class="admonition-title">Ce qu'on reproche à SAFe</p>
+<ul>
+<li><strong>Lourdeur</strong> - beaucoup de rôles, d'artefacts et de cérémonies ; du temps de
+  coordination pris sur le temps de production.</li>
+<li><strong>Le PI Planning peut redevenir un plan</strong> - engager 12 semaines de contenu, c'est
+  un cycle en V de trois mois si les objectifs sont figés et non renégociables.</li>
+<li><strong>Autonomie des équipes réduite</strong> - la priorisation remonte au train, l'équipe reçoit
+  des Features déjà arbitrées.</li>
+<li><strong>Effet certification</strong> - un déploiement piloté par des formations plutôt que par une
+  transformation réelle des pratiques d'ingénierie produit du « SAFe de façade ».</li>
+<li><strong>Coût de la présence</strong> - le big room planning suppose de réunir 100 personnes ;
+  en distribué, la valeur du dispositif chute nettement.</li>
+</ul>
+<p>Le contre-argument honnête : SAFe résout un problème réel que Scrum ne traite pas, la
+<strong>coordination de dépendances entre équipes</strong>. La question à poser n'est pas « SAFe
+est-il bien ou mal », mais « combien d'équipes doivent réellement se synchroniser ? ».</p>
+</div>
+<table>
+<thead>
+<tr>
+<th>Nombre d'équipes</th>
+<th>Cadre raisonnable</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1 équipe</td>
+<td>Scrum ou Kanban, sans plus</td>
+</tr>
+<tr>
+<td>2 à 3 équipes</td>
+<td>Scrum + Scrum of Scrums, contrats d'API clairs</td>
+</tr>
+<tr>
+<td>4 à 10 équipes sur un même système</td>
+<td>Essential SAFe, ou LeSS, ou Nexus</td>
+</tr>
+<tr>
+<td>plusieurs trains, contraintes réglementaires</td>
+<td>SAFe complet, ou découpage en domaines vraiment autonomes</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">La question de fond</p>
+<p>Beaucoup de dépendances entre équipes sont le symptôme d'un <strong>découpage inadapté</strong> :
+services trop couplés, base de données partagée, équipes organisées par couche
+technique plutôt que par domaine. Un cadre de coordination gère la douleur ;
+revoir les frontières la supprime. → <a href="../../../socles/kore-hexagonal/bounded-contexts/">Bounded contexts</a></p>
+</div>
+<hr/>
+<h2 id="scrum-et-safe-cote-a-cote">Scrum et SAFe côte à côte</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Scrum</th>
+<th>SAFe (Essential)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Périmètre</td>
+<td>1 équipe</td>
+<td>5 à 12 équipes (ART)</td>
+</tr>
+<tr>
+<td>Unité de temps</td>
+<td>sprint de 1 à 4 semaines</td>
+<td>PI de 8 à 12 semaines, découpé en itérations</td>
+</tr>
+<tr>
+<td>Planification</td>
+<td>Sprint Planning, quelques heures</td>
+<td>PI Planning, 2 jours, tout le train</td>
+</tr>
+<tr>
+<td>Priorisation</td>
+<td>ordre du Product Backlog par le PO</td>
+<td><strong>WSJF</strong> au niveau du train</td>
+</tr>
+<tr>
+<td>Rôles</td>
+<td>PO, SM, Developers</td>
+<td>+ RTE, Product Management, System Architect, Business Owners</td>
+</tr>
+<tr>
+<td>Découpage</td>
+<td>Story</td>
+<td>Epic → Feature → Story</td>
+</tr>
+<tr>
+<td>Démonstration</td>
+<td>Sprint Review par équipe</td>
+<td>+ System Demo du système intégré</td>
+</tr>
+<tr>
+<td>Amélioration</td>
+<td>Retrospective</td>
+<td>+ Inspect &amp; Adapt de fin de PI</td>
+</tr>
+<tr>
+<td>Indicateur clé</td>
+<td>vélocité</td>
+<td>PI Predictability, métriques de flux</td>
+</tr>
+</tbody>
+</table>
+<hr/>
+<h2 id="ce-que-ca-change-pour-un-developpeur-concretement">Ce que ça change pour un développeur, concrètement</h2>
+<p>Au quotidien, rien ou presque : les sprints, le daily, la review et la rétrospective restent
+ceux de Scrum. Les quatre différences réelles :</p>
+<ol>
+<li>deux jours de <strong>PI Planning</strong> par trimestre, où l'on négocie ses dépendances directement
+   avec les autres équipes - le moment où il faut être précis sur ce qu'on attend et quand</li>
+<li>les <strong>dépendances sont contractualisées</strong> : une API promise pour l'itération 3 engage</li>
+<li>une <strong>System Demo</strong> toutes les deux semaines qui impose que l'intégration soit réelle</li>
+<li>les <strong>Enablers</strong> permettent de faire financer explicitement le socle technique et la
+   dette - c'est le levier le plus utile pour un profil technique</li>
+</ol>
+<hr/>
+<h2 id="questions-typiques-reponses-courtes">Questions typiques, réponses courtes</h2>
+<p><strong>« À quoi ressemble un PI, concrètement ? »</strong>
+Un PI de 10 semaines, 5 itérations dont l'IP, un PI Planning sur deux jours avec program
+board et dépendances tracées, une System Demo bimensuelle, un Inspect &amp; Adapt en fin de PI.
+Le reste - dailies, reviews, rétrospectives - est du Scrum inchangé au niveau de l'équipe.</p>
+<p><strong>« Différence entre Scrum et SAFe ? »</strong>
+Scrum cadre une équipe, SAFe synchronise plusieurs équipes sur une cadence commune et ajoute
+une couche de priorisation (WSJF) et de coordination (ART, RTE, PI Planning). SAFe contient
+Scrum au niveau équipe : il ne le remplace pas.</p>
+<p><strong>« SAFe, ce n'est pas du cycle en V déguisé ? »</strong>
+Le risque existe : engager 12 semaines de contenu, c'est un plan. Ce qui fait la différence,
+c'est la renégociation des objectifs de PI en cours de route, la System Demo toutes les deux
+semaines sur le système intégré, et un pipeline de livraison continue. Sans ces trois
+éléments, oui, c'est un cycle en V trimestriel.</p>
+<p><strong>« Combien d'équipes justifient SAFe ? »</strong>
+En dessous de trois ou quatre équipes, le coût dépasse le bénéfice - un Scrum of Scrums et
+des contrats d'API clairs suffisent. Au-delà, sur un même système, un cadre de synchronisation
+devient nécessaire ; SAFe en est un, LeSS et Nexus en sont d'autres, plus légers.</p>
+<hr/>
+<h2 id="voir-aussi">Voir aussi</h2>
+<ul>
+<li><a href="../scrum/">Scrum • cadre de travail itératif</a></li>
+<li><a href="../../devops/ci-cd-pipeline-pattern/">CI/CD Pipeline Pattern</a></li>
+<li><a href="../../devops/run-mco-sre/">RUN, MCO et SRE</a></li>
+<li><a href="../../observability/profil-build-vers-run/">BUILD vers RUN • transition de profil</a></li>
+<li><a href="../../../socles/kore-hexagonal/bounded-contexts/">Bounded contexts</a></li>
+</ul>
+</article>
+</div>
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+</div>
+<button class="md-top md-icon" data-md-component="top" hidden="" type="button">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Retour en haut de la page
+</button>
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-footer-copyright">
+<div class="md-footer-copyright__highlight">
+        © 2026 • Engineering Notes
+
+    </div>
+<div style="margin-top:5px; font-size:0.5rem;">
+<a href="mailto:contact@alkouba.fr">
+            contact@alkouba.fr
+        </a>
+        •
+        <a href="tel:+33636422463">
+            +33 6 36 42 24 63
+        </a>
+        •
+        <a href="https://github.com/alak8ba" target="_blank">
+            GitHub
+        </a>
+        •
+        <a href="https://www.linkedin.com/in/akouba" target="_blank">
+            LinkedIn
+        </a>
+<!-- •-->
+<!-- <a href="https://calendly.com/rdv-akouba" target="_blank">-->
+<!-- Prendre RDV-->
+<!-- </a>-->
+</div>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "toc.follow", "content.code.copy", "search.highlight", "search.suggest"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": null}</script>
+<script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+</body>
+</html>
