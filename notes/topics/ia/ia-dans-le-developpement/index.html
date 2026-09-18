@@ -12,27 +12,31 @@
         <meta name="author" content="A.KOUBA">
       
       
-        <link rel="canonical" href="https://alak8ba.github.io/notes/patterns/eventual-consistency/">
+        <link rel="canonical" href="https://alak8ba.github.io/notes/topics/ia/ia-dans-le-developpement/">
       
       
+        <link rel="prev" href="../../agile/resume-utile-scrum-master-technique/">
+      
+      
+        <link rel="next" href="../../synthese/panorama-java-spring-backend/">
       
       
         
       
       
-      <link rel="icon" href="../../assets/favicon.png">
+      <link rel="icon" href="../../../assets/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
-        <title>Eventual consistency - Engineering Notes</title>
+        <title>(NEW) L'IA dans le développement - Engineering Notes</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -51,9 +55,9 @@
       
     
     
-      <link rel="stylesheet" href="../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -77,6 +81,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#lia-dans-le-developpement-pratiques-limites-et-cadre" class="md-skip">
+          Aller au contenu
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -89,7 +98,7 @@
   <nav class="md-header__inner md-grid" aria-label="En-tête">
     <a href="https://alak8ba.github.io" title="Engineering Notes" class="md-header__button md-logo" aria-label="Engineering Notes" data-md-component="logo">
       
-  <img src="../../assets/favicon.png" alt="logo">
+  <img src="../../../assets/favicon.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -106,7 +115,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Eventual consistency
+              (NEW) L'IA dans le développement
             
           </span>
         </div>
@@ -207,7 +216,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../.." class="md-tabs__link">
+      <a href="../../.." class="md-tabs__link">
         
   
   
@@ -226,7 +235,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../about/" class="md-tabs__link">
+      <a href="../../../about/" class="md-tabs__link">
         
   
   
@@ -245,7 +254,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../tags/" class="md-tabs__link">
+      <a href="../../../tags/" class="md-tabs__link">
         
   
   
@@ -273,7 +282,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../topics/java/fundamentals/equals-vs-double-equals/" class="md-tabs__link">
+        <a href="../../java/fundamentals/equals-vs-double-equals/" class="md-tabs__link">
           
   
   
@@ -296,7 +305,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../topics/architecture/cqrs-pattern/" class="md-tabs__link">
+        <a href="../../architecture/cqrs-pattern/" class="md-tabs__link">
           
   
   
@@ -316,7 +325,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../topics/messaging/file-de-messages-vs-log/" class="md-tabs__link">
+        <a href="../../messaging/file-de-messages-vs-log/" class="md-tabs__link">
           
   
   
@@ -336,7 +345,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../topics/security/sso-oauth2-oidc-saml/" class="md-tabs__link">
+        <a href="../../security/sso-oauth2-oidc-saml/" class="md-tabs__link">
           
   
   
@@ -356,7 +365,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../topics/observability/logging-architecture-java/" class="md-tabs__link">
+        <a href="../../observability/logging-architecture-java/" class="md-tabs__link">
           
   
   
@@ -376,7 +385,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../topics/devops/run-mco-sre/" class="md-tabs__link">
+        <a href="../../devops/run-mco-sre/" class="md-tabs__link">
           
   
   
@@ -396,7 +405,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../topics/database/sql-joins-indexes/" class="md-tabs__link">
+        <a href="../../database/sql-joins-indexes/" class="md-tabs__link">
           
   
   
@@ -416,7 +425,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../topics/http/http-basics/" class="md-tabs__link">
+        <a href="../../http/http-basics/" class="md-tabs__link">
           
   
   
@@ -436,7 +445,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../topics/testing/tests-junit-mockito-spring/" class="md-tabs__link">
+        <a href="../../testing/tests-junit-mockito-spring/" class="md-tabs__link">
           
   
   
@@ -456,7 +465,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../topics/frontend/angular/" class="md-tabs__link">
+        <a href="../../frontend/angular/" class="md-tabs__link">
           
   
   
@@ -476,7 +485,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../topics/javascript/fundamentals/typescript-basics/" class="md-tabs__link">
+        <a href="../../javascript/fundamentals/typescript-basics/" class="md-tabs__link">
           
   
   
@@ -496,7 +505,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../topics/agile/scrum/" class="md-tabs__link">
+        <a href="../../agile/scrum/" class="md-tabs__link">
           
   
   
@@ -512,11 +521,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../topics/ia/ia-dans-le-developpement/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
           
   
   
@@ -536,7 +547,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../topics/synthese/panorama-java-spring-backend/" class="md-tabs__link">
+        <a href="../../synthese/panorama-java-spring-backend/" class="md-tabs__link">
           
   
   
@@ -556,7 +567,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../socles/" class="md-tabs__link">
+        <a href="../../../socles/" class="md-tabs__link">
           
   
   
@@ -592,7 +603,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="https://alak8ba.github.io" title="Engineering Notes" class="md-nav__button md-logo" aria-label="Engineering Notes" data-md-component="logo">
       
-  <img src="../../assets/favicon.png" alt="logo">
+  <img src="../../../assets/favicon.png" alt="logo">
 
     </a>
     Engineering Notes
@@ -607,7 +618,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         
   
   
@@ -634,7 +645,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../about/" class="md-nav__link">
+      <a href="../../../about/" class="md-nav__link">
         
   
   
@@ -661,7 +672,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tags/" class="md-nav__link">
+      <a href="../../../tags/" class="md-nav__link">
         
   
   
@@ -796,7 +807,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/java/fundamentals/equals-vs-double-equals/" class="md-nav__link">
+      <a href="../../java/fundamentals/equals-vs-double-equals/" class="md-nav__link">
         
   
   
@@ -824,7 +835,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/java/fundamentals/autoboxing/" class="md-nav__link">
+      <a href="../../java/fundamentals/autoboxing/" class="md-nav__link">
         
   
   
@@ -852,7 +863,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/java/fundamentals/final/" class="md-nav__link">
+      <a href="../../java/fundamentals/final/" class="md-nav__link">
         
   
   
@@ -880,7 +891,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/java/fundamentals/generics/" class="md-nav__link">
+      <a href="../../java/fundamentals/generics/" class="md-nav__link">
         
   
   
@@ -908,7 +919,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/java/fundamentals/instanceof/" class="md-nav__link">
+      <a href="../../java/fundamentals/instanceof/" class="md-nav__link">
         
   
   
@@ -936,7 +947,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/java/fundamentals/integer-cache/" class="md-nav__link">
+      <a href="../../java/fundamentals/integer-cache/" class="md-nav__link">
         
   
   
@@ -964,7 +975,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/java/fundamentals/java-protected/" class="md-nav__link">
+      <a href="../../java/fundamentals/java-protected/" class="md-nav__link">
         
   
   
@@ -992,7 +1003,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/java/fundamentals/java-static/" class="md-nav__link">
+      <a href="../../java/fundamentals/java-static/" class="md-nav__link">
         
   
   
@@ -1020,7 +1031,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/java/fundamentals/static-generic-method/" class="md-nav__link">
+      <a href="../../java/fundamentals/static-generic-method/" class="md-nav__link">
         
   
   
@@ -1048,7 +1059,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/java/fundamentals/exceptions/" class="md-nav__link">
+      <a href="../../java/fundamentals/exceptions/" class="md-nav__link">
         
   
   
@@ -1076,7 +1087,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/java/fundamentals/versions-java-8-17-21/" class="md-nav__link">
+      <a href="../../java/fundamentals/versions-java-8-17-21/" class="md-nav__link">
         
   
   
@@ -1166,7 +1177,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/java/collections/list-set-map/" class="md-nav__link">
+      <a href="../../java/collections/list-set-map/" class="md-nav__link">
         
   
   
@@ -1194,7 +1205,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/java/collections/hashmap/" class="md-nav__link">
+      <a href="../../java/collections/hashmap/" class="md-nav__link">
         
   
   
@@ -1222,7 +1233,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/java/collections/hashmap-treemap-linkedhashmap/" class="md-nav__link">
+      <a href="../../java/collections/hashmap-treemap-linkedhashmap/" class="md-nav__link">
         
   
   
@@ -1250,7 +1261,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/java/collections/hashtable/" class="md-nav__link">
+      <a href="../../java/collections/hashtable/" class="md-nav__link">
         
   
   
@@ -1278,7 +1289,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/java/collections/concurrenthashmap/" class="md-nav__link">
+      <a href="../../java/collections/concurrenthashmap/" class="md-nav__link">
         
   
   
@@ -1306,7 +1317,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/java/collections/iterator/" class="md-nav__link">
+      <a href="../../java/collections/iterator/" class="md-nav__link">
         
   
   
@@ -1334,7 +1345,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/java/collections/algorithms-complexity/" class="md-nav__link">
+      <a href="../../java/collections/algorithms-complexity/" class="md-nav__link">
         
   
   
@@ -1424,7 +1435,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/java/concurrency/race-condition/" class="md-nav__link">
+      <a href="../../java/concurrency/race-condition/" class="md-nav__link">
         
   
   
@@ -1452,7 +1463,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/java/concurrency/deadlock/" class="md-nav__link">
+      <a href="../../java/concurrency/deadlock/" class="md-nav__link">
         
   
   
@@ -1480,7 +1491,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/java/concurrency/synchronized/" class="md-nav__link">
+      <a href="../../java/concurrency/synchronized/" class="md-nav__link">
         
   
   
@@ -1508,7 +1519,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/java/concurrency/volatile/" class="md-nav__link">
+      <a href="../../java/concurrency/volatile/" class="md-nav__link">
         
   
   
@@ -1536,7 +1547,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/java/concurrency/atomic/" class="md-nav__link">
+      <a href="../../java/concurrency/atomic/" class="md-nav__link">
         
   
   
@@ -1564,7 +1575,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/java/concurrency/executor-completablefuture/" class="md-nav__link">
+      <a href="../../java/concurrency/executor-completablefuture/" class="md-nav__link">
         
   
   
@@ -1654,7 +1665,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/java/oop/inheritance/" class="md-nav__link">
+      <a href="../../java/oop/inheritance/" class="md-nav__link">
         
   
   
@@ -1682,7 +1693,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/java/oop/polymorphism/" class="md-nav__link">
+      <a href="../../java/oop/polymorphism/" class="md-nav__link">
         
   
   
@@ -1710,7 +1721,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/java/oop/solid/" class="md-nav__link">
+      <a href="../../java/oop/solid/" class="md-nav__link">
         
   
   
@@ -1738,7 +1749,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/java/oop/clean-code/" class="md-nav__link">
+      <a href="../../java/oop/clean-code/" class="md-nav__link">
         
   
   
@@ -1828,7 +1839,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/java/design-patterns/singleton-pattern/" class="md-nav__link">
+      <a href="../../java/design-patterns/singleton-pattern/" class="md-nav__link">
         
   
   
@@ -1856,7 +1867,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/java/design-patterns/factory-pattern/" class="md-nav__link">
+      <a href="../../java/design-patterns/factory-pattern/" class="md-nav__link">
         
   
   
@@ -1884,7 +1895,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/java/design-patterns/dependency-injection/" class="md-nav__link">
+      <a href="../../java/design-patterns/dependency-injection/" class="md-nav__link">
         
   
   
@@ -1912,7 +1923,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/java/design-patterns/strategy-pattern/" class="md-nav__link">
+      <a href="../../java/design-patterns/strategy-pattern/" class="md-nav__link">
         
   
   
@@ -1940,7 +1951,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/java/design-patterns/builder-pattern/" class="md-nav__link">
+      <a href="../../java/design-patterns/builder-pattern/" class="md-nav__link">
         
   
   
@@ -1968,7 +1979,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/java/design-patterns/observer-pattern/" class="md-nav__link">
+      <a href="../../java/design-patterns/observer-pattern/" class="md-nav__link">
         
   
   
@@ -2058,7 +2069,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/java/spring/spring-boot-fondamentaux/" class="md-nav__link">
+      <a href="../../java/spring/spring-boot-fondamentaux/" class="md-nav__link">
         
   
   
@@ -2086,7 +2097,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/java/spring/declarer-un-bean/" class="md-nav__link">
+      <a href="../../java/spring/declarer-un-bean/" class="md-nav__link">
         
   
   
@@ -2114,7 +2125,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/java/spring/controller-vs-restcontroller/" class="md-nav__link">
+      <a href="../../java/spring/controller-vs-restcontroller/" class="md-nav__link">
         
   
   
@@ -2142,7 +2153,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/java/spring/bean-scopes/" class="md-nav__link">
+      <a href="../../java/spring/bean-scopes/" class="md-nav__link">
         
   
   
@@ -2170,7 +2181,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/java/spring/hibernate-jpa/" class="md-nav__link">
+      <a href="../../java/spring/hibernate-jpa/" class="md-nav__link">
         
   
   
@@ -2198,7 +2209,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/java/spring/aop-spring/" class="md-nav__link">
+      <a href="../../java/spring/aop-spring/" class="md-nav__link">
         
   
   
@@ -2226,7 +2237,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/java/spring/spring-boot-2-vs-3/" class="md-nav__link">
+      <a href="../../java/spring/spring-boot-2-vs-3/" class="md-nav__link">
         
   
   
@@ -2254,7 +2265,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/java/spring/bom-gestion-des-dependances/" class="md-nav__link">
+      <a href="../../java/spring/bom-gestion-des-dependances/" class="md-nav__link">
         
   
   
@@ -2282,7 +2293,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/java/spring/spring-security-chaine-de-filtres/" class="md-nav__link">
+      <a href="../../java/spring/spring-security-chaine-de-filtres/" class="md-nav__link">
         
   
   
@@ -2310,7 +2321,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/spring/spring-batch-migration-sb2-java8-to-sb5-java21/" class="md-nav__link">
+      <a href="../../spring/spring-batch-migration-sb2-java8-to-sb5-java21/" class="md-nav__link">
         
   
   
@@ -2338,7 +2349,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/spring/spring-batch-advanced-patterns/" class="md-nav__link">
+      <a href="../../spring/spring-batch-advanced-patterns/" class="md-nav__link">
         
   
   
@@ -2428,7 +2439,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/java/database/acid/" class="md-nav__link">
+      <a href="../../java/database/acid/" class="md-nav__link">
         
   
   
@@ -2525,7 +2536,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/architecture/cqrs-pattern/" class="md-nav__link">
+      <a href="../../architecture/cqrs-pattern/" class="md-nav__link">
         
   
   
@@ -2553,7 +2564,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/architecture/rest-api-design/" class="md-nav__link">
+      <a href="../../architecture/rest-api-design/" class="md-nav__link">
         
   
   
@@ -2581,7 +2592,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/spring/hexagonal-architecture/" class="md-nav__link">
+      <a href="../../spring/hexagonal-architecture/" class="md-nav__link">
         
   
   
@@ -2609,7 +2620,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/architecture/api-gateway-pattern/" class="md-nav__link">
+      <a href="../../architecture/api-gateway-pattern/" class="md-nav__link">
         
   
   
@@ -2698,7 +2709,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/messaging/file-de-messages-vs-log/" class="md-nav__link">
+      <a href="../../messaging/file-de-messages-vs-log/" class="md-nav__link">
         
   
   
@@ -2726,7 +2737,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/messaging/jms-fondamentaux/" class="md-nav__link">
+      <a href="../../messaging/jms-fondamentaux/" class="md-nav__link">
         
   
   
@@ -2754,7 +2765,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/messaging/rabbitmq-activemq/" class="md-nav__link">
+      <a href="../../messaging/rabbitmq-activemq/" class="md-nav__link">
         
   
   
@@ -2782,7 +2793,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/kafka/patterns-kafka-panorama/" class="md-nav__link">
+      <a href="../../kafka/patterns-kafka-panorama/" class="md-nav__link">
         
   
   
@@ -2810,7 +2821,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/kafka/transactions-kafka/" class="md-nav__link">
+      <a href="../../kafka/transactions-kafka/" class="md-nav__link">
         
   
   
@@ -2838,7 +2849,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/kafka/kraft-fin-de-zookeeper/" class="md-nav__link">
+      <a href="../../kafka/kraft-fin-de-zookeeper/" class="md-nav__link">
         
   
   
@@ -2866,7 +2877,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/kafka/evenement-notification-vs-agregat/" class="md-nav__link">
+      <a href="../../kafka/evenement-notification-vs-agregat/" class="md-nav__link">
         
   
   
@@ -2894,7 +2905,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/kafka/retry-and-dlt-pattern/" class="md-nav__link">
+      <a href="../../kafka/retry-and-dlt-pattern/" class="md-nav__link">
         
   
   
@@ -2922,7 +2933,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/kafka/idempotent-consumers/" class="md-nav__link">
+      <a href="../../kafka/idempotent-consumers/" class="md-nav__link">
         
   
   
@@ -2950,7 +2961,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/kafka/outbox-pattern/" class="md-nav__link">
+      <a href="../../kafka/outbox-pattern/" class="md-nav__link">
         
   
   
@@ -2978,7 +2989,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/kafka/reliability-patterns/" class="md-nav__link">
+      <a href="../../kafka/reliability-patterns/" class="md-nav__link">
         
   
   
@@ -3006,7 +3017,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/kafka/consumer-rebalance/" class="md-nav__link">
+      <a href="../../kafka/consumer-rebalance/" class="md-nav__link">
         
   
   
@@ -3034,7 +3045,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/distributed/eventual-consistency/" class="md-nav__link">
+      <a href="../../distributed/eventual-consistency/" class="md-nav__link">
         
   
   
@@ -3062,7 +3073,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/distributed/microservices-communication/" class="md-nav__link">
+      <a href="../../distributed/microservices-communication/" class="md-nav__link">
         
   
   
@@ -3090,7 +3101,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/distributed/kafka-ou-base-partagee/" class="md-nav__link">
+      <a href="../../distributed/kafka-ou-base-partagee/" class="md-nav__link">
         
   
   
@@ -3118,7 +3129,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/distributed/sync-vs-async/" class="md-nav__link">
+      <a href="../../distributed/sync-vs-async/" class="md-nav__link">
         
   
   
@@ -3146,7 +3157,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/distributed/kafka-resilience-patterns/" class="md-nav__link">
+      <a href="../../distributed/kafka-resilience-patterns/" class="md-nav__link">
         
   
   
@@ -3174,7 +3185,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/distributed/read-models-and-fetch-strategies/" class="md-nav__link">
+      <a href="../../distributed/read-models-and-fetch-strategies/" class="md-nav__link">
         
   
   
@@ -3202,7 +3213,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/distributed/distributed-tracing-and-correlation/" class="md-nav__link">
+      <a href="../../distributed/distributed-tracing-and-correlation/" class="md-nav__link">
         
   
   
@@ -3291,7 +3302,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/security/sso-oauth2-oidc-saml/" class="md-nav__link">
+      <a href="../../security/sso-oauth2-oidc-saml/" class="md-nav__link">
         
   
   
@@ -3319,7 +3330,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/security/jwt-authentication-pattern/" class="md-nav__link">
+      <a href="../../security/jwt-authentication-pattern/" class="md-nav__link">
         
   
   
@@ -3347,7 +3358,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/security/cors/" class="md-nav__link">
+      <a href="../../security/cors/" class="md-nav__link">
         
   
   
@@ -3375,7 +3386,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/security/cookie-security/" class="md-nav__link">
+      <a href="../../security/cookie-security/" class="md-nav__link">
         
   
   
@@ -3403,7 +3414,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/security/http-security-headers/" class="md-nav__link">
+      <a href="../../security/http-security-headers/" class="md-nav__link">
         
   
   
@@ -3492,7 +3503,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/observability/logging-architecture-java/" class="md-nav__link">
+      <a href="../../observability/logging-architecture-java/" class="md-nav__link">
         
   
   
@@ -3520,7 +3531,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/observability/exception-handling-spring/" class="md-nav__link">
+      <a href="../../observability/exception-handling-spring/" class="md-nav__link">
         
   
   
@@ -3548,7 +3559,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/observability/metrics-monitoring-prometheus-grafana/" class="md-nav__link">
+      <a href="../../observability/metrics-monitoring-prometheus-grafana/" class="md-nav__link">
         
   
   
@@ -3576,7 +3587,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/observability/monitoring-paiement/" class="md-nav__link">
+      <a href="../../observability/monitoring-paiement/" class="md-nav__link">
         
   
   
@@ -3604,7 +3615,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/observability/diagnostiquer-performance-methode/" class="md-nav__link">
+      <a href="../../observability/diagnostiquer-performance-methode/" class="md-nav__link">
         
   
   
@@ -3632,7 +3643,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/observability/java-production-deep-dive/" class="md-nav__link">
+      <a href="../../observability/java-production-deep-dive/" class="md-nav__link">
         
   
   
@@ -3660,7 +3671,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/observability/incidents-vecu-terrain/" class="md-nav__link">
+      <a href="../../observability/incidents-vecu-terrain/" class="md-nav__link">
         
   
   
@@ -3688,7 +3699,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/observability/profil-build-vers-run/" class="md-nav__link">
+      <a href="../../observability/profil-build-vers-run/" class="md-nav__link">
         
   
   
@@ -3716,7 +3727,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/observability/kafka-en-paiement/" class="md-nav__link">
+      <a href="../../observability/kafka-en-paiement/" class="md-nav__link">
         
   
   
@@ -3744,7 +3755,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/observability/paiement-vocabulaire/" class="md-nav__link">
+      <a href="../../observability/paiement-vocabulaire/" class="md-nav__link">
         
   
   
@@ -3772,7 +3783,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/observability/pci-dss-applique/" class="md-nav__link">
+      <a href="../../observability/pci-dss-applique/" class="md-nav__link">
         
   
   
@@ -3861,7 +3872,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/devops/run-mco-sre/" class="md-nav__link">
+      <a href="../../devops/run-mco-sre/" class="md-nav__link">
         
   
   
@@ -3889,7 +3900,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/devops/docker-run/" class="md-nav__link">
+      <a href="../../devops/docker-run/" class="md-nav__link">
         
   
   
@@ -3917,7 +3928,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/devops/docker-production-pattern/" class="md-nav__link">
+      <a href="../../devops/docker-production-pattern/" class="md-nav__link">
         
   
   
@@ -3945,7 +3956,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/devops/docker-networking/" class="md-nav__link">
+      <a href="../../devops/docker-networking/" class="md-nav__link">
         
   
   
@@ -3973,7 +3984,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/devops/container-security/" class="md-nav__link">
+      <a href="../../devops/container-security/" class="md-nav__link">
         
   
   
@@ -4001,7 +4012,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/devops/chemin-d-une-requete-en-production/" class="md-nav__link">
+      <a href="../../devops/chemin-d-une-requete-en-production/" class="md-nav__link">
         
   
   
@@ -4029,7 +4040,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/devops/reverse-proxy-pattern/" class="md-nav__link">
+      <a href="../../devops/reverse-proxy-pattern/" class="md-nav__link">
         
   
   
@@ -4057,7 +4068,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/devops/pull-based-deployment/" class="md-nav__link">
+      <a href="../../devops/pull-based-deployment/" class="md-nav__link">
         
   
   
@@ -4085,7 +4096,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/devops/ci-cd-pipeline-pattern/" class="md-nav__link">
+      <a href="../../devops/ci-cd-pipeline-pattern/" class="md-nav__link">
         
   
   
@@ -4113,7 +4124,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/devops/observability-pattern/" class="md-nav__link">
+      <a href="../../devops/observability-pattern/" class="md-nav__link">
         
   
   
@@ -4141,7 +4152,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/devops/kubernetes-fondamentaux/" class="md-nav__link">
+      <a href="../../devops/kubernetes-fondamentaux/" class="md-nav__link">
         
   
   
@@ -4169,7 +4180,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/devops/docker-compose-vs-kubernetes/" class="md-nav__link">
+      <a href="../../devops/docker-compose-vs-kubernetes/" class="md-nav__link">
         
   
   
@@ -4258,7 +4269,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/database/sql-joins-indexes/" class="md-nav__link">
+      <a href="../../database/sql-joins-indexes/" class="md-nav__link">
         
   
   
@@ -4286,7 +4297,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/database/index-et-optimisation-postgresql/" class="md-nav__link">
+      <a href="../../database/index-et-optimisation-postgresql/" class="md-nav__link">
         
   
   
@@ -4314,7 +4325,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/database/migrations-de-schema-liquibase/" class="md-nav__link">
+      <a href="../../database/migrations-de-schema-liquibase/" class="md-nav__link">
         
   
   
@@ -4342,7 +4353,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/database/transaction-patterns/" class="md-nav__link">
+      <a href="../../database/transaction-patterns/" class="md-nav__link">
         
   
   
@@ -4370,7 +4381,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/database/optimistic-locking/" class="md-nav__link">
+      <a href="../../database/optimistic-locking/" class="md-nav__link">
         
   
   
@@ -4459,7 +4470,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/http/http-basics/" class="md-nav__link">
+      <a href="../../http/http-basics/" class="md-nav__link">
         
   
   
@@ -4487,7 +4498,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/http/html-vs-html5/" class="md-nav__link">
+      <a href="../../http/html-vs-html5/" class="md-nav__link">
         
   
   
@@ -4515,7 +4526,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/http/rest-vs-soap/" class="md-nav__link">
+      <a href="../../http/rest-vs-soap/" class="md-nav__link">
         
   
   
@@ -4604,7 +4615,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/testing/tests-junit-mockito-spring/" class="md-nav__link">
+      <a href="../../testing/tests-junit-mockito-spring/" class="md-nav__link">
         
   
   
@@ -4632,7 +4643,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/testing/testcontainers-pattern/" class="md-nav__link">
+      <a href="../../testing/testcontainers-pattern/" class="md-nav__link">
         
   
   
@@ -4721,7 +4732,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/frontend/angular/" class="md-nav__link">
+      <a href="../../frontend/angular/" class="md-nav__link">
         
   
   
@@ -4749,7 +4760,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/frontend/angular-communication-composants/" class="md-nav__link">
+      <a href="../../frontend/angular-communication-composants/" class="md-nav__link">
         
   
   
@@ -4777,7 +4788,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/frontend/angular-cycle-de-vie-composant/" class="md-nav__link">
+      <a href="../../frontend/angular-cycle-de-vie-composant/" class="md-nav__link">
         
   
   
@@ -4805,7 +4816,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/frontend/observables-rxjs/" class="md-nav__link">
+      <a href="../../frontend/observables-rxjs/" class="md-nav__link">
         
   
   
@@ -4833,7 +4844,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/frontend/angular-migrations/" class="md-nav__link">
+      <a href="../../frontend/angular-migrations/" class="md-nav__link">
         
   
   
@@ -4861,7 +4872,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/frontend/angular-testing/" class="md-nav__link">
+      <a href="../../frontend/angular-testing/" class="md-nav__link">
         
   
   
@@ -4889,7 +4900,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/frontend/angular-ssr/" class="md-nav__link">
+      <a href="../../frontend/angular-ssr/" class="md-nav__link">
         
   
   
@@ -4917,7 +4928,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/frontend/ngrx/" class="md-nav__link">
+      <a href="../../frontend/ngrx/" class="md-nav__link">
         
   
   
@@ -4945,7 +4956,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/frontend/react/" class="md-nav__link">
+      <a href="../../frontend/react/" class="md-nav__link">
         
   
   
@@ -4973,7 +4984,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/frontend/chartjs/" class="md-nav__link">
+      <a href="../../frontend/chartjs/" class="md-nav__link">
         
   
   
@@ -5001,7 +5012,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/frontend/vuejs/" class="md-nav__link">
+      <a href="../../frontend/vuejs/" class="md-nav__link">
         
   
   
@@ -5090,7 +5101,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/javascript/fundamentals/typescript-basics/" class="md-nav__link">
+      <a href="../../javascript/fundamentals/typescript-basics/" class="md-nav__link">
         
   
   
@@ -5118,7 +5129,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/javascript/fundamentals/javascript-pitfalls/" class="md-nav__link">
+      <a href="../../javascript/fundamentals/javascript-pitfalls/" class="md-nav__link">
         
   
   
@@ -5207,7 +5218,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/agile/scrum/" class="md-nav__link">
+      <a href="../../agile/scrum/" class="md-nav__link">
         
   
   
@@ -5235,7 +5246,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/agile/safe/" class="md-nav__link">
+      <a href="../../agile/safe/" class="md-nav__link">
         
   
   
@@ -5263,7 +5274,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/agile/montees-de-version-et-cadence/" class="md-nav__link">
+      <a href="../../agile/montees-de-version-et-cadence/" class="md-nav__link">
         
   
   
@@ -5291,7 +5302,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/agile/communication-technique/" class="md-nav__link">
+      <a href="../../agile/communication-technique/" class="md-nav__link">
         
   
   
@@ -5319,7 +5330,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/agile/resume-utile-scrum-master-technique/" class="md-nav__link">
+      <a href="../../agile/resume-utile-scrum-master-technique/" class="md-nav__link">
         
   
   
@@ -5351,28 +5362,31 @@
       
   
   
+    
   
   
+  
     
     
     
     
+      
+        
+        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_16" checked>
         
           
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_16" >
-        
-          
-          <label class="md-nav__link" for="__nav_16" id="__nav_16_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_16" id="__nav_16_label" tabindex="">
             
   
   
@@ -5390,7 +5404,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_16_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_16_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_16">
             <span class="md-nav__icon md-icon"></span>
             
@@ -5405,10 +5419,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../topics/ia/ia-dans-le-developpement/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    (NEW) L'IA dans le développement
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -5424,6 +5465,136 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#contexte" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contexte
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ou-cest-reellement-utile" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Où c'est réellement utile
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#les-quatre-modes-dusage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Les quatre modes d'usage
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#le-prompt-est-une-specification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Le prompt est une spécification
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#revoir-du-code-genere" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Revoir du code généré
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#confidentialite-et-securite" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Confidentialité et sécurité
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mettre-en-place-un-cadre-dequipe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mettre en place un cadre d'équipe
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ce-qui-ne-change-pas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ce qui ne change pas
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#questions-typiques-reponses-courtes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Questions typiques, réponses courtes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#voir-aussi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Voir aussi
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -5497,7 +5668,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../topics/synthese/panorama-java-spring-backend/" class="md-nav__link">
+      <a href="../../synthese/panorama-java-spring-backend/" class="md-nav__link">
         
   
   
@@ -5586,7 +5757,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../socles/" class="md-nav__link">
+      <a href="../../../socles/" class="md-nav__link">
         
   
   
@@ -5614,7 +5785,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../socles/kore-hexagonal/" class="md-nav__link">
+      <a href="../../../socles/kore-hexagonal/" class="md-nav__link">
         
   
   
@@ -5642,7 +5813,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../socles/kore-batch/" class="md-nav__link">
+      <a href="../../../socles/kore-batch/" class="md-nav__link">
         
   
   
@@ -5670,7 +5841,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../socles/kore-genie/" class="md-nav__link">
+      <a href="../../../socles/kore-genie/" class="md-nav__link">
         
   
   
@@ -5698,7 +5869,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../socles/kore-n8n/" class="md-nav__link">
+      <a href="../../../socles/kore-n8n/" class="md-nav__link">
         
   
   
@@ -5726,7 +5897,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../socles/kore-traefik/" class="md-nav__link">
+      <a href="../../../socles/kore-traefik/" class="md-nav__link">
         
   
   
@@ -5754,7 +5925,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../socles/kore-monitoring/" class="md-nav__link">
+      <a href="../../../socles/kore-monitoring/" class="md-nav__link">
         
   
   
@@ -5782,7 +5953,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../socles/kore-watchtower/" class="md-nav__link">
+      <a href="../../../socles/kore-watchtower/" class="md-nav__link">
         
   
   
@@ -5810,7 +5981,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../socles/kore-backup/" class="md-nav__link">
+      <a href="../../../socles/kore-backup/" class="md-nav__link">
         
   
   
@@ -5838,7 +6009,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../socles/kore-kafka/" class="md-nav__link">
+      <a href="../../../socles/kore-kafka/" class="md-nav__link">
         
   
   
@@ -5866,7 +6037,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../socles/kore-bot/" class="md-nav__link">
+      <a href="../../../socles/kore-bot/" class="md-nav__link">
         
   
   
@@ -5911,6 +6082,126 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#contexte" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contexte
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ou-cest-reellement-utile" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Où c'est réellement utile
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#les-quatre-modes-dusage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Les quatre modes d'usage
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#le-prompt-est-une-specification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Le prompt est une spécification
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#revoir-du-code-genere" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Revoir du code généré
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#confidentialite-et-securite" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Confidentialité et sécurité
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mettre-en-place-un-cadre-dequipe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mettre en place un cadre d'équipe
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ce-qui-ne-change-pas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ce qui ne change pas
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#questions-typiques-reponses-courtes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Questions typiques, réponses courtes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#voir-aussi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Voir aussi
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -5925,9 +6216,399 @@
                 
                   
 
+  <nav class="md-tags" >
+    
+      
+      
+      
+      
+        <a href="../../../tags/#tag:ia" class="md-tag">ia</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../../tags/#tag:llm" class="md-tag">llm</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../../tags/#tag:pratiques" class="md-tag">pratiques</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../../tags/#tag:productivite" class="md-tag">productivite</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../../tags/#tag:securite" class="md-tag">securite</a>
+      
+    
+  </nav>
 
 
-  <h1>Eventual consistency</h1>
+
+<h1 id="lia-dans-le-developpement-pratiques-limites-et-cadre">L'IA dans le développement • pratiques, limites et cadre</h1>
+<h2 id="contexte">Contexte</h2>
+<p>L'assistance par modèle de langage est devenue un outil de travail ordinaire, au même titre
+qu'un débogueur ou un gestionnaire de versions. La question n'est plus « faut-il l'utiliser »
+mais <strong>« sur quoi, avec quelles garanties, et qui répond du résultat »</strong>.</p>
+<div class="admonition quote">
+<p class="admonition-title">La règle qui gouverne tout le reste</p>
+<p><strong>La responsabilité appartient à celui qui fusionne le code, pas à l'outil qui l'a
+écrit.</strong></p>
+<p>Un code généré puis fusionné est <em>votre</em> code : vous le maintiendrez, vous en répondrez
+en production, et vous devrez l'expliquer. « C'est l'IA qui l'a écrit » n'est pas une
+explication recevable - pas plus que « c'est ce que disait la réponse sur un forum ».</p>
+</div>
+<hr />
+<h2 id="ou-cest-reellement-utile">Où c'est réellement utile</h2>
+<p>Le gain n'est pas uniforme : il est élevé là où le travail est <strong>structuré et vérifiable</strong>,
+faible voire négatif là où il demande du contexte implicite.</p>
+<table>
+<thead>
+<tr>
+<th>Usage</th>
+<th>Gain</th>
+<th>Pourquoi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Code répétitif</strong> - DTO, mappers, configuration, scripts</td>
+<td><strong>élevé</strong></td>
+<td>structure connue, vérification immédiate</td>
+</tr>
+<tr>
+<td><strong>Tests unitaires</strong> à partir d'un code existant</td>
+<td><strong>élevé</strong></td>
+<td>les cas limites sont bien couverts, le test est vérifiable par exécution</td>
+</tr>
+<tr>
+<td><strong>Explorer un code inconnu</strong></td>
+<td><strong>élevé</strong></td>
+<td>« que fait cette classe, qui l'appelle » - accélère l'arrivée sur un projet</td>
+</tr>
+<tr>
+<td><strong>Traduction et migration mécanique</strong></td>
+<td>élevé</td>
+<td>changement de namespace, montée de version, portage d'un langage à l'autre</td>
+</tr>
+<tr>
+<td><strong>Documentation, messages de commit, ADR</strong></td>
+<td>élevé</td>
+<td>le fond est connu, la mise en forme est coûteuse</td>
+</tr>
+<tr>
+<td><strong>Requêtes SQL, expressions régulières</strong></td>
+<td>élevé</td>
+<td>testable immédiatement</td>
+</tr>
+<tr>
+<td><strong>Recherche de piste sur un bug</strong></td>
+<td>moyen</td>
+<td>utile pour élargir les hypothèses, pas pour conclure</td>
+</tr>
+<tr>
+<td><strong>Revue de code</strong></td>
+<td>moyen</td>
+<td>bon détecteur de fautes d'inattention, aveugle au métier</td>
+</tr>
+<tr>
+<td><strong>Logique métier fine</strong></td>
+<td><strong>faible</strong></td>
+<td>le contexte implicite n'est pas dans le prompt</td>
+</tr>
+<tr>
+<td><strong>Décision d'architecture</strong></td>
+<td><strong>faible</strong></td>
+<td>dépend de contraintes non écrites : équipe, existant, budget, politique</td>
+</tr>
+<tr>
+<td><strong>Estimation de charge</strong></td>
+<td><strong>nul</strong></td>
+<td>aucune base factuelle</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title">L'effet le plus mesuré : la confiance excessive</p>
+<p>Ce que produit un modèle est <strong>plausible par construction</strong> - c'est son objectif. Un code
+faux et un code juste ont exactement la même assurance de ton.</p>
+<p>Les erreurs typiques : une API qui n'existe pas mais dont le nom semble naturel, une
+dépendance inventée, un test qui vérifie le <em>mock</em> et non le comportement, une
+configuration valide pour une autre version du framework.</p>
+<p>C'est pourquoi le gain réel se concentre sur ce qui est <strong>vérifiable en quelques
+secondes</strong> : compiler, exécuter un test, lire le SQL généré.</p>
+</div>
+<hr />
+<h2 id="les-quatre-modes-dusage">Les quatre modes d'usage</h2>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Principe</th>
+<th>Terrain</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Complétion en ligne</strong></td>
+<td>suggestions au fil de la frappe</td>
+<td>le quotidien, sur du code structuré</td>
+</tr>
+<tr>
+<td><strong>Conversation</strong></td>
+<td>on décrit, on itère</td>
+<td>comprendre, concevoir, déboguer</td>
+</tr>
+<tr>
+<td><strong>Agent</strong></td>
+<td>l'outil lit, modifie plusieurs fichiers, lance les tests</td>
+<td>refactoring large, migration - <strong>sous supervision</strong></td>
+</tr>
+<tr>
+<td><strong>Intégré à la chaîne</strong></td>
+<td>revue automatique sur les PR, génération de notes de version</td>
+<td>complément, jamais remplacement de la revue humaine</td>
+</tr>
+</tbody>
+</table>
+<p>Le mode agent est le plus puissant et le plus risqué : il agit sur plusieurs fichiers à la
+fois. Deux garde-fous non négociables : <strong>travailler sur une branche dédiée</strong> et <strong>disposer
+de tests qui passent avant de commencer</strong> - sans eux, on ne peut pas constater ce qui a été
+cassé.</p>
+<hr />
+<h2 id="le-prompt-est-une-specification">Le prompt est une spécification</h2>
+<p>C'est le changement de posture qui sépare un usage superficiel d'un usage professionnel :
+<strong>la qualité du résultat dépend de la qualité de l'énoncé</strong>, exactement comme pour un ticket
+confié à un collègue.</p>
+<div class="highlight"><pre><span></span><code>Faible :  « écris-moi un service de facturation »
+
+Utile :   Contexte : Spring Boot 3.5, Java 21, architecture hexagonale.
+          Besoin   : un cas d'usage qui annule un séjour et publie un événement via outbox.
+          Contraintes : le domaine ne dépend d'aucun framework ; l'entité JPA reste dans
+                        l'adapter ; transaction au niveau du use case.
+          Attendu  : l'interface du port entrant, le use case, le test unitaire du domaine.
+          Style    : conventions du projet ci-jointes.
+</code></pre></div>
+<p>Les quatre éléments qui font la différence : <strong>le contexte</strong> (versions, style, existant), les
+<strong>contraintes</strong> (ce qui est interdit), le <strong>format attendu</strong>, et un <strong>exemple</strong> du code
+voisin. Sans eux, le modèle produit une réponse générique - correcte dans l'absolu,
+inadaptée au projet.</p>
+<div class="admonition tip">
+<p class="admonition-title">Le réflexe qui change le résultat</p>
+<p>Demander <strong>le raisonnement avant le code</strong> sur un sujet de conception : <em>« expose-moi
+deux options avec leurs coûts avant d'écrire quoi que ce soit »</em>.</p>
+<p>On obtient une matière discutable au lieu d'une réponse à prendre ou à laisser - et l'on
+reste celui qui décide.</p>
+</div>
+<hr />
+<h2 id="revoir-du-code-genere">Revoir du code généré</h2>
+<p>La revue ne change pas de nature, mais l'ordre des soupçons change. Les points à vérifier en
+priorité :</p>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" disabled/> <strong>les dépendances existent</strong> et sont déjà au projet - pas une librairie inventée ou une
+      version fantaisiste</li>
+<li class="task-list-item"><input type="checkbox" disabled/> <strong>les API utilisées existent réellement</strong> dans la version employée</li>
+<li class="task-list-item"><input type="checkbox" disabled/> <strong>les tests testent le comportement</strong>, pas le mock qu'ils viennent de configurer</li>
+<li class="task-list-item"><input type="checkbox" disabled/> <strong>les cas limites</strong> sont traités : null, liste vide, erreur réseau, concurrence</li>
+<li class="task-list-item"><input type="checkbox" disabled/> <strong>la sécurité</strong> : requête concaténée, secret en dur, log qui expose une donnée</li>
+<li class="task-list-item"><input type="checkbox" disabled/> <strong>la cohérence</strong> avec l'architecture du projet - pas un style importé d'ailleurs</li>
+<li class="task-list-item"><input type="checkbox" disabled/> <strong>rien d'inutile</strong> : le code généré a tendance à ajouter des abstractions dont personne
+      n'a besoin</li>
+<li class="task-list-item"><input type="checkbox" disabled/> <strong>la licence</strong> du code manifestement recopié depuis un projet connu</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Le risque long terme : le code que personne ne comprend</p>
+<p>Fusionner du code qu'on n'a pas compris crée une dette d'un genre nouveau : il fonctionne,
+personne ne sait pourquoi, et le jour où il casse, personne ne peut le réparer.</p>
+<p>Le critère avant de fusionner : <strong>« serais-je capable de l'expliquer ligne à ligne à un
+collègue ? »</strong> Si non, ce n'est pas prêt - qu'il ait été écrit par un humain ou non.</p>
+</div>
+<hr />
+<h2 id="confidentialite-et-securite">Confidentialité et sécurité</h2>
+<p>C'est le volet qui décide de ce qui est <strong>autorisé</strong> en entreprise.</p>
+<table>
+<thead>
+<tr>
+<th>Ne jamais transmettre</th>
+<th>Pourquoi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Secrets, jetons, clés, mots de passe</td>
+<td>fuite définitive ; ils doivent être révoqués si c'est arrivé</td>
+</tr>
+<tr>
+<td>Données personnelles réelles</td>
+<td>RGPD - un traitement non prévu, chez un sous-traitant non déclaré</td>
+</tr>
+<tr>
+<td>Code client sous accord de confidentialité</td>
+<td>engagement contractuel</td>
+</tr>
+<tr>
+<td>Données de santé, bancaires, classifiées</td>
+<td>cadre réglementaire spécifique</td>
+</tr>
+<tr>
+<td>Schémas de sécurité, architecture de défense</td>
+<td>valeur pour un attaquant</td>
+</tr>
+</tbody>
+</table>
+<p>Les réponses techniques existent, par ordre de contrainte croissante :</p>
+<ol>
+<li><strong>offre entreprise</strong> du fournisseur, avec non-réutilisation des données pour
+   l'entraînement, contractualisée</li>
+<li><strong>déploiement privé</strong> dans le cloud de l'entreprise</li>
+<li><strong>modèle local</strong>, entièrement sur site - aucune donnée ne sort du périmètre
+   → <a href="../../../socles/kore-genie/">Socle kore-genie</a></li>
+</ol>
+<div class="admonition warning">
+<p class="admonition-title">Injection de prompt</p>
+<p>Dès qu'un assistant <strong>lit</strong> du contenu extérieur - une page web, un ticket, un fichier
+fourni, la sortie d'un outil - ce contenu peut contenir des instructions destinées à
+l'assistant lui-même.</p>
+<p>La règle : <strong>ce qui est lu est une donnée, pas une consigne</strong>. Un agent qui a accès à un
+dépôt, à une base ou à des identifiants doit fonctionner en <strong>droits minimaux</strong>, avec
+validation humaine sur toute action irréversible.
+→ <a href="../../devops/container-security/">Container Security</a></p>
+</div>
+<hr />
+<h2 id="mettre-en-place-un-cadre-dequipe">Mettre en place un cadre d'équipe</h2>
+<p>Ce qu'une équipe gagne à écrire, une fois, sur une page :</p>
+<table>
+<thead>
+<tr>
+<th>Question</th>
+<th>À trancher explicitement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Quels outils sont autorisés</td>
+<td>et sous quel contrat</td>
+</tr>
+<tr>
+<td>Ce qu'on ne transmet jamais</td>
+<td>la liste ci-dessus, adaptée au métier</td>
+</tr>
+<tr>
+<td>Le code généré est-il signalé</td>
+<td>dans la PR, pour calibrer l'attention du relecteur</td>
+</tr>
+<tr>
+<td>Qui répond du code</td>
+<td><strong>celui qui le fusionne</strong> - à écrire noir sur blanc</td>
+</tr>
+<tr>
+<td>Les tests sont-ils obligatoires</td>
+<td>oui, et ils ne sont pas générés par la même passe que le code</td>
+</tr>
+<tr>
+<td>Le mode agent</td>
+<td>sur quelles branches, avec quels droits</td>
+</tr>
+<tr>
+<td>Les secrets</td>
+<td>jamais dans un prompt, et une procédure si ça arrive</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">Ce qui rend une équipe réellement plus rapide</p>
+<p>Pas le nombre de lignes produites - c'est la métrique la plus trompeuse du sujet. Ce qui
+compte :</p>
+<ul>
+<li><strong>le temps d'arrivée</strong> d'un nouveau sur un code inconnu</li>
+<li><strong>la couverture de tests</strong>, parce que le coût d'écriture d'un test s'est effondré</li>
+<li><strong>la documentation</strong>, pour la même raison</li>
+<li><strong>les migrations</strong> enfin faites, parce que le travail mécanique ne fait plus peur
+  → <a href="../../agile/montees-de-version-et-cadence/">Montées de version et cadence</a></li>
+</ul>
+<p>Le gain le plus solide n'est pas « écrire du code plus vite » : c'est <strong>faire enfin les
+tâches qu'on repoussait</strong> parce qu'elles étaient fastidieuses.</p>
+</div>
+<hr />
+<h2 id="ce-qui-ne-change-pas">Ce qui ne change pas</h2>
+<table>
+<thead>
+<tr>
+<th>Ce que l'outil ne remplace pas</th>
+<th>Pourquoi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Comprendre le métier</td>
+<td>il n'est écrit nulle part, il se négocie</td>
+</tr>
+<tr>
+<td>Décider d'une architecture</td>
+<td>elle dépend de l'équipe, de l'existant, du budget</td>
+</tr>
+<tr>
+<td>Répondre d'un incident en production</td>
+<td>il faut avoir compris le système</td>
+</tr>
+<tr>
+<td>Arbitrer une priorité</td>
+<td>c'est une décision, pas une génération</td>
+</tr>
+<tr>
+<td>Savoir ce qu'on ne sait pas</td>
+<td>c'est le jugement, et il ne se délègue pas</td>
+</tr>
+</tbody>
+</table>
+<p>L'assistance déplace la valeur de l'écriture vers <strong>la spécification et la vérification</strong> :
+savoir énoncer précisément ce qu'on veut, et savoir juger ce qui revient. Les deux exigent
+plus de compréhension du système, pas moins.</p>
+<hr />
+<h2 id="questions-typiques-reponses-courtes">Questions typiques, réponses courtes</h2>
+<p><strong>« Comment utilisez-vous l'IA au quotidien ? »</strong>
+Sur ce qui est structuré et vérifiable : code répétitif, tests à partir d'un code existant,
+exploration d'une base inconnue, migrations mécaniques, documentation. Moins sur la logique
+métier fine et les décisions d'architecture, où le contexte implicite n'est pas dans le
+prompt. Et systématiquement avec la même règle : je ne fusionne que ce que je peux expliquer.</p>
+<p><strong>« Qui est responsable d'un bug dans du code généré ? »</strong>
+Celui qui l'a fusionné. L'outil est une aide à la production, pas une autorité : le code
+fusionné est le code de l'équipe, avec la même revue et les mêmes tests que le reste.</p>
+<p><strong>« Quels sont les risques ? »</strong>
+Trois. La confiance excessive - une réponse fausse a le même ton assuré qu'une réponse juste.
+La fuite de données - secrets, données personnelles, code sous accord de confidentialité. Et
+la dette de compréhension : du code qui marche que personne ne sait réparer.</p>
+<p><strong>« Comment encadre-t-on l'usage dans une équipe ? »</strong>
+Une page écrite : outils autorisés et sous quel contrat, ce qu'on ne transmet jamais, revue
+humaine obligatoire, tests non générés par la même passe que le code, droits minimaux pour
+les agents, et la responsabilité qui reste à celui qui fusionne.</p>
+<p><strong>« Qu'est-ce que ça change réellement à la productivité ? »</strong>
+Peu de choses sur la vitesse d'écriture du code métier. Beaucoup sur ce qu'on repoussait :
+tests, documentation, migrations, arrivée sur un code inconnu. Le bon indicateur n'est pas le
+volume produit, c'est le <strong>temps de compréhension</strong> et la couverture de tests.</p>
+<hr />
+<h2 id="voir-aussi">Voir aussi</h2>
+<ul>
+<li><a href="../../../socles/kore-genie/">Socle kore-genie • IA privée et RAG</a></li>
+<li><a href="../../../socles/kore-bot/">Socle kore-bot • Conversational AI multi-tenant</a></li>
+<li><a href="../../agile/communication-technique/">Communication technique</a></li>
+<li><a href="../../agile/montees-de-version-et-cadence/">Montées de version et cadence</a></li>
+<li><a href="../../java/oop/clean-code/">Clean Code</a></li>
+<li><a href="../../testing/tests-junit-mockito-spring/">JUnit 5, Mockito &amp; Spring Boot Test</a></li>
+<li><a href="../../devops/container-security/">Container Security</a></li>
+</ul>
 
 
 
@@ -5935,7 +6616,8 @@
 
 
 
-
+  
+  
 
 
 
@@ -6006,10 +6688,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "toc.follow", "content.code.copy", "search.highlight", "search.suggest"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "toc.follow", "content.code.copy", "search.highlight", "search.suggest"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
     
   </body>
