@@ -1254,6 +1254,46 @@
 </nav>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="#jms-est-il-asynchrone">
+<span class="md-ellipsis">
+      
+        JMS est-il asynchrone ?
+      
+    </span>
+</a>
+<nav aria-label="JMS est-il asynchrone ?" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#1-architecturalement-oui">
+<span class="md-ellipsis">
+      
+        1. Architecturalement : oui
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#2-a-la-reception-les-deux-modes-coexistent">
+<span class="md-ellipsis">
+      
+        2. À la réception : les deux modes coexistent
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#3-a-lemission-send-bloque-souvent">
+<span class="md-ellipsis">
+      
+        3. À l'émission : send() bloque souvent
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#accuses-de-reception-et-transactions">
 <span class="md-ellipsis">
       
@@ -2623,6 +2663,46 @@
 </nav>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="#jms-est-il-asynchrone">
+<span class="md-ellipsis">
+      
+        JMS est-il asynchrone ?
+      
+    </span>
+</a>
+<nav aria-label="JMS est-il asynchrone ?" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#1-architecturalement-oui">
+<span class="md-ellipsis">
+      
+        1. Architecturalement : oui
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#2-a-la-reception-les-deux-modes-coexistent">
+<span class="md-ellipsis">
+      
+        2. À la réception : les deux modes coexistent
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#3-a-lemission-send-bloque-souvent">
+<span class="md-ellipsis">
+      
+        3. À l'émission : send() bloque souvent
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#accuses-de-reception-et-transactions">
 <span class="md-ellipsis">
       
@@ -2840,6 +2920,67 @@ désérialiser un objet venant du réseau est une <strong>faille connue</strong>
 <p><code>TextMessage</code> avec du JSON, et un contrat explicite, règle les deux problèmes.</p>
 </div>
 <hr/>
+<h2 id="jms-est-il-asynchrone">JMS est-il asynchrone ?</h2>
+<p>Oui sur le principe, mais le mot recouvre trois choses différentes - et les confondre mène à
+de mauvaises conceptions.</p>
+<h3 id="1-architecturalement-oui">1. Architecturalement : oui</h3>
+<p>Le producteur dépose son message et repart. Il n'attend ni le traitement, ni même que le
+consommateur soit démarré. C'est le <strong>découplage temporel</strong>, la raison d'être de la
+messagerie.</p>
+<h3 id="2-a-la-reception-les-deux-modes-coexistent">2. À la réception : les deux modes coexistent</h3>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Code</th>
+<th>Nature</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Synchrone</strong> (pull)</td>
+<td><code>Message m = consumer.receive(5000);</code></td>
+<td><strong>bloquant</strong> : le thread attend un message, ou le délai</td>
+</tr>
+<tr>
+<td><strong>Asynchrone</strong> (push)</td>
+<td><code>setMessageListener(...)</code>, <code>@JmsListener</code></td>
+<td>le broker pousse, le conteneur invoque la méthode</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code><span class="c1">// Synchrone : le thread reste bloque jusqu'a un message ou l'expiration du delai</span>
+<span class="n">Message</span><span class="w"> </span><span class="n">message</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">consumer</span><span class="p">.</span><span class="na">receive</span><span class="p">(</span><span class="mi">5000</span><span class="p">);</span>
+
+<span class="c1">// Asynchrone : c'est le conteneur qui appelle, sur son propre thread</span>
+<span class="nd">@JmsListener</span><span class="p">(</span><span class="n">destination</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"factures"</span><span class="p">)</span>
+<span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">onMessage</span><span class="p">(</span><span class="n">FactureMessage</span><span class="w"> </span><span class="n">facture</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">service</span><span class="p">.</span><span class="na">traiter</span><span class="p">(</span><span class="n">facture</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+</code></pre></div>
+<h3 id="3-a-lemission-send-bloque-souvent">3. À l'émission : <code>send()</code> bloque souvent</h3>
+<p>Pour un message <strong>persistant</strong>, <code>send()</code> attend l'accusé du broker - aller-retour réseau et
+écriture disque comprises. JMS 2.0 permet de ne pas attendre :</p>
+<div class="highlight"><pre><span></span><code><span class="n">producer</span><span class="p">.</span><span class="na">setAsync</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span><span class="w">                       </span><span class="c1">// ou send(..., new CompletionListener() {...})</span>
+</code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Asynchrone n'est pas non bloquant</p>
+<p>C'est la distinction qui compte. Un <code>@JmsListener</code> est asynchrone du point de vue de
+l'<strong>architecture</strong>, mais son traitement s'exécute sur un <strong>thread bloqué</strong> du début à la
+fin. Le réglage <code>concurrency</code> fixe le nombre de ces threads, donc le parallélisme réel.</p>
+<p>Ce n'est pas un modèle réactif : c'est un thread par consommateur, qui attend. Sur des
+traitements longs, c'est le nombre de threads - et non le broker - qui borne le débit.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Le cas qui brouille tout : request-reply</p>
+<p><code>JmsTemplate.sendAndReceive</code> - file temporaire plus <code>JMSCorrelationID</code> - donne à
+l'appelant une <strong>apparence synchrone</strong> : il bloque jusqu'à la réponse. Le transport, lui,
+reste asynchrone.</p>
+<p>C'est utile pour faire dialoguer deux systèmes qui ne parlent que messages, mais cela
+réintroduit le couplage temporel qu'on cherchait à éviter : si le répondeur est arrêté,
+l'appelant attend puis expire. Quand une réponse immédiate est nécessaire, un appel HTTP
+est plus simple et plus lisible.
+→ <a href="../../distributed/sync-vs-async/">Synchronous Vs Asynchronous</a></p>
+</div>
+<hr/>
 <h2 id="accuses-de-reception-et-transactions">Accusés de réception et transactions</h2>
 <p>C'est le cœur du sujet : <strong>qui décide qu'un message est traité, et quand</strong>.</p>
 <table>
@@ -3047,6 +3188,12 @@ Message persistant, acquittement <strong>après</strong> le traitement - session
 jamais <code>AUTO_ACKNOWLEDGE</code> sur un traitement critique - redélivrance en cas d'erreur, et file
 de rebut au-delà de N tentatives. La contrepartie : des doublons possibles, donc un
 traitement idempotent.</p>
+<p><strong>« JMS est-il synchrone ou asynchrone ? »</strong>
+Asynchrone par nature : le producteur dépose et repart, sans attendre le consommateur. Mais
+l'API offre les deux modes de réception - <code>receive()</code> est un appel <strong>bloquant</strong>, alors qu'un
+<code>MessageListener</code> ou un <code>@JmsListener</code> est en mode poussé. Et asynchrone ne veut pas dire non
+bloquant : un listener occupe un thread pendant tout son traitement, c'est <code>concurrency</code> qui
+fixe le parallélisme réel.</p>
 <p><strong>« JMS ou AMQP ? »</strong>
 JMS est une <strong>API</strong>, AMQP est un <strong>protocole réseau</strong>. JMS n'existe qu'en Java ; AMQP permet
 à des clients de n'importe quel langage de parler au même broker. Les deux coexistent :
