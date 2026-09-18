@@ -333,3 +333,30 @@ code, pre {
     }
 
 }
+/* ------------------------------------------------ */
+/*                  ONGLETS (NAV)                   */
+/* ------------------------------------------------ */
+/* Avec 17 rubriques, la barre d'onglets deborde et Material masque
+   les dernieres entrees - "Socles" disparaissait. On autorise le
+   retour a la ligne : toutes les rubriques restent visibles. */
+.md-tabs {
+    height: auto;
+    overflow: visible;
+}
+
+.md-tabs__list {
+    display: flex;
+    flex-wrap: wrap;
+    white-space: normal;
+    row-gap: 0.1rem;
+}
+
+.md-tabs__item {
+    height: 2.2rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
+
+.md-tabs__link {
+    font-size: 0.68rem;
+}

@@ -1,0 +1,2913 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="fr">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="Backend architecture, event-driven systems and DevOps patterns" name="description"/>
+<meta content="A.KOUBA" name="author"/>
+<link href="https://alak8ba.github.io/notes/topics/distributed/kafka-ou-base-partagee/" rel="canonical"/>
+<link href="../microservices-communication/" rel="prev"/>
+<link href="../sync-vs-async/" rel="next"/>
+<link href="../../../assets/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.7.7" name="generator"/>
+<title>(NEW) Kafka ou base partagée - Engineering Notes</title>
+<link href="../../../assets/stylesheets/main.ec1eaa64.min.css" rel="stylesheet"/>
+<link href="../../../assets/stylesheets/palette.ab4e12ef.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<link href="../../../stylesheets/extra.css" rel="stylesheet"/>
+<script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+</head>
+<body data-md-color-accent="light-blue" data-md-color-primary="blue-grey" data-md-color-scheme="slate" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#kafka-ou-base-partagee-quand-un-broker-se-justifie">
+          Aller au contenu
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="En-tête" class="md-header__inner md-grid">
+<a aria-label="Engineering Notes" class="md-header__button md-logo" data-md-component="logo" href="https://alak8ba.github.io" title="Engineering Notes">
+<img alt="logo" src="../../../assets/favicon.png"/>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            Engineering Notes
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              (NEW) Kafka ou base partagée
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Toggle theme" class="md-option" data-md-color-accent="light-blue" data-md-color-media="" data-md-color-primary="blue-grey" data-md-color-scheme="slate" id="__palette_0" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Toggle theme">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"></path></svg>
+</label>
+<input aria-label="Toggle theme" class="md-option" data-md-color-accent="light-blue" data-md-color-media="" data-md-color-primary="blue-grey" data-md-color-scheme="default" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_0" hidden="" title="Toggle theme">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"></path></svg>
+</label>
+</form>
+<script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Rechercher" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Rechercher" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+</label>
+<nav aria-label="Recherche" class="md-search__options">
+<button aria-label="Effacer" class="md-search__icon md-icon" tabindex="-1" title="Effacer" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+</button>
+</nav>
+<div class="md-search__suggest" data-md-component="search-suggest"></div>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="" tabindex="0">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initialisation de la recherche
+          </div>
+<ol class="md-search-result__list" role="presentation"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<nav aria-label="Onglets" class="md-tabs" data-md-component="tabs">
+<div class="md-grid">
+<ul class="md-tabs__list">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../..">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../about/">
+        
+  
+  
+    
+  
+  Auteur
+
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../tags/">
+        
+  
+  
+    
+  
+  Tags
+
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../java/fundamentals/equals-vs-double-equals/">
+          
+  
+  
+  Java
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../architecture/cqrs-pattern/">
+          
+  
+  
+  Architecture
+
+        </a>
+</li>
+<li class="md-tabs__item md-tabs__item--active">
+<a class="md-tabs__link" href="../../kafka/patterns-kafka-panorama/">
+          
+  
+  
+  Event Driven Systems
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../security/sso-oauth2-oidc-saml/">
+          
+  
+  
+  Security
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../observability/logging-architecture-java/">
+          
+  
+  
+  Observability
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../devops/run-mco-sre/">
+          
+  
+  
+  DevOps
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../database/sql-joins-indexes/">
+          
+  
+  
+  Database
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../http/http-basics/">
+          
+  
+  
+  HTTP
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../testing/tests-junit-mockito-spring/">
+          
+  
+  
+  Testing
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../frontend/angular/">
+          
+  
+  
+  Frontend
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../javascript/fundamentals/typescript-basics/">
+          
+  
+  
+  JavaScript
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../agile/scrum/">
+          
+  
+  
+  Agilité
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../synthese/panorama-java-spring-backend/">
+          
+  
+  
+  Synthèses
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../socles/">
+          
+  
+  
+  Socles
+
+        </a>
+</li>
+</ul>
+</div>
+</nav>
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="Engineering Notes" class="md-nav__button md-logo" data-md-component="logo" href="https://alak8ba.github.io" title="Engineering Notes">
+<img alt="logo" src="../../../assets/favicon.png"/>
+</a>
+    Engineering Notes
+  </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../..">
+<span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../about/">
+<span class="md-ellipsis">
+    
+  
+    Auteur
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../tags/">
+<span class="md-ellipsis">
+    
+  
+    Tags
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Java
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Java
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Fondamentaux
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_1_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_1">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Fondamentaux
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/fundamentals/equals-vs-double-equals/">
+<span class="md-ellipsis">
+    
+  
+    == vs equals()
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/fundamentals/autoboxing/">
+<span class="md-ellipsis">
+    
+  
+    Autoboxing
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/fundamentals/final/">
+<span class="md-ellipsis">
+    
+  
+    final
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/fundamentals/generics/">
+<span class="md-ellipsis">
+    
+  
+    Generics
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/fundamentals/instanceof/">
+<span class="md-ellipsis">
+    
+  
+    instanceof
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/fundamentals/integer-cache/">
+<span class="md-ellipsis">
+    
+  
+    Integer Cache
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/fundamentals/java-protected/">
+<span class="md-ellipsis">
+    
+  
+    protected
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/fundamentals/java-static/">
+<span class="md-ellipsis">
+    
+  
+    static
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/fundamentals/static-generic-method/">
+<span class="md-ellipsis">
+    
+  
+    Méthodes génériques statiques
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/fundamentals/exceptions/">
+<span class="md-ellipsis">
+    
+  
+    Exceptions • checked vs unchecked
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/fundamentals/versions-java-8-17-21/">
+<span class="md-ellipsis">
+    
+  
+    (NEW) Java 8, 17, 21 • versions et migration
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Collections
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Collections
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/collections/list-set-map/">
+<span class="md-ellipsis">
+    
+  
+    List, Set, Map
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/collections/hashmap/">
+<span class="md-ellipsis">
+    
+  
+    HashMap
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/collections/hashmap-treemap-linkedhashmap/">
+<span class="md-ellipsis">
+    
+  
+    HashMap vs TreeMap vs LinkedHashMap
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/collections/hashtable/">
+<span class="md-ellipsis">
+    
+  
+    Hashtable
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/collections/concurrenthashmap/">
+<span class="md-ellipsis">
+    
+  
+    ConcurrentHashMap
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/collections/iterator/">
+<span class="md-ellipsis">
+    
+  
+    Iterator
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/collections/algorithms-complexity/">
+<span class="md-ellipsis">
+    
+  
+    Complexité des algorithmes
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Concurrence
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_3">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Concurrence
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/concurrency/race-condition/">
+<span class="md-ellipsis">
+    
+  
+    Race Condition
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/concurrency/deadlock/">
+<span class="md-ellipsis">
+    
+  
+    Deadlock
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/concurrency/synchronized/">
+<span class="md-ellipsis">
+    
+  
+    synchronized
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/concurrency/volatile/">
+<span class="md-ellipsis">
+    
+  
+    volatile
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/concurrency/atomic/">
+<span class="md-ellipsis">
+    
+  
+    Atomic
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/concurrency/executor-completablefuture/">
+<span class="md-ellipsis">
+    
+  
+    ExecutorService &amp; CompletableFuture
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    POO
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_4_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_4">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    POO
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/oop/inheritance/">
+<span class="md-ellipsis">
+    
+  
+    Héritage
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/oop/polymorphism/">
+<span class="md-ellipsis">
+    
+  
+    Polymorphisme
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/oop/solid/">
+<span class="md-ellipsis">
+    
+  
+    SOLID
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/oop/clean-code/">
+<span class="md-ellipsis">
+    
+  
+    Clean Code
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_5" id="__nav_4_5_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Design Patterns
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_5_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_5">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Design Patterns
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/design-patterns/singleton-pattern/">
+<span class="md-ellipsis">
+    
+  
+    Singleton
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/design-patterns/factory-pattern/">
+<span class="md-ellipsis">
+    
+  
+    Factory
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/design-patterns/dependency-injection/">
+<span class="md-ellipsis">
+    
+  
+    Dependency Injection
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/design-patterns/strategy-pattern/">
+<span class="md-ellipsis">
+    
+  
+    Strategy
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/design-patterns/builder-pattern/">
+<span class="md-ellipsis">
+    
+  
+    Builder
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/design-patterns/observer-pattern/">
+<span class="md-ellipsis">
+    
+  
+    Observer
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_6" id="__nav_4_6_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Spring
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_6_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_6">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Spring
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/spring/spring-boot-fondamentaux/">
+<span class="md-ellipsis">
+    
+  
+    Spring Boot • Fondamentaux et avantages
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/spring/declarer-un-bean/">
+<span class="md-ellipsis">
+    
+  
+    Déclarer un bean
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/spring/controller-vs-restcontroller/">
+<span class="md-ellipsis">
+    
+  
+    @Controller vs @RestController
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/spring/bean-scopes/">
+<span class="md-ellipsis">
+    
+  
+    Bean Scopes
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/spring/hibernate-jpa/">
+<span class="md-ellipsis">
+    
+  
+    Hibernate / JPA
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/spring/aop-spring/">
+<span class="md-ellipsis">
+    
+  
+    (NEW) AOP • Programmation Orientée Aspect
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/spring/spring-boot-2-vs-3/">
+<span class="md-ellipsis">
+    
+  
+    (NEW) Spring Boot 2 → 3 • ce qui change
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/spring/bom-gestion-des-dependances/">
+<span class="md-ellipsis">
+    
+  
+    (NEW) BOM • gestion des dépendances
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/spring/spring-security-chaine-de-filtres/">
+<span class="md-ellipsis">
+    
+  
+    (NEW) Spring Security • chaîne de filtres
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../spring/spring-batch-migration-sb2-java8-to-sb5-java21/">
+<span class="md-ellipsis">
+    
+  
+    Spring Batch - Migration SB4/Java8 → SB5/Java21
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../spring/spring-batch-advanced-patterns/">
+<span class="md-ellipsis">
+    
+  
+    Spring Batch - Patterns avancés
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4_7" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_7" id="__nav_4_7_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Base de données
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_7_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_7">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Base de données
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/database/acid/">
+<span class="md-ellipsis">
+    
+  
+    ACID
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_5_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_5">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Architecture
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../architecture/cqrs-pattern/">
+<span class="md-ellipsis">
+    
+  
+    CQRS Pattern
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../architecture/rest-api-design/">
+<span class="md-ellipsis">
+    
+  
+    REST API Design
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../spring/hexagonal-architecture/">
+<span class="md-ellipsis">
+    
+  
+    Hexagonal Architecture
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../architecture/api-gateway-pattern/">
+<span class="md-ellipsis">
+    
+  
+    (NEW) API Gateway • rôle et limites
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+<span class="md-ellipsis">
+    
+  
+    Event Driven Systems
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="true" aria-labelledby="__nav_6_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_6">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Event Driven Systems
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../kafka/patterns-kafka-panorama/">
+<span class="md-ellipsis">
+    
+  
+    (NEW) Patterns Kafka • panorama
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../kafka/transactions-kafka/">
+<span class="md-ellipsis">
+    
+  
+    (NEW) Transactions Kafka • exactly-once
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../kafka/kraft-fin-de-zookeeper/">
+<span class="md-ellipsis">
+    
+  
+    (NEW) KRaft • la fin de ZooKeeper
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../kafka/evenement-notification-vs-agregat/">
+<span class="md-ellipsis">
+    
+  
+    (NEW) Événement de notification ou agrégat
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../kafka/retry-and-dlt-pattern/">
+<span class="md-ellipsis">
+    
+  
+    Retry and DLT Pattern
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../kafka/idempotent-consumers/">
+<span class="md-ellipsis">
+    
+  
+    Idempotent Consumers
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../kafka/outbox-pattern/">
+<span class="md-ellipsis">
+    
+  
+    Outbox Pattern
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../kafka/reliability-patterns/">
+<span class="md-ellipsis">
+    
+  
+    Reliability Patterns
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../kafka/consumer-rebalance/">
+<span class="md-ellipsis">
+    
+  
+    Consumer Rebalance
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../eventual-consistency/">
+<span class="md-ellipsis">
+    
+  
+    Eventual Consistency
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../microservices-communication/">
+<span class="md-ellipsis">
+    
+  
+    Microservices Communication
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    
+  
+    (NEW) Kafka ou base partagée
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+<span class="md-ellipsis">
+    
+  
+    (NEW) Kafka ou base partagée
+  
+
+    
+  </span>
+</a>
+<nav aria-label="Table des matières" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#contexte">
+<span class="md-ellipsis">
+      
+        Contexte
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ce-quun-broker-apporte-quune-table-ne-donne-pas">
+<span class="md-ellipsis">
+      
+        Ce qu'un broker apporte qu'une table ne donne pas
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ce-quune-base-donne-que-kafka-ne-donne-pas">
+<span class="md-ellipsis">
+      
+        Ce qu'une base donne que Kafka ne donne pas
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#la-grille-de-decision">
+<span class="md-ellipsis">
+      
+        La grille de décision
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#le-vrai-chantier-separer-les-donnees">
+<span class="md-ellipsis">
+      
+        Le vrai chantier • séparer les données
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#les-mauvaises-raisons">
+<span class="md-ellipsis">
+      
+        Les mauvaises raisons
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#questions-typiques-reponses-courtes">
+<span class="md-ellipsis">
+      
+        Questions typiques, réponses courtes
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#voir-aussi">
+<span class="md-ellipsis">
+      
+        Voir aussi
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../sync-vs-async/">
+<span class="md-ellipsis">
+    
+  
+    Synchronous Vs Asynchronous
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../kafka-resilience-patterns/">
+<span class="md-ellipsis">
+    
+  
+    Kafka Resilience Patterns
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../read-models-and-fetch-strategies/">
+<span class="md-ellipsis">
+    
+  
+    Read Models Vs fetch Strategies
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../distributed-tracing-and-correlation/">
+<span class="md-ellipsis">
+    
+  
+    Distributed Tracing And Correlation
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_7" type="checkbox"/>
+<label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Security
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_7_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_7">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Security
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../security/sso-oauth2-oidc-saml/">
+<span class="md-ellipsis">
+    
+  
+    (NEW) SSO • OAuth2, OIDC et SAML
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../security/jwt-authentication-pattern/">
+<span class="md-ellipsis">
+    
+  
+    JWT Authentication Pattern
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../security/cors/">
+<span class="md-ellipsis">
+    
+  
+    CORS • Cross-Origin Resource Sharing
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../security/cookie-security/">
+<span class="md-ellipsis">
+    
+  
+    Cookie Security
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../security/http-security-headers/">
+<span class="md-ellipsis">
+    
+  
+    HTTP Security Headers
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_8" type="checkbox"/>
+<label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Observability
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_8_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_8">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Observability
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../observability/logging-architecture-java/">
+<span class="md-ellipsis">
+    
+  
+    Logging Architecture Java
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../observability/exception-handling-spring/">
+<span class="md-ellipsis">
+    
+  
+    Exception Handling Spring
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../observability/metrics-monitoring-prometheus-grafana/">
+<span class="md-ellipsis">
+    
+  
+    Metrics Monitoring Prometheus Grafana
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../observability/monitoring-paiement/">
+<span class="md-ellipsis">
+    
+  
+    Monitoring de Plateforme de Paiement
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../observability/diagnostiquer-performance-methode/">
+<span class="md-ellipsis">
+    
+  
+    (NEW) Diagnostiquer la performance d'une méthode
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../observability/java-production-deep-dive/">
+<span class="md-ellipsis">
+    
+  
+    Java en Production • Deep-Dive
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../observability/incidents-vecu-terrain/">
+<span class="md-ellipsis">
+    
+  
+    Investigation d'Incidents • 4 Patterns
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../observability/profil-build-vers-run/">
+<span class="md-ellipsis">
+    
+  
+    BUILD vers RUN • Transition de Profil
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../observability/kafka-en-paiement/">
+<span class="md-ellipsis">
+    
+  
+    Kafka en paiement
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../observability/paiement-vocabulaire/">
+<span class="md-ellipsis">
+    
+  
+    Paiement vocabulaire
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../observability/pci-dss-applique/">
+<span class="md-ellipsis">
+    
+  
+    Pci dss applique
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_9" type="checkbox"/>
+<label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    DevOps
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_9_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_9">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    DevOps
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../devops/run-mco-sre/">
+<span class="md-ellipsis">
+    
+  
+    RUN, MCO et SRE
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../devops/docker-run/">
+<span class="md-ellipsis">
+    
+  
+    Docker Run • -v et -w
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../devops/docker-production-pattern/">
+<span class="md-ellipsis">
+    
+  
+    Docker Production Pattern
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../devops/docker-networking/">
+<span class="md-ellipsis">
+    
+  
+    Docker Networking
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../devops/container-security/">
+<span class="md-ellipsis">
+    
+  
+    Container Security
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../devops/chemin-d-une-requete-en-production/">
+<span class="md-ellipsis">
+    
+  
+    (NEW) Le chemin d'une requête en production
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../devops/reverse-proxy-pattern/">
+<span class="md-ellipsis">
+    
+  
+    Reverse Proxy Pattern
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../devops/pull-based-deployment/">
+<span class="md-ellipsis">
+    
+  
+    Pull-based Deployment
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../devops/ci-cd-pipeline-pattern/">
+<span class="md-ellipsis">
+    
+  
+    CI/CD Pipeline Pattern
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../devops/observability-pattern/">
+<span class="md-ellipsis">
+    
+  
+    Observability Pattern
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../devops/kubernetes-fondamentaux/">
+<span class="md-ellipsis">
+    
+  
+    (NEW) Kubernetes • Fondamentaux
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../devops/docker-compose-vs-kubernetes/">
+<span class="md-ellipsis">
+    
+  
+    (NEW) Docker Compose vs Kubernetes
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_10" type="checkbox"/>
+<label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Database
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_10_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_10">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Database
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../database/sql-joins-indexes/">
+<span class="md-ellipsis">
+    
+  
+    SQL Joins et Index
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../database/index-et-optimisation-postgresql/">
+<span class="md-ellipsis">
+    
+  
+    Index et optimisation PostgreSQL
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../database/migrations-de-schema-liquibase/">
+<span class="md-ellipsis">
+    
+  
+    (NEW) Migrations de schéma • Liquibase
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../database/transaction-patterns/">
+<span class="md-ellipsis">
+    
+  
+    Transaction Patterns
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../database/optimistic-locking/">
+<span class="md-ellipsis">
+    
+  
+    Optimistic Locking
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_11" type="checkbox"/>
+<label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    HTTP
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_11_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_11">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    HTTP
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../http/http-basics/">
+<span class="md-ellipsis">
+    
+  
+    HTTP Basics
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../http/html-vs-html5/">
+<span class="md-ellipsis">
+    
+  
+    (NEW) HTML vs HTML5
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_12" type="checkbox"/>
+<label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Testing
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_12_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_12">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Testing
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../testing/tests-junit-mockito-spring/">
+<span class="md-ellipsis">
+    
+  
+    JUnit 5, Mockito &amp; Spring Boot Test
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../testing/testcontainers-pattern/">
+<span class="md-ellipsis">
+    
+  
+    Testcontainers
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_13" type="checkbox"/>
+<label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Frontend
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_13_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_13">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Frontend
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../frontend/angular/">
+<span class="md-ellipsis">
+    
+  
+    Angular • Fondamentaux &amp; Patterns
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../frontend/angular-migrations/">
+<span class="md-ellipsis">
+    
+  
+    Angular • Migrations entre versions
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../frontend/angular-testing/">
+<span class="md-ellipsis">
+    
+  
+    Angular • Testing
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../frontend/angular-ssr/">
+<span class="md-ellipsis">
+    
+  
+    Angular • SSR
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../frontend/ngrx/">
+<span class="md-ellipsis">
+    
+  
+    NgRx • State Management
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../frontend/react/">
+<span class="md-ellipsis">
+    
+  
+    React • Fondamentaux &amp; Hooks
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../frontend/chartjs/">
+<span class="md-ellipsis">
+    
+  
+    Chart.js • Visualisation de données
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../frontend/vuejs/">
+<span class="md-ellipsis">
+    
+  
+    (NEW) Vue.js • Fondamentaux &amp; comparaison
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_14" type="checkbox"/>
+<label class="md-nav__link" for="__nav_14" id="__nav_14_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    JavaScript
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_14_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_14">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    JavaScript
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../javascript/fundamentals/typescript-basics/">
+<span class="md-ellipsis">
+    
+  
+    TypeScript - Typage statique
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../javascript/fundamentals/javascript-pitfalls/">
+<span class="md-ellipsis">
+    
+  
+    JavaScript - Subtilités
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_15" type="checkbox"/>
+<label class="md-nav__link" for="__nav_15" id="__nav_15_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Agilité
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_15_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_15">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Agilité
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agile/scrum/">
+<span class="md-ellipsis">
+    
+  
+    (NEW) Scrum • cadre de travail itératif
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agile/safe/">
+<span class="md-ellipsis">
+    
+  
+    (NEW) SAFe • agilité à l'échelle
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agile/montees-de-version-et-cadence/">
+<span class="md-ellipsis">
+    
+  
+    (NEW) Montées de version et cadence
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agile/resume-utile-scrum-master-technique/">
+<span class="md-ellipsis">
+    
+  
+    (NEW) Résumé utile • Scrum Master à profil technique
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_16" type="checkbox"/>
+<label class="md-nav__link" for="__nav_16" id="__nav_16_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Synthèses
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_16_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_16">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Synthèses
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../synthese/panorama-java-spring-backend/">
+<span class="md-ellipsis">
+    
+  
+    Panorama backend Java / Spring
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_17" type="checkbox"/>
+<label class="md-nav__link" for="__nav_17" id="__nav_17_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Socles
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_17_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_17">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Socles
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../socles/">
+<span class="md-ellipsis">
+    
+  
+    Vue d'ensemble
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../socles/kore-hexagonal/">
+<span class="md-ellipsis">
+    
+  
+    kore-hexagonal
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../socles/kore-batch/">
+<span class="md-ellipsis">
+    
+  
+    kore-batch
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../socles/kore-genie/">
+<span class="md-ellipsis">
+    
+  
+    kore-genie
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../socles/kore-n8n/">
+<span class="md-ellipsis">
+    
+  
+    kore-n8n
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../socles/kore-traefik/">
+<span class="md-ellipsis">
+    
+  
+    kore-traefik
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../socles/kore-monitoring/">
+<span class="md-ellipsis">
+    
+  
+    kore-monitoring
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../socles/kore-watchtower/">
+<span class="md-ellipsis">
+    
+  
+    kore-watchtower
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../socles/kore-backup/">
+<span class="md-ellipsis">
+    
+  
+    kore-backup
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../socles/kore-kafka/">
+<span class="md-ellipsis">
+    
+  
+    kore-kafka
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../socles/kore-bot/">
+<span class="md-ellipsis">
+    
+  
+    kore-bot
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Table des matières" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#contexte">
+<span class="md-ellipsis">
+      
+        Contexte
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ce-quun-broker-apporte-quune-table-ne-donne-pas">
+<span class="md-ellipsis">
+      
+        Ce qu'un broker apporte qu'une table ne donne pas
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ce-quune-base-donne-que-kafka-ne-donne-pas">
+<span class="md-ellipsis">
+      
+        Ce qu'une base donne que Kafka ne donne pas
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#la-grille-de-decision">
+<span class="md-ellipsis">
+      
+        La grille de décision
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#le-vrai-chantier-separer-les-donnees">
+<span class="md-ellipsis">
+      
+        Le vrai chantier • séparer les données
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#les-mauvaises-raisons">
+<span class="md-ellipsis">
+      
+        Les mauvaises raisons
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#questions-typiques-reponses-courtes">
+<span class="md-ellipsis">
+      
+        Questions typiques, réponses courtes
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#voir-aussi">
+<span class="md-ellipsis">
+      
+        Voir aussi
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<nav class="md-tags">
+<a class="md-tag" href="../../../tags/#tag:architecture">architecture</a>
+<a class="md-tag" href="../../../tags/#tag:couplage">couplage</a>
+<a class="md-tag" href="../../../tags/#tag:design">design</a>
+<a class="md-tag" href="../../../tags/#tag:distributed">distributed</a>
+<a class="md-tag" href="../../../tags/#tag:kafka">kafka</a>
+</nav>
+<h1 id="kafka-ou-base-partagee-quand-un-broker-se-justifie">Kafka ou base partagée • quand un broker se justifie</h1>
+<h2 id="contexte">Contexte</h2>
+<p>« Vos services partagent la même base de données. Alors pourquoi Kafka ? »</p>
+<p>C'est une excellente question d'architecte, et elle n'a rien d'hostile : elle vérifie que le
+broker répond à un <strong>besoin identifié</strong>, et non à une habitude. Une réponse du type
+« pour découpler » ne suffit pas - il faut dire <strong>découpler quoi, de quoi</strong>.</p>
+<p>Le point de départ honnête :</p>
+<div class="admonition warning">
+<p class="admonition-title">Si les services partagent une base, ils sont déjà couplés</p>
+<p>Le couplage le plus fort dans un système distribué, c'est le <strong>schéma de données
+partagé</strong>. Deux services qui lisent la même table ne peuvent plus évoluer
+indépendamment : ajouter une colonne, changer un type ou renommer devient une
+négociation entre équipes.</p>
+<p>Ajouter Kafka <strong>par-dessus</strong> une base partagée ne supprime pas ce couplage. Ça ajoute un
+composant. La question devient donc : qu'est-ce que Kafka apporte <strong>en plus</strong>, malgré ce
+couplage restant ?</p>
+</div>
+<hr/>
+<h2 id="ce-quun-broker-apporte-quune-table-ne-donne-pas">Ce qu'un broker apporte qu'une table ne donne pas</h2>
+<table>
+<thead>
+<tr>
+<th>Apport</th>
+<th>Ce que ça signifie concrètement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Découplage temporel</strong></td>
+<td>le producteur écrit même si le consommateur est arrêté ; rien n'est perdu, tout est rattrapé au redémarrage</td>
+</tr>
+<tr>
+<td><strong>Découplage de charge</strong></td>
+<td>un pic est absorbé par le log ; le consommateur traite à son rythme au lieu de s'effondrer</td>
+</tr>
+<tr>
+<td><strong>Fan-out</strong></td>
+<td>un nouvel usage = un nouveau groupe de consommateurs, <strong>sans toucher au producteur</strong></td>
+</tr>
+<tr>
+<td><strong>Rejeu</strong></td>
+<td>l'historique est conservé : on peut recalculer une projection, corriger un bug de traitement</td>
+</tr>
+<tr>
+<td><strong>Ordre par clé</strong></td>
+<td>tous les événements d'un même agrégat sont traités dans l'ordre</td>
+</tr>
+<tr>
+<td><strong>Notification sans scrutation</strong></td>
+<td>pas de <code>SELECT</code> toutes les secondes pour voir si quelque chose a changé</td>
+</tr>
+<tr>
+<td><strong>Historique des faits</strong></td>
+<td>la base donne l'état <strong>courant</strong> ; le log garde <strong>ce qui s'est passé</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Ce dernier point est le plus structurant, et le moins souvent formulé :</p>
+<div class="admonition quote">
+<p class="admonition-title">La phrase qui répond vraiment à la question</p>
+<p>« Une base de données stocke <strong>l'état</strong> - ce qui est vrai maintenant. Un log d'événements
+stocke <strong>les faits</strong> - ce qui s'est passé, dans l'ordre. Une ligne mise à jour perd son
+histoire ; un événement ne se réécrit pas.</p>
+<p>Si le besoin est de connaître l'état, la base suffit. Si le besoin est de <strong>réagir</strong> à
+des changements, de les rejouer ou de les diffuser à plusieurs consommateurs, alors le
+log apporte quelque chose que la table ne donnera jamais. »</p>
+</div>
+<h2 id="ce-quune-base-donne-que-kafka-ne-donne-pas">Ce qu'une base donne que Kafka ne donne pas</h2>
+<table>
+<thead>
+<tr>
+<th>Apport</th>
+<th>Pourquoi Kafka ne le remplace pas</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Transaction</strong></td>
+<td>atomicité et isolation sur plusieurs entités</td>
+</tr>
+<tr>
+<td><strong>Requête arbitraire</strong></td>
+<td>filtrer, joindre, agréger sur n'importe quel champ</td>
+</tr>
+<tr>
+<td><strong>Cohérence immédiate</strong></td>
+<td>on relit ce qu'on vient d'écrire</td>
+</tr>
+<tr>
+<td><strong>Mise à jour en place</strong></td>
+<td>un événement est immuable</td>
+</tr>
+<tr>
+<td><strong>Contraintes</strong></td>
+<td>unicité, clés étrangères, vérifications</td>
+</tr>
+</tbody>
+</table>
+<p>D'où la règle : ce sont <strong>deux outils complémentaires</strong>, pas deux options concurrentes.
+Kafka ne remplace jamais la base ; il transporte des faits.</p>
+<hr/>
+<h2 id="la-grille-de-decision">La grille de décision</h2>
+<table>
+<thead>
+<tr>
+<th>Votre situation</th>
+<th>La réponse honnête</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Un seul consommateur, traitement synchrone, même transaction</td>
+<td><strong>appel direct</strong> ou événement en mémoire. Kafka serait un coût sans contrepartie</td>
+</tr>
+<tr>
+<td>Traitement long, mais l'utilisateur n'attend pas le résultat</td>
+<td><strong>asynchrone justifié</strong> - Kafka, ou une table-file plus simple</td>
+</tr>
+<tr>
+<td>Plusieurs consommateurs pour le même fait, et d'autres à venir</td>
+<td><strong>Kafka</strong> : le fan-out est sa raison d'être</td>
+</tr>
+<tr>
+<td>Les consommateurs doivent survivre à l'arrêt du producteur</td>
+<td><strong>Kafka</strong> : découplage temporel</td>
+</tr>
+<tr>
+<td>Pics de charge qui saturent le traitement synchrone</td>
+<td><strong>Kafka</strong> : le log fait tampon</td>
+</tr>
+<tr>
+<td>Besoin de rejouer l'historique pour recalculer</td>
+<td><strong>Kafka</strong> : personne d'autre ne le fait</td>
+</tr>
+<tr>
+<td>Déploiements indépendants entre équipes</td>
+<td><strong>Kafka</strong>, mais il faut aussi <strong>séparer les bases</strong></td>
+</tr>
+<tr>
+<td>Une notification entre deux modules du même déployable</td>
+<td><code>ApplicationEventPublisher</code> de Spring suffit</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">L'alternative qu'on oublie • la table-file</p>
+<p>Entre « appel direct » et « Kafka », il existe un intermédiaire souvent suffisant :
+une <strong>table utilisée comme file d'attente</strong>.</p>
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">taches_a_traiter</span>
+<span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">statut</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'EN_ATTENTE'</span>
+<span class="w"> </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">created_at</span>
+<span class="w"> </span><span class="k">LIMIT</span><span class="w"> </span><span class="mi">50</span>
+<span class="w"> </span><span class="k">FOR</span><span class="w"> </span><span class="k">UPDATE</span><span class="w"> </span><span class="n">SKIP</span><span class="w"> </span><span class="n">LOCKED</span><span class="p">;</span><span class="w">     </span><span class="c1">-- plusieurs consommateurs sans se marcher dessus</span>
+</code></pre></div>
+<p>On y gagne : l'asynchronisme, la reprise après panne, la même transaction que le métier,
+<strong>zéro composant supplémentaire</strong>. On y perd : le fan-out, le rejeu, l'ordre par clé et
+le passage à l'échelle.</p>
+<p>Savoir citer cette option prouve qu'on choisit Kafka <strong>en connaissance de cause</strong>.</p>
+</div>
+<hr/>
+<h2 id="le-vrai-chantier-separer-les-donnees">Le vrai chantier • séparer les données</h2>
+<p>Si l'objectif affiché est le découplage, Kafka seul n'y suffit pas. La trajectoire complète :</p>
+<pre class="mermaid"><code>flowchart TD
+    A[Base partagee : services couples par le schema] --&gt; B[Introduire les evenements via outbox]
+    B --&gt; C[Chaque consommateur construit SA vue locale]
+    C --&gt; D[Couper les acces directs a la table d autrui]
+    D --&gt; E[Bases separees : services reellement independants]</code></pre>
+<ol>
+<li><strong>outbox</strong> : publier les faits dans la même transaction que l'écriture métier, sans
+   double écriture → <a href="../../kafka/outbox-pattern/">Outbox Pattern</a></li>
+<li>chaque consommateur se construit <strong>sa propre projection</strong>, au lieu de lire la table du
+   voisin → <a href="../read-models-and-fetch-strategies/">Read Models</a></li>
+<li>on <strong>coupe</strong> les accès directs croisés, un par un</li>
+<li>les schémas peuvent enfin diverger : c'est là que le découplage devient réel</li>
+</ol>
+<div class="admonition warning">
+<p class="admonition-title">L'étape 3 est celle qu'on saute</p>
+<p>Beaucoup d'architectures ont Kafka <strong>et</strong> des accès croisés à la base. On paie alors les
+deux coûts - la complexité de l'événementiel et le couplage du schéma partagé - sans
+obtenir le bénéfice de l'un ni de l'autre.</p>
+<p>Le test : <em>« si je renomme une colonne de ma table demain, combien d'équipes dois-je
+prévenir ? »</em> Si la réponse n'est pas « zéro », la base est toujours partagée.</p>
+</div>
+<hr/>
+<h2 id="les-mauvaises-raisons">Les mauvaises raisons</h2>
+<table>
+<thead>
+<tr>
+<th>Raison invoquée</th>
+<th>Ce qu'il faut répondre</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>« Pour découpler »</td>
+<td>découpler <strong>quoi</strong> de quoi ? si le schéma reste partagé, le couplage principal demeure</td>
+</tr>
+<tr>
+<td>« C'est plus scalable »</td>
+<td>scalable sur quelle dimension ? avec quels volumes mesurés ?</td>
+</tr>
+<tr>
+<td>« C'est l'architecture moderne »</td>
+<td>ce n'est pas un argument technique</td>
+</tr>
+<tr>
+<td>« Pour faire du temps réel »</td>
+<td>le besoin est-il en secondes, ou en minutes ? un batch suffit peut-être</td>
+</tr>
+<tr>
+<td>« Pour ne pas bloquer l'utilisateur »</td>
+<td>vrai besoin - mais une table-file y répond aussi, à moindre coût</td>
+</tr>
+<tr>
+<td>« On en aura besoin plus tard »</td>
+<td>coût immédiat, bénéfice hypothétique</td>
+</tr>
+</tbody>
+</table>
+<p>Et le coût réel, qu'il faut savoir énoncer sans qu'on le demande : un cluster à exploiter,
+la cohérence éventuelle à assumer côté métier, des consommateurs idempotents à écrire, une
+DLT à superviser, des schémas d'événements à faire évoluer sans casser les lecteurs, et un
+débogage réparti plus difficile.</p>
+<hr/>
+<h2 id="questions-typiques-reponses-courtes">Questions typiques, réponses courtes</h2>
+<p><strong>« Pourquoi Kafka alors que c'est la même base ? »</strong>
+Parce que la base et le log ne répondent pas à la même question : la base donne l'état
+courant, le log garde les faits dans l'ordre et permet d'y réagir, de les diffuser à
+plusieurs consommateurs et de les rejouer. Cela dit, si les services partagent encore le
+schéma, le couplage principal demeure : Kafka est alors un premier pas, pas l'arrivée - la
+suite, c'est l'outbox, des projections locales, puis la séparation des bases.</p>
+<p><strong>« Quand Kafka n'est-il pas justifié ? »</strong>
+Quand il y a un seul consommateur, un traitement synchrone dans la même transaction, et
+aucun besoin de rejeu ni de diffusion. Un appel direct ou un événement applicatif interne
+coûte infiniment moins cher.</p>
+<p><strong>« Y a-t-il un intermédiaire entre appel direct et Kafka ? »</strong>
+Oui : une table-file avec <code>FOR UPDATE SKIP LOCKED</code>. On obtient l'asynchronisme et la reprise
+après panne sans composant supplémentaire, dans la même transaction que le métier. On perd le
+fan-out, le rejeu et le passage à l'échelle.</p>
+<p><strong>« Kafka peut-il remplacer la base ? »</strong>
+Non. Pas de requête par champ arbitraire, pas de mise à jour en place, pas de contrainte
+d'unicité, pas de transaction métier. Un topic compacté peut servir de référentiel par clé,
+mais ce n'est pas une base de données.</p>
+<p><strong>« Quel est le coût de Kafka ? »</strong>
+Un cluster à exploiter, la cohérence éventuelle à faire accepter au métier, des consommateurs
+idempotents, une DLT à superviser, des schémas à faire évoluer sans casser, et un débogage
+réparti. C'est ce coût qui doit être mis en face du bénéfice - et l'énoncer spontanément vaut
+mieux que se le faire objecter.</p>
+<hr/>
+<h2 id="voir-aussi">Voir aussi</h2>
+<ul>
+<li><a href="../microservices-communication/">Microservices &amp; Communication</a></li>
+<li><a href="../sync-vs-async/">Synchronous Vs Asynchronous</a></li>
+<li><a href="../eventual-consistency/">Eventual Consistency</a></li>
+<li><a href="../read-models-and-fetch-strategies/">Read Models &amp; Fetch Strategies</a></li>
+<li><a href="../../kafka/outbox-pattern/">Outbox Pattern</a></li>
+<li><a href="../../kafka/evenement-notification-vs-agregat/">Événement de notification ou agrégat</a></li>
+<li><a href="../../kafka/patterns-kafka-panorama/">Patterns Kafka • panorama</a></li>
+<li><a href="../../architecture/cqrs-pattern/">CQRS Pattern</a></li>
+</ul>
+</article>
+</div>
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+</div>
+<button class="md-top md-icon" data-md-component="top" hidden="" type="button">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Retour en haut de la page
+</button>
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-footer-copyright">
+<div class="md-footer-copyright__highlight">
+        © 2026 • Engineering Notes
+
+    </div>
+<div style="margin-top:5px; font-size:0.5rem;">
+<a href="mailto:contact@alkouba.fr">
+            contact@alkouba.fr
+        </a>
+        •
+        <a href="tel:+33636422463">
+            +33 6 36 42 24 63
+        </a>
+        •
+        <a href="https://github.com/alak8ba" target="_blank">
+            GitHub
+        </a>
+        •
+        <a href="https://www.linkedin.com/in/akouba" target="_blank">
+            LinkedIn
+        </a>
+<!-- •-->
+<!-- <a href="https://calendly.com/rdv-akouba" target="_blank">-->
+<!-- Prendre RDV-->
+<!-- </a>-->
+</div>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "toc.follow", "content.code.copy", "search.highlight", "search.suggest"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": null}</script>
+<script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+</body>
+</html>
