@@ -325,7 +325,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="topics/kafka/patterns-kafka-panorama/" class="md-tabs__link">
+        <a href="topics/messaging/file-de-messages-vs-log/" class="md-tabs__link">
           
   
   
@@ -658,10 +658,21 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#ajouts-recents-16-septembre-2026" class="md-nav__link">
+  <a href="#ajouts-recents-18-septembre-2026" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Ajouts récents • 16 septembre 2026
+        Ajouts récents • 18 septembre 2026
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ajouts-16-septembre-2026" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ajouts • 16 septembre 2026
       
     </span>
   </a>
@@ -2849,6 +2860,90 @@
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="topics/messaging/file-de-messages-vs-log/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    (NEW) File de messages ou log distribué
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="topics/messaging/jms-fondamentaux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    (NEW) JMS • le standard Java
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="topics/messaging/rabbitmq-activemq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    (NEW) RabbitMQ et ActiveMQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
             
               
                 
@@ -5769,10 +5864,21 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#ajouts-recents-16-septembre-2026" class="md-nav__link">
+  <a href="#ajouts-recents-18-septembre-2026" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Ajouts récents • 16 septembre 2026
+        Ajouts récents • 18 septembre 2026
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ajouts-16-septembre-2026" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ajouts • 16 septembre 2026
       
     </span>
   </a>
@@ -5978,7 +6084,32 @@
 </ul>
 </div>
 <hr />
-<h2 id="ajouts-recents-16-septembre-2026">Ajouts récents • 16 septembre 2026</h2>
+<h2 id="ajouts-recents-18-septembre-2026">Ajouts récents • 18 septembre 2026</h2>
+<p><em>Le corpus couvrait Kafka en détail, mais pas le modèle qui l'a précédé et qui reste majoritaire dans les SI : la file de messages. Trois fiches pour poser la distinction et la stack JMS.</em></p>
+<div class="grid cards">
+<ul>
+<li>
+<p><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m18 4-4 4h3v8a2 2 0 0 1-2 2 2 2 0 0 1-2-2V8a4 4 0 0 0-4-4 4 4 0 0 0-4 4v8H2l4 4 4-4H7V8a2 2 0 0 1 2-2 2 2 0 0 1 2 2v8a4 4 0 0 0 4 4 4 4 0 0 0 4-4V8h3z"/></svg></span> <strong>File de messages ou log distribué</strong></p>
+<hr />
+<p>La distinction fondatrice : dans une file, un message consommé disparaît ; dans un log, il reste et chaque lecteur garde sa position. Tout en découle - rejeu, fan-out, ordre, débit. Avec les deux schémas de distribution, le faux ami du mot « topic », et la règle de choix : une tâche à faire faire → file, un fait à raconter → log.</p>
+<p><a href="topics/messaging/file-de-messages-vs-log/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"/></svg></span> Voir le topic</a></p>
+</li>
+<li>
+<p><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16.5 6.08s-6.84 1.71-3.56 5.48c.97 1.11-.25 2.11-.25 2.11s2.45-1.25 1.31-2.85c-1.06-1.47-1.86-2.2 2.5-4.74m-4.47 1.2C16.08 4.08 14 2 14 2c.84 3.3-2.96 4.3-4.33 6.36-.94 1.4.46 2.91 2.33 4.64-.71-1.7-3.22-3.16.03-5.72M9.37 17.47c-3.08.86 1.88 2.63 5.79.96-.38-.15-.75-.33-1.1-.54-1.36.31-2.76.37-4.14.18-1.31-.16-.55-.6-.55-.6m5.32-1.68c-1.75.38-3.56.47-5.34.26-1.31-.13-.45-.77-.45-.77-3.4 1.13 1.88 2.4 6.6 1.02-.29-.11-.57-.3-.81-.51m3.42 3.3s.57.47-.61.83c-2.28.68-9.43.89-11.41.03-.71-.31.63-.74 1.05-.83.23-.06.46-.08.69-.08-.79-.54-5.13 1.1-2.19 1.56 7.97 1.3 14.54-.6 12.47-1.51m-2.74-4.86c.29-.19.6-.35.92-.49 0 0-1.51.26-3.02.4-1.6.16-3.21.18-4.81.06-2.35-.31 1.29-1.2 1.29-1.2-1.1 0-2.18.26-3.16.75-2.05 1 5.1 1.45 8.78.48m.9 2.42c-.02.04-.04.07-.08.1 5.01-1.31 3.17-4.64.77-3.81-.13.06-.24.14-.31.25.14-.05.28-.09.43-.12 1.2-.24 2.92 1.63-.81 3.58m.13 4.61c-3.01.52-6.09.56-9.12.14 0 0 .46.38 2.81.53 3.6.23 9.13-.13 9.26-1.83.03.01-.23.65-2.95 1.16"/></svg></span> <strong>JMS • le standard Java</strong></p>
+<hr />
+<p>Une API, pas un produit : <code>ConnectionFactory</code>, <code>Session</code>, <code>Queue</code> et <code>Topic</code>, les modes d'accusé de réception et les sessions transactées. Redélivrance et DLQ natives, sélecteurs filtrés côté broker, <code>@JmsListener</code> et <code>JmsTemplate</code> côté Spring - et ce que le standard ne couvre pas.</p>
+<p><a href="topics/messaging/jms-fondamentaux/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"/></svg></span> Voir le topic</a></p>
+</li>
+<li>
+<p><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m18.05 21-2.73-4.74c0-1.73-1.07-2.84-2.37-2.84-.9 0-1.68.5-2.08 1.24.33-.19.72-.29 1.13-.29 1.3 0 2.36 1.06 2.36 2.36 0 1.31-1.05 2.38-2.36 2.38h3.3V21H6.79c-.24 0-.49-.09-.67-.28a.95.95 0 0 1 0-1.34l.5-.5c-.34-.15-.62-.38-.9-.62-.22.5-.72.85-1.3.85a1.425 1.425 0 0 1 0-2.85l.47.08v-1.97a4.73 4.73 0 0 1 4.74-4.74h.02c2.12.01 3.77.84 3.77-.47 0-.93.2-1.3.54-1.82-.73-.34-1.56-.55-2.43-.55-.53 0-.95-.42-.95-.95 0-.43.28-.79.67-.91l-.67-.04c-.52 0-.95-.42-.95-.94 0-.53.43-.95.95-.95h.95c2.1 0 3.94 1.15 4.93 2.85l.28-.01c.71 0 1.37.23 1.91.61l.45.38c2.17 1.95 1.9 3.27 1.9 3.28 0 1.28-1.06 2.33-2.35 2.33l-.49-.05v.08c0 1.11-.48 2.1-1.23 2.8L20.24 21zm.11-13.26c-.53 0-.95.42-.95.94 0 .53.42.95.95.95.52 0 .95-.42.95-.95 0-.52-.43-.94-.95-.94"/></svg></span> <strong>RabbitMQ et ActiveMQ</strong></p>
+<hr />
+<p>Le modèle exchange → binding → queue qui fait que le producteur ignore qui écoute, les quatre types d'exchange, le <code>prefetch</code> qui explique « une instance travaille et pas les autres », le DLX et le réessai différé sans planificateur - et les deux réglages dont l'absence fait perdre des messages en silence.</p>
+<p><a href="topics/messaging/rabbitmq-activemq/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"/></svg></span> Voir le topic</a></p>
+</li>
+</ul>
+</div>
+<hr />
+<h2 id="ajouts-16-septembre-2026">Ajouts • 16 septembre 2026</h2>
 <p><em>Série rédigée à la suite de deux échanges avec des experts du domaine. D'abord Kafka - garantie de livraison, exploitation du cluster, contenu des messages. Puis l'exploitation d'une application distribuée : diagnostiquer une lenteur, faire évoluer un schéma sans coupure, comprendre le chemin du trafic, et savoir justifier un broker.</em></p>
 <div class="grid cards">
 <ul>
