@@ -4678,6 +4678,34 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="topics/http/rest-vs-soap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    (NEW) REST et SOAP • style et protocole
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -4871,6 +4899,90 @@
     
   
     Angular • Fondamentaux & Patterns
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="topics/frontend/angular-communication-composants/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    (NEW) Angular • communication entre composants
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="topics/frontend/angular-cycle-de-vie-composant/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    (NEW) Angular • cycle de vie d'un composant
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="topics/frontend/observables-rxjs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    (NEW) Observables et RxJS
   
 
     
@@ -6085,7 +6197,7 @@
 </div>
 <hr />
 <h2 id="ajouts-recents-18-septembre-2026">Ajouts récents • 18 septembre 2026</h2>
-<p><em>Le corpus couvrait Kafka en détail, mais pas le modèle qui l'a précédé et qui reste majoritaire dans les SI : la file de messages. Trois fiches pour poser la distinction et la stack JMS.</em></p>
+<p><em>Deux angles morts du corpus comblés le même jour. D'abord la messagerie par files - le modèle qui a précédé le log distribué et qui reste majoritaire dans les SI. Ensuite le front Angular en détail : communication entre composants, cycle de vie, RxJS - et la distinction REST / SOAP.</em></p>
 <div class="grid cards">
 <ul>
 <li>
@@ -6105,6 +6217,30 @@
 <hr />
 <p>Le modèle exchange → binding → queue qui fait que le producteur ignore qui écoute, les quatre types d'exchange, le <code>prefetch</code> qui explique « une instance travaille et pas les autres », le DLX et le réessai différé sans planificateur - et les deux réglages dont l'absence fait perdre des messages en silence.</p>
 <p><a href="topics/messaging/rabbitmq-activemq/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"/></svg></span> Voir le topic</a></p>
+</li>
+<li>
+<p><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12 2.5 8.84 3.15-1.34 11.7L12 21.5l-7.5-4.15-1.34-11.7zm0 2.1L6.47 17h2.06l1.11-2.78h4.7L15.45 17h2.05zm1.62 7.9h-3.23L12 8.63z"/></svg></span> <strong>Angular • communication entre composants</strong></p>
+<hr />
+<p>Les six mécanismes et le critère qui les départage : la relation entre les composants. <code>@Input</code> / <code>@Output</code> pour le lien direct, service singleton avec <code>BehaviorSubject</code> ou signal dès qu'il n'y a plus de parenté, <code>@ViewChild</code> pour l'impératif. Et pourquoi <code>localStorage</code> n'est pas un canal de communication mais un moyen de persistance.</p>
+<p><a href="topics/frontend/angular-communication-composants/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"/></svg></span> Voir le topic</a></p>
+</li>
+<li>
+<p><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 4c2.1 0 4.1.8 5.6 2.3 3.1 3.1 3.1 8.2 0 11.3-1.8 1.9-4.3 2.6-6.7 2.3l.5-2c1.7.2 3.5-.4 4.8-1.7 2.3-2.3 2.3-6.1 0-8.5C15.1 6.6 13.5 6 12 6v4.6l-5-5 5-5zM6.3 17.6C3.7 15 3.3 11 5.1 7.9l1.5 1.5c-1.1 2.2-.7 5 1.2 6.8q.75.75 1.8 1.2l-.6 2q-1.5-.6-2.7-1.8"/></svg></span> <strong>Angular • cycle de vie d'un composant</strong></p>
+<hr />
+<p>Ce que chaque étape garantit disponible : pourquoi les <code>@Input</code> sont <code>undefined</code> dans le constructeur, pourquoi <code>ngOnInit</code> est le bon endroit pour charger, et ce que l'oubli de <code>ngOnDestroy</code> laisse tourner après la destruction. Avec la nuance : tous les abonnements ne fuient pas.</p>
+<p><a href="topics/frontend/angular-cycle-de-vie-composant/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"/></svg></span> Voir le topic</a></p>
+</li>
+<li>
+<p><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16.5 21c-3 0-4.19-4.24-5.45-8.72C10.14 9.04 9 5 7.5 5 4.11 5 4 11.93 4 12H2c0-.37.06-9 5.5-9 3 0 4.21 4.25 5.47 8.74C13.83 14.8 15 19 16.5 19c3.44 0 3.53-6.93 3.53-7h2c0 .37-.06 9-5.53 9"/></svg></span> <strong>Observables et RxJS</strong></p>
+<hr />
+<p>Un <code>Observable</code> n'est pas une <code>Promise</code> compliquée : une promesse porte une valeur, un observable est un flux de 0 à N valeurs, paresseux et annulable. Froid contre chaud et la requête qui part trois fois, les quatre opérateurs de mise à plat, et pourquoi « attendre en synchrone » n'existe pas dans un navigateur.</p>
+<p><a href="topics/frontend/observables-rxjs/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"/></svg></span> Voir le topic</a></p>
+</li>
+<li>
+<p><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m21 9-4-4v3h-7v2h7v3M7 11l-4 4 4 4v-3h7v-2H7z"/></svg></span> <strong>REST et SOAP</strong></p>
+<hr />
+<p>La distinction de vocabulaire, dans le bon sens : <strong>SOAP est un protocole</strong> - enveloppe XML, WSDL, règles de traitement - et <strong>REST un style architectural</strong>, six contraintes posées sur HTTP. Le modèle de maturité, ce que SOAP apporte encore aujourd'hui, et la place de GraphQL et gRPC.</p>
+<p><a href="topics/http/rest-vs-soap/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"/></svg></span> Voir le topic</a></p>
 </li>
 </ul>
 </div>
